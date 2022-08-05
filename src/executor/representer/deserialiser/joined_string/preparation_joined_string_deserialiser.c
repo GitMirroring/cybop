@@ -71,41 +71,84 @@ void deserialise_joined_string_preparation(void* p0, void* p1, void* p2, void* p
     void* qc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
-    // Allocate escape item.
+    // CAUTION! Do NOT delete the following check for null since otherwise,
+    // the created items with arrays are EMPTY but NOT null and therefore
+    // would lead to false results in the detector later on when comparing
+    // strings, since empty strings are considered EQUAL on purpose
+    // (so that two parts may be equal even if some cybol properties are missing).
+    // Therefore, it is important to use NULL values instead of empty arrays here.
     //
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    //
-    allocate_item((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    //
-    // Allocate quotation end PLUS delimiter item.
-    //
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    //
-    allocate_item((void*) &q, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // Append quotation TWICE becoming the escape sequence.
-    modify_item(e, p5, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-    modify_item(e, p5, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-    // Append quotation AND delimiter becoming the combination of both.
-    modify_item(q, p5, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-    modify_item(q, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p4, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    if ((p5 != *NULL_POINTER_STATE_CYBOI_MODEL) && (p6 != *NULL_POINTER_STATE_CYBOI_MODEL)) {
 
-    // Get escape item data, count.
-    copy_array_forward((void*) &ed, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &ec, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get quotation end PLUS delimiter item data, count.
-    copy_array_forward((void*) &qd, q, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &qc, q, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+        //
+        // Allocate escape item.
+        //
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        //
+        allocate_item((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        // Append quotation TWICE becoming the escape sequence.
+        modify_item(e, p5, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+        modify_item(e, p5, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+        // Get escape item data, count.
+        copy_array_forward((void*) &ed, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &ec, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    }
+
+    if ((p5 != *NULL_POINTER_STATE_CYBOI_MODEL) && (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) && (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) && (p4 != *NULL_POINTER_STATE_CYBOI_MODEL)) {
+
+        //
+        // Allocate quotation end PLUS delimiter item.
+        //
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        //
+        allocate_item((void*) &q, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        // Append quotation AND delimiter becoming the combination of both.
+        modify_item(q, p5, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+        modify_item(q, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p4, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+        // Get quotation end PLUS delimiter item data, count.
+        copy_array_forward((void*) &qd, q, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &qc, q, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    }
+
+/*??
+    fwprintf(stdout, L"Debug: Deserialise joined string preparation. delimiter data p3: %ls\n", (wchar_t*) p3);
+    fwprintf(stdout, L"Debug: Deserialise joined string preparation. delimiter count p4: %i\n", p4);
+    //?? fwprintf(stdout, L"Debug: Deserialise joined string preparation. delimiter count *p4: %i\n", *((int*) p4));
+
+    fwprintf(stdout, L"Debug: Deserialise joined string preparation. escape data ed: %ls\n", (wchar_t*) ed);
+    fwprintf(stdout, L"Debug: Deserialise joined string preparation. escape count ec: %i\n", ec);
+    //?? fwprintf(stdout, L"Debug: Deserialise joined string preparation. escape count *ec: %i\n", *((int*) ec));
+
+    fwprintf(stdout, L"Debug: Deserialise joined string preparation. quotation end PLUS delimiter data qd: %ls\n", (wchar_t*) qd);
+    fwprintf(stdout, L"Debug: Deserialise joined string preparation. quotation end PLUS delimiter count qc: %i\n", qc);
+    //?? fwprintf(stdout, L"Debug: Deserialise joined string preparation. quotation end PLUS delimiter count *qc: %i\n", *((int*) qc));
+
+    fwprintf(stdout, L"Debug: Deserialise joined string preparation. quotation data p5: %ls\n", (wchar_t*) p5);
+    fwprintf(stdout, L"Debug: Deserialise joined string preparation. quotation count p6: %i\n", p6);
+    //?? fwprintf(stdout, L"Debug: Deserialise joined string preparation. quotation count *p6: %i\n", *((int*) p6));
+*/
 
     // Deserialise joined string index.
     deserialise_joined_string_index(p0, p1, p2, p3, p4, ed, ec, qd, qc, p5, p6, p5, p6);
 
-    // Deallocate escape item.
-    deallocate_item((void*) &e, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Deallocate quotation end PLUS delimiter item.
-    deallocate_item((void*) &q, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    if ((p5 != *NULL_POINTER_STATE_CYBOI_MODEL) && (p6 != *NULL_POINTER_STATE_CYBOI_MODEL)) {
+
+        // Deallocate escape item.
+        deallocate_item((void*) &e, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    }
+
+    if ((p5 != *NULL_POINTER_STATE_CYBOI_MODEL) && (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) && (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) && (p4 != *NULL_POINTER_STATE_CYBOI_MODEL)) {
+
+        // Deallocate quotation end PLUS delimiter item.
+        deallocate_item((void*) &q, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    }
 }
 
 /* PREPARATION_JOINED_STRING_DESERIALISER_SOURCE */

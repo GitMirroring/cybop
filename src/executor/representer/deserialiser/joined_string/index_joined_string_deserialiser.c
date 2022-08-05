@@ -42,7 +42,7 @@
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
-#include "../../../../executor/selector/begin_joined_string_selector.c"
+#include "../../../../executor/selector/joined_string/begin_joined_string_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -134,7 +134,7 @@ void deserialise_joined_string_index(void* p0, void* p1, void* p2, void* p3, voi
         copy_array_forward((void*) &ic, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
         // Reset quotation flag.
-        copy_integer((void*) &q, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        copy_integer((void*) &q, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         // Select joined string begin.
         select_joined_string_begin(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, (void*) &q, id, ic);

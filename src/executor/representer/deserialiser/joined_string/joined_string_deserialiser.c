@@ -42,8 +42,11 @@
  * @param p2 the source model wide character count
  * @param p3 the source properties data
  * @param p4 the source properties count
+ * @param p5 the knowledge memory part (pointer reference)
+ * @param p6 the stack memory item
+ * @param p7 the internal memory data
  */
-void deserialise_joined_string(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_joined_string(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise joined string.");
     fwprintf(stdout, L"Debug: Deserialise joined string. source model wide character count p2: %i\n", p2);
@@ -70,7 +73,7 @@ void deserialise_joined_string(void* p0, void* p1, void* p2, void* p3, void* p4)
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
     //
-    deserialise_joined_string_properties(p0, (void*) &d, (void*) &c, p3, p4);
+    deserialise_joined_string_properties(p0, (void*) &d, (void*) &c, p3, p4, p5, p6, p7);
 }
 
 /* JOINED_STRING_DESERIALISER_SOURCE */

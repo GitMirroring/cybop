@@ -48,8 +48,11 @@
  * @param p2 the source count remaining
  * @param p3 the source properties data
  * @param p4 the source properties count
+ * @param p5 the knowledge memory part (pointer reference)
+ * @param p6 the stack memory item
+ * @param p7 the internal memory data
  */
-void deserialise_joined_string_properties(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_joined_string_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise joined string properties.");
     fwprintf(stdout, L"Debug: Deserialise joined string properties. source count remaining p2: %i\n", p2);
@@ -81,9 +84,9 @@ void deserialise_joined_string_properties(void* p0, void* p1, void* p2, void* p3
     //
 
     // Get delimiter part.
-    get_part_name((void*) &d, p0, (void*) DELIMITER_LANGUAGE_STATE_CYBOL_NAME, (void*) DELIMITER_LANGUAGE_STATE_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &d, p3, (void*) DELIMITER_LANGUAGE_STATE_CYBOL_NAME, (void*) DELIMITER_LANGUAGE_STATE_CYBOL_NAME_COUNT, p4, p5, p6, p7);
     // Get quotation part.
-    get_part_name((void*) &q, p0, (void*) QUOTATION_LANGUAGE_STATE_CYBOL_NAME, (void*) QUOTATION_LANGUAGE_STATE_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &q, p3, (void*) QUOTATION_LANGUAGE_STATE_CYBOL_NAME, (void*) QUOTATION_LANGUAGE_STATE_CYBOL_NAME_COUNT, p4, p5, p6, p7);
 
     // Get delimiter part model item.
     copy_array_forward((void*) &dm, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -98,28 +101,11 @@ void deserialise_joined_string_properties(void* p0, void* p1, void* p2, void* p3
     copy_array_forward((void*) &qmc, qm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     //
-    // Default values
-    //
-
-    // Set delimiter part model item data, count to SPACE by default.
-    wchar_t* delimiter_data = SPACE_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-    int delimiter_count = *PRIMITIVE_STATE_CYBOI_MODEL_COUNT;
-
-    //
-    // CAUTION! The following values are ONLY copied,
-    // if the source value is NOT NULL.
-    // This is tested inside the functions "copy_pointer" and "copy_integer".
-    // Otherwise, the destination value remains as is.
-    //
-    copy_pointer((void*) &delimiter_data, (void*) &dmd);
-    copy_integer((void*) &delimiter_count, dmc);
-
-    //
     // Functionality
     //
 
     // Prepare variables necessary for deserialisation.
-    deserialise_joined_string_preparation(p0, p1, p2, (void*) delimiter_data, (void*) &delimiter_count, qmd, qmc);
+    deserialise_joined_string_preparation(p0, p1, p2, dmd, dmc, qmd, qmc);
 }
 
 /* PROPERTIES_JOINED_STRING_DESERIALISER_SOURCE */

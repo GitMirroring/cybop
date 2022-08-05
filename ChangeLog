@@ -22,6 +22,7 @@
 
         * Create new cybol application "serialisation/joined_string/"
         * Rename sample file directory "exammples" to "test" for all cybol applications in directory "serialisation/"
+        * Test joined string deserialiser using cybol application "serialisation/joined_string/"
 
 2022-08-04  Christian Heller  <christian.heller@cybop.org>
 

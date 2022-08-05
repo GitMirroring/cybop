@@ -20,7 +20,6 @@ ___
 CSV Deserialiser
 ________________
 
-        * Test joined string deserialiser using cybol application "examples/serialisation/joined_string/"
         * Find solution for handing over quotation mark as constraint to property "language", since it CANNOT be done in xml which uses quotation marks to delimit xml attribute values
 
         * Delete "modify_split" and related constants
@@ -191,6 +190,8 @@ ________
 
 CYBOI
 _____
+
+        * Eliminate properties in send/receive/serialise/deserialise which are already provided as properties (constraints) of the property "language"
 
         * Remove as properties from cyboi-internal allocated structure "part": channel, encoding, language, format
             (they are only needed for communication and when needed by "send" or "receive", they are given as properties)

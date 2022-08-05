@@ -84,6 +84,8 @@ void select_joined_string_end_quotation(void* p0, void* p1, void* p2, void* p3, 
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            fwprintf(stdout, L"Debug: Select joined string end quotation. test escape r: %i\n", r);
+
             //
             // Adjust value count.
             //
@@ -100,6 +102,8 @@ void select_joined_string_end_quotation(void* p0, void* p1, void* p2, void* p3, 
         detect((void*) &r, p0, p1, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            fwprintf(stdout, L"Debug: Select joined string end quotation. test combination r: %i\n", r);
 
             // Set loop break flag.
             copy_integer(p9, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -119,6 +123,8 @@ void select_joined_string_end_quotation(void* p0, void* p1, void* p2, void* p3, 
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            fwprintf(stdout, L"Debug: Select joined string end quotation. test quotation r: %i\n", r);
+
             // Set loop break flag.
             copy_integer(p9, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
@@ -131,6 +137,8 @@ void select_joined_string_end_quotation(void* p0, void* p1, void* p2, void* p3, 
         // then it gets IGNORED and is treated like any other character,
         // since standing WITHIN the quotation.
         //
+
+        fwprintf(stdout, L"Debug: Select joined string end quotation. test move r: %i\n", r);
 
         // Increment the current position by one.
         move(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);

@@ -31,7 +31,7 @@
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/detector/detector.c"
-#include "../../../executor/representer/deserialiser/value_joined_string_deserialiser.c"
+#include "../../../executor/representer/deserialiser/joined_string/value_joined_string_deserialiser.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -57,8 +57,8 @@
 void select_joined_string_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select joined string begin.");
-    fwprintf(stdout, L"Debug: Select joined string begin. source count remaining p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Select joined string begin. source count remaining *p1: %i\n", *((int*) p1));
+    fwprintf(stdout, L"Debug: Select joined string begin. source count remaining p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Select joined string begin. source count remaining *p2: %i\n", *((int*) p2));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

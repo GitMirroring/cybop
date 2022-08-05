@@ -42,7 +42,7 @@
 #include "../../../../executor/memoriser/allocator/part_allocator.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/modifier/part_modifier.c"
-#include "../../../../executor/selector/end_joined_string_selector.c"
+#include "../../../../executor/selector/joined_string/end_joined_string_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -124,8 +124,8 @@ void deserialise_joined_string_value(void* p0, void* p1, void* p2, void* p3, voi
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            fwprintf(stdout, L"Debug: Deserialise joined string value. vc: %i\n", vc);
-            fwprintf(stdout, L"Debug: Deserialise joined string value. vd: %ls\n", (wchar_t*) vd);
+            fwprintf(stdout, L"Debug: Deserialise joined string value. break vc: %i\n", vc);
+            fwprintf(stdout, L"Debug: Deserialise joined string value. break vd: %ls\n", (wchar_t*) vd);
 
             //
             // Overwrite string part model.

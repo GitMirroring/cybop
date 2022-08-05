@@ -29,8 +29,8 @@
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/selector/quotation_end_joined_string_selector.c"
-#include "../../../executor/selector/value_end_joined_string_selector.c"
+#include "../../../executor/selector/joined_string/quotation_end_joined_string_selector.c"
+#include "../../../executor/selector/joined_string/value_end_joined_string_selector.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -55,6 +55,8 @@ void select_joined_string_end(void* p0, void* p1, void* p2, void* p3, void* p4, 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select joined string end.");
     fwprintf(stdout, L"Debug: Select joined string end. source count remaining p1: %i\n", p1);
     fwprintf(stdout, L"Debug: Select joined string end. source count remaining *p1: %i\n", *((int*) p1));
+    fwprintf(stdout, L"Debug: Select joined string end. quotation flag p10: %i\n", p10);
+    fwprintf(stdout, L"Debug: Select joined string end. quotation flag *p10: %i\n", *((int*) p10));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

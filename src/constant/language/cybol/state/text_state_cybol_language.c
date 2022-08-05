@@ -147,6 +147,21 @@ static wchar_t* HXP_TEXT_STATE_CYBOL_LANGUAGE = L"text/hxp";
 static int* HXP_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The text/joined-string text state cybol language.
+ *
+ * A text string made up of several elements separated by a delimiter
+ * such as a comma or semicolon.
+ *
+ * This is comparable to the character-separated values (csv),
+ * also known as comma-separated values, only that the csv may contain
+ * MANY lines, while the joined string contains just ONE line.
+ *
+ * Suffixes: txt
+ */
+static wchar_t* JOINED_STRING_TEXT_STATE_CYBOL_LANGUAGE = L"text/joined-string";
+static int* JOINED_STRING_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The text/ldt text state cybol language.
  *
  * Labordaten-Transfer (LDT)
