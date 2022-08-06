@@ -28,8 +28,16 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../../../executor/representer/deserialiser/character_reference/character_reference_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xml/normalisation_xml_deserialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -60,8 +68,42 @@ void deserialise_xml_string(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // characters does make sense ONLY for strings.
         //
 
+        // The normalised item (possibly, if normalisation flag is set).
+        void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The normalised item data, count.
+        void* nd = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* nc = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+        //
+        // Allocate normalised item.
+        //
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        //
+        // CAUTION! Use the source count as initial size, since
+        // the destination will have at least the same, if not
+        // a greater size if numeric character references are inserted.
+        //
+        allocate_item((void*) &n, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
         // Overwrite and possibly normalise data.
-        deserialise_xml_normalisation(p0, p1, p2, p3);
+        deserialise_xml_normalisation(n, p1, p2, p3);
+
+        //
+        // Get normalised item data, count.
+        //
+        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+        // Inside the structure, arrays may have been reallocated,
+        // with elements pointing to different memory areas now.
+        //
+        copy_array_forward((void*) &nd, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &nc, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+        // Replace character reference (hexadecimal, decimal, entity).
+        deserialise_character_reference(p0, nd, nc);
+
+        // Deallocate normalised item.
+        deallocate_item((void*) &n, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     }
 }
 

@@ -30,7 +30,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/deserialiser/character_reference/html_entity_character_reference_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/character_reference/html_character_reference_deserialiser.c"
 #include "../../../../executor/selector/character_reference/end_character_reference_selector.c"
 #include "../../../../logger/logger.c"
 
@@ -81,8 +81,8 @@ void deserialise_character_reference_entity(void* p0, void* p1, void* p2) {
         select_character_reference_end((void*) &b, p1, p2, (void*) &rc);
     }
 
-    // Deserialise character entity reference data into character.
-    deserialise_character_reference_entity_html(p0, rd, (void*) &rc);
+    // Deserialise named html character entity.
+    deserialise_character_reference_html(p0, rd, (void*) &rc);
 }
 
 /* ENTITY_CHARACTER_REFERENCE_DESERIALISER_SOURCE */

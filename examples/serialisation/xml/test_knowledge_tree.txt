@@ -1,23 +1,11 @@
 [selected_node] | element/part | 
-+-widget | element/part | 
-| +-debug | text/plain | on
-| +-window | element/part | 
-| | +-name | text/plain | main_window
-| | +-width | text/plain | 500
-| | +-height | text/plain | 500
-| | :-title | text/plain | Sample Konfabulator Widget
-| +-image | element/part | 
-| | +-hOffset | text/plain | 250
-| | +-vOffset | text/plain | 250
-| | +-alignment | text/plain | center
-| | :-src | text/plain | Images/Sun.png
-| | :-name | text/plain | sun1
-| +-text | element/part | 
-| | +-name | text/plain | text1
-| | +-hOffset | text/plain | 250
-| | +-vOffset | text/plain | 100
-| | +-alignment | text/plain | center
-| | +-onMouseUp | text/plain | sun1.opacity = (sun1.opacity / 100) * 90;
-| | :-data | text/plain | Click Here
-| | :-size | text/plain | 36
-| | :-style | text/plain | bold
++-test | element/part | 
+| +-node1 | text/plain | 
+| | :-value | text/plain | The less than sign &#60; as numeric reference
+| +-node2 | text/plain | 
+| | :-value | text/plain | The less than sign &lt; as entity reference
+| +-node3 | text/plain | 
+| | :-value | text/plain | The quotation mark &#34; as numeric reference
+| +-node4 | text/plain | 
+| | :-value | text/plain | The quotation mark &quot; as entity reference
+| +-node5 | text/plain | Embedded text between two tags with ampersand sign &amp; as entity reference and ampersand sign &#38; as numeric reference.

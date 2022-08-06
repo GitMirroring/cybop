@@ -23,27 +23,37 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HEXADECIMAL_NUMERIC_CHARACTER_REFERENCE_DESERIALISER_SOURCE
-#define HEXADECIMAL_NUMERIC_CHARACTER_REFERENCE_DESERIALISER_SOURCE
+#ifndef DECIMAL_CHARACTER_REFERENCE_DESERIALISER_SOURCE
+#define DECIMAL_CHARACTER_REFERENCE_DESERIALISER_SOURCE
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
+#include "../../../../executor/copier/integer_copier.c"
+#include "../../../../executor/copier/pointer_copier.c"
+#include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/representer/deserialiser/cybol/integer/value_integer_cybol_deserialiser.c"
+#include "../../../../executor/selector/character_reference/end_character_reference_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the hexadecimal numeric character reference.
+ * Deserialises the decimal numeric character reference.
  *
  * @param p0 the destination item
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
  */
-void deserialise_character_reference_numeric_hexadecimal(void* p0, void* p1, void* p2) {
+void deserialise_character_reference_decimal(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise character reference numeric hexadecimal.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise character reference decimal.");
 
-    // The hexadecimal numeric character reference data, count.
+    // The decimal numeric character reference data, count.
     void* rd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int rc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
@@ -53,7 +63,7 @@ void deserialise_character_reference_numeric_hexadecimal(void* p0, void* p1, voi
     // The deserialised character.
     wchar_t c = *NULL_UNICODE_CHARACTER_CODE_MODEL;
 
-    // Initialise hexadecimal numeric character reference data.
+    // Initialise decimal numeric character reference data.
     copy_pointer((void*) &rd, p1);
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
@@ -84,11 +94,11 @@ void deserialise_character_reference_numeric_hexadecimal(void* p0, void* p1, voi
     }
 
     //
-    // Deserialise hexadecimal numeric character reference data into integer number.
+    // Deserialise decimal numeric character reference data into integer number.
     //
-    // CAUTION! Hand over number base 16 as parametre!
+    // CAUTION! Hand over number base 10 as parametre!
     //
-    deserialise_cybol_integer_value((void*) &i, rd, (void*) &rc, (void*) NUMBER_16_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_cybol_integer_value((void*) &i, rd, (void*) &rc, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     //
     // Cast integer to wide character.
@@ -103,5 +113,5 @@ void deserialise_character_reference_numeric_hexadecimal(void* p0, void* p1, voi
     modify_item(p0, (void*) &c, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 }
 
-/* HEXADECIMAL_NUMERIC_CHARACTER_REFERENCE_DESERIALISER_SOURCE */
+/* DECIMAL_CHARACTER_REFERENCE_DESERIALISER_SOURCE */
 #endif

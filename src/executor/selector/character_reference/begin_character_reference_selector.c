@@ -27,15 +27,15 @@
 #define BEGIN_CHARACTER_REFERENCE_SELECTOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/character_reference/character_reference_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/mover/mover.c"
-#include "../../../executor/representer/deserialiser/character_reference/decimal_numeric_character_reference_deserialiser.c"
+#include "../../../executor/representer/deserialiser/character_reference/decimal_character_reference_deserialiser.c"
 #include "../../../executor/representer/deserialiser/character_reference/entity_character_reference_deserialiser.c"
-#include "../../../executor/representer/deserialiser/character_reference/hexadecimal_numeric_character_reference_deserialiser.c"
+#include "../../../executor/representer/deserialiser/character_reference/hexadecimal_character_reference_deserialiser.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -62,32 +62,38 @@ void select_character_reference_begin(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! Set last flag to "true", so that the pointer is
         // moved forward and only the actual character reference remains.
+        //
         detect((void*) &r, p1, p2, (void*) BEGIN_HEXADECIMAL_NUMERIC_CHARACTER_REFERENCE_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_HEXADECIMAL_NUMERIC_CHARACTER_REFERENCE_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_character_reference_numeric_hexadecimal(p0, p1, p2);
+            deserialise_character_reference_hexadecimal(p0, p1, p2);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! Set last flag to "true", so that the pointer is
         // moved forward and only the actual character reference remains.
+        //
         detect((void*) &r, p1, p2, (void*) BEGIN_DECIMAL_NUMERIC_CHARACTER_REFERENCE_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_DECIMAL_NUMERIC_CHARACTER_REFERENCE_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_character_reference_numeric_decimal(p0, p1, p2);
+            deserialise_character_reference_decimal(p0, p1, p2);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! Set last flag to "true", so that the pointer is
         // moved forward and only the actual character reference remains.
+        //
         detect((void*) &r, p1, p2, (void*) BEGIN_ENTITY_CHARACTER_REFERENCE_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_ENTITY_CHARACTER_REFERENCE_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -97,6 +103,19 @@ void select_character_reference_begin(void* p0, void* p1, void* p2) {
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        //
+        // This is a STANDARD character.
+        //
+
+        // The character.
+        void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+        // Copy character.
+        copy_pointer((void*) &c, p1);
+
+        // Append character to destination item.
+        modify_item(p0, c, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
         // Increment the current position by one.
         move(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);

@@ -20,7 +20,14 @@ ___
 CSV Deserialiser
 ________________
 
-        * Find solution for handing over quotation mark as constraint to property "language", since it CANNOT be done in xml which uses quotation marks to delimit xml attribute values
+        * Debug cybol application "serialisation/xml/run.cybol"
+            --> xml and cybol deserialiser work FINE with other cybol applications
+            --> so what is the reason ??
+        * Specify quotation mark as character reference in xml, being the constraint "quotation" to property "language", since xml uses quotation marks to delimit xml attribute values so that it has to be escaped
+            --> xml serialiser file "primitive_filled_element_part_xml_serialiser.c" translates character reference
+            --> do the same in xml DEserialiser
+        * Reactivate translation of constants that have been commented out in file "html_character_reference_deserialiser.c"
+        * Extend file "unicode_character_code_model.c" so that all constants of file "html_character_entity_reference_model.c" are covered
 
         * Delete "modify_split" and related constants
         * Let csv deserialiser use "joined_string" deserialiser for each row (one row being a "joined_string")
@@ -130,8 +137,6 @@ ______
 De-/Serialiser
 ______________
 
-        * Add unicode sequence (OR numeric code as in html ??) serialiser and deserialiser (with selector)
-            see file "hexadecimal_numeric_character_reference_deserialiser.c"
         * Complete unicode section in backslash escape serialiser and deserialiser
         * Handle backslash escape characters in ansi escape code serialiser ??
 

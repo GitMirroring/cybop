@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-08-06  Christian Heller  <christian.heller@cybop.org>
+
+        * Adapt file "string_xml_deserialiser.c" so that numeric and entity character references get deserialised
+        * Adapt file "attribute_xml_deserialiser.c" to use file "string_xml_deserialiser.c" for attribute value
+        * Cleanup and extend character reference deserialiser to append standard characters to the destination item
+
 2022-08-05  Christian Heller  <christian.heller@cybop.org>
 
         * Create new cybol application "serialisation/joined_string/"

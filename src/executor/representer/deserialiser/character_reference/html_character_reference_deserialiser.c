@@ -23,28 +23,32 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HTML_ENTITY_CHARACTER_REFERENCE_DESERIALISER_SOURCE
-#define HTML_ENTITY_CHARACTER_REFERENCE_DESERIALISER_SOURCE
+#ifndef HTML_CHARACTER_REFERENCE_DESERIALISER_SOURCE
+#define HTML_CHARACTER_REFERENCE_DESERIALISER_SOURCE
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../../constant/model/character_entity_reference/html_character_entity_reference_model.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../../../../constant/model/character_entity_reference/html_character_entity_reference_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/checker/operation_checker.c"
+#include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the html character entity reference.
+ * Deserialises the named html character entity.
  *
  * @param p0 the destination item
  * @param p1 the source data
  * @param p2 the source count
  */
-void deserialise_character_reference_entity_html(void* p0, void* p1, void* p2) {
+void deserialise_character_reference_html(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise character reference entity html.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise character reference html.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -99,6 +103,7 @@ void deserialise_character_reference_entity_html(void* p0, void* p1, void* p2) {
         }
     }
 
+/*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         check_operation((void*) &r, p1, (void*) NON_BREAKING_SPACE_HTML_CHARACTER_ENTITY_REFERENCE_MODEL, p2, (void*) NON_BREAKING_SPACE_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
@@ -2578,13 +2583,14 @@ void deserialise_character_reference_entity_html(void* p0, void* p1, void* p2) {
             modify_item(p0, (void*) BLACK_DIAMOND_SUIT_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
         }
     }
+*/
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise character reference entity html. The character reference entity html is unknown.");
-        fwprintf(stdout, L"Warning: Could not deserialise character reference entity html. The character reference entity html is unknown. count remaining p1: %i\n", p1);
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise character reference html. The named html character entity is unknown.");
+        fwprintf(stdout, L"Warning: Could not deserialise character reference html. The named html character entity is unknown. count remaining p1: %i\n", p1);
     }
 }
 
-/* HTML_ENTITY_CHARACTER_REFERENCE_DESERIALISER_SOURCE */
+/* HTML_CHARACTER_REFERENCE_DESERIALISER_SOURCE */
 #endif

@@ -1,5 +1,7 @@
 <node>
 
+    <!-- Initialisation -->
+
     <node name="create_id" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="id"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
@@ -9,23 +11,24 @@
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
     </node>
 
-    <!-- Deserialise data -->
+    <!-- Deserialisation -->
 
 <!--
         Possible xml files that can be used:
         _____________________________________
 
-        <node name="device" channel="inline" format="text/plain" model="serialisation/xml/examples/xml/glossary.xml"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/xml/examples/xml/menu.xml"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/xml/examples/xml/menu2.xml"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/xml/examples/xml/web-app.xml"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/xml/examples/xml/widget.xml"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/xml/test/glossary.xml"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/xml/test/menu.xml"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/xml/test/menu2.xml"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/xml/test/reference.xml"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/xml/test/web-app.xml"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/xml/test/widget.xml"/>
 -->
 
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/xml/examples/xml/widget.xml"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/xml/test/reference.xml"/>
     </node>
     <node name="deserialise_data" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -41,12 +44,12 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
-    <!-- Write knowledge tree into file -->
+    <!-- Testing -->
 
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/xml/examples/test_knowledge_tree.txt"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/xml/test_knowledge_tree.txt"/>
         <node name="mode" channel="inline" format="text/plain" model="write"/>
     </node>
     <node name="send_knowledge" channel="inline" format="communicate/send" model="">
@@ -61,6 +64,8 @@
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
+
+    <!-- Shutdown -->
 
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
 
