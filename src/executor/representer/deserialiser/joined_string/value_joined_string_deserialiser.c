@@ -27,6 +27,7 @@
 #define VALUE_JOINED_STRING_DESERIALISER_SOURCE
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -38,7 +39,6 @@
 #include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/copier/pointer_copier.c"
 #include "../../../../executor/memoriser/allocator/part_allocator.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/modifier/part_modifier.c"
@@ -67,16 +67,13 @@
 void deserialise_joined_string_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise joined string value.");
-    fwprintf(stdout, L"Debug: Deserialise joined string value. source count remaining p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise joined string value. source count remaining *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise joined string value. source count remaining p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise joined string value. source count remaining *p2: %i\n", *((int*) p2));
 
     // The string part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The string part model item.
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The value data, count.
-    void* vd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int vc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -100,9 +97,6 @@ void deserialise_joined_string_value(void* p0, void* p1, void* p2, void* p3, voi
     // Get string part model.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Initialise value data.
-    copy_pointer((void*) &vd, p1);
-
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
@@ -124,20 +118,10 @@ void deserialise_joined_string_value(void* p0, void* p1, void* p2, void* p3, voi
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            fwprintf(stdout, L"Debug: Deserialise joined string value. break vc: %i\n", vc);
-            fwprintf(stdout, L"Debug: Deserialise joined string value. break vd: %ls\n", (wchar_t*) vd);
-
-            //
-            // Overwrite string part model.
-            //
-            // CAUTION! If the value data is null, then nothing gets copied inside.
-            //
-            modify_item(pm, vd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &vc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-
             break;
         }
 
-        select_joined_string_end(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, (void*) &vc, (void*) &b);
+        select_joined_string_end(pm, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, (void*) &b);
     }
 
     //

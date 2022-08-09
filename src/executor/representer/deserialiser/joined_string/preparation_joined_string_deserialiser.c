@@ -56,8 +56,8 @@
 void deserialise_joined_string_preparation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise joined string preparation.");
-    fwprintf(stdout, L"Debug: Deserialise joined string preparation. source count remaining p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise joined string preparation. source count remaining *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise joined string preparation. source count remaining p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise joined string preparation. source count remaining *p2: %i\n", *((int*) p2));
 
     // The escape item, e.g. a DOUBLE quotation mark.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -120,19 +120,27 @@ void deserialise_joined_string_preparation(void* p0, void* p1, void* p2, void* p
 /*??
     fwprintf(stdout, L"Debug: Deserialise joined string preparation. delimiter data p3: %ls\n", (wchar_t*) p3);
     fwprintf(stdout, L"Debug: Deserialise joined string preparation. delimiter count p4: %i\n", p4);
-    //?? fwprintf(stdout, L"Debug: Deserialise joined string preparation. delimiter count *p4: %i\n", *((int*) p4));
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        fwprintf(stdout, L"Debug: Deserialise joined string preparation. delimiter count *p4: %i\n", *((int*) p4));
+    }
 
     fwprintf(stdout, L"Debug: Deserialise joined string preparation. escape data ed: %ls\n", (wchar_t*) ed);
     fwprintf(stdout, L"Debug: Deserialise joined string preparation. escape count ec: %i\n", ec);
-    //?? fwprintf(stdout, L"Debug: Deserialise joined string preparation. escape count *ec: %i\n", *((int*) ec));
+    if (ec != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        fwprintf(stdout, L"Debug: Deserialise joined string preparation. escape count *ec: %i\n", *((int*) ec));
+    }
 
     fwprintf(stdout, L"Debug: Deserialise joined string preparation. quotation end PLUS delimiter data qd: %ls\n", (wchar_t*) qd);
     fwprintf(stdout, L"Debug: Deserialise joined string preparation. quotation end PLUS delimiter count qc: %i\n", qc);
-    //?? fwprintf(stdout, L"Debug: Deserialise joined string preparation. quotation end PLUS delimiter count *qc: %i\n", *((int*) qc));
+    if (qc != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        fwprintf(stdout, L"Debug: Deserialise joined string preparation. quotation end PLUS delimiter count *qc: %i\n", *((int*) qc));
+    }
 
     fwprintf(stdout, L"Debug: Deserialise joined string preparation. quotation data p5: %ls\n", (wchar_t*) p5);
     fwprintf(stdout, L"Debug: Deserialise joined string preparation. quotation count p6: %i\n", p6);
-    //?? fwprintf(stdout, L"Debug: Deserialise joined string preparation. quotation count *p6: %i\n", *((int*) p6));
+    if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        fwprintf(stdout, L"Debug: Deserialise joined string preparation. quotation count *p6: %i\n", *((int*) p6));
+    }
 */
 
     // Deserialise joined string index.

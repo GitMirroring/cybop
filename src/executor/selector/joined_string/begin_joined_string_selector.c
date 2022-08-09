@@ -57,8 +57,8 @@
 void select_joined_string_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select joined string begin.");
-    fwprintf(stdout, L"Debug: Select joined string begin. source count remaining p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Select joined string begin. source count remaining *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Select joined string begin. source count remaining p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Select joined string begin. source count remaining *p2: %i\n", *((int*) p2));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

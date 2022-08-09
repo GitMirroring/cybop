@@ -23,6 +23,8 @@
         * Debug error in character reference deserialiser by using file "primitive_value_integer_cybol_deserialiser.c" instead of "value_integer_cybol_deserialiser.c"
         * Test decoding of numeric and entity character references using cybol application "serialisation/xml/"
         * Consider small and capital writing of "&#x" in file "begin_character_reference_selector.c"
+        * Specify quotation mark as xml character reference being the constraint "quotation" to property "language", in cybol application "serialisation/joined_string/"
+        * Make escaping of double characters work in joined string deserialiser
 
 2022-08-06  Christian Heller  <christian.heller@cybop.org>
 

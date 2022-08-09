@@ -55,8 +55,8 @@
 void deserialise_joined_string_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise joined string properties.");
-    fwprintf(stdout, L"Debug: Deserialise joined string properties. source count remaining p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise joined string properties. source count remaining *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise joined string properties. source count remaining p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise joined string properties. source count remaining *p2: %i\n", *((int*) p2));
 
     //
     // Declaration

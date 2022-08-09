@@ -26,12 +26,18 @@
 #ifndef BEGIN_CHARACTER_REFERENCE_SELECTOR_SOURCE
 #define BEGIN_CHARACTER_REFERENCE_SELECTOR_SOURCE
 
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/name/character_reference/character_reference_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/copier/pointer_copier.c"
 #include "../../../executor/detector/detector.c"
+#include "../../../executor/modifier/item_modifier.c"
 #include "../../../executor/mover/mover.c"
 #include "../../../executor/representer/deserialiser/character_reference/decimal_character_reference_deserialiser.c"
 #include "../../../executor/representer/deserialiser/character_reference/entity_character_reference_deserialiser.c"

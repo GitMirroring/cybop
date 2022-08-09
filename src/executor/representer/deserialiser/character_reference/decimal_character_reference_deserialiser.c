@@ -54,6 +54,8 @@ void deserialise_character_reference_decimal(void* p0, void* p1, void* p2) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise character reference decimal.");
     //?? fwprintf(stdout, L"Debug: Deserialise character reference decimal. source count remaining p2: %i\n", p2);
     //?? fwprintf(stdout, L"Debug: Deserialise character reference decimal. source count remaining *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise character reference decimal. source data position p1: %i\n", p1);
+    //?? fwprintf(stdout, L"Debug: Deserialise character reference decimal. source data position *p1: %i\n", *((void**) p1));
 
     // The decimal numeric character reference data, count.
     void* rd = *NULL_POINTER_STATE_CYBOI_MODEL;

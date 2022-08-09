@@ -26,13 +26,18 @@
 #ifndef QUOTATION_END_JOINED_STRING_SELECTOR_SOURCE
 #define QUOTATION_END_JOINED_STRING_SELECTOR_SOURCE
 
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../executor/copier/integer_copier.c"
+#include "../../../executor/copier/pointer_copier.c"
 #include "../../../executor/detector/detector.c"
+#include "../../../executor/modifier/item_modifier.c"
 #include "../../../executor/mover/mover.c"
 #include "../../../logger/logger.c"
 
@@ -40,35 +45,35 @@
  * Selects the joined string value end by searching for the given delimiter sequence,
  * consisting of a quotation and the actual delimiter.
  *
- * @param p0 the source data position (pointer reference)
- * @param p1 the source count remaining
- * @param p2 the escape data, e.g. a DOUBLE quotation mark
- * @param p3 the escape count
- * @param p4 the quotation end PLUS delimiter data, e.g. a quotation mark + comma OR apostrophe + semicolon
- * @param p5 the quotation end PLUS delimiter count
- * @param p6 the quotation end data, e.g. a quotation mark
- * @param p7 the quotation end count
- * @param p8 the value count
+ * @param p0 the destination item
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
+ * @param p3 the escape data, e.g. a DOUBLE quotation mark
+ * @param p4 the escape count
+ * @param p5 the quotation end PLUS delimiter data, e.g. a quotation mark + comma OR apostrophe + semicolon
+ * @param p6 the quotation end PLUS delimiter count
+ * @param p7 the quotation end data, e.g. a quotation mark
+ * @param p8 the quotation end count
  * @param p9 the break flag
  */
 void select_joined_string_end_quotation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select joined string end quotation.");
-    fwprintf(stdout, L"Debug: Select joined string end quotation. source count remaining p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Select joined string end quotation. source count remaining *p1: %i\n", *((int*) p1));
+    //?? fwprintf(stdout, L"Debug: Select joined string end quotation. source count remaining p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Select joined string end quotation. source count remaining *p2: %i\n", *((int*) p2));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
     // CAUTION! The ORDER of the following function calls is IMPORTANT!
-    // The escape characters have to be skipped BEFORE
+    // The escape characters have to get replaced BEFORE
     // the end delimiter sequence gets detected.
     //
     // Example: """value 1"", with comma and additional content", "value 2", "value 3"
     //
     // The double quotation marks are escaped and represent just ONE quotation mark.
-    // The comma following after the double quotation marks does NOT represent
+    // The comma following after the double quotation mark does NOT represent
     // a delimiter, since it is standing in between the quoted sequence.
     //
 
@@ -79,31 +84,26 @@ void select_joined_string_end_quotation(void* p0, void* p1, void* p2, void* p3, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Skip escape characters.
-        detect((void*) &r, p0, p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        // Replace escape characters.
+        detect((void*) &r, p1, p2, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            fwprintf(stdout, L"Debug: Select joined string end quotation. test escape r: %i\n", r);
-
             //
-            // Adjust value count.
+            // Append SIMPLE quotation character to destination item.
             //
-            // CAUTION! Do NOT just use NUMBER_1_INTEGER_STATE_CYBOI_MODEL
-            // but correct quotation character sequence xx_COUNT instead!
+            // CAUTION! Do NOT use the doubled escape sequence.
             //
-            calculate_integer_add(p8, p3);
+            modify_item(p0, p7, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p8, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Detect COMBINATION of quotation and delimiter sequence.
-        detect((void*) &r, p0, p1, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p1, p2, p5, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            fwprintf(stdout, L"Debug: Select joined string end quotation. test combination r: %i\n", r);
 
             // Set loop break flag.
             copy_integer(p9, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -119,11 +119,9 @@ void select_joined_string_end_quotation(void* p0, void* p1, void* p2, void* p3, 
         // remaining count <= zero, since it is a well-defined end sequence.
         // It applies for the LAST value only.
         //
-        detect((void*) &r, p0, p1, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p1, p2, p7, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            fwprintf(stdout, L"Debug: Select joined string end quotation. test quotation r: %i\n", r);
 
             // Set loop break flag.
             copy_integer(p9, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -133,18 +131,24 @@ void select_joined_string_end_quotation(void* p0, void* p1, void* p2, void* p3, 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
-        // CAUTION! If a standalone delimiter (e.g. comma) character is found,
-        // then it gets IGNORED and is treated like any other character,
+        // This is a STANDARD character.
+        //
+        // CAUTION! A standalone delimiter character (e.g. comma)
+        // gets IGNORED and is treated like any other character,
         // since standing WITHIN the quotation.
         //
 
-        fwprintf(stdout, L"Debug: Select joined string end quotation. test move r: %i\n", r);
+        // The character.
+        void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+        // Copy character.
+        copy_pointer((void*) &c, p1);
+
+        // Append character to destination item.
+        modify_item(p0, c, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
         // Increment the current position by one.
-        move(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        // Adjust value count.
-        calculate_integer_add(p8, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        move(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 
