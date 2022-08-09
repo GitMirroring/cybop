@@ -38,7 +38,7 @@
 //
 
 //
-// ASCII character codes (0 - 127).
+// ASCII character codes (0 - 127)
 //
 
 /**
@@ -643,7 +643,7 @@ static wchar_t DELETE_UNICODE_CHARACTER_CODE_MODEL_ARRAY[] = {0x007F};
 static wchar_t* DELETE_UNICODE_CHARACTER_CODE_MODEL = DELETE_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
 
 //
-// Extended character codes (128 - 255).
+// Extended character codes (128 - 255)
 //
 
 //
@@ -1199,7 +1199,7 @@ static wchar_t LATIN_SMALL_LETTER_Y_WITH_DIAERESIS_UNICODE_CHARACTER_CODE_MODEL_
 static wchar_t* LATIN_SMALL_LETTER_Y_WITH_DIAERESIS_UNICODE_CHARACTER_CODE_MODEL = LATIN_SMALL_LETTER_Y_WITH_DIAERESIS_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
 
 //
-// Unicode block: ?? (?? - ??).
+// Unicode block: ?? (?? - ??)
 //
 
 /** The latin capital ligature oe unicode character code model. */
@@ -1283,7 +1283,7 @@ static wchar_t LATIN_LETTER_LATERAL_CLICK_UNICODE_CHARACTER_CODE_MODEL_ARRAY[] =
 static wchar_t* LATIN_LETTER_LATERAL_CLICK_UNICODE_CHARACTER_CODE_MODEL = LATIN_LETTER_LATERAL_CLICK_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
 
 //
-// Unicode block: ?? (???? - ????).
+// Unicode block: ?? (???? - ????)
 //
 
 /** The modifier letter circumflex accent unicode character code model. U+02C6 */
@@ -1363,7 +1363,7 @@ static wchar_t TRADE_MARK_SIGN_UNICODE_CHARACTER_CODE_MODEL_ARRAY[] = {0x2122};
 static wchar_t* TRADE_MARK_SIGN_UNICODE_CHARACTER_CODE_MODEL = TRADE_MARK_SIGN_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
 
 //
-// Unicode block: Box Drawing (9472 - 9599).
+// Unicode block: Box Drawing (9472 - 9599)
 //
 
 /**
@@ -1647,6 +1647,12 @@ static wchar_t* BOX_DRAWINGS_LIGHT_ARC_UP_AND_LEFT_UNICODE_CHARACTER_CODE_MODEL 
  */
 static wchar_t BOX_DRAWINGS_LIGHT_ARC_UP_AND_RIGHT_UNICODE_CHARACTER_CODE_MODEL_ARRAY[] = {0x2570};
 static wchar_t* BOX_DRAWINGS_LIGHT_ARC_UP_AND_RIGHT_UNICODE_CHARACTER_CODE_MODEL = BOX_DRAWINGS_LIGHT_ARC_UP_AND_RIGHT_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+
+//
+// Greek and Coptic Block
+//
+// hexadecimal: 0370 - 03FF
+//
 
 /* UNICODE_CHARACTER_CODE_MODEL_CONSTANT_SOURCE */
 #endif
