@@ -29,7 +29,8 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/copier/integer_copier.c"
+#include "../../../../executor/copier/pointer_copier.c"
 #include "../../../../executor/representer/serialiser/character_reference/data_character_reference_serialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -55,12 +56,15 @@ void serialise_character_reference(void* p0, void* p1, void* p2, void* p3) {
     // Copy source count remaining.
     copy_integer((void*) &c, p2);
 
+    //
     // CAUTION! A copy of source count remaining is forwarded here,
     // so that the original source value does not get changed.
+    //
     // CAUTION! The source data position does NOT have to be copied,
     // since the parametre that was handed over is already a copy.
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
+    //
     serialise_character_reference_data(p0, (void*) &d, (void*) &c, p3);
 }
 

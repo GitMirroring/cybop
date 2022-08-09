@@ -138,7 +138,7 @@ void serialise_xml_part_element_filled_primitive(void* p0, void* p1, void* p2, v
     copy_array_forward((void*) &rc, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     //
-    // Replace reserved characters/ predefined entities with
+    // Replace reserved characters/predefined entities with
     // their corresponding numeric character reference.
     //
     serialise_character_reference(p0, rd, rc, (void*) XML_APPLICATION_STATE_CYBOI_LANGUAGE);

@@ -26,11 +26,18 @@
 #ifndef XML_CHARACTER_REFERENCE_SERIALISER_SOURCE
 #define XML_CHARACTER_REFERENCE_SERIALISER_SOURCE
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/name/character_reference/character_reference_name.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/representer/serialiser/cybol/integer/value_integer_cybol_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -59,22 +66,32 @@ void serialise_character_reference_xml(void* p0, void* p1) {
             || (*c == *LESS_THAN_SIGN_UNICODE_CHARACTER_CODE_MODEL)
             || (*c == *GREATER_THAN_SIGN_UNICODE_CHARACTER_CODE_MODEL)) {
 
-            // This IS a reserved character/ predefined entity.
+            //
+            // This IS a reserved character/predefined entity.
+            //
 
             // Append &#x begin hexadecimal numeric character reference name.
             modify_item(p0, (void*) SMALL_HEXADECIMAL_NUMERIC_BEGIN_CHARACTER_REFERENCE_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) SMALL_HEXADECIMAL_NUMERIC_BEGIN_CHARACTER_REFERENCE_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+            //
             // Serialise source character code into wide character sequence.
+            //
             // CAUTION! Hand over NUMBER BASE 16 as parametre!
+            //
             serialise_cybol_integer_value(p0, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_16_INTEGER_STATE_CYBOI_MODEL);
             // Append ; end character reference name.
             modify_item(p0, (void*) END_CHARACTER_REFERENCE_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) END_CHARACTER_REFERENCE_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
         } else {
 
+            //
             // This is NOT a reserved character/ predefined entity.
+            //
 
+            //
             // Append source character code directly.
+            //
             // CAUTION! The destination item is of type "wide character".
+            //
             modify_item(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
         }
 

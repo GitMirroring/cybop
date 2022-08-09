@@ -27,9 +27,14 @@
 #define DATA_CHARACTER_REFERENCE_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
+#include "../../../../executor/copier/integer_copier.c"
+#include "../../../../executor/copier/pointer_copier.c"
+#include "../../../../executor/mover/mover.c"
 #include "../../../../executor/representer/serialiser/character_reference/character_character_reference_serialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -52,13 +57,16 @@ void serialise_character_reference_data(void* p0, void* p1, void* p2, void* p3) 
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
         // Therefore, in this case, the break flag is set to true already here.
+        //
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
+        //
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
@@ -71,15 +79,17 @@ void serialise_character_reference_data(void* p0, void* p1, void* p2, void* p3) 
             break;
         }
 
+        //
         // The source count remaining is greater zero.
         // So, at least one wide character is left.
+        //
 
         // Get next wide character.
         copy_pointer((void*) &c, p1);
 
         serialise_character_reference_character(p0, c, p3);
 
-        // CAUTION! The source is of type "wide character".
+        // Increment the current position by one.
         move(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
