@@ -44,15 +44,17 @@
 void deserialise_character_reference_entity(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise character reference entity.");
+    fwprintf(stdout, L"Debug: Deserialise character reference entity. source count remaining p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Deserialise character reference entity. source count remaining *p2: %i\n", *((int*) p2));
 
-    // The entity character reference data, count.
-    void* rd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int rc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The entity data, count.
+    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Initialise entity character reference data.
-    copy_pointer((void*) &rd, p1);
+    // Initialise entity data.
+    copy_pointer((void*) &ed, p1);
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -78,11 +80,11 @@ void deserialise_character_reference_entity(void* p0, void* p1, void* p2) {
             break;
         }
 
-        select_character_reference_end((void*) &b, p1, p2, (void*) &rc);
+        select_character_reference_end((void*) &b, p1, p2, (void*) &ec);
     }
 
     // Deserialise named html character entity.
-    deserialise_character_reference_html(p0, rd, (void*) &rc);
+    deserialise_character_reference_html(p0, ed, (void*) &ec);
 }
 
 /* ENTITY_CHARACTER_REFERENCE_DESERIALISER_SOURCE */

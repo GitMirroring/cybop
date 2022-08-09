@@ -20,14 +20,14 @@ ___
 CSV Deserialiser
 ________________
 
-        * Debug cybol application "serialisation/xml/run.cybol"
-            --> xml and cybol deserialiser work FINE with other cybol applications
-            --> so what is the reason ??
         * Specify quotation mark as character reference in xml, being the constraint "quotation" to property "language", since xml uses quotation marks to delimit xml attribute values so that it has to be escaped
             --> xml serialiser file "primitive_filled_element_part_xml_serialiser.c" translates character reference
             --> do the same in xml DEserialiser
         * Reactivate translation of constants that have been commented out in file "html_character_reference_deserialiser.c"
         * Extend file "unicode_character_code_model.c" so that all constants of file "html_character_entity_reference_model.c" are covered
+
+        * Try out using character reference deserialiser for translating back html break tag when generating html in api documentation
+        * Provide boolean cybol property "reference" to enable/disable translation of character references
 
         * Delete "modify_split" and related constants
         * Let csv deserialiser use "joined_string" deserialiser for each row (one row being a "joined_string")

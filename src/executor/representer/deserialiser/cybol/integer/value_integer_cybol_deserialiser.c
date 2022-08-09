@@ -118,7 +118,7 @@ void deserialise_cybol_integer_value(void* p0, void* p1, void* p2, void* p3, voi
         // 0 - tries to automatically identify the correct number base
         // 8 - octal, e.g. 083
         // 10 - decimal, e.g. 1234
-        // 16 - hexadecimal, e.g. 3d4 or, optionally, 0x3d4
+        // 16 - hexadecimal, e.g. 3d4 or 0x3d4 or 0X3d4
         //
         // If the string is empty, contains only whitespace,
         // or does not contain an initial substring that

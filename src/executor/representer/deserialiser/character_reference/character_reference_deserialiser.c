@@ -46,7 +46,10 @@
  */
 void deserialise_character_reference(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise character reference.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise character reference.");
+    //?? fwprintf(stdout, L"Debug: Deserialise character reference. source data p1: %ls\n", (wchar_t*) p1);
+    //?? fwprintf(stdout, L"Debug: Deserialise character reference. source count p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise character reference. source count *p2: %i\n", *((int*) p2));
 
     // The source data position.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;

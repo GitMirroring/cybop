@@ -38,7 +38,7 @@
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../executor/representer/deserialiser/cybol/integer/value_integer_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/integer/primitive_value_integer_cybol_deserialiser.c"
 #include "../../../../executor/selector/character_reference/end_character_reference_selector.c"
 #include "../../../../logger/logger.c"
 
@@ -52,6 +52,10 @@
 void deserialise_character_reference_hexadecimal(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise character reference hexadecimal.");
+    fwprintf(stdout, L"Debug: Deserialise character reference hexadecimal. source count remaining p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Deserialise character reference hexadecimal. source count remaining *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Deserialise character reference hexadecimal. pre p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Deserialise character reference hexadecimal. pre *p1: %i\n", *((void**) p1));
 
     // The hexadecimal numeric character reference data, count.
     void* rd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -98,7 +102,7 @@ void deserialise_character_reference_hexadecimal(void* p0, void* p1, void* p2) {
     //
     // CAUTION! Hand over number base 16 as parametre!
     //
-    deserialise_cybol_integer_value((void*) &i, rd, (void*) &rc, (void*) NUMBER_16_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_cybol_integer_value_primitive((void*) &i, rd, (void*) &rc, (void*) NUMBER_16_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     //
     // Cast integer to wide character.

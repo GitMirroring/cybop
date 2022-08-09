@@ -48,6 +48,8 @@
 void select_character_reference_begin(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select character reference begin.");
+    //?? fwprintf(stdout, L"Debug: Select character reference begin. source count remaining p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Select character reference begin. source count remaining *p2: %i\n", *((int*) p2));
 
     //
     // CAUTION! The ORDER of the following function calls is IMPORTANT!
@@ -63,10 +65,10 @@ void select_character_reference_begin(void* p0, void* p1, void* p2) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
-        // CAUTION! Set last flag to "true", so that the pointer is
+        // CAUTION! Set last flag to TRUE, so that the pointer is
         // moved forward and only the actual character reference remains.
         //
-        detect((void*) &r, p1, p2, (void*) BEGIN_HEXADECIMAL_NUMERIC_CHARACTER_REFERENCE_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_HEXADECIMAL_NUMERIC_CHARACTER_REFERENCE_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p1, p2, (void*) SMALL_HEXADECIMAL_NUMERIC_BEGIN_CHARACTER_REFERENCE_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SMALL_HEXADECIMAL_NUMERIC_BEGIN_CHARACTER_REFERENCE_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -77,10 +79,24 @@ void select_character_reference_begin(void* p0, void* p1, void* p2) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
-        // CAUTION! Set last flag to "true", so that the pointer is
+        // CAUTION! Set last flag to TRUE, so that the pointer is
         // moved forward and only the actual character reference remains.
         //
-        detect((void*) &r, p1, p2, (void*) BEGIN_DECIMAL_NUMERIC_CHARACTER_REFERENCE_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_DECIMAL_NUMERIC_CHARACTER_REFERENCE_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p1, p2, (void*) CAPITAL_HEXADECIMAL_NUMERIC_BEGIN_CHARACTER_REFERENCE_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CAPITAL_HEXADECIMAL_NUMERIC_BEGIN_CHARACTER_REFERENCE_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_character_reference_hexadecimal(p0, p1, p2);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        //
+        // CAUTION! Set last flag to TRUE, so that the pointer is
+        // moved forward and only the actual character reference remains.
+        //
+        detect((void*) &r, p1, p2, (void*) DECIMAL_NUMERIC_BEGIN_CHARACTER_REFERENCE_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DECIMAL_NUMERIC_BEGIN_CHARACTER_REFERENCE_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -91,10 +107,14 @@ void select_character_reference_begin(void* p0, void* p1, void* p2) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
-        // CAUTION! Set last flag to "true", so that the pointer is
+        // CAUTION! Set last flag to TRUE, so that the pointer is
         // moved forward and only the actual character reference remains.
         //
-        detect((void*) &r, p1, p2, (void*) BEGIN_ENTITY_CHARACTER_REFERENCE_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_ENTITY_CHARACTER_REFERENCE_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        // CAUTION! Parsing for the begin entity character & does NOT conflict
+        // with standard ampersand characters, since the latter have to be
+        // ENCODED as &amp; in order to conform to the xml specification.
+        //
+        detect((void*) &r, p1, p2, (void*) ENTITY_BEGIN_CHARACTER_REFERENCE_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ENTITY_BEGIN_CHARACTER_REFERENCE_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

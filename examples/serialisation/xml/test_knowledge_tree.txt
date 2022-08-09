@@ -1,11 +1,19 @@
 [selected_node] | element/part | 
 +-test | element/part | 
 | +-node1 | text/plain | 
-| | :-value | text/plain | The less than sign &#60; as numeric reference
+| | :-value | text/plain | The quotation mark " as entity reference
 | +-node2 | text/plain | 
-| | :-value | text/plain | The less than sign &lt; as entity reference
+| | :-value | text/plain | The quotation mark " as numeric decimal reference
 | +-node3 | text/plain | 
-| | :-value | text/plain | The quotation mark &#34; as numeric reference
+| | :-value | text/plain | The quotation mark " as numeric hexadecimal reference
 | +-node4 | text/plain | 
-| | :-value | text/plain | The quotation mark &quot; as entity reference
-| +-node5 | text/plain | Embedded text between two tags with ampersand sign &amp; as entity reference and ampersand sign &#38; as numeric reference.
+| | :-value | text/plain | The less than sign < as entity reference
+| +-node5 | text/plain | 
+| | :-value | text/plain | The less than sign < as numeric decimal reference
+| +-node6 | text/plain | 
+| | :-value | text/plain | The less than sign < as numeric hexadecimal reference with small letters
+| +-node7 | text/plain | 
+| | :-value | text/plain | The less than sign < as numeric hexadecimal reference with capital X prefix
+| +-node8 | text/plain | 
+| | :-value | text/plain | The less than sign < as numeric hexadecimal reference with capital C number
+| +-node9 | text/plain | Embedded text between two tags with ampersand sign & as entity reference and ampersand sign & as numeric decimal reference.
