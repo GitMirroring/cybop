@@ -20,6 +20,8 @@ ___
 CSV Deserialiser
 ________________
 
+        ampersand before rest in html + xml serialiser
+
         * Reactivate translation of constants that have been commented out in file "html_character_reference_deserialiser.c"
         * Extend file "unicode_character_code_model.c" so that all constants of file "html_character_entity_reference_model.c" are covered
 

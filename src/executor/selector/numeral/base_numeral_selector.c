@@ -50,7 +50,7 @@ void select_numeral_base(void* p0, void* p1, void* p2) {
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
-    // CAUTION! The ORDER of the following function calls is IMPORTANT!
+    // CAUTION! The ORDER of the following comparisons is IMPORTANT!
     //
     // The HEXADECIMAL integer with prefix "0x" has to get
     // detected BEFORE the octal integer with prefix just "0".

@@ -52,11 +52,13 @@ void select_http_request_protocol(void* p0, void* p1, void* p2, void* p3, void* 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select http request protocol.");
 
     //
-    // CAUTION! The order of the comparisons is IMPORTANT! Do NOT change it easily!
-    // Before the request response line final element http name (ending with "carriage return"
-    // and "line feed") can be identified, the possibility of a body begin http name
-    // (twice "carriage return" and "line feed") indicating the message body
-    // has to be considered:
+    // CAUTION! The ORDER of the following comparisons is IMPORTANT!
+    //
+    // Before the request response line final element http name
+    // (ending with "carriage return" and "line feed")
+    // can be identified, the possibility of a body begin http name
+    // (twice "carriage return" and "line feed") indicating
+    // the message body has to be considered:
     //
     // - twice "carriage return" and "line feed"
     // - "carriage return" and "line feed"

@@ -57,11 +57,13 @@ void select_http_request_header_value(void* p0, void* p1, void* p2, void* p3, vo
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select http request header value.");
 
     //
-    // CAUTION! The order of the comparisons is IMPORTANT! Do NOT change it easily!
-    // Before the header value http name or header http name (ending with "carriage return"
-    // and "line feed") can be identified, the possibility of a body begin
-    // (twice "carriage return" and "line feed") indicating the message body
-    // has to be considered:
+    // CAUTION! The ORDER of the following comparisons is IMPORTANT!
+    //
+    // Before the header value http name or header http name
+    // (ending with "carriage return" and "line feed")
+    // can be identified, the possibility of a body begin
+    // (twice "carriage return" and "line feed") indicating
+    // the message body has to be considered:
     //
     // - twice "carriage return" and "line feed"
     // - "carriage return" and "line feed"

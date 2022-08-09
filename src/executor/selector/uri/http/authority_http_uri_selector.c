@@ -56,7 +56,7 @@ void select_http_uri_authority(void* p0, void* p1, void* p2, void* p3, void* p4,
     //?? fwprintf(stdout, L"Debug: Select http uri authority. count remaining *p3: %i\n", *((int*) p3));
 
     //
-    // CAUTION! The order of the comparisons is IMPORTANT! Do NOT change it easily!
+    // CAUTION! The ORDER of the following comparisons is IMPORTANT!
     //
 
     // The comparison result.

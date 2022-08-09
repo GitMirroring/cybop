@@ -52,7 +52,7 @@ void select_http_uri_query(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select http uri query.");
 
     //
-    // CAUTION! The order of the comparisons is IMPORTANT! Do NOT change it easily!
+    // CAUTION! The ORDER of the following comparisons is IMPORTANT!
     //
 
     // The comparison result.

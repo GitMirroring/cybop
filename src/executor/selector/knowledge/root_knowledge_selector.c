@@ -75,7 +75,7 @@ void select_knowledge_root(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         // The STANDARD CASE, however, is to call the function
         // "select_knowledge_begin" at the end of this file.
         //
-        // CAUTION! The order of comparisons IS IMPORTANT.
+        // CAUTION! The ORDER of the following comparisons is IMPORTANT!
         //
         // Memory root characters have to be tested FIRST, i.e.:
         // . knowledge memory

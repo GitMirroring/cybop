@@ -52,7 +52,8 @@ void select_xml_attribute_begin_or_tag_end(void* p0, void* p1, void* p2, void* p
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xml attribute begin or tag end.");
 
     //
-    // CAUTION! The ORDER of the following function calls is IMPORTANT!
+    // CAUTION! The ORDER of the following comparisons is IMPORTANT!
+    //
     // The empty tag end "/>" and empty tag space end " />" have to be searched
     // BEFORE the simple tag end ">", because of the slash "/" character.
     //

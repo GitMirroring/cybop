@@ -66,7 +66,8 @@ void select_joined_string_end_quotation(void* p0, void* p1, void* p2, void* p3, 
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
-    // CAUTION! The ORDER of the following function calls is IMPORTANT!
+    // CAUTION! The ORDER of the following comparisons is IMPORTANT!
+    //
     // The escape characters have to get replaced BEFORE
     // the end delimiter sequence gets detected.
     //

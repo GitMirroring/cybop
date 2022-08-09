@@ -58,7 +58,7 @@ void select_character_reference_begin(void* p0, void* p1, void* p2) {
     //?? fwprintf(stdout, L"Debug: Select character reference begin. source count remaining *p2: %i\n", *((int*) p2));
 
     //
-    // CAUTION! The ORDER of the following function calls is IMPORTANT!
+    // CAUTION! The ORDER of the following comparisons is IMPORTANT!
     //
     // The hexadecimal numeric character reference has to be searched BEFORE
     // the decimal numeric character reference, which itself has to be searched BEFORE

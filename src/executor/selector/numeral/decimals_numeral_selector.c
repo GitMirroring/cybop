@@ -57,8 +57,7 @@ void select_numeral_decimals(void* p0, void* p1, void* p2, void* p3, void* p4, v
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
-    // CAUTION! Do NOT easily change the ORDER of below comparisons since
-    // otherwise, some sequences may not get detected or lead to errors.
+    // CAUTION! The ORDER of the following comparisons is IMPORTANT!
     //
     // Example:
     //

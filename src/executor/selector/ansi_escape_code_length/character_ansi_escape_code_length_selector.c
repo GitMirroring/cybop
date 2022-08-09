@@ -57,8 +57,9 @@ void select_ansi_escape_code_length_character(void* p0, void* p1, void* p2) {
     //
     // It differs between platforms (operating systems).
     //
-    // CAUTION! Do NOT change the order of the comparisons below
-    // since otherwise, sequences might not be detected correctly.
+    // CAUTION! The ORDER of the following comparisons is IMPORTANT!
+    //
+    // If changed, sequences might not be detected correctly.
     // The windows newline <cr> + <lf> detection has to be FIRST.
     //
 
