@@ -32,9 +32,17 @@
 
 //
 // This list of constants was built upon information taken from:
-// http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references
+// https://de.wikipedia.org/wiki/Entit%C3%A4t_(Auszeichnungssprache)
 //
-// Accessed on: 2012-08-13
+// XML (2010)
+//
+// 2007–2010 wurden alle gebräuchlichen Namen zusammengetragen und in einem Entwurf vereinigt.
+// In einer DTD sind 2237 Namen auf Zeichencodierungen abgebildet:
+// www.w3.org/2003/entities/2007/w3centities-f.ent
+//
+// Insbesondere SGML (1986) und MathML sind abgedeckt; damit ist auch HTML vollständig enthalten.
+// Im Einzelfall wurde auch auf die praktikabelste Variante standardisiert,
+// wo für den gleichen Zweck unterschiedliche Abbildungen auf mehrere Zeichencodes existierten.
 //
 
 /**
@@ -98,16 +106,16 @@ static wchar_t* GREATER_THAN_SIGN_HTML_CHARACTER_ENTITY_REFERENCE_MODEL = L"gt";
 static int* GREATER_THAN_SIGN_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The non-breaking space html character entity reference model.
+ * The no-break space html character entity reference model.
  *
  * Name: nbsp
  * Character:
  * Unicode code point: U+00A0 (160)
  * Standard: HTML 3.2
- * Description: non-breaking space
+ * Description: no-break space, non-breaking space
  */
-static wchar_t* NON_BREAKING_SPACE_HTML_CHARACTER_ENTITY_REFERENCE_MODEL = L"nbsp";
-static int* NON_BREAKING_SPACE_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* NO_BREAK_SPACE_HTML_CHARACTER_ENTITY_REFERENCE_MODEL = L"nbsp";
+static int* NO_BREAK_SPACE_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The inverted exclamation mark html character entity reference model.

@@ -20,9 +20,7 @@ ___
 CSV Deserialiser
 ________________
 
-        * Reactivate translation of constants that have been commented out in file "html_character_reference_deserialiser.c"
-        * Extend file "unicode_character_code_model.c" so that all constants of file "html_character_entity_reference_model.c" are covered
-        * Correct comments in file "unicode_character_code_model.c"
+        * Replace e.g. in api doc comments
 
         * Try out using character reference deserialiser for translating back html break tag when generating html in api documentation
         * Provide boolean cybol property "reference" to enable/disable translation of character references
@@ -33,6 +31,10 @@ ________________
         * Add character (comma) separated value (csv) deserialiser
         * Delete (since free choice of characters as cybol property) ?? OR Use files "language_state_cybol_name.c" and "message_state_cybol_name.c" in csv deserialiser
         * Delete (since free choice of characters as cybol property) ?? OR Use files "delimiter_csv_name.c" and "quotation_csv_name.c" in csv deserialiser
+
+        * Reactivate translation of constants that have been commented out in file "html_character_reference_deserialiser.c"
+        * Extend file "unicode_character_code_model.c" so that all constants of file "html_character_entity_reference_model.c" are covered
+        * Correct comments in file "unicode_character_code_model.c"
 
 Numeral Deserialiser
 ____________________

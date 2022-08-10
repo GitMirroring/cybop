@@ -37,35 +37,35 @@
 
     <!-- Deserialisation -->
 
-    <node name="deserialise_data_1" channel="inline" format="represent/deserialise" model="">
+    <node name="deserialise_data_comma" channel="inline" format="represent/deserialise" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".result_comma"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".string_comma"/>
         <node name="language" channel="inline" format="meta/language" model="text/joined-string">
             <node name="delimiter" channel="inline" format="text/plain" model=","/>
         </node>
     </node>
-    <node name="deserialise_data_2" channel="inline" format="represent/deserialise" model="">
+    <node name="deserialise_data_semicolon" channel="inline" format="represent/deserialise" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".result_semicolon"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".string_semicolon"/>
         <node name="language" channel="inline" format="meta/language" model="text/joined-string">
             <node name="delimiter" channel="inline" format="text/plain" model=";"/>
         </node>
     </node>
-    <node name="deserialise_data_3" channel="inline" format="represent/deserialise" model="">
+    <node name="deserialise_data_space" channel="inline" format="represent/deserialise" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".result_comma_space"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".string_comma_space"/>
         <node name="language" channel="inline" format="meta/language" model="text/joined-string">
             <node name="delimiter" channel="inline" format="text/plain" model=", "/>
         </node>
     </node>
-    <node name="deserialise_data_4" channel="inline" format="represent/deserialise" model="">
+    <node name="deserialise_data_sequence" channel="inline" format="represent/deserialise" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".result_sequence"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".string_sequence"/>
         <node name="language" channel="inline" format="meta/language" model="text/joined-string">
             <node name="delimiter" channel="inline" format="text/plain" model="#?#"/>
         </node>
     </node>
-    <node name="deserialise_data_5" channel="inline" format="represent/deserialise" model="">
+    <node name="deserialise_data_quoted" channel="inline" format="represent/deserialise" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".result_quoted"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".string_quoted"/>
         <node name="language" channel="inline" format="meta/language" model="text/joined-string">
@@ -73,11 +73,27 @@
             <node name="quotation" channel="inline" format="text/plain" model="&#x22;"/>
         </node>
     </node>
-    <node name="deserialise_data_6" channel="inline" format="represent/deserialise" model="">
+    <node name="deserialise_data_mixed" channel="inline" format="represent/deserialise" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".result_mixed"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".string_mixed"/>
         <node name="language" channel="inline" format="meta/language" model="text/joined-string">
             <node name="delimiter" channel="inline" format="text/plain" model=","/>
+            <node name="quotation" channel="inline" format="text/plain" model="&#x22;"/>
+        </node>
+    </node>
+    <node name="deserialise_data_quoted_inline" channel="inline" format="represent/deserialise" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".result_quoted_inline"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".string_quoted_inline"/>
+        <node name="language" channel="inline" format="meta/language" model="text/joined-string">
+            <node name="delimiter" channel="inline" format="text/plain" model=","/>
+            <node name="quotation" channel="inline" format="text/plain" model="&#x22;"/>
+        </node>
+    </node>
+    <node name="deserialise_data_quoted_inline_semicolon" channel="inline" format="represent/deserialise" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".result_quoted_inline_semicolon"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".string_quoted_inline_semicolon"/>
+        <node name="language" channel="inline" format="meta/language" model="text/joined-string">
+            <node name="delimiter" channel="inline" format="text/plain" model=";"/>
             <node name="quotation" channel="inline" format="text/plain" model="&#x22;"/>
         </node>
     </node>

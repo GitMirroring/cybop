@@ -45,17 +45,6 @@
 /**
  * Deserialises the source- into the destination part.
  *
- * CAUTION! The result gets APPENDED to the destination.
- * It does NOT overwrite already existing content in the destination.
- *
- * Parametres:
- * - destination (required): the destination part, e.g. an integer number
- * - source (required): the source part, which is always a sequence of wide characters
- * - format (required): the destination part format (type)
- * - language (required): the destination part language (cybol, http_request, xdt etc.)
- * - normalisation (optional): the flag indicating whether or not the deserialised message is to be normalised, i.e. leading and trailing whitespaces as well as line breaks removed and multiple ones merged into just ONE, e.g. from text in between two tags of an html or xml file; if NULL, the default is TRUE (normalisation enabled)
- * - medium (optional): the user interface window model hierarchy used to identify nested components and their action via mouse coordinates
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)
