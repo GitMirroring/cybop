@@ -99,7 +99,7 @@
  * - language (required) [meta/language]: The language used for deserialisation.
  * - format (optional) [meta/format]: The format (type) of the source node.
  *
- * Constraints for Property "Language":
+ * Constraints for Property Language:
  *
  * - delimiter (optional) [text/plain]: The separator between the single fields (values). It may consist of many characters, but also be a simple comma, for example. Used with joined strings or character (comma) separated values (csv).
  * - quotation (optional) [text/plain]: The marker sequence used at the beginning and end of string fields (values). It may consist of many characters. Quotation is necessary if the delimiter character is part of the value. If the quotation is to be part of the value, then it has to be escaped by writing it TWICE (doubled). Used with joined strings or character (comma) separated values (csv).
@@ -165,7 +165,7 @@ static int* DESERIALISE_REPRESENT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  * - language (required) [meta/language]: The language used for serialisation.
  * - format (optional) [meta/format]: The format (type) of the source node.
  *
- * Constraints for Property "Language":
+ * Constraints for Property Language:
  *
  * - newline (optional) [logicvalue/boolean]: The flag indicating whether or not a line break is added at the end of the printed characters. Used with text (pseudo) terminal.
  * - clear (optional) [logicvalue/boolean]: The flag indicating whether or not the terminal screen is cleared before printing characters on it. Used with text (pseudo) terminal.
