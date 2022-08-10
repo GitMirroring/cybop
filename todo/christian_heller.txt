@@ -20,6 +20,8 @@ ___
 CSV Deserialiser
 ________________
 
+        * Adapt COUNT of html entity reference constants and deserialisation, since there are some entities consisting of not only one but TWO characters, so that the count should be TWO
+
         * Replace e.g. in api doc comments
 
         * Try out using character reference deserialiser for translating back html break tag when generating html in api documentation
