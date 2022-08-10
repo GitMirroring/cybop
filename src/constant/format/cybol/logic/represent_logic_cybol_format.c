@@ -52,6 +52,13 @@
  *
  * Examples:
  *
+ * <node name="deserialise_number" channel="inline" format="represent/deserialise" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="source" channel="inline" format="text/plain" model="2.4e-2"/>
+ *     <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+ *     <node name="format" channel="inline" format="meta/format" model="number/float"/>
+ * </node>
+ *
  * <node name="deserialise_comma_separated_data" channel="inline" format="represent/deserialise" model="">
  *     <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
  *     <node name="source" channel="inline" format="text/cybol-path" model=".string"/>
@@ -87,9 +94,9 @@
  *
  * Properties:
  *
- * - destination (required) [text/cybol-path]: The part of type "element/part" into which the deserialised data are written.
+ * - destination (required) [text/cybol-path]: The node into which the deserialised data are written. Its format (type) depends on the given source data.
  * - source (required) [text/cybol-path | text/plain]: The data to be deserialised.
- * - language (required) [meta/language]: The language used for translation.
+ * - language (required) [meta/language]: The language used for deserialisation.
  * - format (optional) [meta/format]: The format (type) of the source node.
  *
  * Constraints for Property "Language":
@@ -119,35 +126,43 @@ static int* DESERIALISE_REPRESENT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  *
  * Examples:
  *
- * <node name="serialise_webpage" channel="inline" format="represent/serialise" model="">
- *     <node name="destination" channel="inline" format="text/cybol-path" model=".webpage"/>
- *     <node name="source" channel="inline" format="text/cybol-path" model=".wui"/>
- *     <node name="format" channel="inline" format="meta/format" model="element/part"/>
- *     <!-- A beautification with indentation and newline is actually NOT useful for pure data transfer. -->
- *     <node name="language" channel="inline" format="meta/language" model="text/html"/>
- *     <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
+ * <node name="serialise_number" channel="inline" format="represent/serialise" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="source" channel="inline" format="number/integer" model="24"/>
+ *     <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+ *     <node name="format" channel="inline" format="meta/format" model="number/integer"/>
  * </node>
  *
- * <node name="serialise_week" channel="inline" format="represent/serialise" model="">
+ * <node name="serialise_week_given_as_path" channel="inline" format="represent/serialise" model="">
  *     <node name="destination" channel="inline" format="text/cybol-path" model=".week_as_string"/>
  *     <node name="source" channel="inline" format="text/cybol-path" model=".week"/>
  *     <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
  *     <node name="format" channel="inline" format="meta/format" model="number/integer"/>
  * </node>
  *
+ * <node name="serialise_webpage" channel="inline" format="represent/serialise" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".webpage"/>
+ *     <node name="source" channel="inline" format="text/cybol-path" model=".wui"/>
+ *     <node name="language" channel="inline" format="meta/language" model="text/html">
+ *         <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
+ *     </node>
+ *     <node name="format" channel="inline" format="meta/format" model="element/part"/>
+ * </node>
+ *
  * <node name="deserialise_comma_separated_data" channel="inline" format="represent/serialise" model="">
  *     <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
- *     <node name="source" channel="inline" format="text/cybol-path" model=".string"/>
+ *     <node name="source" channel="inline" format="text/cybol-path" model=".string_node_list"/>
  *     <node name="language" channel="inline" format="meta/language" model="text/joined-string">
  *         <node name="delimiter" channel="inline" format="text/plain" model=","/>
+ *         <node name="quotation" channel="inline" format="text/plain" model="&#x22;"/>
  *     </node>
  * </node>
  *
  * Properties:
  *
- * - destination (required) [text/cybol-path]: The part of type "element/part" into which the deserialised data are written.
- * - source (required) [text/cybol-path | text/plain]: The data to be deserialised.
- * - language (required) [meta/language]: The language used for translation.
+ * - destination (required) [text/cybol-path]: The node into which the serialised data are written. Its format (type) depends on the given source data.
+ * - source (required) [text/cybol-path | text/plain | number/any]: The data to be serialised.
+ * - language (required) [meta/language]: The language used for serialisation.
  * - format (optional) [meta/format]: The format (type) of the source node.
  *
  * Constraints for Property "Language":
