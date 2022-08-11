@@ -45,16 +45,6 @@
 /**
  * Serialises the source- into the destination part.
  *
- * CAUTION! The result gets APPENDED to the destination.
- * It does NOT overwrite already existing content in the destination.
- *
- * Parametres:
- * - destination (required): the destination part, which is always a sequence of wide characters
- * - source (required): the source part, e.g. an integer number
- * - format (required): the source part format (type)
- * - language (required): the source part language (cybol, http_request, xdt etc.)
- * - indentation (optional): the flag indicating whether or not the generated message is to be pretty-formatted (e.g. indented html tags with line breaks)
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)

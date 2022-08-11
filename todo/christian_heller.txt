@@ -20,14 +20,9 @@ ___
 CSV Deserialiser
 ________________
 
+        * Provide boolean cybol property "references" to enable/disable translation of character references when generating html, so that line breaks remain untouched in api documentation
         * Adapt COUNT of html entity reference constants and deserialisation, since there are some entities consisting of not only one but TWO characters, so that the count should be TWO
 
-        * Replace e.g. in api doc comments
-
-        * Try out using character reference deserialiser for translating back html break tag when generating html in api documentation
-        * Provide boolean cybol property "reference" to enable/disable translation of character references
-
-        * Delete "modify_split" and related constants
         * Let csv deserialiser use "joined_string" deserialiser for each row (one row being a "joined_string")
 
         * Add character (comma) separated value (csv) deserialiser

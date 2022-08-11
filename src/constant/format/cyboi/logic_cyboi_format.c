@@ -510,9 +510,6 @@ static int* REPLACE_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2310_INTEGER_STATE_CYBOI_
 /** The reverse modify logic cyboi format. */
 static int* REVERSE_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2311_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The split modify logic cyboi format. */
-static int* SPLIT_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2312_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The strip leading modify logic cyboi format. */
 static int* STRIP_LEADING_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2313_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

@@ -163,16 +163,6 @@ static wchar_t* REVERSE_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/reverse";
 static int* REVERSE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The modify/split logic cybol format.
- *
- * Split string into parts which are stored as child nodes of the destination part.
- *
- * This is a CYBOL extension.
- */
-static wchar_t* SPLIT_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/split";
-static int* SPLIT_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
  * The modify/strip logic cybol format.
  *
  * Remove leading and trailing whitespaces.
