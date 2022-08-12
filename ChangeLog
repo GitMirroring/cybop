@@ -22,6 +22,7 @@
 
         * Continue csv deserialiser
         * Refactor file "index_joined_string_deserialiser.c" with file "list_joined_string_deserialiser.c"
+        * Add textline list deserialiser
 
 2022-08-11  Christian Heller  <christian.heller@cybop.org>
 

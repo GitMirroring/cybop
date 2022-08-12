@@ -1,0 +1,91 @@
+/*
+ * Copyright (C) 1999-2022. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.22.0 2022-02-22
+ * @author Christian Heller <christian.heller@cybop.org>
+ */
+
+#ifndef ELEMENT_TEXTLINE_LIST_DESERIALISER_SOURCE
+#define ELEMENT_TEXTLINE_LIST_DESERIALISER_SOURCE
+
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../executor/copier/integer_copier.c"
+#include "../../../../executor/copier/pointer_copier.c"
+#include "../../../../executor/representer/deserialiser/textline_list/index_textline_list_deserialiser.c"
+#include "../../../../executor/selector/newline/newline_selector.c"
+#include "../../../../logger/logger.c"
+
+/**
+ * Deserialises a single textline.
+ *
+ * @param p0 the destination item
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
+ * @param p3 the textline data (pointer reference)
+ * @param p4 the textline count
+ * @param p5 the loop index
+ */
+void deserialise_textline_list_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        void** td = (void**) p3;
+
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise textline list element.");
+        fwprintf(stdout, L"Debug: Deserialise textline list element. source count remaining p2: %i\n", p2);
+        fwprintf(stdout, L"Debug: Deserialise textline list element. source count remaining *p2: %i\n", *((int*) p2));
+
+        // The textline end flag.
+        int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+        select_newline((void*) &e, p1, p2, p4);
+
+        if (e != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Serialise loop index to be used as part name.
+            deserialise_textline_list_index(p0, *td, p4, p5);
+
+            //
+            // Adjust textline data, count.
+            //
+            // CAUTION! Assign current source DATA position as new textline start.
+            // It got moved inside the called select function
+            // and already points to the CURRENT position.
+            //
+            // CAUTION! The textline COUNT has to be reset to ZERO,
+            // so that each new line gets counted separately.
+            //
+            copy_pointer(p3, p1);
+            copy_integer(p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise textline list element. The textline data is null.");
+        fwprintf(stdout, L"Error: Could not deserialise textline list element. The textline data is null. source count remaining p2: %i\n", p2);
+        fwprintf(stdout, L"Error: Could not deserialise textline list element. The textline data is null. source count remaining *p2: %i\n", *((int*) p2));
+    }
+}
+
+/* ELEMENT_TEXTLINE_LIST_DESERIALISER_SOURCE */
+#endif

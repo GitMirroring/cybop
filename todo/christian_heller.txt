@@ -20,9 +20,8 @@ ___
 CSV Deserialiser
 ________________
 
-        * Add general textline list deserialiser storing the lines in parts
-        * Use textline list deserialiser in csv deserialiser ??
-        * Complete csv deserialiser
+        * Complete textline list deserialiser
+        * Simplify csv deserialiser using textline list deserialiser
 
         * Replace language constraint properties in all cybol applications using the cybol operation categories "represent/" or "communicate/"
             they should not be properties of the operation anymore, but (constraint) properties of the property "language" instead
