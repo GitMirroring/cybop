@@ -27,10 +27,18 @@
 #define HEADER_CSV_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/csv/csv_cyboi_name.c"
+#include "../../../../executor/calculator/integer/subtract_integer_calculator.c"
+#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../../executor/copier/integer_copier.c"
+#include "../../../../executor/representer/deserialiser/csv/index_csv_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/csv/part_csv_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Checks whether or not the csv content has a header.
+ * Checks whether or not this is the FIRST record (row).
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
@@ -46,122 +54,63 @@
  * @param p11 the quotation end count
  * @param p12 the quotation begin data, e.g. a quotation mark
  * @param p13 the quotation begin count
- * @param p14 the header flag
- * @param p15 the loop index
+ * @param p14 the loop index
  */
-void deserialise_csv_header(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
+void deserialise_csv_header(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise csv header.");
     fwprintf(stdout, L"Debug: Deserialise csv header. record count p3: %i\n", p3);
     fwprintf(stdout, L"Debug: Deserialise csv header. record count *p3: %i\n", *((int*) p3));
 
-    // The index item.
-    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The index item data, count.
-    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ic = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    //
-    // Allocate index item.
-    //
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    //
-    allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    compare_integer_equal((void*) &r, p14, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-    // CAUTION! Do NOT use "equal" comparison, since data WITHOUT header are the DEFAULT.
-    compare_integer_unequal((void*) &r, p14, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
-        // There is NO header at the beginning of the data.
+        // This is the FIRST record.
         //
-
-        // Serialise loop variable to be used as array index.
-        serialise_cybol_integer(i, p15, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
-        // Get index item data, count.
-        copy_array_forward((void*) &id, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &ic, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
         //
         // Deserialise standard data record.
         //
-        // CAUTION! Hand over destination MODEL item.
+        // CAUTION! Hand over destination PROPERTIES item.
         //
-        // CAUTION! Hand over unchanged STANDARD index.
-        //
-        deserialise_csv_record(p0, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, id, ic);
+        deserialise_csv_part(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, (void*) HEADER_CSV_CYBOI_NAME, (void*) HEADER_CSV_CYBOI_NAME);
 
     } else {
 
         //
-        // There is a HEADER at the beginning of the data.
+        // This is NOT the first record.
         //
 
-        // The comparison result.
-        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        // The index.
+        int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        compare_integer_equal((void*) &r, p15, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        // Initialise index.
+        copy_integer((void*) &i, p14);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        //
+        // Subtract ONE from index.
+        //
+        // CAUTION! The first record with index zero was the header
+        // and following records continue with index one.
+        // But they should be named starting with ZERO again.
+        // Therefore, decrement index here.
+        //
+        calculate_integer_subtract((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-            //
-            // This is the FIRST record.
-            //
-
-            //
-            // Deserialise standard data record.
-            //
-            // CAUTION! Hand over destination PROPERTIES item.
-            //
-            // CAUTION! Hand over unchanged STANDARD index.
-            //
-            deserialise_csv_record(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, (void*) HEADER_CSV_CYBOI_NAME, (void*) HEADER_CSV_CYBOI_NAME);
-
-        } else {
-
-            //
-            // This is NOT the first record.
-            //
-
-            // The index.
-            int idx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-            // Initialise index with parametre handed over.
-            copy_integer((void*) &idx, p15);
-
-            //
-            // Subtract ONE from index.
-            //
-            // CAUTION! The first record with index zero was the header
-            // and following records continue with index one.
-            // But they should be named starting with ZERO again.
-            // Therefore, decrement index here.
-            //
-            calculate_integer_subtract((void*) &idx, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-
-            // Serialise loop variable to be used as array index.
-            serialise_cybol_integer(i, (void*) &idx, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
-            // Get index item data, count.
-            copy_array_forward((void*) &id, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &ic, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-            //
-            // Deserialise standard data record.
-            //
-            // CAUTION! Hand over destination MODEL item.
-            //
-            // CAUTION! Hand over DECREMENTED index.
-            //
-            deserialise_csv_record(p0, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, id, ic);
-        }
+        //
+        // Serialise index.
+        //
+        // CAUTION! Hand over destination MODEL item.
+        //
+        // CAUTION! Hand over DECREMENTED index.
+        //
+        deserialise_csv_index(p0, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, (void*) &i);
     }
-
-    // Deallocate index item.
-    deallocate_item((void*) &i, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* HEADER_CSV_DESERIALISER_SOURCE */

@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-08-12  Christian Heller  <christian.heller@cybop.org>
+
+        * Continue csv deserialiser
+
 2022-08-11  Christian Heller  <christian.heller@cybop.org>
 
         * Delete format "modify/split" and related code since it has been replaced by the joined string deserialiser

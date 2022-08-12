@@ -102,6 +102,12 @@ void select_newline(void* p0, void* p1, void* p2, void* p3) {
             //
             // The end of the source data has been reached.
             //
+            // CAUTION! This check is important, since the LAST field (value)
+            // of character (comma) separated values (csv) data,
+            // for example, does NOT always have a newline sequence.
+            // But in order to process the value correctly, the
+            // newline found flag has to be SET in this case, too.
+            //
 
             // Set newline found flag.
             copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

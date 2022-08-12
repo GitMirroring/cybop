@@ -39,7 +39,7 @@
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../executor/representer/deserialiser/csv/index_csv_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/csv/content_csv_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**

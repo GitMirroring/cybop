@@ -27,6 +27,14 @@
 #define CONTENT_CSV_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
+#include "../../../../executor/copier/integer_copier.c"
+#include "../../../../executor/copier/pointer_copier.c"
+#include "../../../../executor/representer/deserialiser/csv/flag_csv_deserialiser.c"
+#include "../../../../executor/selector/newline/newline_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -102,8 +110,8 @@ void deserialise_csv_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             if (e != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                // Deserialise header.
-                deserialise_csv_header(p0, p1, rd, rc, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, (void*) &j);
+                // Branch control flow depending on header flag.
+                deserialise_csv_flag(p0, p1, rd, rc, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, (void*) &j);
 
                 //
                 // Adjust record data, count.

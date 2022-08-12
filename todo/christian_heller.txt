@@ -20,6 +20,8 @@ ___
 CSV Deserialiser
 ________________
 
+        * Refactor file "index_joined_string_deserialiser.c"
+
         * Complete csv deserialiser
 
         * Replace language constraint properties in all cybol applications using the cybol operation categories "represent/" or "communicate/"
