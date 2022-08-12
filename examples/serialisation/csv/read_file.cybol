@@ -1,6 +1,8 @@
 <node>
 
-    <node name="log" channel="inline" format="communicate/send" model="">
+    <!-- Logging -->
+
+    <node name="log_label" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
@@ -8,32 +10,87 @@
         <node name="message" channel="inline" format="text/plain" model="Read file:"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+    <node name="log_value" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#filename"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <!-- Reading -->
 
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/cybol-path" model=".filename"/>
+        <node name="device" channel="inline" format="text/cybol-path" model="#filename"/>
     </node>
     <node name="receive_file" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/csv">
-            <node name="header" channel="inline" format="logicvalue/boolean" model="true"/>
-            <node name="separator" channel="inline" format="text/plain" model=","/>
-            <node name="delimiter" channel="inline" format="text/plain" model="\""/>
+            <node name="delimiter" channel="inline" format="text/cybol-path" model="#delimiter"/>
+            <node name="quotation" channel="inline" format="text/cybol-path" model="#quotation"/>
+            <node name="header" channel="inline" format="text/cybol-path" model="#header"/>
         </node>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <!--
-            The header will be written into the destination .table properties.
+            A possibly existing header will be written into the destination message properties.
             There is NO need to specify the cybol property "header" as sub node of "message" here,
             since it is generated under that name automatically by the deserialiser inside.
         -->
-        <node name="message" channel="inline" format="text/cybol-path" model=".table"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#table"/>
     </node>
     <node name="close_file" channel="inline" format="dispatch/close" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
+
+    <!-- Knowledge Test -->
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/csv/test_knowledge_tree.txt"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
+    </node>
+    <node name="send_knowledge" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+    <!-- Stack Test -->
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/csv/test_stack.txt"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
+    </node>
+    <node name="send_knowledge" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#"/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+<!--
+    <node name="print_table" channel="inline" format="text/cybol-path" model=".print_table"/>
+-->
 
 </node>

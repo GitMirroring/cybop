@@ -20,18 +20,20 @@ ___
 CSV Deserialiser
 ________________
 
-        * Provide boolean cybol property "references" to enable/disable translation of character references when generating html, so that line breaks remain untouched in api documentation
-        * Adapt COUNT of html entity reference constants and deserialisation, since there are some entities consisting of not only one but TWO characters, so that the count should be TWO
+        * Complete csv deserialiser
 
-        * Let csv deserialiser use "joined_string" deserialiser for each row (one row being a "joined_string")
-
-        * Add character (comma) separated value (csv) deserialiser
-        * Delete (since free choice of characters as cybol property) ?? OR Use files "language_state_cybol_name.c" and "message_state_cybol_name.c" in csv deserialiser
-        * Delete (since free choice of characters as cybol property) ?? OR Use files "delimiter_csv_name.c" and "quotation_csv_name.c" in csv deserialiser
+        * Replace language constraint properties in all cybol applications using the cybol operation categories "represent/" or "communicate/"
+            they should not be properties of the operation anymore, but (constraint) properties of the property "language" instead
+        * Adapt cyboi source code
+        * Set language constraint property "newline" to true by default
+        * Delete cybol property "newline" in cybol applications and leave it only where set to "false"
 
         * Reactivate translation of constants that have been commented out in file "html_character_reference_deserialiser.c"
         * Extend file "unicode_character_code_model.c" so that all constants of file "html_character_entity_reference_model.c" are covered
-        * Correct comments in file "unicode_character_code_model.c"
+        * Correct comments in file "unicode_character_code_model.c" which is wrongly "no-break space" everywhere
+
+        * Provide boolean cybol property "references" to enable/disable translation of character references when generating html, so that line breaks remain untouched in api documentation
+        * Adapt COUNT of html entity reference constants and deserialisation, since there are some entities consisting of not only one but TWO characters, so that the count should be TWO
 
 Numeral Deserialiser
 ____________________

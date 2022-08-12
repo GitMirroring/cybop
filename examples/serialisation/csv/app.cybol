@@ -1,16 +1,51 @@
 <node>
 
-    <!-- State -->
+    <!-- Terminal -->
 
     <node name="stdout" channel="inline" format="number/integer" model="-1"/>
 
-    <node name="filename" channel="inline" format="text/plain" model="serialisation/csv/examples/test.csv"/>
+    <!-- Test Logic -->
 
-    <node name="table" channel="inline" format="element/part" model=""/>
+    <node name="test_comma" channel="file" format="element/part" model="serialisation/csv/read_file.cybol">
+        <node name="filename" channel="inline" format="text/plain" model="serialisation/csv/test/comma.csv"/>
+        <node name="table" channel="inline" format="element/part" model=""/>
+        <node name="delimiter" channel="inline" format="text/plain" model=","/>
+    </node>
+    <node name="test_semicolon" channel="file" format="element/part" model="serialisation/csv/read_file.cybol">
+        <node name="filename" channel="inline" format="text/plain" model="serialisation/csv/test/semicolon.csv"/>
+        <node name="table" channel="inline" format="element/part" model=""/>
+        <node name="delimiter" channel="inline" format="text/plain" model=";"/>
+    </node>
+    <node name="test_comma_space" channel="file" format="element/part" model="serialisation/csv/read_file.cybol">
+        <node name="filename" channel="inline" format="text/plain" model="serialisation/csv/test/comma_space.csv"/>
+        <node name="table" channel="inline" format="element/part" model=""/>
+        <node name="delimiter" channel="inline" format="text/plain" model=", "/>
+    </node>
+    <node name="test_sequence" channel="file" format="element/part" model="serialisation/csv/read_file.cybol">
+        <node name="filename" channel="inline" format="text/plain" model="serialisation/csv/test/sequence.csv"/>
+        <node name="table" channel="inline" format="element/part" model=""/>
+        <node name="delimiter" channel="inline" format="text/plain" model="#?#"/>
+    </node>
+    <node name="test_quoted" channel="file" format="element/part" model="serialisation/csv/read_file.cybol">
+        <node name="filename" channel="inline" format="text/plain" model="serialisation/csv/test/quoted.csv"/>
+        <node name="table" channel="inline" format="element/part" model=""/>
+        <node name="delimiter" channel="inline" format="text/plain" model=","/>
+        <node name="quotation" channel="inline" format="text/plain" model="&#x22;"/>
+    </node>
+    <node name="test_mixed" channel="file" format="element/part" model="serialisation/csv/read_file.cybol">
+        <node name="filename" channel="inline" format="text/plain" model="serialisation/csv/test/mixed.csv"/>
+        <node name="table" channel="inline" format="element/part" model=""/>
+        <node name="delimiter" channel="inline" format="text/plain" model=","/>
+        <node name="quotation" channel="inline" format="text/plain" model="&#x22;"/>
+    </node>
+    <node name="test_header" channel="file" format="element/part" model="serialisation/csv/read_file.cybol">
+        <node name="filename" channel="inline" format="text/plain" model="serialisation/csv/test/header.csv"/>
+        <node name="table" channel="inline" format="element/part" model=""/>
+        <node name="delimiter" channel="inline" format="text/plain" model=","/>
+        <node name="header" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
-    <!-- Logic -->
-
-    <node name="read_file" channel="file" format="element/part" model="serialisation/csv/read_file.cybol"/>
+    <!-- Print Logic -->
 
     <node name="print_table" channel="file" format="element/part" model="serialisation/csv/print_table.cybol">
         <node name="row_break" channel="inline" format="logicvalue/boolean" model="false"/>

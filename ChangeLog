@@ -21,6 +21,11 @@
 2022-08-11  Christian Heller  <christian.heller@cybop.org>
 
         * Delete format "modify/split" and related code since it has been replaced by the joined string deserialiser
+        * Adapt cybol application "serialisation/csv/"
+        * Restructure csv deserialiser
+        * Add file "newline_selector.c", to be used by csv deserialiser
+        * Add file "csv_cyboi_name.c" with csv constant "header"
+        * Let csv deserialiser use "joined_string" deserialiser, with each record (row) being a joined string
 
 2022-08-09  Christian Heller  <christian.heller@cybop.org>
 

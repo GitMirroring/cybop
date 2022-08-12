@@ -15,31 +15,31 @@
         Possible json files that can be used:
         _____________________________________
 
-        <node name="device" channel="inline" format="text/plain" model="serialisation/json/examples/basic/sample_1.json"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/json/examples/basic/sample_2.json"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/json/examples/basic/sample_3.json"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/json/examples/basic/sample_4.json"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/basic/sample_1.json"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/basic/sample_2.json"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/basic/sample_3.json"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/basic/sample_4.json"/>
 
-        <node name="device" channel="inline" format="text/plain" model="serialisation/json/examples/json/glossary.json"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/json/examples/json/menu.json"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/json/examples/json/menu2.json"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/json/examples/json/web-app.json"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/json/examples/json/widget.json"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/json/glossary.json"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/json/menu.json"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/json/menu2.json"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/json/web-app.json"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/json/widget.json"/>
 
-        <node name="device" channel="inline" format="text/plain" model="serialisation/json/examples/scenario/db.json"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/json/examples/scenario/default.json"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/json/examples/scenario/google_markers.json"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/json/examples/scenario/package-lock.json"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/json/examples/scenario/package.json"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/json/examples/scenario/production.json"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/json/examples/scenario/products.json"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/json/examples/scenario/youtube-search-results.json"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/scenario/db.json"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/scenario/default.json"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/scenario/google_markers.json"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/scenario/package-lock.json"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/scenario/package.json"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/scenario/production.json"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/scenario/products.json"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/scenario/youtube-search-results.json"/>
 -->
 
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/json/examples/scenario/package.json"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/scenario/package.json"/>
     </node>
     <node name="deserialise_data" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -59,7 +59,7 @@
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/json/examples/test_knowledge_tree.txt"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/json/test_knowledge_tree.txt"/>
         <node name="mode" channel="inline" format="text/plain" model="write"/>
     </node>
     <node name="send_knowledge" channel="inline" format="communicate/send" model="">

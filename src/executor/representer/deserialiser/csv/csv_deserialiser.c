@@ -29,6 +29,8 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/copier/integer_copier.c"
+#include "../../../../executor/copier/pointer_copier.c"
 #include "../../../../executor/representer/deserialiser/csv/content_csv_deserialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -39,8 +41,13 @@
  * @param p1 the destination properties item
  * @param p2 the source wide character data
  * @param p3 the source wide character count
+ * @param p4 the source properties data
+ * @param p5 the source properties count
+ * @param p6 the knowledge memory part (pointer reference)
+ * @param p7 the stack memory item
+ * @param p8 the internal memory data
  */
-void deserialise_csv(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_csv(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise csv.");
     fwprintf(stdout, L"Debug: Deserialise csv. source wide character count p3: %i\n", p3);
@@ -67,7 +74,7 @@ void deserialise_csv(void* p0, void* p1, void* p2, void* p3) {
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
     //
-    deserialise_csv_content(p0, p1, (void*) &d, (void*) &c);
+    deserialise_csv_properties(p0, p1, (void*) &d, (void*) &c, p4, p5, p6, p7, p8);
 }
 
 /* CSV_DESERIALISER_SOURCE */
