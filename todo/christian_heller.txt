@@ -20,8 +20,8 @@ ___
 CSV Deserialiser
 ________________
 
-        * Refactor file "index_joined_string_deserialiser.c"
-
+        * Add general textline list deserialiser storing the lines in parts
+        * Use textline list deserialiser in csv deserialiser ??
         * Complete csv deserialiser
 
         * Replace language constraint properties in all cybol applications using the cybol operation categories "represent/" or "communicate/"

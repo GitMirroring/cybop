@@ -26,7 +26,6 @@
 #ifndef INDEX_JOINED_STRING_DESERIALISER_SOURCE
 #define INDEX_JOINED_STRING_DESERIALISER_SOURCE
 
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -35,18 +34,15 @@
 #include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/array_copier.c"
-#include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
 #include "../../../../executor/selector/joined_string/begin_joined_string_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Assigns an index for each joined string element.
+ * Serialises the index.
  *
  * @param p0 the destination item
  * @param p1 the source data position (pointer reference)
@@ -61,13 +57,19 @@
  * @param p10 the quotation end count
  * @param p11 the quotation begin data, e.g. a quotation mark
  * @param p12 the quotation begin count
+ * @param p13 the loop index
  */
-void deserialise_joined_string_index(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void deserialise_joined_string_index(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise joined string index.");
     //?? fwprintf(stdout, L"Debug: Deserialise joined string index. source count remaining p2: %i\n", p2);
     //?? fwprintf(stdout, L"Debug: Deserialise joined string index. source count remaining *p2: %i\n", *((int*) p2));
 
+    // The index item.
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The index item data, count.
+    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ic = *NULL_POINTER_STATE_CYBOI_MODEL;
     //
     // The quotation flag.
     //
@@ -76,15 +78,6 @@ void deserialise_joined_string_index(void* p0, void* p1, void* p2, void* p3, voi
     // (if quotation flag is set).
     //
     int q = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The index item.
-    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The index item data, count.
-    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ic = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The break flag.
-    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The loop variable.
-    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     //
     // Allocate index item.
@@ -94,54 +87,15 @@ void deserialise_joined_string_index(void* p0, void* p1, void* p2, void* p3, voi
     //
     allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // Serialise loop variable to be used as array index.
+    serialise_cybol_integer(i, p13, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
 
-        //
-        // CAUTION! If the loop count handed over as parametre is NULL,
-        // then the break flag will NEVER be set to true, because the loop
-        // variable comparison does (correctly) not consider null values.
-        // Therefore, in this case, the break flag is set to true already here.
-        //
-        // Initialising the break flag with true will NOT work either, since it:
-        // a) will be left untouched if a comparison operand is null;
-        // b) would have to be reset to true in each loop cycle.
-        //
-        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    }
+    // Get index item data, count.
+    copy_array_forward((void*) &id, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ic, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_less_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            break;
-        }
-
-        //
-        // CAUTION! Empty index item in each loop cycle,
-        // since the function "serialise_cybol_integer" appends
-        // the result string instead of overwriting it.
-        //
-        // CAUTION! It is more efficient to empty the index item
-        // than to allocate a new one in each loop cycle.
-        //
-        modify_item(i, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) EMPTY_MODIFY_LOGIC_CYBOI_FORMAT);
-        // Serialise loop variable to be used as array index.
-        serialise_cybol_integer(i, (void*) &j, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
-        // Get index item data, count.
-        copy_array_forward((void*) &id, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &ic, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-        // Reset quotation flag.
-        copy_integer((void*) &q, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        // Select joined string begin.
-        select_joined_string_begin(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, (void*) &q, id, ic);
-
-        // Increment loop variable.
-        j++;
-    }
+    // Select joined string begin.
+    select_joined_string_begin(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, (void*) &q, id, ic);
 
     // Deallocate index item.
     deallocate_item((void*) &i, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

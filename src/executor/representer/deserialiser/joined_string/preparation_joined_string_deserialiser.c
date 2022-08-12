@@ -39,7 +39,7 @@
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../executor/representer/deserialiser/joined_string/index_joined_string_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/joined_string/list_joined_string_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -143,8 +143,8 @@ void deserialise_joined_string_preparation(void* p0, void* p1, void* p2, void* p
     }
 */
 
-    // Deserialise joined string index.
-    deserialise_joined_string_index(p0, p1, p2, p3, p4, ed, ec, qd, qc, p5, p6, p5, p6);
+    // Deserialise list of values.
+    deserialise_joined_string_list(p0, p1, p2, p3, p4, ed, ec, qd, qc, p5, p6, p5, p6);
 
     if ((p5 != *NULL_POINTER_STATE_CYBOI_MODEL) && (p6 != *NULL_POINTER_STATE_CYBOI_MODEL)) {
 

@@ -59,11 +59,11 @@
  * @param p12 the quotation begin count
  * @param p13 the loop index
  */
-void deserialise_csv_header(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
+void deserialise_csv_index(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise csv header.");
-    fwprintf(stdout, L"Debug: Deserialise csv header. record count p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Deserialise csv header. record count *p3: %i\n", *((int*) p3));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise csv index.");
+    fwprintf(stdout, L"Debug: Deserialise csv index. record count p3: %i\n", p3);
+    fwprintf(stdout, L"Debug: Deserialise csv index. record count *p3: %i\n", *((int*) p3));
 
     // The index item.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
