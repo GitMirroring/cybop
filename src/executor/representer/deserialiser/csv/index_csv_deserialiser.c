@@ -45,8 +45,8 @@
  * Serialises the index.
  *
  * @param p0 the destination item
- * @param p1 the record data
- * @param p2 the record count
+ * @param p1 the source textline model data
+ * @param p2 the source textline model count
  * @param p3 the delimiter data, e.g. a comma OR semicolon OR some character sequence
  * @param p4 the delimiter count
  * @param p5 the escape data, e.g. a DOUBLE quotation mark

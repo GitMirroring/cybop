@@ -22,6 +22,7 @@
 
         * Add cybol application "serialisation/textline_list/"
         * Count line index instead of character index in textline list deserialiser
+        * Simplify csv deserialiser using textline list deserialiser
 
 2022-08-12  Christian Heller  <christian.heller@cybop.org>
 

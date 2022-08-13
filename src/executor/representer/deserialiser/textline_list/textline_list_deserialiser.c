@@ -37,9 +37,9 @@
 /**
  * Deserialises the textline list into separate parts, each representing a textline.
  *
- * @param p0 the destination item
- * @param p1 the source textline list data
- * @param p2 the source textline list count
+ * @param p0 the destination textline list item
+ * @param p1 the source text data
+ * @param p2 the source text count
  */
 void deserialise_textline_list(void* p0, void* p1, void* p2) {
 

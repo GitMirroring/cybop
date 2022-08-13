@@ -43,7 +43,7 @@
     <node name="test_sequence" channel="inline" format="text/cybol-path" model=".test_sequence"/>
     <node name="test_quoted" channel="inline" format="text/cybol-path" model=".test_quoted"/>
     <node name="test_mixed" channel="inline" format="text/cybol-path" model=".test_mixed"/>
-    <node name="test_heading" channel="inline" format="text/cybol-path" model=".test_heading"/>
+    <node name="test_header" channel="inline" format="text/cybol-path" model=".test_header"/>
 
     <!-- Closing (terminal) -->
 

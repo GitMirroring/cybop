@@ -27,11 +27,18 @@
 #define CSV_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/copier/pointer_copier.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/representer/deserialiser/csv/properties_csv_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/textline_list/textline_list_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -39,8 +46,8 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source wide character data
- * @param p3 the source wide character count
+ * @param p2 the source text data
+ * @param p3 the source text count
  * @param p4 the source properties data
  * @param p5 the source properties count
  * @param p6 the knowledge memory part (pointer reference)
@@ -53,28 +60,43 @@ void deserialise_csv(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
     fwprintf(stdout, L"Debug: Deserialise csv. source wide character count p3: %i\n", p3);
     fwprintf(stdout, L"Debug: Deserialise csv. source wide character count *p3: %i\n", *((int*) p3));
 
-    // The source data position.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The source count remaining.
-    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    // Copy source data position.
-    copy_pointer((void*) &d, (void*) &p2);
-    // Copy source count remaining.
-    copy_integer((void*) &c, p3);
+    // The textline list item.
+    void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The index item data, count.
+    void* ld = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* lc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
+    // Allocate textline list item.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_item((void*) &l, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+
+    // Deserialise source text data into textline list item.
+    deserialise_textline_list(l, p2, p3);
+
+    // Get textline list item data, count.
+    copy_array_forward((void*) &ld, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &lc, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
     // Deserialise content.
+    deserialise_csv_properties(p0, p1, ld, lc, p4, p5, p6, p7, p8);
+
     //
-    // CAUTION! A copy of source count remaining is forwarded here,
-    // so that the original source value does not get changed.
+    //?? TODO:
     //
-    // CAUTION! The source data position does NOT have to be copied,
-    // since the parametre that was handed over is already a copy.
-    // A local copy was made anyway, not to risk parametre falsification.
-    // Its reference is forwarded, as it gets incremented by sub routines inside.
+    // Do the child parts have to be deallocated here BEFORE calling
+    // function "deallocate_item" OR does GC does this automatically?
+    // At least REMOVE child parts, so that GC reference gets decremented?
     //
-    deserialise_csv_properties(p0, p1, (void*) &d, (void*) &c, p4, p5, p6, p7, p8);
+    // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
+    // This is necessary in order to activate rubbish (garbage) collection.
+    //
+
+    // Deallocate textline list item.
+    deallocate_item((void*) &l, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 }
 
 /* CSV_DESERIALISER_SOURCE */

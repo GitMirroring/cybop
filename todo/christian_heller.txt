@@ -20,8 +20,9 @@ ___
 CSV Deserialiser
 ________________
 
-        * Test textline list deserialiser
-        * Simplify csv deserialiser using textline list deserialiser
+        * Continue in file "print_table.cybol" with "TEST_count" which is zero --> WHY ??
+        * Test csv deserialiser using cybol application "serialisation/csv/"
+        * Find and debug reason for terminal log message "Debug: ITEM_REFERENCE_COUNTER END: -9" with cybol application "serialisation/textline_list/"
 
         * Replace language constraint properties in all cybol applications using the cybol operation categories "represent/" or "communicate/"
             they should not be properties of the operation anymore, but (constraint) properties of the property "language" instead
@@ -529,7 +530,15 @@ Display / XCB
 _____________
 
         * Debug valgrind errors in cybol application "gui"
-        * Is pointer or element/part used internally in empty and remove ??
+            //
+            // Do child parts have to be deallocated here BEFORE calling
+            // function "deallocate_item" OR does GC does this automatically?
+            // At least REMOVE child parts, so that GC reference gets decremented?
+            //
+            // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
+            // This is necessary in order to activate rubbish (garbage) collection.
+            //
+        * Is pointer OR (should be) element/part used internally in empty and remove ??
         * Do those parts having been added to the properties (NOT model) get deallocated by the GC ?? or not because properties of operations must not get deallocated on empty or remove ??
         * Check if empty removes parts WITH knowledge part flag set
         * Check if garbage collection is activated when knowledge part gets allocated and appended on xcb event handling (flag ??)

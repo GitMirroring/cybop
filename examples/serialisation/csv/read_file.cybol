@@ -89,8 +89,6 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
-<!--
     <node name="print_table" channel="inline" format="text/cybol-path" model=".print_table"/>
--->
 
 </node>

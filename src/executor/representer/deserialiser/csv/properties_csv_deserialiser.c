@@ -45,8 +45,8 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source data position (pointer reference)
- * @param p3 the source count remaining
+ * @param p2 the source textline list data
+ * @param p3 the source textline list count
  * @param p4 the source properties data
  * @param p5 the source properties count
  * @param p6 the knowledge memory part (pointer reference)

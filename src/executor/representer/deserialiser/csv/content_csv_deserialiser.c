@@ -32,9 +32,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/copier/pointer_copier.c"
-#include "../../../../executor/representer/deserialiser/csv/flag_csv_deserialiser.c"
-#include "../../../../executor/selector/newline/newline_selector.c"
+#include "../../../../executor/representer/deserialiser/csv/source_csv_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -42,8 +40,8 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source data position (pointer reference)
- * @param p3 the source count remaining
+ * @param p2 the source textline list data
+ * @param p3 the source textline list count
  * @param p4 the delimiter data, e.g. a comma OR semicolon OR some character sequence
  * @param p5 the delimiter count
  * @param p6 the escape data, e.g. a DOUBLE quotation mark
@@ -59,27 +57,13 @@
 void deserialise_csv_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise csv content.");
-    fwprintf(stdout, L"Debug: Deserialise csv content. source count remaining p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Deserialise csv content. source count remaining *p3: %i\n", *((int*) p3));
+    fwprintf(stdout, L"Debug: Deserialise csv content. source textline list count p3: %i\n", p3);
+    fwprintf(stdout, L"Debug: Deserialise csv content. source textline list count *p3: %i\n", *((int*) p3));
 
-    //
-    // CAUTION! Do NOT use recursion here, since there may be thousands
-    // of lines (records), which would consume a lot of stack memory,
-    // for each function call. Therefore, work with a LOOP.
-    //
-
-    // The record data, count.
-    void* rd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int rc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The record end flag.
-    int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    // Initialise record data.
-    copy_pointer((void*) &rd, p2);
 
     if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -106,32 +90,12 @@ void deserialise_csv_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         } else {
 
-            select_newline((void*) &e, p2, p3, (void*) &rc);
+            // Determine source part at the given index.
+            deserialise_csv_source(p0, p1, p2, (void*) &j, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14);
 
-            if (e != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // Branch control flow depending on header flag.
-                deserialise_csv_flag(p0, p1, rd, rc, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, (void*) &j);
-
-                //
-                // Adjust record data, count.
-                //
-                // CAUTION! The source data position got already moved inside
-                // the called function and points to the CURRENT position.
-                //
-                // CAUTION! The record count has to be reset to ZERO,
-                // so that each new line gets counted separately.
-                //
-                copy_pointer((void*) &rd, p2);
-                copy_integer((void*) &rc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-                // Reset record end flag.
-                copy_integer((void*) &e, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-            }
+            // Increment loop variable.
+            j++;
         }
-
-        // Increment loop variable.
-        j++;
     }
 }
 

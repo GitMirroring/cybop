@@ -47,8 +47,8 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source data position (pointer reference)
- * @param p3 the source count remaining
+ * @param p2 the source textline list data
+ * @param p3 the source textline list count
  * @param p4 the delimiter data
  * @param p5 the delimiter count
  * @param p6 the quotation data

@@ -42,8 +42,8 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the record data
- * @param p3 the record count
+ * @param p2 the source textline model data
+ * @param p3 the source textline model count
  * @param p4 the delimiter data, e.g. a comma OR semicolon OR some character sequence
  * @param p5 the delimiter count
  * @param p6 the escape data, e.g. a DOUBLE quotation mark
