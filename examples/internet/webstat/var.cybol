@@ -7,7 +7,7 @@
     <!-- loop Variablen -->
     <node name="csv_content" channel="inline" format="text/plain" model=""/>
     <node name="count" channel="inline" format="number/integer" model=""/>
-    <node name="count_text" channel="inline" format="plain/text" model=""/>
+    <node name="count_text" channel="inline" format="text/plain" model=""/>
     <node name="maximum" channel="inline" format="number/integer" model="29"/>
     <node name="break" channel="inline" format="number/integer" model="false"/>
     <node name="date_command" channel="inline" format="text/plain" model=""/>

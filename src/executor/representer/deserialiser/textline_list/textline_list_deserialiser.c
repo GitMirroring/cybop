@@ -44,8 +44,8 @@
 void deserialise_textline_list(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise textline list.");
-    fwprintf(stdout, L"Debug: Deserialise textline list. source wide character count p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise textline list. source wide character count *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise textline list. source wide character count p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise textline list. source wide character count *p2: %i\n", *((int*) p2));
 
     // The source data position.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -69,8 +69,6 @@ void deserialise_textline_list(void* p0, void* p1, void* p2) {
     // Its reference is forwarded, as it gets incremented by sub routines inside.
     //
     deserialise_textline_list_content(p0, (void*) &d, (void*) &c);
-
-    fwprintf(stdout, L"Debug: Deserialise textline list. END p2: %i\n", p2);
 }
 
 /* TEXTLINE_LIST_DESERIALISER_SOURCE */

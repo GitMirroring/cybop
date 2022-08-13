@@ -29,6 +29,7 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
@@ -54,8 +55,8 @@ void deserialise_textline_list_element(void* p0, void* p1, void* p2, void* p3, v
         void** td = (void**) p3;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise textline list element.");
-        fwprintf(stdout, L"Debug: Deserialise textline list element. source count remaining p2: %i\n", p2);
-        fwprintf(stdout, L"Debug: Deserialise textline list element. source count remaining *p2: %i\n", *((int*) p2));
+        //?? fwprintf(stdout, L"Debug: Deserialise textline list element. source count remaining p2: %i\n", p2);
+        //?? fwprintf(stdout, L"Debug: Deserialise textline list element. source count remaining *p2: %i\n", *((int*) p2));
 
         // The newline flag.
         int n = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -100,17 +101,21 @@ void deserialise_textline_list_element(void* p0, void* p1, void* p2, void* p3, v
             //
             copy_pointer(p3, p1);
             copy_integer(p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-        }
 
-        fwprintf(stdout, L"Debug: Deserialise textline list element. END p2: %i\n", p2);
+            //
+            // Increment line index.
+            //
+            // CAUTION! Do NOT increment it in the loop since that counts
+            // the CHARACTERS while here, the single LINES are numerated.
+            //
+            calculate_integer_add(p5, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise textline list element. The textline data is null.");
         fwprintf(stdout, L"Error: Could not deserialise textline list element. The textline data is null. textline data p3: %i\n", p3);
     }
-
-    fwprintf(stdout, L"Debug: Deserialise textline list element. OUTSIDE END p2: %i\n", p2);
 }
 
 /* ELEMENT_TEXTLINE_LIST_DESERIALISER_SOURCE */

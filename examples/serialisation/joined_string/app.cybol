@@ -1,7 +1,5 @@
 <node>
 
-    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
-
     <!--
         CAUTION! The test strings HAVE TO be put into FILES,
         since some of them contain quotation characters

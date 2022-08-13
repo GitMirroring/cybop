@@ -52,7 +52,11 @@
 void serialise_model_diagram_part_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise model diagram part element.");
-    //?? fwprintf(stdout, L"Debug: Serialise model diagram part element. p4: %i\n", p4);
+    //?? fwprintf(stdout, L"Debug: Serialise model diagram part element. tree level p4: %i\n", p4);
+    //?? fwprintf(stdout, L"Debug: Serialise model diagram part element. tree level *p4: %i\n", *((int*) p4));
+    //?? fwprintf(stdout, L"Debug: Serialise model diagram part element. source model index p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Serialise model diagram part element. source model index *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Serialise model diagram part element. source model data p1: %i\n", p1);
 
     // The part.
     void* part = *NULL_POINTER_STATE_CYBOI_MODEL;

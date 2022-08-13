@@ -46,8 +46,8 @@
 void deserialise_textline_list_content(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise textline list content.");
-    fwprintf(stdout, L"Debug: Deserialise textline list content. source count remaining p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise textline list content. source count remaining *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise textline list content. source count remaining p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise textline list content. source count remaining *p2: %i\n", *((int*) p2));
 
     //
     // CAUTION! Do NOT use recursion here, since there may be thousands
@@ -60,8 +60,8 @@ void deserialise_textline_list_content(void* p0, void* p1, void* p2) {
     int tc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The loop variable.
-    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The line index.
+    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Initialise textline data.
     copy_pointer((void*) &td, p1);
@@ -93,14 +93,9 @@ void deserialise_textline_list_content(void* p0, void* p1, void* p2) {
         } else {
 
             // Deserialise single textline.
-            deserialise_textline_list_element(p0, p1, p2, (void*) &td, (void*) &tc, (void*) &j);
+            deserialise_textline_list_element(p0, p1, p2, (void*) &td, (void*) &tc, (void*) &i);
         }
-
-        // Increment loop variable.
-        j++;
     }
-
-    fwprintf(stdout, L"Debug: Deserialise textline list content. END p2: %i\n", p2);
 }
 
 /* CONTENT_TEXTLINE_LIST_DESERIALISER_SOURCE */

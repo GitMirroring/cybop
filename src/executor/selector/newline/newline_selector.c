@@ -54,8 +54,8 @@
 void select_newline(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select newline.");
-    fwprintf(stdout, L"Debug: Select newline. source count remaining p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Select newline. source count remaining *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Select newline. source count remaining p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Select newline. source count remaining *p2: %i\n", *((int*) p2));
 
     //
     // CAUTION! The ORDER of the following comparisons is IMPORTANT!

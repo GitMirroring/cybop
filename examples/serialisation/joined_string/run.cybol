@@ -27,14 +27,6 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
-    <!-- Opening (terminal) -->
-
-    <node name="open_stdout" channel="inline" format="dispatch/open" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="device" channel="inline" format="text/plain" model="standard-output"/>
-        <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
-    </node>
-
     <!-- Deserialisation -->
 
     <node name="deserialise_data_comma" channel="inline" format="represent/deserialise" model="">
@@ -117,13 +109,6 @@
     <node name="close_file" channel="inline" format="dispatch/close" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-    </node>
-
-    <!-- Closing (terminal) -->
-
-    <node name="close_stdout" channel="inline" format="dispatch/close" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
     </node>
 
     <!-- Shutdown -->

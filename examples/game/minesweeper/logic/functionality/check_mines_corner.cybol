@@ -15,7 +15,7 @@
     </node>
     <node name="get_mine_path" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.mine_path"/>
-        <node name="source" channel="inline" format="plain/text" model=":down"/>
+        <node name="source" channel="inline" format="text/plain" model=":down"/>
     </node>
     <node name="get_mine_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.mine_path"/>
@@ -23,7 +23,7 @@
     </node>
     <node name="get_mine_path" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.mine_path"/>
-        <node name="source" channel="inline" format="plain/text" model=":mine"/>
+        <node name="source" channel="inline" format="text/plain" model=":mine"/>
     </node>
 
     <node name="check_mine" channel="inline" format="modify/overwrite" model="">
@@ -48,7 +48,7 @@
     </node>
     <node name="get_mine_path" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.mine_path"/>
-        <node name="source" channel="inline" format="plain/text" model=":right"/>
+        <node name="source" channel="inline" format="text/plain" model=":right"/>
     </node>
     <node name="get_mine_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.mine_path"/>
@@ -56,7 +56,7 @@
     </node>
     <node name="get_mine_path" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.mine_path"/>
-        <node name="source" channel="inline" format="plain/text" model=":mine"/>
+        <node name="source" channel="inline" format="text/plain" model=":mine"/>
     </node>
 
     <node name="check_mine" channel="inline" format="modify/overwrite" model="">
@@ -81,7 +81,7 @@
     </node>
     <node name="get_mine_path" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.mine_path"/>
-        <node name="source" channel="inline" format="plain/text" model=":down"/>
+        <node name="source" channel="inline" format="text/plain" model=":down"/>
     </node>
     <node name="get_mine_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.mine_path"/>
@@ -89,7 +89,7 @@
     </node>
     <node name="get_mine_path" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.mine_path"/>
-        <node name="source" channel="inline" format="plain/text" model=":right"/>
+        <node name="source" channel="inline" format="text/plain" model=":right"/>
     </node>
     <node name="get_mine_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.mine_path"/>
@@ -97,7 +97,7 @@
     </node>
     <node name="get_mine_path" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.mine_path"/>
-        <node name="source" channel="inline" format="plain/text" model=":mine"/>
+        <node name="source" channel="inline" format="text/plain" model=":mine"/>
     </node>
 
     <node name="check_mine" channel="inline" format="modify/overwrite" model="">

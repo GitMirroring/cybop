@@ -48,7 +48,8 @@
 void serialise_model_diagram_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise model diagram part.");
-    //?? fwprintf(stdout, L"Debug: Serialise model diagram part. r: %i\n", r);
+    //?? fwprintf(stdout, L"Debug: Serialise model diagram part. tree level p4: %i\n", p4);
+    //?? fwprintf(stdout, L"Debug: Serialise model diagram part. tree level *p4: %i\n", *((int*) p4));
 
     //
     // The new tree level.

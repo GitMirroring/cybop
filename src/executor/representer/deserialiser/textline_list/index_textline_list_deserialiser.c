@@ -52,8 +52,8 @@
 void deserialise_textline_list_index(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise textline list index.");
-    fwprintf(stdout, L"Debug: Deserialise textline list index. textline count p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise textline list index. textline count *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise textline list index. textline count p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise textline list index. textline count *p2: %i\n", *((int*) p2));
 
     // The index item.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -86,8 +86,6 @@ void deserialise_textline_list_index(void* p0, void* p1, void* p2, void* p3) {
 
     // Deallocate index item.
     deallocate_item((void*) &i, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-    fwprintf(stdout, L"Debug: Deserialise textline list index. END p2: %i\n", p2);
 }
 
 /* INDEX_TEXTLINE_LIST_DESERIALISER_SOURCE */
