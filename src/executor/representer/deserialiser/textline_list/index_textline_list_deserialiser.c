@@ -86,6 +86,8 @@ void deserialise_textline_list_index(void* p0, void* p1, void* p2, void* p3) {
 
     // Deallocate index item.
     deallocate_item((void*) &i, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+    fwprintf(stdout, L"Debug: Deserialise textline list index. END p2: %i\n", p2);
 }
 
 /* INDEX_TEXTLINE_LIST_DESERIALISER_SOURCE */

@@ -29,8 +29,10 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
+#include "../../../../executor/logifier/boolean/or_boolean_logifier.c"
 #include "../../../../executor/representer/deserialiser/textline_list/index_textline_list_deserialiser.c"
 #include "../../../../executor/selector/newline/newline_selector.c"
 #include "../../../../logger/logger.c"
@@ -55,12 +57,33 @@ void deserialise_textline_list_element(void* p0, void* p1, void* p2, void* p3, v
         fwprintf(stdout, L"Debug: Deserialise textline list element. source count remaining p2: %i\n", p2);
         fwprintf(stdout, L"Debug: Deserialise textline list element. source count remaining *p2: %i\n", *((int*) p2));
 
-        // The textline end flag.
+        // The newline flag.
+        int n = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        // The end flag.
         int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        // The comparison result.
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        select_newline((void*) &e, p1, p2, p4);
+        // Check for newline sequence.
+        select_newline((void*) &n, p1, p2, p4);
+        //
+        // Check for source data end.
+        //
+        // CAUTION! The LAST line is NOT always followed by a
+        // newline sequence. But in order to process it correctly,
+        // a source data end check has to be performed here.
+        //
+        // CAUTION! Do this check only AFTER having called function
+        // "select_newline" above, so that the source count remaining
+        // is already decremented to ZERO and the END can be detected here.
+        //
+        compare_integer_less_or_equal((void*) &e, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        // Initialise comparison result.
+        copy_integer((void*) &r, (void*) &n);
+        // Apply logic OR to both results.
+        logify_boolean_or((void*) &r, (void*) &e);
 
-        if (e != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Serialise loop index to be used as part name.
             deserialise_textline_list_index(p0, *td, p4, p5);
@@ -79,12 +102,15 @@ void deserialise_textline_list_element(void* p0, void* p1, void* p2, void* p3, v
             copy_integer(p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
 
+        fwprintf(stdout, L"Debug: Deserialise textline list element. END p2: %i\n", p2);
+
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise textline list element. The textline data is null.");
-        fwprintf(stdout, L"Error: Could not deserialise textline list element. The textline data is null. source count remaining p2: %i\n", p2);
-        fwprintf(stdout, L"Error: Could not deserialise textline list element. The textline data is null. source count remaining *p2: %i\n", *((int*) p2));
+        fwprintf(stdout, L"Error: Could not deserialise textline list element. The textline data is null. textline data p3: %i\n", p3);
     }
+
+    fwprintf(stdout, L"Debug: Deserialise textline list element. OUTSIDE END p2: %i\n", p2);
 }
 
 /* ELEMENT_TEXTLINE_LIST_DESERIALISER_SOURCE */

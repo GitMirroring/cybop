@@ -21,6 +21,7 @@
 2022-08-13  Christian Heller  <christian.heller@cybop.org>
 
         * Add cybol application "serialisation/textline_list/"
+        * Complete textline list deserialiser
 
 2022-08-12  Christian Heller  <christian.heller@cybop.org>
 

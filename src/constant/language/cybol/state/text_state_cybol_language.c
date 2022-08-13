@@ -189,6 +189,16 @@ static wchar_t* MODEL_DIAGRAM_TEXT_STATE_CYBOL_LANGUAGE = L"text/model-diagram";
 static int* MODEL_DIAGRAM_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The text/textline-list text state cybol language.
+ *
+ * A text made up of potentially many lines.
+ *
+ * Suffixes: txt
+ */
+static wchar_t* TEXTLINE_LIST_TEXT_STATE_CYBOL_LANGUAGE = L"text/textline-list";
+static int* TEXTLINE_LIST_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The text/uri text state cybol language.
  *
  * CYBOL (XML)

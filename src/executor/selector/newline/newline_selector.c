@@ -27,10 +27,18 @@
 #define NEWLINE_SELECTOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/text/newline_text_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/calculator/integer/add_integer_calculator.c"
+#include "../../../executor/copier/integer_copier.c"
+#include "../../../executor/detector/detector.c"
+#include "../../../executor/mover/mover.c"
 #include "../../../logger/logger.c"
 
 /**
- * Detects a newline (line end) sequence OR the end of the source data.
+ * Detects a newline (line end) sequence.
  *
  * It may be one of the following:
  * - line feed (unix)
@@ -87,27 +95,6 @@ void select_newline(void* p0, void* p1, void* p2, void* p3) {
         detect((void*) &r, p1, p2, (void*) MACINTOSH_NEWLINE_TEXT_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MACINTOSH_NEWLINE_TEXT_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Set newline found flag.
-            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_less_or_equal((void*) &r, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //
-            // The end of the source data has been reached.
-            //
-            // CAUTION! This check is important, since the LAST field (value)
-            // of character (comma) separated values (csv) data,
-            // for example, does NOT always have a newline sequence.
-            // But in order to process the value correctly, the
-            // newline found flag has to be SET in this case, too.
-            //
 
             // Set newline found flag.
             copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

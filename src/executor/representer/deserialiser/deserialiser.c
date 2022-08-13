@@ -42,6 +42,7 @@
 #include "../../../executor/representer/deserialiser/http_response/http_response_deserialiser.c"
 #include "../../../executor/representer/deserialiser/joined_string/joined_string_deserialiser.c"
 #include "../../../executor/representer/deserialiser/json/json_deserialiser.c"
+#include "../../../executor/representer/deserialiser/textline_list/textline_list_deserialiser.c"
 #include "../../../executor/representer/deserialiser/tui/tui_deserialiser.c"
 #include "../../../executor/representer/deserialiser/uri/uri_deserialiser.c"
 #include "../../../executor/representer/deserialiser/xdt/xdt_deserialiser.c"
@@ -237,7 +238,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? deserialise_csv(p0, p1, p2, p3, p19);
+            //?? deserialise_csv(p0, p1, p2, p3, p7, p8, p15, p16, p17);
         }
     }
 
@@ -288,6 +289,16 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             deserialise_xdt(p0, p1, p2, p3, p19);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p19, (void*) TEXTLINE_LIST_TEXT_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_textline_list(p0, p2, p3);
         }
     }
 

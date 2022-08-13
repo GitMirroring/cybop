@@ -69,6 +69,8 @@ void deserialise_textline_list(void* p0, void* p1, void* p2) {
     // Its reference is forwarded, as it gets incremented by sub routines inside.
     //
     deserialise_textline_list_content(p0, (void*) &d, (void*) &c);
+
+    fwprintf(stdout, L"Debug: Deserialise textline list. END p2: %i\n", p2);
 }
 
 /* TEXTLINE_LIST_DESERIALISER_SOURCE */

@@ -87,6 +87,7 @@ void deserialise_textline_list_content(void* p0, void* p1, void* p2) {
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            // Leave loop.
             break;
 
         } else {
@@ -98,6 +99,8 @@ void deserialise_textline_list_content(void* p0, void* p1, void* p2) {
         // Increment loop variable.
         j++;
     }
+
+    fwprintf(stdout, L"Debug: Deserialise textline list content. END p2: %i\n", p2);
 }
 
 /* CONTENT_TEXTLINE_LIST_DESERIALISER_SOURCE */

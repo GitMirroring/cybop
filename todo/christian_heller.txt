@@ -20,7 +20,7 @@ ___
 CSV Deserialiser
 ________________
 
-        * Complete textline list deserialiser
+        * Test textline list deserialiser
         * Simplify csv deserialiser using textline list deserialiser
 
         * Replace language constraint properties in all cybol applications using the cybol operation categories "represent/" or "communicate/"
@@ -35,6 +35,10 @@ ________________
 
         * Provide boolean cybol property "references" to enable/disable translation of character references when generating html, so that line breaks remain untouched in api documentation
         * Adapt COUNT of html entity reference constants and deserialisation, since there are some entities consisting of not only one but TWO characters, so that the count should be TWO
+
+        * Add joined string serialiser
+        * Add textline list serialiser
+        * Add csv serialiser
 
 Numeral Deserialiser
 ____________________

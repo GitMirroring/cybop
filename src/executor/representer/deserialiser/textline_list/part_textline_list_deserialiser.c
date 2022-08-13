@@ -86,6 +86,8 @@ void deserialise_textline_list_part(void* p0, void* p1, void* p2, void* p3, void
     // This is necessary in order to activate rubbish (garbage) collection.
     //
     modify_item(p0, (void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    fwprintf(stdout, L"Debug: Deserialise textline list part. END p2: %i\n", p2);
 }
 
 /* PART_TEXTLINE_LIST_DESERIALISER_SOURCE */
