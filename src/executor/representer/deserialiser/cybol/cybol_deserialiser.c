@@ -429,7 +429,13 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol. The format is unknown.");
+        //
+        // CAUTION! Do NOT log this warning.
+        // The source is unknown for LOGIC formats.
+        //
+        // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol. The format is unknown.");
+        // fwprintf(stdout, L"Warning: Could not deserialise cybol. The format is unknown. format p4: %i\n", p4);
+        // fwprintf(stdout, L"Warning: Could not deserialise cybol. The format is unknown. format *p4: %i\n", *((int*) p4));
     }
 }
 

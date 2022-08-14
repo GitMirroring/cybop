@@ -31,7 +31,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
-#include "../../../../executor/representer/deserialiser/joined_string/index_joined_string_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/joined_string/list_joined_string_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -54,8 +54,8 @@
 void deserialise_csv_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise csv record.");
-    fwprintf(stdout, L"Debug: Deserialise csv record. record count p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise csv record. record count *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Deserialise csv record. source textline model count p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Deserialise csv record. source textline model count *p2: %i\n", *((int*) p2));
 
     // The source data position.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -78,7 +78,7 @@ void deserialise_csv_record(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
     //
-    deserialise_joined_string_index(p0, (void*) &d, (void*) &c, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+    deserialise_joined_string_list(p0, (void*) &d, (void*) &c, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
 }
 
 /* RECORD_CSV_DESERIALISER_SOURCE */

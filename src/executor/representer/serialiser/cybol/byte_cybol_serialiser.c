@@ -39,9 +39,9 @@
 /**
  * Serialises byte numbers (unsigned char) into wide character data.
  *
- * @param p0 the destination item
- * @param p1 the source data
- * @param p2 the source count
+ * @param p0 the destination wide character item
+ * @param p1 the source byte data
+ * @param p2 the source byte count
  */
 void serialise_cybol_byte(void* p0, void* p1, void* p2) {
 

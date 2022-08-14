@@ -42,8 +42,8 @@
 /**
  * Serialises the cyboi encoding into a cybol encoding.
  *
- * @param p0 the destination item
- * @param p1 the source data
+ * @param p0 the destination cybol encoding item
+ * @param p1 the source cyboi encoding data
  */
 void serialise_cybol_encoding(void* p0, void* p1) {
 
@@ -414,7 +414,9 @@ void serialise_cybol_encoding(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol encoding. The cyboi encoding is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol encoding. The source cyboi encoding is unknown.");
+        fwprintf(stdout, L"Warning: Could not serialise cybol encoding. The source cyboi encoding is unknown. cyboi encoding p1: %i\n", p1);
+        fwprintf(stdout, L"Warning: Could not serialise cybol encoding. The source cyboi encoding is unknown. cyboi encoding *p1: %i\n", *((int*) p1));
     }
 }
 

@@ -38,8 +38,8 @@
 /**
  * Serialises the cyboi runtime type into a cyboi format.
  *
- * @param p0 the destination item
- * @param p1 the source data
+ * @param p0 the destination cyboi format item
+ * @param p1 the source cyboi type data
  */
 void serialise_cybol_type(void* p0, void* p1) {
 
@@ -207,7 +207,9 @@ void serialise_cybol_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol type. The cyboi type is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol type. The source cyboi type is unknown.");
+        fwprintf(stdout, L"Warning: Could not serialise cybol type. The source cyboi type is unknown. cyboi type p1: %i\n", p1);
+        fwprintf(stdout, L"Warning: Could not serialise cybol type. The source cyboi type is unknown. cyboi type *p1: %i\n", *((int*) p1));
     }
 }
 

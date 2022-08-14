@@ -38,7 +38,7 @@
 /**
  * Deserialises the cyboi format into a cyboi runtime type.
  *
- * @param p0 the destination cyboi runtime type item
+ * @param p0 the destination cyboi type item
  * @param p1 the source cyboi format data
  */
 void deserialise_cybol_type(void* p0, void* p1) {
@@ -439,7 +439,13 @@ void deserialise_cybol_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol type. The given format is unknown.");
+        //
+        // CAUTION! Do NOT log this warning.
+        // The source is unknown for LOGIC formats.
+        //
+        // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol type. The source cyboi format is unknown.");
+        // fwprintf(stdout, L"Warning: Could not deserialise cybol type. The source cyboi format is unknown. cyboi format p1: %i\n", p1);
+        // fwprintf(stdout, L"Warning: Could not deserialise cybol type. The source cyboi format is unknown. cyboi format *p1: %i\n", *((int*) p1));
     }
 }
 

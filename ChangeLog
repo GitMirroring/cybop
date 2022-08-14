@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-08-14  Christian Heller  <christian.heller@cybop.org>
+
+        * Enable csv deserialiser in file "deserialiser.c"
+        * Add warning log messages to cybol deserialiser files
+
 2022-08-13  Christian Heller  <christian.heller@cybop.org>
 
         * Add cybol application "serialisation/textline_list/"

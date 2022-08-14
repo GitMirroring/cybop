@@ -58,7 +58,6 @@
 #include "../../../../executor/representer/serialiser/cybol/element_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/encoding_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/format_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/fraction_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/language_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/type_cybol_serialiser.c"
 #include "../../../../logger/logger.c"
@@ -363,7 +362,7 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p8);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_integer(p0, p8, p9, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+            //?? serialise_cybol_fraction_vulgar(p0, p8, p9, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 
@@ -428,16 +427,8 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p8);
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
-        // The functions above are for STATE models only.
-        //
-        // CAUTION! Do NOT log a warning message here,
-        // since logic models do not get serialised above
-        // on purpose and would cause many messages.
-        //
-        // CYBOL logic operations have an EMPTY model.
-        // Hence, they do NOT have to be considered here.
-        // They are detected via their "format" xml attribute.
-        // Their parametres are converted from cybol properties.
+        // CAUTION! Do NOT log this warning.
+        // The source is unknown for LOGIC formats.
         //
         // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol. The format is unknown.");
         // fwprintf(stdout, L"Debug: Could not serialise cybol. The format is unknown. format p6: %i\n", p6);

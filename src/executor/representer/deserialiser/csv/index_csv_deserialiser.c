@@ -62,8 +62,8 @@
 void deserialise_csv_index(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise csv index.");
-    fwprintf(stdout, L"Debug: Deserialise csv index. record count p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Deserialise csv index. record count *p3: %i\n", *((int*) p3));
+    fwprintf(stdout, L"Debug: Deserialise csv index. source textline model count p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Deserialise csv index. source textline model count *p2: %i\n", *((int*) p2));
 
     // The index item.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -92,9 +92,18 @@ void deserialise_csv_index(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     //
     // CAUTION! Hand over unchanged STANDARD index.
     //
-    deserialise_csv_part(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, id, ic);
+    //?? deserialise_csv_part(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, id, ic);
 
+    //
     // Deallocate index item.
+    //
+    // CAUTION! The item data array gets EMPTIED automatically inside,
+    // so that all contained elements get removed and their
+    // REFERENCE count decremented for rubbish (garbage) collection.
+    // That is, the elements and their contained elements get deallocated
+    // automatically as well, in case their reference counter has fallen to ZERO.
+    // Therefore, there is NOTHING else to do here.
+    //
     deallocate_item((void*) &i, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 

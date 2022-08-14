@@ -43,8 +43,8 @@
 /**
  * Serialises the cyboi runtime language into a cybol language.
  *
- * @param p0 the destination item
- * @param p1 the source data
+ * @param p0 the destination cybol language item
+ * @param p1 the source cyboi language data
  */
 void serialise_cybol_language(void* p0, void* p1) {
 
@@ -475,7 +475,9 @@ void serialise_cybol_language(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol language. The cyboi language is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol language. The source cyboi language is unknown.");
+        fwprintf(stdout, L"Warning: Could not serialise cybol language. The source cyboi language is unknown. cyboi language p1: %i\n", p1);
+        fwprintf(stdout, L"Warning: Could not serialise cybol language. The source cyboi language is unknown. cyboi language *p1: %i\n", *((int*) p1));
     }
 }
 

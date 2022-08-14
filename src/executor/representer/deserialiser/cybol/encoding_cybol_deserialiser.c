@@ -43,9 +43,9 @@
 /**
  * Deserialises the cybol encoding into a cyboi encoding.
  *
- * @param p0 the destination item
- * @param p1 the source data
- * @param p2 the source count
+ * @param p0 the destination cyboi encoding item
+ * @param p1 the source cybol encoding data
+ * @param p2 the source cybol encoding count
  */
 void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
@@ -426,7 +426,14 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol encoding. The source encoding is unknown.");
+        //
+        // CAUTION! Do NOT log this warning.
+        // The source may be NULL in some cases.
+        //
+        // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol encoding. The source cybol encoding is unknown.");
+        // fwprintf(stdout, L"Warning: Could not deserialise cybol encoding. The source cybol encoding is unknown. cybol encoding p1: %ls\n", (wchar_t*) p1);
+        // fwprintf(stdout, L"Warning: Could not deserialise cybol encoding. The source cybol encoding is unknown. cybol encoding p2: %i\n", p2);
+        // fwprintf(stdout, L"Warning: Could not deserialise cybol encoding. The source cybol encoding is unknown. cybol encoding *p2: %i\n", *((int*) p2));
     }
 }
 

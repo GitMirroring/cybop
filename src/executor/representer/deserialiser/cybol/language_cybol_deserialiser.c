@@ -42,9 +42,9 @@
 /**
  * Deserialises the cybol language mime type into cyboi-internal language integer.
  *
- * @param p0 the destination item
- * @param p1 the source data
- * @param p2 the source count
+ * @param p0 the destination cyboi language item
+ * @param p1 the source cybol language data
+ * @param p2 the source cybol language count
  */
 void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
@@ -478,7 +478,10 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol language. The language is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol language. The source cybol language is unknown.");
+        fwprintf(stdout, L"Warning: Could not deserialise cybol language. The source cybol language is unknown. cybol language p1: %ls\n", (wchar_t*) p1);
+        fwprintf(stdout, L"Warning: Could not deserialise cybol language. The source cybol language is unknown. cybol language p2: %i\n", p2);
+        fwprintf(stdout, L"Warning: Could not deserialise cybol language. The source cybol language is unknown. cybol language *p2: %i\n", *((int*) p2));
     }
 }
 

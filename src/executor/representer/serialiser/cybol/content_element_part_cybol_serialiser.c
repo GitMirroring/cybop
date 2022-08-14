@@ -104,8 +104,6 @@ void serialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol part element content.");
 
-    //?? Test for root node ??
-
     // The destination part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The destination part model, properties item.

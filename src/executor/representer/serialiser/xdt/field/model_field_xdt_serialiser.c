@@ -40,7 +40,7 @@
 #include "../../../../../executor/representer/serialiser/xdt/duration/hhmmhhmm/hhmmhhmm_duration_xdt_serialiser.c"
 #include "../../../../../executor/representer/serialiser/xdt/duration/yyyy/yyyy_duration_xdt_serialiser.c"
 #include "../../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
-#include "../../../../../executor/representer/serialiser/cybol/fraction_cybol_serialiser.c"
+#include "../../../../../executor/representer/serialiser/cybol/fraction/decimal/decimal_fraction_cybol_serialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**

@@ -65,8 +65,8 @@
 void deserialise_csv_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise csv part.");
-    fwprintf(stdout, L"Debug: Deserialise csv part. record count p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise csv part. record count *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Deserialise csv part. source textline model count p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Deserialise csv part. source textline model count *p2: %i\n", *((int*) p2));
 
     // The record (row) part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -97,7 +97,7 @@ void deserialise_csv_part(void* p0, void* p1, void* p2, void* p3, void* p4, void
     deserialise_csv_record(pm, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
 
     //
-    // Append record (row) part to destination model item.
+    // Append record (row) part to destination item.
     //
     // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
     // This is necessary in order to activate rubbish (garbage) collection.
