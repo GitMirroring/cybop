@@ -39,8 +39,10 @@
 #include "../../executor/copier/integer_copier.c"
 #include "../../executor/memoriser/reallocator/array_reallocator.c"
 #include "../../executor/referencer/referencer.c"
+//
 // CAUTION! Do NOT include the logger here.
 // It uses functions causing circular references.
+//
 
 /**
  * Overwrites the destination- with the source array,

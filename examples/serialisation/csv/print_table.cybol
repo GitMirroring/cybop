@@ -20,7 +20,7 @@
 
     <node name="count_rows" channel="inline" format="access/count" model="">
         <node name="count" channel="inline" format="text/cybol-path" model="#row_count"/>
-        <node name="part" channel="inline" format="text/cybol-path" model="#model"/>
+        <node name="part" channel="inline" format="text/cybol-path" model="*#table"/>
     </node>
     <node name="TEST_count" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>

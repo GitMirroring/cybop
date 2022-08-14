@@ -36,11 +36,14 @@
             <node name="header" channel="inline" format="text/cybol-path" model="#header"/>
         </node>
         <!--
-            A possibly existing header will be written into the destination message properties.
+            CAUTION! A possibly existing header will be written into the destination message PROPERTIES.
             There is NO need to specify the cybol property "header" as sub node of "message" here,
             since it is generated under that name automatically by the deserialiser inside.
+
+            CAUTION! The message has to be part of the HEAP memory,
+            since it would not be extensible if lying on the stack.
         -->
-        <node name="message" channel="inline" format="text/cybol-path" model="#table"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="*#table"/>
     </node>
     <node name="close_file" channel="inline" format="dispatch/close" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>

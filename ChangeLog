@@ -22,6 +22,7 @@
 
         * Enable csv deserialiser in file "deserialiser.c"
         * Add warning log messages to cybol deserialiser files
+        * Debug memory error caused by wrong type in row part allocation of csv deserialiser
 
 2022-08-13  Christian Heller  <christian.heller@cybop.org>
 

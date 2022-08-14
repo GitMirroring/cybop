@@ -85,17 +85,15 @@ void deserialise_csv(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
     deserialise_csv_properties(p0, p1, ld, lc, p4, p5, p6, p7, p8);
 
     //
-    //?? TODO:
-    //
-    // Do the child parts have to be deallocated here BEFORE calling
-    // function "deallocate_item" OR does GC does this automatically?
-    // At least REMOVE child parts, so that GC reference gets decremented?
-    //
-    // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
-    // This is necessary in order to activate rubbish (garbage) collection.
-    //
-
     // Deallocate textline list item.
+    //
+    // CAUTION! The item data array gets EMPTIED automatically inside,
+    // so that all contained elements get removed and their
+    // REFERENCE count decremented for rubbish (garbage) collection.
+    // That is, the elements and their contained elements get deallocated
+    // automatically as well, in case their reference counter has fallen to ZERO.
+    // Therefore, there is NOTHING else to do here.
+    //
     deallocate_item((void*) &l, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 }
 

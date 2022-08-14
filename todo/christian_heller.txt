@@ -21,9 +21,9 @@ CSV Deserialiser
 ________________
 
         * Test csv deserialiser using cybol application "serialisation/csv/"
+        * Debug error in cybol application "serialisation/csv/"
         * Find and debug reason for terminal log message "Debug: ITEM_REFERENCE_COUNTER END: -9" with cybol application "serialisation/textline_list/"
-        * Experiment with model on stack or in heap
-        * Check if garbage collection works for parts on stack
+            valgrind is FINE, all ok, just internal ITEM_REFERENCE_COUNTER is negative
 
         * Replace language constraint properties in all cybol applications using the cybol operation categories "represent/" or "communicate/"
             they should not be properties of the operation anymore, but (constraint) properties of the property "language" instead

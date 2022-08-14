@@ -57,8 +57,8 @@
 void deserialise_csv_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise csv content.");
-    fwprintf(stdout, L"Debug: Deserialise csv content. source textline list count p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Deserialise csv content. source textline list count *p3: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"Debug: Deserialise csv content. source textline list count p3: %i\n", p3);
+    //?? fwprintf(stdout, L"Debug: Deserialise csv content. source textline list count *p3: %i\n", *((int*) p3));
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
