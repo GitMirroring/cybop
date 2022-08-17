@@ -1,13 +1,24 @@
 <node>
 
-    <!-- Write stack into file. -->
-    <node name="test_stack" channel="inline" format="communicate/send" model="">
+    <!-- Testing (stack) -->
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="knowledge_tree/cybol-path_2/test_stack.txt"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
+    </node>
+    <node name="send_stack" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model="#"/>
-        <node name="receiver" channel="inline" format="text/plain" model="test_cybol-path_2_stack.txt"/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
     <!-- a -->
@@ -88,7 +99,7 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Test 05. Path: .b.[.[.d]] Expected result: b"/>
+        <node name="message" channel="inline" format="text/plain" model="Test 05. Path: .b.[.b.[.d]] Expected result: b"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="test_nested_index" channel="inline" format="communicate/send" model="">
@@ -96,7 +107,7 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".b.[.[.d]]"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".b.[.b:[.d]]"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
@@ -160,7 +171,7 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Test 09. Path: *.h Expected result: .b.d:p"/>
+        <node name="message" channel="inline" format="text/plain" model="Test 09. Path: {.h} Expected result: .b.d:p"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="test_simple_reference" channel="inline" format="communicate/send" model="">
@@ -168,7 +179,7 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/cybol-path" model="*.h"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="{.h}"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
@@ -178,7 +189,7 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Test 10. Path: **.h Expected result: p"/>
+        <node name="message" channel="inline" format="text/plain" model="Test 10. Path: {{.h}} Expected result: p"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="test_double_reference" channel="inline" format="communicate/send" model="">
@@ -186,7 +197,7 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/cybol-path" model="**.h"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="{{.h}}"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
@@ -232,7 +243,7 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Test 13. Path: **#z Expected result: p"/>
+        <node name="message" channel="inline" format="text/plain" model="Test 13. Path: {{#z}} Expected result: p"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="test_double_reference_stack" channel="inline" format="communicate/send" model="">
@@ -240,7 +251,7 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/cybol-path" model="**#z"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="{{#z}}"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
@@ -250,7 +261,7 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Test 14. Path: .b.d:(**#z) Expected result: p"/>
+        <node name="message" channel="inline" format="text/plain" model="Test 14. Path: .b.d:({{#z}}) Expected result: p"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="test_double_reference_stack_name" channel="inline" format="communicate/send" model="">
@@ -258,7 +269,7 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".b.d:(**#z)"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".b.d:({{#z}})"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 

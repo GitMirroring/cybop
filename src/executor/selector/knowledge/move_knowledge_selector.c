@@ -38,9 +38,9 @@
  * @param p0 the knowledge path data position (pointer reference)
  * @param p1 the knowledge path count remaining
  * @param p2 the source whole part element index:
- *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
- *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties
- *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for stack variables
+ *           - MODEL_PART_STATE_CYBOI_NAME for structural parts on heap
+ *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties on heap
+ *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for variables on stack
  *           - *NULL_POINTER_STATE_CYBOI_MODEL if none of the above applies
  * @param p3 the knowledge path end flag
  * @param p4 the name count
@@ -55,12 +55,13 @@ void select_knowledge_move(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         //
         // The source whole part element index is NOT null.
         //
-        // That is, this is the FIRST time that this function is called
-        // from "deserialise_knowledge_part" via "deserialise_knowledge_name",
+        // That is, a "." or ":" or "#" HAS been detected before.
+        //
+        // This is the FIRST time that this function is called
         // in order to deserialise a whole (parent) node.
         //
-        // Therefore, the move flag MUST NOT be set here,
-        // so that the delimiters ")" and "]" may be detected once again.
+        // Therefore, the move flag MUST NOT be set here, so that
+        // the delimiters ")" and "]" may be detected once again.
         //
 
         select_knowledge_end(p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4, p5);
@@ -70,12 +71,11 @@ void select_knowledge_move(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         //
         // The source whole part element index is NULL.
         //
-        // That is, this is the SECOND time that this function is called
-        // from "deserialise_knowledge_part" via "deserialise_knowledge_name"
+        // This is the SECOND time that this function is called
         // in order to deserialise an element (child) node.
         //
-        // Therefore, the move flag HAS TO BE set here,
-        // so that the delimiters ")" and "]" are NOT detected once again and
+        // Therefore, the move flag HAS TO BE set here, so that
+        // the delimiters ")" and "]" are NOT detected once again and
         // further characters may get processed down the knowledge path hierarchy.
         //
 

@@ -1,9 +1,17 @@
 <node>
 
+    <!-- Terminal -->
+
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+
+    <!-- Test variables -->
+
     <node name="a" channel="inline" format="text/plain" model="a"/>
 
     <node name="b" channel="file" format="element/part" model="knowledge_tree/cybol-path_2/b.cybol">
         <node name="a" channel="inline" format="text/plain" model="a"/>
+        <node name="b" channel="inline" format="text/plain" model="b"/>
+        <node name="c" channel="inline" format="number/integer" model="1"/>
     </node>
 
     <node name="c" channel="inline" format="number/integer" model="1"/>

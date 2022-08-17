@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-08-17  Christian Heller  <christian.heller@cybop.org>
+
+        * Extend knowledge path syntax by replacing * with {} for references
+        * Adapt cybol applications in directory "knowledge_tree/"
+
 2022-08-14  Christian Heller  <christian.heller@cybop.org>
 
         * Enable csv deserialiser in file "deserialiser.c"

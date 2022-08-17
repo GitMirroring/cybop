@@ -48,9 +48,10 @@ void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, voi
  * @param p5 the stack memory item
  * @param p6 the internal memory data
  * @param p7 the source whole part element index:
- *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
- *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties
- *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for stack variables
+ *           - MODEL_PART_STATE_CYBOI_NAME for structural parts on heap
+ *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties on heap
+ *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for variables on stack
+ *           - *NULL_POINTER_STATE_CYBOI_MODEL if none of the above applies
  */
 void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
@@ -146,10 +147,10 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
                 // The element (child) could NOT be retrieved.
                 //
                 // Reasons might be:
-                // 1) a spelling error
-                // 2) the element (child) does not exist
+                // 1) a SPELLING error
+                // 2) the element (child) does NOT EXIST
                 //
-                // Case 2 may be regular behaviour in a cybol application
+                // Case 2 may be REGULAR behaviour in a cybol application
                 // since sometimes, knowledge paths may point to non-existing nodes.
                 //
 
@@ -182,8 +183,8 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
         //
         // The whole (parent) does not exist.
         //
-        // This may be regular behaviour in a cybol application
-        // since sometimes, knowledge paths may point to non-existing nodes.
+        // This may be REGULAR behaviour in a cybol application since
+        // sometimes, knowledge paths may point to NON-EXISTING nodes.
         //
         // REMARK: In order to keep the log file size low,
         // the following log messages are commented out.

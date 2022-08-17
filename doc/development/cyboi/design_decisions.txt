@@ -604,12 +604,15 @@ MIME Type for cybol knowledge paths: "text/cybol-path"
 Symbols:
 
 #   stack memory
-.   knowledge memory model
-:   knowledge memory properties
-|   signal memory
-*   part identified by reference, which reads the given path containing another path pointing to the actual model
-()  part identified by name, which is given as path to a model of format "text/plain"
+.   knowledge memory model (heap)
+:   knowledge memory properties (heap)
+|   signal memory (message | event queue)
+()  part identified by name, which is given as path to a model of format "text/cybol-path", which internally is treated like format "text/plain"
 []  part identified by index, which is given as path to a model of format "number/integer"
+{}  part identified by reference, which reads the given path containing another path pointing to the actual model
+    OLD: *
+
+Paths using these symbols can be nested.
 
 Memory Examples:
 
@@ -623,8 +626,11 @@ Simple Examples:
 #variable_on_stack
 .path.to.model
 .path.to:property
-*.part.containing.path
-**.double_reference.child_node
+{.part.containing.path}
+    OLD: *.part.containing.path
+{{.double_reference.child_node}}
+    OLD: **.double_reference.child_node
+{#table}.[#row_index].[#column_index]
 
 Part Access Examples:
 
@@ -635,19 +641,19 @@ Part Access Examples:
 .[.path.to.index_as_integer].some.child
 .[.x.[.y]]
 
-It is also permitted to give a string as index:
-.model.[5]
-
 Complex Examples:
 
 .[.path.to.index_as_integer]
-.[*#reference_to_an_index_on_stack]
-:[**:some_property.subnode]
+.[{#reference_to_an_index_on_stack}]
+    OLD: .[*#reference_to_an_index_on_stack]
+:[{{:some_property.subnode}}]
+    OLD: :[**:some_property.subnode]
 .app.addresses.[#loop_index]
 .app.model.[.app.var.dialogue_number].label
-**.part#property.[#index_on_stack].[*.node.index].node.(.node.name.(.nested.path.node)).(**.double_reference.node).link
+{{.part#property.[#index_on_stack].[*.node.index].node.(.node.name.(.nested.path.node)).(**.double_reference.node).link}}
+    OLD: **.part#property.[#index_on_stack].[*.node.index].node.(.node.name.(.nested.path.node)).(**.double_reference.node).link
 
-CAUTION! It is NOT permitted to give an integer literal as index, e.g.: .model.[5]
+CAUTION! It is NOT permitted to give an integer literal (string) as index, e.g.: .model.[5]
 
 Reasons:
 

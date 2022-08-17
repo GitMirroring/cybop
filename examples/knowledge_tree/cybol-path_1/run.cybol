@@ -1,35 +1,71 @@
 <node>
 
+    <!-- Creation -->
+
+    <node name="create_id" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="id"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+    <node name="create_terminal" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="stdout"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
     <node name="create_test" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="test"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
     </node>
+
+    <!-- Opening (terminal) -->
+
+    <node name="open_stdout" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="device" channel="inline" format="text/plain" model="standard-output"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
+    </node>
+
+    <!-- Initialisation -->
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="knowledge_tree/cybol-path_1/test.cybol"/>
+    </node>
     <node name="initialise_test" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/plain" model="knowledge_tree/cybol-path_1/test.cybol"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".test"/>
     </node>
-
-    <!-- Write knowledge tree into file. -->
-    <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+    <!-- Testing (knowledge tree) -->
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="knowledge_tree/cybol-path_1/test_knowledge.txt"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
+    </node>
+    <node name="send_knowledge" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".test"/>
-        <node name="receiver" channel="inline" format="text/plain" model="test_cybol-path_1.txt"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
-    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    </node>
+    <!-- Testing (knowledge path with node names) -->
 
-    <!--
-        Test knowledge path with node names.
-    -->
     <node name="print_node3_label" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
@@ -121,15 +157,14 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    <!--
-        Test knowledge path with name of NON-existing node.
-    -->
+    <!-- Testing (knowledge path with name of NON-existing node) -->
+
     <node name="print_node1_nodex_label" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Test .test.node1.nodex: "/>
+        <node name="message" channel="inline" format="text/plain" model="Test .test.node1.nodex (should be empty, since NULL): "/>
     </node>
     <node name="print_node1_nodex" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -140,9 +175,8 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    <!--
-        Test reference path.
-    -->
+    <!-- Testing (reference path) -->
+
     <node name="print_knowledge_label" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
@@ -170,9 +204,13 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/cybol-path"/>
-        <node name="message" channel="inline" format="text/cybol-path" model="*.test.reference"/>
+        <!-- OLD: <node name="message" channel="inline" format="text/cybol-path" model="*.test.reference"/> -->
+        <!-- NEW: <node name="message" channel="inline" format="text/cybol-path" model="{.test.reference}"/> -->
+        <node name="message" channel="inline" format="text/cybol-path" model="{.test.reference}"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+
+    <!-- Shutdown -->
 
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
 

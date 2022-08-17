@@ -52,9 +52,10 @@
  * @param p5 the stack memory item
  * @param p6 the internal memory data
  * @param p7 the source whole part element index:
- *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
- *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties
- *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for stack variables
+ *           - MODEL_PART_STATE_CYBOI_NAME for structural parts on heap
+ *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties on heap
+ *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for variables on stack
+ *           - *NULL_POINTER_STATE_CYBOI_MODEL if none of the above applies
  * @param p8 the knowledge path end flag
  */
 void select_knowledge_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
@@ -82,7 +83,7 @@ void select_knowledge_begin(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // The "#" indicates that a stack variable name begins.
+            // The "#" indicates that a STACK variable name begins.
             //
 
             deserialise_knowledge_part(p0, p1, p2, p3, p4, p5, p6, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
@@ -96,7 +97,7 @@ void select_knowledge_begin(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // The "." indicates that a sub part's model begins.
+            // The "." indicates that a sub part's MODEL begins.
             //
 
             deserialise_knowledge_part(p0, p1, p2, p3, p4, p5, p6, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -110,7 +111,7 @@ void select_knowledge_begin(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // The ":" indicates that a sub part's property begins.
+            // The ":" indicates that a sub part's PROPERTY begins.
             //
 
             deserialise_knowledge_part(p0, p1, p2, p3, p4, p5, p6, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
@@ -124,9 +125,10 @@ void select_knowledge_begin(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // The "[" indicates that a nested path containing an index begins.
+            // The "[" indicates that a nested path containing an INDEX begins.
             //
 
+            // CAUTION! Hand over TRUE as last parametre to indicate that an INDEX is being processed.
             deserialise_knowledge_identification(p0, p1, p2, p3, p4, p5, p6, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -138,24 +140,25 @@ void select_knowledge_begin(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // The "(" indicates that a nested path containing a name begins.
+            // The "(" indicates that a nested path containing a NAME begins.
             //
 
+            // CAUTION! Hand over FALSE as last parametre to indicate that a NAME is being processed.
             deserialise_knowledge_identification(p0, p1, p2, p3, p4, p5, p6, p7, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p2, p3, (void*) REFERENCE_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) REFERENCE_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p2, p3, (void*) BEGIN_REFERENCE_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_REFERENCE_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // The "*" indicates that a reference begins.
+            // The "{" indicates that a REFERENCE begins.
             //
 
-            deserialise_knowledge_reference(p0, p1, p2, p3, p4, p5, p6, p7);
+            deserialise_knowledge_reference(p0, p1, p2, p3, p4, p5, p6);
         }
     }
 
@@ -163,9 +166,10 @@ void select_knowledge_begin(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
         //
         // A special prefix character was NOT found.
-        // Therefore, the following characters are supposed to represent a name.
-        // If there are no further characters, then the source whole part
-        // itself will get copied to become the destination part.
+        //
+        // Therefore, the following characters are supposed to represent a NAME.
+        // If there are no further characters, then the source WHOLE part
+        // ITSELF will get copied to become the destination part.
         //
 
         deserialise_knowledge_name(p0, p1, p2, p3, p5, p7, p8);

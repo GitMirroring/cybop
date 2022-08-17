@@ -44,9 +44,10 @@
  * @param p5 the stack memory item
  * @param p6 the internal memory data
  * @param p7 the source whole part element index:
- *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
- *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties
- *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for stack variables
+ *           - MODEL_PART_STATE_CYBOI_NAME for structural parts on heap
+ *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties on heap
+ *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for variables on stack
+ *           - *NULL_POINTER_STATE_CYBOI_MODEL if none of the above applies
  * @param p8 the knowledge path end flag
  */
 void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {

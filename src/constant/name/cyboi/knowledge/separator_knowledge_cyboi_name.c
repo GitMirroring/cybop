@@ -49,6 +49,16 @@ static wchar_t* BEGIN_NAME_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L"(";
 static int* BEGIN_NAME_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The begin reference separator knowledge cyboi name.
+ *
+ * Examples:
+ * {.app.var.path}
+ * .app.adr.[{{.app.var.index}}].phone
+ */
+static wchar_t* BEGIN_REFERENCE_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L"{";
+static int* BEGIN_REFERENCE_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The end index separator knowledge cyboi name.
  *
  * Example:
@@ -65,6 +75,16 @@ static int* END_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_ST
  */
 static wchar_t* END_NAME_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L")";
 static int* END_NAME_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The end reference separator knowledge cyboi name.
+ *
+ * Examples:
+ * {.app.var.path}
+ * .app.adr.[{{.app.var.index}}].phone
+ */
+static wchar_t* END_REFERENCE_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L"}";
+static int* END_REFERENCE_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The model separator knowledge cyboi name.
@@ -85,16 +105,6 @@ static int* MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_
  */
 static wchar_t* PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L":";
 static int* PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The reference separator knowledge cyboi name.
- *
- * Examples:
- * *.app.var.path
- * .app.adr.[**.app.var.index].phone
- */
-static wchar_t* REFERENCE_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L"*";
-static int* REFERENCE_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The stack separator knowledge cyboi name.
