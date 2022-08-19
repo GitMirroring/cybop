@@ -60,9 +60,12 @@
         <div class="row mt-4">
             <div class="col-sm-12 text-left">
                 <p>
-                    Copyright
-                    &copy;
-                    1999-2022. <a href="mailto:christian.heller@cybop.org">CYBOP Webmaster</a>. Last Update: 2022-06-18
+                    Copyright &copy; 1999-2022.<br/>
+                    Except where otherwise noted, content on this site is licensed under a Creative Commons Attribution 4.0 International license.<br/>
+                    Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0).
+                </p>
+                <p>
+                    Last Update: 2022-06-18
                 </p>
             </div>
         </div>
