@@ -14,8 +14,16 @@
 API
 ___
 
-        * Update cybol api specification in javadoc comment blocks of directory "constant/format/cybol/"
+        * Update cybol api specification in javadoc comment blocks of directory "constant/format/cybol/state/"
+        * Update cybol api specification in javadoc comment blocks of directory "constant/format/cybol/logic/"
         * Delete directory "tools/api-generator/spec_backup_delete_later/" from svn, as soon as all api documentation comments have been converted to the new format
+
+            application/EDI-X12: EDI X12 data; Defined in RFC 1767
+            application/EDIFACT: EDI EDIFACT data; Defined in RFC 1767
+            application/javascript: JavaScript; Defined in RFC 4329
+            application/json: JavaScript Object Notation JSON; Defined in RFC 4627
+            application/octet-stream: Arbitrary byte stream. This is thought of as the "default" media type used by several operating systems, often used tidentify executable files, files of unknown type, or files that should be downloaded in protocols that dnot provide a separate "content disposition" header. RFC 2046 specifies this as the fallback for unrecognized subtypes of other types.
+            application/ogg: Ogg, a multimedia bitstream container format; Defined in RFC 3534
 
 CSV Deserialiser
 ________________

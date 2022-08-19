@@ -78,6 +78,14 @@ static wchar_t* TSPLAYER_AUDIO_STATE_CYBOL_FORMAT = L"audio/tsplayer";
 static int* TSPLAYER_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The audio/vnd.rn-realaudio state cybol format.
+ *
+ * RealAudio; Documented in RealPlayer Customer Support Answer 2559
+ */
+static wchar_t* VND_RN_REALAUDIO_AUDIO_STATE_CYBOL_FORMAT = L"audio/vnd.rn-realaudio";
+static int* VND_RN_REALAUDIO_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The audio/vorbis state cybol format.
  */
 static wchar_t* VORBIS_AUDIO_STATE_CYBOL_FORMAT = L"audio/vorbis";
@@ -134,6 +142,14 @@ static wchar_t* X_MPEG_AUDIO_STATE_CYBOL_FORMAT = L"audio/x-mpeg";
 static int* X_MPEG_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The audio/x-ms-wma state cybol format.
+ *
+ * Windows Media Audio; Documented in Microsoft KB 288102
+ */
+static wchar_t* X_MS_WMA_AUDIO_STATE_CYBOL_FORMAT = L"audio/x-ms-wma";
+static int* X_MS_WMA_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The audio/x-pn-realaudio state cybol format.
  *
  * RealAudio files.
@@ -172,11 +188,6 @@ static int* X_QT_STREAM_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
  */
 static wchar_t* X_WAV_AUDIO_STATE_CYBOL_FORMAT = L"audio/x-wav";
 static int* X_WAV_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/*??
-audio/x-ms-wma: Windows Media Audio; Documented in Microsoft KB 288102
-audio/vnd.rn-realaudio: RealAudio; Documented in RealPlayer Customer Support Answer 2559
-*/
 
 /* AUDIO_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

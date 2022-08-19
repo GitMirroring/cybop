@@ -37,15 +37,6 @@
 // IANA media type: application
 //
 
-/*??
-application/EDI-X12: EDI X12 data; Defined in RFC 1767
-application/EDIFACT: EDI EDIFACT data; Defined in RFC 1767
-application/javascript: JavaScript; Defined in RFC 4329
-application/json: JavaScript Object Notation JSON; Defined in RFC 4627
-application/octet-stream: Arbitrary byte stream. This is thought of as the "default" media type used by several operating systems, often used tidentify executable files, files of unknown type, or files that should be downloaded in protocols that dnot provide a separate "content disposition" header. RFC 2046 specifies this as the fallback for unrecognized subtypes of other types.
-application/ogg: Ogg, a multimedia bitstream container format; Defined in RFC 3534
-*/
-
 /**
  * The application/acad state cybol format.
  *
@@ -314,26 +305,6 @@ static int* VOCALTEC_MEDIA_DESC_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_31
  */
 static wchar_t* VOCALTEC_MEDIA_FILE_APPLICATION_STATE_CYBOL_FORMAT = L"application/vocaltec-media-file";
 static int* VOCALTEC_MEDIA_FILE_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_31_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The application/xhtml+xml state cybol format.
- *
- * XHTML archive files. Defined by RFC 3236.
- * Registered.
- * Suffixes: xhtml
- */
-static wchar_t* XHTML_APPLICATION_STATE_CYBOL_FORMAT = L"application/xhtml+xml";
-static int* XHTML_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The application/xml state cybol format.
- *
- * XML files
- * Registered.
- * Suffixes: xml
- */
-static wchar_t* XML_APPLICATION_STATE_CYBOL_FORMAT = L"application/xml";
-static int* XML_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The application/x-bcpio state cybol format.
@@ -665,6 +636,44 @@ static wchar_t* X_WWW_FORM_URLENCODED_APPLICATION_STATE_CYBOL_FORMAT = L"applica
 static int* X_WWW_FORM_URLENCODED_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_33_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The application/xhtml+xml state cybol format.
+ *
+ * XHTML archive files. Defined by RFC 3236.
+ * Registered.
+ * Suffixes: xhtml
+ */
+static wchar_t* XHTML_APPLICATION_STATE_CYBOL_FORMAT = L"application/xhtml+xml";
+static int* XHTML_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The application/xml state cybol format.
+ *
+ * Description:
+ *
+ * The Extensible Markup Language (XML) version 1.0 as defined in 1998.
+ *
+ * Its structure and vocabulary can be defined freely, either as
+ * Document Type Definition (DTD) or as XML Schema Definition (XSD).
+ *
+ * If given in form of a file, then the suffix is xml in case no DTD or XSD
+ * is available. Otherwise, a suffix representing the DTD or XSD may be used.
+ *
+ * Examples:
+ *
+ * <node name="document" channel="file" format="application/xml" model="path/to/file.xml"/>
+ */
+static wchar_t* XML_APPLICATION_STATE_CYBOL_FORMAT = L"application/xml";
+static int* XML_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The application/xml-dtd state cybol format.
+ *
+ * DTD files; Defined by RFC 3023
+ */
+static wchar_t* XML_DTD_APPLICATION_STATE_CYBOL_FORMAT = L"application/xml-dtd";
+static int* XML_DTD_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The application/zip state cybol format.
  *
  * ZIP archive files.
@@ -673,10 +682,6 @@ static int* X_WWW_FORM_URLENCODED_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_
  */
 static wchar_t* ZIP_APPLICATION_STATE_CYBOL_FORMAT = L"application/zip";
 static int* ZIP_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/*??
-application/xml-dtd: DTD files; Defined by RFC 3023
-*/
 
 /* APPLICATION_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

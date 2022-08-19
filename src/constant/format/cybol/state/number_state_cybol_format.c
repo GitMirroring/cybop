@@ -190,8 +190,8 @@ static int* FRACTION_DECIMAL_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER
  *
  * Examples:
  *
- * <node name="f1" channel="inline" format="number/fraction-vulgar" model="1/2"/>
- * <node name="f2" channel="inline" format="number/fraction-vulgar" model="-2/3"/>
+ * <node name="positive" channel="inline" format="number/fraction-vulgar" model="1/2"/>
+ * <node name="negative" channel="inline" format="number/fraction-vulgar" model="-2/3"/>
  */
 static wchar_t* FRACTION_VULGAR_NUMBER_STATE_CYBOL_FORMAT = L"number/fraction-vulgar";
 static int* FRACTION_VULGAR_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
