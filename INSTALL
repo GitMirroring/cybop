@@ -354,6 +354,10 @@ _______
 
     make api
 
+Background Information:
+
+The "make api" command invokes the python scripts.
+
 The python scripts collect all necessary information from the
 javadoc-like comment blocks in c source code from two directories:
 
@@ -390,6 +394,15 @@ Properties, Constraints.
  * - delimiter (optional) [text/plain]: The separator ...
  * - header (optional) [logicvalue/boolean]: The ...
  */
+
+After having parsed all javadoc-like comment blocks, the make process
+calls the api generator which is written in cybol:
+
+    cd cybop/tools
+    ../src/controller/cyboi api-generator/run.cybol
+
+It generates the final html file representing the api documentation
+with state and logic.
 
 4.2 Documentation
 _________________

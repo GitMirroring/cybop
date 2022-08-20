@@ -169,20 +169,11 @@ footer a:hover {
 
     color: #aed6f2;
 }
-</style></head><body><nav class="position-fixed nav-left"><h1>Logic Operations</h1><h2>calculate</h2><a href="#calculate-add">add</a><h2>represent</h2><a href="#represent-deserialise">deserialise</a><a href="#represent-serialise">serialise</a></nav><nav class="position-fixed nav-right"><h1>State Structures</h1><h2>number</h2><a href="#number-byte">byte</a><a href="#number-complex-cartesian">complex-cartesian</a><a href="#number-complex-polar">complex-polar</a><a href="#number-fraction-decimal">fraction-decimal</a><a href="#number-fraction-vulgar">fraction-vulgar</a><a href="#number-integer">integer</a></nav><section class="position-fixed section-center"><header><h1>CYBOL API Specification Version 0.22.0</h1></header><section><section><a name="calculate-add"><h2>calculate/add</h2></a><section><h3>Description</h3><p>Adds the operand to the result. The result parametre represents the FIRST operand; the operand parametre the SECOND. CAUTION! Do NOT use this operation for characters! They may be concatenated by using the modify/append operation.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;add_integer&#x22; channel=&#x22;inline&#x22; format=&#x22;calculate/add&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
-    &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;2&#x22;/&#x3E;
-&#x3C;/node&#x3E;
-
-&#x3C;node name=&#x22;add_arrays_with_equal_size&#x22; channel=&#x22;inline&#x22; format=&#x22;calculate/add&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
-    &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1,2,3&#x22;/&#x3E;
-&#x3C;/node&#x3E;
-
-&#x3C;node name=&#x22;add_summand_to_sum&#x22; channel=&#x22;inline&#x22; format=&#x22;calculate/add&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.sum&#x22;/&#x3E;
-    &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.summand&#x22;/&#x3E;
-&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>result</td><td>true</td><td>text/cybol-path</td><td>The sum resulting from the addition. It initially contains the first summand.</td></tr><tr><td>operand</td><td>true</td><td>text/cybol-path | number/any</td><td>The second summand for the addition.</td></tr><tr><td>count</td><td>false</td><td>text/cybol-path | number/integer</td><td>The number of elements to be calculated. If null, the operand count will be used instead. This is relevant only for arrays with more than one element.</td></tr><tr><td>result_index</td><td>false</td><td>text/cybol-path | number/integer</td><td>The result index from which to start calculating. If null, an index of zero will be used instead.</td></tr><tr><td>operand_index</td><td>false</td><td>text/cybol-path | number/integer</td><td>The operand index from which to start calculating. If null, an index of zero will be used instead.</td></tr></table></section></section><section><a name="represent-deserialise"><h2>represent/deserialise</h2></a><section><h3>Description</h3><p>Deserialises the source into the destination, according to the given format. CAUTION! The deserialised data are APPENDED to the destination. Already existing content is NOT overwritten. Therefore, the destination possibly has to get EMPTIED before since otherwise, the new data will get appended to the already existing old data.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;deserialise_number&#x22; channel=&#x22;inline&#x22; format=&#x22;represent/deserialise&#x22; model=&#x22;&#x22;&#x3E;
+</style></head><body><nav class="position-fixed nav-left"><h1>Logic Operations</h1><h2>represent</h2><a href="#represent-deserialise">deserialise</a><a href="#represent-serialise">serialise</a><h2>calculate</h2><a href="#calculate-add">add</a></nav><nav class="position-fixed nav-right"><h1>State Structures</h1><h2>colour</h2><a href="#colour-cmyk">cmyk</a><a href="#colour-rgb">rgb</a><a href="#colour-terminal">terminal</a><h2>logicvalue</h2><a href="#logicvalue-boolean">boolean</a><h2>video</h2><a href="#video-mp4">mp4</a><h2>number</h2><a href="#number-byte">byte</a><a href="#number-complex-cartesian">complex-cartesian</a><a href="#number-complex-polar">complex-polar</a><a href="#number-fraction-decimal">fraction-decimal</a><a href="#number-fraction-vulgar">fraction-vulgar</a><a href="#number-integer">integer</a><h2>element</h2><a href="#element-part">part</a><a href="#element-property">property</a><h2>meta</h2><a href="#meta-channel">channel</a><a href="#meta-encoding">encoding</a><a href="#meta-format">format</a><a href="#meta-language">language</a><a href="#meta-model">model</a><a href="#meta-name">name</a><a href="#meta-type">type</a><h2>text</h2><a href="#text-ascii">ascii</a><a href="#text-cybol-path">cybol-path</a><a href="#text-html">html</a><a href="#text-plain">plain</a><a href="#text-xml">xml</a><h2>image</h2><a href="#image-gif">gif</a><a href="#image-jpeg">jpeg</a><a href="#image-png">png</a><h2>application</h2><a href="#application-xml">xml</a></nav><section class="position-fixed section-center"><header><h1>CYBOL API Specification Version 0.22.0</h1></header><section><section><a name="represent-deserialise"><h2>represent/deserialise</h2></a><section><h3>Description</h3><p>Deserialises the source into the destination, according to the given format.
+CAUTION! The deserialised data are APPENDED to the destination.
+Already existing content is NOT overwritten.
+Therefore, the destination possibly has to get EMPTIED before since otherwise,
+the new data will get appended to the already existing old data.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;deserialise_number&#x22; channel=&#x22;inline&#x22; format=&#x22;represent/deserialise&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
     &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;2.4e-2&#x22;/&#x3E;
     &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/cybol&#x22;/&#x3E;
@@ -220,7 +211,11 @@ footer a:hover {
         &#x3C;node name=&#x22;delimiter&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;,&#x22;/&#x3E;
         &#x3C;node name=&#x22;quotation&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;&#x26;#x22;&#x22;/&#x3E;
     &#x3C;/node&#x3E;
-&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The node into which the deserialised data are written. Its format (type) depends on the given source data.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path | text/plain</td><td>The data to be deserialised.</td></tr><tr><td>language</td><td>true</td><td>meta/language</td><td>The language used for deserialisation.</td></tr><tr><td>format</td><td>false</td><td>meta/format</td><td>The format (type) of the source node.</td></tr><tr><td>delimiter</td><td>false</td><td>text/plain</td><td>The separator between the single fields (values). It may consist of many characters, but also be a simple comma, for example. Used with joined strings or character (comma) separated values (csv).</td></tr><tr><td>quotation</td><td>false</td><td>text/plain</td><td>The marker sequence used at the beginning and end of string fields (values). It may consist of many characters. Quotation is necessary if the delimiter character is part of the value. If the quotation is to be part of the value, then it has to be escaped by writing it TWICE (doubled). Used with joined strings or character (comma) separated values (csv).</td></tr><tr><td>header</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not the source data contain a header, so that the deserialiser can treat the first line differently. Used with character (comma) separated values (csv). CAUTION! It should NOT be mixed up with the headermodel property in represent/serialise.</td></tr><tr><td>normalisation</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not whitespaces and line breaks are merged into just ONE space. Used with xml or html, for example. The default is TRUE (normalisation enabled), if NULL.</td></tr><tr><td>maximum</td><td>false</td><td>number/integer</td><td>The maximum number of bytes to be transmitted. Used with serial (port) interface.</td></tr><tr><td>minimum</td><td>false</td><td>number/integer</td><td>The minimum number of bytes to be transmitted. Used with serial (port) interface.</td></tr><tr><td>medium</td><td>false</td><td>text/cybol-path</td><td>The window to which the mouse button or keyboard key refers. It is needed to search through the hierarchy of gui elements via mouse coordinates, for a suitable action. Used with graphical user interface (gui).</td></tr></table></section></section><section><a name="represent-serialise"><h2>represent/serialise</h2></a><section><h3>Description</h3><p>Serialises the source into the destination, according to the given format. CAUTION! The serialised data are APPENDED to the destination. Already existing content is NOT overwritten. Therefore, the destination possibly has to get EMPTIED before since otherwise, the new data will get appended to the already existing old data.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;serialise_number&#x22; channel=&#x22;inline&#x22; format=&#x22;represent/serialise&#x22; model=&#x22;&#x22;&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The node into which the deserialised data are written. Its format (type) depends on the given source data.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path | text/plain</td><td>The data to be deserialised.</td></tr><tr><td>language</td><td>true</td><td>meta/language</td><td>The language used for deserialisation.</td></tr><tr><td>format</td><td>false</td><td>meta/format</td><td>The format (type) of the source node.</td></tr></table></section></section><section><a name="represent-serialise"><h2>represent/serialise</h2></a><section><h3>Description</h3><p>Serialises the source into the destination, according to the given format.
+CAUTION! The serialised data are APPENDED to the destination.
+Already existing content is NOT overwritten.
+Therefore, the destination possibly has to get EMPTIED before since otherwise,
+the new data will get appended to the already existing old data.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;serialise_number&#x22; channel=&#x22;inline&#x22; format=&#x22;represent/serialise&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
     &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;24&#x22;/&#x3E;
     &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/cybol&#x22;/&#x3E;
@@ -250,19 +245,87 @@ footer a:hover {
         &#x3C;node name=&#x22;delimiter&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;,&#x22;/&#x3E;
         &#x3C;node name=&#x22;quotation&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;&#x26;#x22;&#x22;/&#x3E;
     &#x3C;/node&#x3E;
-&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The node into which the serialised data are written. Its format (type) depends on the given source data.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path | text/plain | number/any</td><td>The data to be serialised.</td></tr><tr><td>language</td><td>true</td><td>meta/language</td><td>The language used for serialisation.</td></tr><tr><td>format</td><td>false</td><td>meta/format</td><td>The format (type) of the source node.</td></tr><tr><td>newline</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not a line break is added at the end of the printed characters. Used with text (pseudo) terminal.</td></tr><tr><td>clear</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not the terminal screen is cleared before printing characters on it. Used with text (pseudo) terminal.</td></tr><tr><td>indentation</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not the serialised data get beautified (pretty-formatted) by indenting the single lines depending on the hierarchy level. Used with xml or html, for example.</td></tr><tr><td>delimiter</td><td>false</td><td>text/plain</td><td>The separator between the single fields (values). It may consist of many characters, but also be a simple comma, for example. Used with joined strings or character (comma) separated values (csv).</td></tr><tr><td>quotation</td><td>false</td><td>text/plain</td><td>The marker sequence used at the beginning and end of string fields (values). It may consist of many characters. Quotation is necessary if the delimiter character is part of the value. If the quotation is to be part of the value, then it has to be escaped by writing it TWICE (doubled). Used with joined strings or character (comma) separated values (csv).</td></tr><tr><td>normalisation</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not whitespaces and line breaks are merged into just ONE space. Used with xml or html, for example. The default is TRUE (normalisation enabled), if NULL.</td></tr><tr><td>width</td><td>false</td><td>number/integer</td><td>The number of characters (or digits) belonging to a value. Free places get filled up with the character given in the fill property. This was defined in the original specification of character (comma) separated values (csv), in order to have fields (values) with equal width. Used with joined strings or csv.</td></tr><tr><td>fill</td><td>false</td><td>text/plain</td><td>The characters (or digit) to be used to fill free places in a value whose width is greater.</td></tr><tr><td>headermodel</td><td>false</td><td>text/cybol-path</td><td>The header data to be written as first line, yet before the actual content. Used with character (comma) separated values (csv). CAUTION! It should NOT be mixed up with the header property flag in represent/deserialise.</td></tr></table></section></section><section><a name="number-byte"><h2>number/byte</h2></a><section><h3>Description</h3><p>An integer with a size of just one byte. The standard type used internally is unsigned char with 8 Bits. It has a value range from 0 to 255. CAUTION! It is NOT to be mixed up with text/ascii representing a text string of characters. Numbers in an array ARE separated by comma; text characters of a string are NOT.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;x&#x22; channel=&#x22;inline&#x22; format=&#x22;number/byte&#x22; model=&#x22;0&#x22;/&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The node into which the serialised data are written. Its format (type) depends on the given source data.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path | text/plain | number/any</td><td>The data to be serialised.</td></tr><tr><td>language</td><td>true</td><td>meta/language</td><td>The language used for serialisation.</td></tr><tr><td>format</td><td>false</td><td>meta/format</td><td>The format (type) of the source node.</td></tr></table></section></section><section><a name="calculate-add"><h2>calculate/add</h2></a><section><h3>Description</h3><p>Adds the operand to the result.
+The result parametre represents the FIRST operand;
+the operand parametre the SECOND.
+CAUTION! Do NOT use this operation for characters!
+They may be concatenated by using the modify/append operation.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;add_integer&#x22; channel=&#x22;inline&#x22; format=&#x22;calculate/add&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;2&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;add_arrays_with_equal_size&#x22; channel=&#x22;inline&#x22; format=&#x22;calculate/add&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1,2,3&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;add_summand_to_sum&#x22; channel=&#x22;inline&#x22; format=&#x22;calculate/add&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.sum&#x22;/&#x3E;
+    &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.summand&#x22;/&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>result</td><td>true</td><td>text/cybol-path</td><td>The sum resulting from the addition. It initially contains the first summand.</td></tr><tr><td>operand</td><td>true</td><td>text/cybol-path | number/any</td><td>The second summand for the addition.</td></tr><tr><td>count</td><td>false</td><td>text/cybol-path | number/integer</td><td>The number of elements to be calculated. If null, the operand count will be used instead. This is relevant only for arrays with more than one element.</td></tr><tr><td>result_index</td><td>false</td><td>text/cybol-path | number/integer</td><td>The result index from which to start calculating. If null, an index of zero will be used instead.</td></tr><tr><td>operand_index</td><td>false</td><td>text/cybol-path | number/integer</td><td>The operand index from which to start calculating. If null, an index of zero will be used instead.</td></tr></table></section></section><section><a name="colour-cmyk"><h2>colour/cmyk</h2></a><section><h3>Description</h3><p>A colour whose values are given in the CMYK colour model,
+also referred to as process color or four color.
+The abbreviation CMYK refers to the four ink plates used in some
+colour printing: cyan, magenta, yellow, and key (black).</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;value&#x22; channel=&#x22;inline&#x22; format=&#x22;colour/cmyk&#x22; model=&#x22;60,34,0,19&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="colour-rgb"><h2>colour/rgb</h2></a><section><h3>Description</h3><p>A colour whose values are given in the RGB colour model.
+The abbreviation RGB refers to the three colours:
+red, green, and blue.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;value&#x22; channel=&#x22;inline&#x22; format=&#x22;colour/rgb&#x22; model=&#x22;82,135,206&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="colour-terminal"><h2>colour/terminal</h2></a><section><h3>Description</h3><p>A terminal colour value as written word representing the pre-defined colour name.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;foreground&#x22; channel=&#x22;inline&#x22; format=&#x22;colour/terminal&#x22; model=&#x22;blue&#x22;/&#x3E;
+&#x3C;node name=&#x22;background&#x22; channel=&#x22;inline&#x22; format=&#x22;colour/terminal&#x22; model=&#x22;white&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="logicvalue-boolean"><h2>logicvalue/boolean</h2></a><section><h3>Description</h3><p>A boolean logic variable represents one of two possible states,
+either true or false.
+Sometimes, a boolean value is called a flag.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;value&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="video-mp4"><h2>video/mp4</h2></a><section><h3>Description</h3><p>A video in MP4 format, which is defined in RFC 4337.
+The file suffix is mp4.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;data&#x22; channel=&#x22;file&#x22; format=&#x22;video/mp4&#x22; model=&#x22;path/to/file.mp4&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="number-byte"><h2>number/byte</h2></a><section><h3>Description</h3><p>An integer with a size of just one byte.
+The standard type used internally is unsigned char with 8 Bits.
+It has a value range from 0 to 255.
+CAUTION! It is NOT to be mixed up with text/ascii representing
+a text string of characters. Numbers in an array ARE separated by comma;
+text characters of a string are NOT.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;x&#x22; channel=&#x22;inline&#x22; format=&#x22;number/byte&#x22; model=&#x22;0&#x22;/&#x3E;
 &#x3C;node name=&#x22;y&#x22; channel=&#x22;inline&#x22; format=&#x22;number/byte&#x22; model=&#x22;2&#x22;/&#x3E;
-&#x3C;node name=&#x22;array&#x22; channel=&#x22;inline&#x22; format=&#x22;number/byte&#x22; model=&#x22;0,1,2,3,4&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="number-complex-cartesian"><h2>number/complex-cartesian</h2></a><section><h3>Description</h3><p>A complex number written in cartesian form as real and imaginary part, separated by a (plus or minus) sign. Each number can be an element of a vector (array), e.g.: - complex cartesian: 1.2e+3+0.4e-2,2-4 CAUTION! The i (or j in electrical engineering) in the imaginary part is NEGLECTED: 1+2i --&#x3E; 1+2. CAUTION! Using fractions for real and imaginary part of a complex number is NOT supported, e.g. -1/2+3/4. The complex number given in cartesian form: 2 + 3i which can also be written using a j instead of i: 2 + 3j would be written in CYBOL as: 2+3</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;standard&#x22; channel=&#x22;inline&#x22; format=&#x22;number/complex-cartesian&#x22; model=&#x22;2+4&#x22;/&#x3E;
+&#x3C;node name=&#x22;array&#x22; channel=&#x22;inline&#x22; format=&#x22;number/byte&#x22; model=&#x22;0,1,2,3,4&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="number-complex-cartesian"><h2>number/complex-cartesian</h2></a><section><h3>Description</h3><p>A complex number written in cartesian form as real and imaginary part,
+separated by a (plus or minus) sign.
+Each number can be an element of a vector (array), e.g.:
+- complex cartesian: 1.2e+3+0.4e-2,2-4
+CAUTION! The i (or j in electrical engineering) in the imaginary part
+is NEGLECTED: 1+2i --&#x26;#x003E; 1+2.
+CAUTION! Using fractions for real and imaginary part of a complex number
+is NOT supported, e.g. -1/2+3/4.
+The complex number given in cartesian form:
+2 + 3i
+which can also be written using a j instead of i:
+2 + 3j
+would be written in CYBOL as:
+2+3</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;standard&#x22; channel=&#x22;inline&#x22; format=&#x22;number/complex-cartesian&#x22; model=&#x22;2+4&#x22;/&#x3E;
 &#x3C;node name=&#x22;negative_imaginary_part&#x22; channel=&#x22;inline&#x22; format=&#x22;number/complex-cartesian&#x22; model=&#x22;2-4&#x22;/&#x3E;
 &#x3C;node name=&#x22;negative_real_part&#x22; channel=&#x22;inline&#x22; format=&#x22;number/complex-cartesian&#x22; model=&#x22;-2+4&#x22;/&#x3E;
 &#x3C;node name=&#x22;both_parts_negative&#x22; channel=&#x22;inline&#x22; format=&#x22;number/complex-cartesian&#x22; model=&#x22;-2-4&#x22;/&#x3E;
 &#x3C;node name=&#x22;decimal_fractions&#x22; channel=&#x22;inline&#x22; format=&#x22;number/complex-cartesian&#x22; model=&#x22;-1.2+5.0&#x22;/&#x3E;
-&#x3C;node name=&#x22;scientific_notation&#x22; channel=&#x22;inline&#x22; format=&#x22;number/complex-cartesian&#x22; model=&#x22;-1.2e6+.11e2&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="number-complex-polar"><h2>number/complex-polar</h2></a><section><h3>Description</h3><p>A complex number written in polar form with absolute value and argument, separated by a (plus or minus) sign. CAUTION! The i (or j in electrical engineering) in the exponent is NEGLECTED: -2*exp(i45) --&#x3E; -2*exp(45) The complex number given in trigonometric form: 2 (cos 30&#xB0; + i sin 30&#xB0;) which can also be written in exponential form, using Euler&#x27;s formula: 2 e ^(i 30) would be written in CYBOL as: 2*exp(30) CAUTION! The cybol parser is able to recognise many variants, with sequence exp or capital letter E, with or without times sign, as shown in the examples below. However, the RECOMMENDED FORM is as follows: -2*exp(-45)</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;standard&#x22; channel=&#x22;inline&#x22; format=&#x22;number/complex-polar&#x22; model=&#x22;-2*exp(-45)&#x22;/&#x3E;
+&#x3C;node name=&#x22;scientific_notation&#x22; channel=&#x22;inline&#x22; format=&#x22;number/complex-cartesian&#x22; model=&#x22;-1.2e6+.11e2&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="number-complex-polar"><h2>number/complex-polar</h2></a><section><h3>Description</h3><p>A complex number written in polar form with absolute value and argument,
+separated by a (plus or minus) sign.
+CAUTION! The i (or j in electrical engineering) in the exponent
+is NEGLECTED: -2*exp(i45) --&#x26;#x003E; -2*exp(45)
+The complex number given in trigonometric form:
+2 (cos 30&#xB0; + i sin 30&#xB0;)
+which can also be written in exponential form, using Euler&#x27;s formula:
+2 e ^(i 30)
+would be written in CYBOL as:
+2*exp(30)
+CAUTION! The cybol parser is able to recognise many variants,
+with sequence exp or capital letter E, with or without times sign,
+as shown in the examples below. However, the RECOMMENDED FORM is as follows:
+-2*exp(-45)</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;standard&#x22; channel=&#x22;inline&#x22; format=&#x22;number/complex-polar&#x22; model=&#x22;-2*exp(-45)&#x22;/&#x3E;
 &#x3C;node name=&#x22;with_capital_letter_e&#x22; channel=&#x22;inline&#x22; format=&#x22;number/complex-polar&#x22; model=&#x22;-2*E(-45)&#x22;/&#x3E;
 &#x3C;node name=&#x22;without_times_sign_1&#x22; channel=&#x22;inline&#x22; format=&#x22;number/complex-polar&#x22; model=&#x22;-2exp(-45)&#x22;/&#x3E;
 &#x3C;node name=&#x22;without_times_sign_2&#x22; channel=&#x22;inline&#x22; format=&#x22;number/complex-polar&#x22; model=&#x22;-2E(-45)&#x22;/&#x3E;
 &#x3C;node name=&#x22;decimal_fraction&#x22; channel=&#x22;inline&#x22; format=&#x22;number/complex-polar&#x22; model=&#x22;-1.5*exp(-45)&#x22;/&#x3E;
-&#x3C;node name=&#x22;scientific_notation&#x22; channel=&#x22;inline&#x22; format=&#x22;number/complex-polar&#x22; model=&#x22;-1.5E4E(-45)&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="number-fraction-decimal"><h2>number/fraction-decimal</h2></a><section><h3>Description</h3><p>A decimal fraction number written as floating-point number. The standard type used internally is double with 64 Bits. It has a value range from 2^&#x2212;1022 to approximately 2^1024, which is from 2 &#xD7; 10^&#x2212;308 to 2 &#xD7; 10^308. Each number can be an element of a vector (array), e.g.: - fraction decimal: 1.2,3.4,5.6 CAUTION! The cybol parser is able to recognise many variants, with small or capital letter E, with or without plus sign, as shown in the examples below. However, the RECOMMENDED FORM is as follows: 1.23E+4 The plus sign of the number is OPTIONAL. The plus sign of the scientific notation exponent is MANDATORY.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;simple&#x22; channel=&#x22;inline&#x22; format=&#x22;fraction-decimal&#x22; model=&#x22;24.0&#x22;/&#x3E;
+&#x3C;node name=&#x22;scientific_notation&#x22; channel=&#x22;inline&#x22; format=&#x22;number/complex-polar&#x22; model=&#x22;-1.5E4E(-45)&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="number-fraction-decimal"><h2>number/fraction-decimal</h2></a><section><h3>Description</h3><p>A decimal fraction number written as floating-point number.
+The standard type used internally is double with 64 Bits.
+It has a value range from 2^&#x2212;1022 to approximately 2^1024,
+which is from 2 &#xD7; 10^&#x2212;308 to 2 &#xD7; 10^308.
+Each number can be an element of a vector (array), e.g.:
+- fraction decimal: 1.2,3.4,5.6
+CAUTION! The cybol parser is able to recognise many variants,
+with small or capital letter E, with or without plus sign,
+as shown in the examples below. However, the RECOMMENDED FORM is as follows:
+1.23E+4
+The plus sign of the number is OPTIONAL.
+The plus sign of the scientific notation exponent is MANDATORY.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;simple&#x22; channel=&#x22;inline&#x22; format=&#x22;fraction-decimal&#x22; model=&#x22;24.0&#x22;/&#x3E;
 &#x3C;node name=&#x22;negative_sign&#x22; channel=&#x22;inline&#x22; format=&#x22;fraction-decimal&#x22; model=&#x22;-24.0&#x22;/&#x3E;
 &#x3C;node name=&#x22;array&#x22; channel=&#x22;inline&#x22; format=&#x22;fraction-decimal&#x22; model=&#x22;1.5,2.5,3.5&#x22;/&#x3E;
 &#x3C;node name=&#x22;standard&#x22; channel=&#x22;inline&#x22; format=&#x22;fraction-decimal&#x22; model=&#x22;7.0&#x22;/&#x3E;
@@ -276,13 +339,128 @@ footer a:hover {
 &#x3C;node name=&#x22;scientific_notation_2&#x22; channel=&#x22;inline&#x22; format=&#x22;fraction-decimal&#x22; model=&#x22;.11e2&#x22;/&#x3E;
 &#x3C;node name=&#x22;scientific_notation_3&#x22; channel=&#x22;inline&#x22; format=&#x22;fraction-decimal&#x22; model=&#x22;0.007&#x22;/&#x3E;
 &#x3C;node name=&#x22;scientific_notation_4&#x22; channel=&#x22;inline&#x22; format=&#x22;fraction-decimal&#x22; model=&#x22;0.7e-2&#x22;/&#x3E;
-&#x3C;node name=&#x22;scientific_notation_5&#x22; channel=&#x22;inline&#x22; format=&#x22;fraction-decimal&#x22; model=&#x22;7.0e-3&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="number-fraction-vulgar"><h2>number/fraction-vulgar</h2></a><section><h3>Description</h3><p>A fraction number written as numerator and denominator, separated by a bar (solidus, slash). Each number can be an element of a vector (array), e.g.: - fraction vulgar: 1/2,3/4</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;f1&#x22; channel=&#x22;inline&#x22; format=&#x22;number/fraction-vulgar&#x22; model=&#x22;1/2&#x22;/&#x3E;
-&#x3C;node name=&#x22;f2&#x22; channel=&#x22;inline&#x22; format=&#x22;number/fraction-vulgar&#x22; model=&#x22;-2/3&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="number-integer"><h2>number/integer</h2></a><section><h3>Description</h3><p>An integer is a datum of integral data type, a data type that represents some range of mathematical integers. It is allowed to contain negative values. The standard type used internally is int with 32 Bits. It has a value range from &#x2212;2,147,483,648 to 2,147,483,647, which is from &#x2212;(2^31) to 2^31 - 1. Each number can be an element of a vector (array), e.g.: - integer: 1,2,3,4</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;simple&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;24&#x22;/&#x3E;
+&#x3C;node name=&#x22;scientific_notation_5&#x22; channel=&#x22;inline&#x22; format=&#x22;fraction-decimal&#x22; model=&#x22;7.0e-3&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="number-fraction-vulgar"><h2>number/fraction-vulgar</h2></a><section><h3>Description</h3><p>A fraction number written as numerator and denominator,
+separated by a bar (solidus, slash).
+Each number can be an element of a vector (array), e.g.:
+- fraction vulgar: 1/2,3/4</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;positive&#x22; channel=&#x22;inline&#x22; format=&#x22;number/fraction-vulgar&#x22; model=&#x22;1/2&#x22;/&#x3E;
+&#x3C;node name=&#x22;negative&#x22; channel=&#x22;inline&#x22; format=&#x22;number/fraction-vulgar&#x22; model=&#x22;-2/3&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="number-integer"><h2>number/integer</h2></a><section><h3>Description</h3><p>An integer is a datum of integral data type, a data type
+that represents some range of mathematical integers.
+It is allowed to contain negative values.
+The standard type used internally is int with 32 Bits.
+It has a value range from &#x2212;2,147,483,648 to 2,147,483,647,
+which is from &#x2212;(2^31) to 2^31 - 1.
+Each number can be an element of a vector (array), e.g.:
+- integer: 1,2,3,4</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;simple&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;24&#x22;/&#x3E;
 &#x3C;node name=&#x22;positive&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;+24&#x22;/&#x3E;
 &#x3C;node name=&#x22;negative&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;-24&#x22;/&#x3E;
 &#x3C;node name=&#x22;octal&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;-030&#x22;/&#x3E;
 &#x3C;node name=&#x22;hexadecimal&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;-0x18&#x22;/&#x3E;
-&#x3C;node name=&#x22;array&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1,2,3,4&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section></section><footer><hr/><h3>Contact</h3><a href="mailto:cybop-developers@nongnu.org">cybop-developers@nongnu.org</a><br/><a href="http://www.cybop.org/">http://www.cybop.org/</a><br/><p>Copyright &#xA9; 1999-2022. CYBOP Developers. Last Update: 2022-07-09</p></footer></section><script>/*
+&#x3C;node name=&#x22;array&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1,2,3,4&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="element-part"><h2>element/part</h2></a><section><h3>Description</h3><p>A PART node of the cyboi-internal knowledge tree.
+Each tree node (also called part) has a DOUBLE hierarchy representing:
+- model hierarchy: whole-part, container-element, macrocosm-microcosm, child parts
+- properties hierarchy: metadata, constraints, for example parametres of a function or the size of a graphical window</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;empty_part_to_be_created&#x22; channel=&#x22;inline&#x22; format=&#x22;element/part&#x22; model=&#x22;&#x22;/&#x3E;
+&#x3C;node name=&#x22;part_read_from_file&#x22; channel=&#x22;file&#x22; format=&#x22;element/part&#x22; model=&#x22;path/to/file.cybol&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="element-property"><h2>element/property</h2></a><section><h3>Description</h3><p>A PROPERTY node of the cyboi-internal knowledge tree.
+Each tree node (also called part) has a DOUBLE hierarchy representing:
+- model hierarchy: whole-part, container-element, macrocosm-microcosm, child parts
+- properties hierarchy: metadata, constraints, for example parametres of a function or the size of a graphical window</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;empty_property_to_be_created&#x22; channel=&#x22;inline&#x22; format=&#x22;element/property&#x22; model=&#x22;&#x22;/&#x3E;
+&#x3C;node name=&#x22;property_read_from_file&#x22; channel=&#x22;file&#x22; format=&#x22;element/property&#x22; model=&#x22;path/to/file.cybol&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="meta-channel"><h2>meta/channel</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
+
+----------
+
+This is a CYBOL extension.</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="meta-encoding"><h2>meta/encoding</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
+
+----------
+
+This is a CYBOL extension.</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="meta-format"><h2>meta/format</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
+
+----------
+
+This is a CYBOL extension.</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="meta-language"><h2>meta/language</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
+
+----------
+
+This is a CYBOL extension.</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="meta-model"><h2>meta/model</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
+
+----------
+
+This is a CYBOL extension.</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="meta-name"><h2>meta/name</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
+
+----------
+
+This is a CYBOL extension.</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="meta-type"><h2>meta/type</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
+
+----------
+
+This is a CYBOL extension.</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="text-ascii"><h2>text/ascii</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
+
+----------
+
+CYBOL (XML)
+Defined in CYBOL specification:
+http://www.nongnu.org/cybop/books/cybol/cybol.pdf
+
+It is used for single-byte-characters in CYBOL.
+
+CAUTION! This format represents a text string of characters.
+It is NOT to be mixed up with &#x22;number/byte&#x22; representing
+numbers in the range 0..255.
+Numbers in an array ARE separated by comma;
+text characters of a string are NOT.</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="text-cybol-path"><h2>text/cybol-path</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
+
+----------
+
+A knowledge path pointing to:
+- the knowledge memory root .
+- the stack memory root #
+- the signal memory root |
+- a knowledge memory model part whereby tree node names are dot (.) separated
+- a knowledge memory property part whereby tree node names are colon (:) separated
+- a stack memory variable whereby names have the number sign (#) prefix
+
+Defined in CYBOL specification:
+todo link does not exist and needs to be adjusted
+http://www.nongnu.org/cybop/cybol/api/api.html</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="text-html"><h2>text/html</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
+
+----------
+
+HTML
+Registered.
+Suffixes: htm, html, shtml</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="text-plain"><h2>text/plain</h2></a><section><h3>Description</h3><p>This is pure text data.
+... encoded ...</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;data&#x22; channel=&#x22;inline&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
+&#x3C;node name=&#x22;data&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
+
+----------
+
+Plain text
+Defined in RFC 2046 and RFC 3676.
+Suffixes: txt
+
+This language (media type) is also used for strings (character vectors) in CYBOL.</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="text-xml"><h2>text/xml</h2></a><section><h3>Description</h3><p>Data given in XML format.
+The Extensible Markup Language (XML) version 1.0 was defined in 1998.
+Its structure and vocabulary can be defined freely, either as
+Document Type Definition (DTD) or as XML Schema Definition (XSD).
+If given in form of a file, then the suffix is xml in case no DTD or XSD
+is available. Otherwise, a suffix representing the DTD or XSD may be used.
+There are two MIME assignments for XML data:
+- application/xml (RFC 7303, previously RFC 3023)
+- text/xml (RFC 7303, previously RFC 3023)
+However, since the introduction of RFC 7303, these are
+to be regarded as the SAME in ALL aspects except name.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;data&#x22; channel=&#x22;file&#x22; format=&#x22;text/xml&#x22; model=&#x22;path/to/file.xml&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="image-gif"><h2>image/gif</h2></a><section><h3>Description</h3><p>An image in Graphics Interchange Format (GIF).
+The file suffix is gif.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;data&#x22; channel=&#x22;file&#x22; format=&#x22;image/gif&#x22; model=&#x22;path/to/file.gif&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="image-jpeg"><h2>image/jpeg</h2></a><section><h3>Description</h3><p>An image format defined by the Joint Photographic Experts Group (JPEG).
+The format itself is called JPEG as well.
+Data are normally stored in JPEG File Interchange Format (JFIF).
+Possible file suffixes are: jpeg, jpg, jpe, jfif, jif.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;data&#x22; channel=&#x22;file&#x22; format=&#x22;image/jpeg&#x22; model=&#x22;path/to/file.jpeg&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="image-png"><h2>image/png</h2></a><section><h3>Description</h3><p>An image in Portable Network Graphics (PNG) format.
+The file suffix is png.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;data&#x22; channel=&#x22;file&#x22; format=&#x22;image/png&#x22; model=&#x22;path/to/file.png&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="application-xml"><h2>application/xml</h2></a><section><h3>Description</h3><p>Data given in XML format.
+The Extensible Markup Language (XML) version 1.0 was defined in 1998.
+Its structure and vocabulary can be defined freely, either as
+Document Type Definition (DTD) or as XML Schema Definition (XSD).
+If given in form of a file, then the suffix is xml in case no DTD or XSD
+is available. Otherwise, a suffix representing the DTD or XSD may be used.
+There are two MIME assignments for XML data:
+- application/xml (RFC 7303, previously RFC 3023)
+- text/xml (RFC 7303, previously RFC 3023)
+However, since the introduction of RFC 7303, these are
+to be regarded as the SAME in ALL aspects except name.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;document&#x22; channel=&#x22;file&#x22; format=&#x22;application/xml&#x22; model=&#x22;path/to/file.xml&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section></section><footer><hr/><h3>Contact</h3><a href="mailto:cybop-developers@nongnu.org">cybop-developers@nongnu.org</a><br/><a href="http://www.cybop.org/">http://www.cybop.org/</a><br/><p>Copyright &#xA9; 1999-2022. CYBOP Developers. Last Update: 2022-07-09</p></footer></section><script>/*
  * The search strings.
  *
  * CAUTION! The cyboi html serialiser replaces quotation marks
