@@ -21,7 +21,8 @@ group_template_raw = '''<node>{% for element in elements %}
 specifier_template_raw = '''<node>
     <node name="description" channel="inline" format="text/plain" model="{{ element.description}}"/>{% if element.examples is not none %}
     <node name="examples" channel="file" format="text/plain" model="api-generator/spec/{{ element.type }}/{{ element.group }}/{{ element.specifier }}/examples.txt"/>{% endif %}{% if element.properties|length > 0 %}
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/{{ element.type }}/{{ element.group }}/{{ element.specifier }}/properties.cybol"/>{% endif %}
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/{{ element.type }}/{{ element.group }}/{{ element.specifier }}/properties.cybol"/>{% endif %}{% if element.constraints|length > 0 %}{% for constraint in element.constraints %}
+    <node name="{{ constraint }}_constraints" channel="file" format="element/part" model="api-generator/spec/{{ element.type }}/{{ element.group }}/{{ element.specifier }}/{{ constraint }}_constraints.cybol"/>{% endfor %}{% endif %}
 </node>
 
 '''
@@ -62,6 +63,7 @@ class Writer:
                         if element.examples is not None:
                             self.__write_examples(element)
                         self.__write_properties(element)
+                        self.__write_constraints(element)
 
     def __write_api_specification(self, elements, type):
         file_path = os.path.join(self.api_output_path, type + '.txt')
@@ -93,6 +95,12 @@ class Writer:
         if len(element.properties) > 0:
             file_path = os.path.join(self.spec_output_path, element.type, element.group, element.specifier, 'properties.cybol')
             self.__write_content(file_path, Template(properties_template_raw).render(properties=element.properties))
+
+    def __write_constraints(self, element: ApiItem):
+        if len(element.constraints) > 0:
+            for constraint in element.constraints:
+                file_path = os.path.join(self.spec_output_path, element.type, element.group, element.specifier, constraint + '_constraints.cybol')
+                self.__write_content(file_path, Template(properties_template_raw).render(properties=element.constraints.get(constraint)))
 
     def __write_content(self, path_to_file: str, content: str):
         os.makedirs(os.path.dirname(path_to_file), exist_ok=True)

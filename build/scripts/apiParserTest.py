@@ -38,7 +38,7 @@ class ApiParserTest(unittest.TestCase):
         parser = Parser()
         api_items = parser.parse_structure()
 
-        self.assertEqual(64, len(api_items))
+        self.assertEqual(66, len(api_items))
 
         writer = Writer(api_items)
         writer.update_api_data()

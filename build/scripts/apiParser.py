@@ -11,6 +11,8 @@ class Parser:
             "\/\*\*\s(?P<brief>.*)([\*\s]*?)(?=Description:)([\W\w\s]*?)static wchar_t\* .*(?P<type>LOGIC|STATE).* = L\"(?P<name>.*)\";")
         self.description_regex = re.compile("Description:\s(?P<description>[\W\w\s]*?)(Examples:|Properties:|(\*\/))")
         self.example_regex = re.compile("Examples:\s \*\s(?P<examples>[\W\w]*?)(Properties:|(\*\/))")
+        self.properties_regex = re.compile("Properties:(?P<content>[\w\W]*?)(Constraints|\*/)")
+        self.constraints_regex = re.compile("Constraints for Property (?P<property>.*):\s(?P<content>[\w\W]*?(Constraints|\*/))")
         self.property_regex = re.compile(" - (?P<name>.*) \((?P<required>.*)\) \[(?P<format>.*)\]: (?P<description>.*)")
         self.variable_regex = re.compile("static wchar_t\* .*?(?P<type>(CHANNEL|ENCODING)) = L\"(?P<value>.+)\";")
 
@@ -39,17 +41,28 @@ class Parser:
     def __parse_javadoc_content(self, api_element: Pattern[str]):
         api_item = ApiItem(api_element[4], api_element[0].lstrip(' *'), api_element[3].lower())
         content = api_element[2]
-        api_item.description = ' '.join(
+        api_item.description = os.linesep.join(
             list(filter(None,
                         map(lambda x: x.lstrip('*').lstrip(' *'),
-                            self.description_regex.match(content).group("description").split(os.linesep)))))
+                            self.description_regex.match(content).group("description").split(os.linesep)))))\
+            .replace(">", "&#x003E;").replace("<", "&#x003C;").replace("&", "&#x0026;")\
+            .replace("\'", "&#x0027;").replace("\"", "&#x0022;")
+
         examples = self.example_regex.search(content)
         if examples:
             api_item.examples = os.linesep.join(list(map(lambda x: x[3:], examples.group("examples").rstrip(' *\n').split(os.linesep))))
 
-        properties = self.property_regex.findall(content)
-        for x in properties:
-            api_item.properties.append(ApiProperty(x[0], x[1], x[2], x[3]))
+        property_content = self.properties_regex.search(content)
+        if property_content:
+            properties = self.property_regex.findall(property_content[0])
+            for x in properties:
+                api_item.properties.append(ApiProperty(x[0], x[1], x[2], x[3]))
+
+        constraint_content = self.constraints_regex.findall(content)
+        for constraint in constraint_content:
+            constrains = self.property_regex.findall(constraint[1])
+            for x in constrains:
+                api_item.constraints[constraint[0].lower()].append(ApiProperty(x[0], x[1], x[2], x[3]))
 
         return api_item
 

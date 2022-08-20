@@ -1,3 +1,6 @@
+from collections import defaultdict
+
+
 class ApiItem:
     def __init__(self, name: str, brief: str, type: str):
         self.name = name
@@ -10,6 +13,7 @@ class ApiItem:
         self.description = None
         self.examples = None
         self.properties = []
+        self.constraints = defaultdict(list)
 
 
 class ApiProperty:
