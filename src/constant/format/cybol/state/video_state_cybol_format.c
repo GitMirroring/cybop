@@ -46,9 +46,15 @@ static int* AVI_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MO
 /**
  * The video/mp4 state cybol format.
  *
- * MP4 video.
- * Defined in RFC 4337.
- * Suffixes: mp4
+ * Description:
+ *
+ * A video in MP4 format, which is defined in RFC 4337.
+ *
+ * The file suffix is mp4.
+ *
+ * Examples:
+ *
+ * <node name="data" channel="file" format="video/mp4" model="path/to/file.mp4"/>
  */
 static wchar_t* MP4_VIDEO_STATE_CYBOL_FORMAT = L"video/mp4";
 static int* MP4_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;

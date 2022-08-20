@@ -41,6 +41,16 @@
 /**
  * The meta/name state cybol format.
  *
+ * Description:
+ *
+ * TODO
+ *
+ * Examples:
+ *
+ * <node name="TODO" channel="file" format="TODO/TODO" model="path/to/file.TODO"/>
+ *
+ * ----------
+ *
  * This is a CYBOL extension.
  */
 static wchar_t* NAME_META_STATE_CYBOL_FORMAT = L"meta/name";
@@ -48,6 +58,16 @@ static int* NAME_META_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MO
 
 /**
  * The meta/channel state cybol format.
+ *
+ * Description:
+ *
+ * TODO
+ *
+ * Examples:
+ *
+ * <node name="TODO" channel="file" format="TODO/TODO" model="path/to/file.TODO"/>
+ *
+ * ----------
  *
  * This is a CYBOL extension.
  */
@@ -57,6 +77,16 @@ static int* CHANNEL_META_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
 /**
  * The meta/encoding state cybol format.
  *
+ * Description:
+ *
+ * TODO
+ *
+ * Examples:
+ *
+ * <node name="TODO" channel="file" format="TODO/TODO" model="path/to/file.TODO"/>
+ *
+ * ----------
+ *
  * This is a CYBOL extension.
  */
 static wchar_t* ENCODING_META_STATE_CYBOL_FORMAT = L"meta/encoding";
@@ -64,6 +94,16 @@ static int* ENCODING_META_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
 
 /**
  * The meta/language state cybol format.
+ *
+ * Description:
+ *
+ * TODO
+ *
+ * Examples:
+ *
+ * <node name="TODO" channel="file" format="TODO/TODO" model="path/to/file.TODO"/>
+ *
+ * ----------
  *
  * This is a CYBOL extension.
  */
@@ -73,6 +113,16 @@ static int* LANGUAGE_META_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
 /**
  * The meta/format state cybol format.
  *
+ * Description:
+ *
+ * TODO
+ *
+ * Examples:
+ *
+ * <node name="TODO" channel="file" format="TODO/TODO" model="path/to/file.TODO"/>
+ *
+ * ----------
+ *
  * This is a CYBOL extension.
  */
 static wchar_t* FORMAT_META_STATE_CYBOL_FORMAT = L"meta/format";
@@ -81,6 +131,16 @@ static int* FORMAT_META_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
 /**
  * The meta/type state cybol format.
  *
+ * Description:
+ *
+ * TODO
+ *
+ * Examples:
+ *
+ * <node name="TODO" channel="file" format="TODO/TODO" model="path/to/file.TODO"/>
+ *
+ * ----------
+ *
  * This is a CYBOL extension.
  */
 static wchar_t* TYPE_META_STATE_CYBOL_FORMAT = L"meta/type";
@@ -88,6 +148,16 @@ static int* TYPE_META_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MO
 
 /**
  * The meta/model state cybol format.
+ *
+ * Description:
+ *
+ * TODO
+ *
+ * Examples:
+ *
+ * <node name="TODO" channel="file" format="TODO/TODO" model="path/to/file.TODO"/>
+ *
+ * ----------
  *
  * This is a CYBOL extension.
  */

@@ -70,9 +70,15 @@ static int* FIF_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MO
 /**
  * The image/gif state cybol format.
  *
- * GIF image.
- * Defined in RFC 2045 and RFC 2046.
- * Suffixes: gif
+ * Description:
+ *
+ * An image in Graphics Interchange Format (GIF).
+ *
+ * The file suffix is gif.
+ *
+ * Examples:
+ *
+ * <node name="data" channel="file" format="image/gif" model="path/to/file.gif"/>
  */
 static wchar_t* GIF_IMAGE_STATE_CYBOL_FORMAT = L"image/gif";
 static int* GIF_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -90,9 +96,17 @@ static int* IEF_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MO
 /**
  * The image/jpeg state cybol format.
  *
- * JPEG JFIF image.
- * Defined in RFC 2045 and RFC 2046.
- * Suffixes: jpeg, jpg, jpe
+ * Description:
+ *
+ * An image format defined by the Joint Photographic Experts Group (JPEG).
+ * The format itself is called JPEG as well.
+ * Data are normally stored in JPEG File Interchange Format (JFIF).
+ *
+ * Possible file suffixes are: jpeg, jpg, jpe, jfif, jif.
+ *
+ * Examples:
+ *
+ * <node name="data" channel="file" format="image/jpeg" model="path/to/file.jpeg"/>
  */
 static wchar_t* JPEG_IMAGE_STATE_CYBOL_FORMAT = L"image/jpeg";
 static int* JPEG_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -100,9 +114,15 @@ static int* JPEG_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
 /**
  * The image/png state cybol format.
  *
- * Portable Network Graphics.
- * Registered.
- * Suffixes: png
+ * Description:
+ *
+ * An image in Portable Network Graphics (PNG) format.
+ *
+ * The file suffix is png.
+ *
+ * Examples:
+ *
+ * <node name="data" channel="file" format="image/png" model="path/to/file.png"/>
  */
 static wchar_t* PNG_IMAGE_STATE_CYBOL_FORMAT = L"image/png";
 static int* PNG_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -111,7 +131,6 @@ static int* PNG_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MO
  * The image/tiff state cybol format.
  *
  * Tag Image File Format.
- * Defined in RFC 3302.
  * Suffixes: tiff, tif
  */
 static wchar_t* TIFF_IMAGE_STATE_CYBOL_FORMAT = L"image/tiff";
@@ -236,12 +255,6 @@ static int* X_XBITMAP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  */
 static wchar_t* X_XPIXMAP_IMAGE_STATE_CYBOL_FORMAT = L"image/x-xpixmap";
 static int* X_XPIXMAP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/*??
-The image/vnd.microsoft.icon language.
-ICO image.
-Registered.
-*/
 
 /* IMAGE_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

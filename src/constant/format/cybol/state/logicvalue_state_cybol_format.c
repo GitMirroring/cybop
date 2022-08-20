@@ -41,17 +41,19 @@
 /**
  * The logicvalue/boolean state cybol format.
  *
- * Classical logic with the only possible truth values "true" and "false".
+ * Description:
  *
- * This is a CYBOL extension.
+ * A boolean logic variable represents one of two possible states,
+ * either true or false.
+ *
+ * Sometimes, a boolean value is called a flag.
+ *
+ * Examples:
+ *
+ * <node name="value" channel="inline" format="logicvalue/boolean" model="true"/>
  */
 static wchar_t* BOOLEAN_LOGICVALUE_STATE_CYBOL_FORMAT = L"logicvalue/boolean";
 static int* BOOLEAN_LOGICVALUE_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/*??
-three-valued logic
-fuzzy logic
-*/
 
 /* LOGICVALUE_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

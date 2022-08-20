@@ -25,6 +25,9 @@ ___
             application/octet-stream: Arbitrary byte stream. This is thought of as the "default" media type used by several operating systems, often used tidentify executable files, files of unknown type, or files that should be downloaded in protocols that dnot provide a separate "content disposition" header. RFC 2046 specifies this as the fallback for unrecognized subtypes of other types.
             application/ogg: Ogg, a multimedia bitstream container format; Defined in RFC 3534
 
+            image/vnd.microsoft.icon
+                ICO image
+
 CSV Deserialiser
 ________________
 

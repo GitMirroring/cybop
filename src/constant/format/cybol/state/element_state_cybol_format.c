@@ -41,8 +41,18 @@
 /**
  * The element/part state cybol format.
  *
- * Defined in CYBOL specification:
- * http://www.nongnu.org/cybop/books/cybol/cybol.pdf
+ * Description:
+ *
+ * A PART node of the cyboi-internal knowledge tree.
+ *
+ * Each tree node (also called part) has a DOUBLE hierarchy representing:
+ * - model hierarchy: whole-part, container-element, macrocosm-microcosm, child parts
+ * - properties hierarchy: metadata, constraints, for example parametres of a function or the size of a graphical window
+ *
+ * Examples:
+ *
+ * <node name="empty_part_to_be_created" channel="inline" format="element/part" model=""/>
+ * <node name="part_read_from_file" channel="file" format="element/part" model="path/to/file.cybol"/>
  */
 static wchar_t* PART_ELEMENT_STATE_CYBOL_FORMAT = L"element/part";
 static int* PART_ELEMENT_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -50,8 +60,18 @@ static int* PART_ELEMENT_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
 /**
  * The element/property state cybol format.
  *
- * Defined in CYBOL specification:
- * http://www.nongnu.org/cybop/books/cybol/cybol.pdf
+ * Description:
+ *
+ * A PROPERTY node of the cyboi-internal knowledge tree.
+ *
+ * Each tree node (also called part) has a DOUBLE hierarchy representing:
+ * - model hierarchy: whole-part, container-element, macrocosm-microcosm, child parts
+ * - properties hierarchy: metadata, constraints, for example parametres of a function or the size of a graphical window
+ *
+ * Examples:
+ *
+ * <node name="empty_property_to_be_created" channel="inline" format="element/property" model=""/>
+ * <node name="property_read_from_file" channel="file" format="element/property" model="path/to/file.cybol"/>
  */
 static wchar_t* PROPERTY_ELEMENT_STATE_CYBOL_FORMAT = L"element/property";
 static int* PROPERTY_ELEMENT_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;

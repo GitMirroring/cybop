@@ -29,9 +29,9 @@ Contents
 3.3 Windows (MSVC)
 
 4 Development
-4.1 Formatting
+4.1 API
 4.2 Documentation
-4.3 Homepage
+4.3 Formatting
 
 5 Distribution
 5.1 Tagging
@@ -343,7 +343,66 @@ https://stackoverflow.com/questions/35869564/cmake-on-windows
 4 Development
 =============
 
-4.1 Formatting
+4.1 API
+_______
+
+- Check out python scripts using:
+
+    git clone https://github.com/EnricoGallus/CybopBuildScripts.git scripts
+
+- Generate application programming interface (api) using:
+
+    make api
+
+The python scripts collect all necessary information from the
+javadoc-like comment blocks in c source code from two directories:
+
+/home/christian/projekt/cybop/src/constant/format/cybol/state/
+/home/christian/projekt/cybop/src/constant/format/cybol/logic/
+
+The following headings are considered: Description, Examples,
+Properties, Constraints.
+
+/**
+ * An example.
+ *
+ * Description:
+ *
+ * ... (free text)
+ *
+ * Examples:
+ *
+ * <node name="example_1" channel="inline" format="category/operation" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="operand" channel="inline" format="number/integer" model="24"/>
+ * </node>
+ *
+ * ...
+ *
+ * Properties:
+ *
+ * - result (required) [text/cybol-path]: The ...
+ * - operand (required) [text/cybol-path | number/any]: The ...
+ * - count (optional) [text/cybol-path | number/integer]: The ...
+ *
+ * Constraints for Property XY:
+ *
+ * - delimiter (optional) [text/plain]: The separator ...
+ * - header (optional) [logicvalue/boolean]: The ...
+ */
+
+4.2 Documentation
+_________________
+
+- Change into cybop's build directory e.g.:
+
+    cd /home/cybop/build
+
+- Run the doxygen
+
+    make doc
+
+4.3 Formatting
 ______________
 
 - Change into cybop's build directory e.g.:
@@ -357,50 +416,6 @@ ______________
 - Run the code analyzer cppcheck:
 
     make cppcheck
-
-4.2 Documentation
-_________________
-
-- Change into cybop's build directory e.g.:
-
-    cd /home/cybop/build
-
-- Run the doxygen
-
-    make doc
-
-4.3 Homepage
-____________
-
-https://savannah.gnu.org/maintenance/HomepageUpload/
-
-- upload project web pages
-- use cvs for accessing the web repository (it is completely separate from any source trees)
-- upload ssh key to gnu savannah portal in order to access sources
-- go to local directory, e.g.:
-
-mkdir ~/project/www
-cd ~/project/www
-
-- download cvs html tree structure:
-
-cvs -z3 -d:ext:LOGIN@cvs.sv.gnu.org:/web/PROJECT co .
-
-- copy all necessary files to cvs html tree using e.g.:
-
-cp ~/tmp/index.html ~/project/www/PROJECT
-
-- import local html tree to cvs:
-
-cd ~/project/www/PROJECT
-cvs add index.html
-cvs add mydir
-# (or: cvs add index.html mydir)
-cvs commit
-
-- update and commit as needed
-
-Hint: The webpages will be updated within an hour.
 
 5 Distribution
 ==============

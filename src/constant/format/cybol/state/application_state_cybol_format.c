@@ -650,13 +650,20 @@ static int* XHTML_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
  *
  * Description:
  *
- * The Extensible Markup Language (XML) version 1.0 as defined in 1998.
+ * Data given in XML format.
  *
+ * The Extensible Markup Language (XML) version 1.0 was defined in 1998.
  * Its structure and vocabulary can be defined freely, either as
  * Document Type Definition (DTD) or as XML Schema Definition (XSD).
  *
  * If given in form of a file, then the suffix is xml in case no DTD or XSD
  * is available. Otherwise, a suffix representing the DTD or XSD may be used.
+ *
+ * There are two MIME assignments for XML data:
+ * - application/xml (RFC 7303, previously RFC 3023)
+ * - text/xml (RFC 7303, previously RFC 3023)
+ * However, since the introduction of RFC 7303, these are
+ * to be regarded as the SAME in ALL aspects except name.
  *
  * Examples:
  *

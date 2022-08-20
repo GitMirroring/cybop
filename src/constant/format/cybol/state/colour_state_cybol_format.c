@@ -41,10 +41,17 @@
 /**
  * The colour/cmyk state cybol format.
  *
- * Cyan, Magenta, Yellow, Key (black) (CMYK) colour model,
- * also referred to as "process color" or "four color".
+ * Description:
  *
- * This is a CYBOL extension.
+ * A colour whose values are given in the CMYK colour model,
+ * also referred to as process color or four color.
+ *
+ * The abbreviation CMYK refers to the four ink plates used in some
+ * colour printing: cyan, magenta, yellow, and key (black).
+ *
+ * Examples:
+ *
+ * <node name="value" channel="inline" format="colour/cmyk" model="60,34,0,19"/>
  */
 static wchar_t* CMYK_COLOUR_STATE_CYBOL_FORMAT = L"colour/cmyk";
 static int* CMYK_COLOUR_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -52,9 +59,16 @@ static int* CMYK_COLOUR_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
 /**
  * The colour/rgb state cybol format.
  *
- * Red, Green, Blue colour model.
+ * Description:
  *
- * This is a CYBOL extension.
+ * A colour whose values are given in the RGB colour model.
+ *
+ * The abbreviation RGB refers to the three colours:
+ * red, green, and blue.
+ *
+ * Examples:
+ *
+ * <node name="value" channel="inline" format="colour/rgb" model="82,135,206"/>
  */
 static wchar_t* RGB_COLOUR_STATE_CYBOL_FORMAT = L"colour/rgb";
 static int* RGB_COLOUR_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -62,9 +76,14 @@ static int* RGB_COLOUR_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
 /**
  * The colour/terminal state cybol format.
  *
- * Terminal colour name as written word.
+ * Description:
  *
- * This is a CYBOL extension.
+ * A terminal colour value as written word representing the pre-defined colour name.
+ *
+ * Examples:
+ *
+ * <node name="foreground" channel="inline" format="colour/terminal" model="blue"/>
+ * <node name="background" channel="inline" format="colour/terminal" model="white"/>
  */
 static wchar_t* TERMINAL_COLOUR_STATE_CYBOL_FORMAT = L"colour/terminal";
 static int* TERMINAL_COLOUR_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;

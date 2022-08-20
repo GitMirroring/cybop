@@ -40,6 +40,16 @@
 /**
  * The text/ascii text state cybol format.
  *
+ * Description:
+ *
+ * TODO
+ *
+ * Examples:
+ *
+ * <node name="TODO" channel="file" format="TODO/TODO" model="path/to/file.TODO"/>
+ *
+ * ----------
+ *
  * CYBOL (XML)
  * Defined in CYBOL specification:
  * http://www.nongnu.org/cybop/books/cybol/cybol.pdf
@@ -58,6 +68,16 @@ static int* ASCII_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
 /**
  * The text/cybol-path text state cybol format.
  *
+ * Description:
+ *
+ * TODO
+ *
+ * Examples:
+ *
+ * <node name="TODO" channel="file" format="TODO/TODO" model="path/to/file.TODO"/>
+ *
+ * ----------
+ *
  * A knowledge path pointing to:
  * - the knowledge memory root .
  * - the stack memory root #
@@ -75,6 +95,16 @@ static int* CYBOL_PATH_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
 
 /**
  * The text/html text state cybol format.
+ *
+ * Description:
+ *
+ * TODO
+ *
+ * Examples:
+ *
+ * <node name="TODO" channel="file" format="TODO/TODO" model="path/to/file.TODO"/>
+ *
+ * ----------
  *
  * HTML
  * Registered.
@@ -95,6 +125,19 @@ static int* JAVASCRIPT_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
 
 /**
  * The text/plain text state cybol format.
+ *
+ * Description:
+ *
+ * This is pure text data.
+ *
+ * ... encoded ...
+ *
+ * Examples:
+ *
+ * <node name="data" channel="inline" format="TODO/TODO" model="path/to/file.TODO"/>
+ * <node name="data" channel="file" format="TODO/TODO" model="path/to/file.TODO"/>
+ *
+ * ----------
  *
  * Plain text
  * Defined in RFC 2046 and RFC 3676.
@@ -158,9 +201,26 @@ static int* VND_WAP_WMLSCRIPT_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
 /**
  * The text/xml text state cybol format.
  *
- * XML
- * Registered.
- * Suffixes: xml
+ * Description:
+ *
+ * Data given in XML format.
+ *
+ * The Extensible Markup Language (XML) version 1.0 was defined in 1998.
+ * Its structure and vocabulary can be defined freely, either as
+ * Document Type Definition (DTD) or as XML Schema Definition (XSD).
+ *
+ * If given in form of a file, then the suffix is xml in case no DTD or XSD
+ * is available. Otherwise, a suffix representing the DTD or XSD may be used.
+ *
+ * There are two MIME assignments for XML data:
+ * - application/xml (RFC 7303, previously RFC 3023)
+ * - text/xml (RFC 7303, previously RFC 3023)
+ * However, since the introduction of RFC 7303, these are
+ * to be regarded as the SAME in ALL aspects except name.
+ *
+ * Examples:
+ *
+ * <node name="data" channel="file" format="text/xml" model="path/to/file.xml"/>
  */
 static wchar_t* XML_TEXT_STATE_CYBOL_FORMAT = L"text/xml";
 static int* XML_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
