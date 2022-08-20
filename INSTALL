@@ -361,8 +361,8 @@ The "make api" command invokes the python scripts.
 The python scripts collect all necessary information from the
 javadoc-like comment blocks in c source code from two directories:
 
-/home/christian/projekt/cybop/src/constant/format/cybol/state/
-/home/christian/projekt/cybop/src/constant/format/cybol/logic/
+cybop/src/constant/format/cybol/state/
+cybop/src/constant/format/cybol/logic/
 
 The following headings are considered: Description, Examples,
 Properties, Constraints.
@@ -395,8 +395,14 @@ Properties, Constraints.
  * - header (optional) [logicvalue/boolean]: The ...
  */
 
-After having parsed all javadoc-like comment blocks, the make process
-calls the api generator which is written in cybol:
+The python scripts write the collected categories into the files:
+"cybop/doc/cybol/api/state.txt" and "cybop/doc/cybol/api/logic.txt".
+
+Further, a number of cybol (xml) files gets generated in directory
+"cybop/tools/api-generator/spec/".
+
+Afterwards, the make process calls the api generator which is
+written in cybol:
 
     cd cybop/tools
     ../src/controller/cyboi api-generator/run.cybol

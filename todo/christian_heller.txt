@@ -28,6 +28,8 @@ ___
             image/vnd.microsoft.icon
                 ICO image
 
+        * Adapt api generator, so that constraints are considered similar to but separate from properties
+
 CSV Deserialiser
 ________________
 
