@@ -169,7 +169,24 @@ footer a:hover {
 
     color: #aed6f2;
 }
-</style></head><body><nav class="position-fixed nav-left"><h1>Logic Operations</h1><h2>represent</h2><a href="#represent-deserialise">deserialise</a><a href="#represent-serialise">serialise</a><h2>calculate</h2><a href="#calculate-add">add</a></nav><nav class="position-fixed nav-right"><h1>State Structures</h1><h2>colour</h2><a href="#colour-cmyk">cmyk</a><a href="#colour-rgb">rgb</a><a href="#colour-terminal">terminal</a><h2>logicvalue</h2><a href="#logicvalue-boolean">boolean</a><h2>video</h2><a href="#video-mp4">mp4</a><h2>number</h2><a href="#number-byte">byte</a><a href="#number-complex-cartesian">complex-cartesian</a><a href="#number-complex-polar">complex-polar</a><a href="#number-fraction-decimal">fraction-decimal</a><a href="#number-fraction-vulgar">fraction-vulgar</a><a href="#number-integer">integer</a><h2>element</h2><a href="#element-part">part</a><a href="#element-property">property</a><h2>meta</h2><a href="#meta-channel">channel</a><a href="#meta-encoding">encoding</a><a href="#meta-format">format</a><a href="#meta-language">language</a><a href="#meta-model">model</a><a href="#meta-name">name</a><a href="#meta-type">type</a><h2>text</h2><a href="#text-ascii">ascii</a><a href="#text-cybol-path">cybol-path</a><a href="#text-html">html</a><a href="#text-plain">plain</a><a href="#text-xml">xml</a><h2>image</h2><a href="#image-gif">gif</a><a href="#image-jpeg">jpeg</a><a href="#image-png">png</a><h2>application</h2><a href="#application-xml">xml</a></nav><section class="position-fixed section-center"><header><h1>CYBOL API Specification Version 0.22.0</h1></header><section><section><a name="represent-deserialise"><h2>represent/deserialise</h2></a><section><h3>Description</h3><p>Deserialises the source into the destination, according to the given format.
+</style></head><body><nav class="position-fixed nav-left"><h1>Logic Operations</h1><h2>calculate</h2><a href="#calculate-add">add</a><h2>represent</h2><a href="#represent-deserialise">deserialise</a><a href="#represent-serialise">serialise</a></nav><nav class="position-fixed nav-right"><h1>State Structures</h1><h2>application</h2><a href="#application-xml">xml</a><h2>colour</h2><a href="#colour-cmyk">cmyk</a><a href="#colour-rgb">rgb</a><a href="#colour-terminal">terminal</a><h2>element</h2><a href="#element-part">part</a><a href="#element-property">property</a><h2>image</h2><a href="#image-gif">gif</a><a href="#image-jpeg">jpeg</a><a href="#image-png">png</a><h2>logicvalue</h2><a href="#logicvalue-boolean">boolean</a><h2>meta</h2><a href="#meta-channel">channel</a><a href="#meta-encoding">encoding</a><a href="#meta-format">format</a><a href="#meta-language">language</a><a href="#meta-model">model</a><a href="#meta-name">name</a><a href="#meta-type">type</a><h2>number</h2><a href="#number-byte">byte</a><a href="#number-complex-cartesian">complex-cartesian</a><a href="#number-complex-polar">complex-polar</a><a href="#number-fraction-decimal">fraction-decimal</a><a href="#number-fraction-vulgar">fraction-vulgar</a><a href="#number-integer">integer</a><h2>text</h2><a href="#text-ascii">ascii</a><a href="#text-cybol-path">cybol-path</a><a href="#text-html">html</a><a href="#text-plain">plain</a><a href="#text-xml">xml</a><h2>video</h2><a href="#video-mp4">mp4</a></nav><section class="position-fixed section-center"><header><h1>CYBOL API Specification Version 0.22.0</h1></header><section><section><a name="calculate-add"><h2>calculate/add</h2></a><section><h3>Description</h3><p>Adds the operand to the result.
+The result parametre represents the FIRST operand;
+the operand parametre the SECOND.
+CAUTION! Do NOT use this operation for characters!
+They may be concatenated by using the modify/append operation.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;add_integer&#x22; channel=&#x22;inline&#x22; format=&#x22;calculate/add&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;2&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;add_arrays_with_equal_size&#x22; channel=&#x22;inline&#x22; format=&#x22;calculate/add&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1,2,3&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;add_summand_to_sum&#x22; channel=&#x22;inline&#x22; format=&#x22;calculate/add&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.sum&#x22;/&#x3E;
+    &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.summand&#x22;/&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>result</td><td>true</td><td>text/cybol-path</td><td>The sum resulting from the addition. It initially contains the first summand.</td></tr><tr><td>operand</td><td>true</td><td>text/cybol-path | number/any</td><td>The second summand for the addition.</td></tr><tr><td>count</td><td>false</td><td>text/cybol-path | number/integer</td><td>The number of elements to be calculated. If null, the operand count will be used instead. This is relevant only for arrays with more than one element.</td></tr><tr><td>result_index</td><td>false</td><td>text/cybol-path | number/integer</td><td>The result index from which to start calculating. If null, an index of zero will be used instead.</td></tr><tr><td>operand_index</td><td>false</td><td>text/cybol-path | number/integer</td><td>The operand index from which to start calculating. If null, an index of zero will be used instead.</td></tr></table></section></section><section><a name="represent-deserialise"><h2>represent/deserialise</h2></a><section><h3>Description</h3><p>Deserialises the source into the destination, according to the given format.
 CAUTION! The deserialised data are APPENDED to the destination.
 Already existing content is NOT overwritten.
 Therefore, the destination possibly has to get EMPTIED before since otherwise,
@@ -245,33 +262,66 @@ the new data will get appended to the already existing old data.</p></section><s
         &#x3C;node name=&#x22;delimiter&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;,&#x22;/&#x3E;
         &#x3C;node name=&#x22;quotation&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;&#x26;#x22;&#x22;/&#x3E;
     &#x3C;/node&#x3E;
-&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The node into which the serialised data are written. Its format (type) depends on the given source data.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path | text/plain | number/any</td><td>The data to be serialised.</td></tr><tr><td>language</td><td>true</td><td>meta/language</td><td>The language used for serialisation.</td></tr><tr><td>format</td><td>false</td><td>meta/format</td><td>The format (type) of the source node.</td></tr></table></section></section><section><a name="calculate-add"><h2>calculate/add</h2></a><section><h3>Description</h3><p>Adds the operand to the result.
-The result parametre represents the FIRST operand;
-the operand parametre the SECOND.
-CAUTION! Do NOT use this operation for characters!
-They may be concatenated by using the modify/append operation.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;add_integer&#x22; channel=&#x22;inline&#x22; format=&#x22;calculate/add&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
-    &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;2&#x22;/&#x3E;
-&#x3C;/node&#x3E;
-
-&#x3C;node name=&#x22;add_arrays_with_equal_size&#x22; channel=&#x22;inline&#x22; format=&#x22;calculate/add&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
-    &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1,2,3&#x22;/&#x3E;
-&#x3C;/node&#x3E;
-
-&#x3C;node name=&#x22;add_summand_to_sum&#x22; channel=&#x22;inline&#x22; format=&#x22;calculate/add&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.sum&#x22;/&#x3E;
-    &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.summand&#x22;/&#x3E;
-&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>result</td><td>true</td><td>text/cybol-path</td><td>The sum resulting from the addition. It initially contains the first summand.</td></tr><tr><td>operand</td><td>true</td><td>text/cybol-path | number/any</td><td>The second summand for the addition.</td></tr><tr><td>count</td><td>false</td><td>text/cybol-path | number/integer</td><td>The number of elements to be calculated. If null, the operand count will be used instead. This is relevant only for arrays with more than one element.</td></tr><tr><td>result_index</td><td>false</td><td>text/cybol-path | number/integer</td><td>The result index from which to start calculating. If null, an index of zero will be used instead.</td></tr><tr><td>operand_index</td><td>false</td><td>text/cybol-path | number/integer</td><td>The operand index from which to start calculating. If null, an index of zero will be used instead.</td></tr></table></section></section><section><a name="colour-cmyk"><h2>colour/cmyk</h2></a><section><h3>Description</h3><p>A colour whose values are given in the CMYK colour model,
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The node into which the serialised data are written. Its format (type) depends on the given source data.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path | text/plain | number/any</td><td>The data to be serialised.</td></tr><tr><td>language</td><td>true</td><td>meta/language</td><td>The language used for serialisation.</td></tr><tr><td>format</td><td>false</td><td>meta/format</td><td>The format (type) of the source node.</td></tr></table></section></section><section><a name="application-xml"><h2>application/xml</h2></a><section><h3>Description</h3><p>Data given in XML format.
+The Extensible Markup Language (XML) version 1.0 was defined in 1998.
+Its structure and vocabulary can be defined freely, either as
+Document Type Definition (DTD) or as XML Schema Definition (XSD).
+If given in form of a file, then the suffix is xml in case no DTD or XSD
+is available. Otherwise, a suffix representing the DTD or XSD may be used.
+There are two MIME assignments for XML data:
+- application/xml (RFC 7303, previously RFC 3023)
+- text/xml (RFC 7303, previously RFC 3023)
+However, since the introduction of RFC 7303, these are
+to be regarded as the SAME in ALL aspects except name.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;document&#x22; channel=&#x22;file&#x22; format=&#x22;application/xml&#x22; model=&#x22;path/to/file.xml&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="colour-cmyk"><h2>colour/cmyk</h2></a><section><h3>Description</h3><p>A colour whose values are given in the CMYK colour model,
 also referred to as process color or four color.
 The abbreviation CMYK refers to the four ink plates used in some
 colour printing: cyan, magenta, yellow, and key (black).</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;value&#x22; channel=&#x22;inline&#x22; format=&#x22;colour/cmyk&#x22; model=&#x22;60,34,0,19&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="colour-rgb"><h2>colour/rgb</h2></a><section><h3>Description</h3><p>A colour whose values are given in the RGB colour model.
 The abbreviation RGB refers to the three colours:
 red, green, and blue.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;value&#x22; channel=&#x22;inline&#x22; format=&#x22;colour/rgb&#x22; model=&#x22;82,135,206&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="colour-terminal"><h2>colour/terminal</h2></a><section><h3>Description</h3><p>A terminal colour value as written word representing the pre-defined colour name.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;foreground&#x22; channel=&#x22;inline&#x22; format=&#x22;colour/terminal&#x22; model=&#x22;blue&#x22;/&#x3E;
-&#x3C;node name=&#x22;background&#x22; channel=&#x22;inline&#x22; format=&#x22;colour/terminal&#x22; model=&#x22;white&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="logicvalue-boolean"><h2>logicvalue/boolean</h2></a><section><h3>Description</h3><p>A boolean logic variable represents one of two possible states,
+&#x3C;node name=&#x22;background&#x22; channel=&#x22;inline&#x22; format=&#x22;colour/terminal&#x22; model=&#x22;white&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="element-part"><h2>element/part</h2></a><section><h3>Description</h3><p>A PART node of the cyboi-internal knowledge tree.
+Each tree node (also called part) has a DOUBLE hierarchy representing:
+- model hierarchy: whole-part, container-element, macrocosm-microcosm, child parts
+- properties hierarchy: metadata, constraints, for example parametres of a function or the size of a graphical window</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;empty_part_to_be_created&#x22; channel=&#x22;inline&#x22; format=&#x22;element/part&#x22; model=&#x22;&#x22;/&#x3E;
+&#x3C;node name=&#x22;part_read_from_file&#x22; channel=&#x22;file&#x22; format=&#x22;element/part&#x22; model=&#x22;path/to/file.cybol&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="element-property"><h2>element/property</h2></a><section><h3>Description</h3><p>A PROPERTY node of the cyboi-internal knowledge tree.
+Each tree node (also called part) has a DOUBLE hierarchy representing:
+- model hierarchy: whole-part, container-element, macrocosm-microcosm, child parts
+- properties hierarchy: metadata, constraints, for example parametres of a function or the size of a graphical window</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;empty_property_to_be_created&#x22; channel=&#x22;inline&#x22; format=&#x22;element/property&#x22; model=&#x22;&#x22;/&#x3E;
+&#x3C;node name=&#x22;property_read_from_file&#x22; channel=&#x22;file&#x22; format=&#x22;element/property&#x22; model=&#x22;path/to/file.cybol&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="image-gif"><h2>image/gif</h2></a><section><h3>Description</h3><p>An image in Graphics Interchange Format (GIF).
+The file suffix is gif.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;data&#x22; channel=&#x22;file&#x22; format=&#x22;image/gif&#x22; model=&#x22;path/to/file.gif&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="image-jpeg"><h2>image/jpeg</h2></a><section><h3>Description</h3><p>An image format defined by the Joint Photographic Experts Group (JPEG).
+The format itself is called JPEG as well.
+Data are normally stored in JPEG File Interchange Format (JFIF).
+Possible file suffixes are: jpeg, jpg, jpe, jfif, jif.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;data&#x22; channel=&#x22;file&#x22; format=&#x22;image/jpeg&#x22; model=&#x22;path/to/file.jpeg&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="image-png"><h2>image/png</h2></a><section><h3>Description</h3><p>An image in Portable Network Graphics (PNG) format.
+The file suffix is png.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;data&#x22; channel=&#x22;file&#x22; format=&#x22;image/png&#x22; model=&#x22;path/to/file.png&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="logicvalue-boolean"><h2>logicvalue/boolean</h2></a><section><h3>Description</h3><p>A boolean logic variable represents one of two possible states,
 either true or false.
-Sometimes, a boolean value is called a flag.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;value&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="video-mp4"><h2>video/mp4</h2></a><section><h3>Description</h3><p>A video in MP4 format, which is defined in RFC 4337.
-The file suffix is mp4.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;data&#x22; channel=&#x22;file&#x22; format=&#x22;video/mp4&#x22; model=&#x22;path/to/file.mp4&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="number-byte"><h2>number/byte</h2></a><section><h3>Description</h3><p>An integer with a size of just one byte.
+Sometimes, a boolean value is called a flag.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;value&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="meta-channel"><h2>meta/channel</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
+
+----------
+
+This is a CYBOL extension.</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="meta-encoding"><h2>meta/encoding</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
+
+----------
+
+This is a CYBOL extension.</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="meta-format"><h2>meta/format</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
+
+----------
+
+This is a CYBOL extension.</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="meta-language"><h2>meta/language</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
+
+----------
+
+This is a CYBOL extension.</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="meta-model"><h2>meta/model</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
+
+----------
+
+This is a CYBOL extension.</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="meta-name"><h2>meta/name</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
+
+----------
+
+This is a CYBOL extension.</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="meta-type"><h2>meta/type</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
+
+----------
+
+This is a CYBOL extension.</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="number-byte"><h2>number/byte</h2></a><section><h3>Description</h3><p>An integer with a size of just one byte.
 The standard type used internally is unsigned char with 8 Bits.
 It has a value range from 0 to 255.
 CAUTION! It is NOT to be mixed up with text/ascii representing
@@ -355,43 +405,7 @@ Each number can be an element of a vector (array), e.g.:
 &#x3C;node name=&#x22;negative&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;-24&#x22;/&#x3E;
 &#x3C;node name=&#x22;octal&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;-030&#x22;/&#x3E;
 &#x3C;node name=&#x22;hexadecimal&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;-0x18&#x22;/&#x3E;
-&#x3C;node name=&#x22;array&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1,2,3,4&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="element-part"><h2>element/part</h2></a><section><h3>Description</h3><p>A PART node of the cyboi-internal knowledge tree.
-Each tree node (also called part) has a DOUBLE hierarchy representing:
-- model hierarchy: whole-part, container-element, macrocosm-microcosm, child parts
-- properties hierarchy: metadata, constraints, for example parametres of a function or the size of a graphical window</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;empty_part_to_be_created&#x22; channel=&#x22;inline&#x22; format=&#x22;element/part&#x22; model=&#x22;&#x22;/&#x3E;
-&#x3C;node name=&#x22;part_read_from_file&#x22; channel=&#x22;file&#x22; format=&#x22;element/part&#x22; model=&#x22;path/to/file.cybol&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="element-property"><h2>element/property</h2></a><section><h3>Description</h3><p>A PROPERTY node of the cyboi-internal knowledge tree.
-Each tree node (also called part) has a DOUBLE hierarchy representing:
-- model hierarchy: whole-part, container-element, macrocosm-microcosm, child parts
-- properties hierarchy: metadata, constraints, for example parametres of a function or the size of a graphical window</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;empty_property_to_be_created&#x22; channel=&#x22;inline&#x22; format=&#x22;element/property&#x22; model=&#x22;&#x22;/&#x3E;
-&#x3C;node name=&#x22;property_read_from_file&#x22; channel=&#x22;file&#x22; format=&#x22;element/property&#x22; model=&#x22;path/to/file.cybol&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="meta-channel"><h2>meta/channel</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
-
-----------
-
-This is a CYBOL extension.</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="meta-encoding"><h2>meta/encoding</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
-
-----------
-
-This is a CYBOL extension.</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="meta-format"><h2>meta/format</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
-
-----------
-
-This is a CYBOL extension.</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="meta-language"><h2>meta/language</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
-
-----------
-
-This is a CYBOL extension.</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="meta-model"><h2>meta/model</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
-
-----------
-
-This is a CYBOL extension.</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="meta-name"><h2>meta/name</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
-
-----------
-
-This is a CYBOL extension.</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="meta-type"><h2>meta/type</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
-
-----------
-
-This is a CYBOL extension.</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="text-ascii"><h2>text/ascii</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
+&#x3C;node name=&#x22;array&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1,2,3,4&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="text-ascii"><h2>text/ascii</h2></a><section><h3>Description</h3><p>TODO</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;TODO&#x22; channel=&#x22;file&#x22; format=&#x22;TODO/TODO&#x22; model=&#x22;path/to/file.TODO&#x22;/&#x3E;
 
 ----------
 
@@ -445,22 +459,8 @@ There are two MIME assignments for XML data:
 - application/xml (RFC 7303, previously RFC 3023)
 - text/xml (RFC 7303, previously RFC 3023)
 However, since the introduction of RFC 7303, these are
-to be regarded as the SAME in ALL aspects except name.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;data&#x22; channel=&#x22;file&#x22; format=&#x22;text/xml&#x22; model=&#x22;path/to/file.xml&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="image-gif"><h2>image/gif</h2></a><section><h3>Description</h3><p>An image in Graphics Interchange Format (GIF).
-The file suffix is gif.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;data&#x22; channel=&#x22;file&#x22; format=&#x22;image/gif&#x22; model=&#x22;path/to/file.gif&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="image-jpeg"><h2>image/jpeg</h2></a><section><h3>Description</h3><p>An image format defined by the Joint Photographic Experts Group (JPEG).
-The format itself is called JPEG as well.
-Data are normally stored in JPEG File Interchange Format (JFIF).
-Possible file suffixes are: jpeg, jpg, jpe, jfif, jif.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;data&#x22; channel=&#x22;file&#x22; format=&#x22;image/jpeg&#x22; model=&#x22;path/to/file.jpeg&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="image-png"><h2>image/png</h2></a><section><h3>Description</h3><p>An image in Portable Network Graphics (PNG) format.
-The file suffix is png.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;data&#x22; channel=&#x22;file&#x22; format=&#x22;image/png&#x22; model=&#x22;path/to/file.png&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="application-xml"><h2>application/xml</h2></a><section><h3>Description</h3><p>Data given in XML format.
-The Extensible Markup Language (XML) version 1.0 was defined in 1998.
-Its structure and vocabulary can be defined freely, either as
-Document Type Definition (DTD) or as XML Schema Definition (XSD).
-If given in form of a file, then the suffix is xml in case no DTD or XSD
-is available. Otherwise, a suffix representing the DTD or XSD may be used.
-There are two MIME assignments for XML data:
-- application/xml (RFC 7303, previously RFC 3023)
-- text/xml (RFC 7303, previously RFC 3023)
-However, since the introduction of RFC 7303, these are
-to be regarded as the SAME in ALL aspects except name.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;document&#x22; channel=&#x22;file&#x22; format=&#x22;application/xml&#x22; model=&#x22;path/to/file.xml&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section></section><footer><hr/><h3>Contact</h3><a href="mailto:cybop-developers@nongnu.org">cybop-developers@nongnu.org</a><br/><a href="http://www.cybop.org/">http://www.cybop.org/</a><br/><p>Copyright &#xA9; 1999-2022. CYBOP Developers. Last Update: 2022-07-09</p></footer></section><script>/*
+to be regarded as the SAME in ALL aspects except name.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;data&#x22; channel=&#x22;file&#x22; format=&#x22;text/xml&#x22; model=&#x22;path/to/file.xml&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section><section><a name="video-mp4"><h2>video/mp4</h2></a><section><h3>Description</h3><p>A video in MP4 format, which is defined in RFC 4337.
+The file suffix is mp4.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;data&#x22; channel=&#x22;file&#x22; format=&#x22;video/mp4&#x22; model=&#x22;path/to/file.mp4&#x22;/&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr></table></section></section></section><footer><hr/><h3>Contact</h3><a href="mailto:cybop-developers@nongnu.org">cybop-developers@nongnu.org</a><br/><a href="http://www.cybop.org/">http://www.cybop.org/</a><br/><p>Copyright &#xA9; 1999-2022. CYBOP Developers. Last Update: 2022-07-09</p></footer></section><script>/*
  * The search strings.
  *
  * CAUTION! The cyboi html serialiser replaces quotation marks

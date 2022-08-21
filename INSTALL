@@ -346,13 +346,25 @@ https://stackoverflow.com/questions/35869564/cmake-on-windows
 4.1 API
 _______
 
-- Check out python scripts using:
+- Check out python scripts:
 
+    cd cybop/build/
     git clone https://github.com/EnricoGallus/CybopBuildScripts.git scripts
+
+OR:
+
+- Update python scripts:
+
+    cd cybop/build/scripts/
+    git pull
 
 - Generate application programming interface (api) using:
 
     make api
+
+- Report bugs in python scripts (optionally, if necessary) via:
+
+    https://github.com/EnricoGallus/CybopBuildScripts/issues
 
 Background Information:
 
