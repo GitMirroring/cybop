@@ -64,7 +64,7 @@ static int* MP4_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MO
  *
  * MPEG-1 videwith multiplexed audio.
  * Defined in RFC 2045 and RFC 2046.
- * Suffixes: mpeg, mpg, mpe
+ * Common file suffixes: mpeg, mpg, mpe
  */
 static wchar_t* MPEG_VIDEO_STATE_CYBOL_FORMAT = L"video/mpeg";
 static int* MPEG_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -74,7 +74,7 @@ static int* MPEG_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  *
  * QuickTime video.
  * Registered.
- * Suffixes: qt, mov
+ * Common file suffixes: qt, mov
  */
 static wchar_t* QUICKTIME_VIDEO_STATE_CYBOL_FORMAT = L"video/quicktime";
 static int* QUICKTIME_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -84,7 +84,7 @@ static int* QUICKTIME_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  *
  * Vivo files.
  * Registered.
- * Suffixes: viv, vivo
+ * Common file suffixes: viv, vivo
  */
 static wchar_t* VND_VIVO_VIDEO_STATE_CYBOL_FORMAT = L"video/vnd.vivo";
 static int* VND_VIVO_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -94,7 +94,7 @@ static int* VND_VIVO_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  *
  * Microsoft AVI files.
  * Registered.
- * Suffixes: avi
+ * Common file suffixes: avi
  */
 static wchar_t* X_MSVIDEO_VIDEO_STATE_CYBOL_FORMAT = L"video/x-msvideo";
 static int* X_MSVIDEO_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -104,7 +104,7 @@ static int* X_MSVIDEO_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  *
  * Windows Media Video.
  * Documented in Microsoft KB 288102.
- * Suffixes: wmv
+ * Common file suffixes: wmv
  */
 static wchar_t* X_MS_WMV_VIDEO_STATE_CYBOL_FORMAT = L"video/x-ms-wmv";
 static int* X_MS_WMV_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -114,7 +114,7 @@ static int* X_MS_WMV_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  *
  * Movie files.
  * Registered.
- * Suffixes: movie
+ * Common file suffixes: movie
  */
 static wchar_t* X_SGI_MOVIE_VIDEO_STATE_CYBOL_FORMAT = L"video/x-sgi-movie";
 static int* X_SGI_MOVIE_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;

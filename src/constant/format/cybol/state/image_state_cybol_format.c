@@ -42,7 +42,7 @@
  *
  * CIS-Cod files.
  * Registered.
- * Suffixes: cod
+ * Common file suffixes: cod
  */
 static wchar_t* CIS_COD_IMAGE_STATE_CYBOL_FORMAT = L"image/cis-cod";
 static int* CIS_COD_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -52,7 +52,7 @@ static int* CIS_COD_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  *
  * CMU-Raster files.
  * Registered.
- * Suffixes: ras
+ * Common file suffixes: ras
  */
 static wchar_t* CMU_RASTER_IMAGE_STATE_CYBOL_FORMAT = L"image/cmu-raster";
 static int* CMU_RASTER_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -62,7 +62,7 @@ static int* CMU_RASTER_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  *
  * FIF files.
  * Registered.
- * Suffixes: fif
+ * Common file suffixes: fif
  */
 static wchar_t* FIF_IMAGE_STATE_CYBOL_FORMAT = L"image/fif";
 static int* FIF_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -88,7 +88,7 @@ static int* GIF_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MO
  *
  * IEF files.
  * Registered.
- * Suffixes: ief
+ * Common file suffixes: ief
  */
 static wchar_t* IEF_IMAGE_STATE_CYBOL_FORMAT = L"image/ief";
 static int* IEF_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -131,7 +131,7 @@ static int* PNG_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MO
  * The image/tiff state cybol format.
  *
  * Tag Image File Format.
- * Suffixes: tiff, tif
+ * Common file suffixes: tiff, tif
  */
 static wchar_t* TIFF_IMAGE_STATE_CYBOL_FORMAT = L"image/tiff";
 static int* TIFF_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -141,17 +141,23 @@ static int* TIFF_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  *
  * Vasa files.
  * Registered.
- * Suffixes: mcf
+ * Common file suffixes: mcf
  */
 static wchar_t* VASA_IMAGE_STATE_CYBOL_FORMAT = L"image/vasa";
 static int* VASA_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The image/vnd.microsoft.icon state cybol format.
+ */
+static wchar_t* VND_MICROSOFT_ICON_APPLICATION_STATE_CYBOL_FORMAT = L"image/vnd.microsoft.icon";
+static int* VND_MICROSOFT_ICON_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The image/vnd.wap.wbmp state cybol format.
  *
  * Bitmap files (WAP).
  * Registered.
- * Suffixes: wbmp
+ * Common file suffixes: wbmp
  */
 static wchar_t* VND_WAP_WBMP_IMAGE_STATE_CYBOL_FORMAT = L"image/vnd.wap.wbmp";
 static int* VND_WAP_WBMP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -161,7 +167,7 @@ static int* VND_WAP_WBMP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  *
  * Freehand files.
  * Registered.
- * Suffixes: fh4, fh5, fhc
+ * Common file suffixes: fh4, fh5, fhc
  */
 static wchar_t* X_FREEHAND_IMAGE_STATE_CYBOL_FORMAT = L"image/x-freehand";
 static int* X_FREEHAND_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -171,7 +177,7 @@ static int* X_FREEHAND_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  *
  * Icon files (f.e. Favoriten-Icons).
  * Registered.
- * Suffixes: ico
+ * Common file suffixes: ico
  */
 static wchar_t* X_ICON_IMAGE_STATE_CYBOL_FORMAT = L"image/x-icon";
 static int* X_ICON_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -181,7 +187,7 @@ static int* X_ICON_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * PBM Anymap files.
  * Registered.
- * Suffixes: pnm
+ * Common file suffixes: pnm
  */
 static wchar_t* X_PORTABLE_ANYMAP_IMAGE_STATE_CYBOL_FORMAT = L"image/x-portable-anymap";
 static int* X_PORTABLE_ANYMAP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -191,7 +197,7 @@ static int* X_PORTABLE_ANYMAP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER
  *
  * PBM Bitmap files.
  * Registered.
- * Suffixes: pbm
+ * Common file suffixes: pbm
  */
 static wchar_t* X_PORTABLE_BITMAP_IMAGE_STATE_CYBOL_FORMAT = L"image/x-portable-bitmap";
 static int* X_PORTABLE_BITMAP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -201,7 +207,7 @@ static int* X_PORTABLE_BITMAP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER
  *
  * PBM Graymap files.
  * Registered.
- * Suffixes: pgm
+ * Common file suffixes: pgm
  */
 static wchar_t* X_PORTABLE_GARYMAP_IMAGE_STATE_CYBOL_FORMAT = L"image/x-portable-graymap";
 static int* X_PORTABLE_GRAYMAP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -211,7 +217,7 @@ static int* X_PORTABLE_GRAYMAP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGE
  *
  * PBM Pixmap files.
  * Registered.
- * Suffixes: ppm
+ * Common file suffixes: ppm
  */
 static wchar_t* X_PORTABLE_PIXMAP_IMAGE_STATE_CYBOL_FORMAT = L"image/x-portable-pixmap";
 static int* X_PORTABLE_PIXMAP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -221,7 +227,7 @@ static int* X_PORTABLE_PIXMAP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER
  *
  * RGB files.
  * Registered.
- * Suffixes: rgb
+ * Common file suffixes: rgb
  */
 static wchar_t* X_RGB_IMAGE_STATE_CYBOL_FORMAT = L"image/x-rgb";
 static int* X_RGB_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -231,7 +237,7 @@ static int* X_RGB_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  *
  * X-Windows Dump.
  * Registered.
- * Suffixes: xwd
+ * Common file suffixes: xwd
  */
 static wchar_t* X_WINDOWDUMP_IMAGE_STATE_CYBOL_FORMAT = L"image/x-windowdump";
 static int* X_WINDOWDUMP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -241,7 +247,7 @@ static int* X_WINDOWDUMP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  *
  * XBM files.
  * Registered.
- * Suffixes: xbm
+ * Common file suffixes: xbm
  */
 static wchar_t* X_XBITMAP_IMAGE_STATE_CYBOL_FORMAT = L"image/x-xbitmap";
 static int* X_XBITMAP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -251,7 +257,7 @@ static int* X_XBITMAP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  *
  * XPM files.
  * Registered.
- * Suffixes: xpm
+ * Common file suffixes: xpm
  */
 static wchar_t* X_XPIXMAP_IMAGE_STATE_CYBOL_FORMAT = L"image/x-xpixmap";
 static int* X_XPIXMAP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;

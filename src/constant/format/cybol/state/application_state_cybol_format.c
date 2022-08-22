@@ -41,8 +41,8 @@
  * The application/acad state cybol format.
  *
  * AutoCAD files (by NCSA).
- * Registered.
- * Suffixes: dwg
+ *
+ * Common file suffixes: dwg
  */
 static wchar_t* ACAD_APPLICATION_STATE_CYBOL_FORMAT = L"application/acad";
 static int* ACAD_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -61,7 +61,7 @@ static int* APPLEFILE_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  *
  * Astound files.
  * Registered.
- * Suffixes: asd, asn
+ * Common file suffixes: asd, asn
  */
 static wchar_t* ASTOUND_APPLICATION_STATE_CYBOL_FORMAT = L"application/astound";
 static int* ASTOUND_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -71,7 +71,7 @@ static int* ASTOUND_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *
  * TSP files.
  * Registered.
- * Suffixes: tsp
+ * Common file suffixes: tsp
  */
 static wchar_t* DSPTYPE_APPLICATION_STATE_CYBOL_FORMAT = L"application/dsptype";
 static int* DSPTYPE_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -81,17 +81,33 @@ static int* DSPTYPE_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *
  * AutoCAD files (by CERN).
  * Registered.
- * Suffixes: dxf
+ * Common file suffixes: dxf
  */
 static wchar_t* DXF_APPLICATION_STATE_CYBOL_FORMAT = L"application/dxf";
 static int* DXF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The application/EDI-X12 state cybol format.
+ *
+ * EDI X12 data; Defined in RFC 1767
+ */
+static wchar_t* EDI_X12_APPLICATION_STATE_CYBOL_FORMAT = L"application/EDI-X12";
+static int* EDI_X12_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The application/EDIFACT state cybol format.
+ *
+ * EDI EDIFACT data; Defined in RFC 1767
+ */
+static wchar_t* EDIFACT_APPLICATION_STATE_CYBOL_FORMAT = L"application/EDIFACT";
+static int* EDIFACT_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The application/futuresplash state cybol format.
  *
  * Flash Futuresplash files.
  * Registered.
- * Suffixes: spl
+ * Common file suffixes: spl
  */
 static wchar_t* FUTURESPLASH_APPLICATION_STATE_CYBOL_FORMAT = L"application/futuresplash";
 static int* FUTURESPLASH_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -101,17 +117,61 @@ static int* FUTURESPLASH_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGE
  *
  * GNU Zip files.
  * Registered.
- * Suffixes: gz
+ * Common file suffixes: gz
  */
 static wchar_t* GZIP_APPLICATION_STATE_CYBOL_FORMAT = L"application/gzip";
 static int* GZIP_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The application/javascript state cybol format.
+ *
+ * Description:
+ *
+ * A JavaScript program script.
+ *
+ * Common file suffixes: js
+ *
+ * There are three MIME assignments for json data:
+ * - application/javascript (official)
+ * - application/x-javascript (outdated)
+ * - text/javascript (unofficial)
+ *
+ * Preference should be given to the OFFICIAL mime type "application/javascript".
+ *
+ * Examples:
+ *
+ * <node name="program_source_code" channel="file" format="application/javascript" model="path/to/file.js"/>
+ */
+static wchar_t* JAVASCRIPT_APPLICATION_STATE_CYBOL_FORMAT = L"application/javascript";
+static int* JAVASCRIPT_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The application/json state cybol format.
+ *
+ * Description:
+ *
+ * Text data given in JavaScript Object Notation (JSON).
+ *
+ * There are three MIME assignments for json data:
+ * - application/json (official)
+ * - text/json (unofficial)
+ * - text/javascript (unofficial)
+ *
+ * Preference should be given to the OFFICIAL mime type "application/json".
+ *
+ * Examples:
+ *
+ * <node name="data" channel="file" format="application/json" model="path/to/file.json"/>
+ */
+static wchar_t* JSON_APPLICATION_STATE_CYBOL_FORMAT = L"application/json";
+static int* JSON_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The application/listenup state cybol format.
  *
  * Listenup files.
  * Registered.
- * Suffixes: ptlk
+ * Common file suffixes: ptlk
  */
 static wchar_t* LISTENUP_APPLICATION_STATE_CYBOL_FORMAT = L"application/listenup";
 static int* LISTENUP_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -121,7 +181,7 @@ static int* LISTENUP_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_ST
  *
  * Macintosh Binär files.
  * Registered.
- * Suffixes: hqx
+ * Common file suffixes: hqx
  */
 static wchar_t* MAC_BINHEX40_APPLICATION_STATE_CYBOL_FORMAT = L"application/mac-binhex40";
 static int* MAC_BINHEX40_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -131,7 +191,7 @@ static int* MAC_BINHEX40_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGE
  *
  * Mbedlet files.
  * Registered.
- * Suffixes: mbd
+ * Common file suffixes: mbd
  */
 static wchar_t* MBEDLET_APPLICATION_STATE_CYBOL_FORMAT = L"application/mbedlet";
 static int* MBEDLET_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -141,7 +201,7 @@ static int* MBEDLET_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *
  * FrameMaker Interchange Format files.
  * Registered.
- * Suffixes: mif
+ * Common file suffixes: mif
  */
 static wchar_t* MIF_APPLICATION_STATE_CYBOL_FORMAT = L"application/mif";
 static int* MIF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -151,7 +211,7 @@ static int* MIF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_C
  *
  * Microsoft Excel files.
  * Registered.
- * Suffixes: xls, xla
+ * Common file suffixes: xls, xla
  */
 static wchar_t* MSEXCEL_APPLICATION_STATE_CYBOL_FORMAT = L"application/msexcel";
 static int* MSEXCEL_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -161,7 +221,7 @@ static int* MSEXCEL_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *
  * Microsoft Windows Help files.
  * Registered.
- * Suffixes: hlp, chm
+ * Common file suffixes: hlp, chm
  */
 static wchar_t* MSHELP_APPLICATION_STATE_CYBOL_FORMAT = L"application/mshelp";
 static int* MSHELP_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -171,7 +231,7 @@ static int* MSHELP_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  *
  * Microsoft Powerpoint files.
  * Registered.
- * Suffixes: ppt, ppz, pps, pot
+ * Common file suffixes: ppt, ppz, pps, pot
  */
 static wchar_t* MSPOWERPOINT_APPLICATION_STATE_CYBOL_FORMAT = L"application/mspowerpoint";
 static int* MSPOWERPOINT_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -181,7 +241,7 @@ static int* MSPOWERPOINT_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGE
  *
  * Microsoft Word files.
  * Registered.
- * Suffixes: doc, dot
+ * Common file suffixes: doc, dot
  */
 static wchar_t* MSWORD_APPLICATION_STATE_CYBOL_FORMAT = L"application/msword";
 static int* MSWORD_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -189,9 +249,17 @@ static int* MSWORD_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
 /**
  * The application/octet-stream state cybol format.
  *
+ * Arbitrary byte stream.
+ *
+ * This is thought of as the "default" media type used by several operating systems,
+ * often used to identify executable files, files of unknown type, or files that should
+ * be downloaded in protocols that do not provide a separate "content disposition" header.
+ *
+ * RFC 2046 specifies this as the fallback for unrecognized subtypes of other types.
+ *
  * Executable files.
  * Registered.
- * Suffixes: bin, exe, com, dll, class
+ * Common file suffixes: bin, exe, com, dll, class
  */
 static wchar_t* OCTET_STREAM_APPLICATION_STATE_CYBOL_FORMAT = L"application/octet-stream";
 static int* OCTET_STREAM_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -201,17 +269,25 @@ static int* OCTET_STREAM_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGE
  *
  * Oda files.
  * Registered.
- * Suffixes: oda
+ * Common file suffixes: oda
  */
 static wchar_t* ODA_APPLICATION_STATE_CYBOL_FORMAT = L"application/oda";
 static int* ODA_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The application/ogg state cybol format.
+ *
+ * Ogg, a multimedia bitstream container format; Defined in RFC 3534
+ */
+static wchar_t* OGG_APPLICATION_STATE_CYBOL_FORMAT = L"application/ogg";
+static int* OGG_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The application/pdf state cybol format.
  *
  * Adobe PDF files
  * Registered.
- * Suffixes: pdf
+ * Common file suffixes: pdf
  */
 static wchar_t* PDF_APPLICATION_STATE_CYBOL_FORMAT = L"application/pdf";
 static int* PDF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -221,7 +297,7 @@ static int* PDF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  *
  * Adobe PostScript files
  * Registered.
- * Suffixes: ai, eps, ps
+ * Common file suffixes: ai, eps, ps
  */
 static wchar_t* POSTSCRIPT_APPLICATION_STATE_CYBOL_FORMAT = L"application/postscript";
 static int* POSTSCRIPT_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -231,7 +307,7 @@ static int* POSTSCRIPT_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
  *
  * RTC files
  * Registered.
- * Suffixes: rtc
+ * Common file suffixes: rtc
  */
 static wchar_t* RTC_APPLICATION_STATE_CYBOL_FORMAT = L"application/rtc";
 static int* RTC_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -241,7 +317,7 @@ static int* RTC_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  *
  * Microsoft RTF files
  * Registered.
- * Suffixes: rtf
+ * Common file suffixes: rtf
  */
 static wchar_t* RTF_APPLICATION_STATE_CYBOL_FORMAT = L"application/rtf";
 static int* RTF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -251,7 +327,7 @@ static int* RTF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  *
  * Studiom files
  * Registered.
- * Suffixes: smp
+ * Common file suffixes: smp
  */
 static wchar_t* STUDIOM_APPLICATION_STATE_CYBOL_FORMAT = L"application/studiom";
 static int* STUDIOM_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -261,7 +337,7 @@ static int* STUDIOM_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *
  * Toolbook files.
  * Registered.
- * Suffixes: tbk
+ * Common file suffixes: tbk
  */
 static wchar_t* TOOLBOOK_APPLICATION_STATE_CYBOL_FORMAT = L"application/toolbook";
 static int* TOOLBOOK_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -271,7 +347,7 @@ static int* TOOLBOOK_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_ST
  *
  * WMLC files (WAP).
  * Registered.
- * Suffixes: wmlc
+ * Common file suffixes: wmlc
  */
 static wchar_t* VND_WAP_WMLC_APPLICATION_STATE_CYBOL_FORMAT = L"application/vnd.wap.wmlc";
 static int* VND_WAP_WMLC_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_25_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -281,7 +357,7 @@ static int* VND_WAP_WMLC_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_25_INTEGE
  *
  * WML-Script-C files (WAP).
  * Registered.
- * Suffixes: wmlsc
+ * Common file suffixes: wmlsc
  */
 static wchar_t* VND_WAP_WMLSCRIPTC_APPLICATION_STATE_CYBOL_FORMAT = L"application/vnd.wap.wmlscriptc";
 static int* VND_WAP_WMLSCRIPTC_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_30_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -291,7 +367,7 @@ static int* VND_WAP_WMLSCRIPTC_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_30_
  *
  * Vocaltec Mediadesc files
  * Registered.
- * Suffixes: vmd
+ * Common file suffixes: vmd
  */
 static wchar_t* VOCALTEC_MEDIA_DESC_APPLICATION_STATE_CYBOL_FORMAT = L"application/vocaltec-media-desc";
 static int* VOCALTEC_MEDIA_DESC_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_31_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -301,7 +377,7 @@ static int* VOCALTEC_MEDIA_DESC_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_31
  *
  * Vocaltec Media files
  * Registered.
- * Suffixes: vmf
+ * Common file suffixes: vmf
  */
 static wchar_t* VOCALTEC_MEDIA_FILE_APPLICATION_STATE_CYBOL_FORMAT = L"application/vocaltec-media-file";
 static int* VOCALTEC_MEDIA_FILE_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_31_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -311,7 +387,7 @@ static int* VOCALTEC_MEDIA_FILE_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_31
  *
  * BCPIO files
  * Registered.
- * Suffixes: bcpio
+ * Common file suffixes: bcpio
  */
 static wchar_t* X_BCPIO_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-bcpio";
 static int* X_BCPIO_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -321,7 +397,7 @@ static int* X_BCPIO_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *
  * zlib compressed files
  * Registered.
- * Suffixes: z
+ * Common file suffixes: z
  */
 static wchar_t* X_COMPRESS_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-compress";
 static int* X_COMPRESS_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -331,7 +407,7 @@ static int* X_COMPRESS_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
  *
  * CPIO files
  * Registered.
- * Suffixes: cpio
+ * Common file suffixes: cpio
  */
 static wchar_t* X_CPIO_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-cpio";
 static int* X_CPIO_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -341,7 +417,7 @@ static int* X_CPIO_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  *
  * C-Shellscript files
  * Registered.
- * Suffixes: csh
+ * Common file suffixes: csh
  */
 static wchar_t* X_CSH_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-csh";
 static int* X_CSH_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -351,7 +427,7 @@ static int* X_CSH_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
  *
  * Macromedia Director files
  * Registered.
- * Suffixes: dcr, dir, dxr
+ * Common file suffixes: dcr, dir, dxr
  */
 static wchar_t* X_DIRECTOR_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-director";
 static int* X_DIRECTOR_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -359,9 +435,9 @@ static int* X_DIRECTOR_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
 /**
  * The application/x-dvi state cybol format.
  *
- * DVI files
- * Registered.
- * Suffixes: dvi
+ * Digital Videfiles in DVI format
+ *
+ * Common file suffixes: dvi
  */
 static wchar_t* X_DVI_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-dvi";
 static int* X_DVI_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -371,7 +447,7 @@ static int* X_DVI_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
  *
  * Envoy files
  * Registered.
- * Suffixes: evy
+ * Common file suffixes: evy
  */
 static wchar_t* X_ENVOY_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-envoy";
 static int* X_ENVOY_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -381,7 +457,7 @@ static int* X_ENVOY_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *
  * GNU tar files
  * Registered.
- * Suffixes: gtar
+ * Common file suffixes: gtar
  */
 static wchar_t* X_GTAR_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-gtar";
 static int* X_GTAR_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -391,37 +467,17 @@ static int* X_GTAR_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  *
  * HDF files
  * Registered.
- * Suffixes: hdf
+ * Common file suffixes: hdf
  */
 static wchar_t* X_HDF_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-hdf";
 static int* X_HDF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The application/x-httpd-php state cybol format.
- *
- * PHP files
- * Registered.
- * Suffixes: php, phtml
- */
-static wchar_t* X_HTTPD_PHP_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-httpd-php";
-static int* X_HTTPD_PHP_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The application/x-javascript state cybol format.
- *
- * server side JavaScript files
- * Registered.
- * Suffixes: js
- */
-static wchar_t* X_JAVASCRIPT_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-javascript";
-static int* X_JAVASCRIPT_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The application/x-macbinary state cybol format.
  *
  * Macintosh binary files
  * Registered.
- * Suffixes: bin
+ * Common file suffixes: bin
  */
 static wchar_t* X_MACBINARY_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-macbinary";
 static int* X_MACBINARY_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -431,7 +487,7 @@ static int* X_MACBINARY_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER
  *
  * FrameMaker Interchange Format files
  * Registered.
- * Suffixes: mif
+ * Common file suffixes: mif
  */
 static wchar_t* X_MIF_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-mif";
 static int* X_MIF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -441,7 +497,7 @@ static int* X_MIF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
  *
  * Unidata CDF files
  * Registered.
- * Suffixes: nc, cdf
+ * Common file suffixes: nc, cdf
  */
 static wchar_t* X_NETCDF_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-netcdf";
 static int* X_NETCDF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -451,7 +507,7 @@ static int* X_NETCDF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_ST
  *
  * NS Chat files
  * Registered.
- * Suffixes: nsc
+ * Common file suffixes: nsc
  */
 static wchar_t* X_NSCHAT_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-nschat";
 static int* X_NSCHAT_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -461,7 +517,7 @@ static int* X_NSCHAT_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_ST
  *
  * Bourne Shellscript files
  * Registered.
- * Suffixes: sh
+ * Common file suffixes: sh
  */
 static wchar_t* X_SH_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-sh";
 static int* X_SH_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -471,47 +527,47 @@ static int* X_SH_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  *
  * Shell archive files
  * Registered.
- * Suffixes: shar
+ * Common file suffixes: shar
  */
 static wchar_t* X_SHAR_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-shar";
 static int* X_SHAR_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-shockwave-flash state cybol format.
+ * The application/shockwave-flash state cybol format.
  *
- * Flash Shockwave files
- * Registered.
- * Suffixes: swf, cab
+ * Adobe shockwave flash files documented in Adobe TechNote tn_4151 and Adobe TechNote tn_16509.
+ *
+ * Common file suffixes: swf, cab
  */
-static wchar_t* X_SHOCKWAVE_FLASH_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-shockwave-flash";
-static int* X_SHOCKWAVE_FLASH_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_29_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* SHOCKWAVE_FLASH_APPLICATION_STATE_CYBOL_FORMAT = L"application/shockwave-flash";
+static int* SHOCKWAVE_FLASH_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_27_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The application/x-sprite state cybol format.
  *
  * Sprite files
  * Registered.
- * Suffixes: spr, sprite
+ * Common file suffixes: spr, sprite
  */
 static wchar_t* X_SPRITE_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-sprite";
 static int* X_SPRITE_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-stuffit state cybol format.
+ * The application/stuffit state cybol format.
  *
- * Stuffit files
- * Registered.
- * Suffixes: sit
+ * StuffIt archive files.
+ *
+ * Common file suffixes: sit
  */
-static wchar_t* X_STUFFIT_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-stuffit";
-static int* X_STUFFIT_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* STUFFIT_APPLICATION_STATE_CYBOL_FORMAT = L"application/stuffit";
+static int* STUFFIT_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The application/x-supercard state cybol format.
  *
  * Supercard files
  * Registered.
- * Suffixes: sca
+ * Common file suffixes: sca
  */
 static wchar_t* X_SUPERCARD_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-supercard";
 static int* X_SUPERCARD_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -521,7 +577,7 @@ static int* X_SUPERCARD_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER
  *
  * CPIO files
  * Registered.
- * Suffixes: sv4cpio
+ * Common file suffixes: sv4cpio
  */
 static wchar_t* X_SV4CPIO_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-sv4cpio";
 static int* X_SV4CPIO_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -531,7 +587,7 @@ static int* X_SV4CPIO_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  *
  * CPIO files with CRC
  * Registered.
- * Suffixes: sv4crc
+ * Common file suffixes: sv4crc
  */
 static wchar_t* X_SV4CRC_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-sv4crc";
 static int* X_SV4CRC_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -541,7 +597,7 @@ static int* X_SV4CRC_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_ST
  *
  * TCL script files
  * Registered.
- * Suffixes: tcl
+ * Common file suffixes: tcl
  */
 static wchar_t* X_TCL_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-tcl";
 static int* X_TCL_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -551,7 +607,7 @@ static int* X_TCL_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
  *
  * TeX files
  * Registered.
- * Suffixes: tex
+ * Common file suffixes: tex
  */
 static wchar_t* X_TEX_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-tex";
 static int* X_TEX_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -561,7 +617,7 @@ static int* X_TEX_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
  *
  * Texinfo files
  * Registered.
- * Suffixes: texinfo, texi
+ * Common file suffixes: texinfo, texi
  */
 static wchar_t* X_TEXINFO_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-texinfo";
 static int* X_TEXINFO_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -571,7 +627,7 @@ static int* X_TEXINFO_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  *
  * TROFF files (UNIX)
  * Registered.
- * Suffixes: t, tr, roff
+ * Common file suffixes: t, tr, roff
  */
 static wchar_t* X_TROFF_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-troff";
 static int* X_TROFF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -581,7 +637,7 @@ static int* X_TROFF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *
  * TROFF files (UNIX)
  * Registered.
- * Suffixes: t, tr, roff
+ * Common file suffixes: t, tr, roff
  */
 static wchar_t* X_TROFF_MAN_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-troff-man";
 static int* X_TROFF_MAN_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -591,7 +647,7 @@ static int* X_TROFF_MAN_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER
  *
  * TROFF files with ME-Makros (Unix)
  * Registered.
- * Suffixes: me, roff
+ * Common file suffixes: me, roff
  */
 static wchar_t* X_TROFF_ME_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-troff-me";
 static int* X_TROFF_ME_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -601,7 +657,7 @@ static int* X_TROFF_ME_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
  *
  * TROFF files with MS-Makros (Unix)
  * Registered.
- * Suffixes: ms, roff
+ * Common file suffixes: ms, roff
  */
 static wchar_t* X_TROFF_MS_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-troff-ms";
 static int* X_TROFF_MS_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -611,7 +667,7 @@ static int* X_TROFF_MS_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
  *
  * tar archiv files (Posix)
  * Registered.
- * Suffixes: ustar
+ * Common file suffixes: ustar
  */
 static wchar_t* X_USTAR_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-ustar";
 static int* X_USTAR_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -621,7 +677,7 @@ static int* X_USTAR_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *
  * WAIS source files
  * Registered.
- * Suffixes: src
+ * Common file suffixes: src
  */
 static wchar_t* X_WAIS_SOURCE_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-wais-source";
 static int* X_WAIS_SOURCE_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_25_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -640,7 +696,7 @@ static int* X_WWW_FORM_URLENCODED_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_
  *
  * XHTML archive files. Defined by RFC 3236.
  * Registered.
- * Suffixes: xhtml
+ * Common file suffixes: xhtml
  */
 static wchar_t* XHTML_APPLICATION_STATE_CYBOL_FORMAT = L"application/xhtml+xml";
 static int* XHTML_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -685,7 +741,7 @@ static int* XML_DTD_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *
  * ZIP archive files.
  * Registered.
- * Suffixes: zip
+ * Common file suffixes: zip
  */
 static wchar_t* ZIP_APPLICATION_STATE_CYBOL_FORMAT = L"application/zip";
 static int* ZIP_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;

@@ -42,7 +42,7 @@
  *
  * Visualization of virtual worlds (VRML)
  * Registered.
- * Suffixes: wrl
+ * Common file suffixes: wrl
  */
 static wchar_t* VRML_MODEL_STATE_CYBOL_FORMAT = L"image/vrml";
 static int* VRML_MODEL_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;

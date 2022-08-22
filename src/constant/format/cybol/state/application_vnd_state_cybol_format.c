@@ -38,19 +38,37 @@
 //
 
 /**
+ * The application/vnd.mozilla.xul+xml state cybol format.
+ *
+ * Mozilla XUL files
+ */
+static wchar_t* VND_MOZILLA_XUL_XML_APPLICATION_STATE_CYBOL_FORMAT = L"application/vnd.mozilla.xul+xml";
+static int* VND_MOZILLA_XUL_XML_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_31_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The application/vnd.ms-excel state cybol format.
  *
  * Microsoft Excel files.
- * Suffixes: xls, xla
+ * Common file suffixes: xls, xla
  */
 static wchar_t* VND_MS_EXCEL_APPLICATION_STATE_CYBOL_FORMAT = L"application/vnd.ms-excel";
 static int* VND_MS_EXCEL_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/*??
-application/vnd.ms-powerpoint: Microsoft Powerpoint files
-application/msword: Microsoft Word files
-application/vnd.mozilla.xul+xml: Mozilla XUL files
-*/
+/**
+ * The application/vnd.ms-powerpoint state cybol format.
+ *
+ * Microsoft Powerpoint files
+ */
+static wchar_t* VND_MS_POWERPOINT_APPLICATION_STATE_CYBOL_FORMAT = L"application/vnd.ms-powerpoint";
+static int* VND_MS_POWERPOINT_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_29_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The application/vnd.msword state cybol format.
+ *
+ * Microsoft Word files
+ */
+static wchar_t* VND_MSWORD_APPLICATION_STATE_CYBOL_FORMAT = L"application/vnd.msword";
+static int* VND_MSWORD_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* APPLICATION_VND_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

@@ -1,3 +1,6 @@
+application/javascript
+application/json
+application/x-javascript
 application/xml
 colour/cmyk
 colour/rgb
@@ -24,6 +27,8 @@ number/integer
 text/ascii
 text/cybol-path
 text/html
+text/javascript
+text/json
 text/plain
 text/xml
 video/mp4

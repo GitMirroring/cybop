@@ -204,8 +204,6 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/cybol-path"/>
-        <!-- OLD: <node name="message" channel="inline" format="text/cybol-path" model="*.test.reference"/> -->
-        <!-- NEW: <node name="message" channel="inline" format="text/cybol-path" model="{.test.reference}"/> -->
         <node name="message" channel="inline" format="text/cybol-path" model="{.test.reference}"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>

@@ -42,7 +42,7 @@
  *
  * Drawing files.
  * Registered.
- * Suffixes: dwf
+ * Common file suffixes: dwf
  */
 static wchar_t* X_DWF_DRWAING_STATE_CYBOL_FORMAT = L"drawing/x-dwf";
 static int* X_DWF_DRAWING_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;

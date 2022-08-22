@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-08-22  Christian Heller  <christian.heller@cybop.org>
+
+        * Complete updating cybol api specification in javadoc comment blocks of directory "constant/format/cybol/state/"
+
 2022-08-19  Christian Heller  <christian.heller@cybop.org>
 
         * Update cybol api specification in javadoc comment blocks of directory "constant/format/cybol/state/"
