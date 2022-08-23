@@ -49,15 +49,6 @@
  * functionality in header file unistd.h.
  * Function: ssize_t read (int filedes, void *buffer, size_t size)
  *
- * Parametres:
- * - channel (required): the communication channel, e.g. file, serial, socket
- * - server (optional): the flag indicating server mode (server-side client stub and NOT standalone client); if NULL, the default is false (client mode)
- * - port (optional): the service identification; only relevant in server mode
- * - sender (required): the device identification, e.g. file descriptor
- * - language (optional): the language defining which prefix or suffix indicates the message length, e.g. binary-crlf, http-request, xdt; not needed for file reading since that ends with EOF
- * - message (required): the cybol path to the knowledge tree node storing the received data
- * - asynchronicity (optional): the flag indicating asynchronous reading from buffer in which data got stored by a sensing thread before; if NULL, the default is false (synchronous read)
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)

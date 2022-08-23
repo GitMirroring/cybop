@@ -27,7 +27,6 @@
 #define TAPE_ARCHIVER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/tape_archiver_commander_logic_cybol_name.c"
@@ -37,32 +36,22 @@
 #include "../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-#include "../../constant/model/command/unix_command_model.c"
+    #include "../../constant/model/command/unix_command_model.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-#include "../../constant/model/command/unix_command_model.c"
+    #include "../../constant/model/command/unix_command_model.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-#include "../../constant/model/command/win32_command_model.c"
+    #include "../../constant/model/command/win32_command_model.c"
 #else
-#error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
- * Packs/Unpacks a directory or file
- *
- * Expected parametres:
- * - source (required): the source for archiving
- * - destination (required): the destination where the source is being archived
- * - force (optional): the force option for not asking for permission for overwriting files or directories
- * - gzip (optional): the gunzip option to indicate gunzip compression or extraction
- * - unpack (optional): the option for unpacking / extraction or else it will pack
- * - verbal (optional): shows which files and directories are being copied
- *
- * Constraints:
+ * Packs or unpacks a directory or file.
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -72,7 +61,7 @@
  */
 void apply_tape_archiver(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply tape archiver file.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply tape archiver.");
 
     // The source part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;

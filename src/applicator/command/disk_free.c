@@ -35,20 +35,11 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
  * Display free disk space.
- *
- * - all (optional): the all option (lists filesystems with a size of 0 blocks)
- * - human(optional): the human option (human-readable output)
- * - kilobytes(optional): the kilobytes option (print sizes in kilobytes)
- * - local (optional): the local option (limit the listing to local filesystems)
- * - megabytes(optional): the megabytes option (print sizes in megabytes)
- * - type(optional): the print type option (print each filesystems type)
- *
- * Constraints:
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -58,7 +49,7 @@
  */
 void apply_disk_free(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply remove file.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply disk free.");
 
     // The all part.
     void* a = *NULL_POINTER_STATE_CYBOI_MODEL;

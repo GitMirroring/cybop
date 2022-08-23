@@ -27,7 +27,6 @@
 #define TOUCH_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/touch_commander_logic_cybol_name.c"
@@ -37,18 +36,11 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
- * creates new file
- *
- * Expected parametres:
- * - path
- * - reference
- * - timestamp
- *
- * Constraints:
+ * Creates a new file.
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

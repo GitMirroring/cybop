@@ -42,8 +42,12 @@
  * The flow/branch logic cybol format.
  *
  * Branch control flow according to a given criterion.
+ * Branches the programme flow, depending on the criterion flag.
  *
- * This is a CYBOL extension.
+ * Parametres:
+ * - criterion (required): the flag specifying which of the two models to execute
+ * - true (optional): the logic knowledge model to be executed if the condition is true
+ * - false (optional): the logic knowledge model to be executed if the condition is false
  */
 static wchar_t* BRANCH_FLOW_LOGIC_CYBOL_FORMAT = L"flow/branch";
 static int* BRANCH_FLOW_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -52,8 +56,11 @@ static int* BRANCH_FLOW_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  * The flow/loop logic cybol format.
  *
  * Loop control flow until break flag is set.
+ * Loops the programme flow endlessly, until the break flag is set.
  *
- * This is a CYBOL extension.
+ * Parametres:
+ * - break (required): the break flag; once set, the loop will be left (exited)
+ * - model (required): the logic knowledge model to be executed repeatedly by the loop
  */
 static wchar_t* LOOP_FLOW_LOGIC_CYBOL_FORMAT = L"flow/loop";
 static int* LOOP_FLOW_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -62,8 +69,10 @@ static int* LOOP_FLOW_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MO
  * The flow/sequence logic cybol format.
  *
  * Process commands as sequence.
+ * Executes the given programme flow as sequence.
  *
- * This is a CYBOL extension.
+ * Parametres:
+ * - model (required): the logic knowledge model to be executed as sequence
  */
 static wchar_t* SEQUENCE_FLOW_LOGIC_CYBOL_FORMAT = L"flow/sequence";
 static int* SEQUENCE_FLOW_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;

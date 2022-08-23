@@ -43,11 +43,6 @@
 /**
  * Runs a programme.
  *
- * Properties:
- * - programme: the programme to be run
- *
- * Constraints:
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)

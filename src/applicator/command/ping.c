@@ -27,7 +27,6 @@
 #define PING_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/ping_commander_logic_cybol_name.c"
@@ -37,18 +36,11 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
- * Pings a given host
- *
- * Expected parametres:
- * - host (required): host, to be pinged
- * - count (optional): count of ping packets to send
- * - interface (optional): interface to send packets on
- *
- * Constraints:
+ * Pings the given host via network.
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

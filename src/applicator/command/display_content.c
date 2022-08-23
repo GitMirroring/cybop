@@ -27,7 +27,6 @@
 #define DISPLAY_CONTENT_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/display_content_commander_logic_cybol_name.c"
@@ -37,19 +36,11 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
- * Changes the directory.
- *
- * Expected parametres:
- * - path (required): path to the file
- * - clear screen (optional): Clear screen before displaying page
- * - display line numbers (optional): number all output lines
- * - squeeze (optional): Squeeze multiple blank lines into a single line
- *
- * Constraints:
+ * Displays the content of one or more text files.
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -59,7 +50,7 @@
  */
 void apply_display_content(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply display content of a text file.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply display content.");
 
     // The path part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;

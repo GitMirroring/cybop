@@ -42,8 +42,6 @@
  * The live/exit logic cybol format.
  *
  * Exit the cyboi system.
- *
- * This is a CYBOL extension.
  */
 static wchar_t* EXIT_LIVE_LOGIC_CYBOL_FORMAT = L"live/exit";
 static int* EXIT_LIVE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;

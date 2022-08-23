@@ -27,7 +27,6 @@
 #define SYSTEM_MESSSAGES_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/system_messages_commander_logic_cybol_name.c"
@@ -37,19 +36,11 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
  * Shows the system messages.
- *
- * - human(optional): the human option (human-readable output)
- * - ctime(optional): the time-stamp option (print time in real time)
- * - kernel(optional): the kernel option (shows kernel messages)
- * - color(optional): the color option (colorizes the output)
- * - userspace(optional): the userspace option (shows messages of the userspace)
- *
- * Constraints:
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -59,7 +50,7 @@
  */
 void apply_system_messages(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shows the system-messages.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply system messages.");
 
     // The human part.
     void* h = *NULL_POINTER_STATE_CYBOI_MODEL;

@@ -27,7 +27,7 @@
 #define SLEEP_SOURCE
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -42,14 +42,8 @@
 /**
  * Suspends execution of the calling thread for (at least) the given number of microseconds.
  *
- * The sleep may be lengthened slightly by any system activity
- * or by the time spent processing the call
- * or by the granularity of system timers.
- *
- * Properties:
- * - duration: the time to sleep
- *
- * Constraints:
+ * The sleep may be lengthened slightly by any system activity or by the
+ * time spent processing the call or by the granularity of system timers.
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

@@ -47,15 +47,6 @@
  * since that name is already used by low-level glibc
  * functionality in header file unistd.h.
  *
- * Parametres:
- * - channel (required): the communication channel, e.g. file, serial, socket
- * - server (optional): the flag indicating server mode; if NULL, the default is false (client mode)
- * - port (optional): the service identification; only relevant in server mode
- * - receiver (required): the device identification, e.g. file descriptor
- * - message (required): the data to be written
- * - asynchronicity (optional): the flag indicating asynchronous writing within a thread; if NULL, the default is false (synchronous write)
- * - handler (optional): the callback cybol operation being executed when the thread finished reading data
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)

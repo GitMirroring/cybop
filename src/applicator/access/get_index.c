@@ -41,11 +41,6 @@
 /**
  * Gets the index of the part within the whole.
  *
- * Expected parametres:
- * - index (required): the determined index of the part
- * - part (required): the name of the part whose index is to be determined
- * - whole (required): the compound within which the part is situated
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)

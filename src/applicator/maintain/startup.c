@@ -43,19 +43,6 @@
 /**
  * Starts up a service on the given channel.
  *
- * Parametres:
- * - channel (required): the communication channel, e.g. socket, display
- * - port (optional): the service identification, e.g. socket port 80
- * - namespace (optional): the address family, e.g. local, ipv4, ipv6
- * - style (optional): the communication style, e.g. stream, datagram, raw
- * - protocol (optional): the protocol, e.g. tcp, udp, rdp
- * - device (optional):
- *      = filename for channel "socket" with namespace "local" (unix domain socket), e.g. localbuffer.socket
- *      = host address for channel "socket" with namespace "ipv4" or "ipv6", e.g. localhost or 127.0.0.1
- *      = null for channel "display", since the display server does not need it (therefore it is OPTIONAL)
- * - connexions (optional): the maximum number of possible pending client requests, e.g. 10
- * - timeout (optional): the timeout in seconds set for each new client, e.g. 300
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)

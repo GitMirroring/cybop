@@ -44,6 +44,15 @@
  * Read data from a device.
  *
  * This is a CYBOL extension.
+ *
+ * Parametres:
+ * - channel (required): the communication channel, e.g. file, serial, socket
+ * - server (optional): the flag indicating server mode (server-side client stub and NOT standalone client); if NULL, the default is false (client mode)
+ * - port (optional): the service identification; only relevant in server mode
+ * - sender (required): the device identification, e.g. file descriptor
+ * - language (optional): the language defining which prefix or suffix indicates the message length, e.g. binary-crlf, http-request, xdt; not needed for file reading since that ends with EOF
+ * - message (required): the cybol path to the knowledge tree node storing the received data
+ * - asynchronicity (optional): the flag indicating asynchronous reading from buffer in which data got stored by a sensing thread before; if NULL, the default is false (synchronous read)
  */
 static wchar_t* READ_STREAM_LOGIC_CYBOL_FORMAT = L"stream/read";
 static int* READ_STREAM_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -54,6 +63,15 @@ static int* READ_STREAM_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  * Write data to a device.
  *
  * This is a CYBOL extension.
+ *
+ * Parametres:
+ * - channel (required): the communication channel, e.g. file, serial, socket
+ * - server (optional): the flag indicating server mode; if NULL, the default is false (client mode)
+ * - port (optional): the service identification; only relevant in server mode
+ * - receiver (required): the device identification, e.g. file descriptor
+ * - message (required): the data to be written
+ * - asynchronicity (optional): the flag indicating asynchronous writing within a thread; if NULL, the default is false (synchronous write)
+ * - handler (optional): the callback cybol operation being executed when the thread finished reading data
  */
 static wchar_t* WRITE_STREAM_LOGIC_CYBOL_FORMAT = L"stream/write";
 static int* WRITE_STREAM_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;

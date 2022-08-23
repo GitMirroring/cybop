@@ -44,12 +44,6 @@
 /**
  * Suspends data input sensing thread for the client with the given identification.
  *
- * Parametres:
- * - channel (required): the communication channel, e.g. file, serial, socket
- * - server (optional): the flag indicating server mode, e.g. for window or client socket stub; if NULL, the default is false (standalone client mode)
- * - port (optional): the service identification; only relevant in server mode
- * - sender (required): the client identification, e.g. file descriptor or client socket number or window id
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)

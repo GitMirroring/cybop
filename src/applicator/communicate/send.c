@@ -51,21 +51,6 @@
  * CAUTION! Do NOT rename this function to "write",
  * as that name is already used for glibc library's output.
  *
- * Parametres:
- * - channel (required): the communication channel, e.g. file, serial, socket
- * - server (optional): the flag indicating server mode; if NULL, the default is false (client mode)
- * - port (optional): the service identification; only relevant in server mode
- * - receiver (required): the device identification, e.g. file descriptor
- * - encoding (optional): the encoding to be used, e.g. ascii; the default is utf-8
- * - language (required): the language into which to serialise the message before sending it (e.g. html, model-diagram etc.)
- * - indentation (optional): the flag indicating whether or not the generated message is to be pretty-formatted (e.g. indented html tags with line breaks)
- * - format (required): the format into which to serialise the message before sending (e.g. element/part, number/integer)
- * - message (required): the data to be sent
- * - clear (optional, only if type is terminal or tui): the flag indicating whether or not to clear the screen before painting a user interface
- * - newline (optional, only if channel is terminal): the flag indicating whether or not to add a new line after having printed the message on screen
- * - asynchronicity (optional): the flag indicating asynchronous writing within a thread; if NULL, the default is false (synchronous write)
- * - handler (optional): the callback cybol operation being executed when the thread finished reading data
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)

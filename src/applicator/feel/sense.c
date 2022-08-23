@@ -45,15 +45,6 @@
 /**
  * Senses data input within a thread on the client with the given identification.
  *
- * Parametres:
- * - channel (required): the communication channel, e.g. file, serial, socket
- * - server (optional): the flag indicating server mode, e.g. for window or client socket stub; if NULL, the default is false (standalone client mode)
- * - port (optional): the service identification; only relevant in server mode
- * - sender (required): the client identification, e.g. file descriptor or client socket number or window id
- * - language (optional): the language, e.g. crlf or http_request, to detect message length prefix or end suffix
- * - handler (required): the callback cybol operation being executed when the thread finished reading data
- * - closer (optional): the close handler to be executed when the client does not respond and is to be closed
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)

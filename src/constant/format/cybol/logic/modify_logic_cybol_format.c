@@ -44,6 +44,34 @@
  * Append data to other data.
  *
  * This is a CYBOL extension.
+ *
+ * Expected parametres:
+ * - destination (required): the destination part
+ * - source (required): the source part
+ * - move (optional; the default is "false"; if null, DEEP copying will be used):
+ *   the flag indicating whether or not to remove source elements after having been copied;
+ *   false = DEEP copy: only copying elements, their whole deep sub tree needs to be cloned
+ *   true = SHALLOW copy: moving (copying + removing) elements, a shallow copy of the pointer suffices;
+ * - count (optional; if null, the source part model count will be used instead):
+ *   the number of elements to be modified
+ * - destination_index (optional; if null, an index of zero will be used instead):
+ *   the destination index from which to start copying elements to
+ * - source_index (optional; if null, an index of zero will be used instead):
+ *   the source index from which to start copying elements from
+ * - adjust (optional; the default is "true"; if null, the destination count WILL BE adjusted):
+ *   the flag indicating whether or not the destination shall be adjusted to
+ *   destination_index + count_of_elements_to_be_copied;
+ *   otherwise, the destination count by default remains as is
+ *   and only gets extended, if the number of elements exceeds the destination count,
+ *   in order to avoid memory errors caused by crossing array boundaries
+ * - destination_properties (optional; the default is "false"; if null, the MODEL container is used):
+ *   the flag indicating whether the model- or properties container should be used;
+ *   false = destination MODEL container;
+ *   true = destination PROPERTIES container
+ * - source_properties (optional; the default is "false"; if null, the MODEL container is used):
+ *   the flag indicating whether the model- or properties container should be used;
+ *   false = source MODEL container;
+ *   true = source PROPERTIES container
  */
 static wchar_t* APPEND_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/append";
 static int* APPEND_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;

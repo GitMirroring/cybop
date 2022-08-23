@@ -29,7 +29,6 @@
 #include <stdlib.h>
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/randomisation/retrieve_randomisation_logic_cybol_name.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
@@ -39,18 +38,9 @@
 /**
  * Retrieves the next pseudo-random number in the series.
  *
- * Expected parametres:
- * - result (required): the time
- * - minimum (optional; if null, the value of zero will be used instead):
- *   the minimum (inclusive)
- * - maximum (optional; if null, the GNU C Library's RAND_MAX value 2147483647 which is the largest signed integer representable in 32 bits will be used instead):
- *   the maximum (exclusive)
- *
- * Constraints:
- *
  * CAUTION! If calling "randomise/retrieve" before
  * a seed has been established with "randomise/sow",
- * the value 1 is used as default seed inside glibc.
+ * the value 1 is used as DEFAULT SEED inside glibc.
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

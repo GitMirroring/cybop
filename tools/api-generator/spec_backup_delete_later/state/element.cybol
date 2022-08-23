@@ -1,6 +1,0 @@
-<node>
-
-    <node name="part" channel="file" format="element/part" model="api-generator/spec/state/element/part.cybol"/>
-    <node name="property" channel="file" format="element/part" model="api-generator/spec/state/element/property.cybol"/>
-
-</node>

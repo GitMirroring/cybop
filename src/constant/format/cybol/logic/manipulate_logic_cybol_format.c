@@ -41,9 +41,18 @@
 /**
  * The manipulate/check logic cybol format.
  *
+ * Manipulates the bit at the given position by applying the given operation to the given value.
  * It corresponds to the "BT" (bit) or "BTST" (bit test) assembler command.
  *
  * This is a CYBOL extension.
+ *
+ * Expected parametres:
+ * - value (required): the knowledge model representing the value
+ * - position (required): the bit position within the value
+ * - count (optional; if null, the value part model count will be used instead):
+ *   the number of values to be manipulated
+ * - index (optional; if null, an index of zero will be used instead):
+ *   the index from which to start manipulating values
  */
 static wchar_t* CHECK_MANIPULATE_LOGIC_CYBOL_FORMAT = L"manipulate/check";
 static int* CHECK_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -51,6 +60,7 @@ static int* CHECK_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
 /**
  * The manipulate/clear logic cybol format.
  *
+ * Manipulates the bit at the given position by applying the given operation to the given value.
  * It corresponds to the "BTR" (bit reset) assembler command.
  *
  * This is a CYBOL extension.
@@ -61,6 +71,7 @@ static int* CLEAR_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
 /**
  * The manipulate/rotate-left logic cybol format.
  *
+ * Manipulates the bit at the given position by applying the given operation to the given value.
  * It corresponds to the "ROL" (rotate left) assembler command.
  *
  * This is a CYBOL extension.
@@ -71,6 +82,7 @@ static int* ROTATE_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
 /**
  * The manipulate/rotate-right logic cybol format.
  *
+ * Manipulates the bit at the given position by applying the given operation to the given value.
  * It corresponds to the "ROR" (rotate right) assembler command.
  *
  * This is a CYBOL extension.
@@ -81,6 +93,7 @@ static int* ROTATE_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER
 /**
  * The manipulate/set logic cybol format.
  *
+ * Manipulates the bit at the given position by applying the given operation to the given value.
  * It corresponds to the "BTS" (bit set) assembler command.
  *
  * This is a CYBOL extension.
@@ -91,6 +104,7 @@ static int* SET_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
 /**
  * The manipulate/shift-left logic cybol format.
  *
+ * Manipulates the bit at the given position by applying the given operation to the given value.
  * It corresponds to the "SHL" (shift left) assembler command.
  *
  * This is a CYBOL extension.
@@ -101,6 +115,7 @@ static int* SHIFT_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
 /**
  * The manipulate/shift-right logic cybol format.
  *
+ * Manipulates the bit at the given position by applying the given operation to the given value.
  * It corresponds to the "SHR" (shift right) assembler command.
  *
  * This is a CYBOL extension.
@@ -111,6 +126,7 @@ static int* SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
 /**
  * The manipulate/toggle logic cybol format.
  *
+ * Manipulates the bit at the given position by applying the given operation to the given value.
  * It corresponds to the "CHG" (change) assembler command.
  *
  * This is a CYBOL extension.

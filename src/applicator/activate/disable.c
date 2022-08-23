@@ -43,10 +43,6 @@
 /**
  * Disables the given channel for message sensing.
  *
- * Parametres:
- * - channel (required): the channel, e.g. socket, display
- * - port (optional): the service identification, e.g. socket port 80, optional for display with default port 0 (zero)
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)

@@ -41,16 +41,6 @@
 /**
  * Casts a value from one type to another.
  *
- * Expected parametres:
- * - destination (required): the knowledge model to cast to
- * - source (required): the knowledge model to cast from
- * - count (optional; if null, the source part model count will be used instead):
- *   the number of elements to be casted
- * - destination_index (optional; if null, an index of zero will be used instead):
- *   the destination index from which to start casting
- * - source_index (optional; if null, an index of zero will be used instead):
- *   the source index from which to start casting
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)

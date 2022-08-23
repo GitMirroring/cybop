@@ -44,6 +44,9 @@
  * Retrieve the current time from the system.
  *
  * This is a CYBOL extension.
+ *
+ * Expected parametres:
+ * - result (required): the destination time
  */
 static wchar_t* CURRENT_TIME_LOGIC_CYBOL_FORMAT = L"time/current";
 static int* CURRENT_TIME_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;

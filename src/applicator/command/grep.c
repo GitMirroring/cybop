@@ -27,7 +27,6 @@
 #define GREP_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/grep_commander_logic_cybol_name.c"
@@ -37,17 +36,11 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
- * Searches for pattern in file
- *
- * Expected parametres:
- * - pattern (required): pattern, to search for
- * - file (required): file, to search in
- *
- * Constraints:
+ * Searches for a pattern in the file.
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

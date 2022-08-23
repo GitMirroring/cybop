@@ -42,8 +42,16 @@
  * The feel/sense logic cybol format.
  *
  * Sense input data within a thread.
+ * Senses data input within a thread on the client with the given identification.
  *
- * This is a CYBOL extension.
+ * Parametres:
+ * - channel (required): the communication channel, e.g. file, serial, socket
+ * - server (optional): the flag indicating server mode, e.g. for window or client socket stub; if NULL, the default is false (standalone client mode)
+ * - port (optional): the service identification; only relevant in server mode
+ * - sender (required): the client identification, e.g. file descriptor or client socket number or window id
+ * - language (optional): the language, e.g. crlf or http_request, to detect message length prefix or end suffix
+ * - handler (required): the callback cybol operation being executed when the thread finished reading data
+ * - closer (optional): the close handler to be executed when the client does not respond and is to be closed
  */
 static wchar_t* SENSE_FEEL_LOGIC_CYBOL_FORMAT = L"feel/sense";
 static int* SENSE_FEEL_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -52,8 +60,13 @@ static int* SENSE_FEEL_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  * The feel/suspend logic cybol format.
  *
  * Suspend a sensing thread.
+ * Suspends data input sensing thread for the client with the given identification.
  *
- * This is a CYBOL extension.
+ * Parametres:
+ * - channel (required): the communication channel, e.g. file, serial, socket
+ * - server (optional): the flag indicating server mode, e.g. for window or client socket stub; if NULL, the default is false (standalone client mode)
+ * - port (optional): the service identification; only relevant in server mode
+ * - sender (required): the client identification, e.g. file descriptor or client socket number or window id
  */
 static wchar_t* SUSPEND_FEEL_LOGIC_CYBOL_FORMAT = L"feel/suspend";
 static int* SUSPEND_FEEL_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;

@@ -27,7 +27,6 @@
 #define WORD_COUNT_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/word_count_commander_logic_cybol_name.c"
@@ -37,21 +36,12 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
- * Print byte, word, and line counts, count the number of bytes, whitespace-separated words, and newlines in each given FILE
- *
- * Expected parametres:
- * - path (required): path to the file or directory
- * - bytes (optional): Outputs the number of bytes
- * - chars (optional): Outputs the number of chars
- * - lines (optional): Outputs the number of lines
- * - max-line-length (optional): Outputs the length of the longest line
- * - words (optional): Outputs the number of words
- *
- * Constraints:
+ * Print byte, word, and line counts, count the number of bytes,
+ * whitespace-separated words, and newlines in each given FILE.
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -61,7 +51,7 @@
  */
 void apply_word_count(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply change permission.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply word count.");
 
     // The path part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;

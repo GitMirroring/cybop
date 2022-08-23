@@ -27,7 +27,6 @@
 #define DELAY_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/delay_commander_logic_cybol_name.c"
@@ -37,16 +36,11 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
- * Delays for a few seconds
- *
- * Expected parametres:
- * - time (required): time in seconds
- *
- * Constraints:
+ * Delays for a few seconds.
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

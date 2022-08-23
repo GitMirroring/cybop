@@ -44,6 +44,16 @@
  * Cast value to type byte.
  *
  * This is a CYBOL extension.
+ *
+ * Expected parametres:
+ * - destination (required): the knowledge model to cast to
+ * - source (required): the knowledge model to cast from
+ * - count (optional; if null, the source part model count will be used instead):
+ *   the number of elements to be casted
+ * - destination_index (optional; if null, an index of zero will be used instead):
+ *   the destination index from which to start casting
+ * - source_index (optional; if null, an index of zero will be used instead):
+ *   the source index from which to start casting
  */
 static wchar_t* BYTE_CAST_LOGIC_CYBOL_FORMAT = L"cast/byte";
 static int* BYTE_CAST_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -54,6 +64,16 @@ static int* BYTE_CAST_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MO
  * Cast value to type character.
  *
  * This is a CYBOL extension.
+ *
+ * Expected parametres:
+ * - destination (required): the knowledge model to cast to
+ * - source (required): the knowledge model to cast from
+ * - count (optional; if null, the source part model count will be used instead):
+ *   the number of elements to be casted
+ * - destination_index (optional; if null, an index of zero will be used instead):
+ *   the destination index from which to start casting
+ * - source_index (optional; if null, an index of zero will be used instead):
+ *   the source index from which to start casting
  */
 static wchar_t* CHARACTER_CAST_LOGIC_CYBOL_FORMAT = L"cast/character";
 static int* CHARACTER_CAST_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -64,6 +84,16 @@ static int* CHARACTER_CAST_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  * Cast value to type double.
  *
  * This is a CYBOL extension.
+ *
+ * Expected parametres:
+ * - destination (required): the knowledge model to cast to
+ * - source (required): the knowledge model to cast from
+ * - count (optional; if null, the source part model count will be used instead):
+ *   the number of elements to be casted
+ * - destination_index (optional; if null, an index of zero will be used instead):
+ *   the destination index from which to start casting
+ * - source_index (optional; if null, an index of zero will be used instead):
+ *   the source index from which to start casting
  */
 static wchar_t* DOUBLE_CAST_LOGIC_CYBOL_FORMAT = L"cast/double";
 static int* DOUBLE_CAST_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -74,6 +104,16 @@ static int* DOUBLE_CAST_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  * Cast value to type integer.
  *
  * This is a CYBOL extension.
+ *
+ * Expected parametres:
+ * - destination (required): the knowledge model to cast to
+ * - source (required): the knowledge model to cast from
+ * - count (optional; if null, the source part model count will be used instead):
+ *   the number of elements to be casted
+ * - destination_index (optional; if null, an index of zero will be used instead):
+ *   the destination index from which to start casting
+ * - source_index (optional; if null, an index of zero will be used instead):
+ *   the source index from which to start casting
  */
 static wchar_t* INTEGER_CAST_LOGIC_CYBOL_FORMAT = L"cast/integer";
 static int* INTEGER_CAST_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;

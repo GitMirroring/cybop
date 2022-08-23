@@ -39,26 +39,6 @@
 /**
  * Creates an empty part consisting of name and type only.
  *
- * The model and properties may get filled with data using a
- * "deserialise" operation, which is called when a "receive"
- * logic operation is found in cybol.
- *
- * The new knowledge model gets added to either of:
- * - whole part's model hierarchy
- *   (or knowledge memory part's root, if no whole is given)
- * - whole part's properties hierarchy
- *   (or knowledge memory part's root, if no whole is given)
- *
- * Expected parametres:
- * - name (required): the name of the part to be created
- * - format (required): the format of the part to be created, from which gets determined the type
- * - whole (optional; if null, the new part will be added to the knowledge memory root):
- *       the compound part to which to add the new part to
- * - whole_properties (optional; the default is "false"; if null, the MODEL container is used):
- *   the flag indicating whether the model- or properties container should be used;
- *   false = whole MODEL container;
- *   true = whole PROPERTIES container
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)

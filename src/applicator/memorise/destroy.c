@@ -39,9 +39,6 @@
 /**
  * Destroys a part and removes it from the knowledge model.
  *
- * Parametres:
- * - part (required): the part to be destroyed
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)

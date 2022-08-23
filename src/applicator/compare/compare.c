@@ -40,63 +40,11 @@
 /**
  * Compares left and right operand.
  *
- * Expected parametres:
- * - result (required): the knowledge model, in which the result is stored (of type boolean)
- * - left (required): the left operand
- * - right (required): the right operand
- * - count (optional): the number of elements to be compared (NOT relevant for lexicographical comparison, where left and right count are used and are allowed to differ)
- * - left index (optional): the left index from where to start the comparison from (NOT relevant for lexicographical comparison)
- * - right index (optional): the right index from where to start the comparison from (NOT relevant for lexicographical comparison)
- *
  * Lexicographical flag:
+ * 0 == FALSE for "compare" operations, resulting in standard comparison
+ * 1 == TRUE for "check" operations, resulting in lexicographical comparison
  *
- * It gets set in file "operation_handler.c", depending on the given operation, to:
- * - 0 for "compare" operations, resulting in standard comparison (see below)
- * - 1 for "check" operations, resulting in lexicographical comparison (see below)
- *
- * Case 1: Standard comparison (lexicographical flag is 0 == FALSE)
- *
- * Left and right operand as well as the boolean result are treated as vector,
- * i.e. ONE boolean result value is returned PER EACH operand vector ELEMENT.
- *
- * When comparing single elements, the vectors contain just one single value.
- *
- * Most operand types may be used. For instance, numbers may be given as vectors,
- * e.g. the integer sequence "1,2,3". If using text operands, e.g. "Hello, World!",
- * then the single characters are compared, one by one.
- *
- * Example with many elements:
- *
- * operation: equal
- * left operand: 10,2,3
- * right operand: 1,2,3
- * result vector: 0,1,1 (which corresponds to "false,true,true")
- *
- * Example with one single element:
- *
- * operation: equal
- * left operand: 33
- * right operand: 3
- * result value: 0 (which corresponds to "false")
- *
- * Case 2: Lexicographical comparison (lexicographical flag is 1 == TRUE)
- *
- * Left and right operand may be a vector, but there is ALWAYS
- * just ONE boolean result value ALTOGETHER.
- *
- * Usually, lexicographical comparison applies for text,
- * i.e. strings of type "wide_character" or "character".
- *
- * But also compound parts of type "element/part" do set
- * the lexicographical flag to TRUE, so that only one
- * return value gets returned, also for deep comparison.
- *
- * Example with text:
- *
- * operation: equal
- * left operand: "Hello"
- * right operand: "World"
- * result value: 0 (which corresponds to "false")
+ * The flag gets set in file "operation_handler.c", depending on the given operation.
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

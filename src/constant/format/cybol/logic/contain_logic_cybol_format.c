@@ -41,9 +41,17 @@
 /**
  * The contain/both logic cybol format.
  *
- * Compare if bounded area contains value.
+ * Compare if the bounded area contains the value.
  *
- * This is a CYBOL extension.
+ * Expected parametres:
+ * - result (required): the knowledge model, in which the result is stored (of type boolean)
+ * - value (required): the value
+ * - left (required): the left bound
+ * - right (required): the right bound
+ * [TODO, not used yet]
+ * - type (required): the operand type which is equal for value, left- and right bound
+ * - selection (required): the area of two strings or number vectors to be compared;
+ *   may be one of: full, prefix, suffix, subsequence
  */
 static wchar_t* BOTH_CONTAIN_LOGIC_CYBOL_FORMAT = L"contain/both";
 static int* BOTH_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -52,8 +60,6 @@ static int* BOTH_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  * The contain/left logic cybol format.
  *
  * Compare if bounded area contains value.
- *
- * This is a CYBOL extension.
  */
 static wchar_t* LEFT_CONTAIN_LOGIC_CYBOL_FORMAT = L"contain/left";
 static int* LEFT_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -62,8 +68,6 @@ static int* LEFT_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  * The contain/none logic cybol format.
  *
  * Compare if bounded area contains value.
- *
- * This is a CYBOL extension.
  */
 static wchar_t* NONE_CONTAIN_LOGIC_CYBOL_FORMAT = L"contain/none";
 static int* NONE_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -72,8 +76,6 @@ static int* NONE_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  * The contain/right logic cybol format.
  *
  * Compare if bounded area contains value.
- *
- * This is a CYBOL extension.
  */
 static wchar_t* RIGHT_CONTAIN_LOGIC_CYBOL_FORMAT = L"contain/right";
 static int* RIGHT_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;

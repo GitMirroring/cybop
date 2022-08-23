@@ -27,7 +27,6 @@
 #define PWD_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/present_working_directory_commander_logic_cybol_name.c"
@@ -37,16 +36,11 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
  * Shows the present working directory.
- *
- * - logical(optional): the logical option (logical output)
- * - physical(optional): the physical option (physical output)
- *
- * Constraints:
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -56,7 +50,7 @@
  */
 void apply_pwd(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shows the present working directory.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply pwd.");
 
     // The logical part.
     void* l = *NULL_POINTER_STATE_CYBOI_MODEL;

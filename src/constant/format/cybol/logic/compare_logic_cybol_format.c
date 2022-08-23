@@ -43,7 +43,36 @@
  *
  * Compare for equality: ==
  *
- * This is a CYBOL extension.
+ * Left and right operand as well as the boolean result are treated as vector,
+ * i.e. ONE boolean result value is returned PER EACH operand vector ELEMENT.
+ *
+ * When comparing single elements, the vectors contain just one single value.
+ *
+ * Most operand types may be used. For instance, numbers may be given as vectors,
+ * e.g. the integer sequence "1,2,3". If using text operands, e.g. "Hello, World!",
+ * then the single characters are compared, one by one.
+ *
+ * Example with many elements:
+ *
+ * operation: equal
+ * left operand: 10,2,3
+ * right operand: 1,2,3
+ * result vector: 0,1,1 (which corresponds to "false,true,true")
+ *
+ * Example with one single element:
+ *
+ * operation: equal
+ * left operand: 33
+ * right operand: 3
+ * result value: 0 (which corresponds to "false")
+ *
+ * Expected parametres:
+ * - result (required): the knowledge model, in which the result is stored (of type boolean)
+ * - left (required): the left operand
+ * - right (required): the right operand
+ * - count (optional): the number of elements to be compared (NOT relevant for lexicographical comparison, where left and right count are used and are allowed to differ)
+ * - left index (optional): the left index from where to start the comparison from (NOT relevant for lexicographical comparison)
+ * - right index (optional): the right index from where to start the comparison from (NOT relevant for lexicographical comparison)
  */
 static wchar_t* EQUAL_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/equal";
 static int* EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -52,8 +81,6 @@ static int* EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  * The compare/greater logic cybol format.
  *
  * Compare for greaterness: >
- *
- * This is a CYBOL extension.
  */
 static wchar_t* GREATER_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/greater";
 static int* GREATER_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -62,8 +89,6 @@ static int* GREATER_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  * The compare/greater-or-equal logic cybol format.
  *
  * Compare for greaterness or equality: >=
- *
- * This is a CYBOL extension.
  */
 static wchar_t* GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/greater-or-equal";
 static int* GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -72,8 +97,6 @@ static int* GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGE
  * The compare/less logic cybol format.
  *
  * Compare for lessness: <
- *
- * This is a CYBOL extension.
  */
 static wchar_t* LESS_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/less";
 static int* LESS_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -82,8 +105,6 @@ static int* LESS_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  * The compare/less-or-equal logic cybol format.
  *
  * Compare for lessness or equality: <=
- *
- * This is a CYBOL extension.
  */
 static wchar_t* LESS_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/less-or-equal";
 static int* LESS_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -92,8 +113,6 @@ static int* LESS_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  * The compare/unequal logic cybol format.
  *
  * Compare for unequality: !=
- *
- * This is a CYBOL extension.
  */
 static wchar_t* UNEQUAL_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/unequal";
 static int* UNEQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;

@@ -27,7 +27,6 @@
 #define MEMORY_FREE_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/memory_free_commander_logic_cybol_name.c"
@@ -37,19 +36,11 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
  * Shows the usage of the RAM.
- *
- * - human(optional): the human option (human-readable output)
- * - kilobytes(optional): the kilobytes option (print sizes in kilobytes)
- * - megabytes(optional): the megabytes option (print sizes in megabytes)
- * - gigabytes(optional): the gigabytes option (print sizes in gigabytes)
- * - total(optional): the total option (print total for RAM + swap)
- *
- * Constraints:
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

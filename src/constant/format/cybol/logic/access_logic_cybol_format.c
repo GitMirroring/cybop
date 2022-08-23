@@ -44,6 +44,16 @@
  * Count parts of a compound part.
  *
  * This is a CYBOL extension.
+ *
+ * Expected parametres:
+ * - count (required): the knowledge model in which to store the result
+ * - part (required): the part whose elements are to be counted
+ * - selection (optional; if null, the element count is returned without any comparison):
+ *   the area of the elements' names to be compared;
+ *   may be one of: all, prefix, suffix, subsequence
+ * - filter (optional; corresponds with "selection" property):
+ *   string to compare the elements' names with;
+ *   only those parts will be counted whose name matches the filter string
  */
 static wchar_t* COUNT_ACCESS_LOGIC_CYBOL_FORMAT = L"access/count";
 static int* COUNT_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -54,6 +64,10 @@ static int* COUNT_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  * Get a part's channel.
  *
  * This is a CYBOL extension.
+ *
+ * Expected parametres:
+ * - element (required): the part's element (name, channel, encoding, language, format, type)
+ * - part (required): the knowledge path to the part
  */
 static wchar_t* CHANNEL_GET_ACCESS_LOGIC_CYBOL_FORMAT = L"access/get-channel";
 static int* CHANNEL_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -64,6 +78,10 @@ static int* CHANNEL_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  * Get a part's encoding.
  *
  * This is a CYBOL extension.
+ *
+ * Expected parametres:
+ * - element (required): the part's element (name, channel, encoding, language, format, type)
+ * - part (required): the knowledge path to the part
  */
 static wchar_t* ENCODING_GET_ACCESS_LOGIC_CYBOL_FORMAT = L"access/get-encoding";
 static int* ENCODING_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -74,6 +92,10 @@ static int* ENCODING_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  * Get a part's format.
  *
  * This is a CYBOL extension.
+ *
+ * Expected parametres:
+ * - element (required): the part's element (name, channel, encoding, language, format, type)
+ * - part (required): the knowledge path to the part
  */
 static wchar_t* FORMAT_GET_ACCESS_LOGIC_CYBOL_FORMAT = L"access/get-format";
 static int* FORMAT_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -81,9 +103,14 @@ static int* FORMAT_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
 /**
  * The access/get-index logic cybol format.
  *
- * Get a part's index within a whole.
+ * Gets the index of the part within the whole.
  *
  * This is a CYBOL extension.
+ *
+ * Expected parametres:
+ * - index (required): the determined index of the part
+ * - part (required): the name of the part whose index is to be determined
+ * - whole (required): the compound within which the part is situated
  */
 static wchar_t* GET_INDEX_ACCESS_LOGIC_CYBOL_FORMAT = L"access/get-index";
 static int* GET_INDEX_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -94,6 +121,10 @@ static int* GET_INDEX_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  * Get a part's language.
  *
  * This is a CYBOL extension.
+ *
+ * Expected parametres:
+ * - element (required): the part's element (name, channel, encoding, language, format, type)
+ * - part (required): the knowledge path to the part
  */
 static wchar_t* LANGUAGE_GET_ACCESS_LOGIC_CYBOL_FORMAT = L"access/get-language";
 static int* LANGUAGE_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -104,6 +135,10 @@ static int* LANGUAGE_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  * Get a part's name.
  *
  * This is a CYBOL extension.
+ *
+ * Expected parametres:
+ * - element (required): the part's element (name, channel, encoding, language, format, type)
+ * - part (required): the knowledge path to the part
  */
 static wchar_t* NAME_GET_ACCESS_LOGIC_CYBOL_FORMAT = L"access/get-name";
 static int* NAME_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -114,6 +149,10 @@ static int* NAME_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  * Get a part's type.
  *
  * This is a CYBOL extension.
+ *
+ * Expected parametres:
+ * - element (required): the part's element (name, channel, encoding, language, format, type)
+ * - part (required): the knowledge path to the part
  */
 static wchar_t* TYPE_GET_ACCESS_LOGIC_CYBOL_FORMAT = L"access/get-type";
 static int* TYPE_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -124,6 +163,11 @@ static int* TYPE_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  * Indicates if data are empty, i.e. the count is zero.
  *
  * This is a CYBOL extension.
+ *
+ * Expected parametres:
+ * - result (required): the result flag
+ *   (set to true upon successful comparison; left untouched otherwise)
+ * - part (required): the part
  */
 static wchar_t* EMPTY_INDICATE_ACCESS_LOGIC_CYBOL_FORMAT = L"access/indicate-empty";
 static int* EMPTY_INDICATE_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -134,6 +178,11 @@ static int* EMPTY_INDICATE_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  * Indicates if data exist, i.e. the count is greater than zero.
  *
  * This is a CYBOL extension.
+ *
+ * Expected parametres:
+ * - result (required): the result flag
+ *   (set to true upon successful comparison; left untouched otherwise)
+ * - part (required): the part
  */
 static wchar_t* EXISTS_INDICATE_ACCESS_LOGIC_CYBOL_FORMAT = L"access/indicate-exists";
 static int* EXISTS_INDICATE_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;

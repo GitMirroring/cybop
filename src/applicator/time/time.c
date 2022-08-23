@@ -37,11 +37,6 @@
 /**
  * Retrieves the current time from the system.
  *
- * Expected parametres:
- * - result (required): the destination time
- *
- * Constraints:
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)

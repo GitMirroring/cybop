@@ -27,7 +27,6 @@
 #define LIST_DIRECTORY_CONTENTS_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/list_directory_contents_commander_logic_cybol_name.c"
@@ -37,24 +36,11 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
  * Lists the directory contents.
- *
- * Expected parametres:
- * - path (optional): the listing for the given path (the default is the current directory)
- * - all (optional): the list all option (showing hidden, current . and upper .. directory)
- * - long (optional): the long listing option (showing user rights etc.)
- * - one row per entry (optional): the listing for showing one file or directory per row
- * - recursive (optional): the list for all files and directories, looking up all directories recursively for additional files and directories for the listing
- * - short (optional): the short version of the files and directory listing
- * - sort by file size (optional): sorts the current listing by file size
- * - sort by modification date (optional): sorts the current listing by the file and directory modification date
- * - sort by extension (optional): sorts the current listing alphabetically by file extension
- *
- * Constraints:
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

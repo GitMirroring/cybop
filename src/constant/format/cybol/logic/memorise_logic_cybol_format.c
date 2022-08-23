@@ -43,7 +43,25 @@
  *
  * Create / allocate / reserve memory on heap.
  *
- * This is a CYBOL extension.
+ * The model and properties may get filled with data using a
+ * "deserialise" operation, which is called when a "receive"
+ * logic operation is found in cybol.
+ *
+ * The new knowledge model gets added to either of:
+ * - whole part's model hierarchy
+ *   (or knowledge memory part's root, if no whole is given)
+ * - whole part's properties hierarchy
+ *   (or knowledge memory part's root, if no whole is given)
+ *
+ * Expected parametres:
+ * - name (required): the name of the part to be created
+ * - format (required): the format of the part to be created, from which gets determined the type
+ * - whole (optional; if null, the new part will be added to the knowledge memory root):
+ *       the compound part to which to add the new part to
+ * - whole_properties (optional; the default is "false"; if null, the MODEL container is used):
+ *   the flag indicating whether the model- or properties container should be used;
+ *   false = whole MODEL container;
+ *   true = whole PROPERTIES container
  */
 static wchar_t* CREATE_MEMORISE_LOGIC_CYBOL_FORMAT = L"memorise/create";
 static int* CREATE_MEMORISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -53,7 +71,8 @@ static int* CREATE_MEMORISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  *
  * Destroy / deallocate / free memory on heap.
  *
- * This is a CYBOL extension.
+ * Parametres:
+ * - part (required): the part to be destroyed
  */
 static wchar_t* DESTROY_MEMORISE_LOGIC_CYBOL_FORMAT = L"memorise/destroy";
 static int* DESTROY_MEMORISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;

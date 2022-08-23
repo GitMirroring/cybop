@@ -43,11 +43,6 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 /**
  * Branches the programme flow, depending on the criterion flag.
  *
- * Parametres:
- * - criterion (required): the flag specifying which of the two models to execute
- * - true (optional): the logic knowledge model to be executed if the condition is true
- * - false (optional): the logic knowledge model to be executed if the condition is false
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)

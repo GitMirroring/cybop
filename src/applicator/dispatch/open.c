@@ -49,21 +49,6 @@
 /**
  * Opens up a client on the given channel.
  *
- * Parametres:
- * - channel (required): the communication channel, e.g. file, serial, socket
- * - server (optional): the flag indicating server mode, e.g. for window or client socket stub; if NULL, the default is false (standalone client mode)
- * - port (optional): the service identification; only relevant in server mode
- * - namespace (optional): the address family, e.g. ipv4 or ipv6
- * - style (optional): the communication style, e.g. stream or datagram
- * - protocol (optional): the protocol, e.g. tcp or udp
- * - file open mode (optional): either read or write; if NULL, the default is read
- * - device (optional):
- *      = filename for channel "file" or "serialport" or "terminal" or "fifo", e.g. /path/to/file.txt or /dev/ttyS0
- *      = filename for channel "socket" with namespace "local" (unix domain socket), e.g. localbuffer.socket
- *      = host address for channel "socket" with namespace "ipv4" or "ipv6", e.g. localhost or 127.0.0.1
- *      = null for channel "display", since a client window does not need it (therefore it is OPTIONAL)
- * - identification (required): the file descriptor or client socket number or window id returned from cyboi (except for channel "server_socket", where accept returns a ready client socket id)
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)

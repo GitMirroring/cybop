@@ -42,8 +42,15 @@
  * The convert/decode logic cybol format.
  *
  * Decode data from a special format into cyboi.
+ * Decodes the source- into the destination part.
  *
- * This is a CYBOL extension.
+ * CAUTION! The result gets APPENDED to the destination.
+ * It does NOT overwrite already existing content in the destination.
+ *
+ * Expected parametres:
+ * - destination (required): the destination wide character string consisting of elements of type wchar_t
+ * - source (required): the source byte stream consisting of elements of type char
+ * - encoding (required): the encoding
  */
 static wchar_t* DECODE_CONVERT_LOGIC_CYBOL_FORMAT = L"convert/decode";
 static int* DECODE_CONVERT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -52,8 +59,15 @@ static int* DECODE_CONVERT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  * The convert/encode logic cybol format.
  *
  * Encode data from cyboi into a special format.
+ * Encodes the source- into the destination part.
  *
- * This is a CYBOL extension.
+ * CAUTION! The result gets APPENDED to the destination.
+ * It does NOT overwrite already existing content in the destination.
+ *
+ * Expected parametres:
+ * - destination (required): the destination byte stream consisting of elements of type char
+ * - source (required): the source wide character string consisting of elements of type wchar_t
+ * - encoding (required): the encoding
  */
 static wchar_t* ENCODE_CONVERT_LOGIC_CYBOL_FORMAT = L"convert/encode";
 static int* ENCODE_CONVERT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;

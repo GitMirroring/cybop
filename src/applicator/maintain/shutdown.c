@@ -43,10 +43,6 @@
 /**
  * Shuts down the service running on the given channel.
  *
- * Parametres:
- * - channel (required): the communication channel, e.g. socket, display
- * - port (optional): the service identification, e.g. socket port 80
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)

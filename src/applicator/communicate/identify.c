@@ -42,10 +42,7 @@
 #include "../../logger/logger.c"
 
 /**
- * Identifies the device or client that has placed a handler into the interrupt pipe.
- *
- * Properties:
- * - identification (required): the device or client identification, e.g. file descriptor
+ * Identifies the device or client that has placed a request (handler) into the interrupt pipe.
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

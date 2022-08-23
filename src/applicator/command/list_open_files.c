@@ -27,7 +27,6 @@
 #define LIST_OPEN_FILES_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/list_open_files_commander_logic_cybol_name.c"
@@ -37,19 +36,11 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
  * Shows the opened files.
- *
- * - listuid(optional): the list-uid option (list-uid output)
- * - listfilesize(optional): the list-file-size option (prints the file size)
- * - listtasks(optional): the list-tasks option (lists tasks)
- * - disabletasks(optional): the disable-tasks option (disables tasks)
- * - terselisting(optional): the terse-listing option (shows the terse listing)
- *
- * Constraints:
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -59,7 +50,7 @@
  */
 void apply_list_open_files(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shows the opened files.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply list open files.");
 
     // The list-uid part.
     void* u = *NULL_POINTER_STATE_CYBOI_MODEL;

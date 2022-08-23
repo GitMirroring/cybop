@@ -35,18 +35,11 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
- * Removing files and directories from a path.
- *
- * Expected parametres:
- * - path: the path including wildcards for deleting files and directories
- * - insensitive (optional): the insensitive option (ignore upper/lowercase when searching for a file, Unix only)
- * - recursive(optional): the recursive option (recursive search, Windows only)
- *
- * Constraints:
+ * Finds a file.
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

@@ -39,15 +39,6 @@
 /**
  * Applies the boolean logic operation.
  *
- * Properties:
- * - output (required): the knowledge model in which the output is stored; used as first input operand
- * - input (required): the second input operand
- *
- * CAUTION! There are several ways to use addition, with unary or binary operators.
- * This function works like an UNARY operator.
- * The "output" parametre represents the FIRST operand;
- * the "input" parametre the SECOND.
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)

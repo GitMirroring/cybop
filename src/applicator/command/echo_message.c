@@ -27,7 +27,6 @@
 #define ECHO_MESSAGE_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/echo_message_commander_logic_cybol_name.c"
@@ -37,16 +36,11 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
  * Echos the message to standard output.
- *
- * Expected parametres:
- * - message (optional): the message which should be directed to the standard output
- *
- * Constraints:
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

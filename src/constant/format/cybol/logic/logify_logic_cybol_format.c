@@ -45,7 +45,15 @@
  *
  * result = x AND y
  *
- * This is a CYBOL extension.
+ * CAUTION! There are several ways to use this operation,
+ * with unary or binary operators.
+ * This function works like a UNARY operator.
+ * The "output" parametre represents the FIRST operand;
+ * the "input" parametre the SECOND.
+ *
+ * Properties:
+ * - output (required): the knowledge model in which the output is stored; used as first input operand
+ * - input (required): the second input operand
  */
 static wchar_t* AND_LOGIFY_LOGIC_CYBOL_FORMAT = L"logify/and";
 static int* AND_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -58,6 +66,10 @@ static int* AND_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  * result = x NAND y
  *
  * This is a CYBOL extension.
+ *
+ * Properties:
+ * - output (required): the knowledge model in which the output is stored; used as first input operand
+ * - input (required): the second input operand
  */
 static wchar_t* NAND_LOGIFY_LOGIC_CYBOL_FORMAT = L"logify/nand";
 static int* NAND_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -71,6 +83,10 @@ static int* NAND_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  * result = x NEG y
  *
  * This is a CYBOL extension.
+ *
+ * Properties:
+ * - output (required): the knowledge model in which the output is stored; used as first input operand
+ * - input (required): the second input operand
  */
 static wchar_t* NEG_LOGIFY_LOGIC_CYBOL_FORMAT = L"logify/neg";
 static int* NEG_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -83,6 +99,10 @@ static int* NEG_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  * result = x NOR y
  *
  * This is a CYBOL extension.
+ *
+ * Properties:
+ * - output (required): the knowledge model in which the output is stored; used as first input operand
+ * - input (required): the second input operand
  */
 static wchar_t* NOR_LOGIFY_LOGIC_CYBOL_FORMAT = L"logify/nor";
 static int* NOR_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -96,6 +116,10 @@ static int* NOR_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  * result = x NOT y
  *
  * This is a CYBOL extension.
+ *
+ * Properties:
+ * - output (required): the knowledge model in which the output is stored; used as first input operand
+ * - input (required): the second input operand
  */
 static wchar_t* NOT_LOGIFY_LOGIC_CYBOL_FORMAT = L"logify/not";
 static int* NOT_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -108,6 +132,10 @@ static int* NOT_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  * result = x OR y
  *
  * This is a CYBOL extension.
+ *
+ * Properties:
+ * - output (required): the knowledge model in which the output is stored; used as first input operand
+ * - input (required): the second input operand
  */
 static wchar_t* OR_LOGIFY_LOGIC_CYBOL_FORMAT = L"logify/or";
 static int* OR_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -120,6 +148,10 @@ static int* OR_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MO
  * result = x XNOR y
  *
  * This is a CYBOL extension.
+ *
+ * Properties:
+ * - output (required): the knowledge model in which the output is stored; used as first input operand
+ * - input (required): the second input operand
  */
 static wchar_t* XNOR_LOGIFY_LOGIC_CYBOL_FORMAT = L"logify/xnor";
 static int* XNOR_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -132,6 +164,10 @@ static int* XNOR_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  * result = x XOR y
  *
  * This is a CYBOL extension.
+ *
+ * Properties:
+ * - output (required): the knowledge model in which the output is stored; used as first input operand
+ * - input (required): the second input operand
  */
 static wchar_t* XOR_LOGIFY_LOGIC_CYBOL_FORMAT = L"logify/xor";
 static int* XOR_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;

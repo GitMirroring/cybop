@@ -44,6 +44,10 @@
  * Disable a communication channel.
  *
  * This is a CYBOL extension.
+ *
+ * Parametres:
+ * - channel (required): the channel, e.g. socket, display
+ * - port (optional): the service identification, e.g. socket port 80, optional for display with default port 0 (zero)
  */
 static wchar_t* DISABLE_ACTIVATE_LOGIC_CYBOL_FORMAT = L"activate/disable";
 static int* DISABLE_ACTIVATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -54,6 +58,11 @@ static int* DISABLE_ACTIVATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  * Enable a communication channel.
  *
  * This is a CYBOL extension.
+ *
+ * Parametres:
+ * - channel (required): the channel, e.g. socket, display
+ * - port (optional): the service identification, e.g. socket port 80, optional for display with default port 0 (zero)
+ * - handler (optional): the handler
  */
 static wchar_t* ENABLE_ACTIVATE_LOGIC_CYBOL_FORMAT = L"activate/enable";
 static int* ENABLE_ACTIVATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;

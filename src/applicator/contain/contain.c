@@ -39,16 +39,6 @@
 /**
  * Compares if the bounded area contains the value.
  *
- * Expected parametres:
- * - result (required): the knowledge model, in which the result is stored (of type boolean)
- * - value (required): the value
- * - left (required): the left bound
- * - right (required): the right bound
- * [TODO, not used yet]
- * - type (required): the operand type which is equal for value, left- and right bound
- * - selection (required): the area of two strings or number vectors to be compared;
- *   may be one of: full, prefix, suffix, subsequence
- *
  * The "selection" parametre is mostly needed for comparing models of type "character".
  * But also numbers may be given as vectors, e.g. the integer sequence "1,2,3".
  * However, this function relies on it, for finding the right comparison function to call.

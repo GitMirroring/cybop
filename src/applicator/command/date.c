@@ -27,7 +27,6 @@
 #define DATE_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/date_commander_logic_cybol_name.c"
@@ -37,21 +36,11 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
- * Get the date or change it
- *
- * Expected parametres:
- * - new date (optional): value of the new date
- *
- * - /T (optional): display option (display date, Win32 only)
- * - -I (optional): the ISO option (date in ISO format)
- * - -R (optional): the RFC option (date in RFC format)
- * - -u (optional): the UTC option (date in UTC format)
- *
- * Constraints:
+ * Get the date or change it.
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

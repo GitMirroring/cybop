@@ -27,7 +27,6 @@
 #define COMPARE_FILES_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/compare_files_commander_logic_cybol_name.c"
@@ -37,25 +36,11 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
- * Changes the directory.
- *
- * Expected parametres:
- * - path1 (required): path1 to the file
- * - path2 (required): path2 to the file
- * - print differing chars (optional, Unix): Print the differing characters.
- * - print offset (optional, Unix): Print the (decimal) offsets and (octal) values of all differing bytes.
- * - silent (optional, Unix): Do not print anything; only return an exit status indicating whether the files differ.
- * - case insensitive (optional, Win32): Do a case insensitive string comparison
- * - compare unicode (optional, Win32): Compare files as UNICODE text files.
- * - compare ascii (optional, Win32): Compare files as ASCII text files.
- * - display line numbers (optional, Win32): Display line numbers
- * - compress whitespace (optional, Win32): Compress white space
- *
- * Constraints:
+ * Compares two files.
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -65,7 +50,7 @@
  */
 void apply_compare_files(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply change directory.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply compare files.");
 
     // The path1 part.
     void* pa1 = *NULL_POINTER_STATE_CYBOI_MODEL;

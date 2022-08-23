@@ -28,7 +28,6 @@
 
 #include "../../constant/model/command/unix_command_model.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/command_option/unix/archive_unix_command_option_name.c"
@@ -40,18 +39,11 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
  * Archives the given data into a file.
- *
- * Expected parametres:
- * - create (optional): the option for creating an archive
- * - update (optional): the option for updating an archive
- * - bzip2 (optional): the option for using the bzip2 compression algorithm
- *
- * Constraints:
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

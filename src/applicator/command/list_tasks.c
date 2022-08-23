@@ -35,16 +35,11 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
- * Listing all the processes (tasks) currently running
- *
- * - keyword(optional): the keyword option (list all the keyword options)
- * - verbose(optional): the verbose option (verbose output)
- *
- * Constraints:
+ * Listing all the processes (tasks) currently running.
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

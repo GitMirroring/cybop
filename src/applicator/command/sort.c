@@ -40,13 +40,7 @@
 #endif
 
 /**
- * Sorts a given file
- *
- * Expected parametres:
- * - file (required): file, to be sorted
- * - output (optional): path to output file
- *
- * Constraints:
+ * Sorts the given file.
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

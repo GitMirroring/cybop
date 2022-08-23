@@ -27,7 +27,6 @@
 #define REMOVE_FILE_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/remove_file_commander_logic_cybol_name.c"
@@ -37,20 +36,11 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
- * Removing files and directories from a path.
- *
- * Expected parametres:
- * - path: the path including wildcards for deleting files and directories
-
- * - interactive (optional): the interactive option (askes everytime for permission of deleting a file or directory)
- * - recursive(optional): the recursive option (deletes any files in the current directory and in all of its subdirectories)
- * - verbal(optional): the verbal option (shows what have been deleted)
- *
- * Constraints:
+ * Removes files and directories from a path.
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

@@ -27,7 +27,6 @@
 #define SOW_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/randomisation/sow_randomisation_logic_cybol_name.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
@@ -36,11 +35,6 @@
 
 /**
  * Sows a seed for a new series of pseudo-random numbers.
- *
- * Expected parametres:
- * - seed (required): the source seed to be established for a new series of pseudo-random numbers
- *
- * Constraints:
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

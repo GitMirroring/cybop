@@ -44,6 +44,10 @@
  * Shutdown sensing service.
  *
  * This is a CYBOL extension.
+ *
+ * Parametres:
+ * - channel (required): the communication channel, e.g. socket, display
+ * - port (optional): the service identification, e.g. socket port 80
  */
 static wchar_t* SHUTDOWN_MAINTAIN_LOGIC_CYBOL_FORMAT = L"maintain/shutdown";
 static int* SHUTDOWN_MAINTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -54,6 +58,19 @@ static int* SHUTDOWN_MAINTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
  * Startup sensing service.
  *
  * This is a CYBOL extension.
+ *
+ * Parametres:
+ * - channel (required): the communication channel, e.g. socket, display
+ * - port (optional): the service identification, e.g. socket port 80
+ * - namespace (optional): the address family, e.g. local, ipv4, ipv6
+ * - style (optional): the communication style, e.g. stream, datagram, raw
+ * - protocol (optional): the protocol, e.g. tcp, udp, rdp
+ * - device (optional):
+ *      = filename for channel "socket" with namespace "local" (unix domain socket), e.g. localbuffer.socket
+ *      = host address for channel "socket" with namespace "ipv4" or "ipv6", e.g. localhost or 127.0.0.1
+ *      = null for channel "display", since the display server does not need it (therefore it is OPTIONAL)
+ * - connexions (optional): the maximum number of possible pending client requests, e.g. 10
+ * - timeout (optional): the timeout in seconds set for each new client, e.g. 300
  */
 static wchar_t* STARTUP_MAINTAIN_LOGIC_CYBOL_FORMAT = L"maintain/startup";
 static int* STARTUP_MAINTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;

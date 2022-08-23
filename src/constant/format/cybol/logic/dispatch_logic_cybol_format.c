@@ -42,8 +42,13 @@
  * The dispatch/close logic cybol format.
  *
  * Close down a client that has been used for connecting to a service.
+ * Closes down the client on the given channel.
  *
- * This is a CYBOL extension.
+ * Parametres:
+ * - channel (required): the communication channel, e.g. file, serial, socket
+ * - server (optional): the flag indicating server mode, e.g. for window or client socket stub; if NULL, the default is false (standalone client mode)
+ * - port (optional): the service identification; only relevant in server mode
+ * - identification (required): the file descriptor or client socket number or window id returned from cyboi (except for channel "server_socket", where accept returns a ready client socket id)
  */
 static wchar_t* CLOSE_DISPATCH_LOGIC_CYBOL_FORMAT = L"dispatch/close";
 static int* CLOSE_DISPATCH_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -52,8 +57,22 @@ static int* CLOSE_DISPATCH_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  * The dispatch/open logic cybol format.
  *
  * Open up a client for connecting to a service.
+ * Opens up a client on the given channel.
  *
- * This is a CYBOL extension.
+ * Parametres:
+ * - channel (required): the communication channel, e.g. file, serial, socket
+ * - server (optional): the flag indicating server mode, e.g. for window or client socket stub; if NULL, the default is false (standalone client mode)
+ * - port (optional): the service identification; only relevant in server mode
+ * - namespace (optional): the address family, e.g. ipv4 or ipv6
+ * - style (optional): the communication style, e.g. stream or datagram
+ * - protocol (optional): the protocol, e.g. tcp or udp
+ * - file open mode (optional): either read or write; if NULL, the default is read
+ * - device (optional):
+ *      = filename for channel "file" or "serialport" or "terminal" or "fifo", e.g. /path/to/file.txt or /dev/ttyS0
+ *      = filename for channel "socket" with namespace "local" (unix domain socket), e.g. localbuffer.socket
+ *      = host address for channel "socket" with namespace "ipv4" or "ipv6", e.g. localhost or 127.0.0.1
+ *      = null for channel "display", since a client window does not need it (therefore it is OPTIONAL)
+ * - identification (required): the file descriptor or client socket number or window id returned from cyboi (except for channel "server_socket", where accept returns a ready client socket id)
  */
 static wchar_t* OPEN_DISPATCH_LOGIC_CYBOL_FORMAT = L"dispatch/open";
 static int* OPEN_DISPATCH_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;

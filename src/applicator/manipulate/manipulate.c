@@ -39,14 +39,6 @@
 /**
  * Manipulates the bit at the given position by applying the given operation to the given value.
  *
- * Expected parametres:
- * - value (required): the knowledge model representing the value
- * - position (required): the bit position within the value
- * - count (optional; if null, the value part model count will be used instead):
- *   the number of values to be manipulated
- * - index (optional; if null, an index of zero will be used instead):
- *   the index from which to start manipulating values
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)

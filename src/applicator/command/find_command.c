@@ -27,7 +27,6 @@
 #define FIND_COMMAND_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/find_command_commander_logic_cybol_name.c"
@@ -37,19 +36,11 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
  * Locates the binary, source, and manual page files for a command.
- *
- * Expected parametres:
- * - command (required): command to be processed
- * - binary (optional, Unix): Search only for binaries.
- * - manual (optional, Unix): Search only for manual sections.
- * - source (optional, Unix): Search only for source files.
- *
- * Constraints:
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

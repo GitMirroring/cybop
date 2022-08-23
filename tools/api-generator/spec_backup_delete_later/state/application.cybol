@@ -1,5 +1,0 @@
-<node>
-
-    <node name="xml" channel="file" format="element/part" model="api-generator/spec/state/application/xml.cybol"/>
-
-</node>

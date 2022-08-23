@@ -1,6 +1,0 @@
-<node>
-
-    <node name="dd.mm.yyyy" channel="file" format="element/part" model="api-generator/spec/state/datetime/dd.mm.yyyy.cybol"/>
-    <node name="iso" channel="file" format="element/part" model="api-generator/spec/state/datetime/iso.cybol"/>
-
-</node>

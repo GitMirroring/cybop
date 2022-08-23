@@ -38,14 +38,6 @@
 /**
  * Encodes the source- into the destination part.
  *
- * CAUTION! The result gets APPENDED to the destination.
- * It does NOT overwrite already existing content in the destination.
- *
- * Expected parametres:
- * - destination (required): the destination byte stream consisting of elements of type char
- * - source (required): the source wide character string consisting of elements of type wchar_t
- * - encoding (required): the encoding
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)

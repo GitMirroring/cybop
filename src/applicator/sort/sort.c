@@ -39,13 +39,6 @@
 /*
  * Sorts numbers using algorithm.
  *
- * Expected parametres:
- * - part (required): the knowledge model to be sorted
- * - criterion (optional): the comparison criterion used for sorting parts
- * - descending (optional; the default is "false"): the sort direction flag;
- *   false = ascending sort order;
- *   true = descending sort order
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)

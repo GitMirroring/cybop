@@ -44,15 +44,8 @@
  * Indicates whether or not the part is empty (i.e. its element count is zero)
  * or data exist within (i.e. its element count is greater than zero).
  *
- * The kind of comparison depends upon the given operation type.
- * Possible values are: empty, exists
- *
- * Expected parametres:
- * - result (required): the result flag
- *   (set to true upon successful comparison; left untouched otherwise)
- * - part (required): the part
- *
- * Constraints:
+ * The kind of comparison depends upon the given operation type
+ * ("access/indicate-empty" OR "access/indicate-exists").
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

@@ -51,25 +51,6 @@
  * CAUTION! Do NOT rename this function to "read",
  * as that name is already used for glibc library's input.
  *
- * CAUTION! Some file formats (like the German xDT format for medical data exchange)
- * contain both, the model AND the properties, in one file. To cover these cases,
- * the model AND properties are received TOGETHER, in just one operation.
- *
- * Properties:
- * - channel (required): the communication channel, e.g. file, serial, socket
- * - server (optional): the flag indicating server mode (server-side client stub and NOT standalone client); if NULL, the default is false (client mode)
- * - port (optional): the service identification; only relevant in server mode
- * - sender (required): the device identification, e.g. file descriptor
- * - encoding (required): the encoding, e.g. utf-8, utf-32
- * - language (optional): the language defining which prefix or suffix indicates the message length, e.g. binary-crlf, http-request, xdt; not needed for file reading since that ends with EOF
- * - normalisation (optional): the flag indicating whether or not the received message is to be normalised, i.e. leading and trailing whitespaces as well as line breaks removed and multiple ones merged into just ONE, e.g. from text in between two tags of an html or xml file; if NULL, the default is TRUE (normalisation enabled)
- * - medium (optional): the user interface window model hierarchy used to identify nested components and their action via mouse coordinates
- * - format (optional): the format of the data, e.g. logicvalue/boolean, number/integer, text/plain
- * - message (required): the cybol path to the knowledge tree node storing the received data
- * - minimum (optional): the minimum number of bytes to be received in one call of the read function (for serial port)
- * - maximum (optional): the maximum number of bytes to be received in one call of the read function (for serial port)
- * - asynchronicity (optional): the flag indicating asynchronous reading from buffer in which data got stored by a sensing thread before; if NULL, the default is false (synchronous read)
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)

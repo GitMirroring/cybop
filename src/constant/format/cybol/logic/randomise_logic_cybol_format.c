@@ -44,6 +44,13 @@
  * Retrieve next pseudo-random number in the series.
  *
  * This is a CYBOL extension.
+ *
+ * Expected parametres:
+ * - result (required): the time
+ * - minimum (optional; if null, the value of zero will be used instead):
+ *   the minimum (inclusive)
+ * - maximum (optional; if null, the GNU C Library's RAND_MAX value 2147483647 which is the largest signed integer representable in 32 bits will be used instead):
+ *   the maximum (exclusive)
  */
 static wchar_t* RETRIEVE_RANDOMISE_LOGIC_CYBOL_FORMAT = L"randomise/retrieve";
 static int* RETRIEVE_RANDOMISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -54,6 +61,9 @@ static int* RETRIEVE_RANDOMISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  * Sow a seed for a new series of pseudo-random numbers.
  *
  * This is a CYBOL extension.
+ *
+ * Expected parametres:
+ * - seed (required): the source seed to be established for a new series of pseudo-random numbers
  */
 static wchar_t* SOW_RANDOMISE_LOGIC_CYBOL_FORMAT = L"randomise/sow";
 static int* SOW_RANDOMISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;

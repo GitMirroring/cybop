@@ -42,17 +42,7 @@
 #include "../../logger/logger.c"
 
 /**
- * Counts compound parts.
- *
- * Expected parametres:
- * - count (required): the knowledge model in which to store the result
- * - part (required): the part whose elements are to be counted
- * - selection (optional; if null, the element count is returned without any comparison):
- *   the area of the elements' names to be compared;
- *   may be one of: all, prefix, suffix, subsequence
- * - filter (optional; corresponds with "selection" property):
- *   string to compare the elements' names with;
- *   only those parts will be counted whose name matches the filter string
+ * Counts the parts of a compound part.
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

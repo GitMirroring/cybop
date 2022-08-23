@@ -43,7 +43,30 @@
  *
  * Check lexicographically for equality: ==
  *
- * This is a CYBOL extension.
+ * Left and right operand may be a vector, but there is ALWAYS
+ * just ONE boolean result value ALTOGETHER.
+ *
+ * Usually, lexicographical comparison applies for text,
+ * i.e. strings of type "wide_character" or "character".
+ *
+ * But also compound parts of type "element/part" do set
+ * the lexicographical flag to TRUE, so that only one
+ * return value gets returned, also for deep comparison.
+ *
+ * Example with text:
+ *
+ * operation: equal
+ * left operand: "Hello"
+ * right operand: "World"
+ * result value: 0 (which corresponds to "false")
+ *
+ * Expected parametres:
+ * - result (required): the knowledge model, in which the result is stored (of type boolean)
+ * - left (required): the left operand
+ * - right (required): the right operand
+ * - count (optional): the number of elements to be compared (NOT relevant for lexicographical comparison, where left and right count are used and are allowed to differ)
+ * - left index (optional): the left index from where to start the comparison from (NOT relevant for lexicographical comparison)
+ * - right index (optional): the right index from where to start the comparison from (NOT relevant for lexicographical comparison)
  */
 static wchar_t* EQUAL_CHECK_LOGIC_CYBOL_FORMAT = L"check/equal";
 static int* EQUAL_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -52,8 +75,6 @@ static int* EQUAL_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  * The check/greater logic cybol format.
  *
  * Check lexicographically for greaterness: >
- *
- * This is a CYBOL extension.
  */
 static wchar_t* GREATER_CHECK_LOGIC_CYBOL_FORMAT = L"check/greater";
 static int* GREATER_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -62,8 +83,6 @@ static int* GREATER_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  * The check/greater-or-equal logic cybol format.
  *
  * Check lexicographically for greaterness or equality: >=
- *
- * This is a CYBOL extension.
  */
 static wchar_t* GREATER_OR_EQUAL_CHECK_LOGIC_CYBOL_FORMAT = L"check/greater-or-equal";
 static int* GREATER_OR_EQUAL_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -72,8 +91,6 @@ static int* GREATER_OR_EQUAL_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
  * The check/less logic cybol format.
  *
  * Check lexicographically for lessness: <
- *
- * This is a CYBOL extension.
  */
 static wchar_t* LESS_CHECK_LOGIC_CYBOL_FORMAT = L"check/less";
 static int* LESS_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -82,8 +99,6 @@ static int* LESS_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  * The check/less-or-equal logic cybol format.
  *
  * Check lexicographically for lessness or equality: <=
- *
- * This is a CYBOL extension.
  */
 static wchar_t* LESS_OR_EQUAL_CHECK_LOGIC_CYBOL_FORMAT = L"check/less-or-equal";
 static int* LESS_OR_EQUAL_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -92,8 +107,6 @@ static int* LESS_OR_EQUAL_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  * The check/unequal logic cybol format.
  *
  * Check lexicographically for unequality: !=
- *
- * This is a CYBOL extension.
  */
 static wchar_t* UNEQUAL_CHECK_LOGIC_CYBOL_FORMAT = L"check/unequal";
 static int* UNEQUAL_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;

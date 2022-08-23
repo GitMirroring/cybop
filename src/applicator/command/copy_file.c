@@ -35,24 +35,11 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
  * Copies the file resource to a destination.
- *
- * Expected parametres:
- * - source (required): the source to be copied
- * - destination (required): the destination to copy to
- * - force (optional): the force option for not asking for permission for overwriting files or directories
- * - interactive (optional): the interactive option which askes everytime for permission of overwriting a file or directory
- * - preserve_all_attributes (optional): copied files and directories will have the same attributes as the originals
- * - preserve_links (optional): preserves links so that they are not dereferenced while copying
- * - recursive (optional): the option indicating that all sub directories should be copied as well
- * - update (optional): the update option which just copies more recent data to a destination path
- * - verbal (optional): shows which files and directories are being copied
- *
- * Constraints:
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

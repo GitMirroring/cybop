@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-08-23  Christian Heller  <christian.heller@cybop.org>
+
+        * Move comments with parametre lists from directory "src/applicator/" to "src/constant/format/cybol/logic/"
+        * Delete directory "tools/api-generator/spec_backup_delete_later/state/" from svn, since it has been replaced
+
 2022-08-22  Christian Heller  <christian.heller@cybop.org>
 
         * Complete updating cybol api specification in javadoc comment blocks of directory "constant/format/cybol/state/"

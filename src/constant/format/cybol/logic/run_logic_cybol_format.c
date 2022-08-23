@@ -44,6 +44,9 @@
  * Run the given programme.
  *
  * This is a CYBOL extension.
+ *
+ * Properties:
+ * - programme: the programme to be run
  */
 static wchar_t* RUN_LOGIC_CYBOL_FORMAT = L"run/run";
 static int* RUN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -57,6 +60,9 @@ static int* RUN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_AR
  * or by the granularity of system timers.
  *
  * This is a CYBOL extension.
+ *
+ * Properties:
+ * - duration: the time to sleep
  */
 static wchar_t* NANO_SLEEP_RUN_LOGIC_CYBOL_FORMAT = L"run/sleep-nano";
 static int* NANO_SLEEP_RUN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -70,6 +76,9 @@ static int* NANO_SLEEP_RUN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  * or by the granularity of system timers.
  *
  * This is a CYBOL extension.
+ *
+ * Properties:
+ * - duration: the time to sleep
  */
 static wchar_t* SECOND_SLEEP_RUN_LOGIC_CYBOL_FORMAT = L"run/sleep-second";
 static int* SECOND_SLEEP_RUN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
