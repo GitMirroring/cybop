@@ -5,6 +5,7 @@
     </node>
     <node name="text" channel="inline" format="text/plain" model="">
         <node name="tag" channel="inline" format="text/plain" model="p"/>
+        <node name="style" channel="inline" format="text/plain" model="white-space: pre-line"/>
     </node>
 
 </node>

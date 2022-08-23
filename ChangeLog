@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-08-23  Enrico Gallus  <enrico.gallus@gmail.com>
+
+        * Autogenerate content of unicode_character_code_model.c/html_character_entity_reference_model.c/html_character_reference_deserialiser.c
+        * Use line break in description
+
 2022-08-23  Christian Heller  <christian.heller@cybop.org>
 
         * Move comments with parametre lists from directory "src/applicator/" to "src/constant/format/cybol/logic/"
