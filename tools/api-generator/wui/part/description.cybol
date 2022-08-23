@@ -5,6 +5,7 @@
     </node>
     <node name="text" channel="inline" format="text/plain" model="">
         <node name="tag" channel="inline" format="text/plain" model="p"/>
+        <!-- CAUTION! This css property is necessary for line breaks on the website. -->
         <node name="style" channel="inline" format="text/plain" model="white-space: pre-line"/>
     </node>
 
