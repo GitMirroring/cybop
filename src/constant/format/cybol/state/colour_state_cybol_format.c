@@ -41,7 +41,7 @@
 /**
  * The colour/cmyk state cybol format.
  *
- * Description:
+ * TODO: Description:
  *
  * A colour whose values are given in the CMYK colour model,
  * also referred to as process color or four color.
@@ -49,7 +49,7 @@
  * The abbreviation CMYK refers to the four ink plates used in some
  * colour printing: cyan, magenta, yellow, and key (black).
  *
- * Examples:
+ * TODO: Examples:
  *
  * <node name="value" channel="inline" format="colour/cmyk" model="60,34,0,19"/>
  */

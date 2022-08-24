@@ -125,20 +125,20 @@ static int* GZIP_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
 /**
  * The application/javascript state cybol format.
  *
- * Description:
+ * TODO: Description:
  *
  * A JavaScript program script.
  *
  * Common file suffixes: js
  *
- * There are three MIME assignments for json data:
+ * There are three MIME assignments for javascript data:
  * - application/javascript (official)
  * - application/x-javascript (outdated)
  * - text/javascript (unofficial)
  *
  * Preference should be given to the OFFICIAL mime type "application/javascript".
  *
- * Examples:
+ * TODO: Examples:
  *
  * <node name="program_source_code" channel="file" format="application/javascript" model="path/to/file.js"/>
  */
