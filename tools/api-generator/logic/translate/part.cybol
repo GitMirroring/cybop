@@ -51,6 +51,14 @@
         <node name="right" channel="inline" format="text/cybol-path" model="#property_count"/>
     </node>
 
+    <!-- Creation -->
+
+    <node name="create_section_properties" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model="#property_break"/>
+        <!-- CAUTION! Do NOT use "true" here, since the loop break flag is FALSE if properties exist. -->
+        <node name="false" channel="inline" format="text/cybol-path" model=".logic.create.section_properties"/>
+    </node>
+
     <!-- Translation -->
 
     <node name="loop_properties" channel="inline" format="flow/loop" model="">

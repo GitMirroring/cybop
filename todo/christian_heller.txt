@@ -14,6 +14,8 @@
 API
 ___
 
+        * Avoid having to reset stack variables by defining them inside the nested cybol operations in api-generator logic
+
         * Adapt api generator, so that constraints are considered similar to but separate from properties
         * Update cybol api specification in javadoc comment blocks of directory "constant/format/cybol/logic/"
         * Delete directory "tools/api-generator/spec_backup_delete_later/" from svn, as soon as all api documentation comments have been converted to the new format

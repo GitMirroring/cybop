@@ -31,6 +31,7 @@
     <!-- Creation -->
 
     <node name="create_nav_category" channel="inline" format="text/cybol-path" model=".logic.create.nav_category"/>
+    <!-- There is NO category headings in the CONTENT section, since it lists only parts. -->
 
     <!-- Comparison -->
 

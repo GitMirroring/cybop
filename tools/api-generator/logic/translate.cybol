@@ -37,6 +37,10 @@
             is used as separator instead within the link (anchor).
             But since the name with slash is needed as well for the heading,
             DIFFERENT variables are declared here.
+            Examples:
+            category_part_mime: calculate/add
+            category_part_name: calculate-add
+            category_part_href: #calculate-add
         -->
         <node name="category_part_mime" channel="inline" format="text/plain" model=""/>
         <node name="category_part_name" channel="inline" format="text/plain" model=""/>

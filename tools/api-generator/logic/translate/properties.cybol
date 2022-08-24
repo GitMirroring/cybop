@@ -9,7 +9,7 @@
 
     <!-- Creation -->
 
-    <node name="create_section_properties" channel="inline" format="text/cybol-path" model=".logic.create.section_properties"/>
+    <node name="create_section_property" channel="inline" format="text/cybol-path" model=".logic.create.section_property"/>
 
     <!-- Comparison -->
 
