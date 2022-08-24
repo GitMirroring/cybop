@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-08-25  Enrico Gallus  <enrico.gallus@gmail.com>
+
+        * Fix spacing in html_character_reference_deserialiser.c
+        * Re-Generate html entity files after adjustment of redundant variable names
+
 2022-08-24  Christian Heller  <christian.heller@cybop.org>
 
         * Use css class instead of direct style in file "tools/api-generator/wui/part/description.cybol"
