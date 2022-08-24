@@ -20,8 +20,9 @@
 
 2022-08-24  Christian Heller  <christian.heller@cybop.org>
 
-        * Adapt api generator so that the properties section gets generated only if properties are actually available
         * Use css class instead of direct style in file "tools/api-generator/wui/part/description.cybol"
+        * Adapt api generator so that the properties section gets generated only if properties are actually available
+        * Avoid having to reset stack variables by defining them inside the nested cybol operations in api-generator logic
 
 2022-08-23  Enrico Gallus  <enrico.gallus@gmail.com>
 

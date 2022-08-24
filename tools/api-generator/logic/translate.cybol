@@ -1,24 +1,29 @@
 <node>
 
     <node name="spec" channel="file" format="element/part" model="api-generator/logic/translate/spec.cybol">
-
         <!-- The element. -->
         <node name="topic_name" channel="inline" format="text/plain" model=""/>
+    </node>
 
+    <node name="topic" channel="file" format="element/part" model="api-generator/logic/translate/topic.cybol">
         <!-- The loop parametres (stack variables). -->
         <node name="category_count" channel="inline" format="number/integer" model="0"/>
         <node name="category_index" channel="inline" format="number/integer" model="0"/>
         <node name="category_break" channel="inline" format="logicvalue/boolean" model="false"/>
         <!-- The element. -->
         <node name="category_name" channel="inline" format="text/plain" model=""/>
+    </node>
 
+    <node name="category" channel="file" format="element/part" model="api-generator/logic/translate/category.cybol">
         <!-- The loop parametres (stack variables). -->
         <node name="part_count" channel="inline" format="number/integer" model="0"/>
         <node name="part_index" channel="inline" format="number/integer" model="0"/>
         <node name="part_break" channel="inline" format="logicvalue/boolean" model="false"/>
         <!-- The element. -->
         <node name="part_name" channel="inline" format="text/plain" model=""/>
+    </node>
 
+    <node name="part" channel="file" format="element/part" model="api-generator/logic/translate/part.cybol">
         <!-- The loop parametres (stack variables). -->
         <node name="property_count" channel="inline" format="number/integer" model="0"/>
         <node name="property_index" channel="inline" format="number/integer" model="0"/>
@@ -45,12 +50,8 @@
         <node name="category_part_mime" channel="inline" format="text/plain" model=""/>
         <node name="category_part_name" channel="inline" format="text/plain" model=""/>
         <node name="category_part_href" channel="inline" format="text/plain" model=""/>
-
     </node>
 
-    <node name="topic" channel="file" format="element/part" model="api-generator/logic/translate/topic.cybol"/>
-    <node name="category" channel="file" format="element/part" model="api-generator/logic/translate/category.cybol"/>
-    <node name="part" channel="file" format="element/part" model="api-generator/logic/translate/part.cybol"/>
     <node name="properties" channel="file" format="element/part" model="api-generator/logic/translate/properties.cybol"/>
     <node name="mime" channel="file" format="element/part" model="api-generator/logic/translate/mime.cybol"/>
 
