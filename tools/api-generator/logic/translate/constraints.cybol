@@ -20,6 +20,7 @@
         <node name="right" channel="inline" format="text/cybol-path" model="#constraint_count"/>
     </node>
 
+<!--
     <node name="TEST" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
@@ -28,6 +29,7 @@
         <node name="message" channel="inline" format="text/cybol-path" model="#constraint_count"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+-->
 
     <!-- Creation -->
 

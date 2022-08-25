@@ -2,6 +2,7 @@
 
     <!-- Creation -->
 
+<!--
     <node name="TEST" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
@@ -10,6 +11,7 @@
         <node name="message" channel="inline" format="text/cybol-path" model="#section_name"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+-->
 
     <node name="create_constraints_section" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/cybol-path" model="#section_name"/>
@@ -55,6 +57,25 @@
     <node name="close_file" channel="inline" format="dispatch/close" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+    <!-- Assignment -->
+
+    <node name="overwrite_heading" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.section.content.(#category_part_name).(#section_name).heading"/>
+        <node name="source" channel="inline" format="text/plain" model="Constraints"/>
+    </node>
+    <node name="append_space_and_opening_parenthesis" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.section.content.(#category_part_name).(#section_name).heading"/>
+        <node name="source" channel="inline" format="text/plain" model=" ("/>
+    </node>
+    <node name="append_section_name" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.section.content.(#category_part_name).(#section_name).heading"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#section_name"/>
+    </node>
+    <node name="append_closing_parenthesis" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.section.content.(#category_part_name).(#section_name).heading"/>
+        <node name="source" channel="inline" format="text/plain" model=")"/>
     </node>
 
 </node>

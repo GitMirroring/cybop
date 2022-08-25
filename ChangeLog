@@ -21,6 +21,7 @@
 2022-08-25  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt api generator, so that constraints are considered similar to but separate from properties
+        * Use correct heading for constraints section in cybol api generator
 
 2022-08-25  Enrico Gallus  <enrico.gallus@gmail.com>
 
