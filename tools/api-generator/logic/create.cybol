@@ -8,5 +8,7 @@
     <node name="section_part" channel="file" format="element/part" model="api-generator/logic/create/section_part.cybol"/>
     <node name="section_properties" channel="file" format="element/part" model="api-generator/logic/create/section_properties.cybol"/>
     <node name="section_property" channel="file" format="element/part" model="api-generator/logic/create/section_property.cybol"/>
+    <node name="section_constraints" channel="file" format="element/part" model="api-generator/logic/create/section_constraints.cybol"/>
+    <node name="section_constraint" channel="file" format="element/part" model="api-generator/logic/create/section_constraint.cybol"/>
 
 </node>

@@ -24,13 +24,6 @@
     </node>
 
     <node name="part" channel="file" format="element/part" model="api-generator/logic/translate/part.cybol">
-        <!-- The loop parametres (stack variables). -->
-        <node name="property_count" channel="inline" format="number/integer" model="0"/>
-        <node name="property_index" channel="inline" format="number/integer" model="0"/>
-        <node name="property_break" channel="inline" format="logicvalue/boolean" model="false"/>
-        <!-- The element. -->
-        <node name="property_name" channel="inline" format="text/plain" model=""/>
-
         <!--
             The combined category-part name and link.
             CAUTION! A combination of category and name is used AS LINK,
@@ -52,7 +45,38 @@
         <node name="category_part_href" channel="inline" format="text/plain" model=""/>
     </node>
 
-    <node name="properties" channel="file" format="element/part" model="api-generator/logic/translate/properties.cybol"/>
     <node name="mime" channel="file" format="element/part" model="api-generator/logic/translate/mime.cybol"/>
+
+    <node name="properties" channel="file" format="element/part" model="api-generator/logic/translate/properties.cybol">
+        <!-- The loop parametres (stack variables). -->
+        <node name="property_count" channel="inline" format="number/integer" model="0"/>
+        <node name="property_index" channel="inline" format="number/integer" model="0"/>
+        <node name="property_break" channel="inline" format="logicvalue/boolean" model="false"/>
+        <!-- The element. -->
+        <node name="property_name" channel="inline" format="text/plain" model=""/>
+    </node>
+
+    <node name="property" channel="file" format="element/part" model="api-generator/logic/translate/property.cybol"/>
+
+    <node name="sections" channel="file" format="element/part" model="api-generator/logic/translate/sections.cybol">
+        <!-- The loop parametres (stack variables). -->
+        <node name="section_count" channel="inline" format="number/integer" model="0"/>
+        <!-- CAUTION! Initialise index with number of sections (description, examples, properties) existing BEFORE possible constraints. -->
+        <node name="section_index" channel="inline" format="number/integer" model="3"/>
+        <node name="section_break" channel="inline" format="logicvalue/boolean" model="false"/>
+        <!-- The element. -->
+        <node name="section_name" channel="inline" format="text/plain" model=""/>
+    </node>
+
+    <node name="constraints" channel="file" format="element/part" model="api-generator/logic/translate/constraints.cybol">
+        <!-- The loop parametres (stack variables). -->
+        <node name="constraint_count" channel="inline" format="number/integer" model="0"/>
+        <node name="constraint_index" channel="inline" format="number/integer" model="0"/>
+        <node name="constraint_break" channel="inline" format="logicvalue/boolean" model="false"/>
+        <!-- The element. -->
+        <node name="constraint_name" channel="inline" format="text/plain" model=""/>
+    </node>
+
+    <node name="constraint" channel="file" format="element/part" model="api-generator/logic/translate/constraint.cybol">
 
 </node>
