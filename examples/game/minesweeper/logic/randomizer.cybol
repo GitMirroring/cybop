@@ -95,7 +95,7 @@
 
     <!-- Minenfeld wird markiert  -->
     <node name="mine_set" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="text/cybol-path" model="*.app.field"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model="{.app.field}"/>
         <!--<node name="true" channel="inline" format="text/cybol-path" model=".app.logic.set_mine"/>-->
         <node name="false" channel="inline" format="text/cybol-path" model=".app.logic.set_mine"/>
     </node>

@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-08-28  Christian Heller  <christian.heller@cybop.org>
+
+        * Adapt all cybol applications to new knowledge path syntax by replacing * with {} for path references
+        * Make red bar be shown again in cybol application "user_interface/tui_control/" (lost due to reference path changes)
+
 2022-08-25  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt api generator, so that constraints are considered similar to but separate from properties

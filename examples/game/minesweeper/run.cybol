@@ -75,7 +75,7 @@
         <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>-->
     <node name="send_tui" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="text/cybol-path" model="*.app.game_over"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model="{.app.game_over}"/>
         <node name="true" channel="inline" format="text/cybol-path" model=".app.send_game_over_tui"/>
         <node name="false" channel="inline" format="text/cybol-path" model=".app.send_tui"/>
     </node>

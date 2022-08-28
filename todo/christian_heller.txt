@@ -22,8 +22,6 @@ ________________
 
         * Adapt knowledge deserialiser so that reference closing symbol "}" works --> use mode flags ?? for ( [ {
         * Test with cybol application "serialisation/csv/"
-        * Make red bar be shown again in cybol application "user_interface/tui_control/" (lost due to path changes to reference)
-        * Adapt all cybol applications to new knowledge path syntax by replacing * with {} for references
 
         * Make table generation work in cybol application "serialisation/csv/"
 

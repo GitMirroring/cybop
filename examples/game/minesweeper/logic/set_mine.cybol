@@ -1,13 +1,13 @@
 <node>
 <!--
     <node name="mark_field" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model="*.app.focused_field_text"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model="{.app.focused_field_text}"/>
         <node name="source" channel="inline" format="text/plain" model="xx"/>
     </node>
 -->
 
     <node name="set_mine" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model="*.app.field"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model="{.app.field}"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 

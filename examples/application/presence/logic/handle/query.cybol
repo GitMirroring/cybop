@@ -40,12 +40,12 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/cybol-path" model="*.var.action_path"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="{.var.action_path}"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <!-- CAUTION! Use path REFERENCE here, since the action is just a string pointing to the actual model to be executed. -->
-    <node name="execute_action" channel="inline" format="text/cybol-path" model="*.var.action_path"/>
+    <node name="execute_action" channel="inline" format="text/cybol-path" model="{.var.action_path}"/>
 
 <!--
     <node name="TEST_close_label" channel="inline" format="communicate/send" model="">

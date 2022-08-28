@@ -9,7 +9,7 @@
         <node name="source" channel="inline" format="text/plain" model=":background"/>
     </node>
     <node name="unfocus_background" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model="*.app.temporary.character"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model="{.app.temporary.character}"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.settings.menu_item.background"/>
     </node>
 
@@ -22,7 +22,7 @@
         <node name="source" channel="inline" format="text/plain" model=":foreground"/>
     </node>
     <node name="unfocus_foreground" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model="*.app.temporary.character"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model="{.app.temporary.character}"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.settings.menu_item.foreground"/>
     </node>
 

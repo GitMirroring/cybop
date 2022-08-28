@@ -32,8 +32,8 @@
 
     <node name="compare_equal" channel="inline" format="check/equal" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.x_equal_y_flag"/>
-        <node name="left" channel="inline" format="text/cybol-path" model="*.app.var.comp_adress"/>
-        <node name="right" channel="inline" format="text/cybol-path" model="*.app.var.guess_adress"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="{.app.var.comp_adress}"/>
+        <node name="right" channel="inline" format="text/cybol-path" model="{.app.var.guess_adress}"/>
     </node>
 
     <!--<node name="print_comparism" channel="inline" format="communicate/send" model="">-->

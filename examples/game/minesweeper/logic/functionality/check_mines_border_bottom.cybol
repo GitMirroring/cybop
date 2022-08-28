@@ -19,7 +19,7 @@
     </node>
     <node name="get_mine_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.mine_path"/>
-        <node name="source" channel="inline" format="text/cybol-path" model="*.app.mine_path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="{.app.mine_path}"/>
     </node>
     <node name="get_mine_path" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.mine_path"/>
@@ -28,7 +28,7 @@
 
     <node name="check_mine" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.bool"/>
-        <node name="source" channel="inline" format="text/cybol-path" model="*.app.mine_path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="{.app.mine_path}"/>
     </node>
     <node name="add_mine_if_present" channel="inline" format="flow/branch" model="">
         <node name="criterion" channel="inline" format="text/cybol-path" model=".app.bool"/>
@@ -50,7 +50,7 @@
     </node>
     <node name="get_mine_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.mine_path"/>
-        <node name="source" channel="inline" format="text/cybol-path" model="*.app.mine_path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="{.app.mine_path}"/>
     </node>
     <node name="get_mine_path" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.mine_path"/>
@@ -59,7 +59,7 @@
 
     <node name="check_mine" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.bool"/>
-        <node name="source" channel="inline" format="text/cybol-path" model="*.app.mine_path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="{.app.mine_path}"/>
     </node>
     <node name="add_mine_if_present" channel="inline" format="flow/branch" model="">
         <node name="criterion" channel="inline" format="text/cybol-path" model=".app.bool"/>
@@ -81,7 +81,7 @@
     </node>
     <node name="get_mine_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.mine_path"/>
-        <node name="source" channel="inline" format="text/cybol-path" model="*.app.mine_path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="{.app.mine_path}"/>
     </node>
     <node name="get_mine_path" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.mine_path"/>
@@ -90,7 +90,7 @@
 
     <node name="check_mine" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.bool"/>
-        <node name="source" channel="inline" format="text/cybol-path" model="*.app.mine_path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="{.app.mine_path}"/>
     </node>
     <node name="add_mine_if_present" channel="inline" format="flow/branch" model="">
         <node name="criterion" channel="inline" format="text/cybol-path" model=".app.bool"/>
@@ -112,7 +112,7 @@
     </node>
     <node name="get_mine_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.mine_path"/>
-        <node name="source" channel="inline" format="text/cybol-path" model="*.app.mine_path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="{.app.mine_path}"/>
     </node>
     <node name="get_mine_path" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.mine_path"/>
@@ -120,7 +120,7 @@
     </node>
     <node name="get_mine_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.mine_path"/>
-        <node name="source" channel="inline" format="text/cybol-path" model="*.app.mine_path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="{.app.mine_path}"/>
     </node>
     <node name="get_mine_path" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.mine_path"/>
@@ -129,7 +129,7 @@
 
     <node name="check_mine" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.bool"/>
-        <node name="source" channel="inline" format="text/cybol-path" model="*.app.mine_path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="{.app.mine_path}"/>
     </node>
     <node name="add_mine_if_present" channel="inline" format="flow/branch" model="">
         <node name="criterion" channel="inline" format="text/cybol-path" model=".app.bool"/>
@@ -151,7 +151,7 @@
     </node>
     <node name="get_mine_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.mine_path"/>
-        <node name="source" channel="inline" format="text/cybol-path" model="*.app.mine_path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="{.app.mine_path}"/>
     </node>
     <node name="get_mine_path" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.mine_path"/>
@@ -159,7 +159,7 @@
     </node>
     <node name="get_mine_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.mine_path"/>
-        <node name="source" channel="inline" format="text/cybol-path" model="*.app.mine_path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="{.app.mine_path}"/>
     </node>
     <node name="get_mine_path" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.mine_path"/>
@@ -168,7 +168,7 @@
 
     <node name="check_mine" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.bool"/>
-        <node name="source" channel="inline" format="text/cybol-path" model="*.app.mine_path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="{.app.mine_path}"/>
     </node>
     <node name="add_mine_if_present" channel="inline" format="flow/branch" model="">
         <node name="criterion" channel="inline" format="text/cybol-path" model=".app.bool"/>

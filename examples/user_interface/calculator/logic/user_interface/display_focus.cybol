@@ -11,7 +11,7 @@
 
     <node name="append" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.tui.main.menu.display.value"/>
-        <node name="source" channel="inline" format="text/cybol-path" model="*.app.tmp.character"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="{.app.tmp.character}"/>
     </node>
 
     <node name="send_tui" channel="inline" format="communicate/send" model="">

@@ -10,7 +10,7 @@
     </node>
     <node name="get_action_reference" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.tmp.action"/>
-        <node name="source" channel="inline" format="text/cybol-path" model="*.app.tmp.action"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="{.app.tmp.action}"/>
     </node>
 
     <!--
@@ -21,7 +21,7 @@
     -->
     <node name="execute_action" channel="inline" format="flow/sequence" model="">
         <!-- CAUTION! The path is a REFERENCE. -->
-        <node name="model" channel="inline" format="text/cybol-path" model="*.app.tmp.action"/>
+        <node name="model" channel="inline" format="text/cybol-path" model="{.app.tmp.action}"/>
     </node>
 
 </node>

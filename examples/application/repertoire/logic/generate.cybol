@@ -13,7 +13,7 @@
         <node name="language" channel="inline" format="meta/language" model="text/html"/>
         <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="text/cybol-path" model="*#knowledge"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="{#knowledge}"/>
     </node>
     <node name="close_file" channel="inline" format="dispatch/close" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>

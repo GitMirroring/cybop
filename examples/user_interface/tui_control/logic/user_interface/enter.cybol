@@ -10,6 +10,6 @@
     </node>
 
     <!-- CAUTION! The path is a REFERENCE. -->
-    <node name="send_command" channel="inline" format="text/cybol-path" model="**.var.character"/>
+    <node name="send_command" channel="inline" format="text/cybol-path" model="{{.var.character}}"/>
 
 </node>

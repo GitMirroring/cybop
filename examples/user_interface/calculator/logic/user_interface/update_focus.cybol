@@ -11,7 +11,7 @@
     <!-- Use element name assembled before to get the real element that the name points to. -->
     <node name="determine_real_element_name" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.tui.main.menu:focus"/>
-        <node name="source" channel="inline" format="text/cybol-path" model="*.app.tui.main.menu:focus"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="{.app.tui.main.menu:focus}"/>
     </node>
 
     <node name="focus_part" channel="inline" format="flow/sequence" model="">
