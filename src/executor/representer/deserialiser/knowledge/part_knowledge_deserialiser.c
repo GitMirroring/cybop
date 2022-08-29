@@ -151,7 +151,7 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
                 // 2) the element (child) does NOT EXIST
                 //
                 // Case 2 may be REGULAR behaviour in a cybol application
-                // since sometimes, knowledge paths may point to non-existing nodes.
+                // since sometimes, knowledge paths may point to NON-EXISTING nodes.
                 //
 
                 //
@@ -165,12 +165,12 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
                 // Assigning the whole (parent) instead of a non-existing element (child)
                 // would cause a cybol application to manipulate
                 // the parent instead of the (non-existing) child node,
-                // which would definitely lead to wrong application data.
+                // which would definitely lead to WRONG application data.
                 //
-                // REMARK: In order to keep the log file size low,
+                // CAUTION: In order to keep the log file size low,
                 // the following log messages are commented out.
                 //
-                // REMARK: This empty block containing a comment only
+                // CAUTION: This empty block containing a comment only
                 // does no harm, since the compiler will remove it anyway.
                 //
 
@@ -186,10 +186,10 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
         // This may be REGULAR behaviour in a cybol application since
         // sometimes, knowledge paths may point to NON-EXISTING nodes.
         //
-        // REMARK: In order to keep the log file size low,
+        // CAUTION! In order to keep the log file size low,
         // the following log messages are commented out.
         //
-        // REMARK: This empty block containing a comment only
+        // CAUTION: This empty block containing a comment only
         // does no harm, since the compiler will remove it anyway.
         //
 

@@ -109,7 +109,7 @@ void deserialise_knowledge_name(void* p0, void* p1, void* p2, void* p3, void* p4
                 //
                 // Calling the function with an empty name anyway, would NOT
                 // cause errors and just be ignored inside, returning null values.
-                // However, this comparison here is done to improve performance.
+                // However, this comparison here is done to improve PERFORMANCE.
                 //
 
                 //
@@ -120,10 +120,12 @@ void deserialise_knowledge_name(void* p0, void* p1, void* p2, void* p3, void* p4
             }
 
             break;
-        }
 
-        // Search for a delimiter.
-        select_knowledge_move(p2, p3, p5, p6, (void*) &nc, (void*) &b);
+        } else {
+
+            // Search for a delimiter.
+            select_knowledge_move(p2, p3, p5, p6, (void*) &nc, (void*) &b);
+        }
     }
 }
 

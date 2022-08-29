@@ -58,6 +58,7 @@ void select_knowledge_move(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         // That is, a "." or ":" or "#" HAS been detected before.
         //
         // This is the FIRST time that this function is called
+        // from file "part_knowledge_deserialiser.c",
         // in order to deserialise a whole (parent) node.
         //
         // Therefore, the move flag MUST NOT be set here, so that
@@ -72,6 +73,7 @@ void select_knowledge_move(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         // The source whole part element index is NULL.
         //
         // This is the SECOND time that this function is called
+        // from file "part_knowledge_deserialiser.c",
         // in order to deserialise an element (child) node.
         //
         // Therefore, the move flag HAS TO BE set here, so that

@@ -22,5 +22,6 @@
 
     <node name="g" channel="inline" format="text/cybol-path" model=".b.d:p"/>
     <node name="h" channel="inline" format="text/cybol-path" model=".g"/>
+    <node name="i" channel="inline" format="text/cybol-path" model=".b"/>
 
 </node>

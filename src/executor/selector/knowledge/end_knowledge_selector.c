@@ -65,6 +65,10 @@ void select_knowledge_end(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
+            // A "." was found.
+            //
+
             // Set break flag.
             copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
@@ -81,6 +85,10 @@ void select_knowledge_end(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
+            // A ":" was found.
+            //
+
             // Set break flag.
             copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
@@ -91,6 +99,10 @@ void select_knowledge_end(void* p0, void* p1, void* p2, void* p3, void* p4, void
         detect((void*) &r, p0, p1, (void*) END_REFERENCE_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) END_REFERENCE_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, p2);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // A "}" was found.
+            //
 
             //
             // Set knowledge path end flag.
@@ -127,6 +139,10 @@ void select_knowledge_end(void* p0, void* p1, void* p2, void* p3, void* p4, void
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
+            // A ")" was found.
+            //
+
+            //
             // Set knowledge path end flag.
             //
             // CAUTION! Setting this flag IS IMPORTANT
@@ -159,6 +175,10 @@ void select_knowledge_end(void* p0, void* p1, void* p2, void* p3, void* p4, void
         detect((void*) &r, p0, p1, (void*) END_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) END_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, p2);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // A "]" was found.
+            //
 
             //
             // Set knowledge path end flag.
