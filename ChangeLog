@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-08-29  Christian Heller  <christian.heller@cybop.org>
+
+        * Delete superfluous comments in file "unicode_character_code_model.c" which were wrongly "no-break space" everywhere
+
 2022-08-28  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt all cybol applications to new knowledge path syntax by replacing * with {} for path references

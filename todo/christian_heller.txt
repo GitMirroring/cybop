@@ -23,7 +23,6 @@ ________________
         * Adapt knowledge deserialiser so that reference closing symbol "}" works --> use mode flags ?? for ( [ {
         * Test with cybol application "knowledge_tree/cybol-path_2/", tests number 11 and 12
         * Test with cybol application "serialisation/csv/"
-
         * Make table generation work in cybol application "serialisation/csv/"
 
         * Replace language constraint properties in all cybol applications using the cybol operation categories "represent/" or "communicate/"
@@ -32,11 +31,6 @@ ________________
         * Set language constraint property "newline" to true by default
         * Delete cybol property "newline" in cybol applications and leave it only where set to "false"
 
-        * Reactivate translation of constants that have been commented out in file "html_character_reference_deserialiser.c"
-        * Extend file "unicode_character_code_model.c" so that all constants of file "html_character_entity_reference_model.c" are covered
-        * Correct comments in file "unicode_character_code_model.c" which is wrongly "no-break space" everywhere
-
-        * Provide boolean cybol property "references" to enable/disable translation of character references when generating html, so that line breaks remain untouched in api documentation
         * Adapt COUNT of html entity reference constants and deserialisation, since there are some entities consisting of not only one but TWO characters, so that the count should be TWO
 
         * Add joined string serialiser
