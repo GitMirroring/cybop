@@ -57,8 +57,8 @@
 void deserialise_csv(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise csv.");
-    fwprintf(stdout, L"Debug: Deserialise csv. source wide character count p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Deserialise csv. source wide character count *p3: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"Debug: Deserialise csv. source wide character count p3: %i\n", p3);
+    //?? fwprintf(stdout, L"Debug: Deserialise csv. source wide character count *p3: %i\n", *((int*) p3));
 
     // The textline list item.
     void* l = *NULL_POINTER_STATE_CYBOI_MODEL;

@@ -2,8 +2,10 @@
 
     <node name="count_columns" channel="inline" format="access/count" model="">
         <node name="count" channel="inline" format="text/cybol-path" model="#column_count"/>
-        <node name="part" channel="inline" format="text/cybol-path" model="{#table}.[#row_index]"/>
+        <node name="part" channel="inline" format="text/cybol-path" model="{{#row}}"/>
     </node>
+
+<!--
     <node name="TEST_count" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
@@ -12,6 +14,7 @@
         <node name="message" channel="inline" format="text/cybol-path" model="#column_count"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+-->
 
     <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
     <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">

@@ -20,9 +20,6 @@ ___
 CSV Deserialiser
 ________________
 
-        * Test with cybol application "serialisation/csv/"
-        * Make table generation work in cybol application "serialisation/csv/"
-
         * Replace language constraint properties in all cybol applications using the cybol operation categories "represent/" or "communicate/"
             they should not be properties of the operation anymore, but (constraint) properties of the property "language" instead
         * Adapt cyboi source code
@@ -64,8 +61,8 @@ ____________________
 Loop Simplification
 ___________________
 
-
         * Offer cybol property "increment" for operation "flow/loop", so that increment is done in c code for loop instead of in each cybol loop model
+        * Test with table header in cybol application "serialisation/csv/"
         * Think about how to also provide the comparison as cybol property
 
 Presentation
