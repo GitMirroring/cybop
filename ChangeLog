@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-08-30  Christian Heller  <christian.heller@cybop.org>
+
+        * Adapt knowledge deserialiser so that path fragments following a reference enclosed in {} get processed
+        * Test with cybol application "knowledge_tree/cybol-path_2/"
+
 2022-08-29  Christian Heller  <christian.heller@cybop.org>
 
         * Delete superfluous comments in file "unicode_character_code_model.c" which were wrongly "no-break space" everywhere

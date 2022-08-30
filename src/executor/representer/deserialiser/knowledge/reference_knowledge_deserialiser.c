@@ -27,6 +27,8 @@
 #define REFERENCE_KNOWLEDGE_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
@@ -34,6 +36,9 @@
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/copier/integer_copier.c"
+#include "../../../../executor/copier/pointer_copier.c"
+#include "../../../../executor/representer/deserialiser/knowledge/element_knowledge_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 //
@@ -94,15 +99,35 @@ void deserialise_knowledge_reference(void* p0, void* p1, void* p2, void* p3, voi
     copy_pointer((void*) &td, (void*) &pmd);
     copy_integer((void*) &tc, pmc);
 
+    // The new whole part.
+    void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
+
     //
     // Get destination part using knowledge path part determined above.
     //
     // CAUTION! Hand over td as REFERENCE.
     //
-    // CAUTION! Do NOT forward the source whole part element index p7 as argument here,
+    // CAUTION! Do NOT forward the source whole part element index p7 as argument,
     // but NULL instead, since it has no influence anyway.
     //
-    deserialise_knowledge(p0, p1, (void*) &td, (void*) &tc, p4, p5, p6, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_knowledge((void*) &w, p1, (void*) &td, (void*) &tc, p4, p5, p6, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+
+    if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        //
+        // A new whole (parent) EXISTS.
+        //
+        // Hand it over as new parent node.
+        // Further processing of the knowledge path makes sense.
+        //
+        // CAUTION! If the whole (parent) node has a NULL value,
+        // then NOTHING is done here. However, it may be REGULAR behaviour
+        // in a cybol application since sometimes, knowledge paths
+        // may point to NON-EXISTING nodes.
+        //
+
+        deserialise_knowledge_element(p0, (void*) &w, p2, p3, p4, p5, p6);
+    }
 }
 
 /* REFERENCE_KNOWLEDGE_DESERIALISER_SOURCE */

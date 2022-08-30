@@ -20,8 +20,6 @@ ___
 CSV Deserialiser
 ________________
 
-        * Adapt knowledge deserialiser so that reference closing symbol "}" works --> use mode flags ?? for ( [ {
-        * Test with cybol application "knowledge_tree/cybol-path_2/", tests number 11 and 12
         * Test with cybol application "serialisation/csv/"
         * Make table generation work in cybol application "serialisation/csv/"
 
