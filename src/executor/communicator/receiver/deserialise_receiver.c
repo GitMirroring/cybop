@@ -40,24 +40,17 @@
  * @param p3 the source model count
  * @param p4 the source properties data
  * @param p5 the source properties count
- * @param p6 the source format
- * @param p7 the source language properties data
- * @param p8 the source language properties count
- * @param p9 the medium model data (user interface window model hierarchy used to identify nested components and their action via mouse coordinates)
- * @param p10 the medium model count
- * @param p11 the medium properties data
- * @param p12 the medium properties count
- * @param p13 the medium format
- * @param p14 the normalisation flag
- * @param p15 the knowledge memory part (pointer reference)
- * @param p16 the stack memory item
- * @param p17 the internal memory data
- * @param p18 the destination format
- * @param p19 the language
+ * @param p6 the language properties (constraints) data
+ * @param p7 the language properties (constraints) count
+ * @param p8 the knowledge memory part (pointer reference)
+ * @param p9 the stack memory item
+ * @param p10 the internal memory data
+ * @param p11 the format
+ * @param p12 the language
  */
-void receive_deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19) {
+void receive_deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
-    if (p19 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p12 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
         // A language is given.
@@ -66,7 +59,7 @@ void receive_deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive deserialise.");
 
         // Deserialise message.
-        deserialise(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19);
+        deserialise(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
 
     } else {
 

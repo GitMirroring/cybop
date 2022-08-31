@@ -43,33 +43,27 @@
  * @param p0 the destination data (pointer reference)
  * @param p1 the destination count (pointer reference)
  * @param p2 the buffer item
- * @param p3 the source name data
- * @param p4 the source name count
- * @param p5 the channel
- * @param p6 the encoding
- * @param p7 the language
- * @param p8 the indentation flag
- * @param p9 the format
- * @param p10 the type
- * @param p11 the source model data
- * @param p12 the source model count
- * @param p13 the source properties data
- * @param p14 the source properties count
- * @param p15 the clear flag
- * @param p16 the newline flag
- * @param p17 the knowledge memory part (pointer reference)
- * @param p18 the stack memory item
- * @param p19 the internal memory data
- * @param p20 the destination device identification item, currently only needed for gui window id
+ * @param p3 the source model data
+ * @param p4 the source model count
+ * @param p5 the source properties data
+ * @param p6 the source properties count
+ * @param p7 the language properties (constraints) data
+ * @param p8 the language properties (constraints) count
+ * @param p9 the knowledge memory part (pointer reference)
+ * @param p10 the stack memory item
+ * @param p11 the internal memory data
+ * @param p12 the destination device identification item, currently only needed for gui window id
+ * @param p13 the format
+ * @param p14 the language
  */
-void send_serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20) {
+void send_serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send serialise.");
     //?? fwprintf(stdout, L"Debug: Send serialise p7: %i\n", p7);
     //?? fwprintf(stdout, L"Debug: Send serialise *p7: %i\n", *((int*) p7));
 
     // Serialise message.
-    serialise(p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20);
+    serialise(p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14);
 
     //
     // Get item data, count.

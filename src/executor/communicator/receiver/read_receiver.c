@@ -49,10 +49,8 @@
  * @param p8 the server flag
  * @param p9 the service port
  * @param p10 the asynchronicity flag (true if reading indirectly from buffer; false or null if reading directly from device)
- * @param p11 the minimum number of bytes to be received in one call of the read function
- * @param p12 the maximum number of bytes to be received in one call of the read function
  */
-void receive_read(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void receive_read(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

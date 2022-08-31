@@ -70,33 +70,24 @@
  * @param p3 the source device count
  * @param p4 the source properties data (e.g. the signal memory index)
  * @param p5 the source properties count
- * @param p6 the source format
- * @param p7 the source language properties data
- * @param p8 the source language properties count
- * @param p9 the medium model data (user interface window model hierarchy used to identify nested components and their action via mouse coordinates)
- * @param p10 the medium model count
- * @param p11 the medium properties data
- * @param p12 the medium properties count
- * @param p13 the medium format
- * @param p14 the normalisation flag
- * @param p15 the knowledge memory part (pointer reference)
- * @param p16 the stack memory item
- * @param p17 the internal memory data
- * @param p18 the minimum number of bytes to be received in one call of the read function
- * @param p19 the maximum number of bytes to be received in one call of the read function
- * @param p20 the asynchronicity flag (true if reading indirectly from buffer; false or null if reading directly from device)
- * @param p21 the destination format
- * @param p22 the language (protocol)
- * @param p23 the encoding
- * @param p24 the service port
- * @param p25 the server flag
- * @param p26 the channel
+ * @param p6 the language properties (constraints) data
+ * @param p7 the language properties (constraints) count
+ * @param p8 the knowledge memory part (pointer reference)
+ * @param p9 the stack memory item
+ * @param p10 the internal memory data
+ * @param p11 the format
+ * @param p12 the language (protocol)
+ * @param p13 the encoding
+ * @param p14 the asynchronicity flag (true if reading indirectly from buffer; false or null if reading directly from device)
+ * @param p15 the service port
+ * @param p16 the server flag
+ * @param p17 the channel
  */
-void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22, void* p23, void* p24, void* p25, void* p26) {
+void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive data.");
-    //?? fwprintf(stdout, L"Information: Receive data. channel p26: %i\n", p26);
-    //?? fwprintf(stdout, L"Information: Receive data. channel *p26: %i\n", *((int*) p26));
+    //?? fwprintf(stdout, L"Information: Receive data. channel p17: %i\n", p17);
+    //?? fwprintf(stdout, L"Information: Receive data. channel *p17: %i\n", *((int*) p17));
 
     // The pointer message item, e.g. an xcb display event or win32 input record.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -175,16 +166,16 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     b = c;
 
     // Select buffer.
-    receive_select((void*) &b, (void*) &p0, (void*) &p, (void*) &i, (void*) &s, p26);
+    receive_select((void*) &b, (void*) &p0, (void*) &p, (void*) &i, (void*) &s, p17);
 
     // Read message.
-    receive_read((void*) &bd, (void*) &bc, b, p2, p3, p22, p17, p26, p25, p24, p20, p18, p19);
+    receive_read((void*) &bd, (void*) &bc, b, p2, p3, p12, p10, p17, p16, p15, p14);
 
     // Extract message.
     //?? receive_extract((void*) &bd, (void*) &bc, e, bd, bc, p??);
 
     // Decode message.
-    receive_decode((void*) &bd, (void*) &bc, s, bd, bc, p23);
+    receive_decode((void*) &bd, (void*) &bc, s, bd, bc, p13);
 
     //
     // Deserialise message.
@@ -193,7 +184,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // type "char" or type "wchar_t" or type "void*", which is IRRELEVANT.
     // This function knows how to handle it, depending on the given language.
     //
-    receive_deserialise(p0, p1, bd, bc, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p21, p22);
+    receive_deserialise(p0, p1, bd, bc, p4, p5, p6, p7, p8, p9, p10, p11, p12);
 
     //
     // Deallocate any resources that had been allocated by the system, e.g. an event.
@@ -202,7 +193,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // since it has to be PROCESSED yet afterwards, e.g. deserialised.
     // Therefore, call function "read_deallocation" ONLY here and not before.
     //
-    read_deallocation(bd, bc, *NULL_POINTER_STATE_CYBOI_MODEL, p26);
+    read_deallocation(bd, bc, *NULL_POINTER_STATE_CYBOI_MODEL, p17);
 
     // Deallocate pointer message item.
     deallocate_item((void*) &p, (void*) POINTER_STATE_CYBOI_TYPE);

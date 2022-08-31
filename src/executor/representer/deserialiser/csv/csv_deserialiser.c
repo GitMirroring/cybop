@@ -48,8 +48,8 @@
  * @param p1 the destination properties item
  * @param p2 the source text data
  * @param p3 the source text count
- * @param p4 the source properties data
- * @param p5 the source properties count
+ * @param p4 the language properties (constraints) data
+ * @param p5 the language properties (constraints) count
  * @param p6 the knowledge memory part (pointer reference)
  * @param p7 the stack memory item
  * @param p8 the internal memory data

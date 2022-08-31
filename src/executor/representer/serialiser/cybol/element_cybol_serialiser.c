@@ -49,19 +49,12 @@ void serialise_xml_part_element_content(void* p0, void* p1, void* p2, void* p3, 
  * Serialises the cybol element (part or property).
  *
  * @param p0 the destination item
- * @param p1 the source name data
- * @param p2 the source name count
- * @param p3 the source channel data
- * @param p4 the source encoding data
- * @param p5 the source language data
- * @param p6 the source format data
- * @param p7 the source type data
- * @param p8 the source model data
- * @param p9 the source model count
- * @param p10 the source properties data
- * @param p11 the source properties count
+ * @param p1 the source model data
+ * @param p2 the source model count
+ * @param p3 the source properties data
+ * @param p4 the source properties count
  */
-void serialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void serialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol element.");
 
@@ -85,8 +78,8 @@ void serialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, v
     allocate_item((void*) &m, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
     allocate_item((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
-    serialise_cybol_part(m, p8, p9);
-    serialise_cybol_part(p, p10, p11);
+    serialise_cybol_part(m, p1, p2);
+    serialise_cybol_part(p, p3, p4);
 
     // Get temporary model, properties data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!

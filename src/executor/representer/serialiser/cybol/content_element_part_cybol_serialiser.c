@@ -49,7 +49,7 @@
 // Forward declarations
 //
 
-void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11);
+void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
 void serialise_cybol_part(void* p0, void* p1, void* p2);
 
 /**
@@ -287,7 +287,7 @@ void serialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3
     serialise_cybol_format(dfm, p6);
     //?? fwprintf(stdout, L"Debug: serialise cybol part element content **dfm: %i\n", *((int*) *((void**) dfm)));
 
-    serialise_cybol(dmm, p1, p2, p3, p4, p5, p6, p7, p8, p9, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    serialise_cybol(dmm, p8, p9, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p6);
 
     //?? fwprintf(stdout, L"Debug: serialise cybol part element content p: %i\n", p);
 

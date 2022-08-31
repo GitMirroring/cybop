@@ -96,7 +96,7 @@ void serialise_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4, v
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Leave processing of other formats to cybol serialiser.
-        serialise_cybol(p0, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p6, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, p3, p4);
+        serialise_cybol(p0, p1, p2, p3, p4, p6);
     }
 }
 

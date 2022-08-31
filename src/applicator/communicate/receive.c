@@ -77,18 +77,10 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The language part.
     void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The normalisation part.
-    void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The medium part.
-    void* me = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The format part.
     void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The message part.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The minimum part.
-    void* mi = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The maximum part.
-    void* ma = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The asynchronicity flag part.
     void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -98,8 +90,7 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The port part model item.
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The sender part format, model, properties item.
-    void* srf = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The sender part model, properties item.
     void* srm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* srp = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The encoding part model item.
@@ -107,21 +98,11 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The language part model, properties item.
     void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* lp = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The normalisation part model item.
-    void* nm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The medium part format, model, properties item.
-    void* mef = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* mem = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* mep = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The format part model item.
     void* fm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The message part model, properties item.
     void* mm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* mp = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The minimum part model item.
-    void* mim = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The maximum part model item.
-    void* mam = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The asynchronicity flag part model item.
     void* am = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -131,8 +112,7 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The port part model item data.
     void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The sender part format, model, properties item data, count.
-    void* srfd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The sender part model, properties item data, count.
     void* srmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* srmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* srpd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -143,20 +123,8 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* lpd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* lpc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The normalisation part model item data.
-    void* nmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The medium part format, model, properties item data, count.
-    void* mefd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* memd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* memc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* mepd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* mepc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The format part model item data.
     void* fmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The minimum part model item data.
-    void* mimd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The maximum part model item data.
-    void* mamd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The asynchronicity flag part model item data.
     void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -176,18 +144,10 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     get_part_name((void*) &e, p0, (void*) ENCODING_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) ENCODING_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get language part.
     get_part_name((void*) &l, p0, (void*) LANGUAGE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) LANGUAGE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get normalisation part.
-    get_part_name((void*) &n, p0, (void*) NORMALISATION_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) NORMALISATION_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get medium part.
-    get_part_name((void*) &me, p0, (void*) MEDIUM_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) MEDIUM_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get format part.
     get_part_name((void*) &f, p0, (void*) FORMAT_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) FORMAT_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get message part.
     get_part_name((void*) &m, p0, (void*) MESSAGE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) MESSAGE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get minimum part.
-    get_part_name((void*) &mi, p0, (void*) MINIMUM_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) MINIMUM_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get maximum part.
-    get_part_name((void*) &ma, p0, (void*) MAXIMUM_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) MAXIMUM_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get asynchronicity flag part.
     get_part_name((void*) &a, p0, (void*) ASYNCHRONICITY_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) ASYNCHRONICITY_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
@@ -197,8 +157,7 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get port part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get sender part format, model, properties item.
-    copy_array_forward((void*) &srf, sr, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FORMAT_PART_STATE_CYBOI_NAME);
+    // Get sender part model, properties item.
     copy_array_forward((void*) &srm, sr, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &srp, sr, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
     // Get encoding part model item.
@@ -206,21 +165,11 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get language part model, properties item.
     copy_array_forward((void*) &lm, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &lp, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
-    // Get normalisation part model item.
-    copy_array_forward((void*) &nm, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get medium part format, model, properties item.
-    copy_array_forward((void*) &mef, me, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FORMAT_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &mem, me, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &mep, me, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
     // Get format part model item.
     copy_array_forward((void*) &fm, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get message part model, properties item.
     copy_array_forward((void*) &mm, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &mp, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
-    // Get minimum part model item.
-    copy_array_forward((void*) &mim, mi, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get maximum part model item.
-    copy_array_forward((void*) &mam, ma, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get asynchronicity flag part model item.
     copy_array_forward((void*) &am, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
@@ -230,8 +179,7 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get port part model item data.
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get sender part format, model, properties item data, count.
-    copy_array_forward((void*) &srfd, srf, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get sender part model, properties item data, count.
     copy_array_forward((void*) &srmd, srm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &srmc, srm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &srpd, srp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -242,20 +190,8 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &lpd, lp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &lpc, lp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get normalisation part model item data.
-    copy_array_forward((void*) &nmd, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get medium part format, model, properties item data, count.
-    copy_array_forward((void*) &mefd, mef, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &memd, mem, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &memc, mem, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &mepd, mep, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &mepc, mep, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get format part model item data.
     copy_array_forward((void*) &fmd, fm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get minimum part model item data.
-    copy_array_forward((void*) &mimd, mim, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get maximum part model item data.
-    copy_array_forward((void*) &mamd, mam, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get asynchronicity flag part model item data.
     copy_array_forward((void*) &amd, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
@@ -273,8 +209,6 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // assigned to port ZERO at service startup.
     //
     int port = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // Set normalisation flag to TRUE (enabled) by default.
-    int normalisation = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
     // CAUTION! The following values are ONLY copied,
@@ -284,13 +218,12 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //
     copy_integer((void*) &server, smd);
     copy_integer((void*) &port, pmd);
-    copy_integer((void*) &normalisation, nmd);
 
     //
     // Functionality
     //
 
-    receive_data(mm, mp, srmd, srmc, srpd, srpc, srfd, lpd, lpc, memd, memc, mepd, mepc, mefd, (void*) &normalisation, p2, p3, p4, mimd, mamd, amd, fmd, lmd, emd, (void*) &port, (void*) &server, cmd);
+    receive_data(mm, mp, srmd, srmc, srpd, srpc, lpd, lpc, p2, p3, p4, fmd, lmd, emd, amd, (void*) &port, (void*) &server, cmd);
 }
 
 /* RECEIVE_SOURCE */

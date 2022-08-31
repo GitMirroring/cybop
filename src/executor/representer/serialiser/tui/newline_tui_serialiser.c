@@ -64,6 +64,10 @@ void serialise_tui_newline(void* p0, void* p1, void* p2, void* p3) {
 
         if (n != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
+            // The newline flag IS set.
+            //
+
 #if defined(__linux__) || defined(__unix__)
             serialise_tui_wide_character(p0, p1, (void*) UNIX_NEWLINE_TEXT_MODEL, (void*) UNIX_NEWLINE_TEXT_MODEL_COUNT);
 #elif defined(__APPLE__) && defined(__MACH__)

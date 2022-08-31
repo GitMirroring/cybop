@@ -40,7 +40,7 @@
 //
 
 void deserialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4);
-void deserialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4);
+void deserialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
 
 /**
  * Deserialises the cybol element (part or property).
@@ -76,7 +76,7 @@ void deserialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4)
     allocate_item((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
     // Deserialise source message (cybol file) into temporary model, properties item.
-    deserialise_xml(m, p, p2, p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    deserialise_xml(m, p, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // Get temporary model, properties data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!

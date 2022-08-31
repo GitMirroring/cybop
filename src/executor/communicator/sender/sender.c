@@ -52,29 +52,25 @@
  * @param p3 the source properties data
  * @param p4 the source properties count
  * @param p5 the source part (pointer reference), e.g. a signal
- * @param p6 the source name data
- * @param p7 the source name count
- * @param p8 the encoding
- * @param p9 the language
- * @param p10 the indentation flag
+ * @param p6 the language properties (constraints) data
+ * @param p7 the language properties (constraints) count
+ * @param p8 the knowledge memory part (pointer reference)
+ * @param p9 the stack memory item
+ * @param p10 the internal memory
  * @param p11 the format
- * @param p12 the type
- * @param p13 the clear flag
- * @param p14 the newline flag
- * @param p15 the knowledge memory part (pointer reference)
- * @param p16 the stack memory item
- * @param p17 the internal memory
- * @param p18 the channel
- * @param p19 the server flag
- * @param p20 the port
- * @param p21 the output writer handler (pointer reference)
- * @param p22 the asynchronicity flag
+ * @param p12 the language
+ * @param p13 the encoding
+ * @param p14 the channel
+ * @param p15 the server flag
+ * @param p16 the port
+ * @param p17 the output writer handler (pointer reference)
+ * @param p18 the asynchronicity flag
  */
-void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22) {
+void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send data.");
-    //?? fwprintf(stdout, L"Information: Send data. channel p18: %i\n", p18);
-    //?? fwprintf(stdout, L"Information: Send data. channel *p18: %i\n", *((int*) p18));
+    //?? fwprintf(stdout, L"Information: Send data. channel p14: %i\n", p14);
+    //?? fwprintf(stdout, L"Information: Send data. channel *p14: %i\n", *((int*) p14));
 
     // The serialised wide character item.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -150,7 +146,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // In this case, the encoding is SKIPPED, since it is either
     // not necessary, or the serialisation does it inside.
     //
-    send_select((void*) &b, (void*) &e, p9);
+    send_select((void*) &b, (void*) &e, p12);
 
     //?? fwprintf(stdout, L"Debug: Send. b after e: %i\n", b);
 
@@ -161,13 +157,13 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // type "char" or type "wchar_t", which is IRRELEVANT.
     // This function knows how to handle it, depending on the given language.
     //
-    send_serialise((void*) &ad, (void*) &ac, b, p6, p7, p18, p8, p9, p10, p11, p12, p1, p2, p3, p4, p13, p14, p15, p16, p17, p0);
+    send_serialise((void*) &ad, (void*) &ac, b, p1, p2, p3, p4, p6, p7, p8, p9, p10, p0, p11, p12);
 
     //?? fwprintf(stdout, L"Debug: send data serialise *ac: %i\n", *((int*) ac));
     //?? fwprintf(stdout, L"Debug: send data serialise ad: %s\n", (char*) ad);
 
     // Encode message.
-    send_encode((void*) &ad, (void*) &ac, e, ad, ac, p8);
+    send_encode((void*) &ad, (void*) &ac, e, ad, ac, p13);
 
     //?? fwprintf(stdout, L"Debug: send data encode *ac: %i\n", *((int*) ac));
     //?? fwprintf(stdout, L"Debug: send data encode ad: %s\n", (char*) ad);
@@ -184,7 +180,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // CAUTION! Hand over message as POINTER REFERENCE, not just pointer.
     // The pointer is used inside to count sent data due to socket buffer limit.
     //
-    send_write(p0, ad, ac, p5, p17, p18, p19, p20, p21, p22);
+    send_write(p0, ad, ac, p5, p10, p14, p15, p16, p17, p18);
 
     // Deallocate serialised wide character item.
     deallocate_item((void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

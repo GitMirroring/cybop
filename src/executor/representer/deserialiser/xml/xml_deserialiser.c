@@ -31,7 +31,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
-#include "../../../../executor/representer/deserialiser/xml/content_xml_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/xml/constraints_xml_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -39,11 +39,15 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source data
- * @param p3 the source count
- * @param p4 the normalisation flag
+ * @param p2 the source xml data
+ * @param p3 the source xml count
+ * @param p4 the language properties (constraints) data
+ * @param p5 the language properties (constraints) count
+ * @param p6 the knowledge memory part (pointer reference)
+ * @param p7 the stack memory item
+ * @param p8 the internal memory data
  */
-void deserialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xml.");
     //?? fwprintf(stdout, L"Debug: Deserialise xml. source count p3: %i\n", p3);
@@ -60,6 +64,8 @@ void deserialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_integer((void*) &c, p3);
 
     //
+    // Retrieve language properties (constraints) necessary for deserialisation.
+    //
     // CAUTION! A copy of source count remaining is forwarded here,
     // so that the original source value does not get changed.
     //
@@ -68,7 +74,7 @@ void deserialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
     //
-    deserialise_xml_content(p0, p1, (void*) &d, (void*) &c, p4, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    deserialise_xml_constraints(p0, p1, (void*) &d, (void*) &c, p4, p5, p6, p7, p8);
 }
 
 /* XML_DESERIALISER_SOURCE */

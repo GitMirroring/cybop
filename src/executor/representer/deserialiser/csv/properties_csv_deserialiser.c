@@ -47,8 +47,8 @@
  * @param p1 the destination properties item
  * @param p2 the source textline list data
  * @param p3 the source textline list count
- * @param p4 the source properties data
- * @param p5 the source properties count
+ * @param p4 the language properties (constraints) data
+ * @param p5 the language properties (constraints) count
  * @param p6 the knowledge memory part (pointer reference)
  * @param p7 the stack memory item
  * @param p8 the internal memory data
@@ -56,8 +56,8 @@
 void deserialise_csv_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise csv properties.");
-    //?? fwprintf(stdout, L"Debug: Deserialise csv properties. source count remaining p3: %i\n", p3);
-    //?? fwprintf(stdout, L"Debug: Deserialise csv properties. source count remaining *p3: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"Debug: Deserialise csv properties. source textline list count p3: %i\n", p3);
+    //?? fwprintf(stdout, L"Debug: Deserialise csv properties. source textline list count *p3: %i\n", *((int*) p3));
 
     //
     // Declaration

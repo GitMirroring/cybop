@@ -34,7 +34,7 @@
 #include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../constant/name/cybol/logic/representation/deserialise_representation_logic_cybol_name.c"
+#include "../../constant/name/cybol/logic/representation/representation_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/copier/array_copier.c"
@@ -67,16 +67,11 @@ void apply_deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The language part.
     void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The normalisation part.
-    void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The medium part.
-    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The destination part model, properties item.
     void* dm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* dp = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The source part format, model, properties item.
-    void* sf = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source part model, properties item.
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sp = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The format part model item.
@@ -84,15 +79,8 @@ void apply_deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The language part model, properties item.
     void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* lp = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The normalisation part model item.
-    void* nm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The medium part format, model, properties item.
-    void* mf = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* mm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* mp = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The source part format, model, properties item data, count.
-    void* sfd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source part model, properties item data, count.
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* smc = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* spd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -103,37 +91,24 @@ void apply_deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* lpd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* lpc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The normalisation part model item data.
-    void* nmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The medium part format, model, properties item data, count.
-    void* mfd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* mmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* mmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* mpd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* mpc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // Retrieval
     //
 
     // Get destination part.
-    get_part_name((void*) &d, p0, (void*) DESTINATION_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME, (void*) DESTINATION_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &d, p0, (void*) DESTINATION_REPRESENTATION_LOGIC_CYBOL_NAME, (void*) DESTINATION_REPRESENTATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get source part.
-    get_part_name((void*) &s, p0, (void*) SOURCE_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME, (void*) SOURCE_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &s, p0, (void*) SOURCE_REPRESENTATION_LOGIC_CYBOL_NAME, (void*) SOURCE_REPRESENTATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get format part.
-    get_part_name((void*) &f, p0, (void*) FORMAT_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME, (void*) FORMAT_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &f, p0, (void*) FORMAT_REPRESENTATION_LOGIC_CYBOL_NAME, (void*) FORMAT_REPRESENTATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get language part.
-    get_part_name((void*) &l, p0, (void*) LANGUAGE_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME, (void*) LANGUAGE_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get normalisation part.
-    get_part_name((void*) &n, p0, (void*) NORMALISATION_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME, (void*) NORMALISATION_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get medium part.
-    get_part_name((void*) &m, p0, (void*) MEDIUM_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME, (void*) MEDIUM_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &l, p0, (void*) LANGUAGE_REPRESENTATION_LOGIC_CYBOL_NAME, (void*) LANGUAGE_REPRESENTATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get destination part model, properties item.
     copy_array_forward((void*) &dm, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &dp, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
-    // Get source part format, model, properties item.
-    copy_array_forward((void*) &sf, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FORMAT_PART_STATE_CYBOI_NAME);
+    // Get source part model, properties item.
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sp, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
     // Get format part model item.
@@ -141,15 +116,8 @@ void apply_deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get language part model, properties item.
     copy_array_forward((void*) &lm, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &lp, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
-    // Get normalisation part model item.
-    copy_array_forward((void*) &nm, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get medium part format, model, properties item.
-    copy_array_forward((void*) &mf, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FORMAT_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &mm, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &mp, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
-    // Get source part format, model, properties item data, count.
-    copy_array_forward((void*) &sfd, sf, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get source part model, properties item data, count.
     copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smc, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &spd, sp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -160,36 +128,13 @@ void apply_deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &lpd, lp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &lpc, lp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get normalisation part model item data.
-    copy_array_forward((void*) &nmd, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get medium part format, model, properties item data, count.
-    copy_array_forward((void*) &mfd, mf, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &mmd, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &mmc, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &mpd, mp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &mpc, mp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-    //
-    // Default values
-    //
-
-    // Set normalisation flag to TRUE (enabled) by default.
-    int normalisation = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    //
-    // CAUTION! The following values are ONLY copied,
-    // if the source value is NOT NULL.
-    // This is tested inside the "copy_integer" function.
-    // Otherwise, the destination value remains as is.
-    //
-    copy_integer((void*) &normalisation, nmd);
 
     //
     // Functionality
     //
 
     // Deserialise the source- into the destination part.
-    deserialise(dm, dp, smd, smc, spd, spc, sfd, lpd, lpc, mmd, mmc, mpd, mpc, mfd, (void*) &normalisation, p2, p3, p4, fmd, lmd);
+    deserialise(dm, dp, smd, smc, spd, spc, lpd, lpc, p2, p3, p4, fmd, lmd);
 }
 
 /* DESERIALISE_SOURCE */
