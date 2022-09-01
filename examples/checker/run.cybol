@@ -43,7 +43,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Check two texts for EQUALITY:"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="check_1" channel="inline" format="check/equal" model="">
@@ -58,7 +57,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".result_1"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="check_2" channel="inline" format="check/equal" model="">
@@ -73,7 +71,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".result_2"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <!-- Closing (terminal) -->

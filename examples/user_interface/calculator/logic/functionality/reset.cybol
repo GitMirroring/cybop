@@ -42,7 +42,6 @@
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".app.tui.main"/>
         <node name="area" channel="inline" format="text/cybol-path" model=".app.tui.main.menu"/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
 </node>

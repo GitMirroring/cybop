@@ -66,7 +66,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".sum"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <!--
         This is just an example for how to remove all numbers from the ".summand" integer array.

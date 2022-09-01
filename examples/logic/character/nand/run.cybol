@@ -33,7 +33,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/byte"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".app.result"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="exit_application" channel="inline" format="live/exit" model=""/>

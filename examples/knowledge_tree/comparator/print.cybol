@@ -8,7 +8,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Result boolean:"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="print_result_boolean" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -16,7 +15,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".result_boolean"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <!-- number -->
@@ -27,7 +25,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Result complex:"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="print_result_complex" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -35,7 +32,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".result_complex"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="print_result_fraction_label" channel="inline" format="communicate/send" model="">
@@ -44,7 +40,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Result fraction:"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="print_result_fraction" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -52,7 +47,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".result_fraction"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="print_result_integer_label" channel="inline" format="communicate/send" model="">
@@ -61,7 +55,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Result integer:"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="print_result_integer" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -69,7 +62,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".result_integer"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <!-- text vector -->
@@ -80,7 +72,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Result ascii vector:"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="print_result_ascii" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -88,7 +79,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".result_ascii_vector"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="print_result_wide_label" channel="inline" format="communicate/send" model="">
@@ -97,7 +87,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Result wide vector:"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="print_result_wide" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -105,7 +94,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".result_wide_vector"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <!-- text scalar -->
@@ -116,7 +104,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Result ascii scalar:"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="print_result_ascii" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -124,7 +111,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".result_ascii_scalar"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="print_result_wide_label" channel="inline" format="communicate/send" model="">
@@ -133,7 +119,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Result wide scalar:"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="print_result_wide" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -141,7 +126,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".result_wide_scalar"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <!-- part -->
@@ -152,7 +136,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Result ab:"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="print_result_person_ab" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -160,7 +143,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".result_person_ab"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="print_result_person_bc_label" channel="inline" format="communicate/send" model="">
@@ -169,7 +151,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Result bc:"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="print_result_person_bc" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -177,7 +158,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".result_person_bc"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
 </node>

@@ -39,7 +39,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Read data from file."/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -65,7 +64,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Startup socket."/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
 <!--
@@ -98,7 +96,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Wait for client requests."/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="enable_requests" channel="inline" format="activate/enable" model="">

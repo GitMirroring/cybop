@@ -8,71 +8,69 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model=""/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="field_Player" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli">
+            <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
+        </node>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Player: "/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     //print field 5 for player card 1
     <node name="field_5" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli">
+            <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
+        </node>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".app.var.field_5_print"/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     <node name="line_5" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli">
+            <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
+        </node>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="  "/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     //print field 6 for player card 2
     <node name="field_6" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli">
+            <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
+        </node>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".app.var.field_6_print"/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     <node name="line_6" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli">
+            <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
+        </node>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="  "/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     //print field 7 for player card 3
     <node name="field_7" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli">
+            <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
+        </node>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".app.var.field_7_print"/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     <node name="newline2" channel="inline" format="communicate/send" model="">
@@ -81,8 +79,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model=""/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
 ///// Berechne Wert
@@ -128,11 +124,11 @@
     <node name="wert_player" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli">
+            <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
+        </node>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Wert Player: "/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     <node name="wert" channel="inline" format="communicate/send" model="">
@@ -141,8 +137,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".result"/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="newline3" channel="inline" format="communicate/send" model="">
@@ -151,8 +145,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model=""/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="reset_flag" channel="inline" format="modify/empty" model="">

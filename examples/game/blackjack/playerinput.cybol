@@ -1,6 +1,5 @@
 <node>
 
-
 //Feld auswählen
 
     <node name="line0" channel="inline" format="communicate/send" model="">
@@ -9,8 +8,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Neue Karte (HIT): h "/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
      <node name="line1" channel="inline" format="communicate/send" model="">
@@ -19,8 +16,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Keine Neue Karte (STAND): s "/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="line2" channel="inline" format="communicate/send" model="">
@@ -29,16 +24,12 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Bitte Aktion wählen: "/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-
 
 //Auf Eingabe warten und an checkplayerinput übergeben
     <node name="sense_commands" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="handler" channel="inline" format="text/cybol-path" model=".app.checkplayerinput"/>
     </node>
-
 
 </node>

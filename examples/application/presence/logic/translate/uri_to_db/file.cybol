@@ -10,7 +10,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".var.directory"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="TEST_file_path" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -18,7 +17,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 -->
 

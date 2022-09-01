@@ -9,10 +9,11 @@
     <node name="print_choice1" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli">
+            <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
+        </node>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".app.var.choice1_s"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     <node name="setchoice2" channel="inline" format="communicate/receive" model="">
@@ -25,10 +26,11 @@
     <node name="print_choice2" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli">
+            <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
+        </node>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".app.var.choice2_s"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     <node name="setchoice3" channel="inline" format="communicate/receive" model="">
@@ -41,10 +43,11 @@
     <node name="print_choice3" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli">
+            <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
+        </node>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".app.var.choice3_s"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     <node name="setchoice4" channel="inline" format="communicate/receive" model="">
@@ -60,7 +63,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".app.var.choice4_s"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
 

@@ -23,10 +23,11 @@
     <node name="round" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli">
+            <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
+        </node>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".app.var.round_counter"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
      <node name="Round" channel="inline" format="communicate/send" model="">
@@ -35,8 +36,7 @@
          <node name="language" channel="inline" format="meta/language" model="message/cli"/>
          <node name="format" channel="inline" format="meta/format" model="text/plain"/>
          <node name="message" channel="inline" format="text/plain" model=". Round"/>
-         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-     </node>
+      </node>
 
      <node name="print_question" channel="inline" format="communicate/send" model="">
          <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -44,15 +44,15 @@
          <node name="language" channel="inline" format="meta/language" model="message/cli"/>
          <node name="format" channel="inline" format="meta/format" model="text/plain"/>
          <node name="message" channel="inline" format="text/plain" model="Make your guess!"/>
-         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-     </node>
+      </node>
      <node name="print_question" channel="inline" format="communicate/send" model="">
          <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
          <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli">
+            <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
+        </node>
          <node name="format" channel="inline" format="meta/format" model="text/plain"/>
          <node name="message" channel="inline" format="text/plain" model=">>> "/>
-         <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
      </node>
 
      <!--<node name="sense_commands" channel="inline" format="activate/enable" model="">-->

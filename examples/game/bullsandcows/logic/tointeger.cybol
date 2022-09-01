@@ -67,7 +67,6 @@
         <!--<node name="language" channel="inline" format="meta/language" model="message/cli"/>-->
         <!--<node name="format" channel="inline" format="meta/format" model="number/integer"/>-->
         <!--<node name="message" channel="inline" format="text/cybol-path" model=".app.guess_array.choice1"/>-->
-        <!--<node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>-->
     <!--</node>-->
     <!--<node name="print_choice2" channel="inline" format="communicate/send" model="">-->
         <!--<node name="channel" channel="inline" format="meta/channel" model="terminal"/>-->

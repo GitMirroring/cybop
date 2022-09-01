@@ -140,7 +140,6 @@
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".app.var.visits_today"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".app.var.file_path_today"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="store_visits_total" channel="inline" format="communicate/send" model="">
@@ -150,7 +149,6 @@
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".app.var.visits_total"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".app.var.file_path_total"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
 
@@ -192,7 +190,6 @@
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".app.var.csv_content"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".app.var.file_path_csv_data"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <!-- erstelle HTMl Seite -->
@@ -240,8 +237,9 @@
     <node name="generate_html" channel="inline" format="communicate/send" model="">
         <node name="receiver" channel="inline" format="text/plain" model="webstat/files/counter.html"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".app.webstat.counter"/>
-        <node name="language" channel="inline" format="meta/language" model="text/html"/>
-        <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="language" channel="inline" format="meta/language" model="text/html">
+            <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
+        </node>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="channel" channel="inline" format="meta/channel" model="file"/>

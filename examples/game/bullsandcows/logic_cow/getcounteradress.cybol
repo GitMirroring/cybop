@@ -55,7 +55,6 @@
         <!--<node name="language" channel="inline" format="meta/language" model="message/cli"/>-->
         <!--<node name="format" channel="inline" format="meta/format" model="number/integer"/>-->
         <!--<node name="message" channel="inline" format="text/cybol-path" model="{.app.var.comp_adress}"/>-->
-        <!--<node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>-->
     <!--</node>-->
 
     <!--<node name="print_adress_guess" channel="inline" format="communicate/send" model="">-->
@@ -64,7 +63,6 @@
         <!--<node name="language" channel="inline" format="meta/language" model="message/cli"/>-->
         <!--<node name="format" channel="inline" format="meta/format" model="number/integer"/>-->
         <!--<node name="message" channel="inline" format="text/cybol-path" model="{.app.var.guess_adress}"/>-->
-        <!--<node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>-->
     <!--</node>-->
 
     <!--<node name="print_adress_help" channel="inline" format="communicate/send" model="">-->
@@ -73,7 +71,6 @@
         <!--<node name="language" channel="inline" format="meta/language" model="message/cli"/>-->
         <!--<node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>-->
         <!--<node name="message" channel="inline" format="text/cybol-path" model="{.app.var.help_adress}"/>-->
-        <!--<node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>-->
     <!--</node>-->
 
 </node>

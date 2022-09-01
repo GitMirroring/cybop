@@ -26,8 +26,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="TIC TAC TOE"/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="anleitung1" channel="inline" format="communicate/send" model="">
@@ -36,8 +34,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="ANLEITUNG:"/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="anleitung2" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -45,8 +41,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Beenden: q eingeben"/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="anleitung3" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -54,8 +48,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Feld auswählen: Zahl (1-9) eingeben"/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="anleitung4" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -63,8 +55,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Feldbelegung:"/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="newline1" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -72,8 +62,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model=""/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="anleitung5" channel="inline" format="communicate/send" model="">
@@ -82,8 +70,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="1|2|3"/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="anleitungstartgame6" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -91,8 +77,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="4|5|6"/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="anleitung7" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -100,8 +84,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="7|8|9"/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="newline2" channel="inline" format="communicate/send" model="">
@@ -110,8 +92,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model=""/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="newline3" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -119,8 +99,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model=""/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     // Wechsel zu .startgame

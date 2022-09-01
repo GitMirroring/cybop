@@ -4,11 +4,13 @@
         <node name="destination" channel="inline" format="text/cybol-path" model="{.app.focused_field_text}"/>
         <node name="source" channel="inline" format="text/plain" model="x"/>
     </node>
+
     <node name="set_game_over" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.game_over"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-    <!--   TODO neuer Status -> ausgabe bleibt, keine anderen aktionen   -->
+
+    <!-- TODO: neuer Status -> ausgabe bleibt, keine anderen aktionen -->
 <!--
     <node name="send" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -16,7 +18,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".app.tui.game_over_window"/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 -->
 

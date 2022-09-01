@@ -1,6 +1,5 @@
 <node>
 
-
     <node name="send_tui" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
@@ -8,8 +7,8 @@
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".app.tui.window"/>
         <node name="area" channel="inline" format="text/cybol-path" model=".app.tui.menu"/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+
     <node name="set_cursor" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
@@ -17,4 +16,5 @@
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".app.tui.cursor"/>
     </node>
+
 </node>

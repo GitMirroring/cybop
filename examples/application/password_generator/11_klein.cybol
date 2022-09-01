@@ -7,8 +7,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Kleinbuchstaben [y/n]: "/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
 

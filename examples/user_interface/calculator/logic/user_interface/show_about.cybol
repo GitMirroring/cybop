@@ -8,7 +8,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".app.tui.about"/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="sense" channel="inline" format="activate/enable" model="">

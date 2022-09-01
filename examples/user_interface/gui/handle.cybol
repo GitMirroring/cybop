@@ -11,7 +11,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="TEST handle"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <!--
@@ -33,8 +32,9 @@
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
         <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="sender" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
-        <node name="language" channel="inline" format="meta/language" model="message/gui-request"/>
-        <node name="medium" channel="inline" format="text/cybol-path" model=".gui.window"/>
+        <node name="language" channel="inline" format="meta/language" model="message/gui-request">
+            <node name="medium" channel="inline" format="text/cybol-path" model=".gui.window"/>
+        </node>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".gui.action"/>
         <!-- Read indirectly from internal buffer into which data have been written by activate/enable. -->
@@ -47,7 +47,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="TEST handle .gui.action"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="TEST" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -55,7 +54,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".gui.action"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="open_file" channel="inline" format="dispatch/open" model="">

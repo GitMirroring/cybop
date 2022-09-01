@@ -38,26 +38,29 @@
     <node name="printarray1" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli">
+            <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
+        </node>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".app.comp_array.random1"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
     <node name="printarray2" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli">
+            <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
+        </node>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".app.comp_array.random2"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
     <node name="printarray3" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli">
+            <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
+        </node>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".app.comp_array.random3"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
     <node name="printarray4" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -65,7 +68,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".app.comp_array.random4"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
 </node>

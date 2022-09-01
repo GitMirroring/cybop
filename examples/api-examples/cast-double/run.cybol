@@ -32,7 +32,6 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".part_2"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="exit_application" channel="inline" format="live/exit" model=""/>

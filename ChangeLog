@@ -18,14 +18,18 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-09-01  Christian Heller  <christian.heller@cybop.org>
+
+        * Adapt language properties (constraints) in affected cybol applications
+
 2022-08-31  Christian Heller  <christian.heller@cybop.org>
 
         * Retrieve normalisation language property (constraint) in xml deserialiser
         * Retrieve medium language property (constraint) in gui action deserialiser
         * Retrieve indentation language property (constraint) in json serialiser
+        * Retrieve indentation language property (constraint) in html serialiser
         * Retrieve newline language property (constraint) in cli serialiser
         * Retrieve clear and newline language properties (constraints) in tui serialiser
-        * Retrieve indentation language property (constraint) in html serialiser
 
 2022-08-30  Christian Heller  <christian.heller@cybop.org>
 

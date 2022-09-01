@@ -21,7 +21,6 @@
 <!--
         <node name="area" channel="inline" format="text/cybol-path" model=".app.tui.main.menu"/>
 -->
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <!--

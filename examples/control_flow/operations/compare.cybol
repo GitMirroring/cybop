@@ -47,7 +47,6 @@
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".bool"/>
-        <node name="newline" channel="inline" format="text/plain" model="true"/>
     </node>
 
     <node name="shutdown" channel="inline" format="live/exit" model=""/>

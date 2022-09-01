@@ -1,8 +1,11 @@
 <node>
+
 <!--
     CAUTION! The memory MUST NOT be destroyed here!
+
     Otherwise, also THIS model is destroyed in memory so that the exit operation
     below cannot be executed anymore.
+
     The rubbish (garbage) collector cares about destruction evaluating references.
     If CYBOI runs as operating system one day, the exit operation will only be called
     when the whole operating system is shutdown. At this time, the "destroy_tui_control"
@@ -10,15 +13,18 @@
     instances of the Res Medicinae application. But as long as CYBOI does not run as
     operating system and each application is started with its own instance of CYBOI,
     the exit operation is the last one to be called. It cleans up all memory, too.
+
     <node name="destroy_app" channel="inline" format="memorise/destroy" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".app"/>
     </node>
 -->
+
     <node name="clean_tui" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
 </node>
