@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-09-02  Enrico Gallus  <enrico.gallus@gmail.com>
+
+        * Add model number constant to unicode constants during generation
+        * Use unicode number constant in deserialiser if known
+
 2022-09-01  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt language properties (constraints) in affected cybol applications
