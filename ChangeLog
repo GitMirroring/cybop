@@ -21,6 +21,7 @@
 2022-09-02  Christian Heller  <christian.heller@cybop.org>
 
         * Fix bug in file "item_allocator.c" where ITEM_REFERENCE_COUNTER did not get incremented in case of a null value data array
+        * Add more error handling to files "array_allocator.c", "item_allocator.c", "part_allocator.c" in order to avoid memory leaks caused by zero- or negative size allocation
 
 2022-09-02  Enrico Gallus  <enrico.gallus@gmail.com>
 

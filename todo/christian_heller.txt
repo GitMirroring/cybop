@@ -17,13 +17,14 @@ ___
         * Update cybol api specification in javadoc comment blocks of directory "constant/format/cybol/logic/"
         * Delete directory "tools/api-generator/spec_backup_delete_later/" from svn, as soon as all api documentation comments have been converted to the new format
 
+        * Add still missing model number constant with suffix "_COUNT" to unicode constants MANUALLY in file "unicode_character_code_model.c"
+        * Use unicode number constant in file "html_character_reference_deserialiser.c"
+        HINWEISE:
+            - Einige unicode constants werden nicht generiert, da nicht in der durch die Python-Skripte verwendeten Quelle enthalten.
+            - Betroffen sind die Zeichen mit den Unicode Decimals: 0x0000 - 0x0008 und 0x256D - 0x2570
+
 Memory Allocation
 _________________
-
-        CONTINUE: Refactor file "item_allocator.c"
-        * Check ALL source code for "allocate_part", "allocate_item", "allocate_array" and make sure the SIZE is at least ONE
-        CHECK if bug fixing is necessary ALSO for part and array!
-        LIKE: * Fix bug in file "item_allocator.c" where ITEM_REFERENCE_COUNTER did not get incremented in case of a null value data array
 
         * Debug valgrind errors in cybol application "gui"
             //
