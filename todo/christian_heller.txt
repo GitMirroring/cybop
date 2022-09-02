@@ -11,34 +11,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-API
-___
+CYBOI Optimisation
+__________________
 
-        * Update cybol api specification in javadoc comment blocks of directory "constant/format/cybol/logic/"
-        * Delete directory "tools/api-generator/spec_backup_delete_later/" from svn, as soon as all api documentation comments have been converted to the new format
-
-        * Add still missing model number constant with suffix "_COUNT" to unicode constants MANUALLY in file "unicode_character_code_model.c"
-        * Use unicode number constant in file "html_character_reference_deserialiser.c"
-        HINWEISE:
-            - Einige unicode constants werden nicht generiert, da nicht in der durch die Python-Skripte verwendeten Quelle enthalten.
-            - Betroffen sind die Zeichen mit den Unicode Decimals: 0x0000 - 0x0008 und 0x256D - 0x2570
-
-Memory Allocation
-_________________
-
-        * Debug valgrind errors in cybol application "gui"
-            //
-            // Do child parts have to be deallocated here BEFORE calling
-            // function "deallocate_item" OR does GC does this automatically?
-            // At least REMOVE child parts, so that GC reference gets decremented?
-            //
-            // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
-            // This is necessary in order to activate rubbish (garbage) collection.
-            //
-        * Is pointer OR (should be) element/part used internally in empty and remove ??
-        * Do those parts having been added to the properties (NOT model) get deallocated by the GC ?? or not because properties of operations must not get deallocated on empty or remove ??
-        * Check if empty removes parts WITH knowledge part flag set
-        * Check if garbage collection is activated when knowledge part gets allocated and appended on xcb event handling (flag ??)
+        * Remove as properties from cyboi-internal allocated structure "part": channel, encoding, language, format
+            (they are only needed for communication and when needed by "send" or "receive", they are given as properties)
 
 Numeral Deserialiser
 ____________________
@@ -62,20 +39,6 @@ ____________________
         * functions called from file "value_number_selector.c" section "BAR_FRACTION_NUMBER_NAME" (find a different name, since "fraction_number_deserialiser.c" is already used for after-decimal-separator-digits)
         * functions called from file "power_number_selector.c"
         * functions called from file "decimals_number_selector.c"
-
-Loop Simplification
-___________________
-
-        * Offer cybol property "increment" for operation "flow/loop", so that increment is done in c code for loop instead of in each cybol loop model
-        * Test with table header in cybol application "serialisation/csv/"
-        * Think about how to also provide the comparison as cybol property
-
-Presentation
-____________
-
-        * Simplification through uniform tree structure
-        * Disadvantage: Slightly more code
-        * Advantage: no more classes, containers, patterns, framework
 
 JSON
 ____
@@ -101,6 +64,18 @@ ____
         * Implement base64 serialiser and deserialiser
         * Implement binary json (bson) data interchange format with mime type "application/bson" ??
 
+API
+___
+
+        * Update cybol api specification in javadoc comment blocks of directory "constant/format/cybol/logic/"
+        * Delete directory "tools/api-generator/spec_backup_delete_later/" from svn, as soon as all api documentation comments have been converted to the new format
+
+        * Add still missing model number constant with suffix "_COUNT" to unicode constants MANUALLY in file "unicode_character_code_model.c"
+        * Use unicode number constant in file "html_character_reference_deserialiser.c"
+        HINWEISE:
+            - Einige unicode constants werden nicht generiert, da nicht in der durch die Python-Skripte verwendeten Quelle enthalten.
+            - Betroffen sind die Zeichen mit den Unicode Decimals: 0x0000 - 0x0008 und 0x256D - 0x2570
+
 Build
 _____
 
@@ -124,6 +99,13 @@ ___
             - Developer setup
             - Project member checkout (with enabled push of changes back into the repository on Savannah): git clone ssh://login@git.sv.gnu.org/srv/git/cybop.git
             - Developer basic commands
+
+Loop Simplification
+___________________
+
+        * Offer cybol property "increment" for operation "flow/loop", so that increment is done in c code for loop instead of in each cybol loop model
+        * Test with table header in cybol application "serialisation/csv/"
+        * Think about how to also provide the comparison as cybol property
 
 Base64
 ______
@@ -189,13 +171,6 @@ _____
 
         * Make multi-channel "Hello World!" cybol application "ui" work again
 
-Tool
-____
-
-        * Use client-side javascript in addition to server-side cybol, if useful for reasons of efficiency
-        * Add table to "cybol-editor" in directory "tools/cybol-editor/"
-        * Add tree to "cybol-editor" in directory "tools/cybol-editor/"
-
 Database
 ________
 
@@ -212,19 +187,6 @@ ________
             http://www.tildeslash.com/libzdb/#
             https://www.linuxnetworks.de/doc/index.php/OpenDBX
 
-CYBOI
-_____
-
-        * Eliminate properties in send/receive/serialise/deserialise which are already provided as properties (constraints) of the property "language"
-
-        * Remove as properties from cyboi-internal allocated structure "part": channel, encoding, language, format
-            (they are only needed for communication and when needed by "send" or "receive", they are given as properties)
-
-        * Reintroduce channel "directory" used for reading the files of a directory
-        * See example cybol application "repertoire" in file "db.cybol"
-            <node name="song" channel="directory" format="element/part" model="application/repertoire/db/song/"/>
-        * The advantage would be not to have to list all files additionally in an index file like "application/repertoire/db/song.cybol"
-
 Documentation
 _____________
 
@@ -240,9 +202,12 @@ _____________
 General CYBOI
 _____________
 
-        * Eliminate bugs mentioned on project portal bug tracker at gnu savannah
+        * Reintroduce channel "directory" used for reading the files of a directory
+        * See example cybol application "repertoire" in file "db.cybol"
+            <node name="song" channel="directory" format="element/part" model="application/repertoire/db/song/"/>
+        * The advantage would be not to have to list all files additionally in an index file like "application/repertoire/db/song.cybol"
 
-        * Carry out a swot analysis (strengths, weaknesses, opportunities, threats)
+        * Eliminate bugs mentioned on project portal bug tracker at gnu savannah
 
         * Use a project management tool e.g. https://trello.com/
 
@@ -541,6 +506,20 @@ _______
 
 Display / XCB
 _____________
+
+        * Debug memory allocation errors reported by valgrind when launching cybol application "gui"
+            //
+            // Do child parts have to be deallocated here BEFORE calling
+            // function "deallocate_item" OR does GC do this automatically?
+            // At least REMOVE child parts, so that GC reference gets decremented?
+            //
+            // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
+            // This is necessary in order to activate rubbish (garbage) collection.
+            //
+        * Is pointer OR (should be) element/part used internally in empty and remove ??
+        * Do those parts having been added to the properties (NOT model) get deallocated by the GC ?? or not because properties of operations must not get deallocated on empty or remove ??
+        * Check if empty removes parts WITH knowledge part flag set
+        * Check if garbage collection is activated when knowledge part gets allocated and appended on xcb event handling (flag ??)
 
         * Make button "Hello World!" in cybol application "gui" work again
             - strange double node "exit_programme" appears at end of model diagram file
