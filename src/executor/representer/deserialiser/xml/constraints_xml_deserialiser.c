@@ -101,6 +101,10 @@ void deserialise_xml_constraints(void* p0, void* p1, void* p2, void* p3, void* p
     //
     copy_integer((void*) &normalisation, nmd);
 
+    //?? fwprintf(stdout, L"Debug: Deserialise xml constraints. TEST normalisation: %i\n", normalisation);
+    //?? fwprintf(stdout, L"Debug: Deserialise xml constraints. TEST nmd: %i\n", nmd);
+    //?? fwprintf(stdout, L"Debug: Deserialise xml constraints. TEST *nmd: %i\n", *((int*) nmd));
+
     //
     // Functionality
     //

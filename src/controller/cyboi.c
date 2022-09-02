@@ -173,11 +173,9 @@ int main(int p0, char** p1) {
         orient((void*) stdout, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
         orient((void*) stderr, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-/*??
         fwprintf(stdout, L"Debug: ARRAY_REFERENCE_COUNTER BEGIN: %i\n", *ARRAY_REFERENCE_COUNTER);
         fwprintf(stdout, L"Debug: ITEM_REFERENCE_COUNTER BEGIN: %i\n", *ITEM_REFERENCE_COUNTER);
         fwprintf(stdout, L"Debug: PART_REFERENCE_COUNTER BEGIN: %i\n", *PART_REFERENCE_COUNTER);
-*/
 
         //
         // The operation mode.

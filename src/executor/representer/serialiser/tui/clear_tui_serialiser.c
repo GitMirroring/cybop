@@ -60,18 +60,23 @@ void serialise_tui_clear(void* p0, void* p1, void* p2, void* p3) {
 
     compare_integer_equal((void*) &r, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-    //
-    // Check if this is the root tree level,
-    // which means that this is the initial
-    // (and not a recursive) call of this function.
-    //
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        //
+        // This is the ROOT tree level,
+        // which means that this is the INITIAL
+        // (and not a recursive) call of this function.
+        //
 
         compare_integer_unequal((void*) &c, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        // Only clear terminal screen if clear flag is set.
         if (c != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
+            // The clear flag IS set.
+            //
+
+            // Clear terminal.
 #if defined(__linux__) || defined(__unix__)
             serialise_ansi_escape_code_clear(p0);
 #elif defined(__APPLE__) && defined(__MACH__)

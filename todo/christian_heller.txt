@@ -17,17 +17,27 @@ ___
         * Update cybol api specification in javadoc comment blocks of directory "constant/format/cybol/logic/"
         * Delete directory "tools/api-generator/spec_backup_delete_later/" from svn, as soon as all api documentation comments have been converted to the new format
 
-CSV Deserialiser
-________________
+Memory Allocation
+_________________
 
-        * Adapt COUNT of html entity reference constants and deserialisation, since there are some entities consisting of not only one but TWO characters, so that the count should be TWO
+        CONTINUE: Refactor file "item_allocator.c"
+        * Check ALL source code for "allocate_part", "allocate_item", "allocate_array" and make sure the SIZE is at least ONE
+        CHECK if bug fixing is necessary ALSO for part and array!
+        LIKE: * Fix bug in file "item_allocator.c" where ITEM_REFERENCE_COUNTER did not get incremented in case of a null value data array
 
-        * Add joined string serialiser
-        * Add textline list serialiser
-        * Add csv serialiser
-
-        * Find and debug reason for terminal log message "Debug: ITEM_REFERENCE_COUNTER END: -9" with cybol application "serialisation/textline_list/"
-            valgrind is FINE, all ok, just internal ITEM_REFERENCE_COUNTER is negative
+        * Debug valgrind errors in cybol application "gui"
+            //
+            // Do child parts have to be deallocated here BEFORE calling
+            // function "deallocate_item" OR does GC does this automatically?
+            // At least REMOVE child parts, so that GC reference gets decremented?
+            //
+            // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
+            // This is necessary in order to activate rubbish (garbage) collection.
+            //
+        * Is pointer OR (should be) element/part used internally in empty and remove ??
+        * Do those parts having been added to the properties (NOT model) get deallocated by the GC ?? or not because properties of operations must not get deallocated on empty or remove ??
+        * Check if empty removes parts WITH knowledge part flag set
+        * Check if garbage collection is activated when knowledge part gets allocated and appended on xcb event handling (flag ??)
 
 Numeral Deserialiser
 ____________________
@@ -140,6 +150,10 @@ ______
 
 De-/Serialiser
 ______________
+
+        * Add joined string serialiser
+        * Add textline list serialiser
+        * Add csv serialiser
 
         * Complete unicode section in backslash escape serialiser and deserialiser
         * Handle backslash escape characters in ansi escape code serialiser ??
@@ -526,20 +540,6 @@ _______
 
 Display / XCB
 _____________
-
-        * Debug valgrind errors in cybol application "gui"
-            //
-            // Do child parts have to be deallocated here BEFORE calling
-            // function "deallocate_item" OR does GC does this automatically?
-            // At least REMOVE child parts, so that GC reference gets decremented?
-            //
-            // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
-            // This is necessary in order to activate rubbish (garbage) collection.
-            //
-        * Is pointer OR (should be) element/part used internally in empty and remove ??
-        * Do those parts having been added to the properties (NOT model) get deallocated by the GC ?? or not because properties of operations must not get deallocated on empty or remove ??
-        * Check if empty removes parts WITH knowledge part flag set
-        * Check if garbage collection is activated when knowledge part gets allocated and appended on xcb event handling (flag ??)
 
         * Make button "Hello World!" in cybol application "gui" work again
             - strange double node "exit_programme" appears at end of model diagram file
