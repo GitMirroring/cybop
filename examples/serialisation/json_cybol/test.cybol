@@ -6,7 +6,7 @@
     <node name="float" channel="inline" format="number/fraction-decimal" model="6.4"/>
     <node name="boolean" channel="inline" format="logicvalue/boolean" model="true"/>
     <node name="array" channel="inline" format="number/integer" model="1,2,3"/>
-    <node name="object" channel="file" format="element/part" model="serialisation/json/cybol/object.cybol"/>
+    <node name="object" channel="file" format="element/part" model="serialisation/json_cybol/object.cybol"/>
 
     <node name="operation" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>

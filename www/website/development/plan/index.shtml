@@ -30,8 +30,17 @@
             </tr>
             <tr>
                 <td class="table-warning"></td>
-                <td>0.23.0</td>
+                <td>0.24.0</td>
                 <td>circa 2023</td>
+                <td><a href="cybop-0.24.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.23.0</td>
+                <td>2022-09-04</td>
                 <td><a href="cybop-0.23.0.shtml">Features</a></td>
                 <td>
                     <a href="mailto:christian.heller@cybop.org">Christian Heller</a>

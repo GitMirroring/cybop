@@ -1,5 +1,7 @@
 <node>
 
+    <!-- Creation -->
+
     <node name="create_file_id" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="id"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
@@ -10,7 +12,7 @@
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/json/cybol/app.cybol"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/json_cybol/app.cybol"/>
     </node>
     <node name="initialise_app" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -30,7 +32,7 @@
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/json/cybol/test_formatted.json"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/json_cybol/test/formatted.json"/>
         <node name="mode" channel="inline" format="text/plain" model="write"/>
     </node>
     <node name="serialise_model" channel="inline" format="communicate/send" model="">
@@ -61,7 +63,7 @@
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/plain" model="test_json_read_formatted.txt"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/json_cybol/test_json_read_formatted.txt"/>
         <node name="mode" channel="inline" format="text/plain" model="write"/>
     </node>
     <node name="send_knowledge" channel="inline" format="communicate/send" model="">
@@ -86,8 +88,4 @@
     1 serialisation: from cyboi-memory into a json file
     2 deserialisation: from json file into cyboi-memory,
       which gets written into a model diagram file
-
-    The following two applications are almost identical:
-    - "run_formatted.cybol" with property "indentation" set to "true"
-    - "run_unformatted.cybol" with property "indentation" set to "false" or null
 -->

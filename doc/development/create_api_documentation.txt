@@ -9,6 +9,7 @@ ________
 2 Directory
 3 Style
 4 Process
+5 Alternative
 
 1 Introduction
 ______________
@@ -20,7 +21,7 @@ A python script parses these documentation blocks automatically
 and generates cybol files from them.
 
 The cybol api generator then reads these cybol files and generates
-an html website including css and some javascript functions.
+an html webpage including css and some javascript functions.
 
 2 Directory
 ___________
@@ -37,25 +38,28 @@ The following two are taken as reference formats and are most up-to-date:
 - for state: number/integer
 - for logic: calculate/add
 
-There are three possible sections in the comment block of a constant:
+There are FOUR possible sections in the comment block of a constant:
 
  * Description:
  * Examples:
  * Properties:
+ * Constraints for Property XY:
 
-If there is no heading "Description:", then NOTHING gets generated.
+The description text gets copied 1:1 into the destination cybol file,
+in order to be able to display LINE BREAKS on the generated webpage.
+If the heading "Description:" is missing, then NOTHING gets generated.
 The reason is that there are many constants without implementation.
 
-All examples are copied 1:1 and written into just ONE file "examples.txt",
-including possibly existing blank lines. The file will not be generated if there
-is no section "Examples:"
+The examples text gets copied 1:1 into just ONE file named "examples.txt",
+in order to be able to display LINE BREAKS on the generated webpage.
+If the heading "Examples:" is missing, then NO file gets generated.
 
-The properties are described using: name, required, format, description.
-If the heading "Properties:" is missing, then a "properties.cybol" file
-does NOT get generated.
+The properties are described using: name, required, format, description
+and written into a file named "properties.cybol".
+If the heading "Properties:" is missing, then NO file gets generated.
 Properties are prefixed by ' - '.
 Syntax:
-- propertyName (required|optional) [supported-format-list separated by the pipe symbol]: any free text as description
+- property (required|optional) [supported-format-list separated by the pipe symbol]: any free text as description
 Example:
 - operand (required) [text/cybol-path | number/any]: This is the description of the property.
 Remark:
@@ -63,6 +67,11 @@ The keyword "@param" CANNOT be used, because it is specific to javadoc and
 expects a parameter of the method that is described.
 Furthermore, it is syntactically INCORRECT to use '/*' inside a block comment.
 Therefore, use the format "number/any" INSTEAD of "number/*".
+
+The constraints are described IDENTICALLY to properties
+and written into a file named "xy_constraints.cybol",
+where "xy" stands for the corresponding property name.
+Example: "language_constraints.cybol".
 
 4 Process
 _________
@@ -73,4 +82,12 @@ cd build/
 make api
 
 4.2 upload via ftp to webserver host
+
+5 Alternative
+_____________
+
+Run api generator manually using:
+
+cd tools/
+../src/controller/cyboi api-generator/run.cybol
 

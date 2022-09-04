@@ -44,9 +44,7 @@
 
         ["format", "inline", "meta/format", "number/integer", []],
 
-        ["message", "inline", "text/cybol-path", ".index", []],
-
-        ["newline", "inline", "logicvalue/boolean", "true", []]
+        ["message", "inline", "text/cybol-path", ".index", []]
 
     ]],
 

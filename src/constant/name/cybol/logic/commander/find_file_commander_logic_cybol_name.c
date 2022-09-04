@@ -20,7 +20,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.22.0 2022-02-22
+ * @version CYBOP 0.23.0 2022-09-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 

@@ -11,7 +11,7 @@ set(CPACK_RESOURCE_FILE_LICENSE "${ROOT_DIR}/COPYING")
 # The version information.
 #
 SET(CPACK_PACKAGE_VERSION_MAJOR "0")
-SET(CPACK_PACKAGE_VERSION_MINOR "22")
+SET(CPACK_PACKAGE_VERSION_MINOR "23")
 SET(CPACK_PACKAGE_VERSION_PATCH "0")
 SET(CPACK_PACKAGE_VERSION "${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}.${CPACK_PACKAGE_VERSION_PATCH}")
 
@@ -34,20 +34,17 @@ INSTALL(DIRECTORY ${ROOT_DIR}/src/ DESTINATION src)
 
 # The cybol component.
 INSTALL(FILES ${ROOT_DIR}/build/manpage/cybol.5.gz DESTINATION build/manpage)
-INSTALL(DIRECTORY ${ROOT_DIR}/doc/cybol/api/ DESTINATION doc/cybol/api)
-INSTALL(DIRECTORY ${ROOT_DIR}/doc/cybol/schema/ DESTINATION doc/cybol/schema)
-INSTALL(DIRECTORY ${ROOT_DIR}/doc/cybol/syntax/ DESTINATION doc/cybol/syntax)
-INSTALL(DIRECTORY ${ROOT_DIR}/doc/cybol/api/ DESTINATION doc/cybol/api)
-INSTALL(FILES ${ROOT_DIR}/doc/books/cybol/cybol_2007-07-31.pdf DESTINATION doc/books/cybol)
+INSTALL(DIRECTORY ${ROOT_DIR}/tools/api-generator/ DESTINATION tools/api-generator)
+INSTALL(DIRECTORY ${ROOT_DIR}/doc/cybol/ DESTINATION doc/cybol)
 INSTALL(DIRECTORY ${ROOT_DIR}/examples/ DESTINATION examples)
 
 # The cybop component.
 INSTALL(FILES ${ROOT_DIR}/build/manpage/cybop.7.gz DESTINATION build/manpage)
-INSTALL(FILES ${ROOT_DIR}/doc/books/cybop/cybop.pdf DESTINATION doc/books/cybop)
+#INSTALL(FILES ${ROOT_DIR}/doc/books/cybop/cybop.pdf DESTINATION doc/books/cybop)
 INSTALL(FILES ${ROOT_DIR}/doc/presentations/lightning_talk/cybop.pdf DESTINATION doc/presentations/lightning_talk)
 #INSTALL(DIRECTORY ${ROOT_DIR}/doc/lightning_talk/ DESTINATION doc/lightning_talk COMPONENT cybop FILES_MATCHING PATTERN "*.pdf")
-INSTALL(FILES ${ROOT_DIR}/doc/manual/manual-de.pdf DESTINATION doc/manual)
-INSTALL(FILES ${ROOT_DIR}/doc/manual/manual-en.pdf DESTINATION doc/manual)
+#INSTALL(FILES ${ROOT_DIR}/doc/manual/manual-de.pdf DESTINATION doc/manual)
+#INSTALL(FILES ${ROOT_DIR}/doc/manual/manual-en.pdf DESTINATION doc/manual)
 INSTALL(FILES ${ROOT_DIR}/AUTHORS DESTINATION .)
 INSTALL(FILES ${ROOT_DIR}/ChangeLog DESTINATION .)
 INSTALL(FILES ${ROOT_DIR}/COPYING DESTINATION .)

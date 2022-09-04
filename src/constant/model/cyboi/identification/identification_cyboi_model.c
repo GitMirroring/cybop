@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.22.0 2022-02-22
+ * @version CYBOP 0.23.0 2022-09-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -35,7 +35,7 @@ static wchar_t* NAME_IDENTIFICATION_CYBOI_MODEL = L"Cybernetics Oriented Interpr
 static int* NAME_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_40_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The version identification cyboi model. */
-static wchar_t* VERSION_IDENTIFICATION_CYBOI_MODEL = L"0.22.0";
+static wchar_t* VERSION_IDENTIFICATION_CYBOI_MODEL = L"0.23.0";
 static int* VERSION_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The slogan identification cyboi model. */

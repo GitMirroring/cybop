@@ -7,7 +7,7 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.22.0 2022-02-22
+# @version CYBOP 0.23.0 2022-09-04
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
@@ -76,19 +76,6 @@ ___
             - Einige unicode constants werden nicht generiert, da nicht in der durch die Python-Skripte verwendeten Quelle enthalten.
             - Betroffen sind die Zeichen mit den Unicode Decimals: 0x0000 - 0x0008 und 0x256D - 0x2570
 
-Build
-_____
-
-        * Give feedback to Enrico to what has to be changed in python script adapting copyright
-        * Correct formatting errors found by "ClangFormat"
-        * Change variable names reported by "CppCheck"
-        * Adapt incorrectly formatted comments reported by "Doxygen"
-
-        * Ask enrico on how best to exclude log messages from release build (ifdef macro, build script, other idea)
-
-        * Release CYBOP 0.23.0
-        * Announce and reactivate mailing list "cybop-developers"
-
 git
 ___
 
@@ -134,7 +121,11 @@ ______
 De-/Serialiser
 ______________
 
-        * Add joined string serialiser
+        * Add joined string serialiser as replacement for planned "modify/concatenate"
+        * Provide an optional cybol property "separator" to be used as such between the concatenated strings
+        * Remove source code related to "modify/concatenate"
+        * Test joined string deserialiser using cybol application "container_modification/stripper/" (and possibly rename it to "serialiser/joined string/" or remove it)
+
         * Add textline list serialiser
         * Add csv serialiser
 
@@ -186,6 +177,16 @@ ________
             https://sourceforge.net/projects/libopendbx/
             http://www.tildeslash.com/libzdb/#
             https://www.linuxnetworks.de/doc/index.php/OpenDBX
+
+Build
+_____
+
+        * Give feedback to Enrico to what has to be changed in python script "build/scripts/adjustcopyright.py" adapting copyright
+        * Correct formatting errors found by "ClangFormat"
+        * Change variable names reported by "CppCheck"
+        * Adapt incorrectly formatted comments reported by "Doxygen"
+
+        * Find out how best to exclude log messages from release build (ifdef macro, build script, other idea)
 
 Documentation
 _____________

@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.22.0 2022-02-22
+ * @version CYBOP 0.23.0 2022-09-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -83,14 +83,6 @@ static int* HEADER_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBO
 static wchar_t* INDENTATION_LANGUAGE_STATE_CYBOL_NAME = L"indentation";
 static int* INDENTATION_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-//
-//?? TODO:
-//
-// Should this constant "maximum" be moved from file "language_state_cybol_name.c"
-// into a new file "channel_state_cybol_name.c",
-// since it is NOT language- but rather device-specific ??
-//
-
 /**
  * The maximum language state cybol name.
  *
@@ -109,14 +101,6 @@ static int* MAXIMUM_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYB
  */
 static wchar_t* MEDIUM_LANGUAGE_STATE_CYBOL_NAME = L"medium";
 static int* MEDIUM_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
-//?? TODO:
-//
-// Should this constant "maximum" be moved from file "language_state_cybol_name.c"
-// into a new file "channel_state_cybol_name.c",
-// since it is NOT language- but rather device-specific ??
-//
 
 /**
  * The minimum language state cybol name.

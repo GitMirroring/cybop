@@ -60,10 +60,10 @@ echo "Adjust version";
 # Define global variables.
 #
 
-YEAR_OLD="Copyright (C) 1999-2020. Christian Heller.";
+YEAR_OLD="Copyright (C) 1999-2022. Christian Heller.";
 YEAR_NEW="Copyright (C) 1999-2022. Christian Heller.";
-VERSION_OLD="CYBOP 0.21.0 2020-07-29";
-VERSION_NEW="CYBOP 0.22.0 2022-02-22";
+VERSION_OLD="CYBOP 0.23.0 2022-09-03";
+VERSION_NEW="CYBOP 0.23.0 2022-09-04";
 
 #
 # CAUTION! Do NOT process directory "dist/",
@@ -83,13 +83,6 @@ VERSION_NEW="CYBOP 0.22.0 2022-02-22";
 
 find "../src" -type f \( -name "*.c" -o -name "*.txt" \) -print0 | xargs -0 grep -IlH "$YEAR_OLD" | xargs sed -i "s/$YEAR_OLD/$YEAR_NEW/g"
 find "../src" -type f \( -name "*.c" -o -name "*.txt" \) -print0 | xargs -0 grep -IlH "$VERSION_OLD" | xargs sed -i "s/$VERSION_OLD/$VERSION_NEW/g"
-
-#
-# test/*.c
-#
-
-find "../test" -type f \( -name "*.c" \) -print0 | xargs -0 grep -IlH "$YEAR_OLD" | xargs sed -i "s/$YEAR_OLD/$YEAR_NEW/g"
-find "../test" -type f \( -name "*.c" \) -print0 | xargs -0 grep -IlH "$VERSION_OLD" | xargs sed -i "s/$VERSION_OLD/$VERSION_NEW/g"
 
 #
 # todo/*.txt
