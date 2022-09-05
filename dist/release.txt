@@ -40,5 +40,5 @@ Tag SVN
 Create tarball using "cpack"
 Create GPG binary signature for tarball file
 Upload tarball file to Savannah
-Announce release in mailing list
+Announce release in mailing list cybop-developers@nongnu.org
 
