@@ -46,6 +46,7 @@ void check(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check for signals.");
+    //?? fwprintf(stdout, L"Information: Check for signals. p0: %i\n", p0);
 
     //
     // CAUTION! The parametres were not handed over as function arguments,

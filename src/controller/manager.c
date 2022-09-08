@@ -54,6 +54,7 @@ void manage(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manage.");
+    //?? fwprintf(stdout, L"Information: Manage. p0: %i\n", p0);
 
     //
     // Declaration

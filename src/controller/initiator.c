@@ -36,15 +36,13 @@
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../controller/checker.c"
 #include "../executor/communicator/receiver/receiver.c"
+#include "../executor/dispatcher/closer/basic/basic_closer.c"
+#include "../executor/dispatcher/opener/file/file_opener.c"
 #include "../executor/memoriser/allocator/part_allocator.c"
 #include "../executor/memoriser/deallocator/part_deallocator.c"
 #include "../executor/modifier/item_modifier.c"
 #include "../executor/modifier/part_modifier.c"
 #include "../logger/logger.c"
-
-//?? TEST ONLY: remove later!
-//?? #include "../controller/tester.c"
-//?? TEST END
 
 /**
  * Initialises the system with a startup signal.
@@ -58,6 +56,7 @@ void initiate(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initiate.");
+    //?? fwprintf(stdout, L"Information: Initiate. p0: %i\n", p0);
 
     // The file identification (descriptor).
     int id = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
@@ -118,16 +117,6 @@ void initiate(void* p0, void* p1, void* p2, void* p3) {
     receive_data(sm, sp, (void*) &id, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, (void*) UTF_8_CYBOI_ENCODING, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FILE_CYBOI_CHANNEL);
     // Close file.
     close_basic((void*) &id);
-
-/*??
-    //?? TEST ONLY: remove later!
-    void* TESTd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* TESTc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    copy_array_forward((void*) &TESTd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &TESTc, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    test((void*) L"TEST.txt", *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, TESTd, TESTc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-    //?? TEST END
-*/
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initiate. Add startup signal to signal memory.");
