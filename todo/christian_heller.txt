@@ -14,8 +14,12 @@
 CYBOI Optimisation
 __________________
 
-        * Remove as properties from cyboi-internal allocated structure "part": channel, encoding, language, format
+        * Remove as properties from cyboi-internal allocated structure "part": channel, encoding, language
             (they are only needed for communication and when needed by "send" or "receive", they are given as properties)
+
+        * Delete cybol constants for name_getter_accessor_... for channel, encoding, language, if deleted in part
+
+        * Warum detektiert er zweimal den root node?
 
 Numeral Deserialiser
 ____________________
@@ -180,6 +184,8 @@ ________
 
 Build
 _____
+
+        * Automate build process (cyboi version and copyright year, doxygen, api, packaging as deb and rpm) to reach ci/cd with automatic updates
 
         * Give feedback to Enrico to what has to be changed in python script "build/scripts/adjustcopyright.py" adapting copyright
         * Correct formatting errors found by "ClangFormat"
