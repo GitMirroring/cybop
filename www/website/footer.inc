@@ -39,6 +39,7 @@
                     <img src="/logo.png" alt="CYBOP Project Logo" width="150px" class="img-fluid"/>
                 </a>
                 <p class="mt-2">
+                    <h5>Efficient Programming by</h5>
                     <h5>Tree Schema Development</h5>
                 </p>
             </div>
