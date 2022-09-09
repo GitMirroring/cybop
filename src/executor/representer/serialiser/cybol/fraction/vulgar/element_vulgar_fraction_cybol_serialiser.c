@@ -49,9 +49,12 @@ void serialise_cybol_fraction_vulgar_element(void* p0, void* p1, void* p2) {
     int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int d = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+    //
     // Allocate temporary fraction number.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_array((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
 
     // Get temporary fraction number from source fraction data at current index.
@@ -61,10 +64,13 @@ void serialise_cybol_fraction_vulgar_element(void* p0, void* p1, void* p2) {
     get_fraction_element((void*) &n, t, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
     get_fraction_element((void*) &d, t, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
 
+    //
     // Deallocate temporary fraction number.
+    //
     // CAUTION! The second argument "count" is NULL,
     // since it is only needed for looping elements of type PART,
     // in order to decrement the rubbish (garbage) collection counter.
+    //
     deallocate_array((void*) &t, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
 
     // Append numerator and denominator value to destination.

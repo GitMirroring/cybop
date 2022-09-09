@@ -48,10 +48,12 @@ void deserialise_cybol_colour_terminal(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol colour terminal.");
 
+    //
     // CAUTION! DO use the "overwrite" function here
     // (and NOT a simple "copy")!
     // The item handed over has a default size of zero,
     // so that reallocation IS necessary.
+    //
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

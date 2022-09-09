@@ -71,12 +71,16 @@ void serialise_cybol_integer_base_char(void* p0, void* p1, void* p2, void* p3, v
 
                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol integer base char.");
 
+                    //
                     // Transform source value to destination string.
+                    //
                     // A null character is written to mark the end of the string.
                     // The return value is the number of characters generated
                     // for the given input, excluding the trailing null.
+                    //
                     // If not all output fits into the provided buffer,
                     // a negative value is returned.
+                    //
 
                     // The comparison result.
                     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

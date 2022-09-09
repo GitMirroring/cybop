@@ -51,23 +51,31 @@ void serialise_cybol_complex_polar(void* p0, void* p1, void* p2) {
     void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* tc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
     // Allocate temporary complex item.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
 
+    //
     // Serialise complex data given in cartesian coordinates
     // into complex data in polar coordinates.
+    //
     serialise_cybol_complex_polar_vector(t, p1, p2);
 
     // Get temporary complex item data, count.
     copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &tc, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+    //
     // Serialise destination data.
+    //
     // CAUTION! This function for cartesian coordinates
     // CAN BE USED for polar coordinates as well,
     // since all it does is converting into double values.
+    //
     serialise_cybol_complex_cartesian(p0, td, tc);
 
     // Deallocate temporary double item.

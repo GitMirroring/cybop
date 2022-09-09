@@ -29,6 +29,8 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/http/http_cyboi_name.c"
+#include "../../../../constant/name/http/header/entity_header_http_name.c"
+#include "../../../../constant/name/http/separator_http_name.c"
 #include "../../../../executor/representer/serialiser/cybol/integer/char_value_integer_cybol_serialiser.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"

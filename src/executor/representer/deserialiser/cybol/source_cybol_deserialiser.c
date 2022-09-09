@@ -55,13 +55,13 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
  * @param p4 the encoding
  * @param p5 the language
  * @param p6 the format
- * @param p7 the encoding
+ * @param p7 the encoding item
  */
 void deserialise_cybol_source(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol source.");
-    // fwprintf(stdout, L"Debug: Deserialise cybol source. p3: %i\n", p3);
-    // fwprintf(stdout, L"Debug: Deserialise cybol source. *p3: %i\n", *((int*) p3));
+    fwprintf(stdout, L"Debug: Deserialise cybol source. p3: %i\n", p3);
+    fwprintf(stdout, L"Debug: Deserialise cybol source. *p3: %i\n", *((int*) p3));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -72,6 +72,11 @@ void deserialise_cybol_source(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
+            //?? TODO:
+            // Decide what to hand over as encoding parametre: Both is possible!
+            // p4 or *NULL_POINTER_STATE_CYBOI_MODEL
+            //
             deserialise_cybol_file(p0, p1, p2, p3, p4, p5, p6, p7);
         }
     }
@@ -97,7 +102,13 @@ void deserialise_cybol_source(void* p0, void* p1, void* p2, void* p3, void* p4, 
             //
             // CAUTION! Use the cybol FORMAT and NOT the cyboi destination type.
             //
-            receive_data(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p6, p5, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3);
+            //?? receive_data(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p6, p5, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3);
+            //
+            //?? TODO:
+            // Decide what to hand over as encoding parametre: Both is possible!
+            // p4 or *NULL_POINTER_STATE_CYBOI_MODEL
+            //
+            receive_data(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p6, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3);
         }
     }
 

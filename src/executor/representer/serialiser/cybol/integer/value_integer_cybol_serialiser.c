@@ -77,9 +77,12 @@ void serialise_cybol_integer_value(void* p0, void* p1, void* p2, void* p3) {
     int tc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int ts = *NUMBER_256_INTEGER_STATE_CYBOI_MODEL;
 
+    //
     // Allocate temporary array.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_array((void*) &td, (void*) &ts, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Serialise value according to given number base.
@@ -87,29 +90,39 @@ void serialise_cybol_integer_value(void* p0, void* p1, void* p2, void* p3) {
 
     if (tc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
+        //
         // The value was converted successfully.
+        //
 
         modify_item(p0, td, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &tc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
     } else {
 
+        //
         // The value returned by the conversion function is negative,
         // which means that the value was NOT converted successfully.
+        //
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol integer value.");
 
+        //
         // CAUTION! A more flexible approach would be to stepwise enlarge
         // the destination array, until the provided source value matches.
+        //
         // In order to do this, call this function itself recursively.
         // This is done every time again, until the value
         // gets finally converted successfully.
         // The only argument that grows then is the destination size.
+        //
     }
 
+    //
     // Deallocate temporary array.
+    //
     // CAUTION! The second argument "count" is NULL,
     // since it is only needed for looping elements of type PART,
     // in order to decrement the rubbish (garbage) collection counter.
+    //
     deallocate_array((void*) &td, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &ts, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 

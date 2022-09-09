@@ -95,6 +95,7 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol format.");
 
+    //
     // CAUTION! Do NOT use the "append" function here!
     // The destination has been given a size of ONE,
     // so that reallocation is not necessary for adding an element.
@@ -105,6 +106,7 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
     // For instance, the destination may be handed over not only as cybol xml attribute
     // (for which a default size of one has been set when allocating a part),
     // but also as model of a cybol property (which gets assigned a default size of zero).
+    //
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -143,14 +145,22 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
     // datetime
     //
 
+    //
     // CAUTION! There is NO USE in converting the ascension
     // into a datetime, since it already is a datetime itself.
+    //
 
+    //
     // CAUTION! The day-of-month may NOT be deserialised into a datetime.
+    //
 
+    //
     // CAUTION! The day-of-week may NOT be deserialised into a datetime.
+    //
 
+    //
     // CAUTION! The day-of-year may NOT be deserialised into a datetime.
+    //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -192,11 +202,15 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
         }
     }
 
+    //
     // CAUTION! There is NO USE in converting the easter-monday
     // into a datetime, since it already is a datetime itself.
+    //
 
+    //
     // CAUTION! There is NO USE in converting the easter-sunday
     // into a datetime, since it already is a datetime itself.
+    //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -238,7 +252,9 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
         }
     }
 
+    //
     // CAUTION! The month-of-year may NOT be deserialised into a datetime.
+    //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -250,9 +266,13 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
         }
     }
 
+    //
     // CAUTION! The week-of-month may NOT be deserialised into a datetime.
+    //
 
+    //
     // CAUTION! The week-of-year may NOT be deserialised into a datetime.
+    //
 
     //
     // duration
@@ -550,16 +570,6 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) CHANNEL_GET_ACCESS_LOGIC_CYBOL_FORMAT, p2, (void*) CHANNEL_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            modify_item(p0, (void*) CHANNEL_GET_ACCESS_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
         check_operation((void*) &r, p1, (void*) COUNT_ACCESS_LOGIC_CYBOL_FORMAT, p2, (void*) COUNT_ACCESS_LOGIC_CYBOL_FORMAT_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -575,16 +585,6 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             modify_item(p0, (void*) EMPTY_INDICATE_ACCESS_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        check_operation((void*) &r, p1, (void*) ENCODING_GET_ACCESS_LOGIC_CYBOL_FORMAT, p2, (void*) ENCODING_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            modify_item(p0, (void*) ENCODING_GET_ACCESS_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
         }
     }
 
@@ -615,16 +615,6 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             modify_item(p0, (void*) GET_INDEX_ACCESS_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        check_operation((void*) &r, p1, (void*) LANGUAGE_GET_ACCESS_LOGIC_CYBOL_FORMAT, p2, (void*) LANGUAGE_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            modify_item(p0, (void*) LANGUAGE_GET_ACCESS_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
         }
     }
 

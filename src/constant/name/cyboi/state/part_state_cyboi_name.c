@@ -38,15 +38,6 @@ static int* REFERENCES_PART_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODE
 /** The name part state cyboi name. */
 static int* NAME_PART_STATE_CYBOI_NAME = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The channel part state cyboi name. */
-static int* CHANNEL_PART_STATE_CYBOI_NAME = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The encoding part state cyboi name. */
-static int* ENCODING_PART_STATE_CYBOI_NAME = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The language part state cyboi name. */
-static int* LANGUAGE_PART_STATE_CYBOI_NAME = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The format part state cyboi name. */
 static int* FORMAT_PART_STATE_CYBOI_NAME = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

@@ -45,6 +45,7 @@ void serialise_cybol_type(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol type.");
 
+    //
     // CAUTION! Do NOT use the "append" function here!
     // The format of each part has been given a size of ONE,
     // so that reallocation is not necessary for adding an element.
@@ -54,6 +55,7 @@ void serialise_cybol_type(void* p0, void* p1) {
     // since a format may be handed over not only as cybol attribute
     // (for which a default size of one has been set when allocating a part),
     // but also as cybol model (which gets assigned a default size of zero).
+    //
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

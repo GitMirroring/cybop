@@ -45,11 +45,14 @@ void deserialise_cybol_complex_cartesian_vector(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol complex cartesian vector.");
 
+    //
     // The loop variables.
+    //
     // CAUTION! They serve as index for
     // accessing the complex number data:
     // i - real part
     // j - imaginary part (with initial value of ONE)
+    //
     int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int j = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
@@ -57,10 +60,12 @@ void deserialise_cybol_complex_cartesian_vector(void* p0, void* p1, void* p2) {
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
         // Therefore, in this case, the break flag is set to true already here.
+        //
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
@@ -69,9 +74,11 @@ void deserialise_cybol_complex_cartesian_vector(void* p0, void* p1, void* p2) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! The comparison of j suffices here,
         // since if j is greater or equal the source count,
         // then also i is.
+        //
         compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

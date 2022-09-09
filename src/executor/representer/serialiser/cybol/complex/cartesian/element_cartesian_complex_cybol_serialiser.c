@@ -49,9 +49,12 @@ void serialise_cybol_complex_cartesian_element(void* p0, void* p1, void* p2) {
     double r = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     double i = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
 
+    //
     // Allocate temporary complex number.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_array((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
 
     // Get temporary complex number from source complex data at current index.
@@ -61,10 +64,13 @@ void serialise_cybol_complex_cartesian_element(void* p0, void* p1, void* p2) {
     get_complex_element((void*) &r, t, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
     get_complex_element((void*) &i, t, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
 
+    //
     // Deallocate temporary complex number.
+    //
     // CAUTION! The second argument "count" is NULL,
     // since it is only needed for looping elements of type PART,
     // in order to decrement the rubbish (garbage) collection counter.
+    //
     deallocate_array((void*) &t, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
 
     // Append real and imaginary value to destination.

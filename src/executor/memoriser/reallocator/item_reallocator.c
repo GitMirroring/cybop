@@ -95,7 +95,7 @@ void reallocate_item(void* p0, void* p1, void* p2) {
         // Reasons might be:
         // - given size is zero
         // - given size is negative
-        // - no more memory (RAM) left in the system
+        // - no more system heap memory
         //
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate item. The data is null.");
     }

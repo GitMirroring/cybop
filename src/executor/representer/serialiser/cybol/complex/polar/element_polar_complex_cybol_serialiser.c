@@ -57,13 +57,19 @@ void serialise_cybol_complex_polar_element(void* p0, void* p1, void* p2) {
     double v = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     double a = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
 
+    //
     // Allocate temporary destination complex number.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_array((void*) &td, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
+    //
     // Allocate temporary source complex number.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_array((void*) &ts, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
 
     // Get temporary source complex number from source complex data at current index.
@@ -76,6 +82,7 @@ void serialise_cybol_complex_polar_element(void* p0, void* p1, void* p2) {
     // Transform cartesian coordinates into polar coordinates.
     serialise_cybol_complex_polar_coordinates((void*) &v, (void*) &a, (void*) &r, (void*) &i);
 
+    //
     // Set absolute value and argument.
     //
     // CAUTION! The type structure used here for polar coordinates
@@ -88,21 +95,28 @@ void serialise_cybol_complex_polar_element(void* p0, void* p1, void* p2) {
     // in order to avoid redundancy:
     // - ABSOLUTE_VALUE_COMPLEX_STATE_CYBOI_NAME
     // - ARGUMENT_COMPLEX_STATE_CYBOI_NAME
+    //
     set_complex_element(td, (void*) &v, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
     set_complex_element(td, (void*) &a, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
 
     // Append complex to destination.
     modify_item(p0, td, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
+    //
     // Deallocate temporary destination complex number.
+    //
     // CAUTION! The second argument "count" is NULL,
     // since it is only needed for looping elements of type PART,
     // in order to decrement the rubbish (garbage) collection counter.
+    //
     deallocate_array((void*) &td, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
+    //
     // Deallocate temporary source complex number.
+    //
     // CAUTION! The second argument "count" is NULL,
     // since it is only needed for looping elements of type PART,
     // in order to decrement the rubbish (garbage) collection counter.
+    //
     deallocate_array((void*) &ts, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
 }
 

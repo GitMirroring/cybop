@@ -65,9 +65,12 @@ void serialise_cybol_datetime_tai(void* p0, void* p1, void* p2) {
     //?? TODO: EopData pd; pd.tai_utc; see "AstroToolbox/data/tai_utc.txt"
     copy_double((void*) &ds, ??TODO: pd.tai_utc);
 
+    //
     // Normalise conversion difference datetime.
+    //
     // CAUTION! DO CALL "normalise" after having set
     // the values for julian day and julian second!
+    //
     normalize(d);
 
     // Subtract conversion difference datetime from source.

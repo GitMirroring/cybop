@@ -59,34 +59,6 @@ static wchar_t* COUNT_ACCESS_LOGIC_CYBOL_FORMAT = L"access/count";
 static int* COUNT_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The access/get-channel logic cybol format.
- *
- * Get a part's channel.
- *
- * This is a CYBOL extension.
- *
- * Expected parametres:
- * - element (required): the part's element (name, channel, encoding, language, format, type)
- * - part (required): the knowledge path to the part
- */
-static wchar_t* CHANNEL_GET_ACCESS_LOGIC_CYBOL_FORMAT = L"access/get-channel";
-static int* CHANNEL_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The access/get-encoding logic cybol format.
- *
- * Get a part's encoding.
- *
- * This is a CYBOL extension.
- *
- * Expected parametres:
- * - element (required): the part's element (name, channel, encoding, language, format, type)
- * - part (required): the knowledge path to the part
- */
-static wchar_t* ENCODING_GET_ACCESS_LOGIC_CYBOL_FORMAT = L"access/get-encoding";
-static int* ENCODING_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
  * The access/get-format logic cybol format.
  *
  * Get a part's format.
@@ -114,20 +86,6 @@ static int* FORMAT_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
  */
 static wchar_t* GET_INDEX_ACCESS_LOGIC_CYBOL_FORMAT = L"access/get-index";
 static int* GET_INDEX_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The access/get-language logic cybol format.
- *
- * Get a part's language.
- *
- * This is a CYBOL extension.
- *
- * Expected parametres:
- * - element (required): the part's element (name, channel, encoding, language, format, type)
- * - part (required): the knowledge path to the part
- */
-static wchar_t* LANGUAGE_GET_ACCESS_LOGIC_CYBOL_FORMAT = L"access/get-language";
-static int* LANGUAGE_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The access/get-name logic cybol format.

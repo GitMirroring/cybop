@@ -129,7 +129,7 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_chronology_gregorian_iso(p0, p1, p2);
+            //?? serialise_chronology_gregorian_iso(p0, p1, p2);
         }
     }
 
@@ -280,23 +280,33 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
             // The temporary format item data.
             void* fd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+            //
             // Allocate temporary format item.
+            //
             // CAUTION! Due to memory allocation handling, the size MUST NOT
             // be negative or zero, but have at least a value of ONE.
+            //
             // CAUTION! Initialise integer items with a size of ONE,
             // in order to avoid later reallocation when overwriting
             // the element and to thus increase efficiency.
+            //
             allocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
+            //
             // Decode cyboi runtime type into cyboi format.
+            //
             // CAUTION! For one cyboi runtime type, many formats may exist (1:n).
             // For example, a complex number may be given in cartesian or polar coordinates.
             // Since this is ambiguous, a DEFAULT FORMAT is assigned to each type.
+            //
             serialise_cybol_type(f, p1);
+            //
             // Get temporary format item data.
+            //
             // CAUTION! Retrieve data ONLY AFTER having called desired functions!
             // Inside the structure, arrays may have been reallocated,
             // with elements pointing to different memory areas now.
+            //
             copy_array_forward((void*) &fd, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
             // Decode cybol source format (mime type as string) into cyboi-internal type (an integer).
             serialise_cybol_format(p0, fd);
@@ -380,6 +390,7 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // CAUTION! The data are available in various formats.
             // They ALL are serialised uniformly into wide character strings.
             //
@@ -393,6 +404,7 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
             // data with format "text/ascii" in file "file_sender.c".
             // But in order to be able to uniformly process all data,
             // this loss in efficiency is taken.
+            //
 
             decode(p0, p1, p2, (void*) UTF_8_CYBOI_ENCODING);
         }

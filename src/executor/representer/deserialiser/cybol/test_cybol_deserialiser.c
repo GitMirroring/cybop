@@ -32,7 +32,7 @@
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 
-/**
+/** OLD:
  * Tests if this is a root node.
  *
  * @param p0 the root flag
@@ -43,7 +43,18 @@
  * @param p5 the source format part
  * @param p6 the source model part
  */
-void deserialise_cybol_test(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+//?? void deserialise_cybol_test(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+
+/**
+ * Tests if this is a root node.
+ *
+ * @param p0 the root flag
+ * @param p1 the source name part
+ * @param p2 the source channel part
+ * @param p3 the source format part
+ * @param p4 the source model part
+ */
+void deserialise_cybol_test(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol test.");
     // fwprintf(stdout, L"Debug: Deserialise cybol test. p0: %i\n", p0);
@@ -51,32 +62,33 @@ void deserialise_cybol_test(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
     //
     // CAUTION! This test is IMPORTANT!
-    // If a source type attribute is NOT given, then this
-    // is (hopefully) the cybol ROOT NODE and a part is allocated.
+    // If a source format (type) attribute is NOT given,
+    // then this is (hopefully) the cybol ROOT node.
     //
     // CAUTION! It is true, a root flag was set initially when starting
     // to deserialise the cybol source, and forwarded as parametre.
     // However, that flag was only used to call the correct
     // function, but source data were just forwarded to it.
     // Another test (guess) for root node IS necessary here.
-    // If no type is given, then this is a root node.
+    // If NO format (type) is given, then this is a ROOT node.
     //
     // CAUTION! Do ONLY compare those variables,
-    // for which NO DEFAULT VALUE has been set above.
+    // for which NO DEFAULT VALUE has been set before.
     //
-    // CAUTION! If the cybol developer FORGOT to specify a format,
-    // then the "part" type is used here by default, since it
-    // does no real harm to create a node with (possibly) wrong type.
-    // In the end, the CYBOL DEVELOPER has to care about that.
+    // CAUTION! Do NOT mix up the xml TAG name with the "name" ATTRIBUTE of a node.
+    // When talking about a part name, then the "name" ATTRIBUTE is meant here.
     //
-    if ((p1 == *NULL_POINTER_STATE_CYBOI_MODEL) && (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) && (p3 == *NULL_POINTER_STATE_CYBOI_MODEL)
+    if ((p1 == *NULL_POINTER_STATE_CYBOI_MODEL) && (p2 == *NULL_POINTER_STATE_CYBOI_MODEL)
+        //
+        //?? && (p3 == *NULL_POINTER_STATE_CYBOI_MODEL)
         //
         // CAUTION! The language is commented out, since a DEFAULT language
         // got assigned in file "content_cybol_deserialiser.c".
         //
         // && (p4 == *NULL_POINTER_STATE_CYBOI_MODEL)
         //
-        && (p5 == *NULL_POINTER_STATE_CYBOI_MODEL) && (p6 == *NULL_POINTER_STATE_CYBOI_MODEL)) {
+        //?? && (p5 == *NULL_POINTER_STATE_CYBOI_MODEL) && (p6 == *NULL_POINTER_STATE_CYBOI_MODEL)) {
+        && (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) && (p4 == *NULL_POINTER_STATE_CYBOI_MODEL)) {
 
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }

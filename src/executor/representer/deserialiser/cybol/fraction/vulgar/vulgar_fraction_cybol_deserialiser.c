@@ -50,14 +50,20 @@ void deserialise_cybol_fraction_vulgar(void* p0, void* p1, void* p2) {
     void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* tc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
     // Allocate temporary integer item.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
+    //
     // Deserialise source data
+    //
     // (Two or more integer numbers represent
     // one or more fraction numbers, respectively).
+    //
     deserialise_cybol_integer(t, p1, p2);
 
     // Get temporary integer item data, count.

@@ -78,12 +78,17 @@
 void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol.");
+    fwprintf(stdout, L"Information: Deserialise cybol. p4: %i\n", p4);
+    fwprintf(stdout, L"Information: Deserialise cybol. *p4: %i\n", *((int*) p4));
 
+    //
     // The functions below are for STATE models only.
+    //
     // CAUTION! CYBOL LOGIC operations have an EMPTY model.
     // Hence, they do NOT have to be considered here.
     // They are detected via their "format" xml attribute.
     // Their parametres were converted from cybol properties.
+    //
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -278,26 +283,40 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
             // The temporary format item data.
             void* fd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+            //
             // Allocate temporary format item.
+            //
             // CAUTION! Due to memory allocation handling, the size MUST NOT
             // be negative or zero, but have at least a value of ONE.
+            //
             // CAUTION! Initialise integer items with a size of ONE,
             // in order to avoid later reallocation when overwriting
             // the element and to thus increase efficiency.
+            //
             allocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+
+            fwprintf(stdout, L"Information: Deserialise cybol. section meta/type p2: %ls\n", (wchar_t*) p2);
+            fwprintf(stdout, L"Information: Deserialise cybol. section meta/type p3: %i\n", p3);
+            fwprintf(stdout, L"Information: Deserialise cybol. section meta/type *p3: %i\n", *((int*) p3));
 
             // Deserialise cybol source format (mime type as string) into cyboi-internal type (an integer).
             deserialise_cybol_format(f, p2, p3);
+            //
             // Get temporary format item data.
+            //
             // CAUTION! Retrieve data ONLY AFTER having called desired functions!
             // Inside the structure, arrays may have been reallocated,
             // with elements pointing to different memory areas now.
+            //
             copy_array_forward((void*) &fd, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            //
             // Deserialise cyboi-internal type into cyboi runtime type.
+            //
             // CAUTION! Both are not always equal in their meaning.
             // For example, an "xdt" file is converted into a cyboi "part".
             // Therefore, a runtime type has to be figured out here.
             // The latter is needed for allocating the new part.
+            //
             deserialise_cybol_type(p0, fd);
 
             // Deallocate temporary format item.
@@ -434,7 +453,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
         // The source is unknown for LOGIC formats.
         //
         // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol. The format is unknown.");
-        // fwprintf(stdout, L"Warning: Could not deserialise cybol. The format is unknown. format p4: %i\n", p4);
+        fwprintf(stdout, L"Warning: Could not deserialise cybol. The format is unknown. format p4: %i\n", p4);
         // fwprintf(stdout, L"Warning: Could not deserialise cybol. The format is unknown. format *p4: %i\n", *((int*) p4));
     }
 }

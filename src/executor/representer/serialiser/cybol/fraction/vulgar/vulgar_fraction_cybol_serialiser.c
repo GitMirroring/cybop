@@ -55,9 +55,12 @@ void serialise_cybol_fraction_vulgar(void* p0, void* p1, void* p2) {
     void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* tc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
     // Allocate temporary integer item.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
     // Serialise fraction data.
@@ -67,9 +70,12 @@ void serialise_cybol_fraction_vulgar(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &tc, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+    //
     // Serialise source data.
+    //
     // (One or more fraction numbers represent
     // two or more integer numbers, respectively).
+    //
     serialise_cybol_integer(p0, td, tc, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
 
     // Deallocate temporary integer item.

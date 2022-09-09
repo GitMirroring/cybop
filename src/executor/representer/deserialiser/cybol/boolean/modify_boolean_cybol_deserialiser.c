@@ -62,12 +62,14 @@ void deserialise_cybol_boolean_modify(void* p0, void* p1, void* p2, void* p3) {
         // Therefore, insert value.
         //
 
+        //
         // Set value to "true", i.e. the integer value to "one".
         //
         // CAUTION! Do NOT use a simple "copy_integer" function here,
         // since that does NOT resize the destination item.
         // The "overwrite_item_element" function would be possible, too,
         // but "modify_item_element" is just more convenient.
+        //
         modify_item(p0, p1, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INSERT_MODIFY_LOGIC_CYBOI_FORMAT);
 
     } else {
@@ -77,12 +79,14 @@ void deserialise_cybol_boolean_modify(void* p0, void* p1, void* p2, void* p3) {
         // Therefore, append value.
         //
 
+        //
         // Set value to "false", i.e. the integer value to "zero".
         //
         // CAUTION! Do NOT use a simple "copy_integer" function here,
         // since that does NOT resize the destination item.
         // The "overwrite_item_element" function would be possible, too,
         // but "modify_item_element" is just more convenient.
+        //
         modify_item(p0, p1, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
     }
 }

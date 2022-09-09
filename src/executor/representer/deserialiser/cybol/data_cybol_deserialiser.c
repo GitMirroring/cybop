@@ -43,34 +43,35 @@
  * @param p0 the destination item
  * @param p1 the source data
  * @param p2 the source count
- * @param p3 the channel item
- * @param p4 the encoding item
- * @param p5 the language item
+ * @param p3 the channel
+ * @param p4 the encoding
+ * @param p5 the language
  * @param p6 the format item
  */
 void deserialise_cybol_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol data.");
-    // fwprintf(stdout, L"Debug: Deserialise cybol data. p3: %i\n", p3);
-    // fwprintf(stdout, L"Debug: Deserialise cybol data. *p3: %i\n", *((int*) p3));
+    fwprintf(stdout, L"Debug: Deserialise cybol data. source count p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Deserialise cybol data. source count *p2: %i\n", *((int*) p2));
 
     // The part channel, encoding, language, format data.
-    void* pcd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ped = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* pld = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //?? void* pcd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //?? void* ped = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //?? void* pld = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pfd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get part channel item data.
-    copy_array_forward((void*) &pcd, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    //?? copy_array_forward((void*) &pcd, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get part encoding item data.
-    copy_array_forward((void*) &ped, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    //?? copy_array_forward((void*) &ped, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get part language item data.
-    copy_array_forward((void*) &pld, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    //?? copy_array_forward((void*) &pld, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get part format item data.
     copy_array_forward((void*) &pfd, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Deserialise cybol source.
-    deserialise_cybol_source(p0, p1, p2, pcd, ped, pld, pfd, p4);
+    //?? deserialise_cybol_source(p0, p1, p2, pcd, ped, pld, pfd, p4);
+    deserialise_cybol_source(p0, p1, p2, p3, p4, p5, pfd, *NULL_POINTER_STATE_CYBOI_MODEL);
 }
 
 /* DATA_CYBOL_DESERIALISER_SOURCE */

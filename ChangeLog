@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-09-09  Christian Heller  <christian.heller@cybop.org>
+
+        * Remove channel, encoding, language from cyboi-internal allocated part structure
+
 2022-09-04  Christian Heller  <christian.heller@cybop.org>
 
         * Release CYBOP 0.23.0

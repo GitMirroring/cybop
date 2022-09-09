@@ -53,7 +53,13 @@ void deserialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
  */
 void deserialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol element.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol element.");
+    fwprintf(stdout, L"Debug: Deserialise cybol element. format p4: %i\n", p4);
+    fwprintf(stdout, L"Debug: Deserialise cybol element. format *p4: %i\n", *((int*) p4));
+
+    //
+    // Declaration
+    //
 
     // The temporary model, properties item.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -66,31 +72,49 @@ void deserialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4)
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    //
+    // Allocation
+    //
+
+    //
     // Allocate temporary model, properties item.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     // CAUTION! Initialise integer items with a size of ONE,
     // in order to avoid later reallocation when overwriting
     // the element and to thus increase efficiency.
+    //
     allocate_item((void*) &m, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
     allocate_item((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+
+    //
+    // Deserialisation step 1: xml
+    //
 
     // Deserialise source message (cybol file) into temporary model, properties item.
     deserialise_xml(m, p, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
+    //
+    // Retrieval
+    //
+
+    //
     // Get temporary model, properties data, count.
+    //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
+    //
     copy_array_forward((void*) &md, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &mc, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    //?? -- TEST ONLY: remove later!
-//??    test((void*) L"TEST_xml_model.txt", *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, md, mc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-//??    test((void*) L"TEST_xml_properties.txt", *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, pd, pc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-    //?? -- TEST END
+    //
+    // Deserialisation step 2: cybol
+    //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -98,21 +122,14 @@ void deserialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Deserialise temporary model, properties item into cyboi model using temporary type, format.
-            // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
+            //
+            // Deserialise temporary model item into cyboi model using temporary type, format.
+            //
+            // CAUTION! The tags (structural data) and attributes (meta data) are swapped in meaning.
+            //
             deserialise_cybol_content(p0, md, mc, pd, pc);
         }
     }
-
-/*??
-    //?? -- TEST ONLY: remove later!
-    void* TESTd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* TESTc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    copy_array_forward((void*) &TESTd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &TESTc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    test((void*) L"TEST_cybol_part.txt", *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, TESTd, TESTc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-    //?? -- TEST END
-*/
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -120,11 +137,18 @@ void deserialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Deserialise temporary model, properties item into cyboi model using temporary type, format.
-            // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
+            //
+            // Deserialise temporary properties item into cyboi model using temporary type, format.
+            //
+            // CAUTION! The tags (structural data) and attributes (meta data) are swapped in meaning.
+            //
             deserialise_cybol_content(p1, md, mc, pd, pc);
         }
     }
+
+    //
+    // Deallocation
+    //
 
     // Deallocate temporary model, properties item.
     deallocate_item((void*) &m, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);

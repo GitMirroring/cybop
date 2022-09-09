@@ -51,6 +51,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol encoding.");
 
+    //
     // CAUTION! Do NOT use the "append" function here!
     // The encoding of each part has been given a size of ONE,
     // so that reallocation is not necessary for adding an element.
@@ -60,6 +61,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
     // since an encoding may be handed over not only as cybol attribute
     // (for which a default size of one has been set when allocating a part),
     // but also as cybol model (which gets assigned a default size of zero).
+    //
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -426,14 +428,10 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        //
-        // CAUTION! Do NOT log this warning.
-        // The source may be NULL in some cases.
-        //
-        // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol encoding. The source cybol encoding is unknown.");
-        // fwprintf(stdout, L"Warning: Could not deserialise cybol encoding. The source cybol encoding is unknown. cybol encoding p1: %ls\n", (wchar_t*) p1);
-        // fwprintf(stdout, L"Warning: Could not deserialise cybol encoding. The source cybol encoding is unknown. cybol encoding p2: %i\n", p2);
-        // fwprintf(stdout, L"Warning: Could not deserialise cybol encoding. The source cybol encoding is unknown. cybol encoding *p2: %i\n", *((int*) p2));
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol encoding. The source cybol encoding is unknown.");
+        fwprintf(stdout, L"Warning: Could not deserialise cybol encoding. The source cybol encoding is unknown. cybol encoding p1: %ls\n", (wchar_t*) p1);
+        fwprintf(stdout, L"Warning: Could not deserialise cybol encoding. The source cybol encoding is unknown. cybol encoding p2: %i\n", p2);
+        fwprintf(stdout, L"Warning: Could not deserialise cybol encoding. The source cybol encoding is unknown. cybol encoding *p2: %i\n", *((int*) p2));
     }
 }
 
