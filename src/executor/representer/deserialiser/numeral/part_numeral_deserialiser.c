@@ -32,6 +32,8 @@
 /**
  * Deserialises the first or second part numeral.
  *
+ * A vulgar fraction or a complex number consist of TWO parts.
+ *
  * @param p0 the destination algebraic sign
  * @param p1 the destination number base (relevant for integer only)
  * @param p2 the destination value
@@ -57,7 +59,7 @@ void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, 
     int s = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Skip any whitespace characters.
-    deserialise_numeral_whitespace(p5, p6);
+    deserialise_whitespace(p5, p6);
 
     // Deserialise algebraic sign.
     select_numeral_sign(p0, p5, p6);

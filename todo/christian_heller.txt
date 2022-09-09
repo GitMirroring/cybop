@@ -11,6 +11,44 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+API
+___
+
+        * Use unicode number constant with suffix "_COUNT" of file "unicode_character_code_model.c" instead of constant PRIMITIVE_STATE_CYBOI_MODEL_COUNT in file "html_character_reference_deserialiser.c"
+        HINWEISE:
+            - Einige unicode constants werden nicht generiert, da nicht in der durch die Python-Skripte verwendeten Quelle enthalten.
+            - Betroffen sind die Zeichen mit den Unicode Decimals: 0x0000 - 0x0008 und 0x256D - 0x2570
+
+        * Copy content from OLD api in "www/archive_api/2022-07-13/" to directory "constant/format/cybol/logic/"
+        * Delete directory "tools/api-generator/spec_backup_delete_later/" from svn, as soon as all api documentation comments have been converted to the new format
+        * Update cybol api specification in javadoc comment blocks of directory "constant/format/cybol/logic/"
+        * ALL not mentioned here anymore are done but only the following are TODO:
+            live_logic_cybol_format.c
+            memorise_logic_cybol_format.c
+            dispatch_logic_cybol_format.c
+            stream_logic_cybol_format.c
+            represent_logic_cybol_format.c
+            convert_logic_cybol_format.c
+            communicate_logic_cybol_format.c
+            flow_logic_cybol_format.c
+            maintain_logic_cybol_format.c
+            activate_logic_cybol_format.c
+            feel_logic_cybol_format.c
+            compare_logic_cybol_format.c
+            calculate_logic_cybol_format.c
+            logify_logic_cybol_format.c
+            modify_logic_cybol_format.c
+            check_logic_cybol_format.c
+            access_logic_cybol_format.c
+            sort_logic_cybol_format.c
+            time_logic_cybol_format.c
+            run_logic_cybol_format.c
+            command_logic_cybol_format.c
+            manipulate_logic_cybol_format.c
+            randomise_logic_cybol_format.c
+            cast_logic_cybol_format.c
+            contain_logic_cybol_format.c
+
 Numeral Deserialiser
 ____________________
 
@@ -21,10 +59,11 @@ ____________________
         CORRECT: Assign detected format and type in file "part_numeral_deserialiser.c" ONLY if not present yet since otherwise, a vulgar fraction or complex format might get overwritten by decimal fraction
 
         CONTINUE:
-        * Use string function "modify_split" to separate the single numbers of a vector
-        * Consider thousands separator (forgotten up to now)
         * Continue numeral deserialiser and -selector
         * Start from files "part_numeral_deserialiser.c" and "assembler_numeral_selector.c"
+        * Process open TODO sections in file "value_numeral_selector.c"
+        * Consider thousands separator (forgotten up to now)
+        * Use function "deserialise_joined_string" to separate the single numbers of a vector
         * Adapt loop section in file "number_json_deserialiser.c" to call function "deserialise_numeral"
         * Adapt section "number" in file "cybol_deserialiser.c" to call function "deserialise_numeral"
 
@@ -57,18 +96,6 @@ ____
         * Consider formats "BYTE_NUMBER_STATE_CYBOI_FORMAT" and "ASCII_TEXT_STATE_CYBOI_FORMAT"
         * Implement base64 serialiser and deserialiser
         * Implement binary json (bson) data interchange format with mime type "application/bson" ??
-
-API
-___
-
-        * Update cybol api specification in javadoc comment blocks of directory "constant/format/cybol/logic/"
-        * Delete directory "tools/api-generator/spec_backup_delete_later/" from svn, as soon as all api documentation comments have been converted to the new format
-
-        * Add still missing model number constant with suffix "_COUNT" to unicode constants MANUALLY in file "unicode_character_code_model.c"
-        * Use unicode number constant in file "html_character_reference_deserialiser.c"
-        HINWEISE:
-            - Einige unicode constants werden nicht generiert, da nicht in der durch die Python-Skripte verwendeten Quelle enthalten.
-            - Betroffen sind die Zeichen mit den Unicode Decimals: 0x0000 - 0x0008 und 0x256D - 0x2570
 
 git
 ___

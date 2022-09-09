@@ -46,8 +46,8 @@
  * https://www.json.org/
  *
  * The first (empty) can obviously NOT be considered.
- * Therefore, just FOUR comparisons are done below.
- * All of these kinds of whitespace characters are skipped.
+ * Therefore, just FOUR comparisons are done in this function.
+ * All of these kinds of whitespace characters are SKIPPED.
  *
  * @param p0 the destination loop break flag
  * @param p1 the source data position (pointer reference)
@@ -56,12 +56,12 @@
 void select_whitespace(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select whitespace.");
-    fwprintf(stdout, L"Debug: Select whitespace. count remaining p8: %i\n", p8);
-    fwprintf(stdout, L"Debug: Select whitespace. count remaining *p8: %i\n", *((int*) p8));
-    fwprintf(stdout, L"Debug: Select whitespace. data position *p7: %i\n", *((void**) p7));
-    fwprintf(stdout, L"Debug: Select whitespace. data position *p7 ls: %ls\n", (wchar_t*) *((void**) p7));
-    fwprintf(stdout, L"Debug: Select whitespace. data position *p7 lc: %lc\n", *((wchar_t*) *((void**) p7)));
-    fwprintf(stdout, L"Debug: Select whitespace. data position *p7 lc as int: %i\n", *((wchar_t*) *((void**) p7)));
+    fwprintf(stdout, L"Debug: Select whitespace. count remaining p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Select whitespace. count remaining *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Select whitespace. data position *p1: %i\n", *((void**) p1));
+    fwprintf(stdout, L"Debug: Select whitespace. data position *p1 ls: %ls\n", (wchar_t*) *((void**) p1));
+    fwprintf(stdout, L"Debug: Select whitespace. data position *p1 lc: %lc\n", *((wchar_t*) *((void**) p1)));
+    fwprintf(stdout, L"Debug: Select whitespace. data position *p1 lc as int: %i\n", *((wchar_t*) *((void**) p1)));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
