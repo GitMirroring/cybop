@@ -14,11 +14,6 @@
 API
 ___
 
-        * Use unicode number constant with suffix "_COUNT" of file "unicode_character_code_model.c" instead of constant PRIMITIVE_STATE_CYBOI_MODEL_COUNT in file "html_character_reference_deserialiser.c"
-        HINWEISE:
-            - Einige unicode constants werden nicht generiert, da nicht in der durch die Python-Skripte verwendeten Quelle enthalten.
-            - Betroffen sind die Zeichen mit den Unicode Decimals: 0x0000 - 0x0008 und 0x256D - 0x2570
-
         * Copy content from OLD api in "www/archive_api/2022-07-13/" to directory "constant/format/cybol/logic/"
         * Delete directory "tools/api-generator/spec_backup_delete_later/" from svn, as soon as all api documentation comments have been converted to the new format
         * Update cybol api specification in javadoc comment blocks of directory "constant/format/cybol/logic/"
