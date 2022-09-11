@@ -1,3 +1,0 @@
-<node name="destroy_tui_control" channel="inline" format="memorise/destroy" model="">
-    <node name="name" channel="inline" format="text/cybol-path" model=".tui_control"/>
-</node>

@@ -43,7 +43,7 @@
  *
  * Count parts of a compound part.
  *
- * This is a CYBOL extension.
+ *
  *
  * Expected parametres:
  * - count (required): the knowledge model in which to store the result
@@ -54,6 +54,25 @@
  * - filter (optional; corresponds with "selection" property):
  *   string to compare the elements' names with;
  *   only those parts will be counted whose name matches the filter string
+--
+    Description
+
+    Count parts of a compound part.
+    Example
+
+    <node name="count" channel="inline" format="access/count" model="">
+        <node name="count" channel="inline" format="text/cybol-path" model=".count"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".addition_application"/>
+        <node name="selection" channel="inline" format="text/plain" model="subsequence"/>
+        <node name="filter" channel="inline" format="text/plain" model="summand"/>
+    </node>
+    Properties
+    Name	Description	Required	Format	Model
+    count	The knowledge model in which to store the result.	true	path/*
+    part	The part whose elements to be counted.	true	path/* | number/*
+    selection	The area of the elements names, to be compared. May be one of: all, suffix, prefix, subsequence. If null the element count is compared without comparison.	false	path/* | meta/type
+    filter	String to compare the elements with. Elements will only be counted if matching the filter string.	false	path/* | meta/type
+--
  */
 static wchar_t* COUNT_ACCESS_LOGIC_CYBOL_FORMAT = L"access/count";
 static int* COUNT_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -63,11 +82,26 @@ static int* COUNT_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * Get a part's format.
  *
- * This is a CYBOL extension.
+ *
  *
  * Expected parametres:
  * - element (required): the part's element (name, channel, encoding, language, format, type)
  * - part (required): the knowledge path to the part
+--
+Description
+
+Get a part's format.
+Example
+
+<node name="get_details" channel="inline" format="access/get-format" model="">
+    <node name="element" channel="inline" format="text/cybol-path" model=".app.details"/>
+    <node name="part" channel="inline" format="text/cybol-path" model=".app.node"/>
+</node>
+Properties
+Name	Description	Required	Format	Model
+element	The part's element (format).	true	path/*
+part	The knowledge path to the part.	true	path/* | number/*
+--
  */
 static wchar_t* FORMAT_GET_ACCESS_LOGIC_CYBOL_FORMAT = L"access/get-format";
 static int* FORMAT_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -77,12 +111,24 @@ static int* FORMAT_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
  *
  * Gets the index of the part within the whole.
  *
- * This is a CYBOL extension.
+ *
  *
  * Expected parametres:
  * - index (required): the determined index of the part
  * - part (required): the name of the part whose index is to be determined
  * - whole (required): the compound within which the part is situated
+--
+Description
+
+Get an index.
+Example
+
+Properties
+Name	Description	Required	Format	Model
+index	???	true	path/*
+part	The knowledge path to the part.	true	path/* | number/*
+whole	???	true	path/* | number/*
+--
  */
 static wchar_t* GET_INDEX_ACCESS_LOGIC_CYBOL_FORMAT = L"access/get-index";
 static int* GET_INDEX_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -92,11 +138,26 @@ static int* GET_INDEX_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  *
  * Get a part's name.
  *
- * This is a CYBOL extension.
+ *
  *
  * Expected parametres:
  * - element (required): the part's element (name, channel, encoding, language, format, type)
  * - part (required): the knowledge path to the part
+--
+Description
+
+Get a part's name.
+Example
+
+<node name="copy_name_of_part_1_into_model_of_part_2" channel="inline" format="access/get-name" model="">
+    <node name="element" channel="inline" format="text/cybol-path" model=".part_2"/>
+    <node name="part" channel="inline" format="text/cybol-path" model=".part_1"/>
+</node>
+Properties
+Name	Description	Required	Format	Model
+element	The part's element (name).	true	path/*
+part	The knowledge path to the part.	true	path/* | number/*
+--
  */
 static wchar_t* NAME_GET_ACCESS_LOGIC_CYBOL_FORMAT = L"access/get-name";
 static int* NAME_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -106,11 +167,26 @@ static int* NAME_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  *
  * Get a part's type.
  *
- * This is a CYBOL extension.
+ *
  *
  * Expected parametres:
  * - element (required): the part's element (name, channel, encoding, language, format, type)
  * - part (required): the knowledge path to the part
+--
+Description
+
+Get a part's type.
+Example
+
+<node name="copy_type_of_part_1_into_model_of_part_2" channel="inline" format="access/get-type" model="">
+    <node name="element" channel="inline" format="text/cybol-path" model=".part_2"/>
+    <node name="part" channel="inline" format="text/cybol-path" model=".part_1"/>
+</node>
+Properties
+Name	Description	Required	Format	Model
+element	The part's element (type).	true	path/*
+part	The knowledge path to the part.	true	path/* | number/*
+--
  */
 static wchar_t* TYPE_GET_ACCESS_LOGIC_CYBOL_FORMAT = L"access/get-type";
 static int* TYPE_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -120,12 +196,27 @@ static int* TYPE_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  *
  * Indicates if data are empty, i.e. the count is zero.
  *
- * This is a CYBOL extension.
+ *
  *
  * Expected parametres:
  * - result (required): the result flag
  *   (set to true upon successful comparison; left untouched otherwise)
  * - part (required): the part
+--
+Description
+
+Indicates if data are empty, i.e. the count is zero. The operation is ONLY usable with values of format
+Example
+
+<node name="test_empty_number_empty" channel="inline" format="access/indicate-empty" model="">
+  <node name="result" channel="inline" format="text/cybol-path" model=".app.flag"/>
+  <node name="part" channel="inline" format="text/cybol-path" model=".app.empty_number"/>
+</node>
+Properties
+Name	Description	Required	Format	Model
+result	The result flag, set to true on successful comparison, left untouched otherwise.	true	path/*
+part	The part.	true	path/* | number/*
+--
  */
 static wchar_t* EMPTY_INDICATE_ACCESS_LOGIC_CYBOL_FORMAT = L"access/indicate-empty";
 static int* EMPTY_INDICATE_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -135,12 +226,28 @@ static int* EMPTY_INDICATE_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  *
  * Indicates if data exist, i.e. the count is greater than zero.
  *
- * This is a CYBOL extension.
+ *
  *
  * Expected parametres:
  * - result (required): the result flag
  *   (set to true upon successful comparison; left untouched otherwise)
  * - part (required): the part
+--
+access/indicate-exists
+Description
+
+Indicates if data exist, i.e. the count is greater than zero. The operation is ONLY usable with values of format
+Example
+
+<node name="test_empty_number_exists" channel="inline" format="access/indicate-exists" model="">
+  <node name="result" channel="inline" format="text/cybol-path" model=".app.flag"/>
+  <node name="part" channel="inline" format="text/cybol-path" model=".app.empty_number"/>
+</node>
+Properties
+Name	Description	Required	Format	Model
+result	The result flag, set to true on successful comparison, left untouched otherwise.	true	path/*
+part	The part.	true	path/* | number/*
+--
  */
 static wchar_t* EXISTS_INDICATE_ACCESS_LOGIC_CYBOL_FORMAT = L"access/indicate-exists";
 static int* EXISTS_INDICATE_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;

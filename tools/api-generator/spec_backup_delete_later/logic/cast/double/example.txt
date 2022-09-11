@@ -1,5 +1,0 @@
-    <node name="cast_double" channel="inline" format="cast/double" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".part_2"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".part_1"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </node>

@@ -66,6 +66,29 @@
  * right operand: 3
  * result value: 0 (which corresponds to "false")
  *
+ * Description:
+ *
+Compares left and right parametre.
+ *
+ * Examples:
+ *
+ * <node name="compare_equal" channel="inline" format="compare/equal" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".model.result"/>
+ *     <node name="left" channel="inline" format="text/cybol-path" model=".model.left"/>
+ *     <node name="right" channel="inline" format="text/cybol-path" model=".model.right"/>
+ *     <node name="type" channel="inline" format="meta/type" model="number/complex-cartesian"/>
+ *     <node name="selection" channel="inline" format="text/plain" model="all"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+result	the knowledge model, in which the result is stored (of type boolean)	true	path/* | logicvalue/boolean
+left	the left operand	true	path/* | number/* | text/plain
+right	the right operand	true	path/* | number/* | text/plain
+type	the operand type which is equal for both operands	true	path/* | meta/type
+selection	the area of two strings or number vectors to be compared	true	path/* | meta/type
+ *
  * Expected parametres:
  * - result (required): the knowledge model, in which the result is stored (of type boolean)
  * - left (required): the left operand
@@ -81,6 +104,29 @@ static int* EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  * The compare/greater logic cybol format.
  *
  * Compare for greaterness: >
+ *
+ * Description:
+ *
+Compares left and right parametre.
+ *
+ * Examples:
+ *
+ * <node name="compare_loop_count" channel="inline" format="compare/greater" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".counter.break"/>
+ *     <node name="left" channel="inline" format="text/cybol-path" model=".counter.count"/>
+ *     <node name="right" channel="inline" format="text/cybol-path" model=".counter.maximum"/>
+ *     <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+ *     <node name="selection" channel="inline" format="text/plain" model="all"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+result	the knowledge model, in which the result is stored (of type boolean)	true	path/* | logicvalue/boolean
+left	the left operand	true	path/* | number/* | text/plain
+right	the right operand	true	path/* | number/* | text/plain
+type	the operand type which is equal for both operands	true	path/* | meta/type
+selection	the area of two strings or number vectors to be compared	true	path/* | meta/type
  */
 static wchar_t* GREATER_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/greater";
 static int* GREATER_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -89,6 +135,29 @@ static int* GREATER_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  * The compare/greater-or-equal logic cybol format.
  *
  * Compare for greaterness or equality: >=
+ *
+ * Description:
+ *
+Compares left and right parametre.
+ *
+ * Examples:
+ *
+ * <node name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".domain.break"/>
+ *     <node name="left" channel="inline" format="text/cybol-path" model=".domain.count"/>
+ *     <node name="right" channel="inline" format="text/cybol-path" model=".domain.maximum"/>
+ *     <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+ *     <node name="selection" channel="inline" format="text/plain" model="all"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+result	the knowledge model, in which the result is stored (of type boolean)	true	path/* | logicvalue/boolean
+left	the left operand	true	path/* | number/* | text/plain
+right	the right operand	true	path/* | number/* | text/plain
+type	the operand type which is equal for both operands	true	path/* | meta/type
+selection	the area of two strings or number vectors to be compared	true	path/* | meta/type
  */
 static wchar_t* GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/greater-or-equal";
 static int* GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -97,6 +166,16 @@ static int* GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGE
  * The compare/less logic cybol format.
  *
  * Compare for lessness: <
+ *
+ * Description:
+ *
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  */
 static wchar_t* LESS_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/less";
 static int* LESS_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -105,6 +184,16 @@ static int* LESS_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  * The compare/less-or-equal logic cybol format.
  *
  * Compare for lessness or equality: <=
+ *
+ * Description:
+ *
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  */
 static wchar_t* LESS_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/less-or-equal";
 static int* LESS_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -113,6 +202,29 @@ static int* LESS_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  * The compare/unequal logic cybol format.
  *
  * Compare for unequality: !=
+ *
+ * Description:
+ *
+Compares left and right parametre.
+ *
+ * Examples:
+ *
+ * <node name="compare_unequal" channel="inline" format="compare/unequal" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".model.result"/>
+ *     <node name="left" channel="inline" format="text/cybol-path" model=".model.left"/>
+ *     <node name="right" channel="inline" format="text/cybol-path" model=".model.right"/>
+ *     <node name="type" channel="inline" format="meta/type" model="number/complex-cartesian"/>
+ *     <node name="selection" channel="inline" format="text/plain" model="all"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+result	the knowledge model, in which the result is stored (of type boolean)	true	path/* | logicvalue/boolean
+left	the left operand	true	path/* | number/* | text/plain
+right	the right operand	true	path/* | number/* | text/plain
+type	the operand type which is equal for both operands	true	path/* | meta/type
+selection	the area of two strings or number vectors to be compared	true	path/* | meta/type
  */
 static wchar_t* UNEQUAL_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/unequal";
 static int* UNEQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;

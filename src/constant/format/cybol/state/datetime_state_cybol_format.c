@@ -43,7 +43,7 @@
  *
  * name de: Christi Himmelfahrt
  *
- * This is a CYBOL extension.
+ *
  */
 static wchar_t* ASCENSION_DATETIME_STATE_CYBOL_FORMAT = L"datetime/ascension";
 static int* ASCENSION_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -51,7 +51,7 @@ static int* ASCENSION_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
 /**
  * The datetime/day-of-month state cybol format.
  *
- * This is a CYBOL extension.
+ *
  */
 static wchar_t* DAY_OF_MONTH_DATETIME_STATE_CYBOL_FORMAT = L"datetime/day-of-month";
 static int* DAY_OF_MONTH_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -59,7 +59,7 @@ static int* DAY_OF_MONTH_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
 /**
  * The datetime/day-of-week state cybol format.
  *
- * This is a CYBOL extension.
+ *
  */
 static wchar_t* DAY_OF_WEEK_DATETIME_STATE_CYBOL_FORMAT = L"datetime/day-of-week";
 static int* DAY_OF_WEEK_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -67,7 +67,7 @@ static int* DAY_OF_WEEK_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_ST
 /**
  * The datetime/day-of-year state cybol format.
  *
- * This is a CYBOL extension.
+ *
  */
 static wchar_t* DAY_OF_YEAR_DATETIME_STATE_CYBOL_FORMAT = L"datetime/day-of-year";
 static int* DAY_OF_YEAR_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -81,7 +81,7 @@ static int* DAY_OF_YEAR_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_ST
  *
  * German de jure standard: DIN 1355-1
  *
- * This is a CYBOL extension.
+ *
  */
 static wchar_t* DD_DOT_MM_DOT_YYYY_DATETIME_STATE_CYBOL_FORMAT = L"datetime/dd.mm.yyyy";
 static int* DD_DOT_MM_DOT_YYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -100,7 +100,7 @@ static int* DD_DOT_MM_DOT_YYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INT
  * Since the "year 2000 problem", all dates since then should be
  * and are expected to be given with FOUR year digits.
  *
- * This is a CYBOL extension.
+ *
  */
 static wchar_t* DD_SLASH_MM_SLASH_YY_DATETIME_STATE_CYBOL_FORMAT = L"datetime/dd/mm/yy";
 static int* DD_SLASH_MM_SLASH_YY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -112,7 +112,7 @@ static int* DD_SLASH_MM_SLASH_YY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_I
  * South America, India, Africa, Australia.
  * https://de.wikipedia.org/wiki/Datumsformat
  *
- * This is a CYBOL extension.
+ *
  */
 static wchar_t* DD_SLASH_MM_SLASH_YYYY_DATETIME_STATE_CYBOL_FORMAT = L"datetime/dd/mm/yyyy";
 static int* DD_SLASH_MM_SLASH_YYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -122,7 +122,7 @@ static int* DD_SLASH_MM_SLASH_YYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_19
  *
  * It is used e.g. in the German xDT medical standard.
  *
- * This is a CYBOL extension.
+ *
  */
 static wchar_t* DDMMYYYY_DATETIME_STATE_CYBOL_FORMAT = L"datetime/ddmmyyyy";
 static int* DDMMYYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -132,7 +132,7 @@ static int* DDMMYYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
  *
  * name de: Ostermontag
  *
- * This is a CYBOL extension.
+ *
  */
 static wchar_t* EASTER_MONDAY_DATETIME_STATE_CYBOL_FORMAT = L"datetime/easter-monday";
 static int* EASTER_MONDAY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -142,7 +142,7 @@ static int* EASTER_MONDAY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
  *
  * name de: Ostersonntag
  *
- * This is a CYBOL extension.
+ *
  */
 static wchar_t* EASTER_SUNDAY_DATETIME_STATE_CYBOL_FORMAT = L"datetime/easter-sunday";
 static int* EASTER_SUNDAY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -150,7 +150,7 @@ static int* EASTER_SUNDAY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
 /**
  * The datetime/iso state cybol format.
  *
- * This is a CYBOL extension.
+ *
  */
 static wchar_t* ISO_DATETIME_STATE_CYBOL_FORMAT = L"datetime/iso";
 static int* ISO_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -168,7 +168,7 @@ static int* ISO_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  * Since the "year 2000 problem", all dates since then should be
  * and are expected to be given with FOUR year digits.
  *
- * This is a CYBOL extension.
+ *
  */
 static wchar_t* MM_SLASH_DD_SLASH_YY_DATETIME_STATE_CYBOL_FORMAT = L"datetime/mm/dd/yy";
 static int* MM_SLASH_DD_SLASH_YY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -179,7 +179,7 @@ static int* MM_SLASH_DD_SLASH_YY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_I
  * It is used e.g. in the USA, Philippines, Saudia Arabia.
  * https://de.wikipedia.org/wiki/Datumsformat
  *
- * This is a CYBOL extension.
+ *
  */
 static wchar_t* MM_SLASH_DD_SLASH_YYYY_DATETIME_STATE_CYBOL_FORMAT = L"datetime/mm/dd/yyyy";
 static int* MM_SLASH_DD_SLASH_YYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -189,7 +189,7 @@ static int* MM_SLASH_DD_SLASH_YYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_19
  *
  * It is used e.g. in the German xDT medical standard.
  *
- * This is a CYBOL extension.
+ *
  */
 static wchar_t* MMYY_DATETIME_STATE_CYBOL_FORMAT = L"datetime/mmyy";
 static int* MMYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -197,7 +197,7 @@ static int* MMYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
 /**
  * The datetime/month-of-year state cybol format.
  *
- * This is a CYBOL extension.
+ *
  */
 static wchar_t* MONTH_OF_YEAR_DATETIME_STATE_CYBOL_FORMAT = L"datetime/month-of-year";
 static int* MONTH_OF_YEAR_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -207,7 +207,7 @@ static int* MONTH_OF_YEAR_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
  *
  * It is used e.g. in the German xDT medical standard.
  *
- * This is a CYBOL extension.
+ *
  */
 static wchar_t* QYYYY_DATETIME_STATE_CYBOL_FORMAT = L"datetime/qyyyy";
 static int* QYYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -215,7 +215,7 @@ static int* QYYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
 /**
  * The datetime/week-of-month state cybol format.
  *
- * This is a CYBOL extension.
+ *
  */
 static wchar_t* WEEK_OF_MONTH_DATETIME_STATE_CYBOL_FORMAT = L"datetime/week-of-month";
 static int* WEEK_OF_MONTH_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -223,7 +223,7 @@ static int* WEEK_OF_MONTH_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
 /**
  * The datetime/week-of-year state cybol format.
  *
- * This is a CYBOL extension.
+ *
  */
 static wchar_t* WEEK_OF_YEAR_DATETIME_STATE_CYBOL_FORMAT = L"datetime/week-of-year";
 static int* WEEK_OF_YEAR_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;

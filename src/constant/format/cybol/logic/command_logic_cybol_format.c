@@ -43,6 +43,25 @@
  *
  * Archive the given files into a packed format.
  *
+ * Description:
+ *
+Archives the given data into a file.
+ *
+ * Examples:
+ *
+ * <node name="archive" channel="inline" format="command/archive" model="">
+ *     <node name="create" channel="inline" format="logicvalue/boolean" model="true"/>
+ *     <node name="update" channel="inline" format="logicvalue/boolean" model="false"/>
+ *     <node name="bzip2" channel="inline" format="logicvalue/boolean" model="false"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+create	The option for creating an archive.	false	logicvalue/boolean
+update	The option for updating an archive.	false	logicvalue/boolean
+bzip2	The option for using the bzip2 compression algorithm.	false	logicvalue/boolean
+ *
  * Expected parametres:
  * - create (optional): the option for creating an archive
  * - update (optional): the option for updating an archive
@@ -55,6 +74,17 @@ static int* ARCHIVE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  * The command/change-directory logic cybol format.
  *
  * Change the directory.
+ *
+ * Description:
+ *
+Changes the directory.
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  *
  * Expected parametres:
  * - path (required): path to the directory
@@ -69,6 +99,17 @@ static int* CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGE
  * The command/change-permission logic cybol format.
  *
  * Changes the permission of a file or directory.
+ *
+ * Description:
+ *
+Changes the permission of a file or directory.
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  *
  * Expected parametres:
  * - path (required): path to the file or directory
@@ -87,6 +128,19 @@ static int* CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_25_INTEG
  *
  * Clear the terminal (console) screen.
  *
+ * Description:
+ *
+clear the screen
+ *
+ * Examples:
+ *
+ * <node name="clear" channel="inline" format="command/clear" model="">
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+ *
  * Expected parametres:
  * - none
  */
@@ -97,6 +151,17 @@ static int* CLEAR_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  * The command/compare-files logic cybol format.
  *
  * Compare two files.
+ *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  *
  * Expected parametres:
  * - path1 (required): path1 to the file
@@ -118,6 +183,17 @@ static int* COMPARE_FILES_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  *
  * Configure the network.
  *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+ *
  * Expected parametres:
  * - ??
  */
@@ -129,6 +205,17 @@ static int* CONFIG_NETWORK_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
  *
  * Copy the given file into another.
  * Copies the file resource to a destination.
+ *
+ * Description:
+ *
+Copies the file resource to a destination.
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  *
  * Expected parametres:
  * - source (required): the source to be copied
@@ -149,6 +236,17 @@ static int* COPY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * Creates a directory also called folder in the file system.
  *
+ * Description:
+ *
+Creates a folder.
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+ *
  * Expected parametres:
  * - path (required): path to the directory
  */
@@ -159,6 +257,17 @@ static int* CREATE_FOLDER_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  * The command/date logic cybol format.
  *
  * Print out the date or change it.
+ *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  *
  * Expected parametres:
  * - new date (optional): value of the new date
@@ -176,6 +285,17 @@ static int* DATE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * Delay for a few seconds.
  *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+ *
  * Expected parametres:
  * - time (required): time in seconds
  */
@@ -186,6 +306,23 @@ static int* DELAY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  * The command/diff logic cybol format.
  *
  * Displays differences between two files.
+ *
+ * Description:
+ *
+Compares two files.
+ *
+ * Examples:
+ *
+ * <node name="diff" channel="inline" format="command/diff" model="">
+ *     <node name="file1" channel="inline" format="text/plain" model="shell_command_diff\diff1.txt"/>
+ *     <node name="file2" channel="inline" format="text/plain" model="shell_command_diff\diff2.txt"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+file1	first file to compare	true	text/plain
+file2	second file to compare	true	text/plain
  *
  * Expected parametres:
  * - first file (required): first file to compare
@@ -198,6 +335,17 @@ static int* DIFF_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  * The command/disk-free logic cybol format.
  *
  * Display free disk space.
+ *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  *
  * Expected parametres:
  * - all (optional): the all option (lists filesystems with a size of 0 blocks)
@@ -215,6 +363,17 @@ static int* DISK_FREE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
  *
  * Shows the usage of a directory.
  *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+ *
  * Expected parametres:
  * - human(optional): the human option (human-readable output)
  * - summarize(optional): the summarize option (prints a summarize)
@@ -230,6 +389,21 @@ static int* DISK_USAGE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  *
  * Display the content of one or more text files
  *
+ * Description:
+ *
+Display the content.
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+path	the listing for the given path (the default is the current directory)	false	text/plain
+squeze	???	false	logicvalue/boolean
+number-lines	???	false	logicvalue/boolean
+clear	???	false	logicvalue/boolean
+ *
  * Expected parametres:
  * - path (required): path to the file
  * - clear screen (optional): Clear screen before displaying page
@@ -244,6 +418,22 @@ static int* DISPLAY_CONTENT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER
  *
  * Echo a given message to the standard output.
  *
+ * Description:
+ *
+Echos the message to standard output.
+ *
+ * Examples:
+ *
+ * <node name="echo" channel="inline" format="command/echo" model="">
+ *     <node name="message" channel="inline" format="text/plain"
+      model="hello, this is an echo over standard output"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+message	the message which should be directed to the standard output	false	text/plain
+ *
  * Expected parametres:
  * - message (optional): the message which should be directed to the standard output
  */
@@ -254,6 +444,17 @@ static int* ECHO_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  * The command/find-command logic cybol format.
  *
  * Locates the binary, source, and manual page files for a command.
+ *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  *
  * Expected parametres:
  * - command (required): command to be processed
@@ -269,6 +470,17 @@ static int* FIND_COMMAND_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_ST
  *
  * Find a file.
  *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+ *
  * Expected parametres:
  * - path: the path including wildcards for deleting files and directories
  * - insensitive (optional): the insensitive option (ignore upper/lowercase when searching for a file, Unix only)
@@ -282,6 +494,23 @@ static int* FIND_FILE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
  *
  * Searches for a pattern in the file and prints out those lines matching the pattern.
  *
+ * Description:
+ *
+Searches for pattern in file.
+ *
+ * Examples:
+ *
+ * <node name="grep" channel="inline" format="command/grep" model="">
+ *     <node name="pattern" channel="inline" format="text/plain" model="test"/>
+ *     <node name="file" channel="inline" format="text/plain" model="shell_command_grep/grep.txt"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+pattern	the pattern to search for	true	text/plain
+file	the file to search in	true	text/plain
+ *
  * Expected parametres:
  * - pattern (required): pattern, to search for
  * - file (required): file, to search in
@@ -294,6 +523,17 @@ static int* GREP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * Display information about a system command.
  *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+ *
  * Expected parametres:
  * - pattern (required): the command for which information should be displayed
  */
@@ -304,6 +544,17 @@ static int* HELP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  * The command/hostname logic cybol format.
  *
  * Display the name of the host (machine).
+ *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  *
  * Expected parametres:
  * - none
@@ -317,6 +568,17 @@ static int* HOSTNAME_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  * The command/id logic cybol format.
  *
  * Display id.
+ *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  */
 static wchar_t* ID_COMMAND_LOGIC_CYBOL_FORMAT = L"command/id";
 static int* ID_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -325,6 +587,17 @@ static int* ID_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  * The command/ifconfig logic cybol format.
  *
  * Display ifconfig.
+ *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  */
 static wchar_t* IFCONFIG_COMMAND_LOGIC_CYBOL_FORMAT = L"command/ifconfig";
 static int* IFCONFIG_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -333,6 +606,17 @@ static int* IFCONFIG_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  * The command/ifup logic cybol format.
  *
  * Shows if the interface is available.
+ *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  */
 static wchar_t* IFUP_COMMAND_LOGIC_CYBOL_FORMAT = L"command/ifup";
 static int* IFUP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -341,6 +625,17 @@ static int* IFUP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  * The command/kill logic cybol format.
  *
  * Kill a process.
+ *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  *
  * Expected parameters:
  * - pid (required): the number of process to be killed off
@@ -352,6 +647,17 @@ static int* KILL_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  * The command/list-directory-contents logic cybol format.
  *
  * List contents of the given directory.
+ *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  *
  * Expected parametres:
  * - path (optional): the listing for the given path (the default is the current directory)
@@ -372,6 +678,17 @@ static int* LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_31
  *
  * Shows open files in operating system.
  *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+ *
  * Expected parametres:
  * - listuid(optional): the list-uid option (list-uid output)
  * - listfilesize(optional): the list-file-size option (prints the file size)
@@ -387,6 +704,17 @@ static int* LIST_OPEN_FILES_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER
  *
  * List all the processes currently running on the computer.
  *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+ *
  * Expected parametres:
  * - keyword(optional): the keyword option (list all the keyword options)
  * - verbose(optional): the verbose option (verbose output)
@@ -398,6 +726,17 @@ static int* LIST_TASKS_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  * The command/memory-free logic cybol format.
  *
  * Shows the usage of the RAM.
+ *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  *
  * Expected parametres:
  * - human(optional): the human option (human-readable output)
@@ -414,6 +753,31 @@ static int* MEMORY_FREE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *
  * Moves a file or directory to a destination path.
  *
+ * Description:
+ *
+Moving directories from a path to another.
+ *
+ * Examples:
+ *
+ * <node name="move_file" channel="inline" format="command/move" model="">
+ *     <node name="source" channel="inline" format="text/plain"
+      model="./shell_command_move_file/original.txt"/>
+ *     <node name="destination" channel="inline" format="text/plain"
+      model="./shell_command_move_file/moved_and_please_do_not_commit_me.txt"/>
+ *     <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+ *     <node name="interactive" channel="inline" format="logicvalue/boolean" model="true"/>
+ *     <node name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+source	the path of the directory which sould be moved	true	text/plain
+destination	the path of the directory which sould be moved	true	text/plain
+force	the force option (never ask for permission to move any directories)	false	logicvalue/boolean
+interactive	the interactive option (askes everytime for permission of moving a directory)	false	logicvalue/boolean
+verbal	the verbal option (shows what have been moved)	false	logicvalue/boolean
+ *
  * Expected parametres:
  * - source (required): the path of the file or the directory which sould be moved
  * - destination (required): the new path of the source file or directory
@@ -429,6 +793,17 @@ static int* MOVE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * Display network information.
  *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+ *
  * Expected parametres:
  * - none
  *
@@ -441,6 +816,25 @@ static int* NETSTAT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  * The command/ping logic cybol format.
  *
  * Pings the given host via network.
+ *
+ * Description:
+ *
+Pings a given host.
+ *
+ * Examples:
+ *
+ * <node name="ping" channel="inline" format="command/ping" model="">
+ *     <node name="host" channel="inline" format="text/plain" model="www.google.com"/>
+ *     <node name="count" channel="inline" format="text/plain" model="5"/>
+ *     <node name="interface" channel="inline" format="text/plain" model="eth0"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+host	the host to be pinged	true	text/plain
+count	count of ping packets to send	false	text/plain
+interface	interface to send packets on	false	text/plain
  *
  * Expected parametres:
  * - host (required): host, to be pinged
@@ -455,6 +849,17 @@ static int* PING_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * Shows the path of the present working directory.
  *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+ *
  * Expected parametres:
  * - logical(optional): the logical option (logical output)
  * - physical(optional): the physical option (physical output)
@@ -466,6 +871,29 @@ static int* PWD_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  * The command/remove logic cybol format.
  *
  * Removes a file or directory.
+ *
+ * Description:
+ *
+Moving directories from one path to another..
+ *
+ * Examples:
+ *
+ * <node name="remove_file" channel="inline" format="command/remove" model="">
+ *     <node name="path" channel="inline" format="text/plain"
+      model="./shell_command_remove_file/do_not_commit_if_this_is_deleted.txt"/>
+ *     <node name="force" channel="inline" format="logicvalue/boolean" model="true"/>
+ *     <node name="interactive" channel="inline" format="logicvalue/boolean" model="true"/>
+ *     <node name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
+ *     <node name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+path	the path including wildcards for deleting directories	true	text/plain
+interactive	the interactive option (askes everytime for permission of deleting a directory)	false	logicvalue/boolean
+recursive	the recursvie option (deletes all of its subdirectories)	false	logicvalue/boolean
+verbal	the verbal option (shows what have been moved)	false	logicvalue/boolean
  *
  * Expected parametres:
  * - path: the path including wildcards for deleting files and directories
@@ -481,6 +909,17 @@ static int* REMOVE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  *
  * Sorts a file.
  *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+ *
  * Expected parametres:
  * - file (required): file, to be sorted
  * - output (optional): path to output file
@@ -492,6 +931,17 @@ static int* SORT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  * The command/spellcheck logic cybol format.
  *
  * Spellcheck a file.
+ *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  *
  * Expected parametres:
  * - path (required): path to the directory
@@ -506,6 +956,17 @@ static int* SPELLCHECK_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  * The command/system-messages logic cybol format.
  *
  * Shows system messages from /var/log.
+ *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  *
  * Expected parametres:
  * - human(optional): the human option (human-readable output)
@@ -522,6 +983,51 @@ static int* SYSTEM_MESSAGES_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER
  *
  * Packs or unpacks a directory or file.
  *
+ * Description:
+ *
+Moving files and directories from a path to another..
+ *
+ * Examples:
+ *
+<!-- pack -->
+
+<node name="pack_text_file_with_tape_archiver" channel="inline" format="command/tape-archiver" model="">
+ *     <node name="source" channel="inline" format="text/plain"
+      model="./shell_command_tape_archiver_pack/i_should_be_packed_soon.txt"/>
+ *     <node name="destination" channel="inline" format="text/plain"
+      model="./shell_command_tape_archiver_pack/i_am_packed_now.tar"/>
+ *     <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+ *     <node name="gzip" channel="inline" format="logicvalue/boolean" model="false"/>
+ *     <node name="unpack" channel="inline" format="logicvalue/boolean" model="false"/>
+ *     <node name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
+ *     <node name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+  * </node>
+
+<!-- unpack -->
+
+<node name="unpack_tar_with_text_file" channel="inline" format="command/tape-archiver" model="">
+ *     <node name="source" channel="inline" format="text/plain"
+      model="./shell_command_tape_archiver_unpack/package.tar"/>
+ *     <node name="destination" channel="inline" format="text/plain"
+      model="./shell_command_tape_archiver_unpack"/>
+ *     <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+ *     <node name="gzip" channel="inline" format="logicvalue/boolean" model="false"/>
+ *     <node name="unpack" channel="inline" format="logicvalue/boolean" model="true"/>
+ *     <node name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
+ *     <node name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+source	the source for archiving	true	text/plain
+destination	the destination where the source is being archived	true	text/plain
+force	the force option for not asking for permission for overwriting files or directories	false	logicvalue/boolean
+gzip	the gunzip option to indicate gunzip compression or extraction	false	logicvalue/boolean
+unpack	the option for unpacking / extraction or else it will pack	false	logicvalue/boolean
+recursive	???	false	logicvalue/boolean
+verbal	shows which files and directories are being copied	false	logicvalue/boolean
+ *
  * Expected parametres:
  * - source (required): the source for archiving
  * - destination (required): the destination where the source is being archived
@@ -537,6 +1043,17 @@ static int* TAPE_ARCHIVER_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  * The command/top logic cybol format.
  *
  * Display top.
+ *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  */
 static wchar_t* TOP_COMMAND_LOGIC_CYBOL_FORMAT = L"command/top";
 static int* TOP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -545,6 +1062,17 @@ static int* TOP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  * The command/touch logic cybol format.
  *
  * Creates a new file.
+ *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  *
  * Expected parametres:
  * - path
@@ -559,6 +1087,17 @@ static int* TOUCH_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  *
  * Traces and displays the packet route to the given host.
  *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+ *
  * Expected parametres:
  * - host (required): host, to trace the route to
  */
@@ -569,6 +1108,17 @@ static int* TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  * The command/userlog logic cybol format.
  *
  * Shows the users currently logged in to the machine.
+ *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  *
  * Expected parametres:
  * - none
@@ -582,6 +1132,17 @@ static int* USERLOG_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  * The command/who logic cybol format.
  *
  * Display information about the current user.
+ *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  */
 static wchar_t* WHO_COMMAND_LOGIC_CYBOL_FORMAT = L"command/who";
 static int* WHO_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -590,6 +1151,17 @@ static int* WHO_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  * The command/who-am-i logic cybol format.
  *
  * Display the login name of the current user.
+ *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  */
 static wchar_t* WHO_AM_I_COMMAND_LOGIC_CYBOL_FORMAT = L"command/who-am-i";
 static int* WHO_AM_I_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -598,6 +1170,32 @@ static int* WHO_AM_I_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  * The command/word count logic cybol format.
  *
  * Outputs the number of rows, words and bytes for every file.
+ *
+ * Description:
+ *
+Count different occurences.
+ *
+ * Examples:
+ *
+ * <node name="chmod_file" channel="inline" format="command/word-count" model="">
+ *     <node name="path" channel="inline" format="text/plain"
+      model="./shell_command_word_count/example.txt"/>
+ *     <node name="bytes" channel="inline" format="logicvalue/boolean" model="false"/>
+ *     <node name="chars" channel="inline" format="logicvalue/boolean" model="true"/>
+ *     <node name="lines" channel="inline" format="logicvalue/boolean" model="true"/>
+ *     <node name="max-line-length" channel="inline" format="logicvalue/boolean" model="false"/>
+ *     <node name="words" channel="inline" format="logicvalue/boolean" model="true"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+path	path to the file or directory	true	text/plain
+bytes	Outputs the number of bytes	false	logicvalue/boolean
+chars	Outputs the number of chars	false	logicvalue/boolean
+lines	Outputs the number of lines	false	logicvalue/boolean
+max-line-length	Outputs the length of the longest line	false	logicvalue/boolean
+words	Outputs the number of words	false	logicvalue/boolean
  *
  * Expected parametres:
  * - path (required): path to the file or directory

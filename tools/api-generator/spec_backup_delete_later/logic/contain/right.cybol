@@ -1,5 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Compare if bounded area contains value."/>
-    <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/contain/right/example.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/contain/right/properties.cybol"/>
-</node>

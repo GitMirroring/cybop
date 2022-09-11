@@ -43,7 +43,20 @@
  *
  * Retrieve the current time from the system.
  *
- * This is a CYBOL extension.
+ * Description:
+ *
+Retrieves the current time from the system.
+ *
+ * Examples:
+ *
+ * <node name="retrieveCurrentTime" channel="inline" format="time/current" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".model"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+result	retrieves the current time in nano second divided by 1000 and put it the the model. Model type needs to be integer.	true	path/* | meta/channel
  *
  * Expected parametres:
  * - result (required): the destination time

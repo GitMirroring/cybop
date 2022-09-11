@@ -1,5 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Decodes the source into the destination, according to the given decoding."/>
-    <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/convert/decode/example.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/convert/decode/properties.cybol"/>
-</node>

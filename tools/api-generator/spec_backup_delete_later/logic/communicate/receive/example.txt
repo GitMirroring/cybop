@@ -1,8 +1,0 @@
-<node name="initialise" channel="inline" format="communicate/receive" model="">
-    <node name="channel" channel="inline" format="meta/channel" model="file"/>
-    <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-    <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-    <node name="format" channel="inline" format="meta/format" model="element/part"/>
-    <node name="message" channel="inline" format="text/plain" model="ui/app.cybol"/>
-    <node name="model" channel="inline" format="text/cybol-path" model=".app"/>
-</node>

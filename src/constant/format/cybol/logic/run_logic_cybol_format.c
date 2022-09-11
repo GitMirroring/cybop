@@ -43,7 +43,20 @@
  *
  * Run the given programme.
  *
- * This is a CYBOL extension.
+ * Description:
+ *
+Runs a local program
+ *
+ * Examples:
+ *
+ * <node name="execute_shell_script" channel="inline" format="run/run" model="">
+ *     <node name="programme" channel="file" format="text/plain" model="password_generator/sleep_timer.sh"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+programme	The program to be run.	true	path/* | meta/channel
  *
  * Properties:
  * - programme: the programme to be run
@@ -59,7 +72,20 @@ static int* RUN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_AR
  * or by the time spent processing the call
  * or by the granularity of system timers.
  *
- * This is a CYBOL extension.
+ * Description:
+ *
+Puts the executing thread to sleep for at least x nanoseconds (the actual duration may differ depending on the systems load and timer accuracy)
+ *
+ * Examples:
+ *
+ * <node name="sleep" channel="inline" format="run/sleep-nano" model="">
+ *     <node name="duration" channel="inline" format="text/cybol-path" model=".settings.voltage_sleep"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+duration	The amount of nanoseconds to sleep	true	path/* | meta/channel
  *
  * Properties:
  * - duration: the time to sleep
@@ -75,7 +101,20 @@ static int* NANO_SLEEP_RUN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  * or by the time spent processing the call
  * or by the granularity of system timers.
  *
- * This is a CYBOL extension.
+ * Description:
+ *
+Puts the executing thread to sleep for at least x seconds (the actual duration may differ depending on the systems load and timer accuracy)
+ *
+ * Examples:
+ *
+ * <node name="sleep" channel="inline" format="run/sleep-second" model="">
+ *     <node name="duration" channel="inline" format="text/cybol-path" model=".settings.voltage_sleep"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+duration	The amount of seconds to sleep	true	path/* | meta/channel
  *
  * Properties:
  * - duration: the time to sleep

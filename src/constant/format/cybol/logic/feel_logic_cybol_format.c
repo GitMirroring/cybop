@@ -44,6 +44,17 @@
  * Sense input data within a thread.
  * Senses data input within a thread on the client with the given identification.
  *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+ *
  * Parametres:
  * - channel (required): the communication channel, e.g. file, serial, socket
  * - server (optional): the flag indicating server mode, e.g. for window or client socket stub; if NULL, the default is false (standalone client mode)
@@ -61,6 +72,17 @@ static int* SENSE_FEEL_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  *
  * Suspend a sensing thread.
  * Suspends data input sensing thread for the client with the given identification.
+ *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  *
  * Parametres:
  * - channel (required): the communication channel, e.g. file, serial, socket

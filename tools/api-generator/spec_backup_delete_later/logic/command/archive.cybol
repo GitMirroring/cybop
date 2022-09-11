@@ -1,5 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Archives the given data into a file."/>
-    <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/command/archive/example.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/command/archive/properties.cybol"/>
-</node>

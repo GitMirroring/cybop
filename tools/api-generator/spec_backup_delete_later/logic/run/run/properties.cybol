@@ -1,9 +1,0 @@
-<node>
-    <node name="programme" channel="inline" format="text/plain" model="">
-        <node name="name" channel="inline" format="text/plain" model="programme"/>
-        <node name="description" channel="inline" format="text/plain" model="The program to be run."/>
-        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
-        <node name="format" channel="inline" format="text/plain" model="path/* | meta/channel"/>
-        <node name="model" channel="inline" format="text/plain" model=""/>
-    </node>
-</node>

@@ -43,7 +43,20 @@
  *
  * Shutdown sensing service.
  *
- * This is a CYBOL extension.
+ * Description:
+ *
+Shuts down the service running on the given channel.
+ *
+ * Examples:
+ *
+ * <node name="shutdown_serial_port" channel="inline" format="maintain/shutdown" model="">
+ *     <node name="channel" channel="inline" format="text/cybol-path" model=".settings.device"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+channel	the channel on which to shutdown a service (terminal, www, x-window-system, ...)	true	path/* | meta/channel
  *
  * Parametres:
  * - channel (required): the communication channel, e.g. socket, display
@@ -57,7 +70,40 @@ static int* SHUTDOWN_MAINTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
  *
  * Startup sensing service.
  *
- * This is a CYBOL extension.
+ * Description:
+ *
+Starts up a service on the given channel.
+ *
+ * Examples:
+ *
+ * <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+ * </node>
+
+<node name="startup_socket" channel="inline" format="maintain/startup" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+ *     <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
+ *     <node name="style" channel="inline" format="text/plain" model="stream"/>
+ *     <node name="protocol" channel="inline" format="text/plain" model="tcp"/>
+ *     <node name="address" channel="inline" format="text/cybol-path" model=".app.var.address"/>
+ *     <node name="id" channel="inline" format="text/cybol-path" model=".app.var.port"/>
+ *     <node name="mode" channel="inline" format="text/plain" model="server"/>
+ *     <node name="blocking" channel="inline" format="logicvalue/boolean" model="false"/>
+ *     <node name="connexions" channel="inline" format="number/integer" model="1"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+channel	the channel on which to startup a service (terminal, display, tcp_socket, unix_socket, ...)	true	path/* | meta/channel
+namespace	the address family, e.g. ip6	false	text/plain
+style	the communication style, e.g. stream	false	text/plain
+address	the host address	false	text/plain
+protocol	the protocol, e.g. tcp	false	text/cybol-path
+id	the service identification if having multiple terminals/displays/sockets etc., e.g. socket port 80; either port or service may be specified; port has higher priority; if missing, zero will be used (first io entry)	false	text/cybol-path
+server		false	text/plain
+blocking	the socket status, i.e. whether or not a socket is blocking	false	logicvalue/boolean
+connexions	the number of possible pending client requests	false	number/integer
  *
  * Parametres:
  * - channel (required): the communication channel, e.g. socket, display

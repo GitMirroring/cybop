@@ -1,5 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Applies the boolean logic operation NOT."/>
-    <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/logify/not/example.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/logify/not/properties.cybol"/>
-</node>

@@ -44,6 +44,17 @@
  * Close down a client that has been used for connecting to a service.
  * Closes down the client on the given channel.
  *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+ *
  * Parametres:
  * - channel (required): the communication channel, e.g. file, serial, socket
  * - server (optional): the flag indicating server mode, e.g. for window or client socket stub; if NULL, the default is false (standalone client mode)
@@ -58,6 +69,17 @@ static int* CLOSE_DISPATCH_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  *
  * Open up a client for connecting to a service.
  * Opens up a client on the given channel.
+ *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  *
  * Parametres:
  * - channel (required): the communication channel, e.g. file, serial, socket

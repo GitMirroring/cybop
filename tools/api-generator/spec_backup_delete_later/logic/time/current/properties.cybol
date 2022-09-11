@@ -1,9 +1,0 @@
-<node>
-    <node name="result" channel="inline" format="text/plain" model="">
-        <node name="name" channel="inline" format="text/plain" model="result"/>
-        <node name="description" channel="inline" format="text/plain" model="retrieves the current time in nano second divided by 1000 and put it the the model. Model type needs to be integer."/>
-        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
-        <node name="format" channel="inline" format="text/plain" model="path/* | meta/channel"/>
-        <node name="model" channel="inline" format="text/plain" model=""/>
-    </node>
-</node>

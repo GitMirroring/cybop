@@ -1,5 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Empties the part, i.e. removes all of its elements."/>
-    <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/modify/empty/example.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/modify/empty/properties.cybol"/>
-</node>

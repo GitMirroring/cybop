@@ -50,6 +50,29 @@
  * Therefore, the destination possibly has to get EMPTIED before since otherwise,
  * the new data will get appended to the already existing old data.
  *
+ * ?? TODO: splitting a source string into parts which are stored as child nodes of the destination part
+ *
+ * Description:
+ *
+Deserialises the source- into the destination part.
+ *
+ * Examples:
+ *
+ * <node name="deserialise_operand" channel="inline" format="represent/deserialise" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".summand"/>
+ *     <node name="source" channel="inline" format="text/cybol-path" model=".text"/>
+ *     <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+ *     <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+destination	the destination part	true	number/integer
+source	the source part	true	text/plain
+type	the destination part format	true	meta/type
+language	the destination part language (cybol, http_request, xdt etc.)	true	meta/language
+ *
  * Examples:
  *
  * <node name="deserialise_number" channel="inline" format="represent/deserialise" model="">
@@ -123,6 +146,29 @@ static int* DESERIALISE_REPRESENT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  * Already existing content is NOT overwritten.
  * Therefore, the destination possibly has to get EMPTIED before since otherwise,
  * the new data will get appended to the already existing old data.
+ *
+ * ?? TODO: concatenating the strings given as child nodes of the source part into the destination part and provide an optional cybol property "separator" to be used as such between the concatenated strings
+ *
+ * Description:
+ *
+Serialises the source- into the destination part.
+ *
+ * Examples:
+ *
+ * <node name="serialise_operand" channel="inline" format="represent/serialise" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".summand"/>
+ *     <node name="source" channel="inline" format="text/cybol-path" model=".text"/>
+ *     <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+ *     <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+destination	the destination part	true	number/integer
+source	the source part	true	text/plain
+type	the destination part format	true	meta/type
+language	the destination part language (cybol, http_request, xdt etc.)	true	meta/language
  *
  * Examples:
  *

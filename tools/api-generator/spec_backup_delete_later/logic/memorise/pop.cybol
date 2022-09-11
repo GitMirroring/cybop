@@ -1,5 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Pop an element from the stack."/>
-    <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/memorise/pop/example.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/memorise/pop/properties.cybol"/>
-</node>

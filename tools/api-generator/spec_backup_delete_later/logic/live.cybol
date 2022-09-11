@@ -1,5 +1,0 @@
-<node>
-    <node name="exit" channel="file" format="element/part" model="api-generator/spec/logic/live/exit.cybol"/>
-    <node name="interrupt" channel="file" format="element/part" model="api-generator/spec/logic/live/interrupt.cybol"/>
-    <node name="sense" channel="file" format="element/part" model="api-generator/spec/logic/live/sense.cybol"/>
-</node>

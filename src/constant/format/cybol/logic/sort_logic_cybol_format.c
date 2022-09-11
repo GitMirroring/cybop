@@ -43,7 +43,22 @@
  *
  * Sort numbers via bubblesort-algorithm.
  *
- * This is a CYBOL extension.
+ * Description:
+ *
+Sort numbers via bubble-algorithm.
+ *
+ * Examples:
+ *
+ * <node name="sort" channel="inline" format="sort/bubble" model="">
+ *     <node name="output" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="input" channel="inline" format="text/cybol-path" model=".unsorted"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+output	The path where the sort numbers will be written to.	true	path/* | meta/channel
+input	The path where the numbers for the are taken from.	true	path/* | meta/channel
  *
  * Expected parametres:
  * - part (required): the knowledge model to be sorted
@@ -60,7 +75,16 @@ static int* BUBBLE_SORT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  *
  * Sort numbers via insertionsort-algorithm.
  *
- * This is a CYBOL extension.
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  *
  * Expected parametres:
  * - part (required): the knowledge model to be sorted
@@ -77,7 +101,22 @@ static int* INSERTION_SORT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  *
  * Sort numbers via quicksort-algorithm.
  *
- * This is a CYBOL extension.
+ * Description:
+ *
+Sort numbers via quicksort-algorithm.
+ *
+ * Examples:
+ *
+ * <node name="sort" channel="inline" format="sort/quick" model="">
+ *     <node name="output" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="input" channel="inline" format="text/cybol-path" model=".unsorted"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+output	The path where the sort numbers will be written to.	true	path/* | meta/channel
+input	The path where the numbers for the are taken from.	true	path/* | meta/channel
  *
  * Expected parametres:
  * - part (required): the knowledge model to be sorted
@@ -94,7 +133,16 @@ static int* QUICK_SORT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  *
  * Sort numbers via selectionsort-algorithm.
  *
- * This is a CYBOL extension.
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  *
  * Expected parametres:
  * - part (required): the knowledge model to be sorted

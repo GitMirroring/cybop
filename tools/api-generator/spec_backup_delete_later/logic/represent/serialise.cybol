@@ -1,5 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Serialises the source- into the destination part."/>
-    <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/represent/serialise/example.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/represent/serialise/properties.cybol"/>
-</node>

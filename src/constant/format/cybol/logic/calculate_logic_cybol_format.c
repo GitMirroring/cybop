@@ -43,9 +43,24 @@
  *
  * Determine the absolute value of a number.
  *
- * absolute = | number |
+ * Description:
  *
- * This is a CYBOL extension.
+Determine the absolute value of a number.
+ *
+ * Examples:
+ *
+ * <node name="absolute" channel="inline" format="calculate/absolute" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="operand" channel="inline" format="number/integer" model="1,2,3"/>
+ *     <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+result	The absolute value of the given number.	true	path/*
+operand	... .	true	path/* | number/*
+type	The number type. It has to be identical for all parametres.	true	path/* | meta/type
  */
 static wchar_t* ABSOLUTE_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/absolute";
 static int* ABSOLUTE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -95,45 +110,97 @@ static int* ADD_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  *
  * Divide a number by another.
  *
- * quotient = dividend / divisor
+ * Description:
  *
- * This is a CYBOL extension.
+Divides two numbers of the given format
+ *
+ * Examples:
+ *
+ * <node name="divide" channel="inline" format="calculate/divide" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="operand" channel="inline" format="number/integer" model="1,2,3"/>
+ *     <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+result	The quotient resulting from the divison. It initially contains the dividend.	true	path/*
+operand	The divisor for the division.	true	path/* | number/*
+type	The number type. It has to be identical for all parametres.	true	path/* | meta/type
+ *
+ * quotient = dividend / divisor
  */
 static wchar_t* DIVIDE_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/divide";
 static int* DIVIDE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The calculate/minimum logic cybol format.
- *
- * Determine the lesser of two values.
- *
- * minimum = (x < y) ? x : y
- *
- * This is a CYBOL extension.
- */
-static wchar_t* MINIMUM_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/minimum";
-static int* MINIMUM_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The calculate/maximum logic cybol format.
  *
  * Determine the lesser of two values.
  *
- * maximum = (x > y) ? x : y
+ * Description:
  *
- * This is a CYBOL extension.
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+ *
+ * maximum = (x > y) ? x : y
  */
 static wchar_t* MAXIMUM_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/maximum";
 static int* MAXIMUM_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The calculate/minimum logic cybol format.
+ *
+ * Determine the lesser of two values.
+ *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+ *
+ * minimum = (x < y) ? x : y
+ */
+static wchar_t* MINIMUM_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/minimum";
+static int* MINIMUM_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The calculate/modulo logic cybol format.
  *
  * Calculate the remainder of an integer division.
  *
- * remainder = dividend % divisor
+ * Description:
  *
- * This is a CYBOL extension.
+Calculate the module of a given value.
+ *
+ * Examples:
+ *
+ * <node name="modulo" channel="inline" format="calculate/modulo" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="operand" channel="inline" format="number/integer" model="2"/>
+ *     <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+result	The result of the modulo operation.	true	path/*
+operand	The factor for the modulo.	true	path/* | number/*
+type	The number type. It has to be identical for all parametres.	true	path/* | meta/type
+ *
+ * remainder = dividend % divisor
  */
 static wchar_t* MODULO_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/modulo";
 static int* MODULO_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -143,9 +210,26 @@ static int* MODULO_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  *
  * Multiply two numbers.
  *
- * product = factor_1 * factor_2
+ * Description:
  *
- * This is a CYBOL extension.
+Multiplies two numbers of the given format.
+ *
+ * Examples:
+ *
+ * <node name="multiply" channel="inline" format="calculate/multiply" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="operand" channel="inline" format="number/integer" model="1,2,3"/>
+ *     <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+result	The product resulting from the multiplication. It initially contains the first factor.	true	path/*
+operand	The second factor for the multiplication.	true	path/* | number/*
+type	The number type. It has to be identical for all parametres.	true	path/* | meta/type
+ *
+ * product = factor_1 * factor_2
  */
 static wchar_t* MULTIPLY_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/multiply";
 static int* MULTIPLY_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -155,9 +239,26 @@ static int* MULTIPLY_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  *
  * Negate a number (altering the sign).
  *
- * result = - number
+ * Description:
  *
- * This is a CYBOL extension.
+Negates a given number.
+ *
+ * Examples:
+ *
+ * <node name="negate" channel="inline" format="calculate/negate" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="operand" channel="inline" format="number/integer" model="1,2,3"/>
+ *     <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+result	The output resulting from the negation.	true	path/*
+operand	The number which is to negate.	true	path/* | number/*
+type	The number type. It has to be identical for all parametres.	true	path/* | meta/type
+ *
+ * result = - number
  */
 static wchar_t* NEGATE_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/negate";
 static int* NEGATE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -167,9 +268,18 @@ static int* NEGATE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  *
  * Reduce a fraction to the lowest common denominator.
  *
- * Example: lowest common denominator of 12 / 4 and 5 / 3 is 12
+ * Description:
  *
- * This is a CYBOL extension.
+Not implemented yet.
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+ *
+ * Example: lowest common denominator of 12 / 4 and 5 / 3 is 12
  */
 static wchar_t* REDUCE_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/reduce";
 static int* REDUCE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -179,9 +289,26 @@ static int* REDUCE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  *
  * Subtract a number from another.
  *
- * difference = minuend - subtrahend
+ * Description:
  *
- * This is a CYBOL extension.
+Subtracts two numbers of the given format.
+ *
+ * Examples:
+ *
+ * <node name="subtract" channel="inline" format="calculate/subtract" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="operand" channel="inline" format="number/integer" model="1,2,3"/>
+ *     <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+result	The difference resulting from the subtraction. It initially contains the minuend.	true	path/*
+operand	The subtrahend for the subtraction.	true	path/* | number/*
+type	The number type. It has to be identical for all parametres.	true	path/* | meta/type
+ *
+ * difference = minuend - subtrahend
  */
 static wchar_t* SUBTRACT_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/subtract";
 static int* SUBTRACT_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;

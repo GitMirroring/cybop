@@ -1,5 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Shifts all bits of value to the right by position."/>
-    <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/manipulate/shift-right/example.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/manipulate/shift-right/properties.cybol"/>
-</node>

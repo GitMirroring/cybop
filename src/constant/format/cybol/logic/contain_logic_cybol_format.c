@@ -43,6 +43,27 @@
  *
  * Compare if the bounded area contains the value.
  *
+ * Description:
+ *
+Compare if bounded area contains value.
+ *
+ * Examples:
+ *
+<node>
+ *     <node name="description" channel="inline" format="text/plain" model="TODO"/>
+ *     <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/TODO/TODO/example.txt"/>
+ *     <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/TODO/TODO/properties.cybol"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+result	the knowledge model, in which the result is stored	true	path/* | logicvalue/boolean
+left	the left part	true	path/* | number/* | text/plain
+right	the right part	true	path/* | number/* | text/plain
+type	the type which is equal for both parts	true	path/* | meta/type
+selection	???	true	path/* | meta/type
+ *
  * Expected parametres:
  * - result (required): the knowledge model, in which the result is stored (of type boolean)
  * - value (required): the value
@@ -60,6 +81,27 @@ static int* BOTH_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  * The contain/left logic cybol format.
  *
  * Compare if bounded area contains value.
+ *
+ * Description:
+ *
+Compare if bounded area contains value.
+ *
+ * Examples:
+ *
+<node>
+ *     <node name="description" channel="inline" format="text/plain" model="TODO"/>
+ *     <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/TODO/TODO/example.txt"/>
+ *     <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/TODO/TODO/properties.cybol"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+result	the knowledge model, in which the result is stored	true	path/* | logicvalue/boolean
+left	the left part	true	path/* | number/* | text/plain
+right	the right part	true	path/* | number/* | text/plain
+type	the type which is equal for both parts	true	path/* | meta/type
+selection	???	true	path/* | meta/type
  */
 static wchar_t* LEFT_CONTAIN_LOGIC_CYBOL_FORMAT = L"contain/left";
 static int* LEFT_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -68,6 +110,27 @@ static int* LEFT_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  * The contain/none logic cybol format.
  *
  * Compare if bounded area contains value.
+ *
+ * Description:
+ *
+Compare if bounded area contains value.
+ *
+ * Examples:
+ *
+<node>
+ *     <node name="description" channel="inline" format="text/plain" model="TODO"/>
+ *     <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/TODO/TODO/example.txt"/>
+ *     <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/TODO/TODO/properties.cybol"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+result	the knowledge model, in which the result is stored	true	path/* | logicvalue/boolean
+left	the left part	true	path/* | number/* | text/plain
+right	the right part	true	path/* | number/* | text/plain
+type	the type which is equal for both parts	true	path/* | meta/type
+selection	???	true	path/* | meta/type
  */
 static wchar_t* NONE_CONTAIN_LOGIC_CYBOL_FORMAT = L"contain/none";
 static int* NONE_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -76,6 +139,27 @@ static int* NONE_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  * The contain/right logic cybol format.
  *
  * Compare if bounded area contains value.
+ *
+ * Description:
+ *
+Compare if bounded area contains value.
+ *
+ * Examples:
+ *
+<node>
+ *     <node name="description" channel="inline" format="text/plain" model="TODO"/>
+ *     <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/TODO/TODO/example.txt"/>
+ *     <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/TODO/TODO/properties.cybol"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+result	the knowledge model, in which the result is stored	true	path/* | logicvalue/boolean
+left	the left part	true	path/* | number/* | text/plain
+right	the right part	true	path/* | number/* | text/plain
+type	the type which is equal for both parts	true	path/* | meta/type
+selection	???	true	path/* | meta/type
  */
 static wchar_t* RIGHT_CONTAIN_LOGIC_CYBOL_FORMAT = L"contain/right";
 static int* RIGHT_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;

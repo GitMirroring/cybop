@@ -230,7 +230,7 @@ static int* INTEGER_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  * Integer number (integral data type), prefixed with a B.
  * This represents a symbol as defined in the POSIX.1 standard.
  *
- * This is a CYBOL extension.
+ *
  */
 static wchar_t* LINE_SPEED_NUMBER_STATE_CYBOL_FORMAT = L"number/line-speed";
 static int* LINE_SPEED_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;

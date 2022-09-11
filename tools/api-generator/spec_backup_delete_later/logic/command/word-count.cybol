@@ -1,5 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Count different occurences."/>
-    <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/command/word_count/example.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/command/word_count/properties.cybol"/>
-</node>

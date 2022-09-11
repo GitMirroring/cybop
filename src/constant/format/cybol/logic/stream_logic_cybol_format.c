@@ -43,7 +43,16 @@
  *
  * Read data from a device.
  *
- * This is a CYBOL extension.
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  *
  * Parametres:
  * - channel (required): the communication channel, e.g. file, serial, socket
@@ -62,7 +71,16 @@ static int* READ_STREAM_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  *
  * Write data to a device.
  *
- * This is a CYBOL extension.
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  *
  * Parametres:
  * - channel (required): the communication channel, e.g. file, serial, socket

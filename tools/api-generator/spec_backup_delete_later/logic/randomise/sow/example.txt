@@ -1,3 +1,0 @@
-<node name="set_seed" channel="inline" format="randomise/sow" model="">
-    <node name="seed" channel="inline" format="text/cybol-path" model=".app.var.seed"/>
-</node>

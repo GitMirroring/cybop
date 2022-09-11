@@ -47,6 +47,21 @@
  * CAUTION! The result gets APPENDED to the destination.
  * It does NOT overwrite already existing content in the destination.
  *
+ * Description:
+ *
+Decodes the source into the destination, according to the given decoding.
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+destination_item	???	true	???
+source_data ???	???	true	???
+source_count ???	???	true	???
+encoding	???	true	???
+ *
  * Expected parametres:
  * - destination (required): the destination wide character string consisting of elements of type wchar_t
  * - source (required): the source byte stream consisting of elements of type char
@@ -63,6 +78,21 @@ static int* DECODE_CONVERT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  *
  * CAUTION! The result gets APPENDED to the destination.
  * It does NOT overwrite already existing content in the destination.
+ *
+ * Description:
+ *
+Encodes the source into the destination, according to the given encoding.
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+destination_item	???	true	???
+source_data ???	???	true	???
+source_count ???	???	true	???
+encoding	???	true	???
  *
  * Expected parametres:
  * - destination (required): the destination byte stream consisting of elements of type char

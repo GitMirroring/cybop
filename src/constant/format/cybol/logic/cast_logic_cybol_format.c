@@ -43,7 +43,24 @@
  *
  * Cast value to type byte.
  *
- * This is a CYBOL extension.
+ * Description:
+ *
+Casts a value from one type to another.
+ *
+ * Examples:
+ *
+ * <node name="cast_byte" channel="inline" format="cast/byte" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".part_2"/>
+ *     <node name="source" channel="inline" format="number/byte" model="123"/>
+ *     <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+ * - destination	The knowledge model to cast to.	true	path/*
+ * - source	The knowledge model to cast from.	true	path/* | number/*
+ * - type	The source type.	true	path/* | meta/type
  *
  * Expected parametres:
  * - destination (required): the knowledge model to cast to
@@ -63,7 +80,24 @@ static int* BYTE_CAST_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MO
  *
  * Cast value to type character.
  *
- * This is a CYBOL extension.
+ * Description:
+ *
+Casts a value from one type to another.
+ *
+ * Examples:
+ *
+ * <node name="cast_character" channel="inline" format="cast/character" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".part_2"/>
+ *     <node name="source" channel="inline" format="text/cybol-path" model=".part_1"/>
+ *     <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+destination	The knowledge model to cast to.	true	path/*
+source	The knowledge model to cast from.	true	path/* | number/*
+type	The source type.	true	path/* | meta/type
  *
  * Expected parametres:
  * - destination (required): the knowledge model to cast to
@@ -83,7 +117,24 @@ static int* CHARACTER_CAST_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  *
  * Cast value to type double.
  *
- * This is a CYBOL extension.
+ * Description:
+ *
+Casts a value from one type to another.
+ *
+ * Examples:
+ *
+ *     <node name="cast_double" channel="inline" format="cast/double" model="">
+     *     <node name="destination" channel="inline" format="text/cybol-path" model=".part_2"/>
+     *     <node name="source" channel="inline" format="text/cybol-path" model=".part_1"/>
+     *     <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+     * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+destination	The knowledge model to cast to.	true	path/*
+source	The knowledge model to cast from.	true	path/* | number/*
+type	The source type.	true	path/* | meta/type
  *
  * Expected parametres:
  * - destination (required): the knowledge model to cast to
@@ -103,7 +154,24 @@ static int* DOUBLE_CAST_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  *
  * Cast value to type integer.
  *
- * This is a CYBOL extension.
+ * Description:
+ *
+Casts a value from one type to another.
+ *
+ * Examples:
+ *
+ *     <node name="cast_double" channel="inline" format="cast/integer" model="">
+     *     <node name="destination" channel="inline" format="text/cybol-path" model=".part_2"/>
+     *     <node name="source" channel="inline" format="number/byte" model="12"/>
+     *     <node name="type" channel="inline" format="meta/type" model="number/byte"/>
+     * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+destination	The knowledge model to cast to.	true	path/*
+source	The knowledge model to cast from.	true	path/* | number/*
+type	The source type.	true	path/* | meta/type
  *
  * Expected parametres:
  * - destination (required): the knowledge model to cast to

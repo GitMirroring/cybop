@@ -53,6 +53,26 @@
  * - whole part's properties hierarchy
  *   (or knowledge memory part's root, if no whole is given)
  *
+ * Description:
+ *
+Creates an empty part consisting of name and type only.
+ *
+ * Examples:
+ *
+ * <node name="create_summand_2" channel="inline" format="memorise/create" model="">
+ *     <node name="name" channel="inline" format="text/plain" model="summand_2"/>
+ *     <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+ *     <node name="whole" channel="inline" format="text/cybol-path" model=".addition_application"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+name	the name of the part to be created	true	text/plain
+format	the format of the part to be created, from which gets determined the type	true	meta/format
+element	the kind of element to be created (part, property); a part element will be added to the whole model's part hierarchy; a property element to the whole model's properties hierarchy	true	text/plain
+whole	If null, the new part will be added to the knowledge memory root. The compound to which to add to the new part.	false	element/part
+ *
  * Expected parametres:
  * - name (required): the name of the part to be created
  * - format (required): the format of the part to be created, from which gets determined the type
@@ -71,6 +91,21 @@ static int* CREATE_MEMORISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  *
  * Destroy / deallocate / free memory on heap.
  *
+ * Description:
+ *
+Destroys a part and removes it from the knowledge model.
+ *
+ * Examples:
+ *
+ * <node name="destroy_tui_control" channel="inline" format="memorise/destroy" model="">
+ *     <node name="name" channel="inline" format="text/cybol-path" model=".tui_control"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+name	the part to be destroyed	true	text/cybol-path
+ *
  * Parametres:
  * - part (required): the part to be destroyed
  */
@@ -82,7 +117,16 @@ static int* DESTROY_MEMORISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  *
  * Destroy / deallocate / free memory on stack.
  *
- * This is a CYBOL extension.
+ * Description:
+ *
+Pop an element from the stack.
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  */
 static wchar_t* POP_MEMORISE_LOGIC_CYBOL_FORMAT = L"memorise/pop";
 static int* POP_MEMORISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -92,7 +136,16 @@ static int* POP_MEMORISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * Create / allocate / reserve memory on stack.
  *
- * This is a CYBOL extension.
+ * Description:
+ *
+Push an element on the stack.
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
  */
 static wchar_t* PUSH_MEMORISE_LOGIC_CYBOL_FORMAT = L"memorise/push";
 static int* PUSH_MEMORISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;

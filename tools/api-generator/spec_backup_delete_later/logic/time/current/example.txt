@@ -1,3 +1,0 @@
-<node name="retrieveCurrentTime" channel="inline" format="time/current" model="">
-    <node name="result" channel="inline" format="text/cybol-path" model=".model"/>
-</node>

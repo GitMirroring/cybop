@@ -1,6 +1,0 @@
-<node>
-    <node name="bubble" channel="file" format="element/part" model="api-generator/spec/logic/sort/bubble.cybol"/>
-    <node name="insertion" channel="file" format="element/part" model="api-generator/spec/logic/sort/insertion.cybol"/>
-    <node name="quick" channel="file" format="element/part" model="api-generator/spec/logic/sort/quick.cybol"/>
-    <node name="selection" channel="file" format="element/part" model="api-generator/spec/logic/sort/selection.cybol"/>
-</node>

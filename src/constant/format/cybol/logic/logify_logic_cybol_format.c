@@ -51,6 +51,25 @@
  * The "output" parametre represents the FIRST operand;
  * the "input" parametre the SECOND.
  *
+ * Description:
+ *
+Applies the boolean logic operation AND.
+ *
+ * Examples:
+ *
+ * <node name="operation" channel="inline" format="logify/and" model="">
+ *     <node name="output" channel="inline" format="text/cybol-path" model=".app.result"/>
+ *     <node name="input" channel="inline" format="text/cybol-path" model=".app.operand"/>
+ *     <node name="type" channel="inline" format="meta/type" model="number/byte"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+output	the knowledge model in which the output is stored; used as first input operand	true	text/cybol-path
+input	the second input operand	true	text/cybol-path
+type	the type of both operands	true	meta/type
+ *
  * Properties:
  * - output (required): the knowledge model in which the output is stored; used as first input operand
  * - input (required): the second input operand
@@ -65,7 +84,26 @@ static int* AND_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  *
  * result = x NAND y
  *
- * This is a CYBOL extension.
+ * Description:
+ *
+Applies the boolean logic operation NAND.
+ *
+ * Examples:
+ *
+ * <node name="result" channel="inline" format="logicvalue/boolean" model="false"/>
+<node name="operand" channel="inline" format="logicvalue/boolean" model="false"/>
+<node name="operation" channel="inline" format="logify/nand" model="">
+ *     <node name="output" channel="inline" format="text/cybol-path" model=".app.result"/>
+ *     <node name="input" channel="inline" format="text/cybol-path" model=".app.operand"/>
+ *     <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+output	the knowledge model in which the output is stored; used as first input operand	true	text/cybol-path
+input	the second input operand	true	text/cybol-path
+type	the type of both operands	true	meta/type
  *
  * Properties:
  * - output (required): the knowledge model in which the output is stored; used as first input operand
@@ -82,7 +120,25 @@ static int* NAND_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  *
  * result = x NEG y
  *
- * This is a CYBOL extension.
+ * Description:
+ *
+Applies the boolean logic operation NEG.
+ *
+ * Examples:
+ *
+ * <node name="result" channel="inline" format="number/byte" model="25"/>
+<node name="operation" channel="inline" format="logify/neg" model="">
+ *     <node name="output" channel="inline" format="text/cybol-path" model=".app.result"/>
+ *     <node name="input" channel="inline" format="text/cybol-path" model=".app.result"/>
+ *     <node name="type" channel="inline" format="meta/type" model="number/byte"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+output	the knowledge model in which the output is stored; used as first input operand	true	text/cybol-path
+input	the second input operand	true	text/cybol-path
+type	the type of both operands	true	meta/type
  *
  * Properties:
  * - output (required): the knowledge model in which the output is stored; used as first input operand
@@ -98,7 +154,26 @@ static int* NEG_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  *
  * result = x NOR y
  *
- * This is a CYBOL extension.
+ * Description:
+ *
+Applies the boolean logic operation NOR.
+ *
+ * Examples:
+ *
+ * <node name="result" channel="inline" format="logicvalue/boolean" model="false"/>
+<node name="operand" channel="inline" format="logicvalue/boolean" model="false"/>
+<node name="operation" channel="inline" format="logify/nor" model="">
+ *     <node name="output" channel="inline" format="text/cybol-path" model=".app.result"/>
+ *     <node name="input" channel="inline" format="text/cybol-path" model=".app.operand"/>
+ *     <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+output	the knowledge model in which the output is stored; used as first input operand	true	text/cybol-path
+input	the second input operand	true	text/cybol-path
+type	the type of both operands	true	meta/type
  *
  * Properties:
  * - output (required): the knowledge model in which the output is stored; used as first input operand
@@ -115,7 +190,25 @@ static int* NOR_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  *
  * result = x NOT y
  *
- * This is a CYBOL extension.
+ * Description:
+ *
+Applies the boolean logic operation NOT.
+ *
+ * Examples:
+ *
+ * <node name="result" channel="inline" format="logicvalue/boolean" model="true"/>
+<node name="operation" channel="inline" format="logify/not" model="">
+ *     <node name="output" channel="inline" format="text/cybol-path" model=".app.result"/>
+ *     <node name="input" channel="inline" format="text/cybol-path" model=".app.result"/>
+ *     <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+output	the knowledge model in which the output is stored; used as first input operand	true	text/cybol-path
+input	the second input operand	true	text/cybol-path
+type	the type of both operands	true	meta/type
  *
  * Properties:
  * - output (required): the knowledge model in which the output is stored; used as first input operand
@@ -131,7 +224,26 @@ static int* NOT_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  *
  * result = x OR y
  *
- * This is a CYBOL extension.
+ * Description:
+ *
+Applies the boolean logic operation OR.
+ *
+ * Examples:
+ *
+ * <node name="result" channel="inline" format="logicvalue/boolean" model="false"/>
+<node name="operand" channel="inline" format="logicvalue/boolean" model="false"/>
+<node name="operation" channel="inline" format="logify/or" model="">
+ *     <node name="output" channel="inline" format="text/cybol-path" model=".app.result"/>
+ *     <node name="input" channel="inline" format="text/cybol-path" model=".app.operand"/>
+ *     <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+output	the knowledge model in which the output is stored; used as first input operand	true	text/cybol-path
+input	the second input operand	true	text/cybol-path
+type	the type of both operands	true	meta/type
  *
  * Properties:
  * - output (required): the knowledge model in which the output is stored; used as first input operand
@@ -147,7 +259,26 @@ static int* OR_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MO
  *
  * result = x XNOR y
  *
- * This is a CYBOL extension.
+ * Description:
+ *
+Applies the boolean logic operation XNOR.
+ *
+ * Examples:
+ *
+ * <node name="result" channel="inline" format="logicvalue/boolean" model="false"/>
+<node name="operand" channel="inline" format="logicvalue/boolean" model="false"/>
+<node name="operation" channel="inline" format="logify/xnor" model="">
+ *     <node name="output" channel="inline" format="text/cybol-path" model=".app.result"/>
+ *     <node name="input" channel="inline" format="text/cybol-path" model=".app.operand"/>
+ *     <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+output	the knowledge model in which the output is stored; used as first input operand	true	text/cybol-path
+input	the second input operand	true	text/cybol-path
+type	the type of both operands	true	meta/type
  *
  * Properties:
  * - output (required): the knowledge model in which the output is stored; used as first input operand
@@ -163,7 +294,26 @@ static int* XNOR_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  *
  * result = x XOR y
  *
- * This is a CYBOL extension.
+ * Description:
+ *
+Applies the boolean logic operation XOR.
+ *
+ * Examples:
+ *
+ * <node name="result" channel="inline" format="logicvalue/boolean" model="false"/>
+<node name="operand" channel="inline" format="logicvalue/boolean" model="false"/>
+<node name="operation" channel="inline" format="logify/xor" model="">
+ *     <node name="output" channel="inline" format="text/cybol-path" model=".app.result"/>
+ *     <node name="input" channel="inline" format="text/cybol-path" model=".app.operand"/>
+ *     <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+output	the knowledge model in which the output is stored; used as first input operand	true	text/cybol-path
+input	the second input operand	true	text/cybol-path
+type	the type of both operands	true	meta/type
  *
  * Properties:
  * - output (required): the knowledge model in which the output is stored; used as first input operand

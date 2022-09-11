@@ -1,6 +1,0 @@
-<node name="count" channel="inline" format="access/count" model="">
-    <node name="count" channel="inline" format="text/cybol-path" model=".count"/>
-    <node name="part" channel="inline" format="text/cybol-path" model=".addition_application"/>
-    <node name="selection" channel="inline" format="text/plain" model="subsequence"/>
-    <node name="filter" channel="inline" format="text/plain" model="summand"/>
-</node>

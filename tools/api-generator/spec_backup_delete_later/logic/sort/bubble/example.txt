@@ -1,4 +1,0 @@
-<node name="sort" channel="inline" format="sort/bubble" model="">
-    <node name="output" channel="inline" format="text/cybol-path" model=".result"/>
-    <node name="input" channel="inline" format="text/cybol-path" model=".unsorted"/>
-</node>

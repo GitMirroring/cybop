@@ -1,5 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Casts a value from one type to another."/>
-    <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/cast/integer/example.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/cast/integer/properties.cybol"/>
-</node>

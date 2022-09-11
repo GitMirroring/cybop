@@ -1,5 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Retrieve next pseudo-random number in the series."/>
-    <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/randomise/retrieve/example.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/randomise/retrieve/properties.cybol"/>
-</node>

@@ -1,5 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Resets the bit at a given position."/>
-    <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/manipulate/clear/example.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/manipulate/clear/properties.cybol"/>
-</node>

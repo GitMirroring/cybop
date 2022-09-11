@@ -1,5 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Removes count elements from the part."/>
-    <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/modify/remove/example.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/modify/remove/properties.cybol"/>
-</node>

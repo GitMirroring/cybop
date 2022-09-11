@@ -43,6 +43,17 @@
  *
  * Identifies the device or client that has placed a request (handler) into the interrupt pipe.
  *
+ * Description:
+ *
+TODO
+ *
+ * Examples:
+ *
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+ *
  * Properties:
  * - identification (required): the device or client identification, e.g. file descriptor
  */
@@ -58,6 +69,36 @@ static int* IDENTIFY_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_ST
  * CAUTION! Some file formats (like the German xDT format for medical data exchange)
  * contain both, the model AND the properties, in one file. To cover these cases,
  * the model AND properties are received TOGETHER, in just one operation.
+ *
+ *
+ * Description:
+ *
+Receives a message via the given channel.
+ *
+ * Examples:
+ *
+ * <node name="initialise" channel="inline" format="communicate/receive" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+ *     <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+ *     <node name="format" channel="inline" format="meta/format" model="element/part"/>
+ *     <node name="message" channel="inline" format="text/plain" model="ui/app.cybol"/>
+ *     <node name="model" channel="inline" format="text/cybol-path" model=".app"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+channel	the channel via which to receive the message (terminal, display, www etc.)	true	path/* | meta/channel
+encoding	the encoding (utf-8, utf-32 for inline channel etc.)	true	meta/encoding
+language	the language of the data received (cybol, http_request, xdt etc.)	true	meta/language
+format	the format of the data received (boolean, character, integer etc.)	true	meta/format
+message	the source (knowledge template) from where to receive data, e.g. the gui root window	true	path/knowledge | text/plain
+meta	the source (knowledge template) from where to receive meta data (properties)	false	text/cybol-path
+model	the model to be filled with the data received	true	text/cybol-path
+minimum	the minimum number of bytes to be received in one call of the read function	false	number/integer
+maximum	the maximum number of bytes to be received in one call of the read function	false	number/integer
+style	the style of socket communication, only if channel is www, cyboi or similar	false	???
  *
  * Properties:
  * - channel (required): the communication channel, e.g. file, serial, socket
@@ -82,6 +123,47 @@ static int* RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *
  * Send data via a communication channel.
  * Sends a message via the given channel.
+ *
+ * Description:
+ *
+Sends a message via the given channel.
+ *
+ * Examples:
+ *
+ * <node name="print_adc" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+ *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+ *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+ *     <node name="message" channel="inline" format="text/plain" model="Current adc rounded in voltage:"/>
+ *     <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+ * </node>
+
+<node name="print_adc_value" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+ *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+ *     <node name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".settings.adc"/>
+ *     <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - TODO (required | optional) [text/cybol-path]: TODO
+channel	the channel via which to send the message (e.g. http)	true	path/* | meta/channel
+encoding	the encoding to be used, e.g. ascii; the default is utf-8	false	meta/encoding
+language	the language into which to serialise the message before sending it (e.g. html, model-diagram etc.)	true	meta/language
+format	the format into which to serialise the message before sending (e.g. element/part, number/integer)	true	meta/format
+message	the source message to be sent to another system	true	path/knowledge | text/plain
+receiver	the destination receiving the message	false	text/plain
+mode	the mode of communication, only if channel is http	false	???
+namespace	the namespace of the socket, only if channel is http	false	???
+style	the style of communicationl, only if channel is http	false	text/plain
+area	the user interface area to be repainted, only if type is tui or gui	false	???
+clear	the flag indicating whether or not to clear the screen before painting a user interface, only if type is terminal or tui	false	logicvalue/boolean
+newline	the flag indicating whether or not to add a new line after having printed the message on screen, only if channel is terminal	false	logicvalue/boolean
+null_termination	the flag indicating whether or not to add an ascii null termination character '\0' at the end of the (multibyte) message (after encoding)	false	logicvalue/boolean
  *
  * Parametres:
  * - channel (required): the communication channel, e.g. file, serial, socket

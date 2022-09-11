@@ -1,5 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Sets the bit at the given position."/>
-    <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/manipulate/set/example.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/manipulate/set/properties.cybol"/>
-</node>
