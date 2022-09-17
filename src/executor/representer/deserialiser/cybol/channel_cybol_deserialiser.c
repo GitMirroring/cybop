@@ -46,9 +46,9 @@
 void deserialise_cybol_channel(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol channel.");
-    fwprintf(stdout, L"Debug: Deserialise cybol channel. channel data p1: %ls\n", (wchar_t*) p1);
-    fwprintf(stdout, L"Debug: Deserialise cybol channel. channel count p2: %i\n", (wchar_t*) p2);
-    fwprintf(stdout, L"Debug: Deserialise cybol channel. channel count *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol channel. channel data p1: %ls\n", (wchar_t*) p1);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol channel. channel count p2: %i\n", (wchar_t*) p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol channel. channel count *p2: %i\n", *((int*) p2));
 
     //
     // CAUTION! Do NOT use the "append" function here!

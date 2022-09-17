@@ -89,10 +89,10 @@
 void deserialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol content.");
-    fwprintf(stdout, L"Debug: Deserialise cybol content. source model count p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise cybol content. source model count *p2: %i\n", *((int*) p2));
-    fwprintf(stdout, L"Debug: Deserialise cybol content. source properties count p4: %i\n", p4);
-    fwprintf(stdout, L"Debug: Deserialise cybol content. source properties count *p4: %i\n", *((int*) p4));
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol content. source model count p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol content. source model count *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol content. source properties count p4: %i\n", p4);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol content. source properties count *p4: %i\n", *((int*) p4));
 
     //
     // Declaration

@@ -79,14 +79,14 @@ void deserialise_cybol_part(void* p0, void* p1, void* p2);
 void deserialise_cybol_standard(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol standard.");
-    fwprintf(stdout, L"Debug: Deserialise cybol standard. name data p1: %ls\n", (wchar_t*) p1);
-    fwprintf(stdout, L"Debug: Deserialise cybol standard. name count *p2: %i\n", *((int*) p2));
-    fwprintf(stdout, L"Debug: Deserialise cybol standard. channel data p3: %ls\n", (wchar_t*) p3);
-    fwprintf(stdout, L"Debug: Deserialise cybol standard. channel count *p4: %i\n", *((int*) p4));
-    fwprintf(stdout, L"Debug: Deserialise cybol standard. format data p9: %ls\n", (wchar_t*) p9);
-    fwprintf(stdout, L"Debug: Deserialise cybol standard. format count *p10: %i\n", *((int*) p10));
-    fwprintf(stdout, L"Debug: Deserialise cybol standard. model data p11: %ls\n", (wchar_t*) p11);
-    fwprintf(stdout, L"Debug: Deserialise cybol standard. model count *p12: %i\n", *((int*) p12));
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol standard. name data p1: %ls\n", (wchar_t*) p1);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol standard. name count *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol standard. channel data p3: %ls\n", (wchar_t*) p3);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol standard. channel count *p4: %i\n", *((int*) p4));
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol standard. format data p9: %ls\n", (wchar_t*) p9);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol standard. format count *p10: %i\n", *((int*) p10));
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol standard. model data p11: %ls\n", (wchar_t*) p11);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol standard. model count *p12: %i\n", *((int*) p12));
 
     //
     // Declaration

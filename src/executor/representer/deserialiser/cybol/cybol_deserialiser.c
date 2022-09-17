@@ -78,8 +78,8 @@
 void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol.");
-    fwprintf(stdout, L"Information: Deserialise cybol. p4: %i\n", p4);
-    fwprintf(stdout, L"Information: Deserialise cybol. *p4: %i\n", *((int*) p4));
+    //?? fwprintf(stdout, L"Information: Deserialise cybol. p4: %i\n", p4);
+    //?? fwprintf(stdout, L"Information: Deserialise cybol. *p4: %i\n", *((int*) p4));
 
     //
     // The functions below are for STATE models only.
@@ -453,8 +453,8 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
         // The source is unknown for LOGIC formats.
         //
         // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol. The format is unknown.");
-        fwprintf(stdout, L"Warning: Could not deserialise cybol. The format is unknown. format p4: %i\n", p4);
-        // fwprintf(stdout, L"Warning: Could not deserialise cybol. The format is unknown. format *p4: %i\n", *((int*) p4));
+        //?? fwprintf(stdout, L"Warning: Could not deserialise cybol. The format is unknown. format p4: %i\n", p4);
+        //?? fwprintf(stdout, L"Warning: Could not deserialise cybol. The format is unknown. format *p4: %i\n", *((int*) p4));
     }
 }
 

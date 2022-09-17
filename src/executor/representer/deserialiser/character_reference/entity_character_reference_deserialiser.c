@@ -44,8 +44,8 @@
 void deserialise_character_reference_entity(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise character reference entity.");
-    fwprintf(stdout, L"Debug: Deserialise character reference entity. source count remaining p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise character reference entity. source count remaining *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise character reference entity. source count remaining p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise character reference entity. source count remaining *p2: %i\n", *((int*) p2));
 
     // The entity data, count.
     void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;

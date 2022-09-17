@@ -54,8 +54,8 @@ void deserialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 void deserialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol element.");
-    fwprintf(stdout, L"Debug: Deserialise cybol element. format p4: %i\n", p4);
-    fwprintf(stdout, L"Debug: Deserialise cybol element. format *p4: %i\n", *((int*) p4));
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol element. format p4: %i\n", p4);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol element. format *p4: %i\n", *((int*) p4));
 
     //
     // Declaration

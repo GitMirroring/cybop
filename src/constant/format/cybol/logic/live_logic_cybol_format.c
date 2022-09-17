@@ -41,20 +41,16 @@
 /**
  * The live/exit logic cybol format.
  *
- * Exit the cyboi system.
- *
  * Description:
  *
-Closes a running application.
+ * Exits the cyboi system and closes the running application.
+ *
+ * Internally, an exit flag gets set so that the event loop gets left.
+ * Interrupt threads get exited, too. All objects in memory get deallocated.
  *
  * Examples:
  *
  * <node name="exit_application" channel="inline" format="live/exit" model=""/>
- *
- * Properties:
- *
- * - TODO (required | optional) [text/cybol-path]: TODO
-channel	the channel whose service is to be interrupted (terminal, display, www etc.)	true	path/* | meta/channel
  */
 static wchar_t* EXIT_LIVE_LOGIC_CYBOL_FORMAT = L"live/exit";
 static int* EXIT_LIVE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;

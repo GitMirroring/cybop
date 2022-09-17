@@ -49,8 +49,8 @@
 void deserialise_character_reference_html(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise character reference html.");
-    fwprintf(stdout, L"Debug: Deserialise character reference html. source count p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise character reference html. source count *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise character reference html. source count p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise character reference html. source count *p2: %i\n", *((int*) p2));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
