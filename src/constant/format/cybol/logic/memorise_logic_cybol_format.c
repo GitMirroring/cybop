@@ -41,47 +41,48 @@
 /**
  * The memorise/create logic cybol format.
  *
- * Create / allocate / reserve memory on heap.
- *
- * The model and properties may get filled with data using a
- * "deserialise" operation, which is called when a "receive"
- * logic operation is found in cybol.
- *
- * The new knowledge model gets added to either of:
- * - whole part's model hierarchy
- *   (or knowledge memory part's root, if no whole is given)
- * - whole part's properties hierarchy
- *   (or knowledge memory part's root, if no whole is given)
- *
  * Description:
  *
-Creates an empty part consisting of name and type only.
+ * Allocates an EMPTY part in HEAP memory, consisting of name and type only.
+ *
+ * Each knowledge tree node has a DOUBLE hierarchy with the main MODEL branch representing
+ * the whole-part-structure and a second branch representing additional (mostly flat) PROPERTIES.
+ * The "properties" property flag determines where to add the new part to.
+ * If the "whole" property is not given (null) and the "properties" flag set to true,
+ * then the new part gets added to the knowledge memory root node's properties branch.
  *
  * Examples:
  *
- * <node name="create_summand_2" channel="inline" format="memorise/create" model="">
- *     <node name="name" channel="inline" format="text/plain" model="summand_2"/>
+ * <node name="create_fileid" channel="inline" format="memorise/create" model="">
+ *     <node name="name" channel="inline" format="text/plain" model="id"/>
+ *     <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+ * </node>
+ *
+ * <node name="create_summand" channel="inline" format="memorise/create" model="">
+ *     <node name="name" channel="inline" format="text/plain" model="summand"/>
  *     <node name="format" channel="inline" format="meta/format" model="number/integer"/>
  *     <node name="whole" channel="inline" format="text/cybol-path" model=".addition_application"/>
  * </node>
  *
+ * <node name="create_wui_song" channel="inline" format="memorise/create" model="">
+ *     <node name="name" channel="inline" format="text/cybol-path" model="#song_name"/>
+ *     <node name="format" channel="inline" format="meta/format" model="element/part"/>
+ *     <node name="whole" channel="inline" format="text/cybol-path" model=".wui.round.(#round_name).content"/>
+ * </node>
+ *
+ * <node name="create_sub_node_in_root_property_properties" channel="inline" format="memorise/create" model="">
+ *     <node name="name" channel="inline" format="text/plain" model="number"/>
+ *     <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+ *     <node name="whole" channel="inline" format="text/cybol-path" model=":some_root_property"/>
+ *     <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+ * </node>
+ *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-name	the name of the part to be created	true	text/plain
-format	the format of the part to be created, from which gets determined the type	true	meta/format
-element	the kind of element to be created (part, property); a part element will be added to the whole model's part hierarchy; a property element to the whole model's properties hierarchy	true	text/plain
-whole	If null, the new part will be added to the knowledge memory root. The compound to which to add to the new part.	false	element/part
- *
- * Expected parametres:
- * - name (required): the name of the part to be created
- * - format (required): the format of the part to be created, from which gets determined the type
- * - whole (optional; if null, the new part will be added to the knowledge memory root):
- *       the compound part to which to add the new part to
- * - whole_properties (optional; the default is "false"; if null, the MODEL container is used):
- *   the flag indicating whether the model- or properties container should be used;
- *   false = whole MODEL container;
- *   true = whole PROPERTIES container
+ * - name (required) [text/cybol-path | text/plain]: the name of the part to be created
+ * - format (required) [text/cybol-path | meta/format]: the format of the part to be created, from which gets determined the internal data type
+ * - whole (optional) [text/cybol-path]: the destination parent node to which to add the new part to; if NOT given (null), then the new part gets added to the knowledge memory ROOT node by default
+ * - properties (optional) [text/cybol-path | logicvalue/boolean]: the flag indicating whether the MODEL or PROPERTIES branch is to be used as destination; if NOT given (null) or false, then MODEL by default; if true then PROPERTIES
  */
 static wchar_t* CREATE_MEMORISE_LOGIC_CYBOL_FORMAT = L"memorise/create";
 static int* CREATE_MEMORISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -89,63 +90,37 @@ static int* CREATE_MEMORISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
 /**
  * The memorise/destroy logic cybol format.
  *
- * Destroy / deallocate / free memory on heap.
- *
  * Description:
  *
-Destroys a part and removes it from the knowledge model.
+ * Deallocates the given part in HEAP memory.
+ *
+ * CAUTION! Do NOT destroy the whole knowledge tree when shutting down a system since otherwise,
+ * the shutdown operation models of the corresponding cybol application being executed
+ * get destroyed as well, so that the exit operation cannot be executed anymore.
+ * The rubbish (garbage) collector cares about destruction evaluating references.
+ * The exit operation is the last one to be called. It cleans up all memory internally.
  *
  * Examples:
  *
- * <node name="destroy_tui_control" channel="inline" format="memorise/destroy" model="">
- *     <node name="name" channel="inline" format="text/cybol-path" model=".tui_control"/>
+ * <node name="destroy_part" channel="inline" format="memorise/destroy" model="">
+ *     <node name="part" channel="inline" format="text/cybol-path" model=".some.part"/>
  * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-name	the part to be destroyed	true	text/cybol-path
- *
- * Parametres:
- * - part (required): the part to be destroyed
+ * - part (required) [text/cybol-path]: the part to be destroyed
  */
 static wchar_t* DESTROY_MEMORISE_LOGIC_CYBOL_FORMAT = L"memorise/destroy";
 static int* DESTROY_MEMORISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The memorise/pop logic cybol format.
- *
- * Destroy / deallocate / free memory on stack.
- *
- * Description:
- *
-Pop an element from the stack.
- *
- * Examples:
- *
- *
- * Properties:
- *
- * - TODO (required | optional) [text/cybol-path]: TODO
  */
 static wchar_t* POP_MEMORISE_LOGIC_CYBOL_FORMAT = L"memorise/pop";
 static int* POP_MEMORISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The memorise/push logic cybol format.
- *
- * Create / allocate / reserve memory on stack.
- *
- * Description:
- *
-Push an element on the stack.
- *
- * Examples:
- *
- *
- * Properties:
- *
- * - TODO (required | optional) [text/cybol-path]: TODO
  */
 static wchar_t* PUSH_MEMORISE_LOGIC_CYBOL_FORMAT = L"memorise/push";
 static int* PUSH_MEMORISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;

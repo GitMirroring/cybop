@@ -11,13 +11,13 @@
         <node name="name" channel="inline" format="text/plain" model="tag"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="whole" channel="inline" format="text/cybol-path" model=".wui.body.(#topic_name).(#category_part_name)"/>
-        <node name="whole_properties" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="create_href_property" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="href"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="whole" channel="inline" format="text/cybol-path" model=".wui.body.(#topic_name).(#category_part_name)"/>
-        <node name="whole_properties" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <!-- Assignment -->

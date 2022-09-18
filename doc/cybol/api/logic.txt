@@ -1,3 +1,6 @@
 calculate/add
+live/exit
+memorise/create
+memorise/destroy
 represent/deserialise
 represent/serialise

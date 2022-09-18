@@ -18,6 +18,13 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-09-17  Christian Heller  <christian.heller@cybop.org>
+
+        * Add cybol application "knowledge_tree/creation/"
+        * Rename property "whole_properties" into just "properties" for operation "memorise/create"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/live_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/memorise_logic_cybol_format.c"
+
 2022-09-11  Christian Heller  <christian.heller@cybop.org>
 
         * Use unicode number constant with suffix "_COUNT" of file "unicode_character_code_model.c" instead of constant PRIMITIVE_STATE_CYBOI_MODEL_COUNT in file "html_character_reference_deserialiser.c"

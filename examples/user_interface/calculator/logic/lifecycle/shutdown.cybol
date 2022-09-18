@@ -1,33 +1,35 @@
 <node>
+
 <!--
     <node name="interrupt_terminal" channel="inline" format="live/interrupt" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
 -->
+
 <!--
     <node name="shutdown_terminal" channel="inline" format="maintain/shutdown" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
 -->
-<!--
-    CAUTION! The memory MUST NOT be destroyed here!
-    Otherwise, also THIS model is destroyed in memory so that the exit operation
-    below cannot be executed anymore.
-    The rubbish (garbage) collector cares about destruction evaluating references.
-    If CYBOI runs as operating system one day, the exit operation will only be called
-    when the whole operating system is shutdown. At this time, the "destroy_tui_control"
-    operation HAS TO BE REACTIVATED and called as final operation cleaning up the memory
-    instances of the Res Medicinae application. But as long as CYBOI does not run as
-    operating system and each application is started with its own instance of CYBOI,
-    the exit operation is the last one to be called. It cleans up all memory, too.
-    <node name="destroy_app" channel="inline" format="memorise/destroy" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app"/>
-    </node>
--->
+
+    <!--
+        CAUTION! Do NOT destroy the whole knowledge tree here since otherwise,
+        also THIS model is destroyed in memory so that the exit operation
+        below cannot be executed anymore. The rubbish (garbage) collector
+        cares about destruction evaluating references.
+        The exit operation is the last one to be called. It cleans up all memory.
+
+        <node name="destroy_app" channel="inline" format="memorise/destroy" model="">
+            <node name="part" channel="inline" format="text/cybol-path" model="."/>
+        </node>
+    -->
+
     <node name="clean_tui" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
     </node>
+
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
 </node>

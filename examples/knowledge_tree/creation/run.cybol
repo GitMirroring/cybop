@@ -14,33 +14,33 @@
     <node name="create_node_in_root_properties" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="root_property"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="whole_properties" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="create_sub_node_in_root_model_model" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="number_in_model"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="whole" channel="inline" format="text/cybol-path" model=".root_model"/>
-        <node name="whole_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
     <node name="create_sub_node_in_root_model_properties" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="number_in_properties"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="whole" channel="inline" format="text/cybol-path" model=".root_model"/>
-        <node name="whole_properties" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="create_sub_node_in_root_property_model" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="number_in_model"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="whole" channel="inline" format="text/cybol-path" model=":root_property"/>
-        <node name="whole_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
     <node name="create_sub_node_in_root_property_properties" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="number_in_properties"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="whole" channel="inline" format="text/cybol-path" model=":root_property"/>
-        <node name="whole_properties" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <!-- Testing -->

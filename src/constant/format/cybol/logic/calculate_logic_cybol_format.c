@@ -74,7 +74,7 @@ static int* ABSOLUTE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  * The result parametre represents the FIRST operand;
  * the operand parametre the SECOND.
  *
- * CAUTION! Do NOT use this operation for characters!
+ * CAUTION! Do NOT use this operation for characters (strings)!
  * They may be concatenated by using the modify/append operation.
  *
  * Examples:

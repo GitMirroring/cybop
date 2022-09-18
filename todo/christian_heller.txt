@@ -14,33 +14,29 @@
 API
 ___
 
-        * Update cybol api specification in javadoc comment blocks of directory "constant/format/cybol/logic/"
-        * ALL not mentioned here anymore are done but only the following are TODO:
-            live_logic_cybol_format.c
-            memorise_logic_cybol_format.c
-            dispatch_logic_cybol_format.c
-            stream_logic_cybol_format.c
-            represent_logic_cybol_format.c
-            convert_logic_cybol_format.c
-            communicate_logic_cybol_format.c
-            flow_logic_cybol_format.c
-            maintain_logic_cybol_format.c
-            activate_logic_cybol_format.c
-            feel_logic_cybol_format.c
-            compare_logic_cybol_format.c
-            calculate_logic_cybol_format.c
-            logify_logic_cybol_format.c
-            modify_logic_cybol_format.c
-            check_logic_cybol_format.c
-            access_logic_cybol_format.c
-            sort_logic_cybol_format.c
-            time_logic_cybol_format.c
-            run_logic_cybol_format.c
-            command_logic_cybol_format.c
-            manipulate_logic_cybol_format.c
-            randomise_logic_cybol_format.c
-            cast_logic_cybol_format.c
-            contain_logic_cybol_format.c
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/dispatch_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/stream_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/represent_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/convert_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/communicate_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/flow_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/maintain_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/activate_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/feel_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/compare_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/calculate_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/logify_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/modify_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/check_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/access_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/sort_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/time_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/run_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/command_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/manipulate_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/randomise_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/cast_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/contain_logic_cybol_format.c"
 
 Numeral Deserialiser
 ____________________
