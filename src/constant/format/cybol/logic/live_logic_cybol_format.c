@@ -47,6 +47,7 @@
  *
  * Internally, an exit flag gets set so that the event loop gets left.
  * Interrupt threads get exited, too. All objects in memory get deallocated.
+ * The cyboi interpreter finally exits.
  *
  * Examples:
  *

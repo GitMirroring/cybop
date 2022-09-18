@@ -71,11 +71,9 @@ static int* ABSOLUTE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  * Description:
  *
  * Adds the operand to the result.
- * The result parametre represents the FIRST operand;
- * the operand parametre the SECOND.
  *
- * CAUTION! Do NOT use this operation for characters (strings)!
- * They may be concatenated by using the modify/append operation.
+ * Caution! Do not use this operation for characters (strings)!
+ * They may be concatenated by using the "modify/append" operation.
  *
  * Examples:
  *
@@ -96,11 +94,11 @@ static int* ABSOLUTE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  *
  * Properties:
  *
- * - result (required) [text/cybol-path]: The sum resulting from the addition. It initially contains the first summand.
- * - operand (required) [text/cybol-path | number/any]: The second summand for the addition.
- * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. If null, the operand count will be used instead. This is relevant only for arrays with more than one element.
- * - result_index (optional) [text/cybol-path | number/integer]: The result index from which to start calculating. If null, an index of zero will be used instead.
- * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from which to start calculating. If null, an index of zero will be used instead.
+ * - result (required) [text/cybol-path]: The sum resulting from the addition. It initially represents the first summand.
+ * - operand (required) [text/cybol-path | number/any]: The second summand.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the operand count.
+ * - result_index (optional) [text/cybol-path | number/integer]: The result index from which to start calculating. If null, the default is zero.
+ * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from which to start calculating. If null, the default is zero.
  */
 static wchar_t* ADD_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/add";
 static int* ADD_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;

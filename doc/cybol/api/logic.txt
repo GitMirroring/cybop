@@ -1,4 +1,6 @@
 calculate/add
+dispatch/close
+dispatch/open
 live/exit
 memorise/create
 memorise/destroy

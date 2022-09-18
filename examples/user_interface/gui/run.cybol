@@ -59,6 +59,8 @@
         <node name="message" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
     </node>
 
+    <!-- Testing -->
+
 <!--
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
