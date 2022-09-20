@@ -37,9 +37,10 @@
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
  * @param p3 the decimal power flag
- * @param p4 the second part flag
+ * @param p4 the detected format
+ * @param p5 the detected type
  */
-void deserialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral decimals.");
     fwprintf(stdout, L"Debug: Deserialise numeral decimals. count remaining p8: %i\n", p8);
@@ -92,7 +93,7 @@ void deserialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3, void* 
         }
 
         // Select numeral decimals.
-        select_numeral_decimals(p1, p2, p3, p4, (void*) &dc, (void*) &b);
+        select_numeral_value(p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, p3, p4, p5, (void*) &dc, (void*) &b);
     }
 }
 

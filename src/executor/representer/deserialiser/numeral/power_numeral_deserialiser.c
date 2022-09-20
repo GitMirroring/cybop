@@ -35,9 +35,10 @@
  * @param p0 the destination double value
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
- * @param p3 the second part flag
+ * @param p3 the detected format
+ * @param p4 the detected type
  */
-void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral power.");
     fwprintf(stdout, L"Debug: Deserialise numeral power. source count p2: %i\n", p2);
@@ -90,7 +91,7 @@ void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3) {
         }
 
         // Select decimal power (power of 10).
-        select_numeral_power(p1, p2, p3, (void*) &pc, (void*) &b);
+        select_numeral_value(p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3, p4, (void*) &pc, (void*) &b);
     }
 }
 

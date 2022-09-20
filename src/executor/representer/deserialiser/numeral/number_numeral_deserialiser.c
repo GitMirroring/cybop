@@ -79,46 +79,39 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
         // The second decimal power.
         int po2 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        // The second part flag with FIRST part (false) as default.
-        int sf = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
         // The format with INTEGER as default.
         int f = *INTEGER_NUMERAL_STATE_CYBOI_FORMAT;
         // The type with INTEGER as default.
         int t = *INTEGER_NUMERAL_STATE_CYBOI_TYPE;
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-        // The number.
+        // The temporary number.
         void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The destination item count.
         void* ic = *NULL_POINTER_STATE_CYBOI_MODEL;
-        //
-        // The old destination item count.
-        //
-        // CAUTION! This variable is necessary for INSERTING values,
-        // rather than appending them.
-        //
-        int oc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        //
         // Deserialise FIRST part of number.
-        //
-        // CAUTION! Hand over the second part FLAG so that it can
-        // be set inside, in case a suitable separator is found.
-        //
-        deserialise_numeral_part((void*) &s1, (void*) &b1, (void*) &v1, (void*) &d1, (void*) &po1, p2, p3, (void*) &f, (void*) &t, (void*) &sf);
+        deserialise_numeral_part((void*) &s1, (void*) &b1, (void*) &v1, (void*) &d1, (void*) &po1, p2, p3, (void*) &f, (void*) &t);
 
-        if (sf != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if ((t == FRACTION_NUMBER_STATE_CYBOI_TYPE) || (t == *COMPLEX_NUMBER_STATE_CYBOI_TYPE)) {
 
             //
             // A second number part has been found.
             //
 
+            //
             // Deserialise SECOND part of number.
-            deserialise_numeral_part((void*) &s2, (void*) &b2, (void*) &v2, (void*) &d2, (void*) &po2, p2, p3, (void*) &f, (void*) &t, (void*) &sf);
-
-            // Assign correct format and type.
-            copy_integer((void*) &f, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
-            copy_integer((void*) &t, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+            //
+            // CAUTION! Do NOT hand over format and type parametre again
+            // but NULL instead since otherwise, they would get overwritten
+            // even though they should remain on fraction or complex.
+            //
+            // For fraction and complex it is clearly defined
+            // which format and type the two parts have inside
+            // - fraction: numerator and denominator part as INTEGER
+            // - complex: real and imaginary part as FLOAT
+            //
+            deserialise_numeral_part((void*) &s2, (void*) &b2, (void*) &v2, (void*) &d2, (void*) &po2, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
         }
 
         // Verify detected format.
@@ -171,12 +164,6 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
 
             // Get destination item count.
             copy_array_forward((void*) &ic, *i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-            // Initialise old destination item count.
-            copy_integer((void*) &oc, ic);
-
-            //
-            //?? TODO: Use insert or append to add temporary number below ??
-            //
 
             //
             // Add number to destination number part model item.
@@ -189,12 +176,12 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
             // the order of vector values would be swapped, which is NOT wanted.
             // On the other hand, inserting values at the beginning of the
             // destination item is WRONG if values are already present.
-            // Therefore, the destination item's OLD element count
-            // is remembered here, so that new values may be inserted
+            // Therefore, the destination item's OLD element count is
+            // remembered here, so that new values may be INSERTED
             // starting from that count used as INDEX, which has the
             // effect that elements are appended in the correct order.
             //
-            modify_item(*i, n, (void*) &t, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &oc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INSERT_MODIFY_LOGIC_CYBOI_FORMAT);
+            modify_item(*i, n, (void*) &t, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, ic, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INSERT_MODIFY_LOGIC_CYBOI_FORMAT);
 
             //
             // CAUTION Do NOT append the part to some destination here,

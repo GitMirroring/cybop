@@ -36,11 +36,12 @@
  * @param p1 the source count remaining
  * @param p2 the decimal places (decimals) flag
  * @param p3 the decimal power flag
- * @param p4 the second part flag
- * @param p5 the value count
- * @param p6 the loop break flag
+ * @param p4 the detected format
+ * @param p5 the detected type
+ * @param p6 the count
+ * @param p7 the loop break flag
  */
-void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select numeral value.");
     fwprintf(stdout, L"Debug: Select numeral value. source count remaining p1: %i\n", p1);
@@ -72,11 +73,15 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            // Assign format and type.
+            copy_integer(p4, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);
+            copy_integer(p5, (void*) FLOAT_NUMBER_STATE_CYBOI_TYPE);
+
             // Set decimal places (decimals) flag.
             copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // Set loop break flag.
-            copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -90,11 +95,15 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            // Assign format and type.
+            copy_integer(p4, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);
+            copy_integer(p5, (void*) FLOAT_NUMBER_STATE_CYBOI_TYPE);
+
             // Set decimal power flag.
             copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // Set loop break flag.
-            copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -104,11 +113,15 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            // Assign format and type.
+            copy_integer(p4, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);
+            copy_integer(p5, (void*) FLOAT_NUMBER_STATE_CYBOI_TYPE);
+
             // Set decimal power flag.
             copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // Set loop break flag.
-            copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -122,11 +135,12 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Set second part flag.
-            copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            // Assign format and type.
+            copy_integer(p4, (void*) FRACTION_VULGAR_NUMBER_STATE_CYBOI_FORMAT);
+            copy_integer(p5, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
 
             // Set loop break flag.
-            copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -140,11 +154,12 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Set second part flag.
-            copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            // Assign format and type.
+            copy_integer(p4, (void*) COMPLEX_CARTESIAN_NUMBER_STATE_CYBOI_FORMAT);
+            copy_integer(p5, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
 
             // Set loop break flag.
-            copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -154,11 +169,12 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Set second part flag.
-            copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            // Assign format and type.
+            copy_integer(p4, (void*) COMPLEX_CARTESIAN_NUMBER_STATE_CYBOI_FORMAT);
+            copy_integer(p5, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
 
             // Set loop break flag.
-            copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -172,11 +188,12 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Set second part flag.
-            copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            // Assign format and type.
+            copy_integer(p4, (void*) COMPLEX_POLAR_NUMBER_STATE_CYBOI_FORMAT);
+            copy_integer(p5, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
 
             // Set loop break flag.
-            copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -186,11 +203,12 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Set second part flag.
-            copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            // Assign format and type.
+            copy_integer(p4, (void*) COMPLEX_POLAR_NUMBER_STATE_CYBOI_FORMAT);
+            copy_integer(p5, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
 
             // Set loop break flag.
-            copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -200,11 +218,12 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Set second part flag.
-            copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            // Assign format and type.
+            copy_integer(p4, (void*) COMPLEX_POLAR_NUMBER_STATE_CYBOI_FORMAT);
+            copy_integer(p5, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
 
             // Set loop break flag.
-            copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -214,11 +233,12 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Set second part flag.
-            copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            // Assign format and type.
+            copy_integer(p4, (void*) COMPLEX_POLAR_NUMBER_STATE_CYBOI_FORMAT);
+            copy_integer(p5, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
 
             // Set loop break flag.
-            copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -232,7 +252,7 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
         move(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         // Adjust value count.
-        calculate_integer_add(p5, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        calculate_integer_add(p6, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

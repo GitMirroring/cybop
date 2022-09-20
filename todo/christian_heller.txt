@@ -57,7 +57,9 @@ _________
 Numeral Deserialiser
 ____________________
 
-        * Reflect about handling of format and type in file "assembler_numeral_selector.c" and in general, since they have to be different for the two parts of a complex number or vulgar fraction
+        DONE: Get the single number parts in file "number_numeral_deserialiser.c"
+
+        * Continue in file "assembler_numeral_selector.c" called from file "number_numeral_deserialiser.c"
         * Continue numeral deserialiser and -selector
         * Consider thousands separator (forgotten up to now, just ignore in selector, as is done with whitespace)
 
