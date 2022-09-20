@@ -46,31 +46,49 @@
  * - complex number in cartesian form: imaginary part
  * - complex number in polar form: argument
  *
- * @param p0 the destination number array
+ * @param p0 the destination number
  * @param p1 the first algebraic sign
- * @param p2 the first number base (relevant for integer only)
- * @param p3 the first value
- * @param p4 the first decimal places (decimals)
- * @param p5 the first decimal power
- * @param p6 the second algebraic sign
- * @param p7 the second number base (relevant for integer only)
- * @param p8 the second value
- * @param p9 the second decimal places (decimals)
- * @param p10 the second decimal power
- * @param p11 the format
+ * @param p2 the first value
+ * @param p3 the first decimal places (decimals)
+ * @param p4 the first decimal power
+ * @param p5 the second algebraic sign
+ * @param p6 the second value
+ * @param p7 the second decimal places (decimals)
+ * @param p8 the second decimal power
+ * @param p9 the format
  */
-void select_numeral_assembler(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void select_numeral_assembler(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select numeral assembler.");
-    fwprintf(stdout, L"Debug: Select numeral assembler. format p11: %i\n", p11);
-    fwprintf(stdout, L"Debug: Select numeral assembler. format *p11: %i\n", *((int*) p11));
+    fwprintf(stdout, L"Debug: Select numeral assembler. format p9: %i\n", p9);
+    fwprintf(stdout, L"Debug: Select numeral assembler. format *p9: %i\n", *((int*) p9));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p11, (void*) COMPLEX_CARTESIAN_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p9, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_numeral_assembler_integer(p0, p1, p2);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p9, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_numeral_assembler_fraction_decimal(p0, p1, p2, p3, p4);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p9, (void*) FRACTION_VULGAR_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -80,7 +98,7 @@ void select_numeral_assembler(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p11, (void*) COMPLEX_POLAR_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p9, (void*) COMPLEX_CARTESIAN_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -90,39 +108,19 @@ void select_numeral_assembler(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p11, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p9, (void*) COMPLEX_POLAR_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //?? TODO
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p11, (void*) FRACTION_VULGAR_NUMBER_STATE_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //?? TODO
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p11, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            deserialise_numeral_assembler_integer(p0, p1, p2, p3);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select numeral assembler. The format is unknown.");
-        fwprintf(stdout, L"Warning: Could not select numeral assembler. The format is unknown. format p11: %i\n", p11);
-        fwprintf(stdout, L"Warning: Could not select numeral assembler. The format is unknown. format *p11: %i\n", *((int*) p11));
+        fwprintf(stdout, L"Warning: Could not select numeral assembler. The format is unknown. format p9: %i\n", p9);
+        fwprintf(stdout, L"Warning: Could not select numeral assembler. The format is unknown. format *p9: %i\n", *((int*) p9));
     }
 }
 

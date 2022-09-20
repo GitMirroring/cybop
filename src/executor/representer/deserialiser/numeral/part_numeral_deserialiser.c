@@ -35,37 +35,38 @@
  * A vulgar fraction or a complex number consist of TWO parts.
  *
  * @param p0 the destination algebraic sign
- * @param p1 the destination number base (relevant for integer only)
- * @param p2 the destination value
- * @param p3 the destination decimal places (decimals)
- * @param p4 the destination decimal power
- * @param p5 the source data position (pointer reference)
- * @param p6 the source count remaining
- * @param p7 the detected format
- * @param p8 the detected type
+ * @param p1 the destination value
+ * @param p2 the destination decimal places (decimals)
+ * @param p3 the destination decimal power
+ * @param p4 the source data position (pointer reference)
+ * @param p5 the source count remaining
+ * @param p6 the detected format
+ * @param p7 the detected type
  */
-void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral part.");
-    fwprintf(stdout, L"Debug: Deserialise numeral part. source count remaining p6: %i\n", p6);
-    fwprintf(stdout, L"Debug: Deserialise numeral part. source count remaining *p6: %i\n", *((int*) p6));
+    fwprintf(stdout, L"Debug: Deserialise numeral part. source count remaining p5: %i\n", p5);
+    fwprintf(stdout, L"Debug: Deserialise numeral part. source count remaining *p5: %i\n", *((int*) p5));
 
+    // The number base with DECIMAL as default.
+    int b = *DECIMAL_BASE_NUMERAL_MODEL;
     // The decimal places (decimals) flag.
     int d = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The decimal power flag.
     int p = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Skip any whitespace characters.
-    deserialise_whitespace(p5, p6);
+    deserialise_whitespace(p4, p5);
 
     // Deserialise algebraic sign.
-    select_numeral_sign(p0, p5, p6);
+    select_numeral_sign(p0, p4, p5);
 
     // Deserialise number base.
-    select_numeral_base(p1, p5, p6);
+    select_numeral_base((void*) &b, p4, p5);
 
     // Deserialise number value.
-    deserialise_numeral_value(p2, p5, p6, (void*) &d, (void*) &p, p7, p8);
+    deserialise_numeral_value(p1, p4, p5, (void*) &b, (void*) &d, (void*) &p, p6, p7);
 
     if (d != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -74,7 +75,7 @@ void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, 
         //
 
         // Deserialise decimal places (decimals).
-        deserialise_numeral_decimals(p3, p5, p6, (void*) &p, p7, p8);
+        deserialise_numeral_decimals(p2, p4, p5, (void*) &p, p6, p7);
     }
 
     if (p != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -84,7 +85,7 @@ void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, 
         //
 
         // Deserialise decimal power.
-        deserialise_numeral_power(p4, p5, p6, p7, p8);
+        deserialise_numeral_power(p3, p4, p5, p6, p7);
     }
 }
 

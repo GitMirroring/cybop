@@ -59,8 +59,6 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
 
         // The first algebraic sign factor with PLUS (positive number one) as default.
         int s1 = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-        // The first number base (relevant for integer only) with DECIMAL as default.
-        int b1 = *DECIMAL_BASE_NUMERAL_MODEL;
         // The first value.
         int v1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         // The first decimal places (decimals).
@@ -70,8 +68,6 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
 
         // The second algebraic sign factor with PLUS (positive number one) as default.
         int s2 = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-        // The second number base (relevant for integer only) with DECIMAL as default.
-        int b2 = *DECIMAL_BASE_NUMERAL_MODEL;
         // The second value.
         int v2 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         // The second decimal places (decimals).
@@ -91,7 +87,7 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
         void* ic = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Deserialise FIRST part of number.
-        deserialise_numeral_part((void*) &s1, (void*) &b1, (void*) &v1, (void*) &d1, (void*) &po1, p2, p3, (void*) &f, (void*) &t);
+        deserialise_numeral_part((void*) &s1, (void*) &v1, (void*) &d1, (void*) &po1, p2, p3, (void*) &f, (void*) &t);
 
         if ((t == FRACTION_NUMBER_STATE_CYBOI_TYPE) || (t == *COMPLEX_NUMBER_STATE_CYBOI_TYPE)) {
 
@@ -107,11 +103,11 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
             // even though they should remain on fraction or complex.
             //
             // For fraction and complex it is clearly defined
-            // which format and type the two parts have inside
+            // which format and type the two parts have inside:
             // - fraction: numerator and denominator part as INTEGER
             // - complex: real and imaginary part as FLOAT
             //
-            deserialise_numeral_part((void*) &s2, (void*) &b2, (void*) &v2, (void*) &d2, (void*) &po2, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+            deserialise_numeral_part((void*) &s2, (void*) &v2, (void*) &d2, (void*) &po2, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
         }
 
         // Verify detected format.
@@ -144,7 +140,7 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
             allocate_array((void*) &n, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) &t);
 
             // Assemble number.
-            select_numeral_assembler(n, s1, b1, v1, d1, po1, s2, b2, v2, d2, po2, (void*) &f);
+            select_numeral_assembler(n, s1, v1, d1, po1, s2, v2, d2, po2, (void*) &f);
 
             //
             // Make sure a destination number item exists.

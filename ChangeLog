@@ -21,6 +21,8 @@
 2022-09-20  Christian Heller  <christian.heller@cybop.org>
 
         * Continue numeral deserialiser and -selector
+        * Rename file "base_number_model.c" into "base_numeral_model.c"
+        * Implement file "integer_assembler_numeral_deserialiser.c" and add file "decimal_fraction_assembler_numeral_deserialiser.c"
 
 2022-09-18  Christian Heller  <christian.heller@cybop.org>
 

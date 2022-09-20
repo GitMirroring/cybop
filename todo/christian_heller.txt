@@ -57,8 +57,8 @@ _________
 Numeral Deserialiser
 ____________________
 
-        DONE: Get the single number parts in file "number_numeral_deserialiser.c"
-
+        DONE: file "integer_assembler_numeral_deserialiser.c"
+        TODO: file "decimal_fraction_assembler_numeral_deserialiser.c"
         * Continue in file "assembler_numeral_selector.c" called from file "number_numeral_deserialiser.c"
         * Continue numeral deserialiser and -selector
         * Consider thousands separator (forgotten up to now, just ignore in selector, as is done with whitespace)

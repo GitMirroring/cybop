@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BASE_NUMBER_MODEL_CONSTANT_SOURCE
-#define BASE_NUMBER_MODEL_CONSTANT_SOURCE
+#ifndef BASE_NUMERAL_MODEL_CONSTANT_SOURCE
+#define BASE_NUMERAL_MODEL_CONSTANT_SOURCE
 
 #include <stddef.h> // wchar_t
 
@@ -34,17 +34,17 @@
 // CAUTION! The sort order is by number base and NOT alphabetically.
 //
 
-/** The binary base number model. */
-static int* BINARY_BASE_NUMBER_MODEL = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The binary base numeral model. */
+static int* BINARY_BASE_NUMERAL_MODEL = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The octal base number model. */
-static int* OCTAL_BASE_NUMBER_MODEL = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The octal base numeral model. */
+static int* OCTAL_BASE_NUMERAL_MODEL = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The decimal base number model. */
-static int* DECIMAL_BASE_NUMBER_MODEL = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The decimal base numeral model. */
+static int* DECIMAL_BASE_NUMERAL_MODEL = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The hexadecimal base number model. */
-static int* HEXADECIMAL_BASE_NUMBER_MODEL = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The hexadecimal base numeral model. */
+static int* HEXADECIMAL_BASE_NUMERAL_MODEL = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* BASE_NUMBER_MODEL_CONSTANT_SOURCE */
+/* BASE_NUMERAL_MODEL_CONSTANT_SOURCE */
 #endif

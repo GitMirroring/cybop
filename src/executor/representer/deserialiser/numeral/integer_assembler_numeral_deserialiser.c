@@ -23,71 +23,31 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INTEGER_ASSEMBLER_DESERIALISER_SOURCE
-#define INTEGER_ASSEMBLER_DESERIALISER_SOURCE
+#ifndef INTEGER_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE
+#define INTEGER_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/representer/deserialiser/numeral/numeral_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Assembles the integer from the given values.
  *
- * @param p0 the destination integer item
+ * @param p0 the destination integer
  * @param p1 the algebraic sign
- * @param p2 the number base
- * @param p3 the value
+ * @param p2 the value
  */
-void deserialise_numeral_assembler_integer(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_numeral_assembler_integer(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral assembler integer.");
-    fwprintf(stdout, L"Debug: Deserialise numeral assembler integer. value p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Deserialise numeral assembler integer. value *p3: %i\n", *((int*) p3));
+    fwprintf(stdout, L"Debug: Deserialise numeral assembler integer. value p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Deserialise numeral assembler integer. value *p2: %i\n", *((int*) p2));
 
-    // The loop variable.
-    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The potency.
-    int p = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The digit.
-    int d = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The product.
-    int pr = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The result.
-    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // Copy value to destination integer.
+    copy_integer(p0, p2);
 
-    while (TRUE) {
-
-        //
-        // Calculate given base raised to the power of the loop variable as exponent.
-        //
-        // Example: 16^0 = 1, 16^1 = 16, 16^2 = 256 etc.
-        //
-        //?? TODO: Just multiply with the given number base in each loop cycle.
-        // Exception: exponent zero with result 1
-        //
-        calculate_power((void*) &p, p2, (void*) &j);
-
-        // Retrieve next digit from value.
-        //?? TODO: See retrieval of digit in decimal places (decimals)
-        copy_array_forward(digit, p3, index);
-
-        // Initialise product with digit.
-        copy_integer((void*) &pr, (void*) &digit);
-
-        // Multiply product (digit) with potency.
-        calculate_integer_multiply((void*) &pr, p);
-
-        // Add product (digit times potency) to result.
-        calculate_integer_add((void*) &r, (void*) &pr);
-    }
-
-    // Multiplicate value with algebraic sign factor.
-    calculate_integer_multiply((void*) &r, p1);
-
-    copy_integer(p0, (void*) &r);
+    // Multiplicate integer with algebraic sign factor.
+    calculate_integer_multiply(p0, p1);
 }
 
-/* INTEGER_ASSEMBLER_DESERIALISER_SOURCE */
+/* INTEGER_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE */
 #endif

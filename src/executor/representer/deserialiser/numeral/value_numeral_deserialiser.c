@@ -36,12 +36,13 @@
  * @param p0 the destination value
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
- * @param p3 the decimal places (decimals) flag
- * @param p4 the decimal power flag
- * @param p5 the detected format
- * @param p6 the detected type
+ * @param p3 the number base
+ * @param p4 the decimal places (decimals) flag
+ * @param p5 the decimal power flag
+ * @param p6 the detected format
+ * @param p7 the detected type
  */
-void deserialise_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void deserialise_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral value.");
     fwprintf(stdout, L"Debug: Deserialise numeral value. source count remaining p2: %i\n", p2);
@@ -88,13 +89,13 @@ void deserialise_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4,
             fwprintf(stdout, L"Debug: Deserialise numeral value. vd: %ls\n", (wchar_t*) vd);
 
             // Deserialise integer value representing the destination value.
-            deserialise_numeral_integer(p0, vd, (void*) &vc);
+            deserialise_numeral_integer(p0, vd, (void*) &vc, p3);
 
             break;
         }
 
         // Select numeral value.
-        select_numeral_value(p1, p2, p3, p4, p5, p6, (void*) &vc, (void*) &b);
+        select_numeral_value(p1, p2, p4, p5, p6, p7, (void*) &vc, (void*) &b);
     }
 }
 

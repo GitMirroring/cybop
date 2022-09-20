@@ -42,8 +42,9 @@
  * @param p0 the destination integer value
  * @param p1 the source wide character data
  * @param p2 the source wide character count
+ * @param p3 the number base
  */
-void deserialise_numeral_integer(void* p0, void* p1, void* p2) {
+void deserialise_numeral_integer(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral integer.");
     fwprintf(stdout, L"Debug: Deserialise numeral integer. source count p2: %i\n", p2);
@@ -101,11 +102,14 @@ void deserialise_numeral_integer(void* p0, void* p1, void* p2) {
         //
         // Move existing result by one digit.
         //
+        // CAUTION! Walk through the single digits by multiplying them
+        // with the numeral base that was handed over as paramere.
+        //
         // CAUTION! In the FIRST loop cycle, the result is zero,
         // which is WANTED BEHAVIOUR, so that the value gets
         // added below on the FIRST position.
         //
-        calculate_integer_multiply((void*) &r, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+        calculate_integer_multiply((void*) &r, p3);
         // Add current digit.
         calculate_integer_add((void*) &r, (void*) &v);
 
