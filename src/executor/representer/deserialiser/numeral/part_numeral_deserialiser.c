@@ -95,7 +95,7 @@ void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, 
         copy_integer(p8, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
 
         // Deserialise decimal power.
-        deserialise_decimal_power(p4, p5, p6, (void*) &s);
+        deserialise_numeral_power(p4, p5, p6, (void*) &s);
     }
 
     if (s != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

@@ -33,16 +33,13 @@
 /**
  * Deserialises the numeral decimal places (decimals).
  *
- * @param p0 the destination format
- * @param p1 the destination type
- * @param p2 the destination integer value one
- * @param p3 the destination integer value two
- * @param p4 the destination double value one
- * @param p5 the destination double value two
- * @param p6 the source data position (pointer reference)
- * @param p7 the source count remaining
+ * @param p0 the destination decimal places (decimals)
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
+ * @param p3 the decimal power flag
+ * @param p4 the second part flag
  */
-void deserialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void deserialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral decimals.");
     fwprintf(stdout, L"Debug: Deserialise numeral decimals. count remaining p8: %i\n", p8);
@@ -53,13 +50,11 @@ void deserialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3, void* 
     // The decimals data, count.
     void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int dc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Initialise decimals data.
-    copy_pointer((void*) &dd, p6);
+    copy_pointer((void*) &dd, p1);
 
-    if (p7 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
         // CAUTION! If the loop count handed over as parametre is NULL,
@@ -76,7 +71,7 @@ void deserialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3, void* 
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_less_or_equal((void*) &b, p7, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_less_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -84,20 +79,20 @@ void deserialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3, void* 
             // Either an end character was found in the selector
             // OR the source count remaining is zero.
             //
-            // In BOTH cases, the value can now be deserialised.
+            // In BOTH cases, the decimals can now be deserialised.
             //
 
             fwprintf(stdout, L"Debug: Deserialise numeral decimals. dc: %i\n", dc);
             fwprintf(stdout, L"Debug: Deserialise numeral decimals. dd: %ls\n", (wchar_t*) dd);
 
             // Deserialise fractional digits.
-            deserialise_numeral_fraction(p2, dd, (void*) &dc);
+            deserialise_numeral_fraction(p0, dd, (void*) &dc);
 
             break;
         }
 
         // Select numeral decimals.
-        select_numeral_decimals(p0, p1, p2, p3, p4, p5, p6, p7, (void*) &dc, (void*) &b);
+        select_numeral_decimals(p1, p2, p3, p4, (void*) &dc, (void*) &b);
     }
 }
 

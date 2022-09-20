@@ -418,21 +418,17 @@ It is normally used when reading or writing a file or transfering data.</p></sec
 The standard type used internally is unsigned char with 8 Bits.
 It has a value range from 0 to 255.
 
-CAUTION! It is NOT to be mixed up with text/ascii representing
-a text string of characters. Numbers in an array ARE separated by comma;
-text characters of a string are NOT.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;x&#x22; channel=&#x22;inline&#x22; format=&#x22;number/byte&#x22; model=&#x22;0&#x22;/&#x3E;
+Caution! It is not to be mixed up with &#x22;text/ascii&#x22; representing a text string of characters.
+Numbers in an array are separated by comma; text characters of a string are not.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;x&#x22; channel=&#x22;inline&#x22; format=&#x22;number/byte&#x22; model=&#x22;0&#x22;/&#x3E;
 &#x3C;node name=&#x22;y&#x22; channel=&#x22;inline&#x22; format=&#x22;number/byte&#x22; model=&#x22;2&#x22;/&#x3E;
-&#x3C;node name=&#x22;array&#x22; channel=&#x22;inline&#x22; format=&#x22;number/byte&#x22; model=&#x22;0,1,2,3,4&#x22;/&#x3E;</p></section></section><section><a name="number-complex-cartesian"><h2>number/complex-cartesian</h2></a><section><h3>Description</h3><p class="description">A complex number written in cartesian form as real and imaginary part,
-separated by a (plus or minus) sign.
+&#x3C;node name=&#x22;array&#x22; channel=&#x22;inline&#x22; format=&#x22;number/byte&#x22; model=&#x22;0,1,2,3,4&#x22;/&#x3E;</p></section></section><section><a name="number-complex-cartesian"><h2>number/complex-cartesian</h2></a><section><h3>Description</h3><p class="description">A complex number written in cartesian form as real and imaginary part, separated by a (plus or minus) sign.
 
 Each number can be an element of a vector (array), e.g.:
 - complex cartesian: 1.2e+3+0.4e-2,2-4
 
-CAUTION! The i (or j in electrical engineering) in the imaginary part
-is NEGLECTED: 1+2i --&#x26;#x003E; 1+2.
+Caution! The i (or j in electrical engineering) in the imaginary part is neglected: 1+2i --&#x26;#x003E; 1+2
 
-CAUTION! Using fractions for real and imaginary part of a complex number
-is NOT supported, e.g. -1/2+3/4.
+Caution! Using fractions for real and imaginary part of a complex number is not supported, e.g. -1/2+3/4
 
 The complex number given in cartesian form:
 2 + 3i
@@ -444,11 +440,9 @@ would be written in CYBOL as:
 &#x3C;node name=&#x22;negative_real_part&#x22; channel=&#x22;inline&#x22; format=&#x22;number/complex-cartesian&#x22; model=&#x22;-2+4&#x22;/&#x3E;
 &#x3C;node name=&#x22;both_parts_negative&#x22; channel=&#x22;inline&#x22; format=&#x22;number/complex-cartesian&#x22; model=&#x22;-2-4&#x22;/&#x3E;
 &#x3C;node name=&#x22;decimal_fractions&#x22; channel=&#x22;inline&#x22; format=&#x22;number/complex-cartesian&#x22; model=&#x22;-1.2+5.0&#x22;/&#x3E;
-&#x3C;node name=&#x22;scientific_notation&#x22; channel=&#x22;inline&#x22; format=&#x22;number/complex-cartesian&#x22; model=&#x22;-1.2e6+.11e2&#x22;/&#x3E;</p></section></section><section><a name="number-complex-polar"><h2>number/complex-polar</h2></a><section><h3>Description</h3><p class="description">A complex number written in polar form with absolute value and argument,
-separated by a (plus or minus) sign.
+&#x3C;node name=&#x22;scientific_notation&#x22; channel=&#x22;inline&#x22; format=&#x22;number/complex-cartesian&#x22; model=&#x22;-1.2e6+.11e2&#x22;/&#x3E;</p></section></section><section><a name="number-complex-polar"><h2>number/complex-polar</h2></a><section><h3>Description</h3><p class="description">A complex number written in polar form with absolute value and argument, separated by a (plus or minus) sign.
 
-CAUTION! The i (or j in electrical engineering) in the exponent
-is NEGLECTED: -2*exp(i45) --&#x26;#x003E; -2*exp(45)
+Caution! The i (or j in electrical engineering) in the exponent is neglected: -2*exp(i45) --&#x26;#x003E; -2*exp(45)
 
 The complex number given in trigonometric form:
 2 (cos 30&#xB0; + i sin 30&#xB0;)
@@ -457,9 +451,8 @@ which can also be written in exponential form, using Euler&#x27;s formula:
 would be written in CYBOL as:
 2*exp(30)
 
-CAUTION! The cybol parser is able to recognise many variants,
-with sequence exp or capital letter E, with or without times sign,
-as shown in the examples below. However, the RECOMMENDED FORM is as follows:
+Caution! The cybol parser is able to recognise many variants, with sequence exp or capital letter E,
+with or without times sign, as shown in the examples below. However, the recommended form is as follows:
 
 -2*exp(-45)</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;standard&#x22; channel=&#x22;inline&#x22; format=&#x22;number/complex-polar&#x22; model=&#x22;-2*exp(-45)&#x22;/&#x3E;
 &#x3C;node name=&#x22;with_capital_letter_e&#x22; channel=&#x22;inline&#x22; format=&#x22;number/complex-polar&#x22; model=&#x22;-2*E(-45)&#x22;/&#x3E;
@@ -469,20 +462,18 @@ as shown in the examples below. However, the RECOMMENDED FORM is as follows:
 &#x3C;node name=&#x22;scientific_notation&#x22; channel=&#x22;inline&#x22; format=&#x22;number/complex-polar&#x22; model=&#x22;-1.5E4E(-45)&#x22;/&#x3E;</p></section></section><section><a name="number-fraction-decimal"><h2>number/fraction-decimal</h2></a><section><h3>Description</h3><p class="description">A decimal fraction number written as floating-point number.
 
 The standard type used internally is double with 64 Bits.
-It has a value range from 2^&#x2212;1022 to approximately 2^1024,
-which is from 2 &#xD7; 10^&#x2212;308 to 2 &#xD7; 10^308.
+It has a value range from 2^&#x2212;1022 to approximately 2^1024, which is from 2 &#xD7; 10^&#x2212;308 to 2 &#xD7; 10^308.
 
 Each number can be an element of a vector (array), e.g.:
 - fraction decimal: 1.2,3.4,5.6
 
-CAUTION! The cybol parser is able to recognise many variants,
-with small or capital letter E, with or without plus sign,
-as shown in the examples below. However, the RECOMMENDED FORM is as follows:
+Caution! The cybol parser is able to recognise many variants, with small or capital letter E,
+with or without plus sign, as shown in the examples below. However, the recommended form is as follows:
 
 1.23E+4
 
-The plus sign of the number is OPTIONAL.
-The plus sign of the scientific notation exponent is MANDATORY.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;simple&#x22; channel=&#x22;inline&#x22; format=&#x22;fraction-decimal&#x22; model=&#x22;24.0&#x22;/&#x3E;
+The plus sign of the number is optional.
+The plus sign of the scientific notation exponent is mandatory.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;simple&#x22; channel=&#x22;inline&#x22; format=&#x22;fraction-decimal&#x22; model=&#x22;24.0&#x22;/&#x3E;
 &#x3C;node name=&#x22;negative_sign&#x22; channel=&#x22;inline&#x22; format=&#x22;fraction-decimal&#x22; model=&#x22;-24.0&#x22;/&#x3E;
 &#x3C;node name=&#x22;array&#x22; channel=&#x22;inline&#x22; format=&#x22;fraction-decimal&#x22; model=&#x22;1.5,2.5,3.5&#x22;/&#x3E;
 &#x3C;node name=&#x22;standard&#x22; channel=&#x22;inline&#x22; format=&#x22;fraction-decimal&#x22; model=&#x22;7.0&#x22;/&#x3E;
@@ -496,18 +487,15 @@ The plus sign of the scientific notation exponent is MANDATORY.</p></section><se
 &#x3C;node name=&#x22;scientific_notation_2&#x22; channel=&#x22;inline&#x22; format=&#x22;fraction-decimal&#x22; model=&#x22;.11e2&#x22;/&#x3E;
 &#x3C;node name=&#x22;scientific_notation_3&#x22; channel=&#x22;inline&#x22; format=&#x22;fraction-decimal&#x22; model=&#x22;0.007&#x22;/&#x3E;
 &#x3C;node name=&#x22;scientific_notation_4&#x22; channel=&#x22;inline&#x22; format=&#x22;fraction-decimal&#x22; model=&#x22;0.7e-2&#x22;/&#x3E;
-&#x3C;node name=&#x22;scientific_notation_5&#x22; channel=&#x22;inline&#x22; format=&#x22;fraction-decimal&#x22; model=&#x22;7.0e-3&#x22;/&#x3E;</p></section></section><section><a name="number-fraction-vulgar"><h2>number/fraction-vulgar</h2></a><section><h3>Description</h3><p class="description">A fraction number written as numerator and denominator,
-separated by a bar (solidus, slash).
+&#x3C;node name=&#x22;scientific_notation_5&#x22; channel=&#x22;inline&#x22; format=&#x22;fraction-decimal&#x22; model=&#x22;7.0e-3&#x22;/&#x3E;</p></section></section><section><a name="number-fraction-vulgar"><h2>number/fraction-vulgar</h2></a><section><h3>Description</h3><p class="description">A fraction number written as numerator and denominator, separated by a bar (solidus, slash).
 
 Each number can be an element of a vector (array), e.g.:
 - fraction vulgar: 1/2,3/4</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;positive&#x22; channel=&#x22;inline&#x22; format=&#x22;number/fraction-vulgar&#x22; model=&#x22;1/2&#x22;/&#x3E;
-&#x3C;node name=&#x22;negative&#x22; channel=&#x22;inline&#x22; format=&#x22;number/fraction-vulgar&#x22; model=&#x22;-2/3&#x22;/&#x3E;</p></section></section><section><a name="number-integer"><h2>number/integer</h2></a><section><h3>Description</h3><p class="description">An integer is a datum of integral data type, a data type
-that represents some range of mathematical integers.
+&#x3C;node name=&#x22;negative&#x22; channel=&#x22;inline&#x22; format=&#x22;number/fraction-vulgar&#x22; model=&#x22;-2/3&#x22;/&#x3E;</p></section></section><section><a name="number-integer"><h2>number/integer</h2></a><section><h3>Description</h3><p class="description">An integer is a datum of integral data type, a data type that represents some range of mathematical integers.
 It is allowed to contain negative values.
 
 The standard type used internally is int with 32 Bits.
-It has a value range from &#x2212;2,147,483,648 to 2,147,483,647,
-which is from &#x2212;(2^31) to 2^31 - 1.
+It has a value range from &#x2212;2,147,483,648 to 2,147,483,647, which is from &#x2212;(2^31) to 2^31 - 1.
 
 Each number can be an element of a vector (array), e.g.:
 - integer: 1,2,3,4</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;simple&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;24&#x22;/&#x3E;
@@ -515,16 +503,14 @@ Each number can be an element of a vector (array), e.g.:
 &#x3C;node name=&#x22;negative&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;-24&#x22;/&#x3E;
 &#x3C;node name=&#x22;octal&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;-030&#x22;/&#x3E;
 &#x3C;node name=&#x22;hexadecimal&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;-0x18&#x22;/&#x3E;
-&#x3C;node name=&#x22;array&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1,2,3,4&#x22;/&#x3E;</p></section></section><section><a name="text-ascii"><h2>text/ascii</h2></a><section><h3>Description</h3><p class="description">This is pure text data, sometimes called string or character array.
+&#x3C;node name=&#x22;array&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1,2,3,4&#x22;/&#x3E;</p></section></section><section><a name="text-ascii"><h2>text/ascii</h2></a><section><h3>Description</h3><p class="description">This is pure text data, sometimes called &#x22;string&#x22; or &#x22;character array&#x22;.
 
-CAUTION! Use it only when SINGLE byte characters are required,
-for example with BINARY data representing an image.
-When working with pure text, the format text/plain should be used
-instead, since it uses multibyte characters and allows
-internationalisation and the usage of unicode.
+Caution! Use it only when single byte characters are required, for example with binary data representing an image.
+When working with pure text, the format &#x22;text/plain&#x22; should be used instead, since it uses multibyte characters
+and allows internationalisation and the usage of unicode.
 
-CAUTION! Do NOT mix it up with &#x22;number/byte&#x22; representing NUMBERS in the range 0..255.
-Numbers in an array are separated by COMMA; text characters of a string are NOT.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;image&#x22; channel=&#x22;inline&#x22; format=&#x22;text/ascii&#x22; model=&#x22;&#x22;/&#x3E;
+Caution! Do not mix it up with &#x22;number/byte&#x22; representing numbers in the range 0..255.
+Numbers in an array are separated by comma; text characters of a string are not.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;image&#x22; channel=&#x22;inline&#x22; format=&#x22;text/ascii&#x22; model=&#x22;&#x22;/&#x3E;
 &#x3C;node name=&#x22;text&#x22; channel=&#x22;file&#x22; format=&#x22;text/ascii&#x22; model=&#x22;path/to/file.txt&#x22;/&#x3E;</p></section></section><section><a name="text-cybol-path"><h2>text/cybol-path</h2></a><section><h3>Description</h3><p class="description">A path to a node within the knowledge tree (heap memory).
 
 It may point to:
@@ -551,34 +537,34 @@ It may point to:
 &#x3C;node name=&#x22;part_via_reference_and_name&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.b.d:({#path})&#x22;/&#x3E;
 &#x3C;node name=&#x22;nested_path&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.test.node2:c.node1:b&#x22;/&#x3E;</p></section></section><section><a name="text-html"><h2>text/html</h2></a><section><h3>Description</h3><p class="description">A text marked up using the Hypertext Markup Language (HTML).
 
-Common file suffixes are: html, htm, shtml, inc.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;webpage&#x22; channel=&#x22;file&#x22; format=&#x22;text/html&#x22; model=&#x22;path/to/webpage.html&#x22;/&#x3E;</p></section></section><section><a name="text-json"><h2>text/json</h2></a><section><h3>Description</h3><p class="description">Text data given in JavaScript Object Notation (JSON).
+Common file suffixes are: html, htm, shtml, inc</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;webpage&#x22; channel=&#x22;file&#x22; format=&#x22;text/html&#x22; model=&#x22;path/to/webpage.html&#x22;/&#x3E;</p></section></section><section><a name="text-json"><h2>text/json</h2></a><section><h3>Description</h3><p class="description">Text data given in JavaScript Object Notation (JSON).
 
 There are three MIME assignments for json data:
 - application/json (official)
 - text/json (unofficial)
 - text/javascript (unofficial)
 
-Preference should be given to the OFFICIAL mime type &#x22;application/json&#x22;.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;data&#x22; channel=&#x22;file&#x22; format=&#x22;text/json&#x22; model=&#x22;path/to/file.json&#x22;/&#x3E;</p></section></section><section><a name="text-plain"><h2>text/plain</h2></a><section><h3>Description</h3><p class="description">This is pure text data, sometimes called string or character array.
+Preference should be given to the official mime type &#x22;application/json&#x22;.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;data&#x22; channel=&#x22;file&#x22; format=&#x22;text/json&#x22; model=&#x22;path/to/file.json&#x22;/&#x3E;</p></section></section><section><a name="text-plain"><h2>text/plain</h2></a><section><h3>Description</h3><p class="description">This is pure text data, sometimes called &#x22;string&#x22; or &#x22;character array&#x22;.
 
-The file suffix is commonly txt.
+Common file suffixes are: txt
 
-The text may be encoded in various ways, which is specified in
-a DIFFERENT property called encoding. It is usually given
-when using the cybol operations send or receive.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;string&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;Hello World!&#x22;/&#x3E;
+The text may be encoded in various ways, which is specified in a different property called &#x22;encoding&#x22;.
+It is usually given when using the cybol operations send or receive.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;string&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;Hello World!&#x22;/&#x3E;
 &#x3C;node name=&#x22;text&#x22; channel=&#x22;file&#x22; format=&#x22;text/plain&#x22; model=&#x22;path/to/file.txt&#x22;/&#x3E;</p></section></section><section><a name="text-xml"><h2>text/xml</h2></a><section><h3>Description</h3><p class="description">Data given in XML format.
 
 The Extensible Markup Language (XML) version 1.0 was defined in 1998.
 Its structure and vocabulary can be defined freely, either as
 Document Type Definition (DTD) or as XML Schema Definition (XSD).
 
-If given in form of a file, then the suffix is xml in case no DTD or XSD
-is available. Otherwise, a suffix representing the DTD or XSD may be used.
+Common file suffixes are: xml
+
+If given in form of a file, then the suffix is &#x22;xml&#x22; in case no DTD or XSD is available.
+Otherwise, another suffix representing the DTD or XSD may be used.
 
 There are two MIME assignments for XML data:
 - application/xml (RFC 7303, previously RFC 3023)
 - text/xml (RFC 7303, previously RFC 3023)
-However, since the introduction of RFC 7303, these are
-to be regarded as the SAME in ALL aspects except name.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;data&#x22; channel=&#x22;file&#x22; format=&#x22;text/xml&#x22; model=&#x22;path/to/file.xml&#x22;/&#x3E;</p></section></section><section><a name="video-mp4"><h2>video/mp4</h2></a><section><h3>Description</h3><p class="description">A video in MP4 format, which is defined in RFC 4337.
+However, since the introduction of RFC 7303, these are to be regarded as the same in all aspects except name.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;data&#x22; channel=&#x22;file&#x22; format=&#x22;text/xml&#x22; model=&#x22;path/to/file.xml&#x22;/&#x3E;</p></section></section><section><a name="video-mp4"><h2>video/mp4</h2></a><section><h3>Description</h3><p class="description">A video in MP4 format, which is defined in RFC 4337.
 
 The file suffix is mp4.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;data&#x22; channel=&#x22;file&#x22; format=&#x22;video/mp4&#x22; model=&#x22;path/to/file.mp4&#x22;/&#x3E;</p></section></section></section><footer><hr/><h3>Contact</h3><a href="mailto:cybop-developers@nongnu.org">cybop-developers@nongnu.org</a><br/><a href="http://www.cybop.org/">http://www.cybop.org/</a><br/><p>Copyright &#xA9; 1999-2022. CYBOP Developers. Last Update: 2022-07-09</p></footer></section><script>/*
  * The search strings.

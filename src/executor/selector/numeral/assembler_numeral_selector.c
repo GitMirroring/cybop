@@ -34,7 +34,7 @@
  *
  * Depending on the format, the FIRST value has the MEANING:
  * - integer: value
- * - decimal fraction: pre-decimal point position
+ * - decimal fraction: value
  * - vulgar fraction: numerator
  * - complex number in cartesian form: real part
  * - complex number in polar form: absolute value
@@ -46,7 +46,7 @@
  * - complex number in cartesian form: imaginary part
  * - complex number in polar form: argument
  *
- * @param p0 the destination number item
+ * @param p0 the destination number array
  * @param p1 the first algebraic sign
  * @param p2 the first number base (relevant for integer only)
  * @param p3 the first value

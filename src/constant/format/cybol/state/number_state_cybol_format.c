@@ -48,9 +48,8 @@
  * The standard type used internally is unsigned char with 8 Bits.
  * It has a value range from 0 to 255.
  *
- * CAUTION! It is NOT to be mixed up with text/ascii representing
- * a text string of characters. Numbers in an array ARE separated by comma;
- * text characters of a string are NOT.
+ * Caution! It is not to be mixed up with "text/ascii" representing a text string of characters.
+ * Numbers in an array are separated by comma; text characters of a string are not.
  *
  * Examples:
  *
@@ -66,17 +65,14 @@ static int* BYTE_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  *
  * Description:
  *
- * A complex number written in cartesian form as real and imaginary part,
- * separated by a (plus or minus) sign.
+ * A complex number written in cartesian form as real and imaginary part, separated by a (plus or minus) sign.
  *
  * Each number can be an element of a vector (array), e.g.:
  * - complex cartesian: 1.2e+3+0.4e-2,2-4
  *
- * CAUTION! The i (or j in electrical engineering) in the imaginary part
- * is NEGLECTED: 1+2i --> 1+2.
+ * Caution! The i (or j in electrical engineering) in the imaginary part is neglected: 1+2i --> 1+2
  *
- * CAUTION! Using fractions for real and imaginary part of a complex number
- * is NOT supported, e.g. -1/2+3/4.
+ * Caution! Using fractions for real and imaginary part of a complex number is not supported, e.g. -1/2+3/4
  *
  * The complex number given in cartesian form:
  * 2 + 3i
@@ -102,11 +98,9 @@ static int* COMPLEX_CARTESIAN_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGE
  *
  * Description:
  *
- * A complex number written in polar form with absolute value and argument,
- * separated by a (plus or minus) sign.
+ * A complex number written in polar form with absolute value and argument, separated by a (plus or minus) sign.
  *
- * CAUTION! The i (or j in electrical engineering) in the exponent
- * is NEGLECTED: -2*exp(i45) --> -2*exp(45)
+ * Caution! The i (or j in electrical engineering) in the exponent is neglected: -2*exp(i45) --> -2*exp(45)
  *
  * The complex number given in trigonometric form:
  * 2 (cos 30° + i sin 30°)
@@ -115,9 +109,8 @@ static int* COMPLEX_CARTESIAN_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGE
  * would be written in CYBOL as:
  * 2*exp(30)
  *
- * CAUTION! The cybol parser is able to recognise many variants,
- * with sequence exp or capital letter E, with or without times sign,
- * as shown in the examples below. However, the RECOMMENDED FORM is as follows:
+ * Caution! The cybol parser is able to recognise many variants, with sequence exp or capital letter E,
+ * with or without times sign, as shown in the examples below. However, the recommended form is as follows:
  *
  * -2*exp(-45)
  *
@@ -141,20 +134,18 @@ static int* COMPLEX_POLAR_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_ST
  * A decimal fraction number written as floating-point number.
  *
  * The standard type used internally is double with 64 Bits.
- * It has a value range from 2^−1022 to approximately 2^1024,
- * which is from 2 × 10^−308 to 2 × 10^308.
+ * It has a value range from 2^−1022 to approximately 2^1024, which is from 2 × 10^−308 to 2 × 10^308.
  *
  * Each number can be an element of a vector (array), e.g.:
  * - fraction decimal: 1.2,3.4,5.6
  *
- * CAUTION! The cybol parser is able to recognise many variants,
- * with small or capital letter E, with or without plus sign,
- * as shown in the examples below. However, the RECOMMENDED FORM is as follows:
+ * Caution! The cybol parser is able to recognise many variants, with small or capital letter E,
+ * with or without plus sign, as shown in the examples below. However, the recommended form is as follows:
  *
  * 1.23E+4
  *
- * The plus sign of the number is OPTIONAL.
- * The plus sign of the scientific notation exponent is MANDATORY.
+ * The plus sign of the number is optional.
+ * The plus sign of the scientific notation exponent is mandatory.
  *
  * Examples:
  *
@@ -182,8 +173,7 @@ static int* FRACTION_DECIMAL_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER
  *
  * Description:
  *
- * A fraction number written as numerator and denominator,
- * separated by a bar (solidus, slash).
+ * A fraction number written as numerator and denominator, separated by a bar (solidus, slash).
  *
  * Each number can be an element of a vector (array), e.g.:
  * - fraction vulgar: 1/2,3/4
@@ -201,13 +191,11 @@ static int* FRACTION_VULGAR_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
  *
  * Description:
  *
- * An integer is a datum of integral data type, a data type
- * that represents some range of mathematical integers.
+ * An integer is a datum of integral data type, a data type that represents some range of mathematical integers.
  * It is allowed to contain negative values.
  *
  * The standard type used internally is int with 32 Bits.
- * It has a value range from −2,147,483,648 to 2,147,483,647,
- * which is from −(2^31) to 2^31 - 1.
+ * It has a value range from −2,147,483,648 to 2,147,483,647, which is from −(2^31) to 2^31 - 1.
  *
  * Each number can be an element of a vector (array), e.g.:
  * - integer: 1,2,3,4
@@ -227,10 +215,8 @@ static int* INTEGER_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
 /**
  * The number/line-speed state cybol format.
  *
- * Integer number (integral data type), prefixed with a B.
+ * Integer number (integral data type), prefixed with a "B".
  * This represents a symbol as defined in the POSIX.1 standard.
- *
- *
  */
 static wchar_t* LINE_SPEED_NUMBER_STATE_CYBOL_FORMAT = L"number/line-speed";
 static int* LINE_SPEED_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;

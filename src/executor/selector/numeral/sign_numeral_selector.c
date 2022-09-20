@@ -69,7 +69,7 @@ void select_numeral_sign(void* p0, void* p1, void* p2) {
             //
             // CAUTION! This detection IS important even if plus is the default,
             // because a possibly existing plus sign has to get processed
-            // so that the parser may continue with the following DIGIT.
+            // so that the parser may continue with the FOLLOWING digit.
             //
 
             // Assign POSITIVE algebraic sign factor.

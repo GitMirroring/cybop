@@ -74,6 +74,9 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
             // Set decimal places (decimals) flag.
             copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            // Set loop break flag.
+            copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -89,6 +92,9 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
             // Set decimal power flag.
             copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            // Set loop break flag.
+            copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -100,6 +106,9 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
             // Set decimal power flag.
             copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            // Set loop break flag.
+            copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -113,12 +122,16 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? TODO: denominator
+            // Set second part flag.
+            copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            // Set loop break flag.
+            copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     //
-    // sign
+    // sign (indicating the imaginary part of a complex number)
     //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -127,7 +140,11 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? TODO: imaginary part of complex number
+            // Set second part flag.
+            copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            // Set loop break flag.
+            copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -137,12 +154,16 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? TODO: imaginary part of complex number
+            // Set second part flag.
+            copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            // Set loop break flag.
+            copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     //
-    // exponent
+    // exponent (indicating the argument of a complex number in polar notation)
     //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -151,7 +172,11 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? TODO: argument of complex number in polar notation
+            // Set second part flag.
+            copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            // Set loop break flag.
+            copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -161,7 +186,11 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? TODO: argument of complex number in polar notation
+            // Set second part flag.
+            copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            // Set loop break flag.
+            copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -171,7 +200,11 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? TODO: argument of complex number in polar notation
+            // Set second part flag.
+            copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            // Set loop break flag.
+            copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -181,7 +214,11 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? TODO: argument of complex number in polar notation
+            // Set second part flag.
+            copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            // Set loop break flag.
+            copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 

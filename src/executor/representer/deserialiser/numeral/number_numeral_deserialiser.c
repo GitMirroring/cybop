@@ -66,7 +66,7 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
         // The first decimal places (decimals).
         int d1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         // The first decimal power.
-        int p1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        int po1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // The second algebraic sign factor with PLUS (positive number one) as default.
         int s2 = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
@@ -77,9 +77,9 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
         // The second decimal places (decimals).
         int d2 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         // The second decimal power.
-        int p2 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        int po2 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        // The second part flag with FIRST part as default.
+        // The second part flag with FIRST part (false) as default.
         int sf = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
         // The format with INTEGER as default.
         int f = *INTEGER_NUMERAL_STATE_CYBOI_FORMAT;
@@ -105,7 +105,7 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
         // CAUTION! Hand over the second part FLAG so that it can
         // be set inside, in case a suitable separator is found.
         //
-        deserialise_numeral_part((void*) &s1, (void*) &b1, (void*) &v1, (void*) &d1, (void*) &p1, p2, p3, (void*) &f, (void*) &t, (void*) &sf);
+        deserialise_numeral_part((void*) &s1, (void*) &b1, (void*) &v1, (void*) &d1, (void*) &po1, p2, p3, (void*) &f, (void*) &t, (void*) &sf);
 
         if (sf != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -114,16 +114,28 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
             //
 
             // Deserialise SECOND part of number.
-            deserialise_numeral_part((void*) &s2, (void*) &b2, (void*) &v2, (void*) &d2, (void*) &p2, p2, p3, (void*) &f, (void*) &t, (void*) &sf);
+            deserialise_numeral_part((void*) &s2, (void*) &b2, (void*) &v2, (void*) &d2, (void*) &po2, p2, p3, (void*) &f, (void*) &t, (void*) &sf);
+
+            // Assign correct format and type.
+            copy_integer((void*) &f, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+            copy_integer((void*) &t, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
         }
 
         // Verify detected format.
         compare_integer_equal((void*) &r, (void*) &f, p6);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        //
+        // CAUTION! When parsing json, for example, then a format is NOT given
+        // but has to be detected instead.
+        // In such cases, the destination number item format parametre is NULL.
+        // Therefore, do not only compare the detected and given format here,
+        // but also compare with null in order to cover these cases.
+        //
+        if ((p6 == *NULL_POINTER_STATE_CYBOI_MODEL) || (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
 
             //
-            // The detected format and given destination number item format are identical.
+            // A destination number item format was NOT given
+            // OR it is IDENTICAL to the detected format.
             //
 
             //
@@ -132,10 +144,14 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
             // CAUTION! Due to memory allocation handling, the size MUST NOT
             // be negative or zero, but have at least a value of ONE.
             //
+            // CAUTION! This has to be an ARRAY and NOT an item since
+            // it represents a primitive number value to be added to
+            // the actual destination number item further below.
+            //
             allocate_array((void*) &n, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) &t);
 
             // Assemble number.
-            select_numeral_assembler(n, x, y, (void*) &f);
+            select_numeral_assembler(n, s1, b1, v1, d1, po1, s2, b2, v2, d2, po2, (void*) &f);
 
             //
             // Make sure a destination number item exists.
@@ -157,6 +173,10 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
             copy_array_forward((void*) &ic, *i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
             // Initialise old destination item count.
             copy_integer((void*) &oc, ic);
+
+            //
+            //?? TODO: Use insert or append to add temporary number below ??
+            //
 
             //
             // Add number to destination number part model item.

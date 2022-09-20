@@ -113,8 +113,10 @@ void deserialise_numeral_fraction(void* p0, void* p1, void* p2) {
         copy_wide_character((void*) &c, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL);
         // Reset integer value.
         copy_integer((void*) &v, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
         // Adjust divisor for next fractional digit on the right-hand side.
         calculate_integer_multiply((void*) &d, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+
         // Increment loop variable.
         j++;
     }

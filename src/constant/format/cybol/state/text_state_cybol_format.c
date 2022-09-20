@@ -42,16 +42,14 @@
  *
  * Description:
  *
- * This is pure text data, sometimes called string or character array.
+ * This is pure text data, sometimes called "string" or "character array".
  *
- * CAUTION! Use it only when SINGLE byte characters are required,
- * for example with BINARY data representing an image.
- * When working with pure text, the format text/plain should be used
- * instead, since it uses multibyte characters and allows
- * internationalisation and the usage of unicode.
+ * Caution! Use it only when single byte characters are required, for example with binary data representing an image.
+ * When working with pure text, the format "text/plain" should be used instead, since it uses multibyte characters
+ * and allows internationalisation and the usage of unicode.
  *
- * CAUTION! Do NOT mix it up with "number/byte" representing NUMBERS in the range 0..255.
- * Numbers in an array are separated by COMMA; text characters of a string are NOT.
+ * Caution! Do not mix it up with "number/byte" representing numbers in the range 0..255.
+ * Numbers in an array are separated by comma; text characters of a string are not.
  *
  * Examples:
  *
@@ -106,7 +104,7 @@ static int* CYBOL_PATH_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  *
  * A text marked up using the Hypertext Markup Language (HTML).
  *
- * Common file suffixes are: html, htm, shtml, inc.
+ * Common file suffixes are: html, htm, shtml, inc
  *
  * Examples:
  *
@@ -120,7 +118,7 @@ static int* HTML_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MO
  *
  * TODO: Description:
  *
- * A JavaScript program script.
+ * A JavaScript (JS) programme script.
  *
  * Common file suffixes: js
  *
@@ -129,7 +127,7 @@ static int* HTML_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MO
  * - application/x-javascript (outdated)
  * - text/javascript (unofficial)
  *
- * Preference should be given to the OFFICIAL mime type "application/javascript".
+ * Preference should be given to the official mime type "application/javascript".
  *
  * TODO: Examples:
  *
@@ -150,7 +148,7 @@ static int* JAVASCRIPT_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  * - text/json (unofficial)
  * - text/javascript (unofficial)
  *
- * Preference should be given to the OFFICIAL mime type "application/json".
+ * Preference should be given to the official mime type "application/json".
  *
  * Examples:
  *
@@ -164,13 +162,12 @@ static int* JSON_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MO
  *
  * Description:
  *
- * This is pure text data, sometimes called string or character array.
+ * This is pure text data, sometimes called "string" or "character array".
  *
- * The file suffix is commonly txt.
+ * Common file suffixes are: txt
  *
- * The text may be encoded in various ways, which is specified in
- * a DIFFERENT property called encoding. It is usually given
- * when using the cybol operations send or receive.
+ * The text may be encoded in various ways, which is specified in a different property called "encoding".
+ * It is usually given when using the cybol operations send or receive.
  *
  * Examples:
  *
@@ -241,14 +238,15 @@ static int* VND_WAP_WMLSCRIPT_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
  * Its structure and vocabulary can be defined freely, either as
  * Document Type Definition (DTD) or as XML Schema Definition (XSD).
  *
- * If given in form of a file, then the suffix is xml in case no DTD or XSD
- * is available. Otherwise, a suffix representing the DTD or XSD may be used.
+ * Common file suffixes are: xml
+ *
+ * If given in form of a file, then the suffix is "xml" in case no DTD or XSD is available.
+ * Otherwise, another suffix representing the DTD or XSD may be used.
  *
  * There are two MIME assignments for XML data:
  * - application/xml (RFC 7303, previously RFC 3023)
  * - text/xml (RFC 7303, previously RFC 3023)
- * However, since the introduction of RFC 7303, these are
- * to be regarded as the SAME in ALL aspects except name.
+ * However, since the introduction of RFC 7303, these are to be regarded as the same in all aspects except name.
  *
  * Examples:
  *

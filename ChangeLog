@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-09-20  Christian Heller  <christian.heller@cybop.org>
+
+        * Continue numeral deserialiser and -selector
+
 2022-09-18  Christian Heller  <christian.heller@cybop.org>
 
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/dispatch_logic_cybol_format.c"
