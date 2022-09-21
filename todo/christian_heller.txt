@@ -59,6 +59,10 @@ ____________________
 
         DONE: file "integer_assembler_numeral_deserialiser.c"
         TODO: file "decimal_fraction_assembler_numeral_deserialiser.c"
+        * Calculate power already in file "power_numeral_deserialiser.c" or another sub function called from there (like "integer_numeral_deserialiser.c" and "fraction_numeral_deserialiser.c")
+        * Use pre-calculated power in file "decimal_fraction_assembler_numeral_deserialiser.c" which gets simpler by this (just multiplication, no power)
+        * Figure out how to handle data types -- int or double or cast before calling functions ??
+
         * Continue in file "assembler_numeral_selector.c" called from file "number_numeral_deserialiser.c"
         * Continue numeral deserialiser and -selector
         * Consider thousands separator (forgotten up to now, just ignore in selector, as is done with whitespace)

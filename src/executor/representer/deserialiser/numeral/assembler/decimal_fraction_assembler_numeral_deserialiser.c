@@ -48,13 +48,14 @@ void deserialise_numeral_assembler_fraction_decimal(void* p0, void* p1, void* p2
     fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. power p4: %i\n", p4);
     fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. power *p4: %i\n", *((int*) p4));
 
-    // The loop variable.
-    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The potency.
+    // The power.
     int p = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+    // Initialise power.
+    copy_double((void*) &p, number-base);
+
     // Calculate number base power.
-    calculate_power((void*) &p, p2, (void*) &j);
+    calculate_double_power((void*) &p, p4);
 
     // Copy pre point value to destination decimal fraction.
     copy_double(p0, p2);

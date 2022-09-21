@@ -26,6 +26,7 @@
             - pre point value (Vorkommastelle) = pre point position
             - post point value (Nachkommastelle) = post point position
             - number base power (Potenz) = power of the given number base
+        * Add file "power_double_calculator.c"
 
 2022-09-20  Christian Heller  <christian.heller@cybop.org>
 
