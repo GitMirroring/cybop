@@ -36,7 +36,7 @@
  * @param p1 the algebraic sign
  * @param p2 the pre point value
  * @param p3 the post point value
- * @param p4 the number base power
+ * @param p4 the power factor
  */
 void deserialise_numeral_assembler_fraction_decimal(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
@@ -48,25 +48,16 @@ void deserialise_numeral_assembler_fraction_decimal(void* p0, void* p1, void* p2
     fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. power p4: %i\n", p4);
     fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. power *p4: %i\n", *((int*) p4));
 
-    // The power.
-    int p = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    // Initialise power.
-    copy_double((void*) &p, number-base);
-
-    // Calculate number base power.
-    calculate_double_power((void*) &p, p4);
-
-    // Copy pre point value to destination decimal fraction.
+    // Initialise destination decimal fraction with pre point value.
     copy_double(p0, p2);
 
     // Add post point value to destination decimal fraction.
     calculate_double_add(p0, p3);
 
-    // Multiply product (digit) with potency.
-    calculate_double_multiply(p0, (void*) &p);
+    // Multiply destination decimal fraction with power factor.
+    calculate_double_multiply(p0, p4);
 
-    // Multiply decimal fraction with algebraic sign factor.
+    // Multiply destination decimal fraction with algebraic sign factor.
     calculate_double_multiply(p0, p1);
 }
 

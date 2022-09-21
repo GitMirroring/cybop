@@ -50,11 +50,11 @@
  * @param p1 the first algebraic sign
  * @param p2 the first pre point value
  * @param p3 the first post point value
- * @param p4 the first number base power
+ * @param p4 the first power factor
  * @param p5 the second algebraic sign
  * @param p6 the second pre point value
  * @param p7 the second post point value
- * @param p8 the second number base power
+ * @param p8 the second power factor
  * @param p9 the format
  */
 void select_numeral_assembler(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
@@ -92,7 +92,7 @@ void select_numeral_assembler(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? TODO
+            deserialise_numeral_assembler_fraction_vulgar(p0, p1, p2, p5, p6);
         }
     }
 
@@ -102,7 +102,7 @@ void select_numeral_assembler(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? TODO
+            deserialise_numeral_assembler_complex_cartesian(p0, p1, p2, p3, p4, p5, p6, p7, p8);
         }
     }
 
@@ -112,7 +112,7 @@ void select_numeral_assembler(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? TODO
+            deserialise_numeral_assembler_complex_polar(p0, p1, p2, p3, p4, p5, p6, p7, p8);
         }
     }
 

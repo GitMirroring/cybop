@@ -64,13 +64,18 @@ void set_fraction_element(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+                //
                 // Add offset to element pointer.
+                //
                 // CAUTION! Add the type sizes of all elements PRECEDING
                 // this one, but NOT the type size of this element itself.
+                //
                 // CAUTION! Multiplication with just one type size is NOT used,
                 // since some compound types have elements of different type.
+                //
                 // CAUTION! The pointer type is needed here, since
                 // the result is a pointer to which the offset is added.
+                //
                 calculate_pointer_add((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
                 // Copy element to destination.
@@ -84,13 +89,18 @@ void set_fraction_element(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+                //
                 // Add offset to element pointer.
+                //
                 // CAUTION! Add the type sizes of all elements PRECEDING
                 // this one, but NOT the type size of this element itself.
+                //
                 // CAUTION! Multiplication with just one type size is NOT used,
                 // since some compound types have elements of different type.
+                //
                 // CAUTION! The pointer type is needed here, since
                 // the result is a pointer to which the offset is added.
+                //
                 calculate_pointer_add((void*) &e, (void*) SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
 
                 // Copy element to destination.
@@ -101,11 +111,14 @@ void set_fraction_element(void* p0, void* p1, void* p2) {
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set fraction element. The given source index is not known.");
+            fwprintf(stdout, L"Warning: Could not set fraction element. The given source index is not known. source index p2: %i\n", p2);
+            fwprintf(stdout, L"Warning: Could not set fraction element. The given source index is not known. source index *p2: %i\n", *((int*) p2));
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set fraction element. The destination fraction is null.");
+        fwprintf(stdout, L"Warning: Could not set fraction element. The destination fraction is null. destination fraction p0 the same as e: %i\n", e);
     }
 }
 

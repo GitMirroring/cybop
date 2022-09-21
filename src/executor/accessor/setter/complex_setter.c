@@ -64,13 +64,18 @@ void set_complex_element(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+                //
                 // Add offset to element pointer.
+                //
                 // CAUTION! Add the type sizes of all elements PRECEDING
                 // this one, but NOT the type size of this element itself.
+                //
                 // CAUTION! Multiplication with just one type size is NOT used,
                 // since some compound types have elements of different type.
+                //
                 // CAUTION! The pointer type is needed here, since
                 // the result is a pointer to which the offset is added.
+                //
                 calculate_pointer_add((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
                 // Copy element to destination.
@@ -84,13 +89,18 @@ void set_complex_element(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+                //
                 // Add offset to element pointer.
+                //
                 // CAUTION! Add the type sizes of all elements PRECEDING
                 // this one, but NOT the type size of this element itself.
+                //
                 // CAUTION! Multiplication with just one type size is NOT used,
                 // since some compound types have elements of different type.
+                //
                 // CAUTION! The pointer type is needed here, since
                 // the result is a pointer to which the offset is added.
+                //
                 calculate_pointer_add((void*) &e, (void*) DOUBLE_REAL_TYPE_SIZE);
 
                 // Copy element to destination.

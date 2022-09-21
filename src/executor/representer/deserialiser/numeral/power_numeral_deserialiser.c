@@ -32,7 +32,7 @@
 /**
  * Deserialises the power of the given number base.
  *
- * @param p0 the destination double value
+ * @param p0 the destination power factor double value
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
  * @param p3 the number base
@@ -45,13 +45,26 @@ void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3, void* p4,
     fwprintf(stdout, L"Debug: Deserialise numeral power. source count p2: %i\n", p2);
     fwprintf(stdout, L"Debug: Deserialise numeral power. source count *p2: %i\n", *((int*) p2));
 
-    // The break flag.
-    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The algebraic sign factor with PLUS (positive number one) as default.
+    int s = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
     // The power data, count.
     void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int pc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The power as integer and double value.
+    int powi = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    double powd = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
 
+    // Deserialise algebraic sign.
+    select_numeral_sign((void*) &s, p1, p2);
+
+    //
     // Initialise power data.
+    //
+    // CAUTION! Do this only AFTER having detected the algebraic sign above,
+    // so that the data position now points to the first digit.
+    //
     copy_pointer((void*) &pd, p1);
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
@@ -85,8 +98,34 @@ void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3, void* p4,
             fwprintf(stdout, L"Debug: Deserialise numeral power. pc: %i\n", pc);
             fwprintf(stdout, L"Debug: Deserialise numeral power. pd: %ls\n", (wchar_t*) pd);
 
-            // Deserialise integer value representing the power of the given number base.
-            deserialise_numeral_integer(p0, pd, (void*) &pc, p3);
+            //
+            // Example: 0x123.456e-3
+            //
+            // This is a hexadecimal number due to the prefix "0x".
+            //
+            // All three parts are expected to be HEXADECIMAL:
+            // - pre point value
+            // - post point value
+            // - number base power
+            //
+            // 1 The prefix "e" already got detected in the selector.
+            // 2 The algebraic sign "-" already got extracted further above.
+            // 3 Now, the following steps are to be executed:
+            // - deserialise power value "3" as integer with the given hexadecimal number base
+            // - raise the number base "16" (hexadecimal) to the power of the deserialised power value "3"
+            //
+
+            // Deserialise power value as integer with the given number base.
+            deserialise_numeral_integer((void*) &powi, pd, (void*) &pc, p3);
+
+            // Cast integer to double.
+            cast_double_integer((void*) &powd, (void*) &powi);
+
+            // Initialise destination power factor with number base.
+            copy_double(p0, p3);
+
+            // Raise the number base to the power of the given value.
+            calculate_double_power(p0, (void*) &powd);
 
             break;
         }

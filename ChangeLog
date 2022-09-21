@@ -22,17 +22,18 @@
 
         * Move numeral assemblers into sub directory "executor/representer/deserialiser/numeral/assembler/"
         * Consider number base when calculating values
-        * Rename appearances of name "decimal" to neutral names since the number base may differ:
-            - pre point value (Vorkommastelle) = pre point position
-            - post point value (Nachkommastelle) = post point position
-            - number base power (Potenz) = power of the given number base
+        * Rename appearances of name "decimal" to neutral names in numeral deserialiser and -selector, since the number base may differ
         * Add file "power_double_calculator.c"
+        * Calculate power factor with number base already in file "power_numeral_deserialiser.c" and use it in file "decimal_fraction_assembler_numeral_deserialiser.c"
+        * Complete file "assembler_numeral_selector.c"
+        * Add files "vulgar_fraction_assembler_numeral_deserialiser.c", "cartesian_complex_assembler_numeral_deserialiser.c", "polar_complex_assembler_numeral_deserialiser.c"
 
 2022-09-20  Christian Heller  <christian.heller@cybop.org>
 
         * Continue numeral deserialiser and -selector
         * Rename file "base_number_model.c" into "base_numeral_model.c"
-        * Implement file "integer_assembler_numeral_deserialiser.c" and add file "decimal_fraction_assembler_numeral_deserialiser.c"
+        * Implement file "integer_assembler_numeral_deserialiser.c"
+        * Add file "decimal_fraction_assembler_numeral_deserialiser.c"
 
 2022-09-18  Christian Heller  <christian.heller@cybop.org>
 

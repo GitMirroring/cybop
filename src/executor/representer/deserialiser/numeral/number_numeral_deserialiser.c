@@ -59,21 +59,21 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
 
         // The first algebraic sign factor with PLUS (positive number one) as default.
         int s1 = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-        // The first pre point value.
+        // The first pre point value (Vorkommastelle).
         int v1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // The first post point value (also called "decimals").
+        // The first post point value (Nachkommastelle, also called "decimals").
         int d1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // The first number base power.
-        int po1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The first number base power (Potenz).
+        double po1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // The second algebraic sign factor with PLUS (positive number one) as default.
         int s2 = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-        // The second pre point value.
+        // The second pre point value (Vorkommastelle).
         int v2 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // The second post point value (also called "decimals").
+        // The second post point value (Nachkommastelle, also called "decimals").
         int d2 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // The second number base power.
-        int po2 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The second number base power (Potenz).
+        double po2 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // The format with INTEGER as default.
         int f = *INTEGER_NUMERAL_STATE_CYBOI_FORMAT;
