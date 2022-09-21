@@ -34,8 +34,8 @@
  *
  * @param p0 the source data position (pointer reference)
  * @param p1 the source count remaining
- * @param p2 the decimal places (decimals) flag
- * @param p3 the decimal power flag
+ * @param p2 the post point value flag
+ * @param p3 the number base power flag
  * @param p4 the detected format
  * @param p5 the detected type
  * @param p6 the count
@@ -77,7 +77,7 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
             copy_integer(p4, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);
             copy_integer(p5, (void*) FLOAT_NUMBER_STATE_CYBOI_TYPE);
 
-            // Set decimal places (decimals) flag.
+            // Set post point value flag.
             copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // Set loop break flag.
@@ -99,7 +99,7 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
             copy_integer(p4, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);
             copy_integer(p5, (void*) FLOAT_NUMBER_STATE_CYBOI_TYPE);
 
-            // Set decimal power flag.
+            // Set number base power flag.
             copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // Set loop break flag.
@@ -117,7 +117,7 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
             copy_integer(p4, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);
             copy_integer(p5, (void*) FLOAT_NUMBER_STATE_CYBOI_TYPE);
 
-            // Set decimal power flag.
+            // Set number base power flag.
             copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // Set loop break flag.

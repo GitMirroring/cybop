@@ -18,6 +18,15 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-09-21  Christian Heller  <christian.heller@cybop.org>
+
+        * Move numeral assemblers into sub directory "executor/representer/deserialiser/numeral/assembler/"
+        * Consider number base when calculating values
+        * Rename appearances of name "decimal" to neutral names since the number base may differ:
+            - pre point value (Vorkommastelle) = pre point position
+            - post point value (Nachkommastelle) = post point position
+            - number base power (Potenz) = power of the given number base
+
 2022-09-20  Christian Heller  <christian.heller@cybop.org>
 
         * Continue numeral deserialiser and -selector

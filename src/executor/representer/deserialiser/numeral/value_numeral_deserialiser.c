@@ -37,8 +37,8 @@
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
  * @param p3 the number base
- * @param p4 the decimal places (decimals) flag
- * @param p5 the decimal power flag
+ * @param p4 the post point value flag
+ * @param p5 the number base power flag
  * @param p6 the detected format
  * @param p7 the detected type
  */

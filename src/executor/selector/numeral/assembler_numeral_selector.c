@@ -48,13 +48,13 @@
  *
  * @param p0 the destination number
  * @param p1 the first algebraic sign
- * @param p2 the first value
- * @param p3 the first decimal places (decimals)
- * @param p4 the first decimal power
+ * @param p2 the first pre point value
+ * @param p3 the first post point value
+ * @param p4 the first number base power
  * @param p5 the second algebraic sign
- * @param p6 the second value
- * @param p7 the second decimal places (decimals)
- * @param p8 the second decimal power
+ * @param p6 the second pre point value
+ * @param p7 the second post point value
+ * @param p8 the second number base power
  * @param p9 the format
  */
 void select_numeral_assembler(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {

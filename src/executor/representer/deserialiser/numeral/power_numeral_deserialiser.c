@@ -30,15 +30,16 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the decimal power (power of 10).
+ * Deserialises the power of the given number base.
  *
  * @param p0 the destination double value
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
- * @param p3 the detected format
- * @param p4 the detected type
+ * @param p3 the number base
+ * @param p4 the detected format
+ * @param p5 the detected type
  */
-void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral power.");
     fwprintf(stdout, L"Debug: Deserialise numeral power. source count p2: %i\n", p2);
@@ -84,14 +85,14 @@ void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3, void* p4)
             fwprintf(stdout, L"Debug: Deserialise numeral power. pc: %i\n", pc);
             fwprintf(stdout, L"Debug: Deserialise numeral power. pd: %ls\n", (wchar_t*) pd);
 
-            // Deserialise integer value representing the decimal power (power of 10).
-            deserialise_numeral_integer(p0, pd, (void*) &pc);
+            // Deserialise integer value representing the power of the given number base.
+            deserialise_numeral_integer(p0, pd, (void*) &pc, p3);
 
             break;
         }
 
-        // Select decimal power (power of 10).
-        select_numeral_value(p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3, p4, (void*) &pc, (void*) &b);
+        // Select number base power.
+        select_numeral_value(p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p5, (void*) &pc, (void*) &b);
     }
 }
 

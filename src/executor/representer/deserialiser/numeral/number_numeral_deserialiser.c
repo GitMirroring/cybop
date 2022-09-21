@@ -37,7 +37,7 @@
  *
  * CAUTION! The destination number item is a REFERENCE,
  * so that it can be assigned a new value, in case
- * a new number part had to be allocated inside.
+ * a new number part has to be allocated inside.
  *
  * @param p0 the destination number item (pointer reference)
  * @param p1 the destination number part (pointer reference)
@@ -59,20 +59,20 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
 
         // The first algebraic sign factor with PLUS (positive number one) as default.
         int s1 = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-        // The first value.
+        // The first pre point value.
         int v1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // The first decimal places (decimals).
+        // The first post point value (also called "decimals").
         int d1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // The first decimal power.
+        // The first number base power.
         int po1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // The second algebraic sign factor with PLUS (positive number one) as default.
         int s2 = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-        // The second value.
+        // The second pre point value.
         int v2 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // The second decimal places (decimals).
+        // The second post point value (also called "decimals").
         int d2 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // The second decimal power.
+        // The second number base power.
         int po2 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // The format with INTEGER as default.

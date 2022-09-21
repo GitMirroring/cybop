@@ -34,15 +34,15 @@
  *
  * @param p0 the destination decimal fraction
  * @param p1 the algebraic sign
- * @param p2 the value
- * @param p3 the decimal places (decimals)
- * @param p4 the decimal power
+ * @param p2 the pre point value
+ * @param p3 the post point value
+ * @param p4 the number base power
  */
 void deserialise_numeral_assembler_fraction_decimal(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral assembler fraction decimal.");
-    fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. value p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. value *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. pre point value p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. pre point value *p2: %i\n", *((int*) p2));
     fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. decimals p3: %i\n", p3);
     fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. decimals *p3: %i\n", *((int*) p3));
     fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. power p4: %i\n", p4);
@@ -53,19 +53,19 @@ void deserialise_numeral_assembler_fraction_decimal(void* p0, void* p1, void* p2
     // The potency.
     int p = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Calculate decimal power.
+    // Calculate number base power.
     calculate_power((void*) &p, p2, (void*) &j);
 
-    // Copy value to destination decimal fraction.
+    // Copy pre point value to destination decimal fraction.
     copy_double(p0, p2);
 
-    // Add decimal places (decimals) to destination decimal fraction.
+    // Add post point value to destination decimal fraction.
     calculate_double_add(p0, p3);
 
     // Multiply product (digit) with potency.
-    calculate_double_multiply(p0, p);
+    calculate_double_multiply(p0, (void*) &p);
 
-    // Multiplicate decimal fraction with algebraic sign factor.
+    // Multiply decimal fraction with algebraic sign factor.
     calculate_double_multiply(p0, p1);
 }
 

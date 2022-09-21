@@ -31,28 +31,32 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the numeral decimal places (decimals).
+ * Deserialises the numeral post point value.
  *
- * @param p0 the destination decimal places (decimals)
+ * It is also called decimal places (decimals), which is not
+ * quite correct, since other number bases than ten may be used.
+ *
+ * @param p0 the destination post point value
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
- * @param p3 the decimal power flag
- * @param p4 the detected format
- * @param p5 the detected type
+ * @param p3 the number base
+ * @param p4 the decimal power flag
+ * @param p5 the detected format
+ * @param p6 the detected type
  */
-void deserialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral decimals.");
-    fwprintf(stdout, L"Debug: Deserialise numeral decimals. count remaining p8: %i\n", p8);
-    fwprintf(stdout, L"Debug: Deserialise numeral decimals. count remaining *p8: %i\n", *((int*) p8));
+    fwprintf(stdout, L"Debug: Deserialise numeral decimals. source count remaining p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Deserialise numeral decimals. source count remaining *p2: %i\n", *((int*) p2));
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The decimals data, count.
+    // The decimals (post point value) data, count.
     void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int dc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Initialise decimals data.
+    // Initialise decimals (post point value) data.
     copy_pointer((void*) &dd, p1);
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
@@ -80,20 +84,20 @@ void deserialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3, void* 
             // Either an end character was found in the selector
             // OR the source count remaining is zero.
             //
-            // In BOTH cases, the decimals can now be deserialised.
+            // In BOTH cases, the decimals (post point value) can now be deserialised.
             //
 
             fwprintf(stdout, L"Debug: Deserialise numeral decimals. dc: %i\n", dc);
             fwprintf(stdout, L"Debug: Deserialise numeral decimals. dd: %ls\n", (wchar_t*) dd);
 
             // Deserialise fractional digits.
-            deserialise_numeral_fraction(p0, dd, (void*) &dc);
+            deserialise_numeral_fraction(p0, dd, (void*) &dc, p3);
 
             break;
         }
 
-        // Select numeral decimals.
-        select_numeral_value(p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, p3, p4, p5, (void*) &dc, (void*) &b);
+        // Select numeral decimals (post point value).
+        select_numeral_value(p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p5, p6, (void*) &dc, (void*) &b);
     }
 }
 

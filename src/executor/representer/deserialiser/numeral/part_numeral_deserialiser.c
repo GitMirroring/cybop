@@ -35,9 +35,9 @@
  * A vulgar fraction or a complex number consist of TWO parts.
  *
  * @param p0 the destination algebraic sign
- * @param p1 the destination value
- * @param p2 the destination decimal places (decimals)
- * @param p3 the destination decimal power
+ * @param p1 the destination pre point value
+ * @param p2 the destination post point value
+ * @param p3 the destination number base power
  * @param p4 the source data position (pointer reference)
  * @param p5 the source count remaining
  * @param p6 the detected format
@@ -51,9 +51,9 @@ void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
     // The number base with DECIMAL as default.
     int b = *DECIMAL_BASE_NUMERAL_MODEL;
-    // The decimal places (decimals) flag.
-    int d = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The decimal power flag.
+    // The post point value flag.
+    int post = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The number base power flag.
     int p = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Skip any whitespace characters.
@@ -66,26 +66,26 @@ void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, 
     select_numeral_base((void*) &b, p4, p5);
 
     // Deserialise number value.
-    deserialise_numeral_value(p1, p4, p5, (void*) &b, (void*) &d, (void*) &p, p6, p7);
+    deserialise_numeral_value(p1, p4, p5, (void*) &b, (void*) &post, (void*) &p, p6, p7);
 
-    if (d != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (post != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
-        // This is a decimal fraction with decimal places (decimals).
+        // This is a decimal fraction with post point value.
         //
 
-        // Deserialise decimal places (decimals).
-        deserialise_numeral_decimals(p2, p4, p5, (void*) &p, p6, p7);
+        // Deserialise post point value.
+        deserialise_numeral_decimals(p2, p4, p5, (void*) &b, (void*) &p, p6, p7);
     }
 
     if (p != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
-        // This is a decimal fraction with decimal power.
+        // This is a decimal fraction with number base power.
         //
 
-        // Deserialise decimal power.
-        deserialise_numeral_power(p3, p4, p5, p6, p7);
+        // Deserialise number base power.
+        deserialise_numeral_power(p3, p4, p5, (void*) &b, p6, p7);
     }
 }
 

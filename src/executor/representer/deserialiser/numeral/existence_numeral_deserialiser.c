@@ -27,13 +27,10 @@
 #define EXISTENCE_NUMERAL_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/representer/deserialiser/numeral/numeral_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Tests if a number part exists.
+ * Tests if a number part exists and allocates it if not.
  *
  * @param p0 the destination number item (pointer reference)
  * @param p1 the destination number part (pointer reference)

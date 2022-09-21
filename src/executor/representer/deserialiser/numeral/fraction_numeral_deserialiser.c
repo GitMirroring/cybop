@@ -35,12 +35,17 @@
  * @param p0 the destination double value
  * @param p1 the source wide character data
  * @param p2 the source wide character count
+ * @param p3 the number base
  */
-void deserialise_numeral_fraction(void* p0, void* p1, void* p2) {
+void deserialise_numeral_fraction(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral fraction.");
     fwprintf(stdout, L"Debug: Deserialise numeral fraction. source count p2: %i\n", p2);
     fwprintf(stdout, L"Debug: Deserialise numeral fraction. source count *p2: %i\n", *((int*) p2));
+
+    //
+    // Declaration
+    //
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -52,10 +57,21 @@ void deserialise_numeral_fraction(void* p0, void* p1, void* p2) {
     int v = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The fractional digit.
     double f = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
-    // The divisor value with DEFAULT value 10 for the first fractional digit.
-    int d = *NUMBER_10_INTEGER_STATE_CYBOI_MODEL;
+    // The divisor value.
+    int d = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The result.
     double r = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+
+    //
+    // Initialisation
+    //
+
+    // Initialise divisor value with given number base for the first fractional digit.
+    copy_integer((void*) &d, p3);
+
+    //
+    // Looping
+    //
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -115,7 +131,7 @@ void deserialise_numeral_fraction(void* p0, void* p1, void* p2) {
         copy_integer((void*) &v, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         // Adjust divisor for next fractional digit on the right-hand side.
-        calculate_integer_multiply((void*) &d, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+        calculate_integer_multiply((void*) &d, p3);
 
         // Increment loop variable.
         j++;
