@@ -26,7 +26,6 @@
 #ifndef NUMBER_JSON_DESERIALISER_SOURCE
 #define NUMBER_JSON_DESERIALISER_SOURCE
 
-#include "../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"

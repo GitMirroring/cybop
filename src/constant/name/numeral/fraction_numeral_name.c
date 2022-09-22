@@ -23,25 +23,17 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BASE_NUMBER_NAME_CONSTANT_SOURCE
-#define BASE_NUMBER_NAME_CONSTANT_SOURCE
+#ifndef FRACTION_NUMERAL_NAME_CONSTANT_SOURCE
+#define FRACTION_NUMERAL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h> // wchar_t
 
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The capital hexadecimal 0X base number name. */
-static wchar_t* CAPITAL_HEXADECIMAL_BASE_NUMBER_NAME = L"0X";
-static int* CAPITAL_HEXADECIMAL_BASE_NUMBER_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The bar / fraction numeral name. */
+static wchar_t* BAR_FRACTION_NUMERAL_NAME = SOLIDUS_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+static int* BAR_FRACTION_NUMERAL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The octal 0 base number name. */
-static wchar_t* OCTAL_BASE_NUMBER_NAME = DIGIT_ZERO_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* OCTAL_BASE_NUMBER_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The small hexadecimal 0x base number name. */
-static wchar_t* SMALL_HEXADECIMAL_BASE_NUMBER_NAME = L"0x";
-static int* SMALL_HEXADECIMAL_BASE_NUMBER_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/* BASE_NUMBER_NAME_CONSTANT_SOURCE */
+/* FRACTION_NUMERAL_NAME_CONSTANT_SOURCE */
 #endif

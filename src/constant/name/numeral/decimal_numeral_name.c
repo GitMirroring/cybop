@@ -23,21 +23,17 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef POWER_NUMBER_NAME_CONSTANT_SOURCE
-#define POWER_NUMBER_NAME_CONSTANT_SOURCE
+#ifndef DECIMAL_NUMERAL_NAME_CONSTANT_SOURCE
+#define DECIMAL_NUMERAL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h> // wchar_t
 
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The capital E power number name. */
-static wchar_t* CAPITAL_POWER_NUMBER_NAME = LATIN_CAPITAL_LETTER_E_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* CAPITAL_POWER_NUMBER_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The separator . decimal numeral name. */
+static wchar_t* SEPARATOR_DECIMAL_NUMERAL_NAME = FULL_STOP_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+static int* SEPARATOR_DECIMAL_NUMERAL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The small e power number name. */
-static wchar_t* SMALL_POWER_NUMBER_NAME = LATIN_SMALL_LETTER_E_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* SMALL_POWER_NUMBER_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/* POWER_NUMBER_NAME_CONSTANT_SOURCE */
+/* DECIMAL_NUMERAL_NAME_CONSTANT_SOURCE */
 #endif

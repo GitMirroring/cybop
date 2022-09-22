@@ -23,17 +23,21 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DECIMAL_NUMBER_NAME_CONSTANT_SOURCE
-#define DECIMAL_NUMBER_NAME_CONSTANT_SOURCE
+#ifndef SIGN_NUMERAL_NAME_CONSTANT_SOURCE
+#define SIGN_NUMERAL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h> // wchar_t
 
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The separator . decimal number name. */
-static wchar_t* SEPARATOR_DECIMAL_NUMBER_NAME = FULL_STOP_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* SEPARATOR_DECIMAL_NUMBER_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The minus - sign numeral name. */
+static wchar_t* MINUS_SIGN_NUMERAL_NAME = HYPHEN_MINUS_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+static int* MINUS_SIGN_NUMERAL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* DECIMAL_NUMBER_NAME_CONSTANT_SOURCE */
+/** The plus + sign numeral name. */
+static wchar_t* PLUS_SIGN_NUMERAL_NAME = PLUS_SIGN_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+static int* PLUS_SIGN_NUMERAL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/* SIGN_NUMERAL_NAME_CONSTANT_SOURCE */
 #endif

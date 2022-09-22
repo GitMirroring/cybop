@@ -23,21 +23,21 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SIGN_NUMBER_NAME_CONSTANT_SOURCE
-#define SIGN_NUMBER_NAME_CONSTANT_SOURCE
+#ifndef POWER_NUMERAL_NAME_CONSTANT_SOURCE
+#define POWER_NUMERAL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h> // wchar_t
 
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The minus - sign number name. */
-static wchar_t* MINUS_SIGN_NUMBER_NAME = HYPHEN_MINUS_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* MINUS_SIGN_NUMBER_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The capital E power numeral name. */
+static wchar_t* CAPITAL_POWER_NUMERAL_NAME = LATIN_CAPITAL_LETTER_E_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+static int* CAPITAL_POWER_NUMERAL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The plus + sign number name. */
-static wchar_t* PLUS_SIGN_NUMBER_NAME = PLUS_SIGN_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* PLUS_SIGN_NUMBER_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The small e power numeral name. */
+static wchar_t* SMALL_POWER_NUMERAL_NAME = LATIN_SMALL_LETTER_E_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+static int* SMALL_POWER_NUMERAL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* SIGN_NUMBER_NAME_CONSTANT_SOURCE */
+/* POWER_NUMERAL_NAME_CONSTANT_SOURCE */
 #endif

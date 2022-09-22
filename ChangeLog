@@ -22,6 +22,8 @@
 
         * Transform polar into cartesian complex number coordinates using new sub directory "executor/representer/deserialiser/numeral/transformer/"
         * Cast "int" data type to "double" in file "decimal_fraction_assembler_numeral_deserialiser.c"
+        * Rename directory "constant/name/number/" into "constant/name/numeral/"
+        * Adjust includes in numeral selector
 
 2022-09-21  Christian Heller  <christian.heller@cybop.org>
 

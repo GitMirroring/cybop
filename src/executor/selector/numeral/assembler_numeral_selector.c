@@ -26,8 +26,16 @@
 #ifndef ASSEMBLER_NUMERAL_SELECTOR_SOURCE
 #define ASSEMBLER_NUMERAL_SELECTOR_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../logger/logger.c"
+#include "../../../constant/format/cyboi/state_cyboi_format.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../executor/representer/deserialiser/numeral/cartesian_complex_assembler_numeral_deserialiser.c"
+#include "../../../executor/representer/deserialiser/numeral/decimal_fraction_assembler_numeral_deserialiser.c"
+#include "../../../executor/representer/deserialiser/numeral/integer_assembler_numeral_deserialiser.c"
+#include "../../../executor/representer/deserialiser/numeral/polar_complex_assembler_numeral_deserialiser.c"
+#include "../../../executor/representer/deserialiser/numeral/vulgar_fraction_assembler_numeral_deserialiser.c"
+#include "../../../logger/logger.c"
 
 /**
  * Assembles the number from the given values.
