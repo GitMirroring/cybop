@@ -33,7 +33,7 @@
  * Assembles the decimal fraction from the given values.
  *
  * @param p0 the destination decimal fraction
- * @param p1 the algebraic sign
+ * @param p1 the algebraic sign factor
  * @param p2 the pre point value
  * @param p3 the post point value
  * @param p4 the power factor
@@ -48,17 +48,33 @@ void deserialise_numeral_assembler_fraction_decimal(void* p0, void* p1, void* p2
     fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. power p4: %i\n", p4);
     fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. power *p4: %i\n", *((int*) p4));
 
+    // The algebraic sign factor as double.
+    double s = *NUMBER_1_0_DOUBLE_STATE_CYBOI_MODEL;
+    // The pre point value as double.
+    double v = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    // The post point value as double.
+    double d = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    // The algebraic sign factor with PLUS (positive number one) as default.
+    //?? int s = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+
+    // Cast algebraic sign factor to double.
+    cast_double_integer((void*) &s, p1);
+    // Cast pre point value to double.
+    cast_double_integer((void*) &v, p2);
+    // Cast post point value to double.
+    cast_double_integer((void*) &d, p3);
+
     // Initialise destination decimal fraction with pre point value.
-    copy_double(p0, p2);
+    copy_double(p0, (void*) &v);
 
     // Add post point value to destination decimal fraction.
-    calculate_double_add(p0, p3);
+    calculate_double_add(p0, (void*) &d);
 
     // Multiply destination decimal fraction with power factor.
     calculate_double_multiply(p0, p4);
 
     // Multiply destination decimal fraction with algebraic sign factor.
-    calculate_double_multiply(p0, p1);
+    calculate_double_multiply(p0, (void*) &s);
 }
 
 /* DECIMAL_FRACTION_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE */

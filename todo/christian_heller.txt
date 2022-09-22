@@ -57,13 +57,7 @@ _________
 Numeral Deserialiser
 ____________________
 
-        DONE: all files are done in directory "executor/representer/deserialiser/numeral/assembler/"
-        TODO: just one file "polar_complex_assembler_numeral_deserialiser.c" is left
-        CONTINUE: file "element_polar_complex_cybol_deserialiser.c" (conversion of polar into cartesian coordinates)
-        * Cast data types as necessary between int and double before calling functions
-
-        * Continue numeral deserialiser and -selector
-
+        * Adjust includes in numeral deserialiser and -selector
         * Remove thousands separator
             do NOT just skip it in file "value_numeral_selector.c", since the count has to include them
             instead, call some remove function from within file "value_numeral_deserialiser.c"
@@ -71,12 +65,7 @@ ____________________
         * Use function "deserialise_joined_string" to separate the single numbers of a vector
         * Adapt loop section in file "number_json_deserialiser.c" to call function "deserialise_numeral"
         * Adapt section "number" in file "cybol_deserialiser.c" to call function "deserialise_numeral"
-
-        * Use "+i" or "-i" or "exp(i" to recognise complex number, in order to distinguish sign from other signs in E
-        * check how to consider sign after E in file "power_number_deserialiser.c" ??
-        * functions called from file "value_number_selector.c" section "BAR_FRACTION_NUMBER_NAME" (find a different name, since "fraction_number_deserialiser.c" is already used for after-decimal-separator-digits)
-        * functions called from file "power_number_selector.c"
-        * functions called from file "decimals_number_selector.c"
+        * Delete obsolete files and directories in cybol deserialiser that have become obsolete due to the new numeral deserialiser
 
 JSON
 ____

@@ -70,7 +70,7 @@ static int* BYTE_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  * Each number can be an element of a vector (array), e.g.:
  * - complex cartesian: 1.2e+3+0.4e-2,2-4
  *
- * Caution! The i (or j in electrical engineering) in the imaginary part is neglected: 1+2i --> 1+2
+ * Caution! The i (or j in electrical engineering) in the imaginary part is neglected: 1+2i is 1+2
  *
  * Caution! Using fractions for real and imaginary part of a complex number is not supported, e.g. -1/2+3/4
  *
@@ -100,7 +100,7 @@ static int* COMPLEX_CARTESIAN_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGE
  *
  * A complex number written in polar form with absolute value and argument, separated by a (plus or minus) sign.
  *
- * Caution! The i (or j in electrical engineering) in the exponent is neglected: -2*exp(i45) --> -2*exp(45)
+ * Caution! The i (or j in electrical engineering) in the exponent is neglected: -2*exp(i45) is -2*exp(45)
  *
  * The complex number given in trigonometric form:
  * 2 (cos 30° + i sin 30°)

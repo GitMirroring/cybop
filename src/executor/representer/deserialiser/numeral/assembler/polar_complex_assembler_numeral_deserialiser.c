@@ -50,15 +50,22 @@ void deserialise_numeral_assembler_complex_polar(void* p0, void* p1, void* p2, v
     fwprintf(stdout, L"Debug: Deserialise numeral assembler complex polar. argument pre point value p6: %i\n", p6);
     fwprintf(stdout, L"Debug: Deserialise numeral assembler complex polar. argument pre point value *p6: %i\n", *((int*) p6));
 
+    // The absolute value.
+    double v = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    // The argument.
+    double a = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     // The real part.
     double r = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     // The imaginary part.
     double i = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
 
-    // Deserialise real part.
-    deserialise_numeral_assembler_fraction_decimal((void*) &r, p1, p2, p3, p4);
-    // Deserialise imaginary part.
-    deserialise_numeral_assembler_fraction_decimal((void*) &i, p5, p6, p7, p8);
+    // Deserialise absolute value part.
+    deserialise_numeral_assembler_fraction_decimal((void*) &v, p1, p2, p3, p4);
+    // Deserialise argument part.
+    deserialise_numeral_assembler_fraction_decimal((void*) &a, p5, p6, p7, p8);
+
+    // Transform polar into cartesian complex number coordinates.
+    deserialise_numeral_transformer_complex_cartesian((void*) &r, (void*) &i, (void*) &v, (void*) &a);
 
     // Assign real part.
     set_complex_element(p0, (void*) &r, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);

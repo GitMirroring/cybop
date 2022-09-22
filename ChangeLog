@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-09-22  Christian Heller  <christian.heller@cybop.org>
+
+        * Transform polar into cartesian complex number coordinates using new sub directory "executor/representer/deserialiser/numeral/transformer/"
+        * Cast "int" data type to "double" in file "decimal_fraction_assembler_numeral_deserialiser.c"
+
 2022-09-21  Christian Heller  <christian.heller@cybop.org>
 
         * Move numeral assemblers into sub directory "executor/representer/deserialiser/numeral/assembler/"

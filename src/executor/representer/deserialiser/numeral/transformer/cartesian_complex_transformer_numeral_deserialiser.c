@@ -1,0 +1,95 @@
+/*
+ * Copyright (C) 1999-2022. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.23.0 2022-09-04
+ * @author Christian Heller <christian.heller@cybop.org>
+ */
+
+#ifndef CARTESIAN_COMPLEX_TRANSFORMER_NUMERAL_DESERIALISER_SOURCE
+#define CARTESIAN_COMPLEX_TRANSFORMER_NUMERAL_DESERIALISER_SOURCE
+
+#include <math.h> // M_PI, sin, cos
+
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../logger/logger.c"
+
+/**
+ * Transforms polar into cartesian complex number coordinates.
+ *
+ * @param p0 the destination cartesian coordinates real part
+ * @param p1 the destination cartesian coordinates imaginary part
+ * @param p2 the source polar coordinates absolute value
+ * @param p3 the source polar coordinates argument
+ */
+void deserialise_numeral_transformer_complex_cartesian(void* p0, void* p1, void* p2, void* p3) {
+
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        double* sa = (double*) p3;
+
+        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            double* sv = (double*) p2;
+
+            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                double* di = (double*) p1;
+
+                if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                    double* dr = (double*) p0;
+
+                    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral transformer complex cartesian.");
+                    fwprintf(stdout, L"Debug: Deserialise numeral transformer complex cartesian. absolute value p2: %i\n", p2);
+                    fwprintf(stdout, L"Debug: Deserialise numeral transformer complex cartesian. absolute value *p2: %i\n", *((int*) p2));
+                    fwprintf(stdout, L"Debug: Deserialise numeral transformer complex cartesian. argument p3: %i\n", p3);
+                    fwprintf(stdout, L"Debug: Deserialise numeral transformer complex cartesian. argument *p3: %i\n", *((int*) p3));
+
+                    *dr = (*sv) * (cos(*sa * M_PI / 180.0f));
+                    *di = (*sv) * (sin(*sa * M_PI / 180.0f));
+
+                } else {
+
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise numeral transformer complex cartesian. The destination cartesian coordinates real part is null.");
+                    fwprintf(stdout, L"Error: Could not deserialise numeral transformer complex cartesian. The destination cartesian coordinates real part is null. real part p0: %i\n", p0);
+                }
+
+            } else {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise numeral transformer complex cartesian. The destination cartesian coordinates imaginary part is null.");
+                fwprintf(stdout, L"Error: Could not deserialise numeral transformer complex cartesian. The destination cartesian coordinates imaginary part is null. imaginary part p1: %i\n", p1);
+            }
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise numeral transformer complex cartesian. The source polar coordinates absolute value is null.");
+            fwprintf(stdout, L"Error: Could not deserialise numeral transformer complex cartesian. The source polar coordinates absolute value is null. absolute value p2: %i\n", p2);
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise numeral transformer complex cartesian. The source polar coordinates argument is null.");
+        fwprintf(stdout, L"Error: Could not deserialise numeral transformer complex cartesian. The source polar coordinates argument is null. argument p3: %i\n", p3);
+    }
+}
+
+/* CARTESIAN_COMPLEX_TRANSFORMER_NUMERAL_DESERIALISER_SOURCE */
+#endif
