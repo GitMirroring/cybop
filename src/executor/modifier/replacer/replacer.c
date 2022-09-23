@@ -38,8 +38,8 @@
  * Replaces the given target sequence with the given replacement sequence.
  *
  * @param p0 the destination wide character item
- * @param p1 the source data
- * @param p2 the source count
+ * @param p1 the source wide character data
+ * @param p2 the source wide character count
  * @param p3 the target sequence data
  * @param p4 the target sequence count
  * @param p5 the replacement sequence data

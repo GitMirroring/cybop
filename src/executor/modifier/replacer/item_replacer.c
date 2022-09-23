@@ -61,7 +61,7 @@ void replace_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     // The temporary string item.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The terminated file name item data, count.
+    // The temporary string item data, count.
     void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* tc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
