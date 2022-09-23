@@ -266,6 +266,22 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
     }
 
     //
+    // end of exponent (indicating the argument of a complex number in polar notation)
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // This is the closing parenthesis ")".
+        detect((void*) &r, p0, p1, (void*) END_EXPONENT_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) END_EXPONENT_NUMERAL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Set loop break flag.
+            copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
+    }
+
+    //
     // other
     //
 
