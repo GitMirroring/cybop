@@ -23,44 +23,38 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STRING_REVERSER_SOURCE
-#define STRING_REVERSER_SOURCE
+#ifndef STRING_REPEATER_SOURCE
+#define STRING_REPEATER_SOURCE
 
 #include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/calculator/integer/subtract_integer_calculator.c"
-#include "../../../executor/comparator/integer/less_integer_comparator.c"
+#include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/modifier/item_modifier.c"
 #include "../../../logger/logger.c"
 
 /**
- * Parses through the source data string.
+ * Repeats the source data string count times.
  *
  * @param p0 the destination wide character item
  * @param p1 the source wide character data
  * @param p2 the source wide character count
+ * @param p3 the repeat count
  */
-void reverse_string(void* p0, void* p1, void* p2) {
+void repeat_string(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Reverse.");
-    fwprintf(stdout, L"Debug: Reverse string. source count p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Reverse string. source count *p2: %i\n", *((int*) p2));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Repeat.");
+    fwprintf(stdout, L"Debug: Repeat string. source count p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Repeat string. source count *p2: %i\n", *((int*) p2));
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The source index.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    // Initialise source index with source count.
-    copy_integer((void*) &j, p2);
-    // Subtract one from source index, since this is an index.
-    calculate_integer_subtract((void*) &j, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -79,8 +73,7 @@ void reverse_string(void* p0, void* p1, void* p2) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // CAUTION! Do NOT use "less_or_equal", since the final INDEX is ZERO.
-        compare_integer_less((void*) &b, (void*) &j, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p3);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -88,12 +81,12 @@ void reverse_string(void* p0, void* p1, void* p2) {
         }
 
         // Append source wide character at index to destination item.
-        modify_item(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &j, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+        modify_item(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
-        // Decrement source index.
-        j--;
+        // Increment source index.
+        j++;
     }
 }
 
-/* STRING_REVERSER_SOURCE */
+/* STRING_REPEATER_SOURCE */
 #endif

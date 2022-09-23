@@ -315,7 +315,9 @@ static int* REMOVE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
 /**
  * The modify/repeat logic cybol format.
  *
- * Produce a string whose value is the concatenation of the source string repeated count times.
+ * ??TODO: Description:
+ *
+ * Writes a destination string whose value is the concatenation of the source string repeated count times.
  *
  * Caution! This operation is applicable to text only (character string).
  *
@@ -333,10 +335,6 @@ static int* REMOVE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  * - adjusts the size of the destination container (grows or shrinks)
  * - overwrites existing elements and may exceed the current destination container
  * - can copy an element sequence (source count greater or equal to one)
- *
- * Description:
- *
-TODO
  *
  * Examples:
  *
