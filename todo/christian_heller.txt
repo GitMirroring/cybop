@@ -54,6 +54,28 @@ _________
                 calculate_integer_add(p8, (void*) &step);
             }
 
+String
+______
+
+        * Add file "executor/modifier/reverser.c" providing functionality for cybol operation "modify/reverse"
+            destination
+            source
+        * Add file "executor/modifier/lowerer.c" providing functionality for cybol operation "modify/lower"
+            destination
+            source
+        * Add file "executor/modifier/upperer.c" providing functionality for cybol operation "modify/upper"
+            destination
+            source
+        * Add file "executor/modifier/repeater.c" providing functionality for cybol operation "modify/repeat"
+            destination
+            source
+            count
+        * Add file "executor/modifier/replacer.c" providing functionality for cybol operation "modify/replace"
+            destination
+            source
+            target
+            replacement
+
 Numeral Deserialiser
 ____________________
 
@@ -137,7 +159,7 @@ ______________
 
         * Add joined string serialiser as replacement for planned "modify/concatenate"
         * Provide an optional cybol property "separator" to be used as such between the concatenated strings
-        * Test joined string deserialiser using cybol application "container_modification/stripper/" (and possibly rename it to "serialiser/joined string/" or remove it)
+        * Test joined string deserialiser using cybol application "container_modification/stripper/" (and possibly rename it to "serialiser/joined_string/" or remove it)
 
         * Add textline list serialiser
         * Add csv serialiser
@@ -151,15 +173,6 @@ ______________
         * Call percent encoding serialiser for attributes of all parts in html serialiser, e.g. "href" attribute of an "a" tag
         * Ensure that non-encoded characters are copied as well in character reference deserialiser
         * Ensure that non-encoded characters are copied as well in percent encoding deserialiser
-
-String
-______
-
-        * Add file "executor/modifier/replacer.c" providing functionality for cybol operation "modify/replace"
-        * Add file "executor/modifier/repeater.c" providing functionality for cybol operation "modify/repeat"
-        * Add file "executor/modifier/lowerer.c" providing functionality for cybol operation "modify/lower"
-        * Add file "executor/modifier/upperer.c" providing functionality for cybol operation "modify/upper"
-        * Add file "executor/modifier/reverser.c" providing functionality for cybol operation "modify/reverse"
 
 CYBOL
 _____

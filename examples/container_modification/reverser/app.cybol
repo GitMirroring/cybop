@@ -1,0 +1,16 @@
+<node>
+
+    <!-- The standard output terminal console -->
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+
+    <!-- The test string -->
+    <node name="test_text" channel="inline" format="text/plain" model="The sun is shining."/>
+    <node name="test_number" channel="inline" format="text/plain" model="0123456789abc"/>
+    <node name="test_space" channel="inline" format="text/plain" model="  Two leading spaces followed by some text and four trailing spaces.    "/>
+
+    <!-- The results -->
+    <node name="text" channel="inline" format="text/plain" model=""/>
+    <node name="number" channel="inline" format="text/plain" model=""/>
+    <node name="space" channel="inline" format="text/plain" model=""/>
+
+</node>

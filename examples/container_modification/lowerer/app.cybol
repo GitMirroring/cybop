@@ -1,0 +1,12 @@
+<node>
+
+    <!-- The standard output terminal console -->
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+
+    <!-- The test string -->
+    <node name="test" channel="inline" format="text/plain" model="Some text with lowercase letters abc and uppercase letters ABC and numbers 123 and four spaces    and a final dot."/>
+
+    <!-- The results -->
+    <node name="result" channel="inline" format="text/plain" model=""/>
+
+</node>

@@ -85,7 +85,10 @@ source_properties	The default is 'false'. If null, the source model (NOT propert
  *   destination_index + count_of_elements_to_be_copied;
  *   otherwise, the destination count by default remains as is
  *   and only gets extended, if the number of elements exceeds the destination count,
- *   in order to avoid memory errors caused by crossing array boundaries
+ *   in order to avoid memory errors caused by crossing array boundaries;
+ *   Not adjusting the destination count makes sense when overwriting only a few words
+ *   in the middle of some text, in order to leave the trailing text untouched
+ *   and the text length altogether as is.
  * - destination_properties (optional; the default is "false"; if null, the MODEL container is used):
  *   the flag indicating whether the model- or properties container should be used;
  *   false = destination MODEL container;
@@ -135,6 +138,21 @@ static int* EMPTY_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  * Description:
  *
 Fills the part up with a given element.
+ *
+ * Caution! Even though the operations "modify/fill" and "modify/repeat" both
+ * copy a source element multiple times, there are differences between them.
+ *
+ * "modify/fill":
+ * - works with any element type
+ * - does not change the size of the destination container
+ * - overwrites existing elements until container is filled
+ * - can copy only one element (source count of one)
+ *
+ * "modify/repeat":
+ * - works only with text (character string)
+ * - adjusts the size of the destination container (grows or shrinks)
+ * - overwrites existing elements and may exceed the current destination container
+ * - can copy an element sequence (source count greater or equal to one)
  *
  * Examples:
  *
@@ -186,6 +204,8 @@ static int* INSERT_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  *
  * Convert string to lower case letters.
  *
+ * Caution! This operation is applicable to text only (character string).
+ *
  * Description:
  *
 TODO
@@ -203,9 +223,12 @@ static int* LOWER_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
 /**
  * The modify/normalise logic cybol format.
  *
- * Remove leading and trailing whitespaces and additionally
- * replace all internal sequences of white space with one
- * (useful e.g. when parsing xml or html of a webpage).
+ * Removes leading and trailing whitespaces and additionally replaces all internal sequences
+ * of whitespace with just one (useful e.g. when parsing xml or html of a webpage).
+ *
+ * Caution! Other than "modify/strip" this operation does also replace internal sequences of whitespace.
+ *
+ * Caution! This operation is applicable to text only (character string).
  *
  * Description:
  *
@@ -233,10 +256,8 @@ Overwrites the destination- with the source part.
  * Examples:
  *
  * <node name="reset_count" channel="inline" format="modify/overwrite" model="">
-
  *     <node name="destination" channel="inline" format="text/cybol-path" model=".settings.voltage_count"/>
  *     <node name="source" channel="inline" format="text/cybol-path" model=".settings.voltage_default"/>
-
  * </node>
  *
  * Properties:
@@ -250,6 +271,16 @@ source_index	If null, an index of zero will be used instead. The source index fr
 adjust	The default is 'true'. If null, the count WILL BE adjusted. The flag indicating whether or not the destination shall be adjusted to.	false	logicvalue/boolean
 destination_properties	The default is 'false'. If null, the destination model (NOT properties) container will be used. The flag indicating whether to use the destination model or properties container.	false	logicvalue/boolean
 source_properties	The default is 'false'. If null, the source model (NOT properties) container will be used. The flag indicating whether to use the source model or properties container.	false	logicvalue/boolean
+ *
+ * - adjust (optional; the default is "true"; if null, the destination count WILL BE adjusted):
+ *   the flag indicating whether or not the destination shall be adjusted to
+ *   destination_index + count_of_elements_to_be_copied;
+ *   otherwise, the destination count by default remains as is
+ *   and only gets extended, if the number of elements exceeds the destination count,
+ *   in order to avoid memory errors caused by crossing array boundaries;
+ *   Not adjusting the destination count makes sense when overwriting only a few words
+ *   in the middle of some text, in order to leave the trailing text untouched
+ *   and the text length altogether as is.
  */
 static wchar_t* OVERWRITE_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/overwrite";
 static int* OVERWRITE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -286,6 +317,23 @@ static int* REMOVE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  *
  * Produce a string whose value is the concatenation of the source string repeated count times.
  *
+ * Caution! This operation is applicable to text only (character string).
+ *
+ * Caution! Even though the operations "modify/fill" and "modify/repeat" both
+ * copy a source element multiple times, there are differences between them.
+ *
+ * "modify/fill":
+ * - works with any element type
+ * - does not change the size of the destination container
+ * - overwrites existing elements until container is filled
+ * - can copy only one element (source count of one)
+ *
+ * "modify/repeat":
+ * - works only with text (character string)
+ * - adjusts the size of the destination container (grows or shrinks)
+ * - overwrites existing elements and may exceed the current destination container
+ * - can copy an element sequence (source count greater or equal to one)
+ *
  * Description:
  *
 TODO
@@ -303,11 +351,13 @@ static int* REPEAT_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
 /**
  * The modify/replace logic cybol format.
  *
- * Replace searched character sequence with a new sequence.
+ * Replace target character sequence with replacement sequence.
  *
  * Description:
  *
 TODO
+ *
+ * Caution! This operation is applicable to text only (character string).
  *
  * Examples:
  *
@@ -328,6 +378,8 @@ static int* REPLACE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  *
 TODO
  *
+ * Caution! This operation is applicable to text only (character string).
+ *
  * Examples:
  *
  *
@@ -343,10 +395,15 @@ static int* REVERSE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  *
  * Remove leading and trailing whitespaces.
  *
-modify/strip *
+ * Some programming languages and frameworks use the synonym name "trim" instead of "strip".
+ *
+ * Caution! Other than "modify/normalise" this operation does not replace internal sequences of whitespace.
+ *
  * Description:
  *
 TODO
+ *
+ * Caution! This operation is applicable to text only (character string).
  *
  * Examples:
  *
@@ -363,9 +420,13 @@ static int* STRIP_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * Remove leading whitespaces.
  *
+ * Some programming languages and frameworks use the synonym name "trim" instead of "strip".
+ *
  * Description:
  *
 TODO
+ *
+ * Caution! This operation is applicable to text only (character string).
  *
  * Examples:
  *
@@ -382,9 +443,13 @@ static int* STRIP_LEADING_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_ST
  *
  * Remove trailing whitespaces.
  *
+ * Some programming languages and frameworks use the synonym name "trim" instead of "strip".
+ *
  * Description:
  *
 TODO
+ *
+ * Caution! This operation is applicable to text only (character string).
  *
  * Examples:
  *
@@ -404,6 +469,8 @@ static int* STRIP_TRAILING_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  * Description:
  *
 TODO
+ *
+ * Caution! This operation is applicable to text only (character string).
  *
  * Examples:
  *

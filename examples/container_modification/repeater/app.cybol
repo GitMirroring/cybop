@@ -1,0 +1,15 @@
+<node>
+
+    <!-- The standard output terminal console -->
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+
+    <!-- The test string -->
+    <node name="test" channel="inline" format="text/plain" model="test_"/>
+
+    <!-- The results with various lengths -->
+    <node name="empty" channel="inline" format="text/plain" model=""/>
+    <node name="two" channel="inline" format="text/plain" model="01"/>
+    <node name="ten" channel="inline" format="text/plain" model="0123456789"/>
+    <node name="twenty" channel="inline" format="text/plain" model="01234567890123456789"/>
+
+</node>

@@ -1,0 +1,15 @@
+<node>
+
+    <!-- The standard output terminal console -->
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+
+    <!-- The test string -->
+    <node name="test" channel="inline" format="text/plain" model="Vom Eise befreit sind Strom und Bäche durch des Frühlings holden, belebenden Blick"/>
+
+    <!-- The result -->
+    <node name="letter-letter" channel="inline" format="text/plain" model=""/>
+    <node name="letter-sequence" channel="inline" format="text/plain" model=""/>
+    <node name="sequence-letter" channel="inline" format="text/plain" model=""/>
+    <node name="sequence-sequence" channel="inline" format="text/plain" model=""/>
+
+</node>
