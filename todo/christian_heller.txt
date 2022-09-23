@@ -57,24 +57,27 @@ _________
 String
 ______
 
-        * Add file "executor/modifier/reverser.c" providing functionality for cybol operation "modify/reverse"
+        * Add directory "executor/modifier/reverser/" providing functionality for cybol operation "modify/reverse"
             destination
             source
-        * Add file "executor/modifier/lowerer.c" providing functionality for cybol operation "modify/lower"
+        * Add directory "executor/modifier/lowerer/" providing functionality for cybol operation "modify/lower"
             destination
             source
-        * Add file "executor/modifier/upperer.c" providing functionality for cybol operation "modify/upper"
+        * Add directory "executor/modifier/upperer/" providing functionality for cybol operation "modify/upper"
             destination
             source
-        * Add file "executor/modifier/repeater.c" providing functionality for cybol operation "modify/repeat"
+        * Add directory "executor/modifier/repeater/" providing functionality for cybol operation "modify/repeat"
             destination
             source
             count
-        * Add file "executor/modifier/replacer.c" providing functionality for cybol operation "modify/replace"
+        * Add directories "executor/modifier/replacer/" and "executor/selector/replacement_sequence/" providing functionality for cybol operation "modify/replace"
             destination
             source
             target
             replacement
+
+        * Replace "executor/modifier/stripper/character_stripper.c" with "whitespace_selector.c" in files "beginning_stripper.c" and "end_stripper.c"
+        * Delete file "executor/modifier/stripper/character_stripper.c"
 
 Numeral Deserialiser
 ____________________

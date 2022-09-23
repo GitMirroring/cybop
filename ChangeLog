@@ -25,6 +25,11 @@
         * Move api archive from directory "www/archive/" to "doc/cybol/archive/"
         * Remove source code related to "modify/concatenate" which got replaced by "represent/serialise"
         * Add cybol applications "reverser", "lowerer", "upperer", "repeater", "replacer" in directory "examples/container_modification/"
+        * Add directory "executor/modifier/reverser/" providing functionality for cybol operation "modify/reverse"
+        * Add directory "executor/modifier/lowerer/" providing functionality for cybol operation "modify/lower"
+        * Add directory "executor/modifier/upperer/" providing functionality for cybol operation "modify/upper"
+        * Add directory "executor/modifier/repeater/" providing functionality for cybol operation "modify/repeat"
+        * Add directory "executor/modifier/replacer/" providing functionality for cybol operation "modify/replace"
 
 2022-09-22  Christian Heller  <christian.heller@cybop.org>
 
