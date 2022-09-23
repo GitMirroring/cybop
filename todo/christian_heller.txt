@@ -79,6 +79,7 @@ ______
         * Replace "executor/modifier/stripper/character_stripper.c" with "whitespace_selector.c" in files "beginning_stripper.c" and "end_stripper.c"
         * Delete file "executor/modifier/stripper/character_stripper.c"
         * Use item instead of array in stripper
+        * Complete case mapping for lowerer and upperer
 
 Numeral Deserialiser
 ____________________

@@ -23,58 +23,75 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef REPLACER_SOURCE
-#define REPLACER_SOURCE
+#ifndef LOWERER_SOURCE
+#define LOWERER_SOURCE
 
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/copier/integer_copier.c"
-#include "../../../executor/copier/pointer_copier.c"
-#include "../../../executor/modifier/replacer/item_replacer.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../../executor/modifier/lowerer/string_lowerer.c"
+#include "../../../executor/modifier/item_modifier.c"
 #include "../../../logger/logger.c"
 
 /**
- * Replaces the given target sequence with the given replacement sequence.
+ * Converts the source string into lower case letters.
  *
  * @param p0 the destination wide character item
- * @param p1 the source data
- * @param p2 the source count
- * @param p3 the target sequence data
- * @param p4 the target sequence count
- * @param p5 the replacement sequence data
- * @param p6 the replacement sequence count
+ * @param p1 the source wide character data
+ * @param p2 the source wide character count
  */
-void replace(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void lower(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Replace.");
-    fwprintf(stdout, L"Information: Replace. source count p2: %i\n", p2);
-    fwprintf(stdout, L"Information: Replace. source count *p2: %i\n", *((int*) p2));
-    fwprintf(stdout, L"Information: Replace. source data p1: %ls\n", (wchar_t*) p1);
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Lower.");
+    fwprintf(stdout, L"Information: Lower. source count p2: %i\n", p2);
+    fwprintf(stdout, L"Information: Lower. source count *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Information: Lower. source data p1: %ls\n", (wchar_t*) p1);
 
-    // The source data position.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The source count remaining.
-    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    // Copy source data position.
-    copy_pointer((void*) &d, (void*) &p1);
-    // Copy source count remaining.
-    copy_integer((void*) &c, p2);
+    // The temporary string item.
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The temporary string item data, count.
+    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* tc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
-    // Retrieve language properties (constraints) necessary for deserialisation.
+    // Allocate temporary string item.
     //
-    // CAUTION! A copy of source count remaining is forwarded here,
-    // so that the original source value does not get changed.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     //
-    // CAUTION! The source data position does NOT have to be copied,
-    // since the parametre that was handed over is already a copy.
-    // A local copy was made anyway, not to risk parametre falsification.
-    // Its reference is forwarded, as it gets incremented by sub routines inside.
+    allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
     //
-    replace_item(p0, (void*) &d, (void*) &c, p3, p4, p5, p6);
+    // Process source string.
+    //
+    // CAUTION! In most cases, source string and destination string
+    // are identical. Therefore, direct manipulation of the
+    // source string is NOT possible since otherwise, its content
+    // would get changed yet before having been parsed completely.
+    // In order to work properly, a TEMPORARY string item is
+    // used as destination here.
+    //
+    lower_string(t, p1, p2);
+
+    // Get temporary string item data, count.
+    copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &tc, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    // Overwrite destination item with temporary string item.
+    modify_item(p0, td, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, tc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    // Deallocate temporary string item.
+    deallocate_item((void*) &t, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
-/* REPLACER_SOURCE */
+/* LOWERER_SOURCE */
 #endif
