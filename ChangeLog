@@ -23,6 +23,7 @@
         * Adjust includes in numeral deserialiser
         * Build in closing parenthesis ")" constant "END_EXPONENT_NUMERAL_NAME" into file "value_numeral_selector"
         * Move api archive from directory "www/archive/" to "doc/cybol/archive/"
+        * Remove source code related to "modify/concatenate" which got replaced by "represent/serialise"
 
 2022-09-22  Christian Heller  <christian.heller@cybop.org>
 

@@ -137,7 +137,6 @@ ______________
 
         * Add joined string serialiser as replacement for planned "modify/concatenate"
         * Provide an optional cybol property "separator" to be used as such between the concatenated strings
-        * Remove source code related to "modify/concatenate"
         * Test joined string deserialiser using cybol application "container_modification/stripper/" (and possibly rename it to "serialiser/joined string/" or remove it)
 
         * Add textline list serialiser
@@ -157,8 +156,6 @@ String
 ______
 
         * Add file "executor/modifier/replacer.c" providing functionality for cybol operation "modify/replace"
-        * Add file "executor/modifier/splitter.c" providing functionality for cybol operation "modify/split"
-        * Add file "executor/modifier/concatenator.c" providing functionality for cybol operation "modify/concatenate"
         * Add file "executor/modifier/repeater.c" providing functionality for cybol operation "modify/repeat"
         * Add file "executor/modifier/lowerer.c" providing functionality for cybol operation "modify/lower"
         * Add file "executor/modifier/upperer.c" providing functionality for cybol operation "modify/upper"
