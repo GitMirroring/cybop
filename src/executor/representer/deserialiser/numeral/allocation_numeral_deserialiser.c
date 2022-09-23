@@ -23,10 +23,21 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ALLOCATOR_NUMERAL_DESERIALISER_SOURCE
-#define ALLOCATOR_NUMERAL_DESERIALISER_SOURCE
+#ifndef ALLOCATION_NUMERAL_DESERIALISER_SOURCE
+#define ALLOCATION_NUMERAL_DESERIALISER_SOURCE
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/part_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/memoriser/allocator/part_allocator.c"
+#include "../../../../executor/modifier/part_modifier.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -39,20 +50,20 @@
  * @param p4 the number part format
  * @param p5 the number part type
  */
-void deserialise_numeral_allocator(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_numeral_allocation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         void** p = (void**) p1;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral allocator.");
-        fwprintf(stdout, L"Debug: Deserialise numeral allocator. name data p2: %ls\n", (wchar_t*) p2);
-        fwprintf(stdout, L"Debug: Deserialise numeral allocator. name count p3: %i\n", p3);
-        fwprintf(stdout, L"Debug: Deserialise numeral allocator. name count *p3: %i\n", *((int*) p3));
-        fwprintf(stdout, L"Debug: Deserialise numeral allocator. format p4: %i\n", p4);
-        fwprintf(stdout, L"Debug: Deserialise numeral allocator. format *p4: %i\n", *((int*) p4));
-        fwprintf(stdout, L"Debug: Deserialise numeral allocator. type p5: %i\n", p5);
-        fwprintf(stdout, L"Debug: Deserialise numeral allocator. type *p5: %i\n", *((int*) p5));
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral allocation.");
+        fwprintf(stdout, L"Debug: Deserialise numeral allocation. name data p2: %ls\n", (wchar_t*) p2);
+        fwprintf(stdout, L"Debug: Deserialise numeral allocation. name count p3: %i\n", p3);
+        fwprintf(stdout, L"Debug: Deserialise numeral allocation. name count *p3: %i\n", *((int*) p3));
+        fwprintf(stdout, L"Debug: Deserialise numeral allocation. format p4: %i\n", p4);
+        fwprintf(stdout, L"Debug: Deserialise numeral allocation. format *p4: %i\n", *((int*) p4));
+        fwprintf(stdout, L"Debug: Deserialise numeral allocation. type p5: %i\n", p5);
+        fwprintf(stdout, L"Debug: Deserialise numeral allocation. type *p5: %i\n", *((int*) p5));
 
         //
         // Allocate number part.
@@ -76,10 +87,10 @@ void deserialise_numeral_allocator(void* p0, void* p1, void* p2, void* p3, void*
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise numeral number. The destination number part is null.");
-        fwprintf(stdout, L"Error: Could not deserialise numeral number. The destination number part is null. p1: %i\n", p1);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise numeral allocation. The destination number part is null.");
+        fwprintf(stdout, L"Error: Could not deserialise numeral allocation. The destination number part is null. p1: %i\n", p1);
     }
 }
 
-/* ALLOCATOR_NUMERAL_DESERIALISER_SOURCE */
+/* ALLOCATION_NUMERAL_DESERIALISER_SOURCE */
 #endif

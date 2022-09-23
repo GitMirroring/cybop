@@ -26,8 +26,13 @@
 #ifndef POLAR_COMPLEX_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE
 #define POLAR_COMPLEX_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
+#include "../../../../../constant/name/cyboi/state/complex_state_cyboi_name.c"
+#include "../../../../../executor/accessor/setter/complex_setter.c"
+#include "../../../../../executor/representer/deserialiser/numeral/assembler/decimal_fraction_assembler_numeral_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/numeral/transformer/cartesian_complex_transformer_numeral_deserialiser.c"
+#include "../../../../../logger/logger.c"
 
 /**
  * Assembles the polar complex from the given values.

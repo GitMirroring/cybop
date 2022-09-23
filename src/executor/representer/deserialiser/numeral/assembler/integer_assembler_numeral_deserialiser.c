@@ -26,8 +26,10 @@
 #ifndef INTEGER_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE
 #define INTEGER_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../executor/calculator/integer/multiply_integer_calculator.c"
+#include "../../../../../executor/copier/integer_copier.c"
+#include "../../../../../logger/logger.c"
 
 /**
  * Assembles the integer from the given values.

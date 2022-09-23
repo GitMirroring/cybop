@@ -59,7 +59,6 @@ ____________________
 
         * Build in closing parenthesis ")" END_EXPONENT_NUMERAL_NAME into selector
 
-        * Adjust includes in numeral deserialiser (DONE: selector)
         * Remove thousands separator
             do NOT just skip it in file "value_numeral_selector.c", since the count has to include them
             instead, call some remove function from within file "value_numeral_deserialiser.c"

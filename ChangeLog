@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-09-23  Christian Heller  <christian.heller@cybop.org>
+
+        * Adjust includes in numeral deserialiser
+
 2022-09-22  Christian Heller  <christian.heller@cybop.org>
 
         * Transform polar into cartesian complex number coordinates using new sub directory "executor/representer/deserialiser/numeral/transformer/"

@@ -28,8 +28,9 @@
 
 #include <math.h> // M_PI, sin, cos
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../logger/logger.c"
 
 /**
  * Transforms polar into cartesian complex number coordinates.
