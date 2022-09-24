@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ITEM_REPLACER_SOURCE
-#define ITEM_REPLACER_SOURCE
+#ifndef ITEM_REVERSER_SOURCE
+#define ITEM_REVERSER_SOURCE
 
 #include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -38,8 +38,8 @@
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../../executor/modifier/reverser/string_reverser.c"
 #include "../../../executor/modifier/item_modifier.c"
-#include "../../../executor/modifier/replacer/string_replacer.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -48,18 +48,15 @@
  * @param p0 the destination wide character array (pointer reference)
  * @param p1 the destination wide character array count
  * @param p2 the destination wide character array size
- * @param p3 the source data position (pointer reference)
- * @param p4 the source count remaining
- * @param p5 the target sequence data
- * @param p6 the target sequence count
- * @param p7 the replacement sequence data
- * @param p8 the replacement sequence count
+ * @param p3 the source wide character data
+ * @param p4 the source wide character count
  */
-void replace_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void reverse_item(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Replace item.");
-    fwprintf(stdout, L"Debug: Replace item. source count remaining p4: %i\n", p4);
-    fwprintf(stdout, L"Debug: Replace item. source count remaining *p4: %i\n", *((int*) p4));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Reverse item.");
+    fwprintf(stdout, L"Debug: Reverse item. source count p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Reverse item. source count *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Reverse item. source data p1: %ls\n", (wchar_t*) p1);
 
     // The temporary string item.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -85,7 +82,7 @@ void replace_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // In order to work properly, a TEMPORARY string item is
     // used as destination here.
     //
-    replace_string(t, p3, p4, p5, p6, p7, p8);
+    reverse_string(t, p3, p4);
 
     // Get temporary string item data, count.
     copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -98,5 +95,5 @@ void replace_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     deallocate_item((void*) &t, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
-/* ITEM_REPLACER_SOURCE */
+/* ITEM_REVERSER_SOURCE */
 #endif

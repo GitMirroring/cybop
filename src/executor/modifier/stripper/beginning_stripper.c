@@ -106,7 +106,7 @@ void strip_beginning(void* p0, void* p1, void* p2, void* p3, void* p4) {
             //
 
             //
-            // Overwrite string destination item.
+            // Overwrite string destination array.
             //
             // CAUTION! The source count remaining got already adapted
             // within the function "strip_character" above and can be

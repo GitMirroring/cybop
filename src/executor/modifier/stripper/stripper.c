@@ -53,6 +53,11 @@ void strip(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     //?? fwprintf(stdout, L"Debug: Strip. type *p5: %i\n", *((int*) p5));
 
     //
+    // CAUTION! The destination is NOT an item, but an array,
+    // since this function is called from file "array_modifier.c".
+    //
+
+    //
     // The string array data, count, size.
     //
     // It is used for temporary storage of the string

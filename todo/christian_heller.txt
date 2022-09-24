@@ -57,6 +57,11 @@ _________
 String
 ______
 
+        * Use temporary item instead of array also for strippers
+        * Replace "executor/modifier/stripper/character_stripper.c" with "whitespace_selector.c" in files "beginning_stripper.c" and "end_stripper.c"
+        * Delete file "executor/modifier/stripper/character_stripper.c"
+
+        Adapt api:
         * Add directory "executor/modifier/reverser/" providing functionality for cybol operation "modify/reverse"
             destination
             source
@@ -76,10 +81,8 @@ ______
             target
             replacement
 
-        * Replace "executor/modifier/stripper/character_stripper.c" with "whitespace_selector.c" in files "beginning_stripper.c" and "end_stripper.c"
-        * Delete file "executor/modifier/stripper/character_stripper.c"
-        * Use item instead of array in stripper
-        * Complete case mapping for lowerer and upperer
+        * Implement case mapping for modifier lowerer and upperer (CAUTION! This is a complex issue.)
+        * See hints and code fragments in directory "tmp/character-casing/"
 
 Numeral Deserialiser
 ____________________

@@ -27,53 +27,53 @@
 #define REPLACER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/copier/integer_copier.c"
-#include "../../../executor/copier/pointer_copier.c"
-#include "../../../executor/modifier/replacer/item_replacer.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../executor/modifier/replacer/reference_replacer.c"
 #include "../../../logger/logger.c"
 
 /**
  * Replaces the given target sequence with the given replacement sequence.
  *
- * @param p0 the destination wide character item
- * @param p1 the source wide character data
- * @param p2 the source wide character count
- * @param p3 the target sequence data
- * @param p4 the target sequence count
- * @param p5 the replacement sequence data
- * @param p6 the replacement sequence count
+ * @param p0 the destination array (pointer reference)
+ * @param p1 the destination array count
+ * @param p2 the destination array size
+ * @param p3 the source data
+ * @param p4 the source count
+ * @param p5 the target sequence data
+ * @param p6 the target sequence count
+ * @param p7 the replacement sequence data
+ * @param p8 the replacement sequence count
+ * @param p9 the type
  */
-void replace(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void replace(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Replace.");
     fwprintf(stdout, L"Information: Replace. source count p2: %i\n", p2);
     fwprintf(stdout, L"Information: Replace. source count *p2: %i\n", *((int*) p2));
     fwprintf(stdout, L"Information: Replace. source data p1: %ls\n", (wchar_t*) p1);
 
-    // The source data position.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The source count remaining.
-    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    //
+    // CAUTION! The destination is NOT an item, but an array,
+    // since this function is called from file "array_modifier.c".
+    //
 
-    // Copy source data position.
-    copy_pointer((void*) &d, (void*) &p1);
-    // Copy source count remaining.
-    copy_integer((void*) &c, p2);
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    //
-    // Retrieve language properties (constraints) necessary for deserialisation.
-    //
-    // CAUTION! A copy of source count remaining is forwarded here,
-    // so that the original source value does not get changed.
-    //
-    // CAUTION! The source data position does NOT have to be copied,
-    // since the parametre that was handed over is already a copy.
-    // A local copy was made anyway, not to risk parametre falsification.
-    // Its reference is forwarded, as it gets incremented by sub routines inside.
-    //
-    replace_item(p0, (void*) &d, (void*) &c, p3, p4, p5, p6);
+    compare_integer_equal((void*) &r, p9, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        replace_reference(p0, p1, p2, p3, p4, p5, p6, p7, p8);
+
+    } else {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not replace. The source type is not wide character.");
+        fwprintf(stdout, L"Warning: Could not replace. The source type is not wide character. type p5: %i\n", p5);
+        fwprintf(stdout, L"Warning: Could not replace. The source type is not wide character. type *p5: %i\n", *((int*) p5));
+    }
 }
 
 /* REPLACER_SOURCE */
