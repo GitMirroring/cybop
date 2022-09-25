@@ -27,17 +27,16 @@
 #define WHITESPACE_SELECTOR_NORMALISER_SOURCE
 
 #include "../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/detector/detector.c"
 #include "../../../executor/modifier/normaliser/whitespace_normaliser.c"
 #include "../../../executor/modifier/array_modifier.c"
 #include "../../../executor/mover/mover.c"
+#include "../../../executor/selector/whitespace/whitespace_selector.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -64,85 +63,23 @@ void normalise_select_whitespace(void* p0, void* p1, void* p2, void* p3, void* p
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    //
-    // whitespace
-    //
-
-    //
-    // The following kinds of white space are considered:
-    // - space: 0020
-    // - line feed: 000A
-    // - carriage return: 000D
-    // - character tabulation: 0009
-    //
-    // All kinds of whitespace characters are skipped.
-    //
+    // Detect non-whitespace character.
+    select_whitespace((void*) &r, p3, p4);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p3, p4, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        //
+        // A WHITESPACE character HAS been found
+        //
 
-        //
-        // CAUTION! If the searched character sequence was found,
-        // then the function "detect" already MOVED the data position
-        // pointer and decremented the count remaining accordingly,
-        // at least if the last argument move flag is TRUE.
-        //
-        // Therefore, do NOT call function "move" here additionally
-        // since otherwise, some characters would be skipped and
-        // could not be processed later, which is not wanted.
-        //
-    }
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Normalise select whitespace. Found whitespace character.");
+        //?? fwprintf(stdout, L"Debug: Normalise select whitespace. Found whitespace character. count remaining p4: %i\n", p4);
+        //?? fwprintf(stdout, L"Debug: Normalise select whitespace. Found whitespace character. count remaining *p4: %i\n", *((int*) p4));
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        // Parse whitespace characters.
+        normalise_whitespace(p0, p1, p2, p3, p4);
 
-        detect((void*) &r, p3, p4, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        //
-        // CAUTION! If the searched character sequence was found,
-        // then the function "detect" already MOVED the data position
-        // pointer and decremented the count remaining accordingly,
-        // at least if the last argument move flag is TRUE.
-        //
-        // Therefore, do NOT call function "move" here additionally
-        // since otherwise, some characters would be skipped and
-        // could not be processed later, which is not wanted.
-        //
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        detect((void*) &r, p3, p4, (void*) CARRIAGE_RETURN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        //
-        // CAUTION! If the searched character sequence was found,
-        // then the function "detect" already MOVED the data position
-        // pointer and decremented the count remaining accordingly,
-        // at least if the last argument move flag is TRUE.
-        //
-        // Therefore, do NOT call function "move" here additionally
-        // since otherwise, some characters would be skipped and
-        // could not be processed later, which is not wanted.
-        //
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        detect((void*) &r, p3, p4, (void*) CHARACTER_TABULATION_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        //
-        // CAUTION! If the searched character sequence was found,
-        // then the function "detect" already MOVED the data position
-        // pointer and decremented the count remaining accordingly,
-        // at least if the last argument move flag is TRUE.
-        //
-        // Therefore, do NOT call function "move" here additionally
-        // since otherwise, some characters would be skipped and
-        // could not be processed later, which is not wanted.
-        //
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    } else {
 
         //
         // This is a NON-whitespace character
@@ -173,19 +110,6 @@ void normalise_select_whitespace(void* p0, void* p1, void* p2, void* p3, void* p
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not normalise select whitespace. The source data position is null.");
             fwprintf(stdout, L"Error: Could not normalise select whitespace. The source data position is null. p3: %i\n", p3);
         }
-
-    } else {
-
-        //
-        // A WHITESPACE character HAS been found
-        //
-
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Normalise select whitespace. Found whitespace character.");
-        //?? fwprintf(stdout, L"Debug: Normalise select whitespace. Found whitespace character. count remaining p4: %i\n", p4);
-        //?? fwprintf(stdout, L"Debug: Normalise select whitespace. Found whitespace character. count remaining *p4: %i\n", *((int*) p4));
-
-        // Parse whitespace characters.
-        normalise_whitespace(p0, p1, p2, p3, p4);
     }
 }
 

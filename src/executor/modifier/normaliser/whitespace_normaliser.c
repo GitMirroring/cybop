@@ -37,8 +37,8 @@
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../executor/modifier/normaliser/non_whitespace_selector_normaliser.c"
 #include "../../../executor/modifier/array_modifier.c"
+#include "../../../executor/selector/whitespace/whitespace_selector.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -110,7 +110,7 @@ void normalise_whitespace(void* p0, void* p1, void* p2, void* p3, void* p4) {
         }
 
         // Search for non-whitespace character.
-        normalise_select_non_whitespace((void*) &b, p3, p4);
+        select_whitespace((void*) &b, p3, p4);
     }
 }
 

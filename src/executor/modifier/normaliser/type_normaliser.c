@@ -30,7 +30,7 @@
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/modifier/normaliser/data_normaliser.c"
+#include "../../../executor/modifier/normaliser/reference_normaliser.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -58,7 +58,7 @@ void normalise_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Replace internal sequences of whitespace with just one.
-        normalise_data(p0, p1, p2, p3, p4);
+        normalise_reference(p0, p1, p2, p3, p4);
 
     } else {
 

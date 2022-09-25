@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DATA_NORMALISER_SOURCE
-#define DATA_NORMALISER_SOURCE
+#ifndef REFERENCE_NORMALISER_SOURCE
+#define REFERENCE_NORMALISER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -43,16 +43,16 @@
  * @param p3 the source data
  * @param p4 the source count
  */
-void normalise_data(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void normalise_reference(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Normalise data.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Normalise reference.");
 /*??
-    fwprintf(stdout, L"Debug: Normalise data. source count p4: %i\n", p4);
-    fwprintf(stdout, L"Debug: Normalise data. source count *p4: %i\n", *((int*) p4));
-    fwprintf(stdout, L"Debug: Normalise data. source data p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Normalise data. source data p3 ls: %ls\n", (wchar_t*) p3);
-    fwprintf(stdout, L"Debug: Normalise data. source data *p3 lc: %lc\n", *((wchar_t*) p3));
-    fwprintf(stdout, L"Debug: Normalise data. source data *p3 lc as int: %i\n", *((wchar_t*) p3));
+    fwprintf(stdout, L"Debug: Normalise reference. source count p4: %i\n", p4);
+    fwprintf(stdout, L"Debug: Normalise reference. source count *p4: %i\n", *((int*) p4));
+    fwprintf(stdout, L"Debug: Normalise reference. source data p3: %i\n", p3);
+    fwprintf(stdout, L"Debug: Normalise reference. source data p3 ls: %ls\n", (wchar_t*) p3);
+    fwprintf(stdout, L"Debug: Normalise reference. source data *p3 lc: %lc\n", *((wchar_t*) p3));
+    fwprintf(stdout, L"Debug: Normalise reference. source data *p3 lc as int: %i\n", *((wchar_t*) p3));
 */
 
     // The source data position.
@@ -65,9 +65,19 @@ void normalise_data(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Copy source count remaining.
     copy_integer((void*) &c, p4);
 
+    //
     // Parse through characters of the source.
+    //
+    // CAUTION! A copy of source count remaining is forwarded here,
+    // so that the original source value does not get changed.
+    //
+    // CAUTION! The source data position does NOT have to be copied,
+    // since the parametre that was handed over is already a copy.
+    // A local copy was made anyway, not to risk parametre falsification.
+    // Its reference is forwarded, as it gets incremented by sub routines inside.
+    //
     normalise_character(p0, p1, p2, (void*) &d, (void*) &c);
 }
 
-/* DATA_NORMALISER_SOURCE */
+/* REFERENCE_NORMALISER_SOURCE */
 #endif

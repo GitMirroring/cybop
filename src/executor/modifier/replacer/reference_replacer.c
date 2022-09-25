@@ -65,7 +65,7 @@ void replace_reference(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     copy_integer((void*) &c, p4);
 
     //
-    // Retrieve language properties (constraints) necessary for deserialisation.
+    // Allocate temporary string item.
     //
     // CAUTION! A copy of source count remaining is forwarded here,
     // so that the original source value does not get changed.
