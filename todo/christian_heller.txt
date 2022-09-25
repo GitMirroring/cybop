@@ -79,9 +79,6 @@ ______
             target
             replacement
 
-        * Implement case mapping for modifier lowerer and upperer (CAUTION! This is a complex issue.)
-        * See hints and code fragments in directory "tmp/character-casing/"
-
 Numeral Deserialiser
 ____________________
 
@@ -180,10 +177,16 @@ ______________
         * Ensure that non-encoded characters are copied as well in character reference deserialiser
         * Ensure that non-encoded characters are copied as well in percent encoding deserialiser
 
+Case Mapping
+____________
+
+        * Implement case mapping for modifier lowerer and upperer (CAUTION! This is a complex issue.)
+        * See hints and code fragments in directory "tmp/character-casing/"
+
 CYBOL
 _____
 
-        * Rename either xml attribute "model" into "message" or cybol property "message" into "model"
+        * Rename either xml attribute "model" into "message" or cybol property "message" into "model" ??
 
         * Simplify relative paths in cybol applications not expecting "examples/"
             as parent directory but using that of the application as working directory
