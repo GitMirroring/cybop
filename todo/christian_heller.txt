@@ -57,7 +57,7 @@ _________
 String
 ______
 
-        * Use temporary item instead of array also for stripper and normaliser
+        * Change call order of item and reference in modifiers
 
         Adapt api:
         * Add directory "executor/modifier/reverser/" providing functionality for cybol operation "modify/reverse"

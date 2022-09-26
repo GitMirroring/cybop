@@ -31,28 +31,26 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/copier/pointer_copier.c"
-#include "../../../executor/modifier/replacer/item_replacer.c"
+#include "../../../executor/modifier/replacer/string_replacer.c"
 #include "../../../logger/logger.c"
 
 /**
  * Makes the source data position a pointer reference.
  *
- * @param p0 the destination wide character array (pointer reference)
- * @param p1 the destination wide character array count
- * @param p2 the destination wide character array size
- * @param p3 the source wide character data
- * @param p4 the source wide character count
- * @param p5 the target sequence data
- * @param p6 the target sequence count
- * @param p7 the replacement sequence data
- * @param p8 the replacement sequence count
+ * @param p0 the destination wide character item
+ * @param p1 the source wide character data
+ * @param p2 the source wide character count
+ * @param p3 the target sequence data
+ * @param p4 the target sequence count
+ * @param p5 the replacement sequence data
+ * @param p6 the replacement sequence count
  */
-void replace_reference(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void replace_reference(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Replace reference.");
-    fwprintf(stdout, L"Debug: Replace reference. source count p4: %i\n", p4);
-    fwprintf(stdout, L"Debug: Replace reference. source count *p4: %i\n", *((int*) p4));
-    fwprintf(stdout, L"Debug: Replace reference. source data p3: %ls\n", (wchar_t*) p3);
+    fwprintf(stdout, L"Debug: Replace reference. source count p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Replace reference. source count *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Replace reference. source data p1: %ls\n", (wchar_t*) p1);
 
     // The source data position.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -60,9 +58,9 @@ void replace_reference(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Copy source data position.
-    copy_pointer((void*) &d, (void*) &p3);
+    copy_pointer((void*) &d, (void*) &p1);
     // Copy source count remaining.
-    copy_integer((void*) &c, p4);
+    copy_integer((void*) &c, p2);
 
     //
     // Allocate temporary string item.
@@ -75,7 +73,7 @@ void replace_reference(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
     //
-    replace_item(p0, p1, p2, (void*) &d, (void*) &c, p5, p6, p7, p8);
+    replace_string(p0, (void*) &d, (void*) &c, p3, p4, p5, p6);
 }
 
 /* REFERENCE_REPLACER_SOURCE */

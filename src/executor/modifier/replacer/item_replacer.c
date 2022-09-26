@@ -39,7 +39,7 @@
 #include "../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../executor/modifier/item_modifier.c"
-#include "../../../executor/modifier/replacer/string_replacer.c"
+#include "../../../executor/modifier/replacer/reference_replacer.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -60,6 +60,7 @@ void replace_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Replace item.");
     fwprintf(stdout, L"Debug: Replace item. source count remaining p4: %i\n", p4);
     fwprintf(stdout, L"Debug: Replace item. source count remaining *p4: %i\n", *((int*) p4));
+    fwprintf(stdout, L"Debug: Replace item. source data *p3: %ls\n", (wchar_t*) *((void**) p3));
 
     // The temporary string item.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -85,7 +86,7 @@ void replace_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // In order to work properly, a TEMPORARY string item is
     // used as destination here.
     //
-    replace_string(t, p3, p4, p5, p6, p7, p8);
+    replace_reference(t, p3, p4, p5, p6, p7, p8);
 
     // Get temporary string item data, count.
     copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);

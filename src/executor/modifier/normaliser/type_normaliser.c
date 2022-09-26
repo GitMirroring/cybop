@@ -30,7 +30,7 @@
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/modifier/normaliser/reference_normaliser.c"
+#include "../../../executor/modifier/normaliser/item_normaliser.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -52,19 +52,17 @@ void normalise_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Check type, since whitespace normalisation makes sense for strings only.
     compare_integer_equal((void*) &r, p5, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Replace internal sequences of whitespace with just one.
-        normalise_reference(p0, p1, p2, p3, p4);
+        normalise_item(p0, p1, p2, p3, p4);
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not normalise type. The source type is not text.");
-        fwprintf(stdout, L"Warning: Could not normalise type. The source type is not text. type p5: %i\n", p5);
-        fwprintf(stdout, L"Warning: Could not normalise type. The source type is not text. type *p5: %i\n", *((int*) p5));
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not normalise type. The source type is not wide character.");
+        fwprintf(stdout, L"Warning: Could not normalise type. The source type is not wide character. type p5: %i\n", p5);
+        fwprintf(stdout, L"Warning: Could not normalise type. The source type is not wide character. type *p5: %i\n", *((int*) p5));
     }
 }
 

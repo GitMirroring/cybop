@@ -54,9 +54,9 @@
 void lower_item(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Lower item.");
-    fwprintf(stdout, L"Debug: Lower item. source count p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Lower item. source count *p2: %i\n", *((int*) p2));
-    fwprintf(stdout, L"Debug: Lower item. source data p1: %ls\n", (wchar_t*) p1);
+    fwprintf(stdout, L"Debug: Lower item. source count p4: %i\n", p4);
+    fwprintf(stdout, L"Debug: Lower item. source count *p4: %i\n", *((int*) p4));
+    fwprintf(stdout, L"Debug: Lower item. source data p3: %ls\n", (wchar_t*) p3);
 
     // The temporary string item.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef END_STRIPPER_SOURCE
-#define END_STRIPPER_SOURCE
+#ifndef STRING_TRAILING_STRIPPER_SOURCE
+#define STRING_TRAILING_STRIPPER_SOURCE
 
 #include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -45,22 +45,20 @@
 /**
  * Searches for a non-whitespace character from the END of the given array.
  *
- * @param p0 the destination array (pointer reference)
- * @param p1 the destination array count
- * @param p2 the destination array size
- * @param p3 the source data
- * @param p4 the source count
+ * @param p0 the destination wide character item
+ * @param p1 the source wide character data
+ * @param p2 the source wide character count
  */
-void strip_end(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void strip_trailing_string(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Strip end.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Strip trailing string.");
 /*??
-    fwprintf(stdout, L"Debug: Strip end. source count p4: %i\n", p4);
-    fwprintf(stdout, L"Debug: Strip end. source count *p4: %i\n", *((int*) p4));
-    fwprintf(stdout, L"Debug: Strip end. source data p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Strip end. source data p3 ls: %ls\n", (wchar_t*) p3);
-    fwprintf(stdout, L"Debug: Strip end. source data *p3 lc: %lc\n", *((wchar_t*) p3));
-    fwprintf(stdout, L"Debug: Strip end. source data *p3 lc as int: %i\n", *((wchar_t*) p3));
+    fwprintf(stdout, L"Debug: Strip trailing string. source count p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Strip trailing string. source count *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Strip trailing string. source data p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Strip trailing string. source data p1 ls: %ls\n", (wchar_t*) p1);
+    fwprintf(stdout, L"Debug: Strip trailing string. source data *p1 lc: %lc\n", *((wchar_t*) p1));
+    fwprintf(stdout, L"Debug: Strip trailing string. source data *p1 lc as int: %i\n", *((wchar_t*) p1));
 */
 
     // The source data position.
@@ -75,12 +73,12 @@ void strip_end(void* p0, void* p1, void* p2, void* p3, void* p4) {
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Copy source data position.
-    copy_pointer((void*) &d, (void*) &p3);
+    copy_pointer((void*) &d, (void*) &p1);
     // Copy source count remaining.
-    copy_integer((void*) &c, p4);
+    copy_integer((void*) &c, p2);
 
     // Initialise move positions number with source count remaining.
-    copy_integer((void*) &m, p4);
+    copy_integer((void*) &m, p2);
     //
     // Subtract ONE since otherwise, the source data position
     // would point to the element AFTER the last.
@@ -90,7 +88,7 @@ void strip_end(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Move source data position to LAST element.
     move((void*) &d, (void*) &c, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &m, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    if (p4 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
         // CAUTION! If the loop count handed over as parametre is NULL,
@@ -111,7 +109,7 @@ void strip_end(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // CAUTION! Do NOT compare for greater_or_equal,
         // since the "equal" case still has to be processed.
         //
-        compare_integer_greater((void*) &b, (void*) &c, p4);
+        compare_integer_greater((void*) &b, (void*) &c, p2);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -137,7 +135,7 @@ void strip_end(void* p0, void* p1, void* p2, void* p3, void* p4) {
             //
 
             // Add original source count.
-            calculate_integer_add((void*) &n, p4);
+            calculate_integer_add((void*) &n, p2);
             // Subtract source count remaining (number of whitespaces).
             calculate_integer_subtract((void*) &n, (void*) &c);
             //
@@ -146,22 +144,10 @@ void strip_end(void* p0, void* p1, void* p2, void* p3, void* p4) {
             //
             calculate_integer_add((void*) &n, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-            //?? fwprintf(stdout, L"Debug: Strip end. number of characters to be copied n: %i\n", n);
+            //?? fwprintf(stdout, L"Debug: Strip trailing string. number of characters to be copied n: %i\n", n);
 
-            //
-            // Overwrite string destination item.
-            //
-            // CAUTION! The ORIGINAL source data position is used here
-            // and NOT the local temporary one that was used for searching.
-            //
-            // CAUTION! All that is necessary is to adjust the count variable c,
-            // which is handed over to function "modify_item" below.
-            //
-            // CAUTION! The source count remaining got already adapted
-            // within the function "strip_character" above and can be
-            // used as COUNT parametre AS IS.
-            //
-            modify_array(p0, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+            // Append string to destination item.
+            modify_item(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &n, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
             break;
 
@@ -199,5 +185,5 @@ void strip_end(void* p0, void* p1, void* p2, void* p3, void* p4) {
     }
 }
 
-/* END_STRIPPER_SOURCE */
+/* STRING_TRAILING_STRIPPER_SOURCE */
 #endif

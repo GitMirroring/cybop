@@ -30,7 +30,7 @@
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/modifier/replacer/reference_replacer.c"
+#include "../../../executor/modifier/replacer/item_replacer.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -66,7 +66,7 @@ void replace(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        replace_reference(p0, p1, p2, p3, p4, p5, p6, p7, p8);
+        replace_item(p0, p1, p2, p3, p4, p5, p6, p7, p8);
 
     } else {
 

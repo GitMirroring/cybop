@@ -37,7 +37,7 @@
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../executor/modifier/array_modifier.c"
+#include "../../../executor/modifier/item_modifier.c"
 #include "../../../executor/selector/whitespace/whitespace_selector.c"
 #include "../../../logger/logger.c"
 
@@ -48,28 +48,26 @@
  * and only ONE space character is written into the destination,
  * no matter how many whitespaces had been found in the source before.
  *
- * @param p0 the destination array (pointer reference)
- * @param p1 the destination array count
- * @param p2 the destination array size
- * @param p3 the source data position (pointer reference)
- * @param p4 the source count remaining
+ * @param p0 the destination wide character item
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
  */
-void normalise_whitespace(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void normalise_whitespace(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Normalise whitespace.");
 /*??
-    fwprintf(stdout, L"Debug: Normalise whitespace. count remaining p4: %i\n", p4);
-    fwprintf(stdout, L"Debug: Normalise whitespace. count remaining *p4: %i\n", *((int*) p4));
-    fwprintf(stdout, L"Debug: Normalise whitespace. data position *p3: %i\n", *((void**) p3));
-    fwprintf(stdout, L"Debug: Normalise whitespace. data position *p3 ls: %ls\n", (wchar_t*) *((void**) p3));
-    fwprintf(stdout, L"Debug: Normalise whitespace. data position *p3 lc: %lc\n", *((wchar_t*) *((void**) p3)));
-    fwprintf(stdout, L"Debug: Normalise whitespace. data position *p3 lc as int: %i\n", *((wchar_t*) *((void**) p3)));
+    fwprintf(stdout, L"Debug: Normalise whitespace. count remaining p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Normalise whitespace. count remaining *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Normalise whitespace. data position *p1: %i\n", *((void**) p1));
+    fwprintf(stdout, L"Debug: Normalise whitespace. data position *p1 ls: %ls\n", (wchar_t*) *((void**) p1));
+    fwprintf(stdout, L"Debug: Normalise whitespace. data position *p1 lc: %lc\n", *((wchar_t*) *((void**) p1)));
+    fwprintf(stdout, L"Debug: Normalise whitespace. data position *p1 lc as int: %i\n", *((wchar_t*) *((void**) p1)));
 */
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (p4 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
         // CAUTION! If the loop count handed over as parametre is NULL,
@@ -86,7 +84,7 @@ void normalise_whitespace(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_less_or_equal((void*) &b, p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_less_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -97,20 +95,20 @@ void normalise_whitespace(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // In BOTH cases, a space character is to be added.
             //
             // This function "normalise_whitespace" was entered only
-            // because a space character was detected, so that
+            // because a space character was detected BEFORE, so that
             // at least one space character is present in the source
             // and in BOTH cases mentioned above, also if the
             // source count remaining is zero, a space is to be added.
             //
 
             // Append ONE space character to destination.
-            modify_array(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+            modify_item(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
             break;
         }
 
         // Search for non-whitespace character.
-        select_whitespace((void*) &b, p3, p4);
+        select_whitespace((void*) &b, p1, p2);
     }
 }
 

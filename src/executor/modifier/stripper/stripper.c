@@ -27,11 +27,7 @@
 #define STRIPPER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/memoriser/allocator/array_allocator.c"
-#include "../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../executor/modifier/stripper/leading_stripper.c"
 #include "../../../executor/modifier/stripper/trailing_stripper.c"
 #include "../../../logger/logger.c"
@@ -48,46 +44,29 @@
  */
 void strip(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Strip.");
-    //?? fwprintf(stdout, L"Debug: Strip. type p5: %i\n", p5);
-    //?? fwprintf(stdout, L"Debug: Strip. type *p5: %i\n", *((int*) p5));
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    //
-    // CAUTION! The destination is NOT an item, but an array,
-    // since this function is called from file "array_modifier.c".
-    //
+        void** dd = (void**) p0;
 
-    //
-    // The string array data, count, size.
-    //
-    // It is used for temporary storage of the string
-    // WITHOUT leading whitespaces.
-    //
-    void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int sc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int ss = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Strip.");
+        //?? fwprintf(stdout, L"Information: Strip. type p5: %i\n", p5);
+        //?? fwprintf(stdout, L"Information: Strip. type *p5: %i\n", *((int*) p5));
 
-    //
-    // Allocate string array.
-    //
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    //
-    allocate_array((void*) &sd, (void*) &ss, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        //
+        // CAUTION! The destination is NOT an item, but an array,
+        // since this function is called from file "array_modifier.c".
+        //
 
-    // Strip leading whitespaces from the string.
-    strip_leading((void*) &sd, (void*) &sc, (void*) &ss, p3, p4, p5);
-    // Strip trailing whitespaces from the string.
-    strip_trailing(p0, p1, p2, sd, (void*) &sc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        // Strip leading whitespaces from the string.
+        strip_leading(p0, p1, p2, p3, p4, p5);
+        // Strip trailing whitespaces from the string.
+        strip_trailing(p0, p1, p2, *dd, p1, p5);
 
-    //
-    // Deallocate string array.
-    //
-    // CAUTION! The second argument "count" is NULL,
-    // since it is only needed for looping elements of type PART,
-    // in order to decrement the rubbish (garbage) collection counter.
-    //
-    deallocate_array((void*) &sd, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &ss, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not strip. The destination array is null.");
+        fwprintf(stdout, L"Error: Could not strip. The destination array is null. destination array p0: %i\n", p0);
+    }
 }
 
 /* STRIPPER_SOURCE */

@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-09-26  Christian Heller  <christian.heller@cybop.org>
+
+        * Use temporary item instead of array for stripper and normaliser
+
 2022-09-24  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt various modifier files to using destination array instead of item

@@ -62,12 +62,12 @@
 void select_whitespace(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select whitespace.");
-    fwprintf(stdout, L"Debug: Select whitespace. count remaining p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Select whitespace. count remaining *p2: %i\n", *((int*) p2));
-    fwprintf(stdout, L"Debug: Select whitespace. data position *p1: %i\n", *((void**) p1));
-    fwprintf(stdout, L"Debug: Select whitespace. data position *p1 ls: %ls\n", (wchar_t*) *((void**) p1));
-    fwprintf(stdout, L"Debug: Select whitespace. data position *p1 lc: %lc\n", *((wchar_t*) *((void**) p1)));
-    fwprintf(stdout, L"Debug: Select whitespace. data position *p1 lc as int: %i\n", *((wchar_t*) *((void**) p1)));
+    //?? fwprintf(stdout, L"Debug: Select whitespace. count remaining p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Select whitespace. count remaining *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Select whitespace. data position *p1: %i\n", *((void**) p1));
+    //?? fwprintf(stdout, L"Debug: Select whitespace. data position *p1 ls: %ls\n", (wchar_t*) *((void**) p1));
+    //?? fwprintf(stdout, L"Debug: Select whitespace. data position *p1 lc: %lc\n", *((wchar_t*) *((void**) p1)));
+    //?? fwprintf(stdout, L"Debug: Select whitespace. data position *p1 lc as int: %i\n", *((wchar_t*) *((void**) p1)));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

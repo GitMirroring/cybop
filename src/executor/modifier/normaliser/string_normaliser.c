@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHARACTER_NORMALISER_SOURCE
-#define CHARACTER_NORMALISER_SOURCE
+#ifndef STRING_NORMALISER_SOURCE
+#define STRING_NORMALISER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -32,34 +32,32 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../executor/modifier/normaliser/whitespace_selector_normaliser.c"
+#include "../../../executor/modifier/normaliser/search_normaliser.c"
 #include "../../../logger/logger.c"
 
 /**
- * Parses through all characters of the given source array.
+ * Parses through the source data string.
  *
- * @param p0 the destination array (pointer reference)
- * @param p1 the destination array count
- * @param p2 the destination array size
- * @param p3 the source data position (pointer reference)
- * @param p4 the source count remaining
+ * @param p0 the destination wide character item
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
  */
-void normalise_character(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void normalise_string(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Normalise character.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Normalise string.");
 /*??
-    fwprintf(stdout, L"Debug: Normalise character. count remaining p4: %i\n", p4);
-    fwprintf(stdout, L"Debug: Normalise character. count remaining *p4: %i\n", *((int*) p4));
-    fwprintf(stdout, L"Debug: Normalise character. data position *p3: %i\n", *((void**) p3));
-    fwprintf(stdout, L"Debug: Normalise character. data position *p3 ls: %ls\n", (wchar_t*) *((void**) p3));
-    fwprintf(stdout, L"Debug: Normalise character. data position *p3 lc: %lc\n", *((wchar_t*) *((void**) p3)));
-    fwprintf(stdout, L"Debug: Normalise character. data position *p3 lc as int: %i\n", *((wchar_t*) *((void**) p3)));
+    fwprintf(stdout, L"Debug: Normalise string. count remaining p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Normalise string. count remaining *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Normalise string. data position *p1: %i\n", *((void**) p1));
+    fwprintf(stdout, L"Debug: Normalise string. data position *p1 ls: %ls\n", (wchar_t*) *((void**) p1));
+    fwprintf(stdout, L"Debug: Normalise string. data position *p1 lc: %lc\n", *((wchar_t*) *((void**) p1)));
+    fwprintf(stdout, L"Debug: Normalise string. data position *p1 lc as int: %i\n", *((wchar_t*) *((void**) p1)));
 */
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (p4 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
         // CAUTION! If the loop count handed over as parametre is NULL,
@@ -76,7 +74,7 @@ void normalise_character(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_less_or_equal((void*) &b, p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_less_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -84,9 +82,9 @@ void normalise_character(void* p0, void* p1, void* p2, void* p3, void* p4) {
         }
 
         // Search for whitespace character.
-        normalise_select_whitespace(p0, p1, p2, p3, p4);
+        normalise_search(p0, p1, p2);
     }
 }
 
-/* CHARACTER_NORMALISER_SOURCE */
+/* STRING_NORMALISER_SOURCE */
 #endif

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BEGINNING_STRIPPER_SOURCE
-#define BEGINNING_STRIPPER_SOURCE
+#ifndef STRING_LEADING_STRIPPER_SOURCE
+#define STRING_LEADING_STRIPPER_SOURCE
 
 #include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -42,22 +42,20 @@
 /**
  * Searches for a non-whitespace character from the BEGINNING of the given array.
  *
- * @param p0 the destination array (pointer reference)
- * @param p1 the destination array count
- * @param p2 the destination array size
- * @param p3 the source data
- * @param p4 the source count
+ * @param p0 the destination wide character item
+ * @param p1 the source wide character data
+ * @param p2 the source wide character count
  */
-void strip_beginning(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void strip_leading_string(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Strip beginning.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Strip leading string.");
 /*??
-    fwprintf(stdout, L"Debug: Strip beginning. count remaining p4: %i\n", p4);
-    fwprintf(stdout, L"Debug: Strip beginning. count remaining *p4: %i\n", *((int*) p4));
-    fwprintf(stdout, L"Debug: Strip beginning. data position p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Strip beginning. data position p3 ls: %ls\n", (wchar_t*) p3);
-    fwprintf(stdout, L"Debug: Strip beginning. data position *p3 lc: %lc\n", *((wchar_t*) p3));
-    fwprintf(stdout, L"Debug: Strip beginning. data position *p3 lc as int: %i\n", *((wchar_t*) p3));
+    fwprintf(stdout, L"Debug: Strip leading string. count remaining p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Strip leading string. count remaining *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Strip leading string. data position p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Strip leading string. data position p1 ls: %ls\n", (wchar_t*) p1);
+    fwprintf(stdout, L"Debug: Strip leading string. data position *p1 lc: %lc\n", *((wchar_t*) p1));
+    fwprintf(stdout, L"Debug: Strip leading string. data position *p1 lc as int: %i\n", *((wchar_t*) p1));
 */
 
     // The source data position.
@@ -68,9 +66,9 @@ void strip_beginning(void* p0, void* p1, void* p2, void* p3, void* p4) {
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Copy source data position.
-    copy_pointer((void*) &d, (void*) &p3);
+    copy_pointer((void*) &d, (void*) &p1);
     // Copy source count remaining.
-    copy_integer((void*) &c, p4);
+    copy_integer((void*) &c, p2);
 
     //
     // CAUTION! Checking the source count remaining for null is NOT necessary here.
@@ -106,18 +104,18 @@ void strip_beginning(void* p0, void* p1, void* p2, void* p3, void* p4) {
             //
 
             //
-            // Overwrite string destination array.
+            // Append string to destination item.
             //
             // CAUTION! The source count remaining got already adapted
-            // within the function "strip_character" above and can be
+            // within the function "select_whitespace" above and can be
             // used as COUNT parametre AS IS.
             //
-            modify_array(p0, d, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+            modify_item(p0, d, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &c, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
             break;
         }
     }
 }
 
-/* BEGINNING_STRIPPER_SOURCE */
+/* STRING_LEADING_STRIPPER_SOURCE */
 #endif

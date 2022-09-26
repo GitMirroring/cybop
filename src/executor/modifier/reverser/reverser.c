@@ -46,9 +46,11 @@
 void reverse(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Reverse.");
-    fwprintf(stdout, L"Information: Reverse. source count p2: %i\n", p2);
-    fwprintf(stdout, L"Information: Reverse. source count *p2: %i\n", *((int*) p2));
-    fwprintf(stdout, L"Information: Reverse. source data p1: %ls\n", (wchar_t*) p1);
+    fwprintf(stdout, L"Information: Reverse. type p5: %i\n", p5);
+    fwprintf(stdout, L"Information: Reverse. type *p5: %i\n", *((int*) p5));
+    fwprintf(stdout, L"Information: Reverse. source count p4: %i\n", p4);
+    fwprintf(stdout, L"Information: Reverse. source count *p4: %i\n", *((int*) p4));
+    fwprintf(stdout, L"Information: Reverse. source data p3: %ls\n", (wchar_t*) p3);
 
     //
     // CAUTION! The destination is NOT an item, but an array,

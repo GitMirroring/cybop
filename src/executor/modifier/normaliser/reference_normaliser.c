@@ -31,28 +31,26 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/copier/pointer_copier.c"
-#include "../../../executor/modifier/normaliser/character_normaliser.c"
+#include "../../../executor/modifier/normaliser/string_normaliser.c"
 #include "../../../logger/logger.c"
 
 /**
  * Copies the source to a local data position and count remaining.
  *
- * @param p0 the destination array (pointer reference)
- * @param p1 the destination array count
- * @param p2 the destination array size
- * @param p3 the source data
- * @param p4 the source count
+ * @param p0 the destination wide character item
+ * @param p1 the source wide character data
+ * @param p2 the source wide character count
  */
-void normalise_reference(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void normalise_reference(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Normalise reference.");
 /*??
-    fwprintf(stdout, L"Debug: Normalise reference. source count p4: %i\n", p4);
-    fwprintf(stdout, L"Debug: Normalise reference. source count *p4: %i\n", *((int*) p4));
-    fwprintf(stdout, L"Debug: Normalise reference. source data p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Normalise reference. source data p3 ls: %ls\n", (wchar_t*) p3);
-    fwprintf(stdout, L"Debug: Normalise reference. source data *p3 lc: %lc\n", *((wchar_t*) p3));
-    fwprintf(stdout, L"Debug: Normalise reference. source data *p3 lc as int: %i\n", *((wchar_t*) p3));
+    fwprintf(stdout, L"Debug: Normalise reference. source count p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Normalise reference. source count *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Normalise reference. source data p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Normalise reference. source data p1 ls: %ls\n", (wchar_t*) p1);
+    fwprintf(stdout, L"Debug: Normalise reference. source data *p1 lc: %lc\n", *((wchar_t*) p1));
+    fwprintf(stdout, L"Debug: Normalise reference. source data *p1 lc as int: %i\n", *((wchar_t*) p1));
 */
 
     // The source data position.
@@ -61,9 +59,9 @@ void normalise_reference(void* p0, void* p1, void* p2, void* p3, void* p4) {
     int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Copy source data position.
-    copy_pointer((void*) &d, (void*) &p3);
+    copy_pointer((void*) &d, (void*) &p1);
     // Copy source count remaining.
-    copy_integer((void*) &c, p4);
+    copy_integer((void*) &c, p2);
 
     //
     // Parse through characters of the source.
@@ -76,7 +74,7 @@ void normalise_reference(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
     //
-    normalise_character(p0, p1, p2, (void*) &d, (void*) &c);
+    normalise_string(p0, (void*) &d, (void*) &c);
 }
 
 /* REFERENCE_NORMALISER_SOURCE */
