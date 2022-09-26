@@ -46,11 +46,11 @@
 void strip_leading(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Strip leading.");
-    fwprintf(stdout, L"Information: Strip leading. type p5: %i\n", p5);
-    fwprintf(stdout, L"Information: Strip leading. type *p5: %i\n", *((int*) p5));
-    fwprintf(stdout, L"Information: Strip leading. source count p4: %i\n", p4);
-    fwprintf(stdout, L"Information: Strip leading. source count *p4: %i\n", *((int*) p4));
-    fwprintf(stdout, L"Information: Strip leading. source data p3: %ls\n", (wchar_t*) p3);
+    //?? fwprintf(stdout, L"Information: Strip leading. type p5: %i\n", p5);
+    //?? fwprintf(stdout, L"Information: Strip leading. type *p5: %i\n", *((int*) p5));
+    //?? fwprintf(stdout, L"Information: Strip leading. source count p4: %i\n", p4);
+    //?? fwprintf(stdout, L"Information: Strip leading. source count *p4: %i\n", *((int*) p4));
+    //?? fwprintf(stdout, L"Information: Strip leading. source data p3: %ls\n", (wchar_t*) p3);
 
     //
     // CAUTION! The destination is NOT an item, but an array,

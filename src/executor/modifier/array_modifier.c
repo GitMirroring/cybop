@@ -30,10 +30,15 @@
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../executor/modifier/lowerer/lowerer.c"
 #include "../../executor/modifier/normaliser/normaliser.c"
+#include "../../executor/modifier/repeater/repeater.c"
+#include "../../executor/modifier/replacer/replacer.c"
+#include "../../executor/modifier/reverser/reverser.c"
 #include "../../executor/modifier/stripper/leading_stripper.c"
 #include "../../executor/modifier/stripper/stripper.c"
 #include "../../executor/modifier/stripper/trailing_stripper.c"
+#include "../../executor/modifier/upperer/upperer.c"
 #include "../../executor/modifier/fill_modifier.c"
 #include "../../executor/modifier/insert_modifier.c"
 #include "../../executor/modifier/overwrite_modifier.c"
@@ -127,7 +132,7 @@ void modify_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? modify_lower(p0, p7, p8, p1, p4, p2);
+            lower(p0, p7, p8, p1, p4, p2);
         }
     }
 
@@ -167,7 +172,7 @@ void modify_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? modify_repeat(p0, p7, p8, p1, p4, p2);
+            //?? repeat(p0, p7, p8, p1, p4, p2);
         }
     }
 
@@ -177,7 +182,7 @@ void modify_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? modify_replace(p0, p7, p8, p1, p4, p2);
+            //?? replace(p0, p7, p8, p1, p4, p2);
         }
     }
 
@@ -187,7 +192,7 @@ void modify_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? modify_reverse(p0, p7, p8, p1, p4, p2);
+            reverse(p0, p7, p8, p1, p4, p2);
         }
     }
 
@@ -227,7 +232,7 @@ void modify_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? modify_upper(p0, p7, p8, p1, p4, p2);
+            upper(p0, p7, p8, p1, p4, p2);
         }
     }
 

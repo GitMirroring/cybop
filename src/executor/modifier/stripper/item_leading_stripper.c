@@ -54,9 +54,9 @@
 void strip_leading_item(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Strip leading item.");
-    fwprintf(stdout, L"Debug: Strip leading item. source count p4: %i\n", p4);
-    fwprintf(stdout, L"Debug: Strip leading item. source count *p4: %i\n", *((int*) p4));
-    fwprintf(stdout, L"Debug: Strip leading item. source data p3: %ls\n", (wchar_t*) p3);
+    //?? fwprintf(stdout, L"Debug: Strip leading item. source count p4: %i\n", p4);
+    //?? fwprintf(stdout, L"Debug: Strip leading item. source count *p4: %i\n", *((int*) p4));
+    //?? fwprintf(stdout, L"Debug: Strip leading item. source data p3: %ls\n", (wchar_t*) p3);
 
     // The temporary string item.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;

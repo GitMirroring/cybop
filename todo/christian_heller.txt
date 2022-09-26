@@ -54,10 +54,8 @@ _________
                 calculate_integer_add(p8, (void*) &step);
             }
 
-String
-______
-
-        * Change call order of item and reference in modifiers
+Modifier
+________
 
         Adapt api:
         * Add directory "executor/modifier/reverser/" providing functionality for cybol operation "modify/reverse"
@@ -78,6 +76,8 @@ ______
             source
             target
             replacement
+
+        * Uncommnt function calls of "repeat" and "replace" in file "array_modifier.c"
 
 Numeral Deserialiser
 ____________________

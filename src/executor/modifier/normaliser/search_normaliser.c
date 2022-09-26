@@ -49,14 +49,12 @@
 void normalise_search(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Normalise search.");
-/*??
-    fwprintf(stdout, L"Debug: Normalise search. count remaining p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Normalise search. count remaining *p2: %i\n", *((int*) p2));
-    fwprintf(stdout, L"Debug: Normalise search. data position *p1: %i\n", *((void**) p1));
-    fwprintf(stdout, L"Debug: Normalise search. data position *p1 ls: %ls\n", (wchar_t*) *((void**) p1));
-    fwprintf(stdout, L"Debug: Normalise search. data position *p1 lc: %lc\n", *((wchar_t*) *((void**) p1)));
-    fwprintf(stdout, L"Debug: Normalise search. data position *p1 lc as int: %i\n", *((wchar_t*) *((void**) p1)));
-*/
+    //?? fwprintf(stdout, L"Debug: Normalise search. count remaining p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Normalise search. count remaining *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Normalise search. data position *p1: %i\n", *((void**) p1));
+    //?? fwprintf(stdout, L"Debug: Normalise search. data position *p1 ls: %ls\n", (wchar_t*) *((void**) p1));
+    //?? fwprintf(stdout, L"Debug: Normalise search. data position *p1 lc: %lc\n", *((wchar_t*) *((void**) p1)));
+    //?? fwprintf(stdout, L"Debug: Normalise search. data position *p1 lc as int: %i\n", *((wchar_t*) *((void**) p1)));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -84,13 +82,11 @@ void normalise_search(void* p0, void* p1, void* p2) {
         //
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Normalise search. Found non-whitespace character.");
-/*??
-        fwprintf(stdout, L"Debug: Normalise search. Found non-whitespace character. count remaining p2: %i\n", p2);
-        fwprintf(stdout, L"Debug: Normalise search. Found non-whitespace character. count remaining *p2: %i\n", *((int*) p2));
-        fwprintf(stdout, L"Debug: Normalise search. Found non-whitespace character. data position *p1: %i\n", *((void**) p1));
-        fwprintf(stdout, L"Debug: Normalise search. Found non-whitespace character. data position *p1 ls: %ls\n", (wchar_t*) *((void**) p1));
-        fwprintf(stdout, L"Debug: Normalise search. Found non-whitespace character. data position *p1 lc: %lc\n", *((wchar_t*) *((void**) p1)));
-*/
+        //?? fwprintf(stdout, L"Debug: Normalise search. Found non-whitespace character. count remaining p2: %i\n", p2);
+        //?? fwprintf(stdout, L"Debug: Normalise search. Found non-whitespace character. count remaining *p2: %i\n", *((int*) p2));
+        //?? fwprintf(stdout, L"Debug: Normalise search. Found non-whitespace character. data position *p1: %i\n", *((void**) p1));
+        //?? fwprintf(stdout, L"Debug: Normalise search. Found non-whitespace character. data position *p1 ls: %ls\n", (wchar_t*) *((void**) p1));
+        //?? fwprintf(stdout, L"Debug: Normalise search. Found non-whitespace character. data position *p1 lc: %lc\n", *((wchar_t*) *((void**) p1)));
 
         if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

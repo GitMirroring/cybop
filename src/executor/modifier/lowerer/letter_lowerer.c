@@ -35,13 +35,13 @@
  * The character remains untouched if it is not a letter.
  *
  * @param p0 the destination wide character item
- * @param p1 the wide character (being source and destination at the same time)
+ * @param p1 the wide character
  */
 void lower_letter(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Lower letter.");
-    fwprintf(stdout, L"Debug: Lower letter. source count p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Lower letter. source count *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Lower letter. source count p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Lower letter. source count *p1: %i\n", *((int*) p1));
 
     //
     //?? TODO:
@@ -49,6 +49,7 @@ void lower_letter(void* p0, void* p1) {
     // gets mapped to TWO capital letters "SS".
     //
 
+/*??
     if (letter == xy) {
 
         // Append converted source wide character to destination item.
@@ -56,6 +57,7 @@ void lower_letter(void* p0, void* p1) {
     }
 
     ... compare for other letters ...
+*/
 }
 
 /* LETTER_LOWERER_SOURCE */

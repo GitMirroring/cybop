@@ -49,14 +49,12 @@
 void strip_leading_string(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Strip leading string.");
-/*??
-    fwprintf(stdout, L"Debug: Strip leading string. count remaining p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Strip leading string. count remaining *p2: %i\n", *((int*) p2));
-    fwprintf(stdout, L"Debug: Strip leading string. data position p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Strip leading string. data position p1 ls: %ls\n", (wchar_t*) p1);
-    fwprintf(stdout, L"Debug: Strip leading string. data position *p1 lc: %lc\n", *((wchar_t*) p1));
-    fwprintf(stdout, L"Debug: Strip leading string. data position *p1 lc as int: %i\n", *((wchar_t*) p1));
-*/
+    //?? fwprintf(stdout, L"Debug: Strip leading string. count remaining p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Strip leading string. count remaining *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Strip leading string. data position p1: %i\n", p1);
+    //?? fwprintf(stdout, L"Debug: Strip leading string. data position p1 ls: %ls\n", (wchar_t*) p1);
+    //?? fwprintf(stdout, L"Debug: Strip leading string. data position *p1 lc: %lc\n", *((wchar_t*) p1));
+    //?? fwprintf(stdout, L"Debug: Strip leading string. data position *p1 lc as int: %i\n", *((wchar_t*) p1));
 
     // The source data position.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
