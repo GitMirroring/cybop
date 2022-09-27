@@ -4,5 +4,9 @@ dispatch/open
 live/exit
 memorise/create
 memorise/destroy
+modify/append
+modify/empty
+modify/fill
+modify/insert
 represent/deserialise
 represent/serialise

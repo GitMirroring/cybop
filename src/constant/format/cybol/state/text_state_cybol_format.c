@@ -93,6 +93,16 @@ static int* ASCII_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  * <node name="double_reference_path_to_path_to_part" channel="inline" format="text/cybol-path" model="{{#path}}"/>
  * <node name="part_via_reference_and_name" channel="inline" format="text/cybol-path" model=".b.d:({#path})"/>
  * <node name="nested_path" channel="inline" format="text/cybol-path" model=".test.node2:c.node1:b"/>
+ *
+ * <node name="assign_title" channel="inline" format="modify/append" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#destination).(.db.(#source).[#index].genre).content.(#name)"/>
+ *     <node name="source" channel="inline" format="text/cybol-path" model=".db.(#source).[#index].title"/>
+ * </node>
+ *
+ * <node name="overwrite_link_reference_with_project_name" channel="inline" format="modify/append" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#category_name).body.toc.(#project_name):href"/>
+ *     <node name="source" channel="inline" format="text/cybol-path" model="#project_name"/>
+ * </node>
  */
 static wchar_t* CYBOL_PATH_TEXT_STATE_CYBOL_FORMAT = L"text/cybol-path";
 static int* CYBOL_PATH_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;

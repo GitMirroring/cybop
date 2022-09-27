@@ -83,7 +83,7 @@
  * - name (required) [text/cybol-path | text/plain]: The name of the part to be created.
  * - format (required) [text/cybol-path | meta/format]: The format of the part to be created. The internal data type gets determined from it.
  * - whole (optional) [text/cybol-path]: The destination parent node to which to add the new part to. If null, the default is the knowledge memory root node.
- * - properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether the model or properties branch is to be used as destination. If null, the default is false (model branch).
+ * - properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties branch as destination. If null, the default is false (model branch).
  */
 static wchar_t* CREATE_MEMORISE_LOGIC_CYBOL_FORMAT = L"memorise/create";
 static int* CREATE_MEMORISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;

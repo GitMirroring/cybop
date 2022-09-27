@@ -41,62 +41,56 @@
 /**
  * The modify/append logic cybol format.
  *
- * Append data to other data.
- *
  * Description:
  *
-Appends the source to the destination part.
+ * Appends the source data to the destination.
  *
  * Examples:
  *
- * <node name="append_command" channel="inline" format="modify/append" model="">
- *     <node name="destination" channel="inline" format="text/cybol-path" model=".app.safetmp.path"/>
- *     <node name="source" channel="inline" format="text/cybol-path" model=".app.safetmp.operation_type"/>
- *     <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+ * <node name="append_action" channel="inline" format="modify/append" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".path"/>
+ *     <node name="source" channel="inline" format="text/cybol-path" model=".action"/>
+ * </node>
+ *
+ * <node name="append_page_file_suffix" channel="inline" format="modify/append" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model="#page_file"/>
+ *     <node name="source" channel="inline" format="text/plain" model=".html"/>
+ * </node>
+ *
+ * <node name="overwrite_link_reference_with_project_name" channel="inline" format="modify/append" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#category_name).body.toc.(#project_name):href"/>
+ *     <node name="source" channel="inline" format="text/cybol-path" model="#project_name"/>
+ * </node>
+ *
+ * <node name="append_path" channel="inline" format="modify/append" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".var.path"/>
+ *     <node name="source" channel="inline" format="text/cybol-path" model=".var.request:uri:path"/>
+ * </node>
+ *
+ * <node name="append_scheme_suffix" channel="inline" format="modify/append" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model="#href"/>
+ *     <node name="source" channel="inline" format="text/cybol-path" model=".domain.uri.scheme_suffix"/>
+ * </node>
+ *
+ * <node name="assemble_next_element_name" channel="inline" format="modify/append" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".tui.main.menu:focus"/>
+ *     <node name="source" channel="inline" format="text/cybol-path" model=".var.navigation"/>
+ * </node>
+ *
+ * <node name="assemble_current_element_background" channel="inline" format="modify/append" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".var.character"/>
+ *     <node name="source" channel="inline" format="text/plain" model=":background"/>
  * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-destination	the destination part	true	text/cybol-path
-source	the source part	true	text/cybol-path
-count	If null, the part model count will be used instead. The number of elements to be overwritten.	false	number/integer
-destination_index	If null, an index of zero will be used instead. The destination index from which to start copying elements to.	false	number/integer
-source_index	If null, an index of zero will be used instead. The source index from which to start copying elements from.	false	number/integer
-adjust	The default is 'true'. If null, the count WILL BE adjusted. The flag indicating whether or not the destination shall be adjusted to.	false	logicvalue/boolean
-destination_properties	The default is 'false'. If null, the destination model (NOT properties) container will be used. The flag indicating whether to use the destination model or properties container.	false	logicvalue/boolean
-source_properties	The default is 'false'. If null, the source model (NOT properties) container will be used. The flag indicating whether to use the source model or properties container.	false	logicvalue/boolean
- *
- * Expected parametres:
- * - destination (required): the destination part
- * - source (required): the source part
- * - move (optional; the default is "false"; if null, DEEP copying will be used):
- *   the flag indicating whether or not to remove source elements after having been copied;
- *   false = DEEP copy: only copying elements, their whole deep sub tree needs to be cloned
- *   true = SHALLOW copy: moving (copying + removing) elements, a shallow copy of the pointer suffices;
- * - count (optional; if null, the source part model count will be used instead):
- *   the number of elements to be modified
- * - destination_index (optional; if null, an index of zero will be used instead):
- *   the destination index from which to start copying elements to
- * - source_index (optional; if null, an index of zero will be used instead):
- *   the source index from which to start copying elements from
- * - adjust (optional; the default is "true"; if null, the destination count WILL BE adjusted):
- *   the flag indicating whether or not the destination shall be adjusted to
- *   destination_index + count_of_elements_to_be_copied;
- *   otherwise, the destination count by default remains as is
- *   and only gets extended, if the number of elements exceeds the destination count,
- *   in order to avoid memory errors caused by crossing array boundaries;
- *   Not adjusting the destination count makes sense when overwriting only a few words
- *   in the middle of some text, in order to leave the trailing text untouched
- *   and the text length altogether as is.
- * - destination_properties (optional; the default is "false"; if null, the MODEL container is used):
- *   the flag indicating whether the model- or properties container should be used;
- *   false = destination MODEL container;
- *   true = destination PROPERTIES container
- * - source_properties (optional; the default is "false"; if null, the MODEL container is used):
- *   the flag indicating whether the model- or properties container should be used;
- *   false = source MODEL container;
- *   true = source PROPERTIES container
+ * - destination (required) [text/cybol-path]: The destination part.
+ * - source (required) [text/cybol-path]: The source part.
+ * - move (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether or not to remove source elements after having been copied. If null, the default is false (deep copying). When deep copying elements (false), their whole sub tree gets cloned. With shallow copying (true), the element content does not get duplicated and only the memory pointers to the elements get copied and afterwards removed from the source container.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be copied. If null, the default is the source part model count.
+ * - source_index (optional) [text/cybol-path | number/integer]: The source index from which to start copying elements from. If null, the default is an index of zero.
+ * - destination_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as destination. If null, the default is false (destination model).
+ * - source_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as source. If null, the default is false (source model).
  */
 static wchar_t* APPEND_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/append";
 static int* APPEND_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -104,28 +98,30 @@ static int* APPEND_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
 /**
  * The modify/empty logic cybol format.
  *
- * Empty all data.
- *
  * Description:
  *
-Empties the part, i.e. removes all of its elements.
+ * Removes all data (elements) from the destination (container).
  *
  * Examples:
  *
- * <node name="reset_buffer" channel="inline" format="modify/empty" model="">
- *     <node name="part" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer"/>
- *     <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
- *     <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+ * <node name="reset_response_model" channel="inline" format="modify/empty" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".response"/>
+ * </node>
+ *
+ * <node name="empty_dbfile_model" channel="inline" format="modify/empty" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
+ *     <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+ * </node>
+ *
+ * <node name="reset_action_properties" channel="inline" format="modify/empty" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".gui.action"/>
+ *     <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
  * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-destination	the destination part	true	text/cybol-path
-count	If null, the part model count will be used instead. The number of elements to be overwritten.	false	number/integer
-destination_index	If null, an index of zero will be used instead. The destination index from which to start copying elements to.	false	number/integer
-adjust	The default is 'true'. If null, the count WILL BE adjusted. The flag indicating whether or not the destination shall be adjusted to.	false	logicvalue/boolean
-destination_properties	The default is 'false'. If null, the destination model (NOT properties) container will be used. The flag indicating whether to use the destination model or properties container.	false	logicvalue/boolean
+ * - destination (required) [text/cybol-path]: The destination part.
+ * - destination_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as destination. If null, the default is false (destination model).
  */
 static wchar_t* EMPTY_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/empty";
 static int* EMPTY_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -133,11 +129,9 @@ static int* EMPTY_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
 /**
  * The modify/fill logic cybol format.
  *
- * Fills places of a container with a given initialisation element.
- *
  * Description:
  *
-Fills the part up with a given element.
+ * Fills the destination (container) with repeated source data (element).
  *
  * Caution! Even though the operations "modify/fill" and "modify/repeat" both
  * copy a source element multiple times, there are differences between them.
@@ -156,18 +150,23 @@ Fills the part up with a given element.
  *
  * Examples:
  *
+ * <node name="reinitialise_integer_array" channel="inline" format="modify/fill" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".var.array"/>
+ *     <node name="source" channel="inline" format="number/integer" model="-1"/>
+ * </node>
+ *
+ * <node name="overwrite_string_content" channel="inline" format="modify/fill" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".some_text"/>
+ *     <node name="source" channel="inline" format="text/cybol-path" model="#init_sign"/>
+ * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-destination	the destination part	true	text/cybol-path
-source	the source part	true	text/cybol-path
-count	If null, the part model count will be used instead. The number of elements to be overwritten.	false	number/integer
-destination_index	If null, an index of zero will be used instead. The destination index from which to start copying elements to.	false	number/integer
-source_index	If null, an index of zero will be used instead. The source index from which to start copying elements from.	false	number/integer
-adjust	The default is 'true'. If null, the count WILL BE adjusted. The flag indicating whether or not the destination shall be adjusted to.	false	logicvalue/boolean
-destination_properties	The default is 'false'. If null, the destination model (NOT properties) container will be used. The flag indicating whether to use the destination model or properties container.	false	logicvalue/boolean
-source_properties	The default is 'false'. If null, the source model (NOT properties) container will be used. The flag indicating whether to use the source model or properties container.	false	logicvalue/boolean
+ * - destination (required) [text/cybol-path]: The destination part.
+ * - source (required) [text/cybol-path]: The source part.
+ * - source_index (optional) [text/cybol-path | number/integer]: The source index from which to start copying elements from. If null, the default is an index of zero.
+ * - destination_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as destination. If null, the default is false (destination model).
+ * - source_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as source. If null, the default is false (source model).
  */
 static wchar_t* FILL_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/fill";
 static int* FILL_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -175,26 +174,30 @@ static int* FILL_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
 /**
  * The modify/insert logic cybol format.
  *
- * Insert data into other data.
- *
  * Description:
  *
-Inserts the source- into the destination part.
+ * Inserts the source data into the destination part at the destination index.
+ *
+ * Existing data behind the destination index (insertion position) get moved towards the end.
  *
  * Examples:
  *
+ * <node name="insert_word_into_string" channel="inline" format="modify/insert" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".some_text"/>
+ *     <node name="source" channel="inline" format="text/cybol-path" model="#current_word"/>
+ *     <node name="destination_index" channel="inline" format="text/cybol-path" model=".text_position"/>
+ * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-destination	the destination part	true	text/cybol-path
-source	the source part	true	text/cybol-path
-count	If null, the part model count will be used instead. The number of elements to be overwritten.	false	number/integer
-destination_index	If null, an index of zero will be used instead. The destination index from which to start copying elements to.	false	number/integer
-source_index	If null, an index of zero will be used instead. The source index from which to start copying elements from.	false	number/integer
-adjust	The default is 'true'. If null, the count WILL BE adjusted. The flag indicating whether or not the destination shall be adjusted to.	false	logicvalue/boolean
-destination_properties	The default is 'false'. If null, the destination model (NOT properties) container will be used. The flag indicating whether to use the destination model or properties container.	false	logicvalue/boolean
-source_properties	The default is 'false'. If null, the source model (NOT properties) container will be used. The flag indicating whether to use the source model or properties container.	false	logicvalue/boolean
+ * - destination (required) [text/cybol-path]: The destination part.
+ * - source (required) [text/cybol-path]: The source part.
+ * - move (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether or not to remove source elements after having been copied. If null, the default is false (deep copying). When deep copying elements (false), their whole sub tree gets cloned. With shallow copying (true), the element content does not get duplicated and only the memory pointers to the elements get copied and afterwards removed from the source container.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be copied. If null, the default is the source part model count.
+ * - destination_index (optional) [text/cybol-path | number/integer]: The destination index from which to start copying elements to. If null, the default is an index of zero.
+ * - source_index (optional) [text/cybol-path | number/integer]: The source index from which to start copying elements from. If null, the default is an index of zero.
+ * - destination_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as destination. If null, the default is false (destination model).
+ * - source_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as source. If null, the default is false (source model).
  */
 static wchar_t* INSERT_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/insert";
 static int* INSERT_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -215,7 +218,15 @@ TODO
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
+ * - destination (required) [text/cybol-path]: The destination part.
+ * - source (required) [text/cybol-path]: The source part.
+ * - move (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether or not to remove source elements after having been copied. If null, the default is false (deep copying). When deep copying elements (false), their whole sub tree gets cloned. With shallow copying (true), the element content does not get duplicated and only the memory pointers to the elements get copied and afterwards removed from the source container.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be copied. If null, the default is the source part model count.
+ * - destination_index (optional) [text/cybol-path | number/integer]: The destination index from which to start copying elements to. If null, the default is an index of zero.
+ * - source_index (optional) [text/cybol-path | number/integer]: The source index from which to start copying elements from. If null, the default is an index of zero.
+ * - adjust (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether or not the destination count shall be adjusted (true) to destination_index plus count. If null, the default is true (destination count will be adjusted). If false, the destination count remains as is and only gets extended, if the number of elements exceeds the destination count, in order to avoid memory errors caused by crossing array boundaries. Not adjusting the destination count makes sense for instance when overwriting only a few words in the middle of some text, in order to leave the trailing text untouched and the text length altogether as is.
+ * - destination_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as destination. If null, the default is false (destination model).
+ * - source_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as source. If null, the default is false (source model).
  */
 static wchar_t* LOWER_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/lower";
 static int* LOWER_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -239,7 +250,15 @@ TODO
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
+ * - destination (required) [text/cybol-path]: The destination part.
+ * - source (required) [text/cybol-path]: The source part.
+ * - move (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether or not to remove source elements after having been copied. If null, the default is false (deep copying). When deep copying elements (false), their whole sub tree gets cloned. With shallow copying (true), the element content does not get duplicated and only the memory pointers to the elements get copied and afterwards removed from the source container.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be copied. If null, the default is the source part model count.
+ * - destination_index (optional) [text/cybol-path | number/integer]: The destination index from which to start copying elements to. If null, the default is an index of zero.
+ * - source_index (optional) [text/cybol-path | number/integer]: The source index from which to start copying elements from. If null, the default is an index of zero.
+ * - adjust (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether or not the destination count shall be adjusted (true) to destination_index plus count. If null, the default is true (destination count will be adjusted). If false, the destination count remains as is and only gets extended, if the number of elements exceeds the destination count, in order to avoid memory errors caused by crossing array boundaries. Not adjusting the destination count makes sense for instance when overwriting only a few words in the middle of some text, in order to leave the trailing text untouched and the text length altogether as is.
+ * - destination_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as destination. If null, the default is false (destination model).
+ * - source_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as source. If null, the default is false (source model).
  */
 static wchar_t* NORMALISE_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/normalise";
 static int* NORMALISE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -262,25 +281,15 @@ Overwrites the destination- with the source part.
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-destination	the destination part	true	text/cybol-path
-source	the source part	true	text/cybol-path
-count	If null, the part model count will be used instead. The number of elements to be overwritten.	false	number/integer
-destination_index	If null, an index of zero will be used instead. The destination index from which to start copying elements to.	false	number/integer
-source_index	If null, an index of zero will be used instead. The source index from which to start copying elements from.	false	number/integer
-adjust	The default is 'true'. If null, the count WILL BE adjusted. The flag indicating whether or not the destination shall be adjusted to.	false	logicvalue/boolean
-destination_properties	The default is 'false'. If null, the destination model (NOT properties) container will be used. The flag indicating whether to use the destination model or properties container.	false	logicvalue/boolean
-source_properties	The default is 'false'. If null, the source model (NOT properties) container will be used. The flag indicating whether to use the source model or properties container.	false	logicvalue/boolean
- *
- * - adjust (optional; the default is "true"; if null, the destination count WILL BE adjusted):
- *   the flag indicating whether or not the destination shall be adjusted to
- *   destination_index + count_of_elements_to_be_copied;
- *   otherwise, the destination count by default remains as is
- *   and only gets extended, if the number of elements exceeds the destination count,
- *   in order to avoid memory errors caused by crossing array boundaries;
- *   Not adjusting the destination count makes sense when overwriting only a few words
- *   in the middle of some text, in order to leave the trailing text untouched
- *   and the text length altogether as is.
+ * - destination (required) [text/cybol-path]: The destination part.
+ * - source (required) [text/cybol-path]: The source part.
+ * - move (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether or not to remove source elements after having been copied. If null, the default is false (deep copying). When deep copying elements (false), their whole sub tree gets cloned. With shallow copying (true), the element content does not get duplicated and only the memory pointers to the elements get copied and afterwards removed from the source container.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be copied. If null, the default is the source part model count.
+ * - destination_index (optional) [text/cybol-path | number/integer]: The destination index from which to start copying elements to. If null, the default is an index of zero.
+ * - source_index (optional) [text/cybol-path | number/integer]: The source index from which to start copying elements from. If null, the default is an index of zero.
+ * - adjust (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether or not the destination count shall be adjusted (true) to destination_index plus count. If null, the default is true (destination count will be adjusted). If false, the destination count remains as is and only gets extended, if the number of elements exceeds the destination count, in order to avoid memory errors caused by crossing array boundaries. Not adjusting the destination count makes sense for instance when overwriting only a few words in the middle of some text, in order to leave the trailing text untouched and the text length altogether as is.
+ * - destination_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as destination. If null, the default is false (destination model).
+ * - source_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as source. If null, the default is false (source model).
  */
 static wchar_t* OVERWRITE_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/overwrite";
 static int* OVERWRITE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -302,12 +311,11 @@ Removes count elements from the part.
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-destination	the destination part	true	text/cybol-path
-count	If null, the part model count will be used instead. The number of elements to be overwritten.	false	number/integer
-destination_index	If null, an index of zero will be used instead. The destination index from which to start copying elements to.	false	number/integer
-adjust	The default is 'true'. If null, the count WILL BE adjusted. The flag indicating whether or not the destination shall be adjusted to.	false	logicvalue/boolean
-destination_properties	The default is 'false'. If null, the destination model (NOT properties) container will be used. The flag indicating whether to use the destination model or properties container.	false	logicvalue/boolean
+ * - destination (required) [text/cybol-path]: The destination part.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be copied. If null, the default is the source part model count.
+ * - destination_index (optional) [text/cybol-path | number/integer]: The destination index from which to start copying elements to. If null, the default is an index of zero.
+ * - adjust (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether or not the destination count shall be adjusted (true) to destination_index plus count. If null, the default is true (destination count will be adjusted). If false, the destination count remains as is and only gets extended, if the number of elements exceeds the destination count, in order to avoid memory errors caused by crossing array boundaries. Not adjusting the destination count makes sense for instance when overwriting only a few words in the middle of some text, in order to leave the trailing text untouched and the text length altogether as is.
+ * - destination_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as destination. If null, the default is false (destination model).
  */
 static wchar_t* REMOVE_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/remove";
 static int* REMOVE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -341,7 +349,15 @@ static int* REMOVE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
+ * - destination (required) [text/cybol-path]: The destination part.
+ * - source (required) [text/cybol-path]: The source part.
+ * - move (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether or not to remove source elements after having been copied. If null, the default is false (deep copying). When deep copying elements (false), their whole sub tree gets cloned. With shallow copying (true), the element content does not get duplicated and only the memory pointers to the elements get copied and afterwards removed from the source container.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be copied. If null, the default is the source part model count.
+ * - destination_index (optional) [text/cybol-path | number/integer]: The destination index from which to start copying elements to. If null, the default is an index of zero.
+ * - source_index (optional) [text/cybol-path | number/integer]: The source index from which to start copying elements from. If null, the default is an index of zero.
+ * - adjust (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether or not the destination count shall be adjusted (true) to destination_index plus count. If null, the default is true (destination count will be adjusted). If false, the destination count remains as is and only gets extended, if the number of elements exceeds the destination count, in order to avoid memory errors caused by crossing array boundaries. Not adjusting the destination count makes sense for instance when overwriting only a few words in the middle of some text, in order to leave the trailing text untouched and the text length altogether as is.
+ * - destination_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as destination. If null, the default is false (destination model).
+ * - source_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as source. If null, the default is false (source model).
  */
 static wchar_t* REPEAT_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/repeat";
 static int* REPEAT_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -362,7 +378,15 @@ TODO
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
+ * - destination (required) [text/cybol-path]: The destination part.
+ * - source (required) [text/cybol-path]: The source part.
+ * - move (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether or not to remove source elements after having been copied. If null, the default is false (deep copying). When deep copying elements (false), their whole sub tree gets cloned. With shallow copying (true), the element content does not get duplicated and only the memory pointers to the elements get copied and afterwards removed from the source container.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be copied. If null, the default is the source part model count.
+ * - destination_index (optional) [text/cybol-path | number/integer]: The destination index from which to start copying elements to. If null, the default is an index of zero.
+ * - source_index (optional) [text/cybol-path | number/integer]: The source index from which to start copying elements from. If null, the default is an index of zero.
+ * - adjust (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether or not the destination count shall be adjusted (true) to destination_index plus count. If null, the default is true (destination count will be adjusted). If false, the destination count remains as is and only gets extended, if the number of elements exceeds the destination count, in order to avoid memory errors caused by crossing array boundaries. Not adjusting the destination count makes sense for instance when overwriting only a few words in the middle of some text, in order to leave the trailing text untouched and the text length altogether as is.
+ * - destination_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as destination. If null, the default is false (destination model).
+ * - source_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as source. If null, the default is false (source model).
  */
 static wchar_t* REPLACE_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/replace";
 static int* REPLACE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -383,7 +407,15 @@ TODO
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
+ * - destination (required) [text/cybol-path]: The destination part.
+ * - source (required) [text/cybol-path]: The source part.
+ * - move (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether or not to remove source elements after having been copied. If null, the default is false (deep copying). When deep copying elements (false), their whole sub tree gets cloned. With shallow copying (true), the element content does not get duplicated and only the memory pointers to the elements get copied and afterwards removed from the source container.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be copied. If null, the default is the source part model count.
+ * - destination_index (optional) [text/cybol-path | number/integer]: The destination index from which to start copying elements to. If null, the default is an index of zero.
+ * - source_index (optional) [text/cybol-path | number/integer]: The source index from which to start copying elements from. If null, the default is an index of zero.
+ * - adjust (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether or not the destination count shall be adjusted (true) to destination_index plus count. If null, the default is true (destination count will be adjusted). If false, the destination count remains as is and only gets extended, if the number of elements exceeds the destination count, in order to avoid memory errors caused by crossing array boundaries. Not adjusting the destination count makes sense for instance when overwriting only a few words in the middle of some text, in order to leave the trailing text untouched and the text length altogether as is.
+ * - destination_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as destination. If null, the default is false (destination model).
+ * - source_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as source. If null, the default is false (source model).
  */
 static wchar_t* REVERSE_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/reverse";
 static int* REVERSE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -408,7 +440,15 @@ TODO
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
+ * - destination (required) [text/cybol-path]: The destination part.
+ * - source (required) [text/cybol-path]: The source part.
+ * - move (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether or not to remove source elements after having been copied. If null, the default is false (deep copying). When deep copying elements (false), their whole sub tree gets cloned. With shallow copying (true), the element content does not get duplicated and only the memory pointers to the elements get copied and afterwards removed from the source container.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be copied. If null, the default is the source part model count.
+ * - destination_index (optional) [text/cybol-path | number/integer]: The destination index from which to start copying elements to. If null, the default is an index of zero.
+ * - source_index (optional) [text/cybol-path | number/integer]: The source index from which to start copying elements from. If null, the default is an index of zero.
+ * - adjust (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether or not the destination count shall be adjusted (true) to destination_index plus count. If null, the default is true (destination count will be adjusted). If false, the destination count remains as is and only gets extended, if the number of elements exceeds the destination count, in order to avoid memory errors caused by crossing array boundaries. Not adjusting the destination count makes sense for instance when overwriting only a few words in the middle of some text, in order to leave the trailing text untouched and the text length altogether as is.
+ * - destination_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as destination. If null, the default is false (destination model).
+ * - source_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as source. If null, the default is false (source model).
  */
 static wchar_t* STRIP_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/strip";
 static int* STRIP_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -431,7 +471,15 @@ TODO
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
+ * - destination (required) [text/cybol-path]: The destination part.
+ * - source (required) [text/cybol-path]: The source part.
+ * - move (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether or not to remove source elements after having been copied. If null, the default is false (deep copying). When deep copying elements (false), their whole sub tree gets cloned. With shallow copying (true), the element content does not get duplicated and only the memory pointers to the elements get copied and afterwards removed from the source container.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be copied. If null, the default is the source part model count.
+ * - destination_index (optional) [text/cybol-path | number/integer]: The destination index from which to start copying elements to. If null, the default is an index of zero.
+ * - source_index (optional) [text/cybol-path | number/integer]: The source index from which to start copying elements from. If null, the default is an index of zero.
+ * - adjust (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether or not the destination count shall be adjusted (true) to destination_index plus count. If null, the default is true (destination count will be adjusted). If false, the destination count remains as is and only gets extended, if the number of elements exceeds the destination count, in order to avoid memory errors caused by crossing array boundaries. Not adjusting the destination count makes sense for instance when overwriting only a few words in the middle of some text, in order to leave the trailing text untouched and the text length altogether as is.
+ * - destination_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as destination. If null, the default is false (destination model).
+ * - source_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as source. If null, the default is false (source model).
  */
 static wchar_t* STRIP_LEADING_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/strip-leading";
 static int* STRIP_LEADING_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -454,7 +502,15 @@ TODO
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
+ * - destination (required) [text/cybol-path]: The destination part.
+ * - source (required) [text/cybol-path]: The source part.
+ * - move (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether or not to remove source elements after having been copied. If null, the default is false (deep copying). When deep copying elements (false), their whole sub tree gets cloned. With shallow copying (true), the element content does not get duplicated and only the memory pointers to the elements get copied and afterwards removed from the source container.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be copied. If null, the default is the source part model count.
+ * - destination_index (optional) [text/cybol-path | number/integer]: The destination index from which to start copying elements to. If null, the default is an index of zero.
+ * - source_index (optional) [text/cybol-path | number/integer]: The source index from which to start copying elements from. If null, the default is an index of zero.
+ * - adjust (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether or not the destination count shall be adjusted (true) to destination_index plus count. If null, the default is true (destination count will be adjusted). If false, the destination count remains as is and only gets extended, if the number of elements exceeds the destination count, in order to avoid memory errors caused by crossing array boundaries. Not adjusting the destination count makes sense for instance when overwriting only a few words in the middle of some text, in order to leave the trailing text untouched and the text length altogether as is.
+ * - destination_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as destination. If null, the default is false (destination model).
+ * - source_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as source. If null, the default is false (source model).
  */
 static wchar_t* STRIP_TRAILING_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/strip-trailing";
 static int* STRIP_TRAILING_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -475,7 +531,15 @@ TODO
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
+ * - destination (required) [text/cybol-path]: The destination part.
+ * - source (required) [text/cybol-path]: The source part.
+ * - move (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether or not to remove source elements after having been copied. If null, the default is false (deep copying). When deep copying elements (false), their whole sub tree gets cloned. With shallow copying (true), the element content does not get duplicated and only the memory pointers to the elements get copied and afterwards removed from the source container.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be copied. If null, the default is the source part model count.
+ * - destination_index (optional) [text/cybol-path | number/integer]: The destination index from which to start copying elements to. If null, the default is an index of zero.
+ * - source_index (optional) [text/cybol-path | number/integer]: The source index from which to start copying elements from. If null, the default is an index of zero.
+ * - adjust (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether or not the destination count shall be adjusted (true) to destination_index plus count. If null, the default is true (destination count will be adjusted). If false, the destination count remains as is and only gets extended, if the number of elements exceeds the destination count, in order to avoid memory errors caused by crossing array boundaries. Not adjusting the destination count makes sense for instance when overwriting only a few words in the middle of some text, in order to leave the trailing text untouched and the text length altogether as is.
+ * - destination_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as destination. If null, the default is false (destination model).
+ * - source_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as source. If null, the default is false (source model).
  */
 static wchar_t* UPPER_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/upper";
 static int* UPPER_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;

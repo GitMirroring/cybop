@@ -14,6 +14,8 @@
 API
 ___
 
+        * Finish cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/modify_logic_cybol_format.c"
+
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/stream_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/represent_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/convert_logic_cybol_format.c"
@@ -25,7 +27,6 @@ ___
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/compare_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/calculate_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/logify_logic_cybol_format.c"
-        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/modify_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/check_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/access_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/sort_logic_cybol_format.c"
@@ -77,7 +78,7 @@ ________
             target
             replacement
 
-        * Uncommnt function calls of "repeat" and "replace" in file "array_modifier.c"
+        * Uncomment function calls of "repeat" and "replace" in file "array_modifier.c"
 
 Numeral Deserialiser
 ____________________
