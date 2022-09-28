@@ -38,22 +38,22 @@
     <node name="repeat_empty" channel="inline" format="modify/repeat" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".empty"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".test"/>
-        <node name="count" channel="inline" format="number/integer" model="2"/>
+        <node name="number" channel="inline" format="number/integer" model="2"/>
     </node>
     <node name="repeat_two" channel="inline" format="modify/repeat" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".two"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".test"/>
-        <node name="count" channel="inline" format="number/integer" model="2"/>
+        <node name="number" channel="inline" format="number/integer" model="2"/>
     </node>
     <node name="repeat_ten" channel="inline" format="modify/repeat" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".ten"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".test"/>
-        <node name="count" channel="inline" format="number/integer" model="2"/>
+        <node name="number" channel="inline" format="number/integer" model="2"/>
     </node>
     <node name="repeat_twenty" channel="inline" format="modify/repeat" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".twenty"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".test"/>
-        <node name="count" channel="inline" format="number/integer" model="3"/>
+        <node name="number" channel="inline" format="number/integer" model="3"/>
     </node>
 
     <!-- Output -->

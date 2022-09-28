@@ -8,5 +8,16 @@ modify/append
 modify/empty
 modify/fill
 modify/insert
+modify/lower
+modify/normalise
+modify/overwrite
+modify/remove
+modify/repeat
+modify/replace
+modify/reverse
+modify/strip
+modify/strip-leading
+modify/strip-trailing
+modify/upper
 represent/deserialise
 represent/serialise

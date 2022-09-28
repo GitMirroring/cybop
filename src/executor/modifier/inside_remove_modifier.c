@@ -187,26 +187,32 @@ void modify_remove_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void
                                         //
                                         //     if (n > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
                                         //
+                                        //         //
                                         //         // Shrink array using new count as size.
                                         //         //
                                         //         // CAUTION! Due to memory allocation handling, the size MUST NOT
                                         //         // be negative or zero, but have at least a value of ONE.
+                                        //         //
                                         //         reallocate_array(p0, p4, (void*) &n, p1);
                                         //
                                         //     } else if (n == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
                                         //
+                                        //         //
                                         //         // Set new size to value one.
                                         //         //
                                         //         // CAUTION! It is just normal that the calculated new size is zero,
                                         //         // e.g. if a part was emptied and all of its child elements removed.
                                         //         // However, in such cases it has to be made sure,
                                         //         // that allocation size is at least one.
+                                        //         //
                                         //         n = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                                         //
+                                        //         //
                                         //         // Shrink array using new count as size.
                                         //         //
                                         //         // CAUTION! Due to memory allocation handling, the size MUST NOT
                                         //         // be negative or zero, but have at least a value of ONE.
+                                        //         //
                                         //         reallocate_array(p0, p4, (void*) &n, p1);
                                         //
                                         //     } else {

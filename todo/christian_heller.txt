@@ -11,10 +11,18 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+Modifier
+________
+
+        * Read "modify/repeat" property "repetition" as constraint of property "source"
+        * Read "modify/replace" property "searchword" as constraint of property "source"
+        * Uncomment function calls of "repeat" and "replace" in file "array_modifier.c"
+
+        * Move mover files into sub directories
+        * Delete prefix "move_" from mover functions, e.g. rename "move_remove" into "remove"
+
 API
 ___
-
-        * Finish cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/modify_logic_cybol_format.c"
 
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/stream_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/represent_logic_cybol_format.c"
@@ -55,37 +63,12 @@ _________
                 calculate_integer_add(p8, (void*) &step);
             }
 
-Modifier
-________
-
-        Adapt api:
-        * Add directory "executor/modifier/reverser/" providing functionality for cybol operation "modify/reverse"
-            destination
-            source
-        * Add directory "executor/modifier/lowerer/" providing functionality for cybol operation "modify/lower"
-            destination
-            source
-        * Add directory "executor/modifier/upperer/" providing functionality for cybol operation "modify/upper"
-            destination
-            source
-        * Add directory "executor/modifier/repeater/" providing functionality for cybol operation "modify/repeat"
-            destination
-            source
-            count
-        * Add directories "executor/modifier/replacer/" and "executor/selector/replacement_sequence/" providing functionality for cybol operation "modify/replace"
-            destination
-            source
-            target
-            replacement
-
-        * Uncomment function calls of "repeat" and "replace" in file "array_modifier.c"
-
 Numeral Deserialiser
 ____________________
 
-        * Remove thousands separator
+        * Remove thousands separator using modify replace function
             do NOT just skip it in file "value_numeral_selector.c", since the count has to include them
-            instead, call some remove function from within file "value_numeral_deserialiser.c"
+            call some replace or remove function from within file "value_numeral_deserialiser.c" instead
 
         * Use function "deserialise_joined_string" to separate the single numbers of a vector
         * Adapt loop section in file "number_json_deserialiser.c" to call function "deserialise_numeral"
@@ -183,6 +166,8 @@ ____________
 
         * Implement case mapping for modifier lowerer and upperer (CAUTION! This is a complex issue.)
         * See hints and code fragments in directory "tmp/character-casing/"
+        * Refer to unicode standard:
+            https://www.unicode.org/reports/tr21/tr21-5.html
 
 CYBOL
 _____

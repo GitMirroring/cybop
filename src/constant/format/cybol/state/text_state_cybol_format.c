@@ -94,6 +94,26 @@ static int* ASCII_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  * <node name="part_via_reference_and_name" channel="inline" format="text/cybol-path" model=".b.d:({#path})"/>
  * <node name="nested_path" channel="inline" format="text/cybol-path" model=".test.node2:c.node1:b"/>
  *
+ * <node name="assign_row" channel="inline" format="modify/overwrite" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model="#row"/>
+ *     <node name="source" channel="inline" format="text/plain" model="#row_heading"/>
+ * </node>
+ *
+ * <node name="overwrite_path" channel="inline" format="modify/overwrite" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".var.path"/>
+ *     <node name="source" channel="inline" format="text/cybol-path" model=".tui.(.tui.active):actions"/>
+ * </node>
+ *
+ * <node name="focus_background" channel="inline" format="modify/overwrite" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model="{.var.character}"/>
+ *     <node name="source" channel="inline" format="text/cybol-path" model=".settings.selection.background"/>
+ * </node>
+ *
+ * <node name="overwrite_calendar_week" channel="inline" format="modify/overwrite" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".wui.index.body.navigation.table.row.week"/>
+ *     <node name="source" channel="inline" format="text/cybol-path" model=".domain.calendar.(.var.year_string).(.var.week_string)"/>
+ * </node>
+ *
  * <node name="assign_title" channel="inline" format="modify/append" model="">
  *     <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#destination).(.db.(#source).[#index].genre).content.(#name)"/>
  *     <node name="source" channel="inline" format="text/cybol-path" model=".db.(#source).[#index].title"/>

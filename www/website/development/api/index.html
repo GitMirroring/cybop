@@ -176,7 +176,7 @@ footer a:hover {
 
     color: #aed6f2;
 }
-</style></head><body><nav class="position-fixed nav-left"><h1>Logic Operations</h1><h2>calculate</h2><a href="#calculate-add">add</a><h2>dispatch</h2><a href="#dispatch-close">close</a><a href="#dispatch-open">open</a><h2>live</h2><a href="#live-exit">exit</a><h2>memorise</h2><a href="#memorise-create">create</a><a href="#memorise-destroy">destroy</a><h2>modify</h2><a href="#modify-append">append</a><a href="#modify-empty">empty</a><a href="#modify-fill">fill</a><a href="#modify-insert">insert</a><h2>represent</h2><a href="#represent-deserialise">deserialise</a><a href="#represent-serialise">serialise</a></nav><nav class="position-fixed nav-right"><h1>State Structures</h1><h2>application</h2><a href="#application-json">json</a><a href="#application-xml">xml</a><h2>colour</h2><a href="#colour-rgb">rgb</a><a href="#colour-terminal">terminal</a><h2>element</h2><a href="#element-part">part</a><a href="#element-property">property</a><h2>image</h2><a href="#image-gif">gif</a><a href="#image-jpeg">jpeg</a><a href="#image-png">png</a><h2>logicvalue</h2><a href="#logicvalue-boolean">boolean</a><h2>meta</h2><a href="#meta-channel">channel</a><a href="#meta-encoding">encoding</a><a href="#meta-format">format</a><a href="#meta-language">language</a><a href="#meta-model">model</a><a href="#meta-name">name</a><a href="#meta-type">type</a><h2>number</h2><a href="#number-byte">byte</a><a href="#number-complex-cartesian">complex-cartesian</a><a href="#number-complex-polar">complex-polar</a><a href="#number-fraction-decimal">fraction-decimal</a><a href="#number-fraction-vulgar">fraction-vulgar</a><a href="#number-integer">integer</a><h2>text</h2><a href="#text-ascii">ascii</a><a href="#text-cybol-path">cybol-path</a><a href="#text-html">html</a><a href="#text-json">json</a><a href="#text-plain">plain</a><a href="#text-xml">xml</a><h2>video</h2><a href="#video-mp4">mp4</a></nav><section class="position-fixed section-center"><header><h1>CYBOL API Specification Version 0.23.0</h1></header><section><section><a name="calculate-add"><h2>calculate/add</h2></a><section><h3>Description</h3><p class="description">Adds the operand to the result.
+</style></head><body><nav class="position-fixed nav-left"><h1>Logic Operations</h1><h2>calculate</h2><a href="#calculate-add">add</a><h2>dispatch</h2><a href="#dispatch-close">close</a><a href="#dispatch-open">open</a><h2>live</h2><a href="#live-exit">exit</a><h2>memorise</h2><a href="#memorise-create">create</a><a href="#memorise-destroy">destroy</a><h2>modify</h2><a href="#modify-append">append</a><a href="#modify-empty">empty</a><a href="#modify-fill">fill</a><a href="#modify-insert">insert</a><a href="#modify-lower">lower</a><a href="#modify-normalise">normalise</a><a href="#modify-overwrite">overwrite</a><a href="#modify-remove">remove</a><a href="#modify-repeat">repeat</a><a href="#modify-replace">replace</a><a href="#modify-reverse">reverse</a><a href="#modify-strip">strip</a><a href="#modify-strip-leading">strip-leading</a><a href="#modify-strip-trailing">strip-trailing</a><a href="#modify-upper">upper</a><h2>represent</h2><a href="#represent-deserialise">deserialise</a><a href="#represent-serialise">serialise</a></nav><nav class="position-fixed nav-right"><h1>State Structures</h1><h2>application</h2><a href="#application-json">json</a><a href="#application-xml">xml</a><h2>colour</h2><a href="#colour-rgb">rgb</a><a href="#colour-terminal">terminal</a><h2>element</h2><a href="#element-part">part</a><a href="#element-property">property</a><h2>image</h2><a href="#image-gif">gif</a><a href="#image-jpeg">jpeg</a><a href="#image-png">png</a><h2>logicvalue</h2><a href="#logicvalue-boolean">boolean</a><h2>meta</h2><a href="#meta-channel">channel</a><a href="#meta-encoding">encoding</a><a href="#meta-format">format</a><a href="#meta-language">language</a><a href="#meta-model">model</a><a href="#meta-name">name</a><a href="#meta-type">type</a><h2>number</h2><a href="#number-byte">byte</a><a href="#number-complex-cartesian">complex-cartesian</a><a href="#number-complex-polar">complex-polar</a><a href="#number-fraction-decimal">fraction-decimal</a><a href="#number-fraction-vulgar">fraction-vulgar</a><a href="#number-integer">integer</a><h2>text</h2><a href="#text-ascii">ascii</a><a href="#text-cybol-path">cybol-path</a><a href="#text-html">html</a><a href="#text-json">json</a><a href="#text-plain">plain</a><a href="#text-xml">xml</a><h2>video</h2><a href="#video-mp4">mp4</a></nav><section class="position-fixed section-center"><header><h1>CYBOL API Specification Version 0.23.0</h1></header><section><section><a name="calculate-add"><h2>calculate/add</h2></a><section><h3>Description</h3><p class="description">Adds the operand to the result.
 
 Caution! Do not use this operation for characters (strings)!
 They may be concatenated by using the &#x22;modify/append&#x22; operation.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;add_integer&#x22; channel=&#x22;inline&#x22; format=&#x22;calculate/add&#x22; model=&#x22;&#x22;&#x3E;
@@ -361,7 +361,7 @@ The exit operation is the last one to be called. It cleans up all memory interna
 &#x3C;node name=&#x22;assemble_current_element_background&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/append&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.character&#x22;/&#x3E;
     &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;:background&#x22;/&#x3E;
-&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The destination part.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path</td><td>The source part.</td></tr><tr><td>move</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether or not to remove source elements after having been copied. If null, the default is false (deep copying). When deep copying elements (false), their whole sub tree gets cloned. With shallow copying (true), the element content does not get duplicated and only the memory pointers to the elements get copied and afterwards removed from the source container.</td></tr><tr><td>count</td><td>false</td><td>text/cybol-path | number/integer</td><td>The number of elements to be copied. If null, the default is the source part model count.</td></tr><tr><td>source_index</td><td>false</td><td>text/cybol-path | number/integer</td><td>The source index from which to start copying elements from. If null, the default is an index of zero.</td></tr><tr><td>destination_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as destination. If null, the default is false (destination model).</td></tr><tr><td>source_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as source. If null, the default is false (source model).</td></tr></table></section></section><section><a name="modify-empty"><h2>modify/empty</h2></a><section><h3>Description</h3><p class="description">Removes all data (elements) from the destination (container).</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;reset_response_model&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/empty&#x22; model=&#x22;&#x22;&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The destination part.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path</td><td>The source part.</td></tr><tr><td>move</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether or not to remove source elements after having been copied. If null, the default is false (deep copying). When deep copying elements (false), their whole sub tree gets cloned. With shallow copying (true), the element content does not get duplicated and only the memory pointers to the elements get copied and afterwards removed from the source container.</td></tr><tr><td>count</td><td>false</td><td>text/cybol-path | number/integer</td><td>The number of elements to be copied. If null, the default is the source part model count.</td></tr><tr><td>source_index</td><td>false</td><td>text/cybol-path | number/integer</td><td>The source index from which to start copying elements from. If null, the default is zero.</td></tr><tr><td>destination_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as destination. If null, the default is false (model).</td></tr><tr><td>source_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as source. If null, the default is false (model).</td></tr></table></section></section><section><a name="modify-empty"><h2>modify/empty</h2></a><section><h3>Description</h3><p class="description">Removes all data (elements) from the destination (container).</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;reset_response_model&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/empty&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.response&#x22;/&#x3E;
 &#x3C;/node&#x3E;
 
@@ -373,7 +373,7 @@ The exit operation is the last one to be called. It cleans up all memory interna
 &#x3C;node name=&#x22;reset_action_properties&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/empty&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.gui.action&#x22;/&#x3E;
     &#x3C;node name=&#x22;destination_properties&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
-&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The destination part.</td></tr><tr><td>destination_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as destination. If null, the default is false (destination model).</td></tr></table></section></section><section><a name="modify-fill"><h2>modify/fill</h2></a><section><h3>Description</h3><p class="description">Fills the destination (container) with repeated source data (element).
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The destination part.</td></tr><tr><td>destination_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as destination. If null, the default is false (model).</td></tr></table></section></section><section><a name="modify-fill"><h2>modify/fill</h2></a><section><h3>Description</h3><p class="description">Fills the destination (container) with repeated source data (element).
 
 Caution! Even though the operations &#x22;modify/fill&#x22; and &#x22;modify/repeat&#x22; both
 copy a source element multiple times, there are differences between them.
@@ -396,13 +396,263 @@ copy a source element multiple times, there are differences between them.
 &#x3C;node name=&#x22;overwrite_string_content&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/fill&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.some_text&#x22;/&#x3E;
     &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#init_sign&#x22;/&#x3E;
-&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The destination part.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path</td><td>The source part.</td></tr><tr><td>source_index</td><td>false</td><td>text/cybol-path | number/integer</td><td>The source index from which to start copying elements from. If null, the default is an index of zero.</td></tr><tr><td>destination_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as destination. If null, the default is false (destination model).</td></tr><tr><td>source_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as source. If null, the default is false (source model).</td></tr></table></section></section><section><a name="modify-insert"><h2>modify/insert</h2></a><section><h3>Description</h3><p class="description">Inserts the source data into the destination part at the destination index.
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The destination part.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path</td><td>The source part.</td></tr><tr><td>source_index</td><td>false</td><td>text/cybol-path | number/integer</td><td>The source index from which to start copying elements from. If null, the default is zero.</td></tr><tr><td>destination_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as destination. If null, the default is false (model).</td></tr><tr><td>source_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as source. If null, the default is false (model).</td></tr></table></section></section><section><a name="modify-insert"><h2>modify/insert</h2></a><section><h3>Description</h3><p class="description">Inserts the source data into the destination part at the destination index.
 
 Existing data behind the destination index (insertion position) get moved towards the end.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;insert_word_into_string&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/insert&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.some_text&#x22;/&#x3E;
     &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#current_word&#x22;/&#x3E;
     &#x3C;node name=&#x22;destination_index&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.text_position&#x22;/&#x3E;
-&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The destination part.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path</td><td>The source part.</td></tr><tr><td>move</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether or not to remove source elements after having been copied. If null, the default is false (deep copying). When deep copying elements (false), their whole sub tree gets cloned. With shallow copying (true), the element content does not get duplicated and only the memory pointers to the elements get copied and afterwards removed from the source container.</td></tr><tr><td>count</td><td>false</td><td>text/cybol-path | number/integer</td><td>The number of elements to be copied. If null, the default is the source part model count.</td></tr><tr><td>destination_index</td><td>false</td><td>text/cybol-path | number/integer</td><td>The destination index from which to start copying elements to. If null, the default is an index of zero.</td></tr><tr><td>source_index</td><td>false</td><td>text/cybol-path | number/integer</td><td>The source index from which to start copying elements from. If null, the default is an index of zero.</td></tr><tr><td>destination_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as destination. If null, the default is false (destination model).</td></tr><tr><td>source_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as source. If null, the default is false (source model).</td></tr></table></section></section><section><a name="represent-deserialise"><h2>represent/deserialise</h2></a><section><h3>Description</h3><p class="description">Deserialises the source into the destination, according to the given format.
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The destination part.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path</td><td>The source part.</td></tr><tr><td>move</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether or not to remove source elements after having been copied. If null, the default is false (deep copying). When deep copying elements (false), their whole sub tree gets cloned. With shallow copying (true), the element content does not get duplicated and only the memory pointers to the elements get copied and afterwards removed from the source container.</td></tr><tr><td>count</td><td>false</td><td>text/cybol-path | number/integer</td><td>The number of elements to be copied. If null, the default is the source part model count.</td></tr><tr><td>destination_index</td><td>false</td><td>text/cybol-path | number/integer</td><td>The destination index from which to start copying elements to. If null, the default is zero.</td></tr><tr><td>source_index</td><td>false</td><td>text/cybol-path | number/integer</td><td>The source index from which to start copying elements from. If null, the default is zero.</td></tr><tr><td>destination_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as destination. If null, the default is false (model).</td></tr><tr><td>source_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as source. If null, the default is false (model).</td></tr></table></section></section><section><a name="modify-lower"><h2>modify/lower</h2></a><section><h3>Description</h3><p class="description">Converts the source string into lower case letters stored in the destination.
+
+The source and destination are permitted to point to the same part since the source gets buffered internally during processing.
+
+Caution! This operation is applicable to text only (string of characters).
+
+Caution! The destination length may differ from the source length since not all characters can be converted 1:1.
+The German &#x22;small letter sharp s&#x22; for example gets converted into the two capital letters &#x22;SS&#x22;.
+
+Further reading:
+https://www.unicode.org/reports/tr21/tr21-5.html</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;convert_plain_text&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/lower&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;Mein kleiner gr&#xFC;ner Kaktus&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;convert_text_variable&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/upper&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.text&#x22;/&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The destination part.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path</td><td>The source part.</td></tr><tr><td>destination_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as destination. If null, the default is false (model).</td></tr><tr><td>source_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as source. If null, the default is false (model).</td></tr></table></section></section><section><a name="modify-normalise"><h2>modify/normalise</h2></a><section><h3>Description</h3><p class="description">Removes leading and trailing whitespaces and additionally replaces all internal sequences of whitespace with just one.
+
+This is useful when parsing xml or html of a webpage, for example.
+
+Other than &#x22;modify/strip&#x22; this operation does also replace internal sequences of whitespace.
+
+The source and destination are permitted to point to the same part since the source gets buffered internally during processing.
+
+Caution! This operation is applicable to text only (character string).
+
+The considered whitespace characters are taken from the JSON specification:
+https://www.json.org/
+
+They are:
+- empty: &#x22;&#x22;
+- space: 0020
+- line feed: 000A
+- carriage return: 000D
+- character tabulation: 0009
+
+The first (empty) can obviously not be considered and is just ignored.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;normalise_plain_text&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/normalise&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;    Some text    with leading and trailing and intermediary    spaces    &#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;normalise_text_variable&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/normalise&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.text&#x22;/&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The destination part.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path</td><td>The source part.</td></tr><tr><td>destination_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as destination. If null, the default is false (model).</td></tr><tr><td>source_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as source. If null, the default is false (model).</td></tr></table></section></section><section><a name="modify-overwrite"><h2>modify/overwrite</h2></a><section><h3>Description</h3><p class="description">Overwrites the destination data with the source.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;reset_query_exists_flag&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/overwrite&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.query_exists&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;overwrite_content&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/overwrite&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.wui.index.body.content&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;Hello, World!&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;assign_row&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/overwrite&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#row&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;#row_heading&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;initialise_count&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/overwrite&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.counter.count&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;file&#x22; format=&#x22;number/integer&#x22; model=&#x22;counter/storage/count.txt&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;overwrite_path&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/overwrite&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.path&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.tui.(.tui.active):actions&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;assemble_current_element_background&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/overwrite&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.character&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.tui.main.menu:focus&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;focus_background&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/overwrite&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;{.var.character}&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.settings.selection.background&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;overwrite_data&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/overwrite&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.wui.index.body.choices.table.(#name).data&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.domain.choices.(#name)&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;overwrite_calendar_week&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/overwrite&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.wui.index.body.navigation.table.row.week&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.domain.calendar.(.var.year_string).(.var.week_string)&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;overwrite_href&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/overwrite&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.wui.index.body.lecturers.table.(#name).(#day).link:href&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#href&#x22;/&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The destination part.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path</td><td>The source part.</td></tr><tr><td>move</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether or not to remove source elements after having been copied. If null, the default is false (deep copying). When deep copying elements (false), their whole sub tree gets cloned. With shallow copying (true), the element content does not get duplicated and only the memory pointers to the elements get copied and afterwards removed from the source container.</td></tr><tr><td>count</td><td>false</td><td>text/cybol-path | number/integer</td><td>The number of elements to be copied. If null, the default is the source part model count.</td></tr><tr><td>destination_index</td><td>false</td><td>text/cybol-path | number/integer</td><td>The destination index from which to start copying elements to. If null, the default is zero.</td></tr><tr><td>source_index</td><td>false</td><td>text/cybol-path | number/integer</td><td>The source index from which to start copying elements from. If null, the default is zero.</td></tr><tr><td>adjust</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether or not the destination count shall be adjusted (true) to destination_index plus count. If null, the default is true (destination count will be adjusted). If false, the destination count remains as is and only gets extended, if the number of elements exceeds the destination count, in order to avoid memory errors caused by crossing array boundaries. Not adjusting the destination count makes sense for instance when overwriting only a few words in the middle of some text, in order to leave the trailing text untouched and the text length altogether as is.</td></tr><tr><td>destination_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as destination. If null, the default is false (model).</td></tr><tr><td>source_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as source. If null, the default is false (model).</td></tr></table></section></section><section><a name="modify-remove"><h2>modify/remove</h2></a><section><h3>Description</h3><p class="description">Removes count elements from the destination part.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;remove&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/remove&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.summand&#x22;/&#x3E;
+    &#x3C;node name=&#x22;count&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1&#x22;/&#x3E;
+    &#x3C;node name=&#x22;destination_properties&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;remove_node&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/remove&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.db.remain&#x22;/&#x3E;
+    &#x3C;node name=&#x22;destination_index&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#remain_index&#x22;/&#x3E;
+    &#x3C;node name=&#x22;count&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1&#x22;/&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The destination part.</td></tr><tr><td>count</td><td>true</td><td>text/cybol-path | number/integer</td><td>The number of elements to be removed. If null, the default is zero.</td></tr><tr><td>destination_index</td><td>false</td><td>text/cybol-path | number/integer</td><td>The destination index from which to start removing elements. If null, the default is zero.</td></tr><tr><td>adjust</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether or not the destination count shall be adjusted (true) to destination_index plus count. If null, the default is true (destination count will be adjusted). If false, the destination count remains as is and only gets extended, if the number of elements exceeds the destination count, in order to avoid memory errors caused by crossing array boundaries. Not adjusting the destination count makes sense for instance when overwriting only a few words in the middle of some text, in order to leave the trailing text untouched and the text length altogether as is.</td></tr><tr><td>destination_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as destination. If null, the default is false (model).</td></tr></table></section></section><section><a name="modify-repeat"><h2>modify/repeat</h2></a><section><h3>Description</h3><p class="description">Writes the source repeatedly into the destination.
+
+The &#x22;number&#x22; property determines the number of times the source gets repeated.
+
+Caution! The &#x22;number&#x22; property must not be named or mixed up with &#x22;count&#x22;, since the latter is used as container count and gets initialised with the source count.
+
+Caution! This operation is applicable to text only (character string).
+
+Caution! Even though the operations &#x22;modify/fill&#x22; and &#x22;modify/repeat&#x22; both
+copy a source element multiple times, there are differences between them.
+
+&#x22;modify/fill&#x22;:
+- works with any element type
+- does not change the size of the destination container
+- overwrites existing elements until container is filled
+- can copy only one element (source count of one)
+
+&#x22;modify/repeat&#x22;:
+- works only with text (character string)
+- adjusts the size of the destination container (grows or shrinks)
+- overwrites existing elements and may exceed the current destination container
+- can copy an element sequence (source count greater or equal to one)</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;initialise_with_plain_text&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/repeat&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.string&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;-&#x22;&#x3E;
+        &#x3C;node name=&#x22;repetition&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;8&#x22;/&#x3E;
+    &#x3C;/node&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;initialise_with_text_variable&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/repeat&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.string&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.text&#x22;&#x3E;
+        &#x3C;node name=&#x22;repetition&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;2&#x22;/&#x3E;
+    &#x3C;/node&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The destination part.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path</td><td>The source part.</td></tr><tr><td>destination_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as destination. If null, the default is false (model).</td></tr><tr><td>source_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as source. If null, the default is false (model).</td></tr></table></section><section><h3>Constraints (source_constraints)</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>repetition</td><td>true</td><td>text/cybol-path | number/integer</td><td>The number of times the source gets repeated. If null, the default is zero.</td></tr></table></section></section><section><a name="modify-replace"><h2>modify/replace</h2></a><section><h3>Description</h3><p class="description">Replaces the searchword character sequence within the destination by the source sequence as replacement.
+
+Caution! This operation is applicable to text only (character string).</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;replace_letters&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/replace&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.text&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;alphabet&#x22;&#x3E;
+        &#x3C;node name=&#x22;searchword&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;abc&#x22;/&#x3E;
+    &#x3C;/node&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The destination part.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path | text/plain</td><td>The source part. It is used as replacement sequence.</td></tr><tr><td>destination_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as destination. If null, the default is false (model).</td></tr><tr><td>source_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as source. If null, the default is false (model).</td></tr></table></section><section><h3>Constraints (source_constraints)</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>searchword</td><td>true</td><td>text/cybol-path | text/plain</td><td>The character sequence to be searched and replaced.</td></tr></table></section></section><section><a name="modify-reverse"><h2>modify/reverse</h2></a><section><h3>Description</h3><p class="description">Reverses the order of elements in the destination part.
+
+Caution! This operation is applicable to text only (character string).</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;reverse_text&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/reverse&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.text&#x22;/&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The destination part.</td></tr><tr><td>destination_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as destination. If null, the default is false (model).</td></tr></table></section></section><section><a name="modify-strip"><h2>modify/strip</h2></a><section><h3>Description</h3><p class="description">Removes leading and trailing whitespaces.
+
+Some programming languages and frameworks use the synonym name &#x22;trim&#x22; instead of &#x22;strip&#x22;.
+
+Other than &#x22;modify/normalise&#x22; this operation does not replace internal sequences of whitespace.
+
+The source and destination are permitted to point to the same part since the source gets buffered internally during processing.
+
+Caution! This operation is applicable to text only (character string).
+
+The considered whitespace characters are taken from the JSON specification:
+https://www.json.org/
+
+They are:
+- empty: &#x22;&#x22;
+- space: 0020
+- line feed: 000A
+- carriage return: 000D
+- character tabulation: 0009
+
+The first (empty) can obviously not be considered and is just ignored.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;strip_plain_text&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/strip&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;    Some text with leading and trailing spaces    &#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;strip_text_variable&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/strip&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.text&#x22;/&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The destination part.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path</td><td>The source part.</td></tr><tr><td>destination_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as destination. If null, the default is false (model).</td></tr><tr><td>source_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as source. If null, the default is false (model).</td></tr></table></section></section><section><a name="modify-strip-leading"><h2>modify/strip-leading</h2></a><section><h3>Description</h3><p class="description">Removes leading whitespaces.
+
+Some programming languages and frameworks use the synonym name &#x22;trim&#x22; instead of &#x22;strip&#x22;.
+
+Other than &#x22;modify/strip&#x22; this operation does not replace trailing whitespaces.
+
+The source and destination are permitted to point to the same part since the source gets buffered internally during processing.
+
+Caution! This operation is applicable to text only (character string).
+
+The considered whitespace characters are taken from the JSON specification:
+https://www.json.org/
+
+They are:
+- empty: &#x22;&#x22;
+- space: 0020
+- line feed: 000A
+- carriage return: 000D
+- character tabulation: 0009
+
+The first (empty) can obviously not be considered and is just ignored.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;strip_plain_text&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/strip-leading&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;    Some text with leading spaces&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;strip_text_variable&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/strip-leading&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.text&#x22;/&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The destination part.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path</td><td>The source part.</td></tr><tr><td>destination_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as destination. If null, the default is false (model).</td></tr><tr><td>source_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as source. If null, the default is false (model).</td></tr></table></section></section><section><a name="modify-strip-trailing"><h2>modify/strip-trailing</h2></a><section><h3>Description</h3><p class="description">Removes trailing whitespaces.
+
+Some programming languages and frameworks use the synonym name &#x22;trim&#x22; instead of &#x22;strip&#x22;.
+
+Other than &#x22;modify/strip&#x22; this operation does not replace leading whitespaces.
+
+The source and destination are permitted to point to the same part since the source gets buffered internally during processing.
+
+Caution! This operation is applicable to text only (character string).
+
+The considered whitespace characters are taken from the JSON specification:
+https://www.json.org/
+
+They are:
+- empty: &#x22;&#x22;
+- space: 0020
+- line feed: 000A
+- carriage return: 000D
+- character tabulation: 0009
+
+The first (empty) can obviously not be considered and is just ignored.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;strip_plain_text&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/strip-trailing&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;Some text with leading and trailing spaces    &#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;strip_text_variable&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/strip-trailing&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.text&#x22;/&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The destination part.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path</td><td>The source part.</td></tr><tr><td>destination_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as destination. If null, the default is false (model).</td></tr><tr><td>source_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as source. If null, the default is false (model).</td></tr></table></section></section><section><a name="modify-upper"><h2>modify/upper</h2></a><section><h3>Description</h3><p class="description">Converts the source string into upper case letters stored in the destination.
+
+The source and destination are permitted to point to the same part since the source gets buffered internally during processing.
+
+Caution! This operation is applicable to text only (string of characters).
+
+Caution! The destination length may differ from the source length since not all characters can be converted 1:1.
+The German &#x22;small letter sharp s&#x22; for example gets converted into the two capital letters &#x22;SS&#x22;.
+
+Further reading:
+https://www.unicode.org/reports/tr21/tr21-5.html</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;convert_plain_text&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/upper&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;Mein kleiner gr&#xFC;ner Kaktus&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;convert_text_variable&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/upper&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.text&#x22;/&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The destination part.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path</td><td>The source part.</td></tr><tr><td>destination_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as destination. If null, the default is false (model).</td></tr><tr><td>source_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as source. If null, the default is false (model).</td></tr></table></section></section><section><a name="represent-deserialise"><h2>represent/deserialise</h2></a><section><h3>Description</h3><p class="description">Deserialises the source into the destination, according to the given format.
 
 CAUTION! The deserialised data are APPENDED to the destination.
 Already existing content is NOT overwritten.
@@ -610,6 +860,26 @@ It may point to:
 &#x3C;node name=&#x22;double_reference_path_to_path_to_part&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;{{#path}}&#x22;/&#x3E;
 &#x3C;node name=&#x22;part_via_reference_and_name&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.b.d:({#path})&#x22;/&#x3E;
 &#x3C;node name=&#x22;nested_path&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.test.node2:c.node1:b&#x22;/&#x3E;
+
+&#x3C;node name=&#x22;assign_row&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/overwrite&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#row&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;#row_heading&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;overwrite_path&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/overwrite&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.path&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.tui.(.tui.active):actions&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;focus_background&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/overwrite&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;{.var.character}&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.settings.selection.background&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;overwrite_calendar_week&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/overwrite&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.wui.index.body.navigation.table.row.week&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.domain.calendar.(.var.year_string).(.var.week_string)&#x22;/&#x3E;
+&#x3C;/node&#x3E;
 
 &#x3C;node name=&#x22;assign_title&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/append&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.wui.(#destination).(.db.(#source).[#index].genre).content.(#name)&#x22;/&#x3E;
