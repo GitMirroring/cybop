@@ -23,19 +23,19 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INSIDE_REMOVE_MODIFIER_SOURCE
-#define INSIDE_REMOVE_MODIFIER_SOURCE
+#ifndef INSIDE_REMOVER_SOURCE
+#define INSIDE_REMOVER_SOURCE
 
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../executor/calculator/integer/subtract_integer_calculator.c"
-#include "../../executor/comparator/integer/less_integer_comparator.c"
-#include "../../executor/memoriser/reallocator/array_reallocator.c"
-#include "../../executor/copier/array_copier.c"
-#include "../../executor/referencer/referencer.c"
-#include "../../logger/logger.c"
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/calculator/integer/subtract_integer_calculator.c"
+#include "../../../executor/comparator/integer/less_integer_comparator.c"
+#include "../../../executor/memoriser/reallocator/array_reallocator.c"
+#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/referencer/referencer.c"
+#include "../../../logger/logger.c"
 
 /**
  * Removes the given number of array elements.
@@ -72,7 +72,7 @@
  * @param p5 the destination array size
  * @param p6 the adjust count flag
  */
-void modify_remove_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void remove_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     //
     // CAUTION! The following parametres ARE tested for null
@@ -103,9 +103,9 @@ void modify_remove_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
                         void** d = (void**) p0;
 
-                        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Modify remove inside.");
-                        //?? fwprintf(stdout, L"Debug: Modify remove inside. p2: %i\n", p2);
-                        //?? fwprintf(stdout, L"Debug: Modify remove inside. *p2: %i\n", *((int*) p2));
+                        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Remove inside.");
+                        //?? fwprintf(stdout, L"Debug: Remove inside. p2: %i\n", p2);
+                        //?? fwprintf(stdout, L"Debug: Remove inside. *p2: %i\n", *((int*) p2));
 
                         // The move source index.
                         int si = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -217,7 +217,7 @@ void modify_remove_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void
                                         //
                                         //     } else {
                                         //
-                                        //         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify remove inside. The new size is negative.");
+                                        //         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove inside. The new size is negative.");
                                         //     }
                                         //
                                         //     // Set new size.
@@ -231,52 +231,52 @@ void modify_remove_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
                                 } else {
 
-                                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify remove inside. The new size is negative.");
-                                    fwprintf(stdout, L"Error: Could not modify remove inside. The new size is negative n: %i\n", nc);
+                                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove inside. The new size is negative.");
+                                    fwprintf(stdout, L"Error: Could not remove inside. The new size is negative n: %i\n", nc);
                                 }
 
                             } else {
 
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify remove inside. The move source count is negative.");
-                                fwprintf(stdout, L"Error: Could not modify remove inside. The move source count is negative sc: %i\n", sc);
+                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove inside. The move source count is negative.");
+                                fwprintf(stdout, L"Error: Could not remove inside. The move source count is negative sc: %i\n", sc);
                             }
 
                         } else {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify remove inside. The move source index is negative.");
-                            fwprintf(stdout, L"Error: Could not modify remove inside. The move source index is negative si: %i\n", si);
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove inside. The move source index is negative.");
+                            fwprintf(stdout, L"Error: Could not remove inside. The move source index is negative si: %i\n", si);
                         }
 
                     } else {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify remove inside. The destination array is null.");
-                        fwprintf(stdout, L"Error: Could not modify remove inside. The destination array is null. p0: %i\n", p0);
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove inside. The destination array is null.");
+                        fwprintf(stdout, L"Error: Could not remove inside. The destination array is null. p0: %i\n", p0);
                     }
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify remove inside. The count is null.");
-                    fwprintf(stdout, L"Error: Could not modify remove inside. The count is null. p2: %i\n", p2);
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove inside. The count is null.");
+                    fwprintf(stdout, L"Error: Could not remove inside. The count is null. p2: %i\n", p2);
                 }
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify remove inside. The destination index is null.");
-                fwprintf(stdout, L"Error: Could not modify remove inside. The destination index is null. p3: %i\n", p3);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove inside. The destination index is null.");
+                fwprintf(stdout, L"Error: Could not remove inside. The destination index is null. p3: %i\n", p3);
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify remove inside. The destination array count is null.");
-            fwprintf(stdout, L"Error: Could not modify remove inside. The destination array count is null. p4: %i\n", p4);
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove inside. The destination array count is null.");
+            fwprintf(stdout, L"Error: Could not remove inside. The destination array count is null. p4: %i\n", p4);
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify remove inside. The destination array size is null.");
-        fwprintf(stdout, L"Error: Could not modify remove inside. The destination array size is null. p5: %i\n", p5);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove inside. The destination array size is null.");
+        fwprintf(stdout, L"Error: Could not remove inside. The destination array size is null. p5: %i\n", p5);
     }
 }
 
-/* INSIDE_REMOVE_MODIFIER_SOURCE */
+/* INSIDE_REMOVER_SOURCE */
 #endif

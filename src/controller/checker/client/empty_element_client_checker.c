@@ -39,7 +39,7 @@
 #include "../../../executor/comparator/integer/greater_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/maintainer/shutter/socket/close_socket_shutter.c"
-#include "../../../executor/modifier/remove_modifier.c"
+#include "../../../executor/modifier/remover/remover.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -107,9 +107,9 @@ void check_client_element_empty(void* p0, void* p1, void* p2, void* p3, void* p4
                 fwprintf(stdout, L"Debug: Close client connexion due to crossed timeout. r: %i\n", r);
 
                 // Remove element from client list.
-                modify_remove(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p6, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                remove_data(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p6, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                 // Remove element from accepttime list.
-                modify_remove(p3, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p6, p4, p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                remove_data(p3, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p6, p4, p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                 // Set client removed flag.
                 copy_integer(p9, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

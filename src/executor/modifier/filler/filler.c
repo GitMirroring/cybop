@@ -23,17 +23,17 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FILL_MODIFIER_SOURCE
-#define FILL_MODIFIER_SOURCE
+#ifndef FILLER_SOURCE
+#define FILLER_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
-#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/modifier/overwrite_modifier.c"
-#include "../../logger/logger.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/modifier/overwriter/overwriter.c"
+#include "../../../logger/logger.c"
 
 /**
  * Fills the array.
@@ -48,9 +48,9 @@
  * @param p7 the destination array size
  * @param p8 the adjust count flag
  */
-void modify_fill(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void fill(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Modify fill.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Fill.");
 
     // The loop count.
     int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -93,12 +93,12 @@ void modify_fill(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         // Fill given element repeatedly into array.
         // The count and size are adjusted inside.
         //
-        modify_overwrite(p0, p1, p2, p3, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &j, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6, p7, p8);
+        overwrite(p0, p1, p2, p3, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &j, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6, p7, p8);
 
         // Increment loop variable.
         calculate_integer_add((void*) &j, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 
-/* FILL_MODIFIER_SOURCE */
+/* FILLER_SOURCE */
 #endif

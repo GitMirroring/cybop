@@ -23,22 +23,22 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef OVERWRITE_MODIFIER_SOURCE
-#define OVERWRITE_MODIFIER_SOURCE
+#ifndef OVERWRITER_SOURCE
+#define OVERWRITER_SOURCE
 
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../executor/calculator/integer/multiply_integer_calculator.c"
-#include "../../executor/calculator/integer/subtract_integer_calculator.c"
-#include "../../executor/comparator/integer/greater_integer_comparator.c"
-#include "../../executor/comparator/integer/unequal_integer_comparator.c"
-#include "../../executor/copier/array_copier.c"
-#include "../../executor/copier/integer_copier.c"
-#include "../../executor/memoriser/reallocator/array_reallocator.c"
-#include "../../executor/referencer/referencer.c"
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/calculator/integer/add_integer_calculator.c"
+#include "../../../executor/calculator/integer/multiply_integer_calculator.c"
+#include "../../../executor/calculator/integer/subtract_integer_calculator.c"
+#include "../../../executor/comparator/integer/greater_integer_comparator.c"
+#include "../../../executor/comparator/integer/unequal_integer_comparator.c"
+#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/copier/integer_copier.c"
+#include "../../../executor/memoriser/reallocator/array_reallocator.c"
+#include "../../../executor/referencer/referencer.c"
 //
 // CAUTION! Do NOT include the logger here.
 // It uses functions causing circular references.
@@ -87,7 +87,7 @@
  * @param p8 the destination array size
  * @param p9 the adjust count flag
  */
-void modify_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -96,7 +96,7 @@ void modify_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         //
         // CAUTION! Do NOT call the logger here.
         // It uses functions causing circular references.
-        // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Modify overwrite.");
+        // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Overwrite.");
         //
 
         // The new destination count.
@@ -191,11 +191,11 @@ void modify_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
                 } else if (ns == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                    fwprintf(stdout, L"Error: Could not modify overwrite. The new size is zero ns: %i\n", ns);
+                    fwprintf(stdout, L"Error: Could not overwrite. The new size is zero ns: %i\n", ns);
 
                 } else if (ns < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                    fwprintf(stdout, L"Error: Could not modify overwrite. The new size is negative ns: %i\n", ns);
+                    fwprintf(stdout, L"Error: Could not overwrite. The new size is negative ns: %i\n", ns);
                 }
             }
 
@@ -301,8 +301,8 @@ void modify_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify overwrite. The new destination count is negative.");
-            fwprintf(stdout, L"Error: Could not modify overwrite. The new destination count is negative nc: %i\n", nc);
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not overwrite. The new destination count is negative.");
+            fwprintf(stdout, L"Error: Could not overwrite. The new destination count is negative nc: %i\n", nc);
         }
 
     } else {
@@ -311,9 +311,9 @@ void modify_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         // CAUTION! Do NOT call the logger here.
         // It uses functions causing circular references.
         //
-        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify overwrite. The destination array is null.");
+        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not overwrite. The destination array is null.");
     }
 }
 
-/* OVERWRITE_MODIFIER_SOURCE */
+/* OVERWRITER_SOURCE */
 #endif

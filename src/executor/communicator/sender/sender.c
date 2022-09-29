@@ -43,8 +43,9 @@
 /**
  * Sends the source via the given channel.
  *
- * CAUTION! Do NOT rename this function to "send",
- * as that name is already used by low-level socket functionality.
+ * CAUTION! Do NOT rename this function to "send", since that name is
+ * already used by low-level glibc functionality in header file "sys/socket.h".
+ * Function: ssize_t send (int socket, const void *buffer, size_t size, int flags)
  *
  * @param p0 the destination device identification item, e.g. file descriptor (a file, serial port, terminal, socket) OR window id OR knowledge tree element (for inline channel)
  * @param p1 the source model data

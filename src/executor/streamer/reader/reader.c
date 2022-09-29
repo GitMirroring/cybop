@@ -40,9 +40,8 @@
 /**
  * Reads data via the given channel into the destination.
  *
- * CAUTION! Do NOT rename this function to "read",
- * since that name is already used by low-level glibc
- * functionality in header file unistd.h.
+ * CAUTION! Do NOT rename this function to "read", since that name is
+ * already used by low-level glibc functionality in header file "unistd.h".
  * Function: ssize_t read (int filedes, void *buffer, size_t size)
  *
  * @param p0 the destination message item

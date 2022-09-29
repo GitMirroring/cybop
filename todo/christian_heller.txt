@@ -11,11 +11,22 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-Modifier
-________
+Selectors
+_________
 
-        * Move mover files into sub directories
-        * Delete prefix "move_" from mover functions, e.g. rename "move_remove" into "remove"
+        * Introduce local "step" variable replacing constants in last branch of all affected selector files
+
+            if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                // The step.
+                int step = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+
+                // Increment the current position.
+                move(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &step, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+                // Adjust decimals count.
+                calculate_integer_add(p8, (void*) &step);
+            }
 
 API
 ___
@@ -42,26 +53,10 @@ ___
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/cast_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/contain_logic_cybol_format.c"
 
-Selectors
-_________
-
-        * Introduce local "step" variable replacing constants in last branch of all affected selector files
-
-            if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // The step.
-                int step = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-
-                // Increment the current position.
-                move(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &step, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-                // Adjust decimals count.
-                calculate_integer_add(p8, (void*) &step);
-            }
-
 Numeral Deserialiser
 ____________________
 
+        * Extend replacer with if clause checking for empty source, so that a destination sequence gets removed if the source is empty
         * Remove thousands separator using modify replace function
             do NOT just skip it in file "value_numeral_selector.c", since the count has to include them
             call some replace or remove function from within file "value_numeral_deserialiser.c" instead

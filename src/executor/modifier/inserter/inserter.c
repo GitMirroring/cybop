@@ -23,20 +23,19 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INSERT_MODIFIER_SOURCE
-#define INSERT_MODIFIER_SOURCE
+#ifndef INSERTER_SOURCE
+#define INSERTER_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
-#include "../../executor/comparator/integer/less_integer_comparator.c"
-#include "../../executor/modifier/inside_insert_modifier.c"
-#include "../../executor/modifier/overwrite_modifier.c"
-#include "../../logger/logger.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
+#include "../../../executor/comparator/integer/less_integer_comparator.c"
+#include "../../../executor/modifier/inserter/inside_inserter.c"
+#include "../../../executor/modifier/overwriter/overwriter.c"
+#include "../../../logger/logger.c"
 
 /**
- * Inserts the source- into the destination array,
- * starting from the given index.
+ * Inserts the source- into the destination array, starting from the index.
  *
  * @param p0 the destination array (pointer reference)
  * @param p1 the source array
@@ -48,9 +47,9 @@
  * @param p7 the destination array count
  * @param p8 the destination array size
  */
-void modify_insert(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void insert(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Modify insert.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Insert.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -68,7 +67,7 @@ void modify_insert(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
             //
             // CAUTION! Don't forget to set the "adjust count" flag!
             //
-            modify_overwrite(p0, p1, p2, p3, p4, p5, p6, p7, p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            overwrite(p0, p1, p2, p3, p4, p5, p6, p7, p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -82,10 +81,10 @@ void modify_insert(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
             // CAUTION! There is NO "adjust count" flag here,
             // since the destination array count gets ALWAYS adjusted.
             //
-            modify_insert_inside(p0, p1, p2, p3, p4, p5, p6, p7, p8);
+            insert_inside(p0, p1, p2, p3, p4, p5, p6, p7, p8);
         }
     }
 }
 
-/* INSERT_MODIFIER_SOURCE */
+/* INSERTER_SOURCE */
 #endif

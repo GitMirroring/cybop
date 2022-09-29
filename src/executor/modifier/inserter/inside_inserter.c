@@ -23,21 +23,21 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INSIDE_INSERT_MODIFIER_SOURCE
-#define INSIDE_INSERT_MODIFIER_SOURCE
+#ifndef INSIDE_INSERTER_SOURCE
+#define INSIDE_INSERTER_SOURCE
 
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/calculator/integer/subtract_integer_calculator.c"
-#include "../../executor/comparator/integer/greater_integer_comparator.c"
-#include "../../executor/copier/array_copier.c"
-#include "../../executor/memoriser/reallocator/array_reallocator.c"
-#include "../../executor/referencer/referencer.c"
-#include "../../logger/logger.c"
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/calculator/integer/subtract_integer_calculator.c"
+#include "../../../executor/comparator/integer/greater_integer_comparator.c"
+#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/memoriser/reallocator/array_reallocator.c"
+#include "../../../executor/referencer/referencer.c"
+#include "../../../logger/logger.c"
 
 /**
  * Inserts the source- INSIDE the destination array.
@@ -68,13 +68,13 @@
  * @param p7 the destination array count
  * @param p8 the destination array size
  */
-void modify_insert_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void insert_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         void** d = (void**) p0;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Modify insert inside.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Insert inside.");
 
         // The move destination index.
         int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -125,9 +125,9 @@ void modify_insert_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
                         // Make sure allocation size is at least one.
                         if (ns < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-                            fwprintf(stdout, L"Error: Could not modify insert inside. The new size is negative ns: %i\n", ns);
+                            fwprintf(stdout, L"Error: Could not insert inside. The new size is negative ns: %i\n", ns);
                         } else if (ns == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-                            fwprintf(stdout, L"Error: Could not modify insert inside. The new size is zero ns: %i\n", ns);
+                            fwprintf(stdout, L"Error: Could not insert inside. The new size is zero ns: %i\n", ns);
 //??                            ns = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                         }
 
@@ -180,27 +180,27 @@ void modify_insert_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify insert inside. The new size is negative.");
-                    fwprintf(stdout, L"Error: Could not modify insert inside. The new size is negative n: %i\n", nc);
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not insert inside. The new size is negative.");
+                    fwprintf(stdout, L"Error: Could not insert inside. The new size is negative n: %i\n", nc);
                 }
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify insert inside. The move count is negative.");
-                fwprintf(stdout, L"Error: Could not modify insert inside. The move count is negative c: %i\n", c);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not insert inside. The move count is negative.");
+                fwprintf(stdout, L"Error: Could not insert inside. The move count is negative c: %i\n", c);
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify insert inside. The move destination index is negative.");
-            fwprintf(stdout, L"Error: Could not modify insert inside. The move destination index is negative i: %i\n", i);
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not insert inside. The move destination index is negative.");
+            fwprintf(stdout, L"Error: Could not insert inside. The move destination index is negative i: %i\n", i);
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify insert inside. The destination array is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not insert inside. The destination array is null.");
     }
 }
 
-/* INSIDE_INSERT_MODIFIER_SOURCE */
+/* INSIDE_INSERTER_SOURCE */
 #endif

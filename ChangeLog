@@ -24,6 +24,8 @@
         * Replace adjust parametre value TRUE with NULL in all calls using "APPEND_MODIFY_LOGIC_CYBOI_FORMAT", since TRUE is set by default in file "array_modifier.c"
         * Clean up cybol deserialiser from obsolete channel, encoding, language
         * Clean up cybol serialiser from obsolete channel, encoding, language
+        * Move modifier files into sub directories
+        * Rename modifier files by deleting prefix "modify_", for example "overwrite" instead of "modify_overwrite"
 
 2022-09-28  Christian Heller  <christian.heller@cybop.org>
 

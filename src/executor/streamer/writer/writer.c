@@ -45,9 +45,9 @@
 /**
  * Writes source data via the given channel into the destination device.
  *
- * CAUTION! Do NOT rename this function to "write",
- * since that name is already used by low-level glibc
- * functionality in header file unistd.h.
+ * CAUTION! Do NOT rename this function to "write", since that name is
+ * already used by low-level glibc functionality in header file "unistd.h".
+ * Function: ssize_t write (int filedes, const void *buffer, size_t size)
  *
  * @param p0 the destination device identification item, e.g. file descriptor (a file, serial port, terminal, socket) OR window id OR knowledge tree element (for inline channel)
  * @param p1 the source message data

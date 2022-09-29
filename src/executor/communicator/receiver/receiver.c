@@ -43,8 +43,11 @@
 /**
  * Receives a message via the given channel.
  *
- * CAUTION! Do NOT rename this function to "receive",
- * as that name is already used by low-level socket functionality.
+ * CAUTION! Do NOT rename this function to "receive", since that name is
+ * already used by low-level glibc functionality in header file "sys/socket.h".
+ * Function: ssize_t recv (int socket, void *buffer, size_t size, int flags)
+ * It is actually the "send" function name which is used in glibc, but
+ * in order to be uniform, this "receive" function is renamed as well.
  *
  * Use the "receive" filter processing pipeline in the following order:
  * - read: mandatory, in order to have some data

@@ -23,20 +23,23 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef REMOVE_MODIFIER_SOURCE
-#define REMOVE_MODIFIER_SOURCE
+#ifndef REMOVER_SOURCE
+#define REMOVER_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/comparator/integer/less_integer_comparator.c"
-#include "../../executor/modifier/inside_remove_modifier.c"
-#include "../../logger/logger.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../executor/comparator/integer/less_integer_comparator.c"
+#include "../../../executor/modifier/remover/inside_remover.c"
+#include "../../../logger/logger.c"
 
 /**
- * Removes the given number of elements from the array,
- * starting from the given index.
+ * Removes the given number of elements from the array, starting from the index.
+ *
+ * CAUTION! Do NOT rename this function to "remove", since that name is
+ * already used by low-level glibc functionality in header file "stdio.h".
+ * Function: int remove (const char *filename)
  *
  * @param p0 the destination array (pointer reference)
  * @param p1 the type
@@ -46,11 +49,11 @@
  * @param p5 the destination array size
  * @param p6 the adjust count flag
  */
-void modify_remove(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void remove_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Modify remove.");
-    //?? fwprintf(stdout, L"Debug: Modify remove. p2: %i\n", p2);
-    //?? fwprintf(stdout, L"Debug: Modify remove. *p2: %i\n", *((int*) p2));
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Remove.");
+    //?? fwprintf(stdout, L"Debug: Remove. p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Remove. *p2: %i\n", *((int*) p2));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -61,7 +64,7 @@ void modify_remove(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            modify_remove_inside(p0, p1, p2, p3, p4, p5, p6);
+            remove_inside(p0, p1, p2, p3, p4, p5, p6);
         }
     }
 
@@ -71,15 +74,15 @@ void modify_remove(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify remove. The array is empty.");
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove. The array is empty.");
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify remove. The destination index is outside the array boundaries.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove. The destination index is outside the array boundaries.");
     }
 }
 
-/* REMOVE_MODIFIER_SOURCE */
+/* REMOVER_SOURCE */
 #endif
