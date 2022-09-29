@@ -16,8 +16,6 @@ ________
 
         * Clean up file "content_element_part_cybol_serialiser.c" and related cybol serialiser files from obsolete channel, encoding, language
 
-        * Replace TRUE with NULL in all calls of "append_", since TRUE is set by default in file "array_modifier.c"
-
         * Move mover files into sub directories
         * Delete prefix "move_" from mover functions, e.g. rename "move_remove" into "remove"
 
