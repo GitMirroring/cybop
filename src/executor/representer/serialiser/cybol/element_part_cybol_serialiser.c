@@ -52,30 +52,16 @@ void serialise_cybol_part_element(void* p0, void* p1, void* p2) {
     // The part.
     void* part = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    //
-    // The part name, channel, encoding, language, format, type, model, properties item.
-    //
-    // CAUTION! Even if the TYPE does not get serialised,
-    // it IS NECESSARY for allocating the destination part
-    // in file "content_element_part_cybol_serialiser.c".
-    //
+    // The part name, format, model, properties item.
     void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
-    //?? void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-    //?? void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    //?? void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The part name, channel, encoding, language, format, type, model, properties item data, count.
+    // The part name, format, model, properties item data, count.
     void* nd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* nc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    //?? void* cd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    //?? void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
-    //?? void* ld = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* fd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -87,24 +73,17 @@ void serialise_cybol_part_element(void* p0, void* p1, void* p2) {
 
     // Get part from source whole at current index.
     copy_array_forward((void*) &part, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
-    // Get part name, channel, encoding, language, format, type, model, properties.
+
+    // Get part name, format, model, properties.
     copy_array_forward((void*) &n, part, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
-    //?? copy_array_forward((void*) &c, part, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CHANNEL_PART_STATE_CYBOI_NAME);
-    //?? copy_array_forward((void*) &e, part, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENCODING_PART_STATE_CYBOI_NAME);
-    //?? copy_array_forward((void*) &l, part, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LANGUAGE_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &f, part, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FORMAT_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &t, part, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &m, part, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &p, part, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
-    // Get part name, channel, encoding, language, format, type, model, properties data, count.
+    // Get part name, format, model, properties data, count.
     copy_array_forward((void*) &nd, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &nc, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    //?? copy_array_forward((void*) &cd, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    //?? copy_array_forward((void*) &ed, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    //?? copy_array_forward((void*) &ld, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &fd, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &md, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &mc, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -115,8 +94,7 @@ void serialise_cybol_part_element(void* p0, void* p1, void* p2) {
     //
 
     // Serialise part element content.
-    //?? serialise_cybol_part_element_content(p0, nd, nc, cd, ed, ld, fd, td, md, mc, pd, pc);
-    serialise_cybol_part_element_content(p0, nd, nc, (void*) INLINE_CYBOI_CHANNEL, (void*) UTF_8_CYBOI_ENCODING, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, fd, td, md, mc, pd, pc);
+    serialise_cybol_part_element_content(p0, nd, nc, fd, md, mc, pd, pc);
 }
 
 /* ELEMENT_PART_CYBOL_SERIALISER_SOURCE */

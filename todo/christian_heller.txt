@@ -14,8 +14,6 @@
 Modifier
 ________
 
-        * Clean up cybol serialiser from obsolete channel, encoding, language
-
         * Move mover files into sub directories
         * Delete prefix "move_" from mover functions, e.g. rename "move_remove" into "remove"
 
