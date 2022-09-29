@@ -38,16 +38,16 @@
 #include "../../../logger/logger.c"
 
 /**
- * Replaces the target sequence with the replacement sequence.
+ * Replaces the searchterm sequence with the replacement sequence.
  * Appends the unchanged source data otherwise.
  *
  * @param p0 the destination wide character item
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
- * @param p3 the target sequence data
- * @param p4 the target sequence count
- * @param p5 the replacement sequence data
- * @param p6 the replacement sequence count
+ * @param p3 the searchterm data
+ * @param p4 the searchterm count
+ * @param p5 the replacement data
+ * @param p6 the replacement count
  */
 void replace_sequence(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
@@ -63,7 +63,7 @@ void replace_sequence(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         //
-        // target sequence
+        // searchterm sequence
         //
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -73,7 +73,7 @@ void replace_sequence(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 // Append replacement sequence to destination item.
-                modify_item(p0, p5, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+                modify_item(p0, p5, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
             }
         }
 
@@ -84,7 +84,7 @@ void replace_sequence(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Append source data to destination item.
-            modify_item(p0, *sd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+            modify_item(p0, *sd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
             //
             // Increment the current position by one.

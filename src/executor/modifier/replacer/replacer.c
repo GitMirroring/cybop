@@ -34,20 +34,18 @@
 #include "../../../logger/logger.c"
 
 /**
- * Replaces the given target sequence with the given replacement sequence.
+ * Replaces the searchterm sequence with the source data used as replacement sequence.
  *
  * @param p0 the destination array (pointer reference)
  * @param p1 the destination array count
  * @param p2 the destination array size
- * @param p3 the source data
+ * @param p3 the source data (used as replacement sequence)
  * @param p4 the source count
- * @param p5 the target sequence data
- * @param p6 the target sequence count
- * @param p7 the replacement sequence data
- * @param p8 the replacement sequence count
- * @param p9 the type
+ * @param p5 the searchterm data
+ * @param p6 the searchterm count
+ * @param p7 the type
  */
-void replace(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void replace(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Replace.");
     fwprintf(stdout, L"Information: Replace. source count p2: %i\n", p2);
@@ -62,11 +60,11 @@ void replace(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, p9, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    compare_integer_equal((void*) &r, p7, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        replace_item(p0, p1, p2, p3, p4, p5, p6, p7, p8);
+        replace_item(p0, p1, p2, p3, p4, p5, p6);
 
     } else {
 

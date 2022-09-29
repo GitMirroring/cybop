@@ -18,6 +18,13 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-09-29  Christian Heller  <christian.heller@cybop.org>
+
+        * Add property "repetition" for cybol operation "modify/repeat"
+        * Add property "searchword" for cybol operation "modify/replace"
+        * Uncomment function calls of "repeat" and "replace" in file "array_modifier.c"
+        * Adapt all source code to new arguments of functions "array_modifier.c", "item_modifier.c", "part_modifier.c"
+
 2022-09-28  Christian Heller  <christian.heller@cybop.org>
 
         * Complete cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/modify_logic_cybol_format.c"

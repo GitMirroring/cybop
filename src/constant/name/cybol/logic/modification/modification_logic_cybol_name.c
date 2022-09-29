@@ -26,21 +26,13 @@
 #ifndef MODIFICATION_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
 #define MODIFICATION_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
 
-#include <stddef.h>
+#include <stddef.h> // wchar_t
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The destination modification logic cybol name. */
-static wchar_t* DESTINATION_MODIFICATION_LOGIC_CYBOL_NAME = L"destination";
-static int* DESTINATION_MODIFICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The source modification logic cybol name. */
-static wchar_t* SOURCE_MODIFICATION_LOGIC_CYBOL_NAME = L"source";
-static int* SOURCE_MODIFICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The move modification logic cybol name. */
-static wchar_t* MOVE_MODIFICATION_LOGIC_CYBOL_NAME = L"move";
-static int* MOVE_MODIFICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The adjust modification logic cybol name. */
+static wchar_t* ADJUST_MODIFICATION_LOGIC_CYBOL_NAME = L"adjust";
+static int* ADJUST_MODIFICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The count modification logic cybol name. */
 static wchar_t* COUNT_MODIFICATION_LOGIC_CYBOL_NAME = L"count";
@@ -50,17 +42,33 @@ static int* COUNT_MODIFICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_C
 static wchar_t* DESTINATION_INDEX_MODIFICATION_LOGIC_CYBOL_NAME = L"destination_index";
 static int* DESTINATION_INDEX_MODIFICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The source_index modification logic cybol name. */
-static wchar_t* SOURCE_INDEX_MODIFICATION_LOGIC_CYBOL_NAME = L"source_index";
-static int* SOURCE_INDEX_MODIFICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The adjust modification logic cybol name. */
-static wchar_t* ADJUST_MODIFICATION_LOGIC_CYBOL_NAME = L"adjust";
-static int* ADJUST_MODIFICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The destination modification logic cybol name. */
+static wchar_t* DESTINATION_MODIFICATION_LOGIC_CYBOL_NAME = L"destination";
+static int* DESTINATION_MODIFICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The destination properties modification logic cybol name. */
 static wchar_t* DESTINATION_PROPERTIES_MODIFICATION_LOGIC_CYBOL_NAME = L"destination_properties";
 static int* DESTINATION_PROPERTIES_MODIFICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The move modification logic cybol name. */
+static wchar_t* MOVE_MODIFICATION_LOGIC_CYBOL_NAME = L"move";
+static int* MOVE_MODIFICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The repetition modification logic cybol name. */
+static wchar_t* REPETITION_MODIFICATION_LOGIC_CYBOL_NAME = L"repetition";
+static int* REPETITION_MODIFICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The searchterm modification logic cybol name. */
+static wchar_t* SEARCHTERM_MODIFICATION_LOGIC_CYBOL_NAME = L"searchterm";
+static int* SEARCHTERM_MODIFICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The source_index modification logic cybol name. */
+static wchar_t* SOURCE_INDEX_MODIFICATION_LOGIC_CYBOL_NAME = L"source_index";
+static int* SOURCE_INDEX_MODIFICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The source modification logic cybol name. */
+static wchar_t* SOURCE_MODIFICATION_LOGIC_CYBOL_NAME = L"source";
+static int* SOURCE_MODIFICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The source properties modification logic cybol name. */
 static wchar_t* SOURCE_PROPERTIES_MODIFICATION_LOGIC_CYBOL_NAME = L"source_properties";

@@ -42,7 +42,7 @@
  * @param p2 the destination array size
  * @param p3 the source data
  * @param p4 the source count
- * @param p5 the repeat count
+ * @param p5 the repetition number
  * @param p6 the type
  */
 void repeat(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {

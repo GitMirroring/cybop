@@ -57,10 +57,13 @@
  * @param p5 the destination index
  * @param p6 the source index
  * @param p7 the adjust count flag
- * @param p8 the operation type
- * @param p9 the destination part item index
+ * @param p8 the repetition number for "modify/repeat"
+ * @param p9 the searchterm data for "modify/replace"
+ * @param p10 the searchterm count for "modify/replace"
+ * @param p11 the operation type
+ * @param p12 the destination part item index
  */
-void modify_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void modify_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Modify part.");
 
@@ -68,10 +71,10 @@ void modify_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination part item.
-    copy_array_forward((void*) &i, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p9);
+    copy_array_forward((void*) &i, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p12);
 
     // Modify item as element of the part container.
-    modify_item(i, p1, p2, p3, p4, p5, p6, p7, p8);
+    modify_item(i, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
 }
 
 /* PART_MODIFIER_SOURCE */

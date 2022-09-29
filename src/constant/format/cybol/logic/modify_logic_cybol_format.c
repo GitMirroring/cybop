@@ -428,28 +428,23 @@ static int* REMOVE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  *
  * <node name="initialise_with_plain_text" channel="inline" format="modify/repeat" model="">
  *     <node name="destination" channel="inline" format="text/cybol-path" model=".string"/>
- *     <node name="source" channel="inline" format="text/plain" model="-">
- *         <node name="repetition" channel="inline" format="number/integer" model="8"/>
- *     </node>
+ *     <node name="source" channel="inline" format="text/plain" model="-"/>
+ *     <node name="repetition" channel="inline" format="number/integer" model="8"/>
  * </node>
  *
  * <node name="initialise_with_text_variable" channel="inline" format="modify/repeat" model="">
  *     <node name="destination" channel="inline" format="text/cybol-path" model=".string"/>
- *     <node name="source" channel="inline" format="text/cybol-path" model=".text">
- *         <node name="repetition" channel="inline" format="number/integer" model="2"/>
- *     </node>
+ *     <node name="source" channel="inline" format="text/cybol-path" model=".text"/>
+ *     <node name="repetition" channel="inline" format="number/integer" model="2"/>
  * </node>
  *
  * Properties:
  *
  * - destination (required) [text/cybol-path]: The destination part.
  * - source (required) [text/cybol-path]: The source part.
+ * - repetition (required) [text/cybol-path | number/integer]: The number of times the source gets repeated. If null, the default is zero.
  * - destination_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as destination. If null, the default is false (model).
  * - source_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as source. If null, the default is false (model).
- *
- * Constraints for Property Source:
- *
- * - repetition (required) [text/cybol-path | number/integer]: The number of times the source gets repeated. If null, the default is zero.
  */
 static wchar_t* REPEAT_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/repeat";
 static int* REPEAT_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -459,7 +454,7 @@ static int* REPEAT_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  *
  * Description:
  *
- * Replaces the searchword character sequence within the destination by the source sequence as replacement.
+ * Replaces the searchterm character sequence within the destination by the source sequence as replacement.
  *
  * Caution! This operation is applicable to text only (character string).
  *
@@ -467,21 +462,17 @@ static int* REPEAT_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  *
  * <node name="replace_letters" channel="inline" format="modify/replace" model="">
  *     <node name="destination" channel="inline" format="text/cybol-path" model=".text"/>
- *     <node name="source" channel="inline" format="text/plain" model="alphabet">
- *         <node name="searchword" channel="inline" format="text/plain" model="abc"/>
- *     </node>
+ *     <node name="source" channel="inline" format="text/plain" model="alphabet"/>
+ *     <node name="searchterm" channel="inline" format="text/plain" model="abc"/>
  * </node>
  *
  * Properties:
  *
  * - destination (required) [text/cybol-path]: The destination part.
  * - source (required) [text/cybol-path | text/plain]: The source part. It is used as replacement sequence.
+ * - searchterm (required) [text/cybol-path | text/plain]: The character sequence to be searched and replaced.
  * - destination_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as destination. If null, the default is false (model).
  * - source_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as source. If null, the default is false (model).
- *
- * Constraints for Property Source:
- *
- * - searchword (required) [text/cybol-path | text/plain]: The character sequence to be searched and replaced.
  */
 static wchar_t* REPLACE_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/replace";
 static int* REPLACE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;

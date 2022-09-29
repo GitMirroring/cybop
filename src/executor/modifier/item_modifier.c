@@ -49,9 +49,12 @@
  * @param p5 the destination index (should be null for append)
  * @param p6 the source index (should be null for remove)
  * @param p7 the adjust count flag
- * @param p8 the operation type
+ * @param p8 the repetition number for "modify/repeat"
+ * @param p9 the searchterm data for "modify/replace"
+ * @param p10 the searchterm count for "modify/replace"
+ * @param p11 the operation type
  */
-void modify_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void modify_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Modify item.");
 
@@ -72,7 +75,7 @@ void modify_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // For these cases, the destination count determined above is handed over.
     // Furthermore, DEFAULT VALUES are defined in file "applicator/modify/modify.c".
     //
-    modify_verify((void*) &r, p4, p5, p6, c, p4, p8);
+    modify_verify((void*) &r, p4, p5, p6, c, p4, p11);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -80,7 +83,7 @@ void modify_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         // Modify destination data.
         // The count and size are adjusted inside.
         //
-        modify_array((void*) &d, p1, p2, p3, p4, p5, p6, c, s, p7, p8);
+        modify_array((void*) &d, p1, p2, p3, p4, p5, p6, c, s, p7, p8, p9, p10, p11);
 
         //
         // Set data array as destination item element.

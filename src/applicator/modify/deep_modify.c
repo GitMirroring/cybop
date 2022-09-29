@@ -45,12 +45,15 @@
  * @param p5 the destination index
  * @param p6 the source index
  * @param p7 the adjust count flag
- * @param p8 the operation type
- * @param p9 the destination part item index
- * @param p10 the source part item index
- * @param p11 the source part
+ * @param p8 the repetition number for "modify/repeat"
+ * @param p9 the searchterm data for "modify/replace"
+ * @param p10 the searchterm count for "modify/replace"
+ * @param p11 the operation type
+ * @param p12 the destination part item index
+ * @param p13 the source part item index
+ * @param p14 the source part
  */
-void apply_modify_deep(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void apply_modify_deep(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply modify deep.");
 
@@ -76,7 +79,7 @@ void apply_modify_deep(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         // Modify part by applying operation.
         // CAUTION! Set deep copying flag to TRUE.
         //
-        modify_part(p0, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p4, p5, p6, p7, p8, p9);
+        modify_part(p0, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p4, p5, p6, p7, p8, p9, p10, p11, p12);
 
     } else {
 
@@ -95,7 +98,7 @@ void apply_modify_deep(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         // Modify part by applying operation.
         // CAUTION! Set deep copying flag to FALSE.
         //
-        modify_part(p0, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p4, p5, p6, p7, p8, p9);
+        modify_part(p0, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p4, p5, p6, p7, p8, p9, p10, p11, p12);
 
         //
         // Remove elements from source part.
@@ -104,7 +107,7 @@ void apply_modify_deep(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         // the destination item will hold a wrong "count" number
         // leading to unpredictable errors in further processing.
         //
-        modify_part(p11, *NULL_POINTER_STATE_CYBOI_MODEL, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p4, p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT, p10);
+        modify_part(p14, *NULL_POINTER_STATE_CYBOI_MODEL, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p4, p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT, p13);
     }
 }
 

@@ -71,6 +71,10 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     void* si = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The adjust part.
     void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The repetition part.
+    void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The searchterm part.
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The destination properties part.
     void* dpr = *NULL_POINTER_STATE_CYBOI_MODEL;
     //
@@ -97,6 +101,10 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     void* sim = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The adjust part model item.
     void* adm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The repetition part model item.
+    void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The searchterm part model item.
+    void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The destination properties part model item.
     void* dprm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source properties part model item.
@@ -120,6 +128,11 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     void* simd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The adjust part model item data.
     void* admd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The repetition part model item data.
+    void* rmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The searchterm part model item data, count.
+    void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* tmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The destination properties model item data.
     void* dprmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source properties model item data.
@@ -143,6 +156,10 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     get_part_name((void*) &si, p0, (void*) SOURCE_INDEX_MODIFICATION_LOGIC_CYBOL_NAME, (void*) SOURCE_INDEX_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get adjust part.
     get_part_name((void*) &ad, p0, (void*) ADJUST_MODIFICATION_LOGIC_CYBOL_NAME, (void*) ADJUST_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get repetition part.
+    get_part_name((void*) &r, p0, (void*) REPETITION_MODIFICATION_LOGIC_CYBOL_NAME, (void*) REPETITION_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get searchterm part.
+    get_part_name((void*) &t, p0, (void*) SEARCHTERM_MODIFICATION_LOGIC_CYBOL_NAME, (void*) SEARCHTERM_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get destination properties part.
     get_part_name((void*) &dpr, p0, (void*) DESTINATION_PROPERTIES_MODIFICATION_LOGIC_CYBOL_NAME, (void*) DESTINATION_PROPERTIES_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get source properties part.
@@ -164,6 +181,10 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     copy_array_forward((void*) &sim, si, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get adjust part model item.
     copy_array_forward((void*) &adm, ad, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get repetition part model item.
+    copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get searchterm part model item.
+    copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get destination properties model item.
     copy_array_forward((void*) &dprm, dpr, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get source properties model item.
@@ -187,6 +208,11 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     copy_array_forward((void*) &simd, sim, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get adjust part model item data.
     copy_array_forward((void*) &admd, adm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get repetition part model item data.
+    copy_array_forward((void*) &rmd, rm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get searchterm part model item data, count.
+    copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &tmc, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get destination properties model item data.
     copy_array_forward((void*) &dprmd, dprm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get source properties model item data.
@@ -262,7 +288,7 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     //
 
     // Compare destination- and source type.
-    apply_modify_type(d, source_array_data, (void*) &destination_type, mmd, (void*) &count, (void*) &destination_index, (void*) &source_index, (void*) &adjust, p5, (void*) &destination_part_item_index, (void*) &source_part_item_index, s, (void*) &source_type);
+    apply_modify_type(d, source_array_data, (void*) &destination_type, mmd, (void*) &count, (void*) &destination_index, (void*) &source_index, (void*) &adjust, rmd, tmd, tmc, p5, (void*) &destination_part_item_index, (void*) &source_part_item_index, s, (void*) &source_type);
 }
 
 /* MODIFY_SOURCE */

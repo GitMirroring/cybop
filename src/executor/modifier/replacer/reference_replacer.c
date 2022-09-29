@@ -40,10 +40,10 @@
  * @param p0 the destination wide character item
  * @param p1 the source wide character data
  * @param p2 the source wide character count
- * @param p3 the target sequence data
- * @param p4 the target sequence count
- * @param p5 the replacement sequence data
- * @param p6 the replacement sequence count
+ * @param p3 the searchterm data
+ * @param p4 the searchterm count
+ * @param p5 the replacement data
+ * @param p6 the replacement count
  */
 void replace_reference(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
