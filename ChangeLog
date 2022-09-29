@@ -26,6 +26,7 @@
         * Clean up cybol serialiser from obsolete channel, encoding, language
         * Move modifier files into sub directories
         * Rename modifier files by deleting prefix "modify_", for example "overwrite" instead of "modify_overwrite"
+        * Introduce local variable named "step" replacing constants in last branch of all affected selector files
 
 2022-09-28  Christian Heller  <christian.heller@cybop.org>
 

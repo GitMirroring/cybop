@@ -103,16 +103,14 @@ void select_newline(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Increment the current position by one.
-        move(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        // The step.
+        int step = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
-        //
+        // Move the current position.
+        move(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &step, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
         // Adjust value count.
-        //
-        // CAUTION! If the value is null, then it gets just ignored
-        // and nothing is done inside the called function.
-        //
-        calculate_integer_add(p3, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        calculate_integer_add(p3, (void*) &step);
     }
 }
 

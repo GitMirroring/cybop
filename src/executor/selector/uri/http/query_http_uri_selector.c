@@ -73,11 +73,14 @@ void select_http_uri_query(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Increment the current position by one.
-        move(p2, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        // The step.
+        int step = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+
+        // Move the current position.
+        move(p2, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &step, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         // Adjust query count.
-        calculate_integer_add(p4, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        calculate_integer_add(p4, (void*) &step);
     }
 }
 
