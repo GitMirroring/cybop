@@ -65,53 +65,42 @@ void deserialise_cybol_part(void* p0, void* p1, void* p2);
  * @param p2 the source name count
  * @param p3 the source channel data
  * @param p4 the source channel count
- * @param p5 the source encoding data
- * @param p6 the source encoding count
- * @param p7 the source language data
- * @param p8 the source language count
- * @param p9 the source format data
- * @param p10 the source format count
- * @param p11 the source model data
- * @param p12 the source model count
- * @param p13 the source properties data
- * @param p14 the source properties count
+ * @param p5 the source format data
+ * @param p6 the source format count
+ * @param p7 the source model data
+ * @param p8 the source model count
+ * @param p9 the source properties data
+ * @param p10 the source properties count
  */
-void deserialise_cybol_standard(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
+void deserialise_cybol_standard(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol standard.");
     //?? fwprintf(stdout, L"Debug: Deserialise cybol standard. name data p1: %ls\n", (wchar_t*) p1);
     //?? fwprintf(stdout, L"Debug: Deserialise cybol standard. name count *p2: %i\n", *((int*) p2));
     //?? fwprintf(stdout, L"Debug: Deserialise cybol standard. channel data p3: %ls\n", (wchar_t*) p3);
     //?? fwprintf(stdout, L"Debug: Deserialise cybol standard. channel count *p4: %i\n", *((int*) p4));
-    //?? fwprintf(stdout, L"Debug: Deserialise cybol standard. format data p9: %ls\n", (wchar_t*) p9);
-    //?? fwprintf(stdout, L"Debug: Deserialise cybol standard. format count *p10: %i\n", *((int*) p10));
-    //?? fwprintf(stdout, L"Debug: Deserialise cybol standard. model data p11: %ls\n", (wchar_t*) p11);
-    //?? fwprintf(stdout, L"Debug: Deserialise cybol standard. model count *p12: %i\n", *((int*) p12));
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol standard. format data p5: %ls\n", (wchar_t*) p5);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol standard. format count *p6: %i\n", *((int*) p6));
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol standard. model data p7: %ls\n", (wchar_t*) p7);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol standard. model count *p8: %i\n", *((int*) p8));
 
     //
     // Declaration
     //
 
-    // The temporary channel, encoding, language, format, type item.
+    // The temporary channel, format, type item.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-    //?? void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    //?? void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The temporary channel, encoding, language, format, type item data.
+    // The temporary channel, format, type item data.
     void* cd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    //?? void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
-    //?? void* ld = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* fd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The part name, channel, encoding, language, format, type, model, properties item.
+    // The part name, channel, format, type, model, properties item.
     void* pn = *NULL_POINTER_STATE_CYBOI_MODEL;
-    //?? void* pc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    //?? void* pe = *NULL_POINTER_STATE_CYBOI_MODEL;
-    //?? void* pl = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pf = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pt = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -121,10 +110,8 @@ void deserialise_cybol_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     // Preparation
     //
 
-    // Allocate temporary channel, encoding, language, format, type item.
+    // Allocate temporary channel, format, type item.
     allocate_item((void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    //?? allocate_item((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    //?? allocate_item((void*) &l, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
     allocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
     allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
@@ -152,23 +139,17 @@ void deserialise_cybol_standard(void* p0, void* p1, void* p2, void* p3, void* p4
 
     // Deserialise channel.
     deserialise_cybol_channel(c, p3, p4);
-    // Deserialise encoding.
-    //?? deserialise_cybol_encoding(e, p5, p6);
-    // Deserialise language.
-    //?? deserialise_cybol_language(l, p7, p8);
     // Deserialise cybol source format (mime type as string) into cyboi-internal format (an integer).
-    deserialise_cybol_format(f, p9, p10);
+    deserialise_cybol_format(f, p5, p6);
 
     //
-    // Get temporary channel, encoding, language, format item data.
+    // Get temporary channel, format item data.
     //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
     //
     copy_array_forward((void*) &cd, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    //?? copy_array_forward((void*) &ed, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    //?? copy_array_forward((void*) &ld, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &fd, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     //
     // Decode cyboi-internal type into cyboi runtime type.
@@ -208,16 +189,13 @@ void deserialise_cybol_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     //
 
     //
-    // Get part name, channel, encoding, language, format, type, model, properties item.
+    // Get part name, format, type, model, properties item.
     //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
     //
     copy_array_forward((void*) &pn, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
-    //?? copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CHANNEL_PART_STATE_CYBOI_NAME);
-    //?? copy_array_forward((void*) &pe, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENCODING_PART_STATE_CYBOI_NAME);
-    //?? copy_array_forward((void*) &pl, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LANGUAGE_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pf, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FORMAT_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pt, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -229,28 +207,19 @@ void deserialise_cybol_standard(void* p0, void* p1, void* p2, void* p3, void* p4
 
     // Fill part name item.
     modify_item(pn, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-    // Fill part channel item.
-    //?? deserialise_cybol_channel(pc, p3, p4);
-    // Fill part encoding item.
-    //?? deserialise_cybol_encoding(pe, p5, p6);
-    // Fill part language item.
-    //?? deserialise_cybol_language(pl, p7, p8);
-    //
-    // CAUTION! The language is commented out, since a DEFAULT language
-    // got assigned in file "content_cybol_deserialiser.c".
-    //
-    // modify_item(pl, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-    //
     // Fill part format item.
     modify_item(pf, fd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
     // Fill part type item.
     modify_item(pt, td, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
+    //
     // Processes cybol data depending on channel (inline or file).
-    //?? deserialise_cybol_data(pm, p11, p12, pc, pe, pl, pf);
-    //?? deserialise_cybol_data(pm, p11, p12, cd, ed, ld, pf);
-    //?? deserialise_cybol_data(pm, p11, p12, cd, (void*) UTF_8_CYBOI_ENCODING, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, pf);
-    deserialise_cybol_source(pm, p11, p12, cd, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, fd, *NULL_POINTER_STATE_CYBOI_MODEL);
+    //
+    // CAUTION! Hand over an encoding value of NULL by default,
+    // since an INLINE model is already available as wide character array,
+    // so that decoding it would cause wrong data and processing errors.
+    //
+    deserialise_cybol_source(pm, p7, p8, cd, fd);
 
     //
     // Fill part properties item taken from cybol source part model.
@@ -258,7 +227,7 @@ void deserialise_cybol_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     // CAUTION! What is the model hierarchy in a parsed xml/cybol file,
     // becomes the properties (meta data) in the cyboi-internal knowledge tree.
     //
-    deserialise_cybol_part(pp, p13, p14);
+    deserialise_cybol_part(pp, p9, p10);
 
     //
     // Add part to destination.
@@ -272,15 +241,8 @@ void deserialise_cybol_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     // Deallocation
     //
 
-    //
-    // Deallocate temporary channel, encoding, language, format, type item.
-    //
-    // CAUTION! Deallocate these ONLY HERE, since they are used
-    // as arguments to the function call "receive_data" above.
-    //
+    // Deallocate temporary channel, format, type item.
     deallocate_item((void*) &c, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    //?? deallocate_item((void*) &e, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    //?? deallocate_item((void*) &l, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
     deallocate_item((void*) &f, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
     deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 }

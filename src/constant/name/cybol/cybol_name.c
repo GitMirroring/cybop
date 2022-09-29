@@ -26,7 +26,7 @@
 #ifndef CYBOL_NAME_CONSTANT_SOURCE
 #define CYBOL_NAME_CONSTANT_SOURCE
 
-#include <stddef.h>
+#include <stddef.h> // wchar_t
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
@@ -37,14 +37,6 @@ static int* NAME_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 /** The channel cybol name. */
 static wchar_t* CHANNEL_CYBOL_NAME = L"channel";
 static int* CHANNEL_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The encoding cybol name. */
-static wchar_t* ENCODING_CYBOL_NAME = L"encoding";
-static int* ENCODING_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The language cybol name. */
-static wchar_t* LANGUAGE_CYBOL_NAME = L"language";
-static int* LANGUAGE_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The format cybol name. */
 static wchar_t* FORMAT_CYBOL_NAME = L"format";

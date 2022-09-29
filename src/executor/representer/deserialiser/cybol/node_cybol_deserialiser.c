@@ -41,29 +41,25 @@
  * @param p2 the source name count
  * @param p3 the source channel data
  * @param p4 the source channel count
- * @param p5 the source encoding data
- * @param p6 the source encoding count
- * @param p7 the source language data
- * @param p8 the source language count
- * @param p9 the source format data
- * @param p10 the source format count
- * @param p11 the source model data
- * @param p12 the source model count
- * @param p13 the source properties data
- * @param p14 the source properties count
- * @param p15 the root flag
+ * @param p5 the source format data
+ * @param p6 the source format count
+ * @param p7 the source model data
+ * @param p8 the source model count
+ * @param p9 the source properties data
+ * @param p10 the source properties count
+ * @param p11 the root flag
  */
-void deserialise_cybol_node(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
+void deserialise_cybol_node(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol node.");
-    //?? fwprintf(stdout, L"Debug: Deserialise cybol node. root flag p15: %i\n", p15);
-    //?? fwprintf(stdout, L"Debug: Deserialise cybol node. root flag *p15: %i\n", *((int*) p15));
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol node. root flag p11: %i\n", p11);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol node. root flag *p11: %i\n", *((int*) p11));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // CAUTION! Do NOT use "equal" comparison, since standard node has to be the DEFAULT.
-    compare_integer_unequal((void*) &r, p15, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, p11, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -71,7 +67,7 @@ void deserialise_cybol_node(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         // This is a standard node.
         //
 
-        deserialise_cybol_standard(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14);
+        deserialise_cybol_standard(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
 
     } else {
 
@@ -85,7 +81,7 @@ void deserialise_cybol_node(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         // CAUTION! What is the model hierarchy in a parsed xml/cybol file,
         // becomes the properties (meta data) in the cyboi-internal knowledge tree.
         //
-        deserialise_cybol_part(p0, p13, p14);
+        deserialise_cybol_part(p0, p9, p10);
     }
 }
 

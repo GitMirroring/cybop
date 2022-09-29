@@ -22,6 +22,7 @@
 
         * Adapt all source code to new arguments of functions "array_modifier.c", "item_modifier.c", "part_modifier.c"
         * Replace adjust parametre value TRUE with NULL in all calls using "APPEND_MODIFY_LOGIC_CYBOI_FORMAT", since TRUE is set by default in file "array_modifier.c"
+        * Clean up cybol deserialiser from obsolete channel, encoding, language
 
 2022-09-28  Christian Heller  <christian.heller@cybop.org>
 

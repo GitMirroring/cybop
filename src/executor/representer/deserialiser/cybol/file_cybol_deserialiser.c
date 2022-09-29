@@ -56,12 +56,9 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
  * @param p1 the source data
  * @param p2 the source count
  * @param p3 the channel
- * @param p4 the encoding
- * @param p5 the language
- * @param p6 the format
- * @param p7 the encoding item
+ * @param p4 the format
  */
-void deserialise_cybol_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void deserialise_cybol_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol file.");
     //?? fwprintf(stdout, L"Debug: Deserialise cybol file. p3: %i\n", p3);
@@ -93,7 +90,7 @@ void deserialise_cybol_file(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     // CAUTION! Use the CYBOL cyboi destination type determined above
     // (and NOT the cyboi destination type)!
     //
-    receive_data(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &id, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p6, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, (void*) UTF_8_CYBOI_ENCODING, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3);
+    receive_data(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &id, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, (void*) UTF_8_CYBOI_ENCODING, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3);
 
     // Close file.
     close_basic((void*) &id);

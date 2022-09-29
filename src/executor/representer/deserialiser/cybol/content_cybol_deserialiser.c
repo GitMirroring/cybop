@@ -98,41 +98,25 @@ void deserialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4)
     // Declaration
     //
 
-    // The source name, channel, encoding, language, format, model part.
+    // The source name, channel, format, model part.
     void* sn = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    //?? void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
-    //?? void* sl = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sf = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The source name, channel, encoding, language, format, model part model item.
+    // The source name, channel, format, model part model item.
     void* snm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* scm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    //?? void* sem = *NULL_POINTER_STATE_CYBOI_MODEL;
-    //?? void* slm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sfm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* smm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    //
-    // The source name, channel, encoding, language, format, model part model item data, count.
-    //
-    //?? TODO: Assign default values? Better NOT. This can be done in a cybol editor tool.
-    //
+    // The source name, channel, format, model part model item data, count.
     void* snmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* snmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* scmd = *NULL_POINTER_STATE_CYBOI_MODEL; //?? (void*) INLINE_CYBOL_CHANNEL;
-    void* scmc = *NULL_POINTER_STATE_CYBOI_MODEL; //?? (void*) INLINE_CYBOL_CHANNEL_COUNT;
-    //?? void* semd = *NULL_POINTER_STATE_CYBOI_MODEL; //?? (void*) UTF_8_UNICODE_CYBOL_ENCODING;
-    //?? void* semc = *NULL_POINTER_STATE_CYBOI_MODEL; //?? (void*) UTF_8_UNICODE_CYBOL_ENCODING_COUNT;
-    //
-    // As an exception, a default value is assigned for language,
-    // so that cybol code may be slim and without xml "language" attribute.
-    //
-    //?? void* slmd = (void*) CYBOL_TEXT_STATE_CYBOL_LANGUAGE;
-    //?? void* slmc = (void*) CYBOL_TEXT_STATE_CYBOL_LANGUAGE_COUNT;
-    void* sfmd = *NULL_POINTER_STATE_CYBOI_MODEL; //?? (void*) PLAIN_TEXT_STATE_CYBOL_FORMAT;
-    void* sfmc = *NULL_POINTER_STATE_CYBOI_MODEL; //?? (void*) PLAIN_TEXT_STATE_CYBOL_FORMAT_COUNT;
+    void* scmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* scmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* sfmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* sfmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* smmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* smmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -143,22 +127,18 @@ void deserialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4)
     // Retrieval
     //
 
-    // Get source name, channel, encoding, language, format, model part.
+    // Get source name, channel, format, model part.
     get_name_array((void*) &sn, p3, (void*) NAME_CYBOL_NAME, (void*) NAME_CYBOL_NAME_COUNT, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     get_name_array((void*) &sc, p3, (void*) CHANNEL_CYBOL_NAME, (void*) CHANNEL_CYBOL_NAME_COUNT, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-    //?? get_name_array((void*) &se, p3, (void*) ENCODING_CYBOL_NAME, (void*) ENCODING_CYBOL_NAME_COUNT, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-    //?? get_name_array((void*) &sl, p3, (void*) LANGUAGE_CYBOL_NAME, (void*) LANGUAGE_CYBOL_NAME_COUNT, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     get_name_array((void*) &sf, p3, (void*) FORMAT_CYBOL_NAME, (void*) FORMAT_CYBOL_NAME_COUNT, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     get_name_array((void*) &sm, p3, (void*) MODEL_CYBOL_NAME, (void*) MODEL_CYBOL_NAME_COUNT, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     //
-    // Get source name, channel, encoding, language, format, model part model item.
+    // Get source name, channel, format, model part model item.
     //
     // CAUTION! Do NOT use the following names here:
     // - NAME_PART_STATE_CYBOI_NAME
     // - CHANNEL_PART_STATE_CYBOI_NAME
-    // - ENCODING_PART_STATE_CYBOI_NAME
-    // - LANGUAGE_PART_STATE_CYBOI_NAME
     // - FORMAT_PART_STATE_CYBOI_NAME
     // - MODEL_PART_STATE_CYBOI_NAME
     //
@@ -171,20 +151,14 @@ void deserialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4)
     //
     copy_array_forward((void*) &snm, sn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &scm, sc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    //?? copy_array_forward((void*) &sem, se, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    //?? copy_array_forward((void*) &slm, sl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sfm, sf, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smm, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Get source name, channel, encoding, language, format, model data, count.
+    // Get source name, channel, format, model data, count.
     copy_array_forward((void*) &snmd, snm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &snmc, snm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &scmd, scm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &scmc, scm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    //?? copy_array_forward((void*) &semd, sem, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    //?? copy_array_forward((void*) &semc, sem, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    //?? copy_array_forward((void*) &slmd, slm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    //?? copy_array_forward((void*) &slmc, slm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sfmd, sfm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sfmc, sfm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smmd, smm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -195,33 +169,10 @@ void deserialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4)
     //
 
     // Test if this is a root node.
-    deserialise_cybol_test((void*) &r, sn, sc, /*??se, sl,*/ sf, sm);
-
-/*??
-    //?? TEST only!
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        //
-        // This is NOT a root node.
-        //
-        // CAUTION! For the root node, the name etc. would be NULL
-        // and the programme CRASH here when printing null values on terminal.
-        //
-
-        fwprintf(stdout, L"Debug: Deserialise cybol content. source name model data snmd: %ls\n", (wchar_t*) snmd);
-        fwprintf(stdout, L"Debug: Deserialise cybol content. source name model count *snmc: %i\n", *((int*) snmc));
-        fwprintf(stdout, L"Debug: Deserialise cybol content. source channel model data scmd: %ls\n", (wchar_t*) scmd);
-        fwprintf(stdout, L"Debug: Deserialise cybol content. source channel model count *scmc: %i\n", *((int*) scmc));
-        fwprintf(stdout, L"Debug: Deserialise cybol content. source format model data sfmd: %ls\n", (wchar_t*) sfmd);
-        fwprintf(stdout, L"Debug: Deserialise cybol content. source format model count *sfmc: %i\n", *((int*) sfmc));
-        fwprintf(stdout, L"Debug: Deserialise cybol content. source model model data smmd: %ls\n", (wchar_t*) smmd);
-        fwprintf(stdout, L"Debug: Deserialise cybol content. source model model count *smmc: %i\n", *((int*) smmc));
-    }
-*/
+    deserialise_cybol_test((void*) &r, sn, sc, sf, sm);
 
     // Deserialise cybol node (standard or root).
-    //?? deserialise_cybol_node(p0, snmd, snmc, scmd, scmc, semd, semc, slmd, slmc, sfmd, sfmc, smmd, smmc, p1, p2, (void*) &r);
-    deserialise_cybol_node(p0, snmd, snmc, scmd, scmc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, sfmd, sfmc, smmd, smmc, p1, p2, (void*) &r);
+    deserialise_cybol_node(p0, snmd, snmc, scmd, scmc, sfmd, sfmc, smmd, smmc, p1, p2, (void*) &r);
 }
 
 /* CONTENT_CYBOL_DESERIALISER_SOURCE */

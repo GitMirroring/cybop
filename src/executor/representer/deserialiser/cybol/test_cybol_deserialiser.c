@@ -32,19 +32,6 @@
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 
-/** OLD:
- * Tests if this is a root node.
- *
- * @param p0 the root flag
- * @param p1 the source name part
- * @param p2 the source channel part
- * @param p3 the source encoding part
- * @param p4 the source language part
- * @param p5 the source format part
- * @param p6 the source model part
- */
-//?? void deserialise_cybol_test(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
-
 /**
  * Tests if this is a root node.
  *
@@ -79,15 +66,6 @@ void deserialise_cybol_test(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // When talking about a part name, then the "name" ATTRIBUTE is meant here.
     //
     if ((p1 == *NULL_POINTER_STATE_CYBOI_MODEL) && (p2 == *NULL_POINTER_STATE_CYBOI_MODEL)
-        //
-        //?? && (p3 == *NULL_POINTER_STATE_CYBOI_MODEL)
-        //
-        // CAUTION! The language is commented out, since a DEFAULT language
-        // got assigned in file "content_cybol_deserialiser.c".
-        //
-        // && (p4 == *NULL_POINTER_STATE_CYBOI_MODEL)
-        //
-        //?? && (p5 == *NULL_POINTER_STATE_CYBOI_MODEL) && (p6 == *NULL_POINTER_STATE_CYBOI_MODEL)) {
         && (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) && (p4 == *NULL_POINTER_STATE_CYBOI_MODEL)) {
 
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
