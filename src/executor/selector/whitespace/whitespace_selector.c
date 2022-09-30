@@ -36,114 +36,93 @@
 #include "../../../logger/logger.c"
 
 /**
- * Detects and skips any whitespace characters.
+ * Detects a whitespace character.
  *
- * CAUTION! This function filters out the same kind of
- * whitespace characters as mentioned in the JSON specification.
+ * Returns TRUE if a whitespace character is found.
  *
- * The json standard defines five kinds of white space:
- * - empty: ""
- * - space: 0020
- * - line feed: 000A
- * - carriage return: 000D
- * - character tabulation: 0009
+ * The position pointer is moved only if the MOVE flag is set.
  *
- * Reference:
+ * The detected whitespace are:
+ * - space with unicode codepoint 0020
+ * - line feed with unicode codepoint 000A
+ * - carriage return with unicode codepoint 000D
+ * - character tabulation with unicode codepoint 0009
+ *
+ * Empty strings are just ignored.
+ *
+ * These are the same kind of whitespace characters as
+ * mentioned in the JSON specification:
  * https://www.json.org/
  *
- * The first (empty) can obviously NOT be considered.
- * Therefore, just FOUR comparisons are done in this function.
- * All of these kinds of whitespace characters are SKIPPED.
- *
- * @param p0 the destination loop break flag
+ * @param p0 the destination whitespace flag
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
+ * @param p3 the move flag
+ * @param p4 the move count
  */
-void select_whitespace(void* p0, void* p1, void* p2) {
+void select_whitespace(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select whitespace.");
     //?? fwprintf(stdout, L"Debug: Select whitespace. count remaining p2: %i\n", p2);
     //?? fwprintf(stdout, L"Debug: Select whitespace. count remaining *p2: %i\n", *((int*) p2));
-    //?? fwprintf(stdout, L"Debug: Select whitespace. data position *p1: %i\n", *((void**) p1));
-    //?? fwprintf(stdout, L"Debug: Select whitespace. data position *p1 ls: %ls\n", (wchar_t*) *((void**) p1));
-    //?? fwprintf(stdout, L"Debug: Select whitespace. data position *p1 lc: %lc\n", *((wchar_t*) *((void**) p1)));
-    //?? fwprintf(stdout, L"Debug: Select whitespace. data position *p1 lc as int: %i\n", *((wchar_t*) *((void**) p1)));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p1, p2, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p1, p2, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p3);
 
-        //
-        // CAUTION! If the searched character sequence was found,
-        // then the function "detect" already MOVED the data position
-        // pointer and decremented the count remaining accordingly,
-        // at least if the last argument move flag is TRUE.
-        //
-        // Therefore, do NOT call function "move" here additionally
-        // since otherwise, some characters would be skipped and
-        // could not be processed later, which is not wanted.
-        //
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Adjust move count.
+            calculate_integer_add(p4, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+
+            // Set destination whitespace flag.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p1, p2, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p1, p2, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p3);
 
-        //
-        // CAUTION! If the searched character sequence was found,
-        // then the function "detect" already MOVED the data position
-        // pointer and decremented the count remaining accordingly,
-        // at least if the last argument move flag is TRUE.
-        //
-        // Therefore, do NOT call function "move" here additionally
-        // since otherwise, some characters would be skipped and
-        // could not be processed later, which is not wanted.
-        //
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Adjust move count.
+            calculate_integer_add(p4, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+
+            // Set destination whitespace flag.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p1, p2, (void*) CARRIAGE_RETURN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p1, p2, (void*) CARRIAGE_RETURN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p3);
 
-        //
-        // CAUTION! If the searched character sequence was found,
-        // then the function "detect" already MOVED the data position
-        // pointer and decremented the count remaining accordingly,
-        // at least if the last argument move flag is TRUE.
-        //
-        // Therefore, do NOT call function "move" here additionally
-        // since otherwise, some characters would be skipped and
-        // could not be processed later, which is not wanted.
-        //
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Adjust move count.
+            calculate_integer_add(p4, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+
+            // Set destination whitespace flag.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p1, p2, (void*) CHARACTER_TABULATION_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p1, p2, (void*) CHARACTER_TABULATION_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p3);
 
-        //
-        // CAUTION! If the searched character sequence was found,
-        // then the function "detect" already MOVED the data position
-        // pointer and decremented the count remaining accordingly,
-        // at least if the last argument move flag is TRUE.
-        //
-        // Therefore, do NOT call function "move" here additionally
-        // since otherwise, some characters would be skipped and
-        // could not be processed later, which is not wanted.
-        //
-    }
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            // Adjust move count.
+            calculate_integer_add(p4, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
-        //
-        // A whitespace character was NOT detected.
-        //
-
-        // Set loop break flag.
-        copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            // Set destination whitespace flag.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
     }
 }
 

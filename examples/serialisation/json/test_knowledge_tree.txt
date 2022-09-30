@@ -1,21 +1,9 @@
 [selected_node] | element/part | 
 +-root | element/part | 
-| +-name | text/plain | json-examples
-| +-version | text/plain | 1.0.0
-| +-description | text/plain | list of json examples
-| +-private | logicvalue/boolean | true
-| +-main | text/plain | src/index.js
-| +-scripts | element/part | 
-| | +-test | text/plain | echo \"Error: no test specified\" && exit 1
-| +-repository | element/part | 
-| | +-type | text/plain | git
-| | +-url | text/plain | git+ssh://git@github.com/brandiqa/json-examples.git
-| +-author | text/plain | Michael Wanyoike (@myxsys)
-| +-license | text/plain | MIT
-| +-bugs | element/part | 
-| | +-url | text/plain | https://github.com/brandiqa/json-examples/issues
-| +-homepage | text/plain | https://github.com/brandiqa/json-examples#readme
-| +-dependencies | element/part | 
-| | +-dotenv | text/plain | ^4.0.0
-| | +-feathers-seeder | text/plain | ^1.0.9
-| | +-twitter | text/plain | ^1.7.1
+| +-host | text/plain | localhost
+| +-port | number/integer | 3030
+| +-public | text/plain | ../public/
+| +-paginate | element/part | 
+| | +-default | number/integer | 10
+| | +-max | number/integer | 50
+| | +-mongodb | text/plain | mongodb://localhost:27017/api

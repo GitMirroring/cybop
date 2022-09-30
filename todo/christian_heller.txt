@@ -39,7 +39,6 @@ ___
 Numeral Deserialiser
 ____________________
 
-        * Extend replacer with if clause checking for empty source, so that a destination sequence gets removed if the source is empty
         * Remove thousands separator using modify replace function
             do NOT just skip it in file "value_numeral_selector.c", since the count has to include them
             call some replace or remove function from within file "value_numeral_deserialiser.c" instead
@@ -53,7 +52,6 @@ JSON
 ____
 
         * Use new whitespace deserialiser and -selector in json deserialiser
-
         * Add file "type_json_deserialiser.c" with branching for the different number types
 
         * Complete file "begin_value_json_selector.c" with new number characters as used in file "number_name.c"

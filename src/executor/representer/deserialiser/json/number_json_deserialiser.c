@@ -26,15 +26,19 @@
 #ifndef NUMBER_JSON_DESERIALISER_SOURCE
 #define NUMBER_JSON_DESERIALISER_SOURCE
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
-#include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
-//?? #include "../../../../executor/representer/deserialiser/numeral/numeral_deserialiser.c"
+#include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/representer/deserialiser/numeral/numeral_deserialiser.c"
 #include "../../../../executor/selector/json/end_number_json_selector.c"
 #include "../../../../logger/logger.c"
 
@@ -57,25 +61,13 @@ void deserialise_json_number(void* p0, void* p1, void* p2, void* p3, void* p4, v
     fwprintf(stdout, L"Debug: Deserialise json number. data position *p2 lc: %lc\n", *((wchar_t*) *((void**) p2)));
     fwprintf(stdout, L"Debug: Deserialise json number. data position *p2 lc as int: %i\n", *((wchar_t*) *((void**) p2)));
 
-    // The format.
-    int f = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The type.
-    int t = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The integer values.
-    int i1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int i2 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The double values.
-    double d1 = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
-    double d2 = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
-    // The number part.
-    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The number part model item.
-    void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The number data, count.
     void* nd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int nc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The number part.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Initialise number data.
     copy_pointer((void*) &nd, p2);
@@ -119,7 +111,7 @@ void deserialise_json_number(void* p0, void* p1, void* p2, void* p3, void* p4, v
             // CAUTION! The number part gets allocated inside the called function.
             // Therefore, its name data and count (p4, p5) are handed over as parametre.
             //
-            //?? deserialise_numeral(*NULL_POINTER_STATE_CYBOI_MODEL, (void*) &p, nd, (void*) &nc, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL);
+            deserialise_numeral(*NULL_POINTER_STATE_CYBOI_MODEL, (void*) &p, nd, (void*) &nc, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL);
 
             //
             // Append number part to destination.
@@ -127,7 +119,7 @@ void deserialise_json_number(void* p0, void* p1, void* p2, void* p3, void* p4, v
             // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
             // This is necessary in order to activate rubbish (garbage) collection.
             //
-            //?? modify_item(p0, (void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+            modify_item(p0, (void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
             break;
         }

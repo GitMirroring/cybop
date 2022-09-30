@@ -21,13 +21,18 @@
  *
  * @version CYBOP 0.23.0 2022-09-04
  * @author Christian Heller <christian.heller@cybop.org>
- * @author Falk Müller <falk89@web.de>
  */
 
 #ifndef WHITESPACE_DESERIALISER_SOURCE
 #define WHITESPACE_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
+#include "../../../../executor/copier/integer_copier.c"
+#include "../../../../executor/selector/whitespace/non_whitespace_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -70,7 +75,7 @@ void deserialise_whitespace(void* p0, void* p1) {
         }
 
         // Detect and skip whitespace.
-        select_whitespace((void*) &b, p0, p1);
+        select_whitespace_non((void*) &b, p0, p1);
     }
 }
 

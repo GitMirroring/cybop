@@ -90,9 +90,9 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
         double po2 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // The format with INTEGER as default.
-        int f = *INTEGER_NUMERAL_STATE_CYBOI_FORMAT;
+        int f = *INTEGER_NUMBER_STATE_CYBOI_FORMAT;
         // The type with INTEGER as default.
-        int t = *INTEGER_NUMERAL_STATE_CYBOI_TYPE;
+        int t = *INTEGER_NUMBER_STATE_CYBOI_TYPE;
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
         // The temporary number.
@@ -103,7 +103,7 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
         // Deserialise FIRST part of number.
         deserialise_numeral_part((void*) &s1, (void*) &v1, (void*) &d1, (void*) &po1, p2, p3, (void*) &f, (void*) &t);
 
-        if ((t == FRACTION_NUMBER_STATE_CYBOI_TYPE) || (t == *COMPLEX_NUMBER_STATE_CYBOI_TYPE)) {
+        if ((t == *FRACTION_NUMBER_STATE_CYBOI_TYPE) || (t == *COMPLEX_NUMBER_STATE_CYBOI_TYPE)) {
 
             //
             // A second number part has been found.
@@ -154,7 +154,7 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
             allocate_array((void*) &n, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) &t);
 
             // Assemble number.
-            select_numeral_assembler(n, s1, v1, d1, po1, s2, v2, d2, po2, (void*) &f);
+            select_numeral_assembler(n, (void*) &s1, (void*) &v1, (void*) &d1, (void*) &po1, (void*) &s2, (void*) &v2, (void*) &d2, (void*) &po2, (void*) &f);
 
             //
             // Make sure a destination number item exists.

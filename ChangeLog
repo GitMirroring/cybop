@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-09-30  Christian Heller  <christian.heller@cybop.org>
+
+        * Integrate numeral deserialiser into file "number_json_deserialiser.c"
+        * Add selectors for digit, sign, non-whitespace
+
 2022-09-29  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt all source code to new arguments of functions "array_modifier.c", "item_modifier.c", "part_modifier.c"

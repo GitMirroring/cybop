@@ -40,6 +40,7 @@
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/mover/mover.c"
+#include "../../../executor/selector/digit/digit_selector.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -75,6 +76,15 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
     // The MULTIPLICATION abbreviation begin exponent "*exp(" has to get
     // detected BEFORE the same sequence without multiplication sign "exp(".
     //
+
+    //
+    // digit
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        select_digit((void*) &r, p0, p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p6);
+    }
 
     //
     // decimals
@@ -285,16 +295,28 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
     // other
     //
 
+    //
+    // CAUTION! This check for other characters (for example whitespace)
+    // IS necessary since some data formats like json have NO delimiter for numbers,
+    // so that sometimes, especially for the LAST number in an object or array,
+    // a following line break or space indicates the END of that number.
+    //
+    // Example:
+    //
+    //     "person": {
+    //         "children": 4,
+    //         "age": 50
+    //     }
+    //
+    // If this check was not done here, the number would be too long.
+    // In the example above, instead of just 50 it would be 5000000
+    // (one line break under linux and four spaces indentation).
+    //
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // The step.
-        int step = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-
-        // Move the current position.
-        move(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &step, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        // Adjust value count.
-        calculate_integer_add(p6, (void*) &step);
+        // Set loop break flag.
+        copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 

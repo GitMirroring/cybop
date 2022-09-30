@@ -38,7 +38,7 @@
 #include "../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/modifier/item_modifier.c"
-#include "../../../executor/selector/whitespace/whitespace_selector.c"
+#include "../../../executor/selector/whitespace/non_whitespace_selector.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -106,7 +106,7 @@ void normalise_whitespace(void* p0, void* p1, void* p2) {
         }
 
         // Search for non-whitespace character.
-        select_whitespace((void*) &b, p1, p2);
+        select_whitespace_non((void*) &b, p1, p2);
     }
 }
 

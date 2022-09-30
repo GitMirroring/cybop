@@ -59,10 +59,10 @@ void normalise_search(void* p0, void* p1, void* p2) {
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Detect non-whitespace character.
-    select_whitespace((void*) &r, p1, p2);
+    // Detect whitespace character.
+    select_whitespace((void*) &r, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
         // A WHITESPACE character HAS been found

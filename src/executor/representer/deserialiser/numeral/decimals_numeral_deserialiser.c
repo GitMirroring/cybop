@@ -21,7 +21,6 @@
  *
  * @version CYBOP 0.23.0 2022-09-04
  * @author Christian Heller <christian.heller@cybop.org>
- * @author Falk Müller <falk89@web.de>
  */
 
 #ifndef DECIMALS_NUMERAL_DESERIALISER_SOURCE

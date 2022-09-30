@@ -39,7 +39,7 @@
 #include "../../../executor/copier/pointer_copier.c"
 #include "../../../executor/modifier/array_modifier.c"
 #include "../../../executor/mover/mover.c"
-#include "../../../executor/selector/whitespace/whitespace_selector.c"
+#include "../../../executor/selector/whitespace/non_whitespace_selector.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -120,7 +120,7 @@ void strip_trailing_string(void* p0, void* p1, void* p2) {
         }
 
         // Search for a non-whitespace character within the given array.
-        select_whitespace((void*) &b, (void*) &d, (void*) &c);
+        select_whitespace_non((void*) &b, (void*) &d, (void*) &c);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -154,7 +154,7 @@ void strip_trailing_string(void* p0, void* p1, void* p2) {
             //
             // A non-whitespace character has NOT been found.
             //
-            // (In other words: A whitespace character HAS been found.)
+            // (In other words: A whitespace character has been found.)
             //
 
             //

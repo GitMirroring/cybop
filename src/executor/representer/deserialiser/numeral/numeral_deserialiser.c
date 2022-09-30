@@ -52,7 +52,7 @@
  * - afterwards, a new number part may get allocated and
  *   its model item assigned to the destination number item
  *
- * @param p0 the destination number item
+ * @param p0 the destination number item (for cybol deserialiser; null for json)
  * @param p1 the destination number part (pointer reference)
  * @param p2 the source wide character data
  * @param p3 the source wide character count

@@ -20,7 +20,6 @@
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
  * @version CYBOP 0.23.0 2022-09-04
- * @author Falk Müller <falk89@web.de>
  * @author Christian Heller <christian.heller@cybop.org>
  */
 

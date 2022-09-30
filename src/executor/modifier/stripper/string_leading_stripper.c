@@ -36,7 +36,7 @@
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/copier/pointer_copier.c"
 #include "../../../executor/modifier/array_modifier.c"
-#include "../../../executor/selector/whitespace/whitespace_selector.c"
+#include "../../../executor/selector/whitespace/non_whitespace_selector.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -51,10 +51,6 @@ void strip_leading_string(void* p0, void* p1, void* p2) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Strip leading string.");
     //?? fwprintf(stdout, L"Debug: Strip leading string. count remaining p2: %i\n", p2);
     //?? fwprintf(stdout, L"Debug: Strip leading string. count remaining *p2: %i\n", *((int*) p2));
-    //?? fwprintf(stdout, L"Debug: Strip leading string. data position p1: %i\n", p1);
-    //?? fwprintf(stdout, L"Debug: Strip leading string. data position p1 ls: %ls\n", (wchar_t*) p1);
-    //?? fwprintf(stdout, L"Debug: Strip leading string. data position *p1 lc: %lc\n", *((wchar_t*) p1));
-    //?? fwprintf(stdout, L"Debug: Strip leading string. data position *p1 lc as int: %i\n", *((wchar_t*) p1));
 
     // The source data position.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -93,7 +89,7 @@ void strip_leading_string(void* p0, void* p1, void* p2) {
         }
 
         // Search for a non-whitespace character within the given array.
-        select_whitespace((void*) &b, (void*) &d, (void*) &c);
+        select_whitespace_non((void*) &b, (void*) &d, (void*) &c);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
