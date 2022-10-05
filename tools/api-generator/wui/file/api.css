@@ -27,7 +27,7 @@ body {
     /* Full height. */
     height: 97%;
     /* Enable x- or y-scrollbar as needed, if element has too much content. */
-    overflow: auto;
+    overflow: scroll;
 }
 
 .nav-left {

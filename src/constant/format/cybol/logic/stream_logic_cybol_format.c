@@ -41,27 +41,29 @@
 /**
  * The stream/read logic cybol format.
  *
- * Read data from a device.
- *
  * Description:
  *
-TODO
+ * Reads data from a device.
+ *
+ * Reading indirectly from device into the internal buffer does not make sense for channel "file". Therefore, do not set the "asynchronicity" flag in this case.
  *
  * Examples:
  *
+ * <node name="read_from_file" channel="inline" format="stream/read" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".data"/>
+ * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
- *
- * Parametres:
- * - channel (required): the communication channel, e.g. file, serial, socket
- * - server (optional): the flag indicating server mode (server-side client stub and NOT standalone client); if NULL, the default is false (client mode)
- * - port (optional): the service identification; only relevant in server mode
- * - sender (required): the device identification, e.g. file descriptor
- * - language (optional): the language defining which prefix or suffix indicates the message length, e.g. binary-crlf, http-request, xdt; not needed for file reading since that ends with EOF
- * - message (required): the cybol path to the knowledge tree node storing the received data
- * - asynchronicity (optional): the flag indicating asynchronous reading from buffer in which data got stored by a sensing thread before; if NULL, the default is false (synchronous read)
+ * - channel (required) [text/cybol-path | meta/channel]: The communication channel.
+ * - server (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating server mode. It means server-side client stub and not standalone client. If null, the default is false (client mode).
+ * - port (optional) [text/cybol-path | number/integer]: The service identification. It is relevant only in server mode.
+ * - sender (required) [text/cybol-path]: The device identification, for example a file descriptor. Handing it over as hard-coded integer value does not make sense, since the operating system or server assigns it. Therefore, state a cybol-path.
+ * - language (optional) [text/cybol-path]: The language defining which prefix or suffix indicates the message length, for example binary-crlf, http-request, xdt. It is not needed for file reading since that ends with EOF.
+ * - message (required) [text/cybol-path]: The knowledge tree node storing the received data.
+ * - asynchronicity (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating asynchronous reading from buffer in which data got stored by a sensing thread before. If null, the default is false (synchronous read).
  */
 static wchar_t* READ_STREAM_LOGIC_CYBOL_FORMAT = L"stream/read";
 static int* READ_STREAM_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -69,27 +71,34 @@ static int* READ_STREAM_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
 /**
  * The stream/write logic cybol format.
  *
- * Write data to a device.
- *
  * Description:
  *
-TODO
+ * Writes data to a device.
  *
  * Examples:
  *
+ * <node name="write_to_file" channel="inline" format="stream/write" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="message" channel="inline" format="text/ascii" model="Hello World!"/>
+ *     <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
+ * </node>
+ *
+ * <node name="write_to_pipeline" channel="inline" format="stream/write" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="fifo"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="message" channel="inline" format="text/ascii" model="Hello World!"/>
+ * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
- *
- * Parametres:
- * - channel (required): the communication channel, e.g. file, serial, socket
- * - server (optional): the flag indicating server mode; if NULL, the default is false (client mode)
- * - port (optional): the service identification; only relevant in server mode
- * - receiver (required): the device identification, e.g. file descriptor
- * - message (required): the data to be written
- * - asynchronicity (optional): the flag indicating asynchronous writing within a thread; if NULL, the default is false (synchronous write)
- * - handler (optional): the callback cybol operation being executed when the thread finished reading data
+ * - channel (required) [text/cybol-path | meta/channel]: The communication channel.
+ * - server (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating server mode. It means server-side client stub and not standalone client. If null, the default is false (client mode).
+ * - port (optional) [text/cybol-path | number/integer]: The service identification. It is relevant only in server mode.
+ * - receiver (required) [text/cybol-path]: The device identification, for example a file descriptor. Handing it over as hard-coded integer value does not make sense, since the operating system or server assigns it. Therefore, state a cybol-path.
+ * - message (required) [text/cybol-path | text/ascii | any]: The data to be written.
+ * - asynchronicity (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating asynchronous writing within a thread. If null, the default is false (synchronous write).
+ * - handler (optional) [text/cybol-path]: The callback cybol operation being executed when the thread finished writing data.
  */
 static wchar_t* WRITE_STREAM_LOGIC_CYBOL_FORMAT = L"stream/write";
 static int* WRITE_STREAM_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;

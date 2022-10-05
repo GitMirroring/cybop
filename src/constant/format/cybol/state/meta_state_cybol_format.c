@@ -60,6 +60,19 @@ static int* NAME_META_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MO
  * The channel over which the data is sent or received.
  * It is normally used when reading or writing a file or transfering data.
  *
+ * The available channels are:
+ * - clock: The system clock.
+ * - display: The graphical display.
+ * - fifo: A named pipeline represented as file in linux/unix. The abbreviation FIFO stands for first-in-first-out, following the principle of a data queue.
+ * - file: A file within the file system.
+ * - inline: A literal text within cybol.
+ * - pipe: An anonymous pipeline between two processes.
+ * - randomiser: The pseudo random number generator of the operating system.
+ * - serial: A serial device using communication protocols such as RS-232 or USB.
+ * - signal: A cyboi interpreter-internal signal sent to the event loop.
+ * - socket: The network socket.
+ * - terminal: The terminal or pseudo terminal (console).
+ *
  * Examples:
  *
  * <node name="channel" channel="inline" format="meta/channel" model="file"/>

@@ -21,3 +21,5 @@ modify/strip-trailing
 modify/upper
 represent/deserialise
 represent/serialise
+stream/read
+stream/write

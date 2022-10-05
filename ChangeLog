@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-10-05  Christian Heller  <christian.heller@cybop.org>
+
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/stream_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/state/meta_state_cybol_format.c", section "meta/channel"
+
 2022-09-30  Christian Heller  <christian.heller@cybop.org>
 
         * Integrate numeral deserialiser into file "number_json_deserialiser.c"
