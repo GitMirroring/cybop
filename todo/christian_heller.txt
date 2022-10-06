@@ -70,6 +70,18 @@ ____
         * Implement base64 serialiser and deserialiser
         * Implement binary json (bson) data interchange format with mime type "application/bson" ??
 
+Build
+_____
+
+        * Automate build process (cyboi version and copyright year, doxygen, api, packaging as deb and rpm) to reach ci/cd with automatic updates
+
+        * Give feedback to Enrico to what has to be changed in python script "build/scripts/adjustcopyright.py" adapting copyright
+        * Correct formatting errors found by "ClangFormat"
+        * Change variable names reported by "CppCheck"
+        * Adapt incorrectly formatted comments reported by "Doxygen"
+
+        * Find out how best to exclude log messages from release build (ifdef macro, build script, other idea)
+
 git
 ___
 
@@ -168,28 +180,14 @@ ________
             http://www.tildeslash.com/libzdb/#
             https://www.linuxnetworks.de/doc/index.php/OpenDBX
 
-Build
-_____
-
-        * Automate build process (cyboi version and copyright year, doxygen, api, packaging as deb and rpm) to reach ci/cd with automatic updates
-
-        * Give feedback to Enrico to what has to be changed in python script "build/scripts/adjustcopyright.py" adapting copyright
-        * Correct formatting errors found by "ClangFormat"
-        * Change variable names reported by "CppCheck"
-        * Adapt incorrectly formatted comments reported by "Doxygen"
-
-        * Find out how best to exclude log messages from release build (ifdef macro, build script, other idea)
-
 Documentation
 _____________
 
         * Write cybol developer manual
+        * See trials in directory "doc/manual/"
 
-        * Replace hard-coded date in file "var.cybol" with new date type in api generator (current date seems not to be supported ATM)
-        * Try to use "command/list-directory-contents" in api generator, in order to reduce maintenance effort caused by manually updating the files "spec/logic.cybol" and "spec/state.cybol" containing a listing of all underlying files in the respective folder
-
-        * Write style guide for cyboi programming in c
-        * See template in file "doc/development/conventions/index.html"
+        * Update style guide for cyboi programming in c
+        * Integrate file "doc/development/conventions/index.html" into website
         * Avoid redundancy, e.g. there is only one function "copy_array" which should be used everywhere
 
 General CYBOI
@@ -278,6 +276,7 @@ _____________
             --> possibly, state and logic models need to be handled differently (at least path/reference)
 
         * Refactor loops into an own function using function pointers? See "language/loop.c"!
+        * See file "doc/development/function_pointer_usage.txt"
 
         * Implement some functions in assembly language to accelerate execution, see:
             http://menuetos.net/
@@ -287,7 +286,7 @@ _____________
 Awakener
 ________
 
-        * Reactivate awakener in file ""
+        * Reactivate awakener in file "??" (search)
 
         * Verify that terminal awaken works, since cybol application "tui" does exit after escape only if pressing one more button
         * Is last char detected only if another char is following or also if "remaining count" is zero?
@@ -297,6 +296,7 @@ ________
         * Think about how to close client socket in section SOCKET_CYBOI_CHANNEL of file "completeness_reader.c"
             hand over special close-handler from cybol app to be stored in client entry and called on client close
             alternative 1: function pointer handed over and called ??
+                see file "doc/development/function_pointer_usage.txt"
             alternative 2: send internal signal ??
                 see: closer handler in sensor and reader
                 see: closer handler in cybol example "communication/server_socket/"
@@ -642,11 +642,6 @@ _____________
 Terminal / TUI / CLI
 ____________________
 
-        * Debug valgrind errors in cybol application "tui"
-            see file "examples/memcheck_tui.log"
-            possibly caused by setting terminal to wchar_t in file "cyboi.c" while ansi escape sequences are received as char ??
-                --> but actually, this should not be a problem, since utf-8 is ascii-compatible
-
         * Fix tui bug that exit button "e" or "esc" (doesn't matter) gets detected only if button gets pressed twice
             --> this appears also in http where the "exit" link has to be clicked TWICE in cybol application "www_server_dynamic"
         * Check if exit flag is set also if remaining count is zero and no message length delimiter could be detected (probably yes)
@@ -664,8 +659,6 @@ ____________________
             see:
             https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797
 
-        * Clear up: Is terminal i/o with 2 x init stdout + stdin a problem ?? better only one init ??
-
         * Reset terminal attributes to original settings when and BEFORE calling external programme like mc and set them back later
 
         * Structure files and handle windows tui events similar to gui
@@ -682,9 +675,6 @@ ____________________
             gnu linux keyboard terminal keycodes mapping table
             GNU/Linux kernel source:
             http:www.topology.org/linux/charpath.html
-
-        * Fix memory bugs reported by valgrind tool when starting cybol application "tui_control"
-            see file "test_ui_tui_control_memcheck.log"
 
 Worker Threads
 ______________
@@ -799,6 +789,7 @@ _________________
             - continue file "remove_superfluous_element.cybol", see original script, count contained elements first, delete if > 2
             - change "verbal" into "verbose", also in cyboi interpreter
             - change "tape_archiver" into a verb, also in cyboi interpreter
+            OLD: - file "check_empty_home_directory.cybol" is incomplete
 
         * Optimise resmedicinae application "xdt2html"
             - ALREADY DONE: make DEEP COPY and SOCKET work in cyboi, before continuing
@@ -960,7 +951,7 @@ ___________
         * Consider multipart messages:
             https://en.wikipedia.org/wiki/MIME#Multipart_messages
 
-Repertoire cybol application:
+        Repertoire cybol application:
 
         * Consider already existing directory "executor/packer/"
         * Reflect on reading a cybol app as zip file (e.g. with suffix "cyboz" or "cyboa")
@@ -982,10 +973,7 @@ ______________
 
         * Use pipe functions "popen" and "pclose" to execute external shell command ?? and process its output within a cybol application
 
-        * Delete file "applicator/command/archive_file.c" (already realised by "tape_archiver.c"?)
-        * Complete cybol application "shell_script_clean_result_directory" (only file "check_empty_home_directory.cybol"
-            How to use pipes in cyboi?
-            Can one store output in knowledge tree to hand over as input to next command?)
+        * Delete file "applicator/command/archive_file.c" (already realised by "tape_archiver.c" ??)
 
         * Implement command shell with special prompt
         * Add directory "executor/representer/deserialiser/command_shell/"
@@ -1042,42 +1030,31 @@ ______
         //
         // I see two possible solutions:
         //
-        // Put a XLockDisplay/Mutex around XNextEvent and the GLX calls each;
-        // you don't have to lock for ordinary OpenGL, just the functions prefixed glX ...
+        // 1 Put a XLockDisplay/Mutex around XNextEvent and the GLX calls each;
+        //   you don't have to lock for ordinary OpenGL, just the functions prefixed glX ...
         //
-        // Use Xcb to get runtime correct behaviour and follow
-        // the guide I linked above to make it work with OpenGL/GLX.
+        // 2 Use Xcb to get runtime correct behaviour and follow
+        //   the guide I linked above to make it work with OpenGL/GLX.
         //
 
 Container
 _________
 
-        * Reorganise container handling in directory "executor/container/"
+        * Use file "filler.c" in function "startup_internal_memory"
+            possibly use function pointer to hand over function to be executed as loop body
+            see file "doc/development/function_pointer_usage.txt"
+
         * Move "executor/copier/" to "modifier/copier/"
-        * Create sub directories:
-            modifier/appender/
-            modifier/inserter/
-            modifier/overwriter/
-            modifier/remover/
-        * Rename and reorganise:
-            overwrite_modifier.c -> overwriter/overwriter.c
-            remove_modifier.c -> remover/remover.c
-            etc. pp. ...
-            array_modifier.c -> overwriter/array_overwriter.c, remover/array_remover.c, appender/array_appender.c, ...
-            item_modifier.c -> overwriter/item_overwriter.c, remover/item_remover.c, appender/item_appender.c, ...
-            part_modifier.c -> overwriter/part_overwriter.c, remover/part_remover.c, appender/part_appender.c, ...
+
         * Provide additionally:
             modifier/appender/part/integer_part_appender.c
             modifier/appender/part/wide_character_part_appender.c
-        * Call different operations "apply_overwrite", "apply_remove" etc. INSTEAD OF "apply_modify" in file "operation_handler.c"
         * Replace usage of file "append_http_request_deserialiser.c" with "wide_character_part_appender.c" OR "part_item_appender.c"
         * Move files "append_utf_8_decoder.c" and "append_utf_8_encoder.c" as "utf_8_decoder_appender.c" and "utf_8_encoder_appender.c", respectively, into "modifier/appender/item/"
 
-        * Add a "fill_array" function, useful e.g. in function "startup_internal_memory";
-            possibly use function pointer to hand over function to be executed as loop body
-
-        * Use "memmove" for "modify/insert" and "modify/remove" and similar functions?
-        * Offer "push" as synonym/delegation for "overwrite" (at end)/"append" and "pop" for "remove" (from end)
+        * Call different operations "apply_overwrite", "apply_remove" etc. INSTEAD OF "apply_modify" in file "operation_handler.c" ??
+        * Use "memmove" for "modify/insert" and "modify/remove" and similar functions ??
+        * Offer "push" as synonym/delegation for "overwrite" (at end)/"append" and "pop" for "remove" (from end) ??
         * Make "modify/clean" function use "modify/pop" then
         * Optimise performance by NOT comparing every single element of an array for its type,
             but rather ONLY ONCE compare for the type at first and then process all array elements
@@ -1087,9 +1064,9 @@ _________
         * Use pointer "ptrdiff_t" and object size "size_t" data types, see:
             http://www.gnu.org/s/hello/manual/libc/Important-Data-Types.html
 
-        * Think through Lambda expressions of functional programming languages, which return newly formed collections of elements
-        * Provide new container functions returning a collection as extract, following some filter/search criteria
-        * Do container search depending on given cybol knowledge path similar to jQuery or XPath?
+        * Think through Lambda expressions of functional programming languages, which return newly formed collections of elements ??
+        * Provide new container functions returning a collection as extract, following some filter/search criteria ??
+        * Do container search depending on given cybol knowledge path similar to jQuery or XPath ??
 
 Logifier
 ________
@@ -1097,35 +1074,24 @@ ________
         * Add error messages for logic operations with overflow (nand, nor, xnor, not, neg)
         * Fix error occuring while printing byte values in terminal applications
 
-Memory
-______
+Data Type and Memory
+____________________
 
         * Use bit fields in cyboi to optimise used memory, e.g. for boolean values not an int with 1 Byte = 8 Bit, but just 1 Bit defined like this:
             uint8_t used:1;
-
-        * Minimise defragmentation, e.g. by using a memory pool with sections marked by boundary tags
-        * Optimise memory management, e.g. by searching free memory using the "next fit" instead of "first fit" algorithm
-
-Knowledge Schema
-________________
-
-        * Remove unneeded properties from cyboi schema (part structure): language (at runtime uninteresting), encoding (at runtime always wchar_t);
-            CAUTION! Do NOT remove "format", since "type" is not enough for serialisation into e.g. model_diagram files with runtime tree
-        * Remove cybol properties "channel", "encoding", "language" but NOT "format" from cyboi-internal knowledge model schema
-            the "format" IS NECESSARY, since some are META formats, e.g. LANGUAGE_META_STATE_CYBOI_FORMAT, which would be lost if there was only a pure int "type" value; see e.g. "cybol_serialiser.c"
-            removal was tried but cybol applications did not work anymore -- check this out first
-
-Data Types
-__________
-
-        * Change datatypes; really ??; CAUTION! some have already been switched to "long long int", e.g. in "datetime_getter.c" etc.
+        OR:
         * Use integer datatype "unsigned char" (8 Bit) for boolean values;
             search for constants FALSE_BOOLEAN_STATE_CYBOI_MODEL and TRUE_BOOLEAN_STATE_CYBOI_MODEL;
             CAUTION! it IS NECESSARY to adapt ALL compare/copy functions, since otherwise, memory errors will occur (see valgrind) when dereferencing a value of 1 Byte to 4 Byte and vice versa;
             e.g. replace "compare_integer_unequal" with "compare_character_unequal";
             do not forget to adapt file "size_determiner.c"
+
         * Use integer datatype "long long int" (64 Bit) wherever useful in cyboi;
             adapt file "executor/memoriser/size_determiner.c" to use "SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE" instead of "SIGNED_INTEGER_INTEGRAL_TYPE_SIZE" for "INTEGER_NUMBER_STATE_CYBOI_TYPE"
+            CAUTION! some have already been switched to "long long int", e.g. in "datetime_getter.c" etc.
+
+        * Minimise defragmentation, e.g. by using a memory pool with sections marked by boundary tags
+        * Optimise memory management, e.g. by searching free memory using the "next fit" instead of "first fit" algorithm
 
 Constants
 _________
@@ -1249,7 +1215,7 @@ _____
 CYBOP
 _____
 
-        * Goldener Schnitt ?
+        * Goldener Schnitt ??
         * 1/3 + 2/3 = name + model = key + value
         * Fraktale
 
