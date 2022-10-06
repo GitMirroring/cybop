@@ -1,0 +1,12 @@
+<node>
+
+    <node name="startup" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="signal"/>
+        <node name="message" channel="file" format="element/part" model="control_flow/programme_execution_via_signal/startup.cybol"/>
+    </node>
+
+</node>
+
+<!--
+    This example executes a program.
+-->

@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-10-06  Christian Heller  <christian.heller@cybop.org>
+
+        * Update some cybol applications
+        * Update information in INSTALL file
+
 2022-10-05  Christian Heller  <christian.heller@cybop.org>
 
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/stream_logic_cybol_format.c"

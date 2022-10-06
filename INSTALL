@@ -20,8 +20,12 @@ Contents
 1.4 Windows
 
 2 Execution
-2.1 Examples
-2.2 Additions
+2.1 Preparation
+2.2 General
+2.3 User Interface
+2.4 Serial Interface
+2.5 Socket
+2.6 Tools
 
 3 Compilation
 3.1 POSIX, OSX, Windows
@@ -53,6 +57,10 @@ _________
 - Extract release file, e.g.:
 
     tar -xvzf cybop-0.18.0.tar.gz
+
+- Set the executable flag for the cyboi binary file, e.g.:
+
+    chmod ugo+x /home/cybop/src/controller/cyboi
 
 1.2 POSIX
 _________
@@ -137,94 +145,99 @@ They have to exist or be copied into:
 2 Execution
 ===========
 
-2.1 Examples
-____________
+2.1 Preparation
+_______________
 
-- Set the executable flag for the cyboi binary file, e.g.:
-
-    chmod ugo+x /home/cybop/src/controller/cyboi
-
-- Change into the base directory of your cybol applications, e.g.:
+Change into the base directory of the cybol application and execute
+cyboi from there, giving the "run.cybol" file as argument, for example:
 
     cd /home/cybop/examples
+    ../src/controller/cyboi application/repertoire/run.cybol
 
-- Execute cyboi and give the "run.cybol" file of an application as argument, e.g.:
+    cd /home/cybop/tools
+    ../src/controller/cyboi api-generator/run.cybol
 
-    ../src/controller/cyboi exit/run.cybol
-    ../src/controller/cyboi exit_signal/run.cybol
-    ../src/controller/cyboi exit_cybol_file/run.cybol
-    ../src/controller/cyboi shell_output/run.cybol
-    ../src/controller/cyboi shell_output_file/run.cybol
-    ../src/controller/cyboi shell_output_sequence/run.cybol
-    ../src/controller/cyboi if-else/run.cybol
-    ../src/controller/cyboi shell_output_branch/run.cybol
-    ../src/controller/cyboi shell_output_loop/run.cybol
-    ../src/controller/cyboi shell_command_execution/run.cybol
-    ../src/controller/cyboi shell_command_list_directory_contents/run.cybol
-    ../src/controller/cyboi shell_command_echo_message/run.cybol
-    ../src/controller/cyboi shell_command_copy_file/run.cybol
-    ../src/controller/cyboi shell_command_move_file/run.cybol
-    ../src/controller/cyboi shell_command_remove_file/run.cybol
-    ../src/controller/cyboi shell_command_tape_archiver_unpack/run.cybol
-    ../src/controller/cyboi shell_command_tape_archiver_pack/run.cybol
-    ../src/controller/cyboi programme_execution/run.cybol
-    ../src/controller/cyboi addition/run.cybol
-    ../src/controller/cyboi addition_dynamic_model/run.cybol
-    ../src/controller/cyboi addition_dynamic_model_with_root/run.cybol
-    ../src/controller/cyboi addition_static_model/run.cybol
-    ../src/controller/cyboi double/run.cybol
-    ../src/controller/cyboi date/run.cybol
-    ../src/controller/cyboi get_count/run.cybol
-    ../src/controller/cyboi counter/run.cybol
-    ../src/controller/cyboi counter_static_model/run.cybol
-    ../src/controller/cyboi counter_storage/run.cybol
-    ../src/controller/cyboi time_output_1/run.cybol
-    ../src/controller/cyboi time_output_2/run.cybol
-    ../src/controller/cyboi time_output_3/run.cybol
-    ../src/controller/cyboi addition_using_indices/run.cybol
-    ../src/controller/cyboi index_usage/run.cybol
-    ../src/controller/cyboi knowledge_tree_access/run.cybol
-    ../src/controller/cyboi helloworld/run.cybol
-    ../src/controller/cyboi tui/run.cybol
-    ../src/controller/cyboi tui_control/run.cybol
-    ../src/controller/cyboi gui/run.cybol
-    ../src/controller/cyboi wui/run.cybol
-    ../src/controller/cyboi ui/run.cybol
-    ../src/controller/cyboi addition_using_serialisation/run.cybol
-    ../src/controller/cyboi indoor_climate/run.cybol (CAUTION! Works only together with the corresponding microcontroller device via usb serial port.)
-    ../src/controller/cyboi adc/run.cybol (CAUTION! Works only together with the corresponding microcontroller device via usb serial port.)
-    ../src/controller/cyboi socket_server
-    ../src/controller/cyboi socket_client
-    ../src/controller/cyboi www_server_static
-    ../src/controller/cyboi www_server_dynamic
-    ../src/controller/cyboi presence/run.cybol
+If cybop was installed as debian package or the system path got adapted,
+then the cyboi interpreter may be executed directly:
 
-*NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi character_encoding/run.cybol
-*NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi document_generator/run.cybol
-*NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi latex/run.cybol
+    cd /home/cybop/examples
+    cyboi helloworld/simple/run.cybol
 
-2.2 Additions
-_____________
+2.2 General
+___________
 
-cybop/tools/integer_state_cyboi_model_generator/
-cybop/tools/field_description_xdt_model_generator/
-cybop/tools/xdt_field_description_serialiser_generator/
+    cyboi exit/simple/run.cybol
+    cyboi shell_command/list_directory_contents/run.cybol
+    cyboi control_flow/programme_execution/run.cybol
+    cyboi control_flow/programme_execution_via_signal/run.cybol
+    cyboi helloworld/simple/run.cybol
+    cyboi mathematics/addition/run.cybol
+    cyboi counter/simple/run.cybol
 
-cybop/doc/cybol/api/
-CAUTION! Always first change into the super directory
-and execute cyboi from there, e.g.:
-cd cybop/doc/books/cybol
-../../../src/controller/cyboi api/run.cybol
-OR:
-../../../src/controller/cyboi --knowledge=api/run.cybol
+- TODO (currently not working, outdated and to be updated applications):
 
-../src/controller/cyboi project_overview/run.cybol
-Source of the following cybol-generated website:
-http://www.ba-leipzig.de/index.php?id=153
+    cyboi addition_dynamic_model/run.cybol
+    cyboi addition_dynamic_model_with_root/run.cybol
+    cyboi addition_static_model/run.cybol
+    cyboi addition_using_serialisation/run.cybol
+    cyboi double/run.cybol
+    cyboi date/run.cybol
+    cyboi get_count/run.cybol
+    cyboi counter_static_model/run.cybol
+    cyboi counter_storage/run.cybol
 
-You may also want to have a look at the Res Medicinae project, where more CYBOL
-application modules for the healthcare domain might be provided some day:
-http://www.resmedicinae.org/
+    cyboi time_output_1/run.cybol
+    cyboi time_output_2/run.cybol
+    cyboi time_output_3/run.cybol
+    cyboi addition_using_indices/run.cybol
+    cyboi index_usage/run.cybol
+    cyboi knowledge_tree_access/run.cybol
+
+2.3 User Interface
+__________________
+
+    cyboi helloworld/tui/run.cybol
+    cyboi user_interface/tui_control/run.cybol
+
+- TODO (currently not working, outdated and to be updated applications):
+
+    cyboi tui/run.cybol
+    cyboi gui/run.cybol
+    cyboi wui/run.cybol
+    cyboi ui/run.cybol
+
+2.4 Serial Interface
+____________________
+
+- TODO (currently not working, outdated and to be updated applications):
+
+    cyboi indoor_climate/run.cybol (CAUTION! Works only together with the corresponding microcontroller device via usb serial port.)
+    cyboi adc/run.cybol (CAUTION! Works only together with the corresponding microcontroller device via usb serial port.)
+
+2.5 Socket
+__________
+
+    cyboi internet/socket_server/run.cybol (start socket_client in separate console afterwards)
+    cyboi internet/socket_client/run.cybol (start socket_server in separate console before)
+    cyboi internet/www_server_static/run.cybol (open url http://localhost:1971/index.html in webbrowser)
+    cyboi internet/www_server_dynamic/run.cybol (open url http://localhost:1971/?action=greet-world in webbrowser)
+
+- TODO (currently not working, outdated and to be updated applications):
+
+    cyboi application/presence/run.cybol (open url http://localhost:1971/?action=send-index in webbrowser)
+
+2.6 Tools
+_________
+
+    cd /home/cybop/tools
+
+    cyboi api-generator/run.cybol
+
+- TODO (currently not working, outdated and to be updated applications):
+
+    cyboi integer_state_cyboi_model_generator/run.cybol
+    cyboi field_description_xdt_model_generator/run.cybol
+    cyboi xdt_field_description_serialiser_generator/run.cybol
 
 3 Compilation
 =============
@@ -286,8 +299,8 @@ ____________________________________
 For windows compilation using Microsoft Visual Studio you will need version 2013 or higher.
 Up to now XCB features are NOT supported. Other limitations you will find in the TODO list.
 
-SVN
-___
+3.3.1 SVN
+_________
 
 Install TortoiseSVN:
 https://tortoisesvn.net/downloads.html
@@ -310,8 +323,8 @@ pageant.exe
 Checkout project:
 svn+ssh://LOGIN@svn.savannah.nongnu.org/cybop/trunk
 
-VS
-__
+3.3.2 VS
+________
 
 - Open file ide/visualstudio/cyboi.sln in Visual Studio (VS)
 - Adjust platform
@@ -321,8 +334,8 @@ Adapt platform toolset version in project settings,
 if VS version is higher than 2013 since otherwise,
 strange compiler errors might occur.
 
-GCC
-___
+3.3.3 GCC
+_________
 
 References and hints:
 https://stackoverflow.com/questions/39863157/cgo-sorry-unimplemented-64-bit-mode-not-compiled-in
@@ -435,6 +448,9 @@ _________________
 
 4.3 Formatting
 ______________
+
+CAUTION! Do NOT run these tools for now, since they might destroy the current
+formatting. Just leave it up to the release master or project administrator.
 
 - Change into cybop's build directory e.g.:
 

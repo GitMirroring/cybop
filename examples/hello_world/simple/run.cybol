@@ -1,22 +1,35 @@
 <node>
 
-    <node name="load_cybol_library" channel="file" format="element/part" model="cybol/load.cybol"/>
+    <!-- Creation -->
 
-<!--
-    <node name="print" channel="file" format="element/part" model="cybol/terminal/print-newline.cybol">
--->
-    <node name="print" channel="inline" format="text/cybol-path" model=".cybol.terminal.print-newline">
-<!--
-    TODO: How to provide stack variables in cyboi interpreter for operations which are called via cybol-path ??
--->
-        <node name="text" channel="inline" format="text/plain" model="Hello World!"/>
+    <node name="create_stdout" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="stdout"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>
 
-    <node name="exit" channel="inline" format="live/exit" model=""/>
+    <!-- Printing -->
+
+    <node name="open_stdout" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="device" channel="inline" format="text/plain" model="standard-output"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
+    </node>
+    <node name="print" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Hello World!"/>
+    </node>
+    <node name="close_stdout" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
+    </node>
+
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
 
 </node>
 
 <!--
-    This example prints the famous greeting "Hello World!" on console
-    and then exits the application.
+    This example prints the famous greeting "Hello World!" on console.
 -->

@@ -1,41 +1,33 @@
 <node>
 
+    <!-- Creation -->
+
+    <node name="create_stdout" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="stdout"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
     <node name="create_result" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="result"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-
-    </node>
-    <node name="initialise_result" channel="inline" format="communicate/receive" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="inline"/>
-        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <!-- CAUTION! The format HAS TO BE of type "meta/format". The cybol mime type is of interest, not the cyboi-internal runtime type. -->
-        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <!-- CAUTION! The message HAS TO BE of type "text/plain". It gets converted using the "format" property. -->
-        <node name="sender" channel="inline" format="text/plain" model="1,1,1"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".result"/>
     </node>
 
-    <!-- Write knowledge tree into file. -->
-    <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".result"/>
-        <node name="receiver" channel="inline" format="text/plain" model="test_addition.txt"/>
-    </node>
+    <!-- Initialisation -->
 
-    <!--
-        CAUTION! The "result" integer vector has to be initialised BEFORE this operation.
-        If result- and operand vectors had different sizes, they would NOT be added.
-    -->
+    <node name="initialise_result" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
+        <node name="source" channel="inline" format="number/integer" model="20"/>
+    </node>
     <node name="add_operand" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
-        <node name="operand" channel="inline" format="number/integer" model="1,2,3"/>
+        <node name="operand" channel="inline" format="number/integer" model="4"/>
     </node>
 
-    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
+    <!-- Printing -->
+
+    <node name="open_stdout" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="device" channel="inline" format="text/plain" model="standard-output"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
     </node>
     <node name="print_result" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -44,11 +36,15 @@
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".result"/>
     </node>
+    <node name="close_stdout" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
+    </node>
 
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
 
 </node>
 
 <!--
-    This example adds an integer vector with three values to a result vector and prints the result on screen.
+    This example adds two integer values and prints the result on screen.
 -->

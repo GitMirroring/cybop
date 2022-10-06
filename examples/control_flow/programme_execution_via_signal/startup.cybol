@@ -7,7 +7,3 @@
     <node name="exit" channel="inline" format="live/exit" model=""/>
 
 </node>
-
-<!--
-    This example executes a program.
--->
