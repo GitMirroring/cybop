@@ -73,6 +73,17 @@
 </section>
 
 <section class="container">
+    <h2>Code Conventions</h2>
+    <p>
+        The style guide recommendations for coding in the C programming language
+        while developing on the CYBOI interpreter.
+    </p>
+    <a href="/development/conventions/">
+        <span class="badge rounded-pill p-3" style="font-size: 14pt;">Read Code Conventions</span>
+    </a>
+</section>
+
+<section class="container">
     <h2>Bug Reporting</h2>
     <p>
         Developers use their internal TODO lists.

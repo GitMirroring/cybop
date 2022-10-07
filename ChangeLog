@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-10-07  Christian Heller  <christian.heller@cybop.org>
+
+        * Update cyboi interpreter c code conventions style guide
+        * Integrate c code conventions into website
+
 2022-10-06  Christian Heller  <christian.heller@cybop.org>
 
         * Update some cybol applications

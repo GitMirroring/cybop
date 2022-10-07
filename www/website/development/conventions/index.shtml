@@ -1,0 +1,147 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOI Interpreter C Code Conventions</h1>
+</section>
+
+<section class="container">
+
+    <h2>Indentation</h2>
+    <ol>
+        <li>Use spaces and never tab characters</li>
+        <li>Indent code by four spaces</li>
+        <li>Make use of spaces and white lines to separate code logically</li>
+    </ol>
+
+    <h2>Comment</h2>
+    <ol>
+        <li>Comment all code exhaustively using double slash //</li>
+        <li>Document each function using JavaDoc style blocks /** ... */</li>
+    </ol>
+
+    <h2>Whitespace</h2>
+    <ol>
+        <li>Put a blank space between a keyword followed by a parenthesis, for example "while (true)"</li>
+        <li>Glue method name and its opening parenthesis without blank space, for example "test()"</li>
+        <li>Follow commas by a blank space, for example "test(x, y, z);"</li>
+        <li>Separate binary operators from their operands by a blank space, for example "a + b"</li>
+    </ol>
+
+    <h2>Naming</h2>
+    <ol>
+        <li>Write out terms and avoid abbreviations</li>
+        <li>Name all functions and variables as well as files in lower case letters</li>
+        <li>Separate words with underscore (snake case instead of camel case), for example "test_function()"</li>
+        <li>List function parametres as p1, p2, p3, ...</li>
+        <li>Use just one or two letters for local variables</li>
+        <li>Name constants all uppercase with words separated by underscore</li>
+    </ol>
+
+    <h2>Declaration</h2>
+    <ol>
+        <li>Declare just one variable per line</li>
+        <li>Initialise local variables right at their declaration</li>
+    </ol>
+
+    <h2>Implementation</h2>
+    <ol>
+        <li>Put each function in its own file</li>
+        <li>Put the opening bracket of a block to the end of a declaration, followed by a white line</li>
+        <li>Hand over all arguments (parametres) as void pointer of type "void*"</li>
+        <li>Use the void return type so that the function has no return value</li>
+    </ol>
+
+    <h2>Control</h2>
+    <ol>
+        <li>Use "if-else" conditions only, no "switch-case"</li>
+        <li>Use "while" loops only, no "do-while" or "for"</li>
+        <li>Use endless loops only with the break condition placed inside the loop body</li>
+        <li>Use "break" instead of "continue" to end a loop</li>
+    </ol>
+
+    <h2>Practice</h2>
+    <ol>
+        <li>Define unchangeable values as constant in directory "src/constant/"</li>
+        <li>Use item (data array with count and size) instead of null-terminated strings</li>
+        <li>Check pointers for null before accessing them</li>
+        <li>Avoid redundant implementation of already existing functions</li>
+    </ol>
+
+    <h2>Example</h2>
+    <pre>
+/**
+ * This is an example function.
+ *
+ * It does something.
+ *
+ * @param p0 the integer value
+ * @param p1 the wide character string
+ * @param p2 the array (pointer reference)
+ */
+void do_something(void* p0, void* p1, void* p2) {
+
+    // Check for null.
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        // Cast void pointer parametre to its actual type.
+        void** a = (void**) p2;
+
+        // Check for null.
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            // Cast void pointer parametre to its actual type.
+            wchar_t* c = (wchar_t*) p1;
+
+            // Check for null.
+            if (p0 != NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                // Cast void pointer parametre to its actual type.
+                int* i = (int*) p0;
+
+                log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Do something.");
+
+                // Print first string array element by dereferencing a.
+                fwprintf(stdout, L"The first string array element is: %ls\n", (wchar_t*) *a);
+
+                // Assign unicode to dereferenced character c.
+                *c = 32;
+
+                // Calculate integer value by dereferencing i.
+                *i = *i + 10;
+
+                // The loop variable.
+                int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+                // Use a while endless loop.
+                while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                    // Break loop from within loop body.
+                    if (j >= *NUMBER_10_INTEGER_STATE_CYBOI_MODEL) {
+
+                        break;
+                    }
+
+                    // Increment loop variable.
+                    j++;
+                }
+
+            } else {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not do something. The integer value parametre p0 is null.");
+            }
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not do something. The wide character string parametre p1 is null.");
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not do something. The array parametre p2 is null.");
+    }
+}
+    </pre>
+
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

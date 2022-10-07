@@ -13,8 +13,8 @@
                 for software development, building on concepts which are taken from nature.
             </p>
             <p>
-                <b>CYBOL</b> is an XML-based application programming- and knowledge
-                specification language and thus completely platform-independent.
+                <b>CYBOL</b> is an application programming- and knowledge specification language
+                based on XML or JSON and thus completely platform-independent.
             </p>
             <p>
                 <b>CYBOI</b> is the corresponding interpreter, written in C,

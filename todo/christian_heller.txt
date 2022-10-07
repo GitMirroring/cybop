@@ -180,18 +180,10 @@ ________
             http://www.tildeslash.com/libzdb/#
             https://www.linuxnetworks.de/doc/index.php/OpenDBX
 
-Documentation
-_____________
-
-        * Write cybol developer manual
-        * See trials in directory "doc/manual/"
-
-        * Update style guide for cyboi programming in c
-        * Integrate file "doc/development/conventions/index.html" into website
-        * Avoid redundancy, e.g. there is only one function "copy_array" which should be used everywhere
-
 General CYBOI
 _____________
+
+        * Update cybol beginner's manual in directory "doc/manual/"
 
         * Reintroduce channel "directory" used for reading the files of a directory
         * See example cybol application "repertoire" in file "db.cybol"
