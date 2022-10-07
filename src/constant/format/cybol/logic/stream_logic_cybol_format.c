@@ -61,7 +61,7 @@
  * - server (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating server mode. It means server-side client stub and not standalone client. If null, the default is false (client mode).
  * - port (optional) [text/cybol-path | number/integer]: The service identification. It is relevant only in server mode.
  * - sender (required) [text/cybol-path]: The device identification, for example a file descriptor. Handing it over as hard-coded integer value does not make sense, since the operating system or server assigns it. Therefore, state a cybol-path.
- * - language (optional) [text/cybol-path]: The language defining which prefix or suffix indicates the message length, for example binary-crlf, http-request, xdt. It is not needed for file reading since that ends with EOF.
+ * - language (optional) [text/cybol-path | meta/language]: The language defining which prefix or suffix indicates the message length, for example binary-crlf, http-request, xdt. It is not needed for file reading since that ends with EOF.
  * - message (required) [text/cybol-path]: The knowledge tree node storing the received data.
  * - asynchronicity (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating asynchronous reading from buffer in which data got stored by a sensing thread before. If null, the default is false (synchronous read).
  */

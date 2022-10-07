@@ -1,4 +1,7 @@
 calculate/add
+communicate/identify
+communicate/receive
+communicate/send
 dispatch/close
 dispatch/open
 live/exit

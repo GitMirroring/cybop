@@ -123,6 +123,14 @@ static int* ASCII_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  *     <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#category_name).body.toc.(#project_name):href"/>
  *     <node name="source" channel="inline" format="text/cybol-path" model="#project_name"/>
  * </node>
+ *
+ * <node name="print_action" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+ *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model="{.var.action_path}"/>
+ * </node>
  */
 static wchar_t* CYBOL_PATH_TEXT_STATE_CYBOL_FORMAT = L"text/cybol-path";
 static int* CYBOL_PATH_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;

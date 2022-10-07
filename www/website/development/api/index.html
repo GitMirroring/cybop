@@ -176,7 +176,7 @@ footer a:hover {
 
     color: #aed6f2;
 }
-</style></head><body><nav class="position-fixed nav-left"><h1>Logic Operations</h1><h2>calculate</h2><a href="#calculate-add">add</a><h2>dispatch</h2><a href="#dispatch-close">close</a><a href="#dispatch-open">open</a><h2>live</h2><a href="#live-exit">exit</a><h2>memorise</h2><a href="#memorise-create">create</a><a href="#memorise-destroy">destroy</a><h2>modify</h2><a href="#modify-append">append</a><a href="#modify-empty">empty</a><a href="#modify-fill">fill</a><a href="#modify-insert">insert</a><a href="#modify-lower">lower</a><a href="#modify-normalise">normalise</a><a href="#modify-overwrite">overwrite</a><a href="#modify-remove">remove</a><a href="#modify-repeat">repeat</a><a href="#modify-replace">replace</a><a href="#modify-reverse">reverse</a><a href="#modify-strip">strip</a><a href="#modify-strip-leading">strip-leading</a><a href="#modify-strip-trailing">strip-trailing</a><a href="#modify-upper">upper</a><h2>represent</h2><a href="#represent-deserialise">deserialise</a><a href="#represent-serialise">serialise</a><h2>stream</h2><a href="#stream-read">read</a><a href="#stream-write">write</a></nav><nav class="position-fixed nav-right"><h1>State Structures</h1><h2>application</h2><a href="#application-json">json</a><a href="#application-xml">xml</a><h2>colour</h2><a href="#colour-rgb">rgb</a><a href="#colour-terminal">terminal</a><h2>element</h2><a href="#element-part">part</a><a href="#element-property">property</a><h2>image</h2><a href="#image-gif">gif</a><a href="#image-jpeg">jpeg</a><a href="#image-png">png</a><h2>logicvalue</h2><a href="#logicvalue-boolean">boolean</a><h2>meta</h2><a href="#meta-channel">channel</a><a href="#meta-encoding">encoding</a><a href="#meta-format">format</a><a href="#meta-language">language</a><a href="#meta-model">model</a><a href="#meta-name">name</a><a href="#meta-type">type</a><h2>number</h2><a href="#number-byte">byte</a><a href="#number-complex-cartesian">complex-cartesian</a><a href="#number-complex-polar">complex-polar</a><a href="#number-fraction-decimal">fraction-decimal</a><a href="#number-fraction-vulgar">fraction-vulgar</a><a href="#number-integer">integer</a><h2>text</h2><a href="#text-ascii">ascii</a><a href="#text-cybol-path">cybol-path</a><a href="#text-html">html</a><a href="#text-json">json</a><a href="#text-plain">plain</a><a href="#text-xml">xml</a><h2>video</h2><a href="#video-mp4">mp4</a></nav><section class="position-fixed section-center"><header><h1>CYBOL API Specification Version 0.23.0</h1></header><section><section><a name="calculate-add"><h2>calculate/add</h2></a><section><h3>Description</h3><p class="description">Adds the operand to the result.
+</style></head><body><nav class="position-fixed nav-left"><h1>Logic Operations</h1><h2>calculate</h2><a href="#calculate-add">add</a><h2>communicate</h2><a href="#communicate-identify">identify</a><a href="#communicate-receive">receive</a><a href="#communicate-send">send</a><h2>dispatch</h2><a href="#dispatch-close">close</a><a href="#dispatch-open">open</a><h2>live</h2><a href="#live-exit">exit</a><h2>memorise</h2><a href="#memorise-create">create</a><a href="#memorise-destroy">destroy</a><h2>modify</h2><a href="#modify-append">append</a><a href="#modify-empty">empty</a><a href="#modify-fill">fill</a><a href="#modify-insert">insert</a><a href="#modify-lower">lower</a><a href="#modify-normalise">normalise</a><a href="#modify-overwrite">overwrite</a><a href="#modify-remove">remove</a><a href="#modify-repeat">repeat</a><a href="#modify-replace">replace</a><a href="#modify-reverse">reverse</a><a href="#modify-strip">strip</a><a href="#modify-strip-leading">strip-leading</a><a href="#modify-strip-trailing">strip-trailing</a><a href="#modify-upper">upper</a><h2>represent</h2><a href="#represent-deserialise">deserialise</a><a href="#represent-serialise">serialise</a><h2>stream</h2><a href="#stream-read">read</a><a href="#stream-write">write</a></nav><nav class="position-fixed nav-right"><h1>State Structures</h1><h2>application</h2><a href="#application-json">json</a><a href="#application-xml">xml</a><h2>colour</h2><a href="#colour-rgb">rgb</a><a href="#colour-terminal">terminal</a><h2>element</h2><a href="#element-part">part</a><a href="#element-property">property</a><h2>image</h2><a href="#image-gif">gif</a><a href="#image-jpeg">jpeg</a><a href="#image-png">png</a><h2>logicvalue</h2><a href="#logicvalue-boolean">boolean</a><h2>meta</h2><a href="#meta-channel">channel</a><a href="#meta-encoding">encoding</a><a href="#meta-format">format</a><a href="#meta-language">language</a><a href="#meta-model">model</a><a href="#meta-name">name</a><a href="#meta-type">type</a><h2>number</h2><a href="#number-byte">byte</a><a href="#number-complex-cartesian">complex-cartesian</a><a href="#number-complex-polar">complex-polar</a><a href="#number-fraction-decimal">fraction-decimal</a><a href="#number-fraction-vulgar">fraction-vulgar</a><a href="#number-integer">integer</a><h2>text</h2><a href="#text-ascii">ascii</a><a href="#text-cybol-path">cybol-path</a><a href="#text-html">html</a><a href="#text-json">json</a><a href="#text-plain">plain</a><a href="#text-xml">xml</a><h2>video</h2><a href="#video-mp4">mp4</a></nav><section class="position-fixed section-center"><header><h1>CYBOL API Specification Version 0.23.0</h1></header><section><section><a name="calculate-add"><h2>calculate/add</h2></a><section><h3>Description</h3><p class="description">Adds the operand to the result.
 
 Caution! Do not use this operation for characters (strings)!
 They may be concatenated by using the &#x22;modify/append&#x22; operation.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;add_integer&#x22; channel=&#x22;inline&#x22; format=&#x22;calculate/add&#x22; model=&#x22;&#x22;&#x3E;
@@ -192,7 +192,353 @@ They may be concatenated by using the &#x22;modify/append&#x22; operation.</p></
 &#x3C;node name=&#x22;add_summand_to_sum&#x22; channel=&#x22;inline&#x22; format=&#x22;calculate/add&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.sum&#x22;/&#x3E;
     &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.summand&#x22;/&#x3E;
-&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>result</td><td>true</td><td>text/cybol-path</td><td>The sum resulting from the addition. It initially represents the first summand.</td></tr><tr><td>operand</td><td>true</td><td>text/cybol-path | number/any</td><td>The second summand.</td></tr><tr><td>count</td><td>false</td><td>text/cybol-path | number/integer</td><td>The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the operand count.</td></tr><tr><td>result_index</td><td>false</td><td>text/cybol-path | number/integer</td><td>The result index from which to start calculating. If null, the default is zero.</td></tr><tr><td>operand_index</td><td>false</td><td>text/cybol-path | number/integer</td><td>The operand index from which to start calculating. If null, the default is zero.</td></tr></table></section></section><section><a name="dispatch-close"><h2>dispatch/close</h2></a><section><h3>Description</h3><p class="description">Closes down a client resource that has been used for connecting to a device or service on the given channel.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;close_file&#x22; channel=&#x22;inline&#x22; format=&#x22;dispatch/close&#x22; model=&#x22;&#x22;&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>result</td><td>true</td><td>text/cybol-path</td><td>The sum resulting from the addition. It initially represents the first summand.</td></tr><tr><td>operand</td><td>true</td><td>text/cybol-path | number/any</td><td>The second summand.</td></tr><tr><td>count</td><td>false</td><td>text/cybol-path | number/integer</td><td>The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the operand count.</td></tr><tr><td>result_index</td><td>false</td><td>text/cybol-path | number/integer</td><td>The result index from which to start calculating. If null, the default is zero.</td></tr><tr><td>operand_index</td><td>false</td><td>text/cybol-path | number/integer</td><td>The operand index from which to start calculating. If null, the default is zero.</td></tr></table></section></section><section><a name="communicate-identify"><h2>communicate/identify</h2></a><section><h3>Description</h3><p class="description">Identifies the device or client that has placed a request (handler) into the interrupt pipe.</p></section><section><h3>Examples</h3><p class="example">&#x3C;!-- Get gui client window belonging to the handler that was placed into the interrupt pipe. --&#x3E;
+&#x3C;node name=&#x22;get_window_id&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/identify&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.gui.window_id&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;!-- Get client socket belonging to the handler that was placed into the interrupt pipe. --&#x3E;
+&#x3C;node name=&#x22;get_client_socket_id&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/identify&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.client_socket&#x22;/&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>identification</td><td>true</td><td>text/cybol-path</td><td>The device or client identification, for example a file descriptor.</td></tr></table></section></section><section><a name="communicate-receive"><h2>communicate/receive</h2></a><section><h3>Description</h3><p class="description">Receives a message via the communication channel.
+
+Caution! Some file formats (like the German xDT format for medical data exchange) contain both, the model and the properties, in one file.
+To cover these cases, the model and properties are received together, in just one operation.</p></section><section><h3>Examples</h3><p class="example">&#x3C;!-- Initialise an application tree from file at startup. --&#x3E;
+&#x3C;node name=&#x22;open_file&#x22; channel=&#x22;inline&#x22; format=&#x22;dispatch/open&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;device&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;counter/simple/app.cybol&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+&#x3C;node name=&#x22;initialise_app&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/receive&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;sender&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;encoding&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/encoding&#x22; model=&#x22;utf-8&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/cybol&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;element/part&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+&#x3C;node name=&#x22;close_file&#x22; channel=&#x22;inline&#x22; format=&#x22;dispatch/close&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;!-- Read user input command on terminal. --&#x3E;
+&#x3C;node name=&#x22;receive_command&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/receive&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
+    &#x3C;node name=&#x22;sender&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.stdin&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/tui&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#command&#x22;/&#x3E;
+    &#x3C;!-- Read data from buffer in which they got stored by the sensing thread started through feel/sense before. --&#x3E;
+    &#x3C;node name=&#x22;asynchronicity&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;!-- Read a gui window event on display. --&#x3E;
+&#x3C;node name=&#x22;receive_event&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/receive&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;display&#x22;/&#x3E;
+    &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+    &#x3C;node name=&#x22;sender&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.gui.window_id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/gui-request&#x22;&#x3E;
+        &#x3C;node name=&#x22;medium&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.gui.window&#x22;/&#x3E;
+    &#x3C;/node&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/plain&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.gui.action&#x22;/&#x3E;
+    &#x3C;!-- Read indirectly from internal buffer into which data have been written by activate/enable before. --&#x3E;
+    &#x3C;node name=&#x22;asynchronicity&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;!-- Read a binary file whose path has been given for example via internet url. --&#x3E;
+&#x3C;node name=&#x22;open_file&#x22; channel=&#x22;inline&#x22; format=&#x22;dispatch/open&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;device&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.path&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+&#x3C;node name=&#x22;receive_file&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/receive&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;sender&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/binary&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.file&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+&#x3C;node name=&#x22;close_file&#x22; channel=&#x22;inline&#x22; format=&#x22;dispatch/close&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;!-- Receive client http request on the server side via network socket. --&#x3E;
+&#x3C;node name=&#x22;receive_request&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/receive&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+    &#x3C;node name=&#x22;port&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1971&#x22;/&#x3E;
+    &#x3C;node name=&#x22;sender&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.client_socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/http-request&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;element/part&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.request&#x22;/&#x3E;
+    &#x3C;!-- Read indirectly from internal buffer into which data have been written by the sensing thread. --&#x3E;
+    &#x3C;node name=&#x22;asynchronicity&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;!-- Receive client binary request on the server side via network socket. --&#x3E;
+&#x3C;node name=&#x22;receive_request&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/receive&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+    &#x3C;node name=&#x22;port&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1971&#x22;/&#x3E;
+    &#x3C;node name=&#x22;sender&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.client_socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/binary-crlf&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.request&#x22;/&#x3E;
+    &#x3C;!-- Read indirectly from internal buffer into which data have been written by the sensing thread. --&#x3E;
+    &#x3C;node name=&#x22;asynchronicity&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;!-- Receive server response on the client side via network socket. --&#x3E;
+&#x3C;node name=&#x22;receive_response&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/receive&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;sender&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.server_socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/binary-crlf&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.response&#x22;/&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>channel</td><td>true</td><td>text/cybol-path | meta/channel</td><td>The communication channel.</td></tr><tr><td>server</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating server mode. It means server-side client stub and not standalone client. If null, the default is false (client mode).</td></tr><tr><td>port</td><td>false</td><td>text/cybol-path | number/integer</td><td>The service identification. It is relevant only in server mode.</td></tr><tr><td>sender</td><td>true</td><td>text/cybol-path</td><td>The device identification, for example a file descriptor. Handing it over as hard-coded integer value does not make sense, since the operating system or server assigns it. Therefore, state a cybol-path.</td></tr><tr><td>encoding</td><td>false</td><td>text/cybol-path | meta/encoding</td><td>The encoding, for example utf-8 or utf-32 or ascii.</td></tr><tr><td>language</td><td>false</td><td>text/cybol-path | meta/language</td><td>The language used for deserialisation. It is also defining which prefix or suffix indicates the message length, for example binary-crlf, http-request, xdt.</td></tr><tr><td>format</td><td>false</td><td>text/cybol-path | meta/format</td><td>The format (type) of the message data.</td></tr><tr><td>message</td><td>true</td><td>text/cybol-path</td><td>The knowledge tree node storing the received data.</td></tr><tr><td>asynchronicity</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating asynchronous reading from buffer in which data got stored by a sensing thread before. If null, the default is false (synchronous read).</td></tr></table></section><section><h3>Constraints (language_constraints)</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>delimiter</td><td>false</td><td>text/plain</td><td>The separator between the single fields (values). It may consist of many characters, but also be a simple comma, for example. Used with joined strings or character (comma) separated values (csv).</td></tr><tr><td>quotation</td><td>false</td><td>text/plain</td><td>The marker sequence used at the beginning and end of string fields (values). It may consist of many characters. Quotation is necessary if the delimiter character is part of the value. If the quotation is to be part of the value, then it has to be escaped by writing it twice (doubled). Used with joined strings or character (comma) separated values (csv).</td></tr><tr><td>header</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not the source data contain a header, so that the deserialiser can treat the first line differently. Used with character (comma) separated values (csv). Caution! It should not be mixed up with the headermodel property in represent/serialise or communicate/send.</td></tr><tr><td>normalisation</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not whitespaces and line breaks are merged into just one space. Used with xml or html, for example. If null, then the default is true (normalisation enabled).</td></tr><tr><td>maximum</td><td>false</td><td>number/integer</td><td>The maximum number of bytes to be transmitted. Used with serial (port) interface.</td></tr><tr><td>minimum</td><td>false</td><td>number/integer</td><td>The minimum number of bytes to be transmitted. Used with serial (port) interface.</td></tr><tr><td>medium</td><td>false</td><td>text/cybol-path</td><td>The window to which the mouse button or keyboard key refers. It is needed to search through the hierarchy of gui elements via mouse coordinates, for a suitable action. Used with graphical user interface (gui).</td></tr></table></section></section><section><a name="communicate-send"><h2>communicate/send</h2></a><section><h3>Description</h3><p class="description">Sends a message via the communication channel.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;print_adc_value&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
+    &#x3C;node name=&#x22;encoding&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/encoding&#x22; model=&#x22;utf-8&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/cli&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;number/fraction-decimal&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.settings.adc&#x22;/&#x3E;
+    &#x3C;node name=&#x22;newline&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;send_exit_signal&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;signal&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;live/exit&#x22; model=&#x22;&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;startup&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;signal&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;file&#x22; format=&#x22;element/part&#x22; model=&#x22;exit/file/exit.cybol&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;print_number&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.stdout&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/cli&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;number/integer&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.index&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;TEST&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.stdout&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/cli&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/plain&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;TEST handle #command&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+&#x3C;node name=&#x22;TEST&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.stdout&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/cli&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/plain&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.path&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;send&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.stdout&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/tui&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;element/part&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.tui.main&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;generate_html&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;encoding&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/encoding&#x22; model=&#x22;utf-8&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/html&#x22;&#x3E;
+        &#x3C;node name=&#x22;indentation&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+    &#x3C;/node&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;element/part&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.wui.index&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;!-- Write knowledge tree into file. --&#x3E;
+&#x3C;node name=&#x22;open_file&#x22; channel=&#x22;inline&#x22; format=&#x22;dispatch/open&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;device&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;counter/simple/test_counter_simple.txt&#x22;/&#x3E;
+    &#x3C;node name=&#x22;mode&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;write&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+&#x3C;node name=&#x22;send_knowledge&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;encoding&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/encoding&#x22; model=&#x22;utf-8&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/model-diagram&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;element/part&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+&#x3C;node name=&#x22;close_file&#x22; channel=&#x22;inline&#x22; format=&#x22;dispatch/close&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;!-- Processing --&#x3E;
+&#x3C;node name=&#x22;log&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.stdout&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/cli&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/plain&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;Check two texts for EQUALITY:&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+&#x3C;node name=&#x22;log_1&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.stdout&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/cli&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;logicvalue/boolean&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result_1&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;refresh_display&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;display&#x22;/&#x3E;
+    &#x3C;!-- This flag is IMPORTANT for finding the correct client entry in the server list. --&#x3E;
+    &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.gui.window_id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/gui-response&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;element/part&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.gui.window&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;TEST_file&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/binary&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.file&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;send_file&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+    &#x3C;node name=&#x22;port&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1971&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.client_socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/http-response&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/plain&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.file&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;print_query&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.stdout&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/cli&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/plain&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.request:uri:query.action&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;TEST_WUI&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;encoding&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/encoding&#x22; model=&#x22;utf-8&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/cybol&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/plain&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.webpage&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;!-- Send html encapsulated as http-response. --&#x3E;
+&#x3C;node name=&#x22;send&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+    &#x3C;node name=&#x22;port&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1971&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.client_socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/http-response&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/plain&#x22;/&#x3E;
+    &#x3C;!--
+        For the http response, the following headers are recommended:
+        - Date
+        - Server
+        - Content-Length
+        - Content-Type
+
+        CAUTION! An &#x22;encoding&#x22; is NOT given when using the language &#x22;message/http-response&#x22;,
+        since it would cause the WHOLE http message to get encoded.
+        But the http header should be ASCII (single-byte characters) only.
+        Likewise, binary attachments such as images should NOT get encoded.
+
+        CAUTION! It does NOT work adding the constraint &#x22;encoding&#x22; right here.
+        It does properly appear in the knowledge tree, but is NOT recognised in the operation &#x22;send&#x22;.
+        The reason is that the format &#x22;text/cybol-path&#x22; points to another part &#x22;.webpage&#x22;
+        whose properties are used INSTEAD of those constraints that might be specified here.
+        In order to verify this, one might use the format &#x22;text/plain&#x22; testwise,
+        with which the constraints are recognised properly.
+        Therefore, the necessary &#x22;encoding&#x22; is added at the part &#x22;.webpage&#x22; DIRECTLY.
+    --&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.webpage&#x22;&#x3E;
+        &#x3C;node name=&#x22;Connection&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;keep-alive&#x22;/&#x3E;
+        &#x3C;!--
+        &#x3C;node name=&#x22;Content-Type&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;text/html; charset=utf-8&#x22;/&#x3E;
+        --&#x3E;
+        &#x3C;!--
+            The client has 300 s == 5 min to make any additional requests before the connection is closed.
+            The client can send up to 1000 more requests.
+        --&#x3E;
+        &#x3C;node name=&#x22;Keep-Alive&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;timeout=300, max=1000&#x22;/&#x3E;
+    &#x3C;/node&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;test_http_response&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/http-response&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/plain&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.webpage&#x22;&#x3E;
+        &#x3C;node name=&#x22;Server&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;CYBOI/0.22.0 (Linux) CYBOL/2.0.0&#x22;/&#x3E;
+        &#x3C;node name=&#x22;Connection&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;close&#x22;/&#x3E;
+        &#x3C;node name=&#x22;Content-Type&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;text/html&#x22;/&#x3E;
+    &#x3C;/node&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;!-- Send empty text encapsulated as http-response. --&#x3E;
+&#x3C;node name=&#x22;send_empty_message&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+    &#x3C;node name=&#x22;port&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1971&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.client_socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/http-response&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/plain&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;print_request&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.stdout&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/cli&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/ascii&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.request&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;send_hello&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+    &#x3C;node name=&#x22;port&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1971&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.client_socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/binary-crlf&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/ascii&#x22; model=&#x22;Hello World!&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;send_data&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+    &#x3C;node name=&#x22;port&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1971&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.client_socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/binary-crlf&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.data&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;send_request&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.server_socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/binary-crlf&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/ascii&#x22; model=&#x22;say-hello&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;print_response&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.stdout&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/cli&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/ascii&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.response&#x22;/&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>channel</td><td>true</td><td>text/cybol-path | meta/channel</td><td>The communication channel.</td></tr><tr><td>server</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating server mode. It means server-side client stub and not standalone client. If null, the default is false (client mode).</td></tr><tr><td>port</td><td>false</td><td>text/cybol-path | number/integer</td><td>The service identification. It is relevant only in server mode.</td></tr><tr><td>receiver</td><td>true</td><td>text/cybol-path</td><td>The device identification, for example a file descriptor. Handing it over as hard-coded integer value does not make sense, since the operating system or server assigns it. Therefore, state a cybol-path.</td></tr><tr><td>encoding</td><td>false</td><td>text/cybol-path | meta/encoding</td><td>The encoding, for example utf-8 or utf-32 or ascii.</td></tr><tr><td>language</td><td>false</td><td>text/cybol-path | meta/language</td><td>The language used for serialisation, for example model-diagram, html, binary-crlf, http-response, xdt.</td></tr><tr><td>format</td><td>false</td><td>text/cybol-path | meta/format</td><td>The format (type) of the message data.</td></tr><tr><td>message</td><td>true</td><td>text/cybol-path | text/ascii | any</td><td>The data to be sent.</td></tr><tr><td>asynchronicity</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating asynchronous writing within a thread. If null, the default is false (synchronous write).</td></tr><tr><td>handler</td><td>false</td><td>text/cybol-path</td><td>The callback cybol operation being executed when the thread finished writing data.</td></tr></table></section><section><h3>Constraints (language_constraints)</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>newline</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not a line break is added at the end of the printed characters. Used with text (pseudo) terminal.</td></tr><tr><td>clear</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not the terminal screen is cleared before printing characters on it. Used with text (pseudo) terminal.</td></tr><tr><td>indentation</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not the serialised data get beautified (pretty-formatted) by indenting the single lines depending on the hierarchy level. Used with xml or html, for example.</td></tr><tr><td>delimiter</td><td>false</td><td>text/plain</td><td>The separator between the single fields (values). It may consist of many characters, but also be a simple comma, for example. Used with joined strings or character (comma) separated values (csv).</td></tr><tr><td>quotation</td><td>false</td><td>text/plain</td><td>The marker sequence used at the beginning and end of string fields (values). It may consist of many characters. Quotation is necessary if the delimiter character is part of the value. If the quotation is to be part of the value, then it has to be escaped by writing it twice (doubled). Used with joined strings or character (comma) separated values (csv).</td></tr><tr><td>normalisation</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not whitespaces and line breaks are merged into just one space. Used with xml or html, for example. If null, then the default is true (normalisation enabled).</td></tr><tr><td>width</td><td>false</td><td>number/integer</td><td>The number of characters (or digits) belonging to a value. Free places get filled up with the character given in the fill property. This was defined in the original specification of character (comma) separated values (csv), in order to have fields (values) with equal width. Used with joined strings or csv.</td></tr><tr><td>fill</td><td>false</td><td>text/plain</td><td>The characters (or digit) to be used to fill free places in a value whose width is greater.</td></tr><tr><td>headermodel</td><td>false</td><td>text/cybol-path</td><td>The header data to be written as first line, yet before the actual content. Used with character (comma) separated values (csv). Caution! It should not be mixed up with the header property flag in represent/deserialise or communicate/receive.</td></tr></table></section></section><section><a name="dispatch-close"><h2>dispatch/close</h2></a><section><h3>Description</h3><p class="description">Closes down a client resource that has been used for connecting to a device or service on the given channel.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;close_file&#x22; channel=&#x22;inline&#x22; format=&#x22;dispatch/close&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
     &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
 &#x3C;/node&#x3E;
@@ -687,7 +1033,7 @@ Reading indirectly from device into the internal buffer does not make sense for 
     &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
     &#x3C;node name=&#x22;sender&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
     &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.data&#x22;/&#x3E;
-&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>channel</td><td>true</td><td>text/cybol-path | meta/channel</td><td>The communication channel.</td></tr><tr><td>server</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating server mode. It means server-side client stub and not standalone client. If null, the default is false (client mode).</td></tr><tr><td>port</td><td>false</td><td>text/cybol-path | number/integer</td><td>The service identification. It is relevant only in server mode.</td></tr><tr><td>sender</td><td>true</td><td>text/cybol-path</td><td>The device identification, for example a file descriptor. Handing it over as hard-coded integer value does not make sense, since the operating system or server assigns it. Therefore, state a cybol-path.</td></tr><tr><td>language</td><td>false</td><td>text/cybol-path</td><td>The language defining which prefix or suffix indicates the message length, for example binary-crlf, http-request, xdt. It is not needed for file reading since that ends with EOF.</td></tr><tr><td>message</td><td>true</td><td>text/cybol-path</td><td>The knowledge tree node storing the received data.</td></tr><tr><td>asynchronicity</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating asynchronous reading from buffer in which data got stored by a sensing thread before. If null, the default is false (synchronous read).</td></tr></table></section></section><section><a name="stream-write"><h2>stream/write</h2></a><section><h3>Description</h3><p class="description">Writes data to a device.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;write_to_file&#x22; channel=&#x22;inline&#x22; format=&#x22;stream/write&#x22; model=&#x22;&#x22;&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>channel</td><td>true</td><td>text/cybol-path | meta/channel</td><td>The communication channel.</td></tr><tr><td>server</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating server mode. It means server-side client stub and not standalone client. If null, the default is false (client mode).</td></tr><tr><td>port</td><td>false</td><td>text/cybol-path | number/integer</td><td>The service identification. It is relevant only in server mode.</td></tr><tr><td>sender</td><td>true</td><td>text/cybol-path</td><td>The device identification, for example a file descriptor. Handing it over as hard-coded integer value does not make sense, since the operating system or server assigns it. Therefore, state a cybol-path.</td></tr><tr><td>language</td><td>false</td><td>text/cybol-path | meta/language</td><td>The language defining which prefix or suffix indicates the message length, for example binary-crlf, http-request, xdt. It is not needed for file reading since that ends with EOF.</td></tr><tr><td>message</td><td>true</td><td>text/cybol-path</td><td>The knowledge tree node storing the received data.</td></tr><tr><td>asynchronicity</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating asynchronous reading from buffer in which data got stored by a sensing thread before. If null, the default is false (synchronous read).</td></tr></table></section></section><section><a name="stream-write"><h2>stream/write</h2></a><section><h3>Description</h3><p class="description">Writes data to a device.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;write_to_file&#x22; channel=&#x22;inline&#x22; format=&#x22;stream/write&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
     &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
     &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/ascii&#x22; model=&#x22;Hello World!&#x22;/&#x3E;
@@ -762,7 +1108,24 @@ The available channels are:
 &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;inline&#x22;/&#x3E;</p></section></section><section><a name="meta-encoding"><h2>meta/encoding</h2></a><section><h3>Description</h3><p class="description">The text encoding.
 It is normally used when reading or writing a file or transfering data.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;encoding&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/encoding&#x22; model=&#x22;utf-8&#x22;/&#x3E;</p></section></section><section><a name="meta-format"><h2>meta/format</h2></a><section><h3>Description</h3><p class="description">The format in which the data is available.
 It is normally used when reading or writing a file or transfering data.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/plain&#x22;/&#x3E;
-&#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;number/integer&#x22;/&#x3E;</p></section></section><section><a name="meta-language"><h2>meta/language</h2></a><section><h3>Description</h3><p class="description">The language also called data format in which the data are structured.
+&#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;number/integer&#x22;/&#x3E;
+
+&#x3C;node name=&#x22;initialise_choice_part&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/receive&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;sender&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;encoding&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/encoding&#x22; model=&#x22;utf-8&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/cybol&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;element/part&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.wui.index.body.choices.table.(#name)&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+&#x3C;node name=&#x22;initialise_choice_properties&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/receive&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;sender&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;encoding&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/encoding&#x22; model=&#x22;utf-8&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/cybol&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;element/property&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.wui.index.body.choices.table.(#name)&#x22;/&#x3E;
+&#x3C;/node&#x3E;</p></section></section><section><a name="meta-language"><h2>meta/language</h2></a><section><h3>Description</h3><p class="description">The language also called data format in which the data are structured.
 It is normally used when reading or writing a file or transfering data.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/cybol&#x22;/&#x3E;
 &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/html&#x22;/&#x3E;</p></section></section><section><a name="meta-model"><h2>meta/model</h2></a><section><h3>Description</h3><p class="description">The cyboi-internal data model holding the actual data.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;model&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/model&#x22; model=&#x22;&#x22;/&#x3E;</p></section></section><section><a name="meta-name"><h2>meta/name</h2></a><section><h3>Description</h3><p class="description">The name of the part tree node.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;name&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/name&#x22; model=&#x22;&#x22;/&#x3E;</p></section></section><section><a name="meta-type"><h2>meta/type</h2></a><section><h3>Description</h3><p class="description">The cyboi-internal data type used to allocate memory.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;type&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/type&#x22; model=&#x22;&#x22;/&#x3E;</p></section></section><section><a name="number-byte"><h2>number/byte</h2></a><section><h3>Description</h3><p class="description">An integer with a size of just one byte.
 
@@ -916,6 +1279,14 @@ It may point to:
 &#x3C;node name=&#x22;overwrite_link_reference_with_project_name&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/append&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.wui.(#category_name).body.toc.(#project_name):href&#x22;/&#x3E;
     &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#project_name&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;print_action&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.stdout&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/cli&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/plain&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;{.var.action_path}&#x22;/&#x3E;
 &#x3C;/node&#x3E;</p></section></section><section><a name="text-html"><h2>text/html</h2></a><section><h3>Description</h3><p class="description">A text marked up using the Hypertext Markup Language (HTML).
 
 Common file suffixes are: html, htm, shtml, inc</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;webpage&#x22; channel=&#x22;file&#x22; format=&#x22;text/html&#x22; model=&#x22;path/to/webpage.html&#x22;/&#x3E;</p></section></section><section><a name="text-json"><h2>text/json</h2></a><section><h3>Description</h3><p class="description">Text data given in JavaScript Object Notation (JSON).

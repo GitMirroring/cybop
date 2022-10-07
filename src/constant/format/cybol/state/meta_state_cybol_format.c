@@ -125,6 +125,23 @@ static int* LANGUAGE_META_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  *
  * <node name="format" channel="inline" format="meta/format" model="text/plain"/>
  * <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+ *
+ * <node name="initialise_choice_part" channel="inline" format="communicate/receive" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+ *     <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+ *     <node name="format" channel="inline" format="meta/format" model="element/part"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".wui.index.body.choices.table.(#name)"/>
+ * </node>
+ * <node name="initialise_choice_properties" channel="inline" format="communicate/receive" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+ *     <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+ *     <node name="format" channel="inline" format="meta/format" model="element/property"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".wui.index.body.choices.table.(#name)"/>
+ * </node>
  */
 static wchar_t* FORMAT_META_STATE_CYBOL_FORMAT = L"meta/format";
 static int* FORMAT_META_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;

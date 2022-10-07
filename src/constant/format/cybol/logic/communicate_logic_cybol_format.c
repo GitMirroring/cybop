@@ -41,21 +41,25 @@
 /**
  * The communicate/identify logic cybol format.
  *
- * Identifies the device or client that has placed a request (handler) into the interrupt pipe.
- *
  * Description:
  *
-TODO
+ * Identifies the device or client that has placed a request (handler) into the interrupt pipe.
  *
  * Examples:
  *
+ * <!-- Get gui client window belonging to the handler that was placed into the interrupt pipe. -->
+ * <node name="get_window_id" channel="inline" format="communicate/identify" model="">
+ *     <node name="identification" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
+ * </node>
+ *
+ * <!-- Get client socket belonging to the handler that was placed into the interrupt pipe. -->
+ * <node name="get_client_socket_id" channel="inline" format="communicate/identify" model="">
+ *     <node name="identification" channel="inline" format="text/cybol-path" model=".client_socket"/>
+ * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
- *
- * Properties:
- * - identification (required): the device or client identification, e.g. file descriptor
+ * - identification (required) [text/cybol-path]: The device or client identification, for example a file descriptor.
  */
 static wchar_t* IDENTIFY_COMMUNICATE_LOGIC_CYBOL_FORMAT = L"communicate/identify";
 static int* IDENTIFY_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -63,57 +67,129 @@ static int* IDENTIFY_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_ST
 /**
  * The communicate/receive logic cybol format.
  *
- * Receive data via a communication channel.
- * Receives a message via the given channel.
- *
- * CAUTION! Some file formats (like the German xDT format for medical data exchange)
- * contain both, the model AND the properties, in one file. To cover these cases,
- * the model AND properties are received TOGETHER, in just one operation.
- *
- *
  * Description:
  *
-Receives a message via the given channel.
+ * Receives a message via the communication channel.
+ *
+ * Caution! Some file formats (like the German xDT format for medical data exchange) contain both, the model and the properties, in one file.
+ * To cover these cases, the model and properties are received together, in just one operation.
  *
  * Examples:
  *
- * <node name="initialise" channel="inline" format="communicate/receive" model="">
+ * <!-- Initialise an application tree from file at startup. -->
+ * <node name="open_file" channel="inline" format="dispatch/open" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="device" channel="inline" format="text/plain" model="counter/simple/app.cybol"/>
+ * </node>
+ * <node name="initialise_app" channel="inline" format="communicate/receive" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
  *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
  *     <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
  *     <node name="format" channel="inline" format="meta/format" model="element/part"/>
- *     <node name="message" channel="inline" format="text/plain" model="ui/app.cybol"/>
- *     <node name="model" channel="inline" format="text/cybol-path" model=".app"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model="."/>
+ * </node>
+ * <node name="close_file" channel="inline" format="dispatch/close" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+ * </node>
+ *
+ * <!-- Read user input command on terminal. -->
+ * <node name="receive_command" channel="inline" format="communicate/receive" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+ *     <node name="sender" channel="inline" format="text/cybol-path" model=".var.stdin"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model="#command"/>
+ *     <!-- Read data from buffer in which they got stored by the sensing thread started through feel/sense before. -->
+ *     <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
+ * </node>
+ *
+ * <!-- Read a gui window event on display. -->
+ * <node name="receive_event" channel="inline" format="communicate/receive" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="display"/>
+ *     <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+ *     <node name="sender" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/gui-request">
+ *         <node name="medium" channel="inline" format="text/cybol-path" model=".gui.window"/>
+ *     </node>
+ *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".gui.action"/>
+ *     <!-- Read indirectly from internal buffer into which data have been written by activate/enable before. -->
+ *     <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
+ * </node>
+ *
+ * <!-- Read a binary file whose path has been given for example via internet url. -->
+ * <node name="open_file" channel="inline" format="dispatch/open" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="device" channel="inline" format="text/cybol-path" model=".var.path"/>
+ * </node>
+ * <node name="receive_file" channel="inline" format="communicate/receive" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/binary"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".var.file"/>
+ * </node>
+ * <node name="close_file" channel="inline" format="dispatch/close" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+ * </node>
+ *
+ * <!-- Receive client http request on the server side via network socket. -->
+ * <node name="receive_request" channel="inline" format="communicate/receive" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+ *     <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+ *     <node name="port" channel="inline" format="number/integer" model="1971"/>
+ *     <node name="sender" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/http-request"/>
+ *     <node name="format" channel="inline" format="meta/format" model="element/part"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".var.request"/>
+ *     <!-- Read indirectly from internal buffer into which data have been written by the sensing thread. -->
+ *     <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
+ * </node>
+ *
+ * <!-- Receive client binary request on the server side via network socket. -->
+ * <node name="receive_request" channel="inline" format="communicate/receive" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+ *     <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+ *     <node name="port" channel="inline" format="number/integer" model="1971"/>
+ *     <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".request"/>
+ *     <!-- Read indirectly from internal buffer into which data have been written by the sensing thread. -->
+ *     <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
+ * </node>
+ *
+ * <!-- Receive server response on the client side via network socket. -->
+ * <node name="receive_response" channel="inline" format="communicate/receive" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+ *     <node name="sender" channel="inline" format="text/cybol-path" model=".server_socket"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".response"/>
  * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-channel	the channel via which to receive the message (terminal, display, www etc.)	true	path/* | meta/channel
-encoding	the encoding (utf-8, utf-32 for inline channel etc.)	true	meta/encoding
-language	the language of the data received (cybol, http_request, xdt etc.)	true	meta/language
-format	the format of the data received (boolean, character, integer etc.)	true	meta/format
-message	the source (knowledge template) from where to receive data, e.g. the gui root window	true	path/knowledge | text/plain
-meta	the source (knowledge template) from where to receive meta data (properties)	false	text/cybol-path
-model	the model to be filled with the data received	true	text/cybol-path
-minimum	the minimum number of bytes to be received in one call of the read function	false	number/integer
-maximum	the maximum number of bytes to be received in one call of the read function	false	number/integer
-style	the style of socket communication, only if channel is www, cyboi or similar	false	???
+ * - channel (required) [text/cybol-path | meta/channel]: The communication channel.
+ * - server (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating server mode. It means server-side client stub and not standalone client. If null, the default is false (client mode).
+ * - port (optional) [text/cybol-path | number/integer]: The service identification. It is relevant only in server mode.
+ * - sender (required) [text/cybol-path]: The device identification, for example a file descriptor. Handing it over as hard-coded integer value does not make sense, since the operating system or server assigns it. Therefore, state a cybol-path.
+ * - encoding (optional) [text/cybol-path | meta/encoding]: The encoding, for example utf-8 or utf-32 or ascii.
+ * - language (optional) [text/cybol-path | meta/language]: The language used for deserialisation. It is also defining which prefix or suffix indicates the message length, for example binary-crlf, http-request, xdt.
+ * - format (optional) [text/cybol-path | meta/format]: The format (type) of the message data.
+ * - message (required) [text/cybol-path]: The knowledge tree node storing the received data.
+ * - asynchronicity (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating asynchronous reading from buffer in which data got stored by a sensing thread before. If null, the default is false (synchronous read).
  *
- * Properties:
- * - channel (required): the communication channel, e.g. file, serial, socket
- * - server (optional): the flag indicating server mode (server-side client stub and NOT standalone client); if NULL, the default is false (client mode)
- * - port (optional): the service identification; only relevant in server mode
- * - sender (required): the device identification, e.g. file descriptor
- * - encoding (required): the encoding, e.g. utf-8, utf-32
- * - language (optional): the language defining which prefix or suffix indicates the message length, e.g. binary-crlf, http-request, xdt; not needed for file reading since that ends with EOF
- * - normalisation (optional): the flag indicating whether or not the received message is to be normalised, i.e. leading and trailing whitespaces as well as line breaks removed and multiple ones merged into just ONE, e.g. from text in between two tags of an html or xml file; if NULL, the default is TRUE (normalisation enabled)
- * - medium (optional): the user interface window model hierarchy used to identify nested components and their action via mouse coordinates
- * - format (optional): the format of the data, e.g. logicvalue/boolean, number/integer, text/plain
- * - message (required): the cybol path to the knowledge tree node storing the received data
- * - minimum (optional): the minimum number of bytes to be received in one call of the read function (for serial port)
- * - maximum (optional): the maximum number of bytes to be received in one call of the read function (for serial port)
- * - asynchronicity (optional): the flag indicating asynchronous reading from buffer in which data got stored by a sensing thread before; if NULL, the default is false (synchronous read)
+ * Constraints for Property Language:
+ *
+ * - delimiter (optional) [text/plain]: The separator between the single fields (values). It may consist of many characters, but also be a simple comma, for example. Used with joined strings or character (comma) separated values (csv).
+ * - quotation (optional) [text/plain]: The marker sequence used at the beginning and end of string fields (values). It may consist of many characters. Quotation is necessary if the delimiter character is part of the value. If the quotation is to be part of the value, then it has to be escaped by writing it twice (doubled). Used with joined strings or character (comma) separated values (csv).
+ * - header (optional) [logicvalue/boolean]: The flag indicating whether or not the source data contain a header, so that the deserialiser can treat the first line differently. Used with character (comma) separated values (csv). Caution! It should not be mixed up with the headermodel property in represent/serialise or communicate/send.
+ * - normalisation (optional) [logicvalue/boolean]: The flag indicating whether or not whitespaces and line breaks are merged into just one space. Used with xml or html, for example. If null, then the default is true (normalisation enabled).
+ * - maximum (optional) [number/integer]: The maximum number of bytes to be transmitted. Used with serial (port) interface.
+ * - minimum (optional) [number/integer]: The minimum number of bytes to be transmitted. Used with serial (port) interface.
+ * - medium (optional) [text/cybol-path]: The window to which the mouse button or keyboard key refers. It is needed to search through the hierarchy of gui elements via mouse coordinates, for a suitable action. Used with graphical user interface (gui).
  */
 static wchar_t* RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT = L"communicate/receive";
 static int* RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -121,25 +197,13 @@ static int* RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
 /**
  * The communicate/send logic cybol format.
  *
- * Send data via a communication channel.
- * Sends a message via the given channel.
- *
  * Description:
  *
-Sends a message via the given channel.
+ * Sends a message via the communication channel.
  *
  * Examples:
  *
- * <node name="print_adc" channel="inline" format="communicate/send" model="">
- *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
- *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
- *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
- *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
- *     <node name="message" channel="inline" format="text/plain" model="Current adc rounded in voltage:"/>
- *     <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
- * </node>
-
-<node name="print_adc_value" channel="inline" format="communicate/send" model="">
+ * <node name="print_adc_value" channel="inline" format="communicate/send" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
  *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
  *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
@@ -148,37 +212,267 @@ Sends a message via the given channel.
  *     <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
  * </node>
  *
+ * <node name="send_exit_signal" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="signal"/>
+ *     <node name="message" channel="inline" format="live/exit" model=""/>
+ * </node>
+ *
+ * <node name="startup" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="signal"/>
+ *     <node name="message" channel="file" format="element/part" model="exit/file/exit.cybol"/>
+ * </node>
+ *
+ * <node name="print_number" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+ *     <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".index"/>
+ * </node>
+ *
+ * <node name="TEST" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+ *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+ *     <node name="message" channel="inline" format="text/plain" model="TEST handle #command"/>
+ * </node>
+ * <node name="TEST" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+ *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".var.path"/>
+ * </node>
+ *
+ * <node name="send" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+ *     <node name="format" channel="inline" format="meta/format" model="element/part"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".tui.main"/>
+ * </node>
+ *
+ * <node name="generate_html" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+ *     <node name="language" channel="inline" format="meta/language" model="text/html">
+ *         <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
+ *     </node>
+ *     <node name="format" channel="inline" format="meta/format" model="element/part"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".wui.index"/>
+ * </node>
+ *
+ * <!-- Write knowledge tree into file. -->
+ * <node name="open_file" channel="inline" format="dispatch/open" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="device" channel="inline" format="text/plain" model="counter/simple/test_counter_simple.txt"/>
+ *     <node name="mode" channel="inline" format="text/plain" model="write"/>
+ * </node>
+ * <node name="send_knowledge" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+ *     <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+ *     <node name="format" channel="inline" format="meta/format" model="element/part"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model="."/>
+ * </node>
+ * <node name="close_file" channel="inline" format="dispatch/close" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+ * </node>
+ *
+ * <!-- Processing -->
+ * <node name="log" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+ *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+ *     <node name="message" channel="inline" format="text/plain" model="Check two texts for EQUALITY:"/>
+ * </node>
+ * <node name="log_1" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+ *     <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".result_1"/>
+ * </node>
+ *
+ * <node name="refresh_display" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="display"/>
+ *     <!-- This flag is IMPORTANT for finding the correct client entry in the server list. -->
+ *     <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/gui-response"/>
+ *     <node name="format" channel="inline" format="meta/format" model="element/part"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".gui.window"/>
+ * </node>
+ *
+ * <node name="TEST_file" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/binary"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".var.file"/>
+ * </node>
+ *
+ * <node name="send_file" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+ *     <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+ *     <node name="port" channel="inline" format="number/integer" model="1971"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
+ *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".var.file"/>
+ * </node>
+ *
+ * <node name="print_query" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+ *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".var.request:uri:query.action"/>
+ * </node>
+ *
+ * <node name="TEST_WUI" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+ *     <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+ *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".var.webpage"/>
+ * </node>
+ *
+ * <!-- Send html encapsulated as http-response. -->
+ * <node name="send" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+ *     <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+ *     <node name="port" channel="inline" format="number/integer" model="1971"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
+ *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+ *     <!--
+ *         For the http response, the following headers are recommended:
+ *         - Date
+ *         - Server
+ *         - Content-Length
+ *         - Content-Type
+ *
+ *         CAUTION! An "encoding" is NOT given when using the language "message/http-response",
+ *         since it would cause the WHOLE http message to get encoded.
+ *         But the http header should be ASCII (single-byte characters) only.
+ *         Likewise, binary attachments such as images should NOT get encoded.
+ *
+ *         CAUTION! It does NOT work adding the constraint "encoding" right here.
+ *         It does properly appear in the knowledge tree, but is NOT recognised in the operation "send".
+ *         The reason is that the format "text/cybol-path" points to another part ".webpage"
+ *         whose properties are used INSTEAD of those constraints that might be specified here.
+ *         In order to verify this, one might use the format "text/plain" testwise,
+ *         with which the constraints are recognised properly.
+ *         Therefore, the necessary "encoding" is added at the part ".webpage" DIRECTLY.
+ *     -->
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".var.webpage">
+ *         <node name="Connection" channel="inline" format="text/plain" model="keep-alive"/>
+ *         <!--
+ *         <node name="Content-Type" channel="inline" format="text/plain" model="text/html; charset=utf-8"/>
+ *         -->
+ *         <!--
+ *             The client has 300 s == 5 min to make any additional requests before the connection is closed.
+ *             The client can send up to 1000 more requests.
+ *         -->
+ *         <node name="Keep-Alive" channel="inline" format="text/plain" model="timeout=300, max=1000"/>
+ *     </node>
+ * </node>
+ *
+ * <node name="test_http_response" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
+ *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".var.webpage">
+ *         <node name="Server" channel="inline" format="text/plain" model="CYBOI/0.22.0 (Linux) CYBOL/2.0.0"/>
+ *         <node name="Connection" channel="inline" format="text/plain" model="close"/>
+ *         <node name="Content-Type" channel="inline" format="text/plain" model="text/html"/>
+ *     </node>
+ * </node>
+ *
+ * <!-- Send empty text encapsulated as http-response. -->
+ * <node name="send_empty_message" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+ *     <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+ *     <node name="port" channel="inline" format="number/integer" model="1971"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
+ *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+ *     <node name="message" channel="inline" format="text/plain" model=""/>
+ * </node>
+ *
+ * <node name="print_request" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+ *     <node name="format" channel="inline" format="meta/format" model="text/ascii"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".request"/>
+ * </node>
+ *
+ * <node name="send_hello" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+ *     <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+ *     <node name="port" channel="inline" format="number/integer" model="1971"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
+ *     <node name="message" channel="inline" format="text/ascii" model="Hello World!"/>
+ * </node>
+ *
+ * <node name="send_data" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+ *     <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+ *     <node name="port" channel="inline" format="number/integer" model="1971"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".data"/>
+ * </node>
+ *
+ * <node name="send_request" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
+ *     <node name="message" channel="inline" format="text/ascii" model="say-hello"/>
+ * </node>
+ *
+ * <node name="print_response" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+ *     <node name="format" channel="inline" format="meta/format" model="text/ascii"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".response"/>
+ * </node>
+ *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-channel	the channel via which to send the message (e.g. http)	true	path/* | meta/channel
-encoding	the encoding to be used, e.g. ascii; the default is utf-8	false	meta/encoding
-language	the language into which to serialise the message before sending it (e.g. html, model-diagram etc.)	true	meta/language
-format	the format into which to serialise the message before sending (e.g. element/part, number/integer)	true	meta/format
-message	the source message to be sent to another system	true	path/knowledge | text/plain
-receiver	the destination receiving the message	false	text/plain
-mode	the mode of communication, only if channel is http	false	???
-namespace	the namespace of the socket, only if channel is http	false	???
-style	the style of communicationl, only if channel is http	false	text/plain
-area	the user interface area to be repainted, only if type is tui or gui	false	???
-clear	the flag indicating whether or not to clear the screen before painting a user interface, only if type is terminal or tui	false	logicvalue/boolean
-newline	the flag indicating whether or not to add a new line after having printed the message on screen, only if channel is terminal	false	logicvalue/boolean
-null_termination	the flag indicating whether or not to add an ascii null termination character '\0' at the end of the (multibyte) message (after encoding)	false	logicvalue/boolean
+ * - channel (required) [text/cybol-path | meta/channel]: The communication channel.
+ * - server (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating server mode. It means server-side client stub and not standalone client. If null, the default is false (client mode).
+ * - port (optional) [text/cybol-path | number/integer]: The service identification. It is relevant only in server mode.
+ * - receiver (required) [text/cybol-path]: The device identification, for example a file descriptor. Handing it over as hard-coded integer value does not make sense, since the operating system or server assigns it. Therefore, state a cybol-path.
+ * - encoding (optional) [text/cybol-path | meta/encoding]: The encoding, for example utf-8 or utf-32 or ascii.
+ * - language (optional) [text/cybol-path | meta/language]: The language used for serialisation, for example model-diagram, html, binary-crlf, http-response, xdt.
+ * - format (optional) [text/cybol-path | meta/format]: The format (type) of the message data.
+ * - message (required) [text/cybol-path | text/ascii | any]: The data to be sent.
+ * - asynchronicity (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating asynchronous writing within a thread. If null, the default is false (synchronous write).
+ * - handler (optional) [text/cybol-path]: The callback cybol operation being executed when the thread finished writing data.
  *
- * Parametres:
- * - channel (required): the communication channel, e.g. file, serial, socket
- * - server (optional): the flag indicating server mode; if NULL, the default is false (client mode)
- * - port (optional): the service identification; only relevant in server mode
- * - receiver (required): the device identification, e.g. file descriptor
- * - encoding (optional): the encoding to be used, e.g. ascii; the default is utf-8
- * - language (required): the language into which to serialise the message before sending it (e.g. html, model-diagram etc.)
- * - indentation (optional): the flag indicating whether or not the generated message is to be pretty-formatted (e.g. indented html tags with line breaks)
- * - format (required): the format into which to serialise the message before sending (e.g. element/part, number/integer)
- * - message (required): the data to be sent
- * - clear (optional, only if type is terminal or tui): the flag indicating whether or not to clear the screen before painting a user interface
- * - newline (optional, only if channel is terminal): the flag indicating whether or not to add a new line after having printed the message on screen
- * - asynchronicity (optional): the flag indicating asynchronous writing within a thread; if NULL, the default is false (synchronous write)
- * - handler (optional): the callback cybol operation being executed when the thread finished reading data
+ * Constraints for Property Language:
+ *
+ * - newline (optional) [logicvalue/boolean]: The flag indicating whether or not a line break is added at the end of the printed characters. Used with text (pseudo) terminal.
+ * - clear (optional) [logicvalue/boolean]: The flag indicating whether or not the terminal screen is cleared before printing characters on it. Used with text (pseudo) terminal.
+ * - indentation (optional) [logicvalue/boolean]: The flag indicating whether or not the serialised data get beautified (pretty-formatted) by indenting the single lines depending on the hierarchy level. Used with xml or html, for example.
+ * - delimiter (optional) [text/plain]: The separator between the single fields (values). It may consist of many characters, but also be a simple comma, for example. Used with joined strings or character (comma) separated values (csv).
+ * - quotation (optional) [text/plain]: The marker sequence used at the beginning and end of string fields (values). It may consist of many characters. Quotation is necessary if the delimiter character is part of the value. If the quotation is to be part of the value, then it has to be escaped by writing it twice (doubled). Used with joined strings or character (comma) separated values (csv).
+ * - normalisation (optional) [logicvalue/boolean]: The flag indicating whether or not whitespaces and line breaks are merged into just one space. Used with xml or html, for example. If null, then the default is true (normalisation enabled).
+ * - width (optional) [number/integer]: The number of characters (or digits) belonging to a value. Free places get filled up with the character given in the fill property. This was defined in the original specification of character (comma) separated values (csv), in order to have fields (values) with equal width. Used with joined strings or csv.
+ * - fill (optional) [text/plain]: The characters (or digit) to be used to fill free places in a value whose width is greater.
+ * - headermodel (optional) [text/cybol-path]: The header data to be written as first line, yet before the actual content. Used with character (comma) separated values (csv). Caution! It should not be mixed up with the header property flag in represent/deserialise or communicate/receive.
  */
 static wchar_t* SEND_COMMUNICATE_LOGIC_CYBOL_FORMAT = L"communicate/send";
 static int* SEND_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;

@@ -22,6 +22,7 @@
 
         * Update cyboi interpreter c code conventions style guide
         * Integrate c code conventions into website
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/communicate_logic_cybol_format.c"
 
 2022-10-06  Christian Heller  <christian.heller@cybop.org>
 
