@@ -1,7 +1,7 @@
 <main>
     <div>
         <h2>
-            1950er Rock &#x27;n&#x27; Roll &#x26; Rockabilly
+            1950er Rock &#x27;n&#x27; Roll 
         </h2>
         <ol>
             <li>
@@ -20,7 +20,7 @@
     </div>
     <div>
         <h2>
-            1960er Beat &#x26; Flower Power
+            1960er Beat 
         </h2>
         <ol>
             <li>
@@ -36,7 +36,7 @@
     </div>
     <div>
         <h2>
-            1970er Rock &#x26; Pop
+            1970er Rock 
         </h2>
         <ol>
             <li>
@@ -64,7 +64,7 @@
     </div>
     <div>
         <h2>
-            1980er Rock-Pop &#x26; Synthie Pop
+            1980er Rock-Pop 
         </h2>
         <ol>
             <li>
@@ -107,9 +107,6 @@
                 Gibson Brothers - Que Sera Mi Vida
             </li>
             <li>
-                Katrina &#x26; The Waves - Walking On Sunshine
-            </li>
-            <li>
                 Kiss - I Was Made For Loving You
             </li>
             <li>
@@ -146,7 +143,7 @@
     </div>
     <div>
         <h2>
-            1990er Rock-Pop &#x26; Independent
+            1990er Rock-Pop 
         </h2>
         <ol>
             <li>
@@ -216,9 +213,6 @@
             </li>
             <li>
                 Lost Frequencies feat. Janieck Devy - Reality
-            </li>
-            <li>
-                Philipp Dittberner &#x26; Marv - Wolke 4
             </li>
             <li>
                 Sheppard - Geronimo
@@ -317,7 +311,7 @@
     </div>
     <div>
         <h2>
-            Italienische Musik &#x26; Italo-Pop
+            Italienische Musik 
         </h2>
         <ol>
             <li>
@@ -369,9 +363,6 @@
                 Dieter-Thomas Kuhn - &#xDC;ber Den Wolken
             </li>
             <li>
-                DJ &#xD6;tzi &#x26; Nik P. - Ein Stern (Der Deinen Namen tr&#xE4;gt)
-            </li>
-            <li>
                 Dschinghis Khan - Moskau
             </li>
             <li>
@@ -421,7 +412,7 @@
     </div>
     <div>
         <h2>
-            Volksmusik &#x26; Stimmungsmusik
+            Volksmusik 
         </h2>
         <ol>
             <li>

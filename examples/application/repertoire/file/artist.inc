@@ -50,7 +50,7 @@
                 Square Rooms
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthie Pop
+                1980er Rock-Pop 
             </td>
             <td>
                 1984
@@ -64,7 +64,7 @@
                 Eye In The Sky
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthie Pop
+                1980er Rock-Pop 
             </td>
             <td>
             </td>
@@ -129,7 +129,7 @@
                 Ob-la-di Ob-la-da
             </td>
             <td>
-                1960er Beat &#x26; Flower Power
+                1960er Beat 
             </td>
             <td>
             </td>
@@ -142,7 +142,7 @@
                 Everything&#x27;s Coming Up Roses
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthie Pop
+                1980er Rock-Pop 
             </td>
             <td>
             </td>
@@ -155,7 +155,7 @@
                 Knockin&#x27; On Heaven&#x27;s Door
             </td>
             <td>
-                1960er Beat &#x26; Flower Power
+                1960er Beat 
             </td>
             <td>
             </td>
@@ -168,7 +168,7 @@
                 Smalltown Boy
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthie Pop
+                1980er Rock-Pop 
             </td>
             <td>
             </td>
@@ -181,7 +181,7 @@
                 I&#x27;m On Fire
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthie Pop
+                1980er Rock-Pop 
             </td>
             <td>
             </td>
@@ -194,7 +194,7 @@
                 Run To You
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthie Pop
+                1980er Rock-Pop 
             </td>
             <td>
             </td>
@@ -207,7 +207,7 @@
                 Bad Moon Rising
             </td>
             <td>
-                1970er Rock &#x26; Pop
+                1970er Rock 
             </td>
             <td>
             </td>
@@ -220,7 +220,7 @@
                 Hey Tonight
             </td>
             <td>
-                1970er Rock &#x26; Pop
+                1970er Rock 
             </td>
             <td>
             </td>
@@ -300,24 +300,10 @@
                 Anton Aus Tirol
             </td>
             <td>
-                Volksmusik &#x26; Stimmungsmusik
+                Volksmusik 
             </td>
             <td>
                 1999
-            </td>
-        </tr>
-        <tr>
-            <td>
-                DJ &#xD6;tzi &#x26; Nik P.
-            </td>
-            <td>
-                Ein Stern (Der Deinen Namen tr&#xE4;gt)
-            </td>
-            <td>
-                Schlager
-            </td>
-            <td>
-                2007
             </td>
         </tr>
         <tr>
@@ -328,7 +314,7 @@
                 Enjoy The Silence
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthie Pop
+                1980er Rock-Pop 
             </td>
             <td>
             </td>
@@ -355,7 +341,43 @@
                 Sultans Of Swing
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthie Pop
+                1980er Rock-Pop 
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                a-ha
+            </td>
+            <td>
+                Foot Of The Mountain
+            </td>
+            <td>
+                2000er Rock-Pop
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &#xC4;rzte
+            </td>
+            <td>
+                Westerland
+            </td>
+            <td>
+                Deutschrock
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
             </td>
             <td>
             </td>
@@ -368,7 +390,7 @@
                 Whatever Will Be Will Be (Que Sera Sera)
             </td>
             <td>
-                1950er Rock &#x27;n&#x27; Roll &#x26; Rockabilly
+                1950er Rock &#x27;n&#x27; Roll 
             </td>
             <td>
             </td>
@@ -395,7 +417,7 @@
                 Take It Easy
             </td>
             <td>
-                1970er Rock &#x26; Pop
+                1970er Rock 
             </td>
             <td>
             </td>
@@ -408,7 +430,7 @@
                 Sacrifice
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthie Pop
+                1980er Rock-Pop 
             </td>
             <td>
             </td>
@@ -421,7 +443,7 @@
                 Always On My Mind
             </td>
             <td>
-                1950er Rock &#x27;n&#x27; Roll &#x26; Rockabilly
+                1950er Rock &#x27;n&#x27; Roll 
             </td>
             <td>
             </td>
@@ -434,7 +456,7 @@
                 Are You Lonesome Tonight
             </td>
             <td>
-                1950er Rock &#x27;n&#x27; Roll &#x26; Rockabilly
+                1950er Rock &#x27;n&#x27; Roll 
             </td>
             <td>
             </td>
@@ -447,7 +469,7 @@
                 Ship Of Fools
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthie Pop
+                1980er Rock-Pop 
             </td>
             <td>
                 1988
@@ -461,7 +483,7 @@
                 Lay Down Sally
             </td>
             <td>
-                1970er Rock &#x26; Pop
+                1970er Rock 
             </td>
             <td>
                 1977
@@ -475,7 +497,7 @@
                 Promises
             </td>
             <td>
-                1970er Rock &#x26; Pop
+                1970er Rock 
             </td>
             <td>
                 1977
@@ -503,7 +525,7 @@
                 Flames Of Love
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthie Pop
+                1980er Rock-Pop 
             </td>
             <td>
             </td>
@@ -516,7 +538,7 @@
                 Feels Like Heaven
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthie Pop
+                1980er Rock-Pop 
             </td>
             <td>
                 1985
@@ -557,7 +579,7 @@
                 Que Sera Mi Vida
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthie Pop
+                1980er Rock-Pop 
             </td>
             <td>
             </td>
@@ -583,7 +605,7 @@
                 Auf Der Reeperbahn Nachts Um Halb Eins
             </td>
             <td>
-                Volksmusik &#x26; Stimmungsmusik
+                Volksmusik 
             </td>
             <td>
                 1943
@@ -683,13 +705,10 @@
         </tr>
         <tr>
             <td>
-                Katrina &#x26; The Waves
             </td>
             <td>
-                Walking On Sunshine
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -715,7 +734,7 @@
                 I Was Made For Loving You
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthie Pop
+                1980er Rock-Pop 
             </td>
             <td>
             </td>
@@ -754,7 +773,7 @@
                 There She Goes
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthie Pop
+                1980er Rock-Pop 
             </td>
             <td>
                 1988
@@ -768,7 +787,7 @@
                 I&#x27;ve Been Thinking About You
             </td>
             <td>
-                1990er Rock-Pop &#x26; Independent
+                1990er Rock-Pop 
             </td>
             <td>
             </td>
@@ -833,7 +852,7 @@
                 Foolish Heart
             </td>
             <td>
-                1950er Rock &#x27;n&#x27; Roll &#x26; Rockabilly
+                1950er Rock &#x27;n&#x27; Roll 
             </td>
             <td>
             </td>
@@ -846,7 +865,7 @@
                 Who Can It Be Now
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthie Pop
+                1980er Rock-Pop 
             </td>
             <td>
             </td>
@@ -859,7 +878,7 @@
                 Zorba&#x27;s Dance
             </td>
             <td>
-                Volksmusik &#x26; Stimmungsmusik
+                Volksmusik 
             </td>
             <td>
                 1964
@@ -913,7 +932,7 @@
                 Laura Non C&#x27;e
             </td>
             <td>
-                Italienische Musik &#x26; Italo-Pop
+                Italienische Musik 
             </td>
             <td>
             </td>
@@ -926,7 +945,7 @@
                 I Promised Myself
             </td>
             <td>
-                1990er Rock-Pop &#x26; Independent
+                1990er Rock-Pop 
             </td>
             <td>
             </td>
@@ -939,7 +958,7 @@
                 A Walk In The Park
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthie Pop
+                1980er Rock-Pop 
             </td>
             <td>
             </td>
@@ -952,7 +971,7 @@
                 Es Gibt Kein Bier Auf Hawaii
             </td>
             <td>
-                Volksmusik &#x26; Stimmungsmusik
+                Volksmusik 
             </td>
             <td>
                 1963
@@ -980,7 +999,7 @@
                 Solsbury Hill
             </td>
             <td>
-                1970er Rock &#x26; Pop
+                1970er Rock 
             </td>
             <td>
                 1977
@@ -1027,13 +1046,10 @@
         </tr>
         <tr>
             <td>
-                Philipp Dittberner &#x26; Marv
             </td>
             <td>
-                Wolke 4
             </td>
             <td>
-                2010er Rock-Pop
             </td>
             <td>
             </td>
@@ -1046,7 +1062,7 @@
                 Every Breath You Take
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthie Pop
+                1980er Rock-Pop 
             </td>
             <td>
             </td>
@@ -1124,7 +1140,7 @@
                 I Drove All Night
             </td>
             <td>
-                1990er Rock-Pop &#x26; Independent
+                1990er Rock-Pop 
             </td>
             <td>
             </td>
@@ -1150,7 +1166,7 @@
                 San Francisco
             </td>
             <td>
-                1960er Beat &#x26; Flower Power
+                1960er Beat 
             </td>
             <td>
             </td>
@@ -1190,7 +1206,7 @@
                 The Way To Your Heart
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthie Pop
+                1980er Rock-Pop 
             </td>
             <td>
             </td>
@@ -1243,7 +1259,7 @@
                 I Won&#x27;t Back Down
             </td>
             <td>
-                1990er Rock-Pop &#x26; Independent
+                1990er Rock-Pop 
             </td>
             <td>
             </td>
@@ -1256,7 +1272,7 @@
                 Learning To Fly
             </td>
             <td>
-                1990er Rock-Pop &#x26; Independent
+                1990er Rock-Pop 
             </td>
             <td>
             </td>
@@ -1269,7 +1285,7 @@
                 Africa
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthie Pop
+                1980er Rock-Pop 
             </td>
             <td>
             </td>
@@ -1282,7 +1298,7 @@
                 Child&#x27;s Anthem
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthie Pop
+                1980er Rock-Pop 
             </td>
             <td>
             </td>
@@ -1295,7 +1311,7 @@
                 Not The Loving Kind
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthie Pop
+                1980er Rock-Pop 
             </td>
             <td>
                 1983
@@ -1374,7 +1390,7 @@
                 Dancing With Tears In My Eyes
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthie Pop
+                1980er Rock-Pop 
             </td>
             <td>
             </td>
@@ -1387,7 +1403,7 @@
                 Y.M.C.A.
             </td>
             <td>
-                1970er Rock &#x26; Pop
+                1970er Rock 
             </td>
             <td>
             </td>
@@ -1400,7 +1416,7 @@
                 Hoch Auf Dem Gelben Wagen
             </td>
             <td>
-                Volksmusik &#x26; Stimmungsmusik
+                Volksmusik 
             </td>
             <td>
                 1922
@@ -1414,7 +1430,7 @@
                 Kufsteiner Lied
             </td>
             <td>
-                Volksmusik &#x26; Stimmungsmusik
+                Volksmusik 
             </td>
             <td>
             </td>
@@ -1427,7 +1443,7 @@
                 Muss I Denn Muss I Denn Zum St&#xE4;dtele Hinaus
             </td>
             <td>
-                Volksmusik &#x26; Stimmungsmusik
+                Volksmusik 
             </td>
             <td>
                 1827
@@ -1441,7 +1457,7 @@
                 Rosamunde
             </td>
             <td>
-                Volksmusik &#x26; Stimmungsmusik
+                Volksmusik 
             </td>
             <td>
             </td>
@@ -1454,7 +1470,7 @@
                 What Shall We Do With The Drunken Sailor
             </td>
             <td>
-                Volksmusik &#x26; Stimmungsmusik
+                Volksmusik 
             </td>
             <td>
             </td>
@@ -1495,36 +1511,10 @@
                 Owner Of A Lonely Heart
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthie Pop
+                1980er Rock-Pop 
             </td>
             <td>
                 1983
-            </td>
-        </tr>
-        <tr>
-            <td>
-                a-ha
-            </td>
-            <td>
-                Foot Of The Mountain
-            </td>
-            <td>
-                2000er Rock-Pop
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                &#xC4;rzte
-            </td>
-            <td>
-                Westerland
-            </td>
-            <td>
-                Deutschrock
-            </td>
-            <td>
             </td>
         </tr>
     </tbody>

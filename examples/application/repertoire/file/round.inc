@@ -528,15 +528,13 @@
                     1
                 </td>
                 <td>
-                    Wolke 4 (Philipp Dittberner &#x26; Marv)
-                </td>
-                <td>
-                    0:00
+                     ()
                 </td>
                 <td>
                 </td>
                 <td>
-                    Chris
+                </td>
+                <td>
                 </td>
                 <td>
                 </td>
@@ -708,15 +706,13 @@
                     11
                 </td>
                 <td>
-                    Walking On Sunshine (Katrina &#x26; The Waves)
-                </td>
-                <td>
-                    0:00
+                     ()
                 </td>
                 <td>
                 </td>
                 <td>
-                    Chris
+                </td>
+                <td>
                 </td>
                 <td>
                 </td>

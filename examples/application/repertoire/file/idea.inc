@@ -1,7 +1,7 @@
 <main>
     <div>
         <h2>
-            1950er Rock &#x27;n&#x27; Roll &#x26; Rockabilly
+            1950er Rock &#x27;n&#x27; Roll 
         </h2>
         <ol>
             <li>
@@ -11,20 +11,17 @@
     </div>
     <div>
         <h2>
-            1960er Beat &#x26; Flower Power
+            1960er Beat 
         </h2>
         <ol>
             <li>
                 Birds - Mr. Tambourine Man
             </li>
-            <li>
-                Mamas &#x26; Papas - Monday Monday
-            </li>
         </ol>
     </div>
     <div>
         <h2>
-            1970er Rock &#x26; Pop
+            1970er Rock 
         </h2>
         <ol>
             <li>
@@ -55,7 +52,7 @@
     </div>
     <div>
         <h2>
-            1980er Rock-Pop &#x26; Synthie Pop
+            1980er Rock-Pop 
         </h2>
         <ol>
             <li>
@@ -83,9 +80,6 @@
                 Bryan Adams - Summer Of &#x27;69
             </li>
             <li>
-                Bryan Ferry &#x26; Roxy Music - Jealous Guy
-            </li>
-            <li>
                 Communards - Disenchanted
             </li>
             <li>
@@ -96,9 +90,6 @@
             </li>
             <li>
                 Johnny Nash - Rock Me Baby
-            </li>
-            <li>
-                Jon &#x26; Vangelis - I&#x27;ll Find My Way Home
             </li>
             <li>
                 Joy - Touch By Touch
@@ -155,7 +146,7 @@
     </div>
     <div>
         <h2>
-            1990er Rock-Pop &#x26; Independent
+            1990er Rock-Pop 
         </h2>
         <ol>
             <li>
@@ -166,9 +157,6 @@
             </li>
             <li>
                 Lightening Seeds - Life Of Riley
-            </li>
-            <li>
-                Mike &#x26; The Mechanics - Another Cup Of Coffee
             </li>
             <li>
                 No Mercy - Where Do You Go
@@ -281,7 +269,7 @@
     </div>
     <div>
         <h2>
-            Italienische Musik &#x26; Italo-Pop
+            Italienische Musik 
         </h2>
         <ol>
             <li>
@@ -354,9 +342,6 @@
                 Nico Haak - Schmidtchen Schleicher
             </li>
             <li>
-                Nina &#x26; Mike - Fahrende Musikanten Das Sind Wir
-            </li>
-            <li>
                 Peter Cornelius - Du Entschuldige I Kenn&#x27; Di
             </li>
             <li>
@@ -385,17 +370,11 @@
     </div>
     <div>
         <h2>
-            Volksmusik &#x26; Stimmungsmusik
+            Volksmusik 
         </h2>
         <ol>
             <li>
                 Franz Lang - Appenzeller Jodler
-            </li>
-            <li>
-                Gitti &#x26; Erika - Aus B&#xF6;hmen Kommt Die Musik
-            </li>
-            <li>
-                Gitti &#x26; Erika - Solange Die Kapelle Spielt
             </li>
             <li>
                 Herbert Roth - Probier&#x27;s Mal Mit Jodeln
