@@ -105,7 +105,7 @@ static int* IDENTIFY_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_ST
  *     <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
  * </node>
  *
- * <!-- Read a gui window event on display. -->
+ * <!-- Receive a gui window event on display. -->
  * <node name="receive_event" channel="inline" format="communicate/receive" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="display"/>
  *     <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -119,7 +119,7 @@ static int* IDENTIFY_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_ST
  *     <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
  * </node>
  *
- * <!-- Read a binary file whose path has been given for example via internet url. -->
+ * <!-- Receive a binary file whose path has been given for example via internet url. -->
  * <node name="open_file" channel="inline" format="dispatch/open" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
  *     <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
@@ -203,25 +203,55 @@ static int* RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *
  * Examples:
  *
- * <node name="print_adc_value" channel="inline" format="communicate/send" model="">
- *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
- *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
- *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
- *     <node name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
- *     <node name="message" channel="inline" format="text/cybol-path" model=".settings.adc"/>
- *     <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
- * </node>
- *
+ * <!-- Place a signal (event) into the cyboi system signal memory (event queue). -->
  * <node name="send_exit_signal" channel="inline" format="communicate/send" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="signal"/>
  *     <node name="message" channel="inline" format="live/exit" model=""/>
  * </node>
  *
- * <node name="startup" channel="inline" format="communicate/send" model="">
+ * <!-- Send a signal that was read from a cybol file before. -->
+ * <node name="send_signal_taken_from_file" channel="inline" format="communicate/send" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="signal"/>
  *     <node name="message" channel="file" format="element/part" model="exit/file/exit.cybol"/>
  * </node>
  *
+ * <!-- Send plain text to terminal. -->
+ * <node name="say_hello" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+ *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+ *     <node name="message" channel="inline" format="text/plain" model="Hello World!"/>
+ * </node>
+ *
+ * <!-- Print an http request's uri query action on terminal. -->
+ * <node name="print_query" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+ *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".var.request:uri:query.action"/>
+ * </node>
+ *
+ * <!-- Print http request as pure ascii data on terminal. -->
+ * <node name="print_request" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+ *     <node name="format" channel="inline" format="meta/format" model="text/ascii"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".request"/>
+ * </node>
+ *
+ * <!-- Send boolean value (flag) to terminal. -->
+ * <node name="log_flag" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+ *     <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".result_flag"/>
+ * </node>
+ *
+ * <!-- Send integer number to terminal. -->
  * <node name="print_number" channel="inline" format="communicate/send" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
  *     <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
@@ -230,22 +260,17 @@ static int* RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *     <node name="message" channel="inline" format="text/cybol-path" model=".index"/>
  * </node>
  *
- * <node name="TEST" channel="inline" format="communicate/send" model="">
+ * <!-- Send decimal fraction number to terminal. -->
+ * <node name="print_adc_value" channel="inline" format="communicate/send" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
- *     <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
  *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
- *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
- *     <node name="message" channel="inline" format="text/plain" model="TEST handle #command"/>
- * </node>
- * <node name="TEST" channel="inline" format="communicate/send" model="">
- *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
- *     <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
- *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
- *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
- *     <node name="message" channel="inline" format="text/cybol-path" model=".var.path"/>
+ *     <node name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".settings.adc"/>
  * </node>
  *
- * <node name="send" channel="inline" format="communicate/send" model="">
+ * <!-- Send main menu as text user interface (tui) to terminal. -->
+ * <node name="send_menu" channel="inline" format="communicate/send" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
  *     <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
  *     <node name="language" channel="inline" format="meta/language" model="message/tui"/>
@@ -253,25 +278,25 @@ static int* RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *     <node name="message" channel="inline" format="text/cybol-path" model=".tui.main"/>
  * </node>
  *
- * <node name="generate_html" channel="inline" format="communicate/send" model="">
- *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
- *     <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
- *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
- *     <node name="language" channel="inline" format="meta/language" model="text/html">
- *         <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
- *     </node>
+ * <!-- Draw graphical user interface (gui) window on display. -->
+ * <node name="refresh_display" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="display"/>
+ *     <!-- This flag is IMPORTANT for finding the correct client entry in the server list. -->
+ *     <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/gui-response"/>
  *     <node name="format" channel="inline" format="meta/format" model="element/part"/>
- *     <node name="message" channel="inline" format="text/cybol-path" model=".wui.index"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".gui.window"/>
  * </node>
  *
- * <!-- Write knowledge tree into file. -->
+ * <!-- Write runtime knowledge tree into file, which is useful for testing. -->
  * <node name="open_file" channel="inline" format="dispatch/open" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
  *     <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
  *     <node name="device" channel="inline" format="text/plain" model="counter/simple/test_counter_simple.txt"/>
  *     <node name="mode" channel="inline" format="text/plain" model="write"/>
  * </node>
- * <node name="send_knowledge" channel="inline" format="communicate/send" model="">
+ * <node name="send_knowledge_tree_root" channel="inline" format="communicate/send" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
  *     <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
  *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -284,39 +309,66 @@ static int* RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *     <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
  * </node>
  *
- * <!-- Processing -->
- * <node name="log" channel="inline" format="communicate/send" model="">
- *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
- *     <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
- *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
- *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
- *     <node name="message" channel="inline" format="text/plain" model="Check two texts for EQUALITY:"/>
- * </node>
- * <node name="log_1" channel="inline" format="communicate/send" model="">
- *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
- *     <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
- *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
- *     <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
- *     <node name="message" channel="inline" format="text/cybol-path" model=".result_1"/>
- * </node>
- *
- * <node name="refresh_display" channel="inline" format="communicate/send" model="">
- *     <node name="channel" channel="inline" format="meta/channel" model="display"/>
- *     <!-- This flag is IMPORTANT for finding the correct client entry in the server list. -->
- *     <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
- *     <node name="receiver" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
- *     <node name="language" channel="inline" format="meta/language" model="message/gui-response"/>
- *     <node name="format" channel="inline" format="meta/format" model="element/part"/>
- *     <node name="message" channel="inline" format="text/cybol-path" model=".gui.window"/>
- * </node>
- *
- * <node name="TEST_file" channel="inline" format="communicate/send" model="">
+ * <!-- Write binary data into a file. -->
+ * <node name="test_file_content" channel="inline" format="communicate/send" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
  *     <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
  *     <node name="language" channel="inline" format="meta/language" model="message/binary"/>
  *     <node name="message" channel="inline" format="text/cybol-path" model=".var.file"/>
  * </node>
  *
+ * <!-- Serialise web user interface (wui) and store it as html file. -->
+ * <node name="generate_html" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+ *     <node name="language" channel="inline" format="meta/language" model="text/html">
+ *         <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
+ *     </node>
+ *     <node name="format" channel="inline" format="meta/format" model="element/part"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".wui.index"/>
+ * </node>
+ *
+ * <!-- Serialise a webpage into html within the knowledge tree and afterwards save it as file. -->
+ * <node name="serialise_webpage" channel="inline" format="represent/serialise" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".var.webpage"/>
+ *     <node name="source" channel="inline" format="text/cybol-path" model=".wui.index"/>
+ *     <node name="format" channel="inline" format="meta/format" model="element/part"/>
+ *     <node name="language" channel="inline" format="meta/language" model="text/html"/>
+ * </node>
+ * <node name="write_serialised_webpage_into_file" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+ *     <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+ *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".var.webpage"/>
+ * </node>
+ *
+ * <!-- Assemble http response with webpage plus metadata and store it as file. -->
+ * <node name="test_http_response" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
+ *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".var.webpage">
+ *         <node name="Server" channel="inline" format="text/plain" model="CYBOI/0.22.0 (Linux) CYBOL/2.0.0"/>
+ *         <node name="Connection" channel="inline" format="text/plain" model="close"/>
+ *         <node name="Content-Type" channel="inline" format="text/plain" model="text/html"/>
+ *     </node>
+ * </node>
+ *
+ * <!-- Send ascii text "Hello World!" as binary data via socket. -->
+ * <node name="send_hello" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+ *     <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+ *     <node name="port" channel="inline" format="number/integer" model="1971"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
+ *     <node name="message" channel="inline" format="text/ascii" model="Hello World!"/>
+ * </node>
+ *
+ * <!-- Send text data as http response via socket. -->
  * <node name="send_file" channel="inline" format="communicate/send" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="socket"/>
  *     <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -327,21 +379,15 @@ static int* RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *     <node name="message" channel="inline" format="text/cybol-path" model=".var.file"/>
  * </node>
  *
- * <node name="print_query" channel="inline" format="communicate/send" model="">
- *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
- *     <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
- *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+ * <!-- Send empty text http-response to indicate end of communication. -->
+ * <node name="send_empty_message" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+ *     <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+ *     <node name="port" channel="inline" format="number/integer" model="1971"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
  *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
- *     <node name="message" channel="inline" format="text/cybol-path" model=".var.request:uri:query.action"/>
- * </node>
- *
- * <node name="TEST_WUI" channel="inline" format="communicate/send" model="">
- *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
- *     <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
- *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
- *     <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
- *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
- *     <node name="message" channel="inline" format="text/cybol-path" model=".var.webpage"/>
+ *     <node name="message" channel="inline" format="text/plain" model=""/>
  * </node>
  *
  * <!-- Send html encapsulated as http-response. -->
@@ -385,68 +431,12 @@ static int* RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *     </node>
  * </node>
  *
- * <node name="test_http_response" channel="inline" format="communicate/send" model="">
- *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
- *     <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
- *     <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
- *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
- *     <node name="message" channel="inline" format="text/cybol-path" model=".var.webpage">
- *         <node name="Server" channel="inline" format="text/plain" model="CYBOI/0.22.0 (Linux) CYBOL/2.0.0"/>
- *         <node name="Connection" channel="inline" format="text/plain" model="close"/>
- *         <node name="Content-Type" channel="inline" format="text/plain" model="text/html"/>
- *     </node>
- * </node>
- *
- * <!-- Send empty text encapsulated as http-response. -->
- * <node name="send_empty_message" channel="inline" format="communicate/send" model="">
- *     <node name="channel" channel="inline" format="meta/channel" model="socket"/>
- *     <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
- *     <node name="port" channel="inline" format="number/integer" model="1971"/>
- *     <node name="receiver" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
- *     <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
- *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
- *     <node name="message" channel="inline" format="text/plain" model=""/>
- * </node>
- *
- * <node name="print_request" channel="inline" format="communicate/send" model="">
- *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
- *     <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
- *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
- *     <node name="format" channel="inline" format="meta/format" model="text/ascii"/>
- *     <node name="message" channel="inline" format="text/cybol-path" model=".request"/>
- * </node>
- *
- * <node name="send_hello" channel="inline" format="communicate/send" model="">
- *     <node name="channel" channel="inline" format="meta/channel" model="socket"/>
- *     <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
- *     <node name="port" channel="inline" format="number/integer" model="1971"/>
- *     <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
- *     <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
- *     <node name="message" channel="inline" format="text/ascii" model="Hello World!"/>
- * </node>
- *
- * <node name="send_data" channel="inline" format="communicate/send" model="">
- *     <node name="channel" channel="inline" format="meta/channel" model="socket"/>
- *     <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
- *     <node name="port" channel="inline" format="number/integer" model="1971"/>
- *     <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
- *     <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
- *     <node name="message" channel="inline" format="text/cybol-path" model=".data"/>
- * </node>
- *
+ * <!-- Send request on client side to server via socket. -->
  * <node name="send_request" channel="inline" format="communicate/send" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="socket"/>
  *     <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
  *     <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
  *     <node name="message" channel="inline" format="text/ascii" model="say-hello"/>
- * </node>
- *
- * <node name="print_response" channel="inline" format="communicate/send" model="">
- *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
- *     <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
- *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
- *     <node name="format" channel="inline" format="meta/format" model="text/ascii"/>
- *     <node name="message" channel="inline" format="text/cybol-path" model=".response"/>
  * </node>
  *
  * Properties:

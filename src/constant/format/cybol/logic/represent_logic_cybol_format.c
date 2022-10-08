@@ -45,35 +45,19 @@
  *
  * Deserialises the source into the destination, according to the given format.
  *
- * CAUTION! The deserialised data are APPENDED to the destination.
- * Already existing content is NOT overwritten.
- * Therefore, the destination possibly has to get EMPTIED before since otherwise,
- * the new data will get appended to the already existing old data.
+ * Caution! The deserialised data are appended to the destination. Already existing content is not overwritten.
+ * Therefore, the destination possibly has to get emptied before since otherwise, the new data will get appended to the already existing old data.
  *
- * ?? TODO: splitting a source string into parts which are stored as child nodes of the destination part
- *
- * Description:
- *
-Deserialises the source- into the destination part.
+ * This operation may be used to split a source string into parts which are stored as child nodes of the destination part.
  *
  * Examples:
  *
  * <node name="deserialise_operand" channel="inline" format="represent/deserialise" model="">
  *     <node name="destination" channel="inline" format="text/cybol-path" model=".summand"/>
  *     <node name="source" channel="inline" format="text/cybol-path" model=".text"/>
- *     <node name="format" channel="inline" format="meta/format" model="number/integer"/>
  *     <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+ *     <node name="format" channel="inline" format="meta/format" model="number/integer"/>
  * </node>
- *
- * Properties:
- *
- * - TODO (required | optional) [text/cybol-path]: TODO
-destination	the destination part	true	number/integer
-source	the source part	true	text/plain
-type	the destination part format	true	meta/type
-language	the destination part language (cybol, http_request, xdt etc.)	true	meta/language
- *
- * Examples:
  *
  * <node name="deserialise_number" channel="inline" format="represent/deserialise" model="">
  *     <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
@@ -125,9 +109,9 @@ language	the destination part language (cybol, http_request, xdt etc.)	true	meta
  * Constraints for Property Language:
  *
  * - delimiter (optional) [text/plain]: The separator between the single fields (values). It may consist of many characters, but also be a simple comma, for example. Used with joined strings or character (comma) separated values (csv).
- * - quotation (optional) [text/plain]: The marker sequence used at the beginning and end of string fields (values). It may consist of many characters. Quotation is necessary if the delimiter character is part of the value. If the quotation is to be part of the value, then it has to be escaped by writing it TWICE (doubled). Used with joined strings or character (comma) separated values (csv).
- * - header (optional) [logicvalue/boolean]: The flag indicating whether or not the source data contain a header, so that the deserialiser can treat the first line differently. Used with character (comma) separated values (csv). CAUTION! It should NOT be mixed up with the headermodel property in represent/serialise.
- * - normalisation (optional) [logicvalue/boolean]: The flag indicating whether or not whitespaces and line breaks are merged into just ONE space. Used with xml or html, for example. If NULL, then the default is TRUE (normalisation enabled).
+ * - quotation (optional) [text/plain]: The marker sequence used at the beginning and end of string fields (values). It may consist of many characters. Quotation is necessary if the delimiter character is part of the value. If the quotation is to be part of the value, then it has to be escaped by writing it twice (doubled). Used with joined strings or character (comma) separated values (csv).
+ * - header (optional) [logicvalue/boolean]: The flag indicating whether or not the source data contain a header, so that the deserialiser can treat the first line differently. Used with character (comma) separated values (csv). Caution! It should not be mixed up with the headermodel property in represent/serialise.
+ * - normalisation (optional) [logicvalue/boolean]: The flag indicating whether or not whitespaces and line breaks are merged into just one space. Used with xml or html, for example. If null, then the default is true (normalisation enabled).
  * - maximum (optional) [number/integer]: The maximum number of bytes to be transmitted. Used with serial (port) interface.
  * - minimum (optional) [number/integer]: The minimum number of bytes to be transmitted. Used with serial (port) interface.
  * - medium (optional) [text/cybol-path]: The window to which the mouse button or keyboard key refers. It is needed to search through the hierarchy of gui elements via mouse coordinates, for a suitable action. Used with graphical user interface (gui).
@@ -142,33 +126,10 @@ static int* DESERIALISE_REPRESENT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  *
  * Serialises the source into the destination, according to the given format.
  *
- * CAUTION! The serialised data are APPENDED to the destination.
- * Already existing content is NOT overwritten.
- * Therefore, the destination possibly has to get EMPTIED before since otherwise,
- * the new data will get appended to the already existing old data.
+ * Caution! The serialised data are appended to the destination. Already existing content is not overwritten.
+ * Therefore, the destination possibly has to get emptied before since otherwise, the new data will get appended to the already existing old data.
  *
- * ?? TODO: concatenating the strings given as child nodes of the source part into the destination part and provide an optional cybol property "separator" to be used as such between the concatenated strings
- *
- * Description:
- *
-Serialises the source- into the destination part.
- *
- * Examples:
- *
- * <node name="serialise_operand" channel="inline" format="represent/serialise" model="">
- *     <node name="destination" channel="inline" format="text/cybol-path" model=".summand"/>
- *     <node name="source" channel="inline" format="text/cybol-path" model=".text"/>
- *     <node name="format" channel="inline" format="meta/format" model="number/integer"/>
- *     <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
- * </node>
- *
- * Properties:
- *
- * - TODO (required | optional) [text/cybol-path]: TODO
-destination	the destination part	true	number/integer
-source	the source part	true	text/plain
-type	the destination part format	true	meta/type
-language	the destination part language (cybol, http_request, xdt etc.)	true	meta/language
+ * This operation may be used to concatenate the strings given as child nodes of the source part into the destination part and provide an optional cybol property "separator" to be used as such between the concatenated strings.
  *
  * Examples:
  *
@@ -188,14 +149,14 @@ language	the destination part language (cybol, http_request, xdt etc.)	true	meta
  *
  * <node name="serialise_webpage" channel="inline" format="represent/serialise" model="">
  *     <node name="destination" channel="inline" format="text/cybol-path" model=".webpage"/>
- *     <node name="source" channel="inline" format="text/cybol-path" model=".wui"/>
+ *     <node name="source" channel="inline" format="text/cybol-path" model=".wui.index"/>
  *     <node name="language" channel="inline" format="meta/language" model="text/html">
  *         <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
  *     </node>
  *     <node name="format" channel="inline" format="meta/format" model="element/part"/>
  * </node>
  *
- * <node name="deserialise_comma_separated_data" channel="inline" format="represent/serialise" model="">
+ * <node name="serialise_comma_separated_data" channel="inline" format="represent/serialise" model="">
  *     <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
  *     <node name="source" channel="inline" format="text/cybol-path" model=".string_node_list"/>
  *     <node name="language" channel="inline" format="meta/language" model="text/joined-string">
@@ -217,11 +178,11 @@ language	the destination part language (cybol, http_request, xdt etc.)	true	meta
  * - clear (optional) [logicvalue/boolean]: The flag indicating whether or not the terminal screen is cleared before printing characters on it. Used with text (pseudo) terminal.
  * - indentation (optional) [logicvalue/boolean]: The flag indicating whether or not the serialised data get beautified (pretty-formatted) by indenting the single lines depending on the hierarchy level. Used with xml or html, for example.
  * - delimiter (optional) [text/plain]: The separator between the single fields (values). It may consist of many characters, but also be a simple comma, for example. Used with joined strings or character (comma) separated values (csv).
- * - quotation (optional) [text/plain]: The marker sequence used at the beginning and end of string fields (values). It may consist of many characters. Quotation is necessary if the delimiter character is part of the value. If the quotation is to be part of the value, then it has to be escaped by writing it TWICE (doubled). Used with joined strings or character (comma) separated values (csv).
- * - normalisation (optional) [logicvalue/boolean]: The flag indicating whether or not whitespaces and line breaks are merged into just ONE space. Used with xml or html, for example. If NULL, then the default is TRUE (normalisation enabled).
+ * - quotation (optional) [text/plain]: The marker sequence used at the beginning and end of string fields (values). It may consist of many characters. Quotation is necessary if the delimiter character is part of the value. If the quotation is to be part of the value, then it has to be escaped by writing it twice (doubled). Used with joined strings or character (comma) separated values (csv).
+ * - normalisation (optional) [logicvalue/boolean]: The flag indicating whether or not whitespaces and line breaks are merged into just one space. Used with xml or html, for example. If null, then the default is true (normalisation enabled).
  * - width (optional) [number/integer]: The number of characters (or digits) belonging to a value. Free places get filled up with the character given in the fill property. This was defined in the original specification of character (comma) separated values (csv), in order to have fields (values) with equal width. Used with joined strings or csv.
  * - fill (optional) [text/plain]: The characters (or digit) to be used to fill free places in a value whose width is greater.
- * - headermodel (optional) [text/cybol-path]: The header data to be written as first line, yet before the actual content. Used with character (comma) separated values (csv). CAUTION! It should NOT be mixed up with the header property flag in represent/deserialise.
+ * - headermodel (optional) [text/cybol-path]: The header data to be written as first line, yet before the actual content. Used with character (comma) separated values (csv). Caution! It should not be mixed up with the header property flag in represent/deserialise.
  */
 static wchar_t* SERIALISE_REPRESENT_LOGIC_CYBOL_FORMAT = L"represent/serialise";
 static int* SERIALISE_REPRESENT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;

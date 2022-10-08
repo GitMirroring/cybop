@@ -2,20 +2,47 @@
 Make Targets
 ============
 
-- "make clean" deleting old compilation files
-- "make cyboi" compiling the cyboi interpreter
-- "make test" calling cybol applications in directory "examples"
-- NO code formatting (ClangFormat, CppCheck) since it destroys the manual formatting
-- "make version" adapting copyright year, version, release date
-    take current date and version from constant "VERSION_IDENTIFICATION_CYBOI_MODEL" in file "identification_cyboi_model.c"
-    see OLD script "dist/adjust_version.sh"
-- "make doc" using doxygen to create cyboi function documentation
-- "make api" using cybol api-generator
-- "make tag" using svn
-    see section "5.1 Tagging" in file "INSTALL"
-- "make dist" creating tar.gz tarball file (and GPG binary signature) using "cpack" and packages deb as well as rpm and msi for Windows using NSIS tool
-    see sections "5.2 Packing" and "5.3 Debianising" in file "INSTALL"
-- "make upload" copying packages to savannah
-- "make announce" sending a release info email to "cybop-developers@nongnu.org"
-- "make" calling the above altogether in a sequence
+make dev
+________
+
+- make cyboi: compile the cyboi interpreter
+- make test: call cybol applications in examples directory
+- make formatting: verify style WITHOUT code changes
+- make analysis: check source code statically
+
+make release 0.24.0
+___________________
+
+Adapt:
+- version: in constant "VERSION_IDENTIFICATION_CYBOI_MODEL" of file "identification_cyboi_model.c"
+- copyright year: in all file headers, taken from current date
+- version: in all file headers, taken as argument from "make release"
+- release date: in all file headers, taken from current date
+
+Call:
+- make clean: deleting old compilation files
+- make dev
+- make doc: using doxygen to create cyboi function documentation
+- make api: executing cybol api-generator
+
+CAUTION! Do NOT call code formatting tools like ClangFormat or CppCheck,
+since they destroy the manual formatting.
+
+versioning
+__________
+
+Execute MANUALLY:
+- review source code for correctness
+- commit to subversion
+- tag release in subversion: see section "5.1 Tagging" in file "INSTALL"
+
+make publish
+____________
+
+- make dist: creating tar.gz tarball file (and GPG binary signature) using "cpack"
+  and packages deb as well as rpm and msi for Windows using NSIS tool
+  see sections "5.2 Packing" and "5.3 Debianising" in file "INSTALL"
+- make upload: copying packages to savannah
+  see section "5.2 Packing" in file "INSTALL"
+- make announce: sending a release info email to "cybop-developers@nongnu.org"
 

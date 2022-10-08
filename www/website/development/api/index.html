@@ -232,7 +232,7 @@ To cover these cases, the model and properties are received together, in just on
     &#x3C;node name=&#x22;asynchronicity&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
 &#x3C;/node&#x3E;
 
-&#x3C;!-- Read a gui window event on display. --&#x3E;
+&#x3C;!-- Receive a gui window event on display. --&#x3E;
 &#x3C;node name=&#x22;receive_event&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/receive&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;display&#x22;/&#x3E;
     &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
@@ -246,7 +246,7 @@ To cover these cases, the model and properties are received together, in just on
     &#x3C;node name=&#x22;asynchronicity&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
 &#x3C;/node&#x3E;
 
-&#x3C;!-- Read a binary file whose path has been given for example via internet url. --&#x3E;
+&#x3C;!-- Receive a binary file whose path has been given for example via internet url. --&#x3E;
 &#x3C;node name=&#x22;open_file&#x22; channel=&#x22;inline&#x22; format=&#x22;dispatch/open&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
     &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
@@ -294,25 +294,55 @@ To cover these cases, the model and properties are received together, in just on
     &#x3C;node name=&#x22;sender&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.server_socket&#x22;/&#x3E;
     &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/binary-crlf&#x22;/&#x3E;
     &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.response&#x22;/&#x3E;
-&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>channel</td><td>true</td><td>text/cybol-path | meta/channel</td><td>The communication channel.</td></tr><tr><td>server</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating server mode. It means server-side client stub and not standalone client. If null, the default is false (client mode).</td></tr><tr><td>port</td><td>false</td><td>text/cybol-path | number/integer</td><td>The service identification. It is relevant only in server mode.</td></tr><tr><td>sender</td><td>true</td><td>text/cybol-path</td><td>The device identification, for example a file descriptor. Handing it over as hard-coded integer value does not make sense, since the operating system or server assigns it. Therefore, state a cybol-path.</td></tr><tr><td>encoding</td><td>false</td><td>text/cybol-path | meta/encoding</td><td>The encoding, for example utf-8 or utf-32 or ascii.</td></tr><tr><td>language</td><td>false</td><td>text/cybol-path | meta/language</td><td>The language used for deserialisation. It is also defining which prefix or suffix indicates the message length, for example binary-crlf, http-request, xdt.</td></tr><tr><td>format</td><td>false</td><td>text/cybol-path | meta/format</td><td>The format (type) of the message data.</td></tr><tr><td>message</td><td>true</td><td>text/cybol-path</td><td>The knowledge tree node storing the received data.</td></tr><tr><td>asynchronicity</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating asynchronous reading from buffer in which data got stored by a sensing thread before. If null, the default is false (synchronous read).</td></tr></table></section><section><h3>Constraints (language_constraints)</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>delimiter</td><td>false</td><td>text/plain</td><td>The separator between the single fields (values). It may consist of many characters, but also be a simple comma, for example. Used with joined strings or character (comma) separated values (csv).</td></tr><tr><td>quotation</td><td>false</td><td>text/plain</td><td>The marker sequence used at the beginning and end of string fields (values). It may consist of many characters. Quotation is necessary if the delimiter character is part of the value. If the quotation is to be part of the value, then it has to be escaped by writing it twice (doubled). Used with joined strings or character (comma) separated values (csv).</td></tr><tr><td>header</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not the source data contain a header, so that the deserialiser can treat the first line differently. Used with character (comma) separated values (csv). Caution! It should not be mixed up with the headermodel property in represent/serialise or communicate/send.</td></tr><tr><td>normalisation</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not whitespaces and line breaks are merged into just one space. Used with xml or html, for example. If null, then the default is true (normalisation enabled).</td></tr><tr><td>maximum</td><td>false</td><td>number/integer</td><td>The maximum number of bytes to be transmitted. Used with serial (port) interface.</td></tr><tr><td>minimum</td><td>false</td><td>number/integer</td><td>The minimum number of bytes to be transmitted. Used with serial (port) interface.</td></tr><tr><td>medium</td><td>false</td><td>text/cybol-path</td><td>The window to which the mouse button or keyboard key refers. It is needed to search through the hierarchy of gui elements via mouse coordinates, for a suitable action. Used with graphical user interface (gui).</td></tr></table></section></section><section><a name="communicate-send"><h2>communicate/send</h2></a><section><h3>Description</h3><p class="description">Sends a message via the communication channel.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;print_adc_value&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
-    &#x3C;node name=&#x22;encoding&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/encoding&#x22; model=&#x22;utf-8&#x22;/&#x3E;
-    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/cli&#x22;/&#x3E;
-    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;number/fraction-decimal&#x22;/&#x3E;
-    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.settings.adc&#x22;/&#x3E;
-    &#x3C;node name=&#x22;newline&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
-&#x3C;/node&#x3E;
-
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>channel</td><td>true</td><td>text/cybol-path | meta/channel</td><td>The communication channel.</td></tr><tr><td>server</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating server mode. It means server-side client stub and not standalone client. If null, the default is false (client mode).</td></tr><tr><td>port</td><td>false</td><td>text/cybol-path | number/integer</td><td>The service identification. It is relevant only in server mode.</td></tr><tr><td>sender</td><td>true</td><td>text/cybol-path</td><td>The device identification, for example a file descriptor. Handing it over as hard-coded integer value does not make sense, since the operating system or server assigns it. Therefore, state a cybol-path.</td></tr><tr><td>encoding</td><td>false</td><td>text/cybol-path | meta/encoding</td><td>The encoding, for example utf-8 or utf-32 or ascii.</td></tr><tr><td>language</td><td>false</td><td>text/cybol-path | meta/language</td><td>The language used for deserialisation. It is also defining which prefix or suffix indicates the message length, for example binary-crlf, http-request, xdt.</td></tr><tr><td>format</td><td>false</td><td>text/cybol-path | meta/format</td><td>The format (type) of the message data.</td></tr><tr><td>message</td><td>true</td><td>text/cybol-path</td><td>The knowledge tree node storing the received data.</td></tr><tr><td>asynchronicity</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating asynchronous reading from buffer in which data got stored by a sensing thread before. If null, the default is false (synchronous read).</td></tr></table></section><section><h3>Constraints (language_constraints)</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>delimiter</td><td>false</td><td>text/plain</td><td>The separator between the single fields (values). It may consist of many characters, but also be a simple comma, for example. Used with joined strings or character (comma) separated values (csv).</td></tr><tr><td>quotation</td><td>false</td><td>text/plain</td><td>The marker sequence used at the beginning and end of string fields (values). It may consist of many characters. Quotation is necessary if the delimiter character is part of the value. If the quotation is to be part of the value, then it has to be escaped by writing it twice (doubled). Used with joined strings or character (comma) separated values (csv).</td></tr><tr><td>header</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not the source data contain a header, so that the deserialiser can treat the first line differently. Used with character (comma) separated values (csv). Caution! It should not be mixed up with the headermodel property in represent/serialise or communicate/send.</td></tr><tr><td>normalisation</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not whitespaces and line breaks are merged into just one space. Used with xml or html, for example. If null, then the default is true (normalisation enabled).</td></tr><tr><td>maximum</td><td>false</td><td>number/integer</td><td>The maximum number of bytes to be transmitted. Used with serial (port) interface.</td></tr><tr><td>minimum</td><td>false</td><td>number/integer</td><td>The minimum number of bytes to be transmitted. Used with serial (port) interface.</td></tr><tr><td>medium</td><td>false</td><td>text/cybol-path</td><td>The window to which the mouse button or keyboard key refers. It is needed to search through the hierarchy of gui elements via mouse coordinates, for a suitable action. Used with graphical user interface (gui).</td></tr></table></section></section><section><a name="communicate-send"><h2>communicate/send</h2></a><section><h3>Description</h3><p class="description">Sends a message via the communication channel.</p></section><section><h3>Examples</h3><p class="example">&#x3C;!-- Place a signal (event) into the cyboi system signal memory (event queue). --&#x3E;
 &#x3C;node name=&#x22;send_exit_signal&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;signal&#x22;/&#x3E;
     &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;live/exit&#x22; model=&#x22;&#x22;/&#x3E;
 &#x3C;/node&#x3E;
 
-&#x3C;node name=&#x22;startup&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+&#x3C;!-- Send a signal that was read from a cybol file before. --&#x3E;
+&#x3C;node name=&#x22;send_signal_taken_from_file&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;signal&#x22;/&#x3E;
     &#x3C;node name=&#x22;message&#x22; channel=&#x22;file&#x22; format=&#x22;element/part&#x22; model=&#x22;exit/file/exit.cybol&#x22;/&#x3E;
 &#x3C;/node&#x3E;
 
+&#x3C;!-- Send plain text to terminal. --&#x3E;
+&#x3C;node name=&#x22;say_hello&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.stdout&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/cli&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/plain&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;Hello World!&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;!-- Print an http request&#x27;s uri query action on terminal. --&#x3E;
+&#x3C;node name=&#x22;print_query&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.stdout&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/cli&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/plain&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.request:uri:query.action&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;!-- Print http request as pure ascii data on terminal. --&#x3E;
+&#x3C;node name=&#x22;print_request&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.stdout&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/cli&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/ascii&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.request&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;!-- Send boolean value (flag) to terminal. --&#x3E;
+&#x3C;node name=&#x22;log_flag&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.stdout&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/cli&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;logicvalue/boolean&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result_flag&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;!-- Send integer number to terminal. --&#x3E;
 &#x3C;node name=&#x22;print_number&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
     &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.stdout&#x22;/&#x3E;
@@ -321,22 +351,17 @@ To cover these cases, the model and properties are received together, in just on
     &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.index&#x22;/&#x3E;
 &#x3C;/node&#x3E;
 
-&#x3C;node name=&#x22;TEST&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+&#x3C;!-- Send decimal fraction number to terminal. --&#x3E;
+&#x3C;node name=&#x22;print_adc_value&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
-    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.stdout&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.stdout&#x22;/&#x3E;
     &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/cli&#x22;/&#x3E;
-    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/plain&#x22;/&#x3E;
-    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;TEST handle #command&#x22;/&#x3E;
-&#x3C;/node&#x3E;
-&#x3C;node name=&#x22;TEST&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
-    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.stdout&#x22;/&#x3E;
-    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/cli&#x22;/&#x3E;
-    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/plain&#x22;/&#x3E;
-    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.path&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;number/fraction-decimal&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.settings.adc&#x22;/&#x3E;
 &#x3C;/node&#x3E;
 
-&#x3C;node name=&#x22;send&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+&#x3C;!-- Send main menu as text user interface (tui) to terminal. --&#x3E;
+&#x3C;node name=&#x22;send_menu&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
     &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.stdout&#x22;/&#x3E;
     &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/tui&#x22;/&#x3E;
@@ -344,25 +369,25 @@ To cover these cases, the model and properties are received together, in just on
     &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.tui.main&#x22;/&#x3E;
 &#x3C;/node&#x3E;
 
-&#x3C;node name=&#x22;generate_html&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
-    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
-    &#x3C;node name=&#x22;encoding&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/encoding&#x22; model=&#x22;utf-8&#x22;/&#x3E;
-    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/html&#x22;&#x3E;
-        &#x3C;node name=&#x22;indentation&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
-    &#x3C;/node&#x3E;
+&#x3C;!-- Draw graphical user interface (gui) window on display. --&#x3E;
+&#x3C;node name=&#x22;refresh_display&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;display&#x22;/&#x3E;
+    &#x3C;!-- This flag is IMPORTANT for finding the correct client entry in the server list. --&#x3E;
+    &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.gui.window_id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/gui-response&#x22;/&#x3E;
     &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;element/part&#x22;/&#x3E;
-    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.wui.index&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.gui.window&#x22;/&#x3E;
 &#x3C;/node&#x3E;
 
-&#x3C;!-- Write knowledge tree into file. --&#x3E;
+&#x3C;!-- Write runtime knowledge tree into file, which is useful for testing. --&#x3E;
 &#x3C;node name=&#x22;open_file&#x22; channel=&#x22;inline&#x22; format=&#x22;dispatch/open&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
     &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
     &#x3C;node name=&#x22;device&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;counter/simple/test_counter_simple.txt&#x22;/&#x3E;
     &#x3C;node name=&#x22;mode&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;write&#x22;/&#x3E;
 &#x3C;/node&#x3E;
-&#x3C;node name=&#x22;send_knowledge&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+&#x3C;node name=&#x22;send_knowledge_tree_root&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
     &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
     &#x3C;node name=&#x22;encoding&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/encoding&#x22; model=&#x22;utf-8&#x22;/&#x3E;
@@ -375,39 +400,66 @@ To cover these cases, the model and properties are received together, in just on
     &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
 &#x3C;/node&#x3E;
 
-&#x3C;!-- Processing --&#x3E;
-&#x3C;node name=&#x22;log&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
-    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.stdout&#x22;/&#x3E;
-    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/cli&#x22;/&#x3E;
-    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/plain&#x22;/&#x3E;
-    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;Check two texts for EQUALITY:&#x22;/&#x3E;
-&#x3C;/node&#x3E;
-&#x3C;node name=&#x22;log_1&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
-    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.stdout&#x22;/&#x3E;
-    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/cli&#x22;/&#x3E;
-    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;logicvalue/boolean&#x22;/&#x3E;
-    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result_1&#x22;/&#x3E;
-&#x3C;/node&#x3E;
-
-&#x3C;node name=&#x22;refresh_display&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;display&#x22;/&#x3E;
-    &#x3C;!-- This flag is IMPORTANT for finding the correct client entry in the server list. --&#x3E;
-    &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
-    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.gui.window_id&#x22;/&#x3E;
-    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/gui-response&#x22;/&#x3E;
-    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;element/part&#x22;/&#x3E;
-    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.gui.window&#x22;/&#x3E;
-&#x3C;/node&#x3E;
-
-&#x3C;node name=&#x22;TEST_file&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+&#x3C;!-- Write binary data into a file. --&#x3E;
+&#x3C;node name=&#x22;test_file_content&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
     &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
     &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/binary&#x22;/&#x3E;
     &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.file&#x22;/&#x3E;
 &#x3C;/node&#x3E;
 
+&#x3C;!-- Serialise web user interface (wui) and store it as html file. --&#x3E;
+&#x3C;node name=&#x22;generate_html&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;encoding&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/encoding&#x22; model=&#x22;utf-8&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/html&#x22;&#x3E;
+        &#x3C;node name=&#x22;indentation&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+    &#x3C;/node&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;element/part&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.wui.index&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;!-- Serialise a webpage into html within the knowledge tree and afterwards save it as file. --&#x3E;
+&#x3C;node name=&#x22;serialise_webpage&#x22; channel=&#x22;inline&#x22; format=&#x22;represent/serialise&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.webpage&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.wui.index&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;element/part&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/html&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+&#x3C;node name=&#x22;write_serialised_webpage_into_file&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;encoding&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/encoding&#x22; model=&#x22;utf-8&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/cybol&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/plain&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.webpage&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;!-- Assemble http response with webpage plus metadata and store it as file. --&#x3E;
+&#x3C;node name=&#x22;test_http_response&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/http-response&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/plain&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.webpage&#x22;&#x3E;
+        &#x3C;node name=&#x22;Server&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;CYBOI/0.22.0 (Linux) CYBOL/2.0.0&#x22;/&#x3E;
+        &#x3C;node name=&#x22;Connection&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;close&#x22;/&#x3E;
+        &#x3C;node name=&#x22;Content-Type&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;text/html&#x22;/&#x3E;
+    &#x3C;/node&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;!-- Send ascii text &#x22;Hello World!&#x22; as binary data via socket. --&#x3E;
+&#x3C;node name=&#x22;send_hello&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+    &#x3C;node name=&#x22;port&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1971&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.client_socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/binary-crlf&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/ascii&#x22; model=&#x22;Hello World!&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;!-- Send text data as http response via socket. --&#x3E;
 &#x3C;node name=&#x22;send_file&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;socket&#x22;/&#x3E;
     &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
@@ -418,21 +470,15 @@ To cover these cases, the model and properties are received together, in just on
     &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.file&#x22;/&#x3E;
 &#x3C;/node&#x3E;
 
-&#x3C;node name=&#x22;print_query&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
-    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.stdout&#x22;/&#x3E;
-    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/cli&#x22;/&#x3E;
+&#x3C;!-- Send empty text http-response to indicate end of communication. --&#x3E;
+&#x3C;node name=&#x22;send_empty_message&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+    &#x3C;node name=&#x22;port&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1971&#x22;/&#x3E;
+    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.client_socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/http-response&#x22;/&#x3E;
     &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/plain&#x22;/&#x3E;
-    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.request:uri:query.action&#x22;/&#x3E;
-&#x3C;/node&#x3E;
-
-&#x3C;node name=&#x22;TEST_WUI&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
-    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
-    &#x3C;node name=&#x22;encoding&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/encoding&#x22; model=&#x22;utf-8&#x22;/&#x3E;
-    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/cybol&#x22;/&#x3E;
-    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/plain&#x22;/&#x3E;
-    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.webpage&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;&#x22;/&#x3E;
 &#x3C;/node&#x3E;
 
 &#x3C;!-- Send html encapsulated as http-response. --&#x3E;
@@ -476,68 +522,12 @@ To cover these cases, the model and properties are received together, in just on
     &#x3C;/node&#x3E;
 &#x3C;/node&#x3E;
 
-&#x3C;node name=&#x22;test_http_response&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
-    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
-    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/http-response&#x22;/&#x3E;
-    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/plain&#x22;/&#x3E;
-    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.webpage&#x22;&#x3E;
-        &#x3C;node name=&#x22;Server&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;CYBOI/0.22.0 (Linux) CYBOL/2.0.0&#x22;/&#x3E;
-        &#x3C;node name=&#x22;Connection&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;close&#x22;/&#x3E;
-        &#x3C;node name=&#x22;Content-Type&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;text/html&#x22;/&#x3E;
-    &#x3C;/node&#x3E;
-&#x3C;/node&#x3E;
-
-&#x3C;!-- Send empty text encapsulated as http-response. --&#x3E;
-&#x3C;node name=&#x22;send_empty_message&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;socket&#x22;/&#x3E;
-    &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
-    &#x3C;node name=&#x22;port&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1971&#x22;/&#x3E;
-    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.client_socket&#x22;/&#x3E;
-    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/http-response&#x22;/&#x3E;
-    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/plain&#x22;/&#x3E;
-    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;&#x22;/&#x3E;
-&#x3C;/node&#x3E;
-
-&#x3C;node name=&#x22;print_request&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
-    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.stdout&#x22;/&#x3E;
-    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/cli&#x22;/&#x3E;
-    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/ascii&#x22;/&#x3E;
-    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.request&#x22;/&#x3E;
-&#x3C;/node&#x3E;
-
-&#x3C;node name=&#x22;send_hello&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;socket&#x22;/&#x3E;
-    &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
-    &#x3C;node name=&#x22;port&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1971&#x22;/&#x3E;
-    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.client_socket&#x22;/&#x3E;
-    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/binary-crlf&#x22;/&#x3E;
-    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/ascii&#x22; model=&#x22;Hello World!&#x22;/&#x3E;
-&#x3C;/node&#x3E;
-
-&#x3C;node name=&#x22;send_data&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;socket&#x22;/&#x3E;
-    &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
-    &#x3C;node name=&#x22;port&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1971&#x22;/&#x3E;
-    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.client_socket&#x22;/&#x3E;
-    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/binary-crlf&#x22;/&#x3E;
-    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.data&#x22;/&#x3E;
-&#x3C;/node&#x3E;
-
+&#x3C;!-- Send request on client side to server via socket. --&#x3E;
 &#x3C;node name=&#x22;send_request&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;socket&#x22;/&#x3E;
     &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.server_socket&#x22;/&#x3E;
     &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/binary-crlf&#x22;/&#x3E;
     &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/ascii&#x22; model=&#x22;say-hello&#x22;/&#x3E;
-&#x3C;/node&#x3E;
-
-&#x3C;node name=&#x22;print_response&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
-    &#x3C;node name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.stdout&#x22;/&#x3E;
-    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/cli&#x22;/&#x3E;
-    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/ascii&#x22;/&#x3E;
-    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.response&#x22;/&#x3E;
 &#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>channel</td><td>true</td><td>text/cybol-path | meta/channel</td><td>The communication channel.</td></tr><tr><td>server</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating server mode. It means server-side client stub and not standalone client. If null, the default is false (client mode).</td></tr><tr><td>port</td><td>false</td><td>text/cybol-path | number/integer</td><td>The service identification. It is relevant only in server mode.</td></tr><tr><td>receiver</td><td>true</td><td>text/cybol-path</td><td>The device identification, for example a file descriptor. Handing it over as hard-coded integer value does not make sense, since the operating system or server assigns it. Therefore, state a cybol-path.</td></tr><tr><td>encoding</td><td>false</td><td>text/cybol-path | meta/encoding</td><td>The encoding, for example utf-8 or utf-32 or ascii.</td></tr><tr><td>language</td><td>false</td><td>text/cybol-path | meta/language</td><td>The language used for serialisation, for example model-diagram, html, binary-crlf, http-response, xdt.</td></tr><tr><td>format</td><td>false</td><td>text/cybol-path | meta/format</td><td>The format (type) of the message data.</td></tr><tr><td>message</td><td>true</td><td>text/cybol-path | text/ascii | any</td><td>The data to be sent.</td></tr><tr><td>asynchronicity</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating asynchronous writing within a thread. If null, the default is false (synchronous write).</td></tr><tr><td>handler</td><td>false</td><td>text/cybol-path</td><td>The callback cybol operation being executed when the thread finished writing data.</td></tr></table></section><section><h3>Constraints (language_constraints)</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>newline</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not a line break is added at the end of the printed characters. Used with text (pseudo) terminal.</td></tr><tr><td>clear</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not the terminal screen is cleared before printing characters on it. Used with text (pseudo) terminal.</td></tr><tr><td>indentation</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not the serialised data get beautified (pretty-formatted) by indenting the single lines depending on the hierarchy level. Used with xml or html, for example.</td></tr><tr><td>delimiter</td><td>false</td><td>text/plain</td><td>The separator between the single fields (values). It may consist of many characters, but also be a simple comma, for example. Used with joined strings or character (comma) separated values (csv).</td></tr><tr><td>quotation</td><td>false</td><td>text/plain</td><td>The marker sequence used at the beginning and end of string fields (values). It may consist of many characters. Quotation is necessary if the delimiter character is part of the value. If the quotation is to be part of the value, then it has to be escaped by writing it twice (doubled). Used with joined strings or character (comma) separated values (csv).</td></tr><tr><td>normalisation</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not whitespaces and line breaks are merged into just one space. Used with xml or html, for example. If null, then the default is true (normalisation enabled).</td></tr><tr><td>width</td><td>false</td><td>number/integer</td><td>The number of characters (or digits) belonging to a value. Free places get filled up with the character given in the fill property. This was defined in the original specification of character (comma) separated values (csv), in order to have fields (values) with equal width. Used with joined strings or csv.</td></tr><tr><td>fill</td><td>false</td><td>text/plain</td><td>The characters (or digit) to be used to fill free places in a value whose width is greater.</td></tr><tr><td>headermodel</td><td>false</td><td>text/cybol-path</td><td>The header data to be written as first line, yet before the actual content. Used with character (comma) separated values (csv). Caution! It should not be mixed up with the header property flag in represent/deserialise or communicate/receive.</td></tr></table></section></section><section><a name="dispatch-close"><h2>dispatch/close</h2></a><section><h3>Description</h3><p class="description">Closes down a client resource that has been used for connecting to a device or service on the given channel.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;close_file&#x22; channel=&#x22;inline&#x22; format=&#x22;dispatch/close&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
     &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
@@ -997,37 +987,90 @@ https://www.unicode.org/reports/tr21/tr21-5.html</p></section><section><h3>Examp
     &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.text&#x22;/&#x3E;
 &#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The destination part.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path</td><td>The source part.</td></tr><tr><td>destination_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as destination. If null, the default is false (model).</td></tr><tr><td>source_properties</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to use the model or properties container as source. If null, the default is false (model).</td></tr></table></section></section><section><a name="represent-deserialise"><h2>represent/deserialise</h2></a><section><h3>Description</h3><p class="description">Deserialises the source into the destination, according to the given format.
 
-CAUTION! The deserialised data are APPENDED to the destination.
-Already existing content is NOT overwritten.
-Therefore, the destination possibly has to get EMPTIED before since otherwise,
-the new data will get appended to the already existing old data.
+Caution! The deserialised data are appended to the destination. Already existing content is not overwritten.
+Therefore, the destination possibly has to get emptied before since otherwise, the new data will get appended to the already existing old data.
 
-?? TODO: splitting a source string into parts which are stored as child nodes of the destination part
-
-Description:
-
-Deserialises the source- into the destination part.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;deserialise_operand&#x22; channel=&#x22;inline&#x22; format=&#x22;represent/deserialise&#x22; model=&#x22;&#x22;&#x3E;
+This operation may be used to split a source string into parts which are stored as child nodes of the destination part.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;deserialise_operand&#x22; channel=&#x22;inline&#x22; format=&#x22;represent/deserialise&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.summand&#x22;/&#x3E;
     &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.text&#x22;/&#x3E;
-    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;number/integer&#x22;/&#x3E;
     &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/cybol&#x22;/&#x3E;
-&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The node into which the deserialised data are written. Its format (type) depends on the given source data.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path | text/plain</td><td>The data to be deserialised.</td></tr><tr><td>language</td><td>true</td><td>meta/language</td><td>The language used for deserialisation.</td></tr><tr><td>format</td><td>false</td><td>meta/format</td><td>The format (type) of the source node.</td></tr></table></section><section><h3>Constraints (language_constraints)</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>delimiter</td><td>false</td><td>text/plain</td><td>The separator between the single fields (values). It may consist of many characters, but also be a simple comma, for example. Used with joined strings or character (comma) separated values (csv).</td></tr><tr><td>quotation</td><td>false</td><td>text/plain</td><td>The marker sequence used at the beginning and end of string fields (values). It may consist of many characters. Quotation is necessary if the delimiter character is part of the value. If the quotation is to be part of the value, then it has to be escaped by writing it TWICE (doubled). Used with joined strings or character (comma) separated values (csv).</td></tr><tr><td>header</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not the source data contain a header, so that the deserialiser can treat the first line differently. Used with character (comma) separated values (csv). CAUTION! It should NOT be mixed up with the headermodel property in represent/serialise.</td></tr><tr><td>normalisation</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not whitespaces and line breaks are merged into just ONE space. Used with xml or html, for example. If NULL, then the default is TRUE (normalisation enabled).</td></tr><tr><td>maximum</td><td>false</td><td>number/integer</td><td>The maximum number of bytes to be transmitted. Used with serial (port) interface.</td></tr><tr><td>minimum</td><td>false</td><td>number/integer</td><td>The minimum number of bytes to be transmitted. Used with serial (port) interface.</td></tr><tr><td>medium</td><td>false</td><td>text/cybol-path</td><td>The window to which the mouse button or keyboard key refers. It is needed to search through the hierarchy of gui elements via mouse coordinates, for a suitable action. Used with graphical user interface (gui).</td></tr></table></section></section><section><a name="represent-serialise"><h2>represent/serialise</h2></a><section><h3>Description</h3><p class="description">Serialises the source into the destination, according to the given format.
-
-CAUTION! The serialised data are APPENDED to the destination.
-Already existing content is NOT overwritten.
-Therefore, the destination possibly has to get EMPTIED before since otherwise,
-the new data will get appended to the already existing old data.
-
-?? TODO: concatenating the strings given as child nodes of the source part into the destination part and provide an optional cybol property &#x22;separator&#x22; to be used as such between the concatenated strings
-
-Description:
-
-Serialises the source- into the destination part.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;serialise_operand&#x22; channel=&#x22;inline&#x22; format=&#x22;represent/serialise&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.summand&#x22;/&#x3E;
-    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.text&#x22;/&#x3E;
     &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;number/integer&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;deserialise_number&#x22; channel=&#x22;inline&#x22; format=&#x22;represent/deserialise&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;2.4e-2&#x22;/&#x3E;
     &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/cybol&#x22;/&#x3E;
-&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The node into which the serialised data are written. Its format (type) depends on the given source data.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path | text/plain | number/any</td><td>The data to be serialised.</td></tr><tr><td>language</td><td>true</td><td>meta/language</td><td>The language used for serialisation.</td></tr><tr><td>format</td><td>false</td><td>meta/format</td><td>The format (type) of the source node.</td></tr></table></section><section><h3>Constraints (language_constraints)</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>newline</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not a line break is added at the end of the printed characters. Used with text (pseudo) terminal.</td></tr><tr><td>clear</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not the terminal screen is cleared before printing characters on it. Used with text (pseudo) terminal.</td></tr><tr><td>indentation</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not the serialised data get beautified (pretty-formatted) by indenting the single lines depending on the hierarchy level. Used with xml or html, for example.</td></tr><tr><td>delimiter</td><td>false</td><td>text/plain</td><td>The separator between the single fields (values). It may consist of many characters, but also be a simple comma, for example. Used with joined strings or character (comma) separated values (csv).</td></tr><tr><td>quotation</td><td>false</td><td>text/plain</td><td>The marker sequence used at the beginning and end of string fields (values). It may consist of many characters. Quotation is necessary if the delimiter character is part of the value. If the quotation is to be part of the value, then it has to be escaped by writing it TWICE (doubled). Used with joined strings or character (comma) separated values (csv).</td></tr><tr><td>normalisation</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not whitespaces and line breaks are merged into just ONE space. Used with xml or html, for example. If NULL, then the default is TRUE (normalisation enabled).</td></tr><tr><td>width</td><td>false</td><td>number/integer</td><td>The number of characters (or digits) belonging to a value. Free places get filled up with the character given in the fill property. This was defined in the original specification of character (comma) separated values (csv), in order to have fields (values) with equal width. Used with joined strings or csv.</td></tr><tr><td>fill</td><td>false</td><td>text/plain</td><td>The characters (or digit) to be used to fill free places in a value whose width is greater.</td></tr><tr><td>headermodel</td><td>false</td><td>text/cybol-path</td><td>The header data to be written as first line, yet before the actual content. Used with character (comma) separated values (csv). CAUTION! It should NOT be mixed up with the header property flag in represent/deserialise.</td></tr></table></section></section><section><a name="stream-read"><h2>stream/read</h2></a><section><h3>Description</h3><p class="description">Reads data from a device.
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;number/float&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;deserialise_comma_separated_data&#x22; channel=&#x22;inline&#x22; format=&#x22;represent/deserialise&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.string&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/joined-string&#x22;&#x3E;
+        &#x3C;node name=&#x22;delimiter&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;,&#x22;/&#x3E;
+    &#x3C;/node&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;deserialise_string_taken_from_file&#x22; channel=&#x22;inline&#x22; format=&#x22;represent/deserialise&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;file&#x22; format=&#x22;text/plain&#x22; model=&#x22;path/string.txt&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/joined-string&#x22;&#x3E;
+        &#x3C;node name=&#x22;delimiter&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;,&#x22;/&#x3E;
+    &#x3C;/node&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;deserialise_inline_data&#x22; channel=&#x22;inline&#x22; format=&#x22;represent/deserialise&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;1;2;3;word;01/07/2022;text&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/joined-string&#x22;&#x3E;
+        &#x3C;node name=&#x22;delimiter&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;;&#x22;/&#x3E;
+    &#x3C;/node&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;deserialise_quoted_data_doubled_as_escape&#x22; channel=&#x22;inline&#x22; format=&#x22;represent/deserialise&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;&#x26;#x22;begin&#x26;#x22;,01/07/2022,&#x26;#x22;some &#x26;#x22;&#x26;#x22;quoted&#x26;#x22;&#x26;#x22; text&#x26;#x22;&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/joined-string&#x22;&#x3E;
+        &#x3C;node name=&#x22;delimiter&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;,&#x22;/&#x3E;
+        &#x3C;node name=&#x22;quotation&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;&#x26;#x22;&#x22;/&#x3E;
+    &#x3C;/node&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The node into which the deserialised data are written. Its format (type) depends on the given source data.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path | text/plain</td><td>The data to be deserialised.</td></tr><tr><td>language</td><td>true</td><td>meta/language</td><td>The language used for deserialisation.</td></tr><tr><td>format</td><td>false</td><td>meta/format</td><td>The format (type) of the source node.</td></tr></table></section><section><h3>Constraints (language_constraints)</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>delimiter</td><td>false</td><td>text/plain</td><td>The separator between the single fields (values). It may consist of many characters, but also be a simple comma, for example. Used with joined strings or character (comma) separated values (csv).</td></tr><tr><td>quotation</td><td>false</td><td>text/plain</td><td>The marker sequence used at the beginning and end of string fields (values). It may consist of many characters. Quotation is necessary if the delimiter character is part of the value. If the quotation is to be part of the value, then it has to be escaped by writing it twice (doubled). Used with joined strings or character (comma) separated values (csv).</td></tr><tr><td>header</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not the source data contain a header, so that the deserialiser can treat the first line differently. Used with character (comma) separated values (csv). Caution! It should not be mixed up with the headermodel property in represent/serialise.</td></tr><tr><td>normalisation</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not whitespaces and line breaks are merged into just one space. Used with xml or html, for example. If null, then the default is true (normalisation enabled).</td></tr><tr><td>maximum</td><td>false</td><td>number/integer</td><td>The maximum number of bytes to be transmitted. Used with serial (port) interface.</td></tr><tr><td>minimum</td><td>false</td><td>number/integer</td><td>The minimum number of bytes to be transmitted. Used with serial (port) interface.</td></tr><tr><td>medium</td><td>false</td><td>text/cybol-path</td><td>The window to which the mouse button or keyboard key refers. It is needed to search through the hierarchy of gui elements via mouse coordinates, for a suitable action. Used with graphical user interface (gui).</td></tr></table></section></section><section><a name="represent-serialise"><h2>represent/serialise</h2></a><section><h3>Description</h3><p class="description">Serialises the source into the destination, according to the given format.
+
+Caution! The serialised data are appended to the destination. Already existing content is not overwritten.
+Therefore, the destination possibly has to get emptied before since otherwise, the new data will get appended to the already existing old data.
+
+This operation may be used to concatenate the strings given as child nodes of the source part into the destination part and provide an optional cybol property &#x22;separator&#x22; to be used as such between the concatenated strings.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;serialise_number&#x22; channel=&#x22;inline&#x22; format=&#x22;represent/serialise&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;24&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/cybol&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;number/integer&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;serialise_week_given_as_path&#x22; channel=&#x22;inline&#x22; format=&#x22;represent/serialise&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.week_as_string&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.week&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/cybol&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;number/integer&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;serialise_webpage&#x22; channel=&#x22;inline&#x22; format=&#x22;represent/serialise&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.webpage&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.wui.index&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/html&#x22;&#x3E;
+        &#x3C;node name=&#x22;indentation&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+    &#x3C;/node&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;element/part&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;serialise_comma_separated_data&#x22; channel=&#x22;inline&#x22; format=&#x22;represent/serialise&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.string_node_list&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/joined-string&#x22;&#x3E;
+        &#x3C;node name=&#x22;delimiter&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;,&#x22;/&#x3E;
+        &#x3C;node name=&#x22;quotation&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;&#x26;#x22;&#x22;/&#x3E;
+    &#x3C;/node&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>destination</td><td>true</td><td>text/cybol-path</td><td>The node into which the serialised data are written. Its format (type) depends on the given source data.</td></tr><tr><td>source</td><td>true</td><td>text/cybol-path | text/plain | number/any</td><td>The data to be serialised.</td></tr><tr><td>language</td><td>true</td><td>meta/language</td><td>The language used for serialisation.</td></tr><tr><td>format</td><td>false</td><td>meta/format</td><td>The format (type) of the source node.</td></tr></table></section><section><h3>Constraints (language_constraints)</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>newline</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not a line break is added at the end of the printed characters. Used with text (pseudo) terminal.</td></tr><tr><td>clear</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not the terminal screen is cleared before printing characters on it. Used with text (pseudo) terminal.</td></tr><tr><td>indentation</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not the serialised data get beautified (pretty-formatted) by indenting the single lines depending on the hierarchy level. Used with xml or html, for example.</td></tr><tr><td>delimiter</td><td>false</td><td>text/plain</td><td>The separator between the single fields (values). It may consist of many characters, but also be a simple comma, for example. Used with joined strings or character (comma) separated values (csv).</td></tr><tr><td>quotation</td><td>false</td><td>text/plain</td><td>The marker sequence used at the beginning and end of string fields (values). It may consist of many characters. Quotation is necessary if the delimiter character is part of the value. If the quotation is to be part of the value, then it has to be escaped by writing it twice (doubled). Used with joined strings or character (comma) separated values (csv).</td></tr><tr><td>normalisation</td><td>false</td><td>logicvalue/boolean</td><td>The flag indicating whether or not whitespaces and line breaks are merged into just one space. Used with xml or html, for example. If null, then the default is true (normalisation enabled).</td></tr><tr><td>width</td><td>false</td><td>number/integer</td><td>The number of characters (or digits) belonging to a value. Free places get filled up with the character given in the fill property. This was defined in the original specification of character (comma) separated values (csv), in order to have fields (values) with equal width. Used with joined strings or csv.</td></tr><tr><td>fill</td><td>false</td><td>text/plain</td><td>The characters (or digit) to be used to fill free places in a value whose width is greater.</td></tr><tr><td>headermodel</td><td>false</td><td>text/cybol-path</td><td>The header data to be written as first line, yet before the actual content. Used with character (comma) separated values (csv). Caution! It should not be mixed up with the header property flag in represent/deserialise.</td></tr></table></section></section><section><a name="stream-read"><h2>stream/read</h2></a><section><h3>Description</h3><p class="description">Reads data from a device.
 
 Reading indirectly from device into the internal buffer does not make sense for channel &#x22;file&#x22;. Therefore, do not set the &#x22;asynchronicity&#x22; flag in this case.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;read_from_file&#x22; channel=&#x22;inline&#x22; format=&#x22;stream/read&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;

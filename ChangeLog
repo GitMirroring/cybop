@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-10-08  Christian Heller  <christian.heller@cybop.org>
+
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/represent_logic_cybol_format.c"
+
 2022-10-07  Christian Heller  <christian.heller@cybop.org>
 
         * Update cyboi interpreter c code conventions style guide
