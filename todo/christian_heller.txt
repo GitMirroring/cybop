@@ -11,6 +11,9 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+        * Adapt rules of "clangformat"
+        * Check doxygen with "make doc": Der Prozess dauert Ewig! Wirklich committen und publizieren?
+
 API
 ___
 
