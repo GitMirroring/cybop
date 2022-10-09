@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-10-09  Christian Heller  <christian.heller@cybop.org>
+
+        * Add numeral vector deserialiser to be used by cybol deserialiser (but not by json deserialiser)
+
 2022-10-08  Christian Heller  <christian.heller@cybop.org>
 
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/represent_logic_cybol_format.c"

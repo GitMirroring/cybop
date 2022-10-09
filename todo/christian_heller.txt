@@ -39,6 +39,8 @@ ___
 Numeral Deserialiser
 ____________________
 
+        * Continue numeral vector deserialiser to be used by cybol deserialiser (but not by json deserialiser)
+
         * Remove thousands separator using modify replace function
             do NOT just skip it in file "value_numeral_selector.c", since the count has to include them
             call some replace or remove function from within file "value_numeral_deserialiser.c" instead
@@ -1036,8 +1038,6 @@ _________
         * Use file "filler.c" in function "startup_internal_memory"
             possibly use function pointer to hand over function to be executed as loop body
             see file "doc/development/function_pointer_usage.txt"
-
-        * Move "executor/copier/" to "modifier/copier/"
 
         * Provide additionally:
             modifier/appender/part/integer_part_appender.c
