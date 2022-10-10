@@ -92,7 +92,7 @@ void deserialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     // Deserialise number.
     //
     // CAUTION! The destination number item is handed over as REFERENCE
-    // since it may get assigned the model of a new allocated part inside.
+    // since it may get assigned the model of a new allocated part INSIDE.
     //
     // CAUTION! A copy of source count remaining is forwarded here,
     // so that the original source value does not get changed.

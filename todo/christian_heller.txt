@@ -11,8 +11,8 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-        * Adapt rules of "clangformat"
         * Check doxygen with "make doc": Der Prozess dauert Ewig! Wirklich committen und publizieren?
+        * Adapt rules of "clangformat"
 
 API
 ___
@@ -39,7 +39,7 @@ ___
 Numeral Deserialiser
 ____________________
 
-        * Continue numeral vector deserialiser to be used by cybol deserialiser (but not by json deserialiser)
+        * Test numeral vector deserialiser
 
         * Remove thousands separator using modify replace function
             do NOT just skip it in file "value_numeral_selector.c", since the count has to include them

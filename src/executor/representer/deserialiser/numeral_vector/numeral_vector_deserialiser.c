@@ -27,12 +27,17 @@
 #define NUMERAL_VECTOR_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/copier/integer_copier.c"
+#include "../../../../executor/copier/pointer_copier.c"
+#include "../../../../executor/representer/deserialiser/numeral_vector/item_numeral_vector_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Splits the source numeral vector into parts which are stored as child nodes of the destination part.
+ * Deserialises the source numeral vector into elements of the destination number item.
  *
- * CAUTION! This function is applicable to cybol but NOT to json, since:
+ * CAUTION! This function is applicable to CYBOL but NOT to json, since:
  * - in cybol, EACH number gets interpreted as vector (array)
  * - in json, arrays and numbers are treated DIFFERENTLY
  *
@@ -41,7 +46,7 @@
  * This also solves the problem that in json, the number type is unknown and
  * has to get detected from the value, which would complicate vector handling.
  *
- * @param p0 the destination number item (for cybol deserialiser; null for json)
+ * @param p0 the destination number item
  * @param p1 the source wide character vector data
  * @param p2 the source wide character vector count
  * @param p3 the destination number item format
@@ -52,21 +57,28 @@ void deserialise_numeral_vector(void* p0, void* p1, void* p2, void* p3) {
     fwprintf(stdout, L"Debug: Deserialise numeral vector. source count p2: %i\n", p2);
     fwprintf(stdout, L"Debug: Deserialise numeral vector. source count *p2: %i\n", *((int*) p2));
 
-    // Allocate temporary item storing strings representing a number each.
+    // The source data position.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source count remaining.
+    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Deserialise numeral vector storing the single numbers as child nodes of the temporary item.
+    // Copy source data position.
+    copy_pointer((void*) &d, (void*) &p1);
+    // Copy source count remaining.
+    copy_integer((void*) &c, p2);
 
-    // Iterate through the temporary item.
-    // Each child node represents a number.
-
-    while (...) {
-
-        // Deserialise string into number.
-
-        // Append number to destination number item.
-    }
-
-    // Deallocate temporary item storing strings representing a number each.
+    //
+    // Allocate temporary item.
+    //
+    // CAUTION! A copy of source count remaining is forwarded here,
+    // so that the original source value does not get changed.
+    //
+    // CAUTION! The source data position does NOT have to be copied,
+    // since the parametre that was handed over is already a copy.
+    // A local copy was made anyway, not to risk parametre falsification.
+    // Its reference is forwarded, as it gets incremented by sub routines inside.
+    //
+    deserialise_numeral_vector_item(p0, (void*) &d, (void*) &c, p3);
 }
 
 /* NUMERAL_VECTOR_DESERIALISER_SOURCE */

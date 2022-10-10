@@ -22,6 +22,11 @@
 
         * Generate cmake config header file during make process
 
+2022-10-10  Christian Heller  <christian.heller@cybop.org>
+
+        * Change INSERT_MODIFY_LOGIC_CYBOI_FORMAT into APPEND_MODIFY_LOGIC_CYBOI_FORMAT in file "number_numeral_deserialiser.c"
+        * Complete numeral vector deserialiser calling numeral deserialiser
+
 2022-10-09  Christian Heller  <christian.heller@cybop.org>
 
         * Add numeral vector deserialiser to be used by cybol deserialiser (but not by json deserialiser)

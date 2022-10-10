@@ -231,14 +231,7 @@ void apply_send(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // the element and to thus increase efficiency.
     //
     allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    //
     // Decode cyboi-internal type into cyboi runtime type.
-    //
-    // CAUTION! Both are not always equal in their meaning.
-    // For example, an "xdt" file is converted into a cyboi "part".
-    // Therefore, a runtime type has to be figured out here.
-    // It is needed for allocating the new part.
-    //
     deserialise_cybol_type(t, fmd);
     //
     // Get type item data.

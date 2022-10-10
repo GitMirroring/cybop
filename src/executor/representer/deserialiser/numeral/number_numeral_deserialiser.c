@@ -97,8 +97,6 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
         // The temporary number.
         void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The destination item count.
-        void* ic = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Deserialise FIRST part of number.
         deserialise_numeral_part((void*) &s1, (void*) &v1, (void*) &d1, (void*) &po1, p2, p3, (void*) &f, (void*) &t);
@@ -172,26 +170,21 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
             //
             deserialise_numeral_existence(p0, p1, p4, p5, (void*) &f, (void*) &t);
 
-            // Get destination item count.
-            copy_array_forward((void*) &ic, *i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
             //
-            // Add number to destination number part model item.
+            // Append number to destination number item.
             //
             // CAUTION! The "adjust count" flag is set to NULL here,
             // since the destination count gets ALWAYS adjusted.
             //
-            // CAUTION! While parsing a vector, the programme DIVES into the vector FIRST,
-            // so that last values are added first. If values were now just appended,
-            // the order of vector values would be swapped, which is NOT wanted.
-            // On the other hand, inserting values at the beginning of the
-            // destination item is WRONG if values are already present.
-            // Therefore, the destination item's OLD element count is
-            // remembered here, so that new values may be INSERTED
-            // starting from that count used as INDEX, which has the
-            // effect that elements are appended in the correct order.
+            // CAUTION! The usage of INSERT_MODIFY_LOGIC_CYBOI_FORMAT
+            // is NOT necessary here. Other deserialisers parse data
+            // diving into depth, so that last values are added first.
+            // However, this is not the case for numeral vectors whose
+            // string values have been provided in the correct order.
+            // Therefore, the APPEND_MODIFY_LOGIC_CYBOI_FORMAT operation
+            // may be used here.
             //
-            modify_item(*i, n, (void*) &t, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, ic, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INSERT_MODIFY_LOGIC_CYBOI_FORMAT);
+            modify_item(*i, n, (void*) &t, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
             //
             // CAUTION Do NOT append the part to some destination here,
