@@ -29,13 +29,14 @@
 #include <stddef.h>
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../variable/cmake_config.h"
 
 /** The name identification cyboi model. */
 static wchar_t* NAME_IDENTIFICATION_CYBOI_MODEL = L"Cybernetics Oriented Interpreter (CYBOI)";
 static int* NAME_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_40_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The version identification cyboi model. */
-static wchar_t* VERSION_IDENTIFICATION_CYBOI_MODEL = L"0.24.0";
+static wchar_t* VERSION_IDENTIFICATION_CYBOI_MODEL = PROJECT_VERSION;
 static int* VERSION_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The slogan identification cyboi model. */
