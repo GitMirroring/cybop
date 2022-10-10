@@ -222,6 +222,76 @@ To cover these cases, the model and properties are received together, in just on
     &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
 &#x3C;/node&#x3E;
 
+&#x3C;!-- Read extensible markup language (xml) data from file. --&#x3E;
+&#x3C;node name=&#x22;open_file&#x22; channel=&#x22;inline&#x22; format=&#x22;dispatch/open&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;device&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;serialisation/xml/test/reference.xml&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+&#x3C;node name=&#x22;deserialise_data&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/receive&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;sender&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;encoding&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/encoding&#x22; model=&#x22;utf-8&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;application/xml&#x22;&#x3E;
+        &#x3C;node name=&#x22;normalisation&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
+    &#x3C;/node&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;element/part&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.data&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+&#x3C;node name=&#x22;close_file&#x22; channel=&#x22;inline&#x22; format=&#x22;dispatch/close&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;!-- Read javascript object notation (json) data from file. --&#x3E;
+&#x3C;node name=&#x22;open_file&#x22; channel=&#x22;inline&#x22; format=&#x22;dispatch/open&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;device&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;serialisation/json/test/scenario/default.json&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+&#x3C;node name=&#x22;deserialise_data&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/receive&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;sender&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;encoding&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/encoding&#x22; model=&#x22;utf-8&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;application/json&#x22;/&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;element/part&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.data&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+&#x3C;node name=&#x22;close_file&#x22; channel=&#x22;inline&#x22; format=&#x22;dispatch/close&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;!-- Read character (comma) separated values (csv) from file. --&#x3E;
+&#x3C;node name=&#x22;open_file&#x22; channel=&#x22;inline&#x22; format=&#x22;dispatch/open&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;device&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#filename&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+&#x3C;node name=&#x22;receive_file&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/receive&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;sender&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;encoding&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/encoding&#x22; model=&#x22;utf-8&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/csv&#x22;&#x3E;
+        &#x3C;node name=&#x22;delimiter&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#delimiter&#x22;/&#x3E;
+        &#x3C;node name=&#x22;quotation&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#quotation&#x22;/&#x3E;
+        &#x3C;node name=&#x22;header&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#header&#x22;/&#x3E;
+    &#x3C;/node&#x3E;
+    &#x3C;!--
+        CAUTION! A possibly existing header will be written into the destination message PROPERTIES.
+        There is NO need to specify the cybol property &#x22;header&#x22; as sub node of &#x22;message&#x22; here,
+        since it is generated under that name automatically by the deserialiser inside.
+
+        CAUTION! The message has to be part of the HEAP memory,
+        since it would not be extensible if lying on the stack.
+    --&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;{#table}&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+&#x3C;node name=&#x22;close_file&#x22; channel=&#x22;inline&#x22; format=&#x22;dispatch/close&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
+    &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.id&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
 &#x3C;!-- Read user input command on terminal. --&#x3E;
 &#x3C;node name=&#x22;receive_command&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/receive&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;

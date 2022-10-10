@@ -95,6 +95,76 @@ static int* IDENTIFY_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_ST
  *     <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
  * </node>
  *
+ * <!-- Read extensible markup language (xml) data from file. -->
+ * <node name="open_file" channel="inline" format="dispatch/open" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="device" channel="inline" format="text/plain" model="serialisation/xml/test/reference.xml"/>
+ * </node>
+ * <node name="deserialise_data" channel="inline" format="communicate/receive" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+ *     <node name="language" channel="inline" format="meta/language" model="application/xml">
+ *         <node name="normalisation" channel="inline" format="logicvalue/boolean" model="false"/>
+ *     </node>
+ *     <node name="format" channel="inline" format="meta/format" model="element/part"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".data"/>
+ * </node>
+ * <node name="close_file" channel="inline" format="dispatch/close" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+ * </node>
+ *
+ * <!-- Read javascript object notation (json) data from file. -->
+ * <node name="open_file" channel="inline" format="dispatch/open" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/scenario/default.json"/>
+ * </node>
+ * <node name="deserialise_data" channel="inline" format="communicate/receive" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+ *     <node name="language" channel="inline" format="meta/language" model="application/json"/>
+ *     <node name="format" channel="inline" format="meta/format" model="element/part"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".data"/>
+ * </node>
+ * <node name="close_file" channel="inline" format="dispatch/close" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+ * </node>
+ *
+ * <!-- Read character (comma) separated values (csv) from file. -->
+ * <node name="open_file" channel="inline" format="dispatch/open" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="device" channel="inline" format="text/cybol-path" model="#filename"/>
+ * </node>
+ * <node name="receive_file" channel="inline" format="communicate/receive" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+ *     <node name="language" channel="inline" format="meta/language" model="text/csv">
+ *         <node name="delimiter" channel="inline" format="text/cybol-path" model="#delimiter"/>
+ *         <node name="quotation" channel="inline" format="text/cybol-path" model="#quotation"/>
+ *         <node name="header" channel="inline" format="text/cybol-path" model="#header"/>
+ *     </node>
+ *     <!--
+ *         CAUTION! A possibly existing header will be written into the destination message PROPERTIES.
+ *         There is NO need to specify the cybol property "header" as sub node of "message" here,
+ *         since it is generated under that name automatically by the deserialiser inside.
+ *
+ *         CAUTION! The message has to be part of the HEAP memory,
+ *         since it would not be extensible if lying on the stack.
+ *     -->
+ *     <node name="message" channel="inline" format="text/cybol-path" model="{#table}"/>
+ * </node>
+ * <node name="close_file" channel="inline" format="dispatch/close" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+ * </node>
+ *
  * <!-- Read user input command on terminal. -->
  * <node name="receive_command" channel="inline" format="communicate/receive" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
