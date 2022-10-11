@@ -25,7 +25,6 @@ SET(CPACK_PACKAGE_VERSION "${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSIO
 
 # The cyboi component.
 INSTALL(DIRECTORY ${ROOT_DIR}/build/cmake/ DESTINATION build/cmake)
-INSTALL(DIRECTORY ${ROOT_DIR}/build/doxygen/ DESTINATION build/doxygen)
 INSTALL(DIRECTORY ${ROOT_DIR}/build/icon/ DESTINATION build/icon)
 INSTALL(FILES ${ROOT_DIR}/build/manpage/cyboi.1.gz DESTINATION build/manpage)
 INSTALL(FILES ${ROOT_DIR}/build/.clang-format DESTINATION build)
@@ -53,22 +52,16 @@ INSTALL(FILES ${ROOT_DIR}/NEWS DESTINATION .)
 INSTALL(FILES ${ROOT_DIR}/README DESTINATION .)
 
 # Setup packaging configuration.
-if(UNIX AND NOT APPLE)
-    set(CPACK_GENERATOR "TGZ")
-elseif (APPLE)
-    set(CPACK_GENERATOR "TGZ")
-else()
+list(APPEND GENERATORS "TGZ" "DEB")
+if (APPLE)
+    list(APPEND GENERATORS "Bundle")
+elseif(NOT UNIX)
     message( SEND_ERROR "Windows is not supported yet" )
 endif()
 
+set(CPACK_GENERATOR ${GENERATORS})
+SET(CPACK_PACKAGE_DIRECTORY ${ROOT_DIR}/dist)
+
 # Load global setting file.
 include(CPack)
-
-#
-# CAUTION! This is commented out, since some files got mixed up somehow.
-#
-#add_custom_target(
-#        adjustcopyright
-#        COMMAND ${ROOT_DIR}/build/scripts/adjustcopyright.py ${ROOT_DIR} ${CPACK_PACKAGE_VERSION}
-#)
 

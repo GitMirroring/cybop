@@ -47,7 +47,6 @@ _____________________
 
         * ClangFormat
         * CppCheck
-        * Doxygen
         * python script for adapting copyright year
 
 Distribution

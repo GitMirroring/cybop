@@ -3,18 +3,12 @@
 # get all project files
 file(GLOB_RECURSE ALL_SOURCE_FILES ${ROOT_DIR}/src/*.c)
 
-if(UNIX AND NOT APPLE)
-    set(clang_command "/usr/bin/clang-format-11")
-elseif (APPLE)
-    set(clang_command "/usr/local/bin/clang-format")
-else()
-    message( SEND_ERROR "Windows is not supported yet" )
-endif()
+find_package(ClangFormat)
 
 # --- clang-format target --- #
 add_custom_target(
-        clangformat
-        COMMAND ${clang_command}
+        formatting
+        COMMAND ${CLANG_FORMAT_EXECUTABLE}
         --dry-run
         --Werror
         -style=file
@@ -33,7 +27,7 @@ endif()
 
 # --- cppcheck Configuration --- #
 add_custom_target(
-        cppcheck
+        analysis
         COMMAND ${cppcheck_command}
         --enable=all
         --inconclusive
@@ -42,5 +36,5 @@ add_custom_target(
         --library=qt.cfg
         --template="[{severity}][{id}] {message} {callstack} \(On {file}:{line}\)"
         --verbose
-        ${ALL_SOURCE_FILES}
+        ${ROOT_DIR}/src
 )

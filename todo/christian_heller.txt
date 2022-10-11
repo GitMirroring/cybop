@@ -79,12 +79,11 @@ ____
 Build
 _____
 
-        * Automate build process (cyboi version and copyright year, doxygen, api, packaging as deb and rpm) to reach ci/cd with automatic updates
+        * Automate build process (cyboi version and copyright year, api, packaging as deb and rpm) to reach ci/cd with automatic updates
 
         * Give feedback to Enrico to what has to be changed in python script "build/scripts/adjustcopyright.py" adapting copyright
         * Correct formatting errors found by "ClangFormat"
         * Change variable names reported by "CppCheck"
-        * Adapt incorrectly formatted comments reported by "Doxygen"
 
         * Find out how best to exclude log messages from release build (ifdef macro, build script, other idea)
 

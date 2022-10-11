@@ -22,9 +22,6 @@ add_executable(${BINARY_NAME} ${ROOT_DIR}/src/controller/cyboi.c)
 
 set_property(DIRECTORY APPEND PROPERTY ADDITIONAL_MAKE_CLEAN_FILES "${ROOT_DIR}/build/run")
 
-# --- doxygen definition --- #
-include(cmake/doxygen.cmake)
-
 # --- libraries linking --- #
 include(cmake/libraries.cmake)
 
