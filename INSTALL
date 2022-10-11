@@ -33,9 +33,8 @@ Contents
 3.3 Windows (MSVC)
 
 4 Development
-4.1 API
-4.2 Documentation
-4.3 Formatting
+4.1 Make Targets
+4.2 API
 
 5 Distribution
 5.1 Tagging
@@ -82,9 +81,10 @@ CYBOI compilation:
 
 CYBOP development (helpful, but not essential):
     subversion
-    doxygen
+    clang-format
+    cppcheck (cppcheck-gui)
     valgrind (graphviz, kcachegrind, valkyrie)
-    python3, python-is-python3, python3-pip (for api documentation generation in cmake target and build scripts)
+    python3, python-is-python3, python3-pip (for cybol api documentation generation in cmake target and build scripts)
 
 1.3 OSX
 _______
@@ -356,7 +356,12 @@ https://stackoverflow.com/questions/35869564/cmake-on-windows
 4 Development
 =============
 
-4.1 API
+4.1 Make Targets
+________________
+
+See file "build/release.txt" for possible make targets and tool usage.
+
+4.2 API
 _______
 
 - Check out python scripts:
@@ -434,35 +439,6 @@ written in cybol:
 
 It generates the final html file representing the api documentation
 with state and logic.
-
-4.2 Documentation
-_________________
-
-- Change into cybop's build directory e.g.:
-
-    cd /home/cybop/build
-
-- Run the doxygen
-
-    make doc
-
-4.3 Formatting
-______________
-
-CAUTION! Do NOT run these tools for now, since they might destroy the current
-formatting. Just leave it up to the release master or project administrator.
-
-- Change into cybop's build directory e.g.:
-
-    cd /home/cybop/build
-
-- Run the code styling clangformat which uses the .clang-format configuration:
-
-    make clangformat
-
-- Run the code analyzer cppcheck:
-
-    make cppcheck
 
 5 Distribution
 ==============
