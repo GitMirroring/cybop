@@ -2,42 +2,58 @@
 Release Procedure
 =================
 
+Preparation
+___________
+
+0 Note: The following steps have to be executed MANUALLY
+
+1 Change project version in "build/CMakeList.txt"
+2 Adapt directories, files, version in file "build/cmake/packaging.cmake"
+3 Update api (logic and state) in directory "src/constant/format/cybol/"
+4 Analyse source code by running "valgrind"
+
+5 Update files in directory "todo/"
+6 Update ChangeLog
+7 Update AUTHORS reading ChangeLog entries
+8 Update NEWS subsumpting ChangeLog entries
+
 Source Code
 ___________
 
-Compile cyboi using "make cyboi"
-Test cybol by executing all example applications by Running make test
-Analyse code using tools "valgrind" and "cppcheck"
-Update api (logic and state) in directory "src/constant/format/cybol/"
+0 Note: The following steps can be executed together at once by running "make dev".
+
+1 Delete old compilation files by running "make clean"
+2 Compile cyboi by running "make cyboi" which executes gcc
+3 Test cybol example applications by running "make test" which executes cyboi
+4 Check source code statically by running "make analysis" which calls "CppCheck"
+5 Verify style by running "make formatting" which calls "ClangFormat" with code changes DISABLED
 
 Build
 _____
 
-Change project version in build/CMakeList.txt
-Run make adjustCopyright
-Adapt directories, files, version in file "build/cmake/packaging.cmake"
-Build project using "make clean" and "make"
-
-Update files in directory "todo/"
-Update ChangeLog
-Update AUTHORS reading ChangeLog entries
-Update NEWS subsumpting ChangeLog entries
-
-Website
-_______
-
-Create new file for release in www/website/development/plan/
-Copy content from NEWS to www/website/development/plan/cybop-x.x.x.html
-Update www/website/development/plan/index.html
-Upload website changes
+1 Adjust version by running "make copyright" which adapts copyright year, version, release date and VERSION_IDENTIFICATION_CYBOI_MODEL
+2 Generate api by running "make api" which executes the cybol api-generator
+3 Commit to svn MANUALLY
+4 Tag release in svn (see section "5.1 Tagging" in file "INSTALL") MANUALLY
 
 Distribution
 ____________
 
-Commit SVN
-Tag SVN
-Create tarball using "cpack"
-Create GPG binary signature for tarball file
-Upload tarball file to Savannah
-Announce release in mailing list cybop-developers@nongnu.org
+1 Create distributable files by running "make dist" which executes "CPack"
+2 Copy packages to savannah MANUALLY (see section "5.2 Packing" in file "INSTALL")
+3 Announce release in mailing list "cybop-developers@nongnu.org" MANUALLY
+
+Desirable formats are:
+- tar.gz source tarball file with corresponding GPG binary signature (see section "5.2 Packing" in file "INSTALL")
+- deb package (see section "5.3 Debianising" in file "INSTALL")
+- rpm package
+- msi installer for Windows using NSIS tool
+
+Website
+_______
+
+1 Create new file for release in www/website/development/plan/
+2 Copy content from NEWS to www/website/development/plan/cybop-x.x.x.html
+3 Update www/website/development/plan/index.html
+4 Upload website changes
 

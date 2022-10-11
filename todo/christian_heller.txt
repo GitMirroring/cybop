@@ -11,8 +11,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-        * Check doxygen with "make doc": Der Prozess dauert Ewig! Wirklich committen und publizieren?
-        * Adapt rules of "clangformat"
+Build
+_____
+
+        * Check source code statically using "CppCheck"
+        * Adapt rules of "ClangFormat"
 
 API
 ___
