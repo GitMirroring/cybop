@@ -21,6 +21,8 @@
 2022-10-11  Enrico Gallus  <enrico.gallus@gmail.com>
 
         * Generate cmake config header file during make process
+        * Generate copyright info in cmake and use it in cmake_config.h
+        * Add new make target for adjusting copyright information
 
 2022-10-10  Christian Heller  <christian.heller@cybop.org>
 

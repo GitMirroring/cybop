@@ -7,6 +7,9 @@ project(cybop LANGUAGES C VERSION 0.23.0)
 
 set(BINARY_NAME cyboi)
 
+string(TIMESTAMP CURRENT_YEAR %Y)
+string(CONCAT COPYRIGHT_INFO "Copyright (C) 1999-" ${CURRENT_YEAR} ". Christian Heller.")
+
 SET(ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/.." CACHE PATH "root dir" FORCE)
 
 # set output directory to controller-subdirectory
@@ -31,8 +34,11 @@ include(cmake/codestyling.cmake)
 # --- api generator --- #
 include(cmake/api.cmake)
 
-# --- api generator --- #
+# --- tests --- #
 include(cmake/test.cmake)
+
+# --- adjust copyright --- #
+include(cmake/versioning.cmake)
 
 # --- CPack Configuration --- #
 include(cmake/packaging.cmake)

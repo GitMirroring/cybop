@@ -33,6 +33,7 @@
 #define PROJECT_NAME L"cybop"
 #define INTERPRETER_NAME L"cyboi"
 #define PROJECT_VERSION  L"0.23.0"
+#define COPYRIGHT_INFO  L"Copyright (C) 1999-2022. Christian Heller."
 
 /* CYBOP_CMAKE_CONFIG_H */
 #endif

@@ -44,7 +44,7 @@ static wchar_t* SLOGAN_IDENTIFICATION_CYBOI_MODEL = L"The universal knowledge pr
 static int* SLOGAN_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_42_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The copyright identification cyboi model. */
-static wchar_t* COPYRIGHT_IDENTIFICATION_CYBOI_MODEL = L"Copyright (C) 1999-2022. Christian Heller.";
+static wchar_t* COPYRIGHT_IDENTIFICATION_CYBOI_MODEL = COPYRIGHT_INFO;
 static int* COPYRIGHT_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_42_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The licence identification cyboi model. */

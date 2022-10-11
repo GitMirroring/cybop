@@ -6,16 +6,15 @@ Source Code
 ___________
 
 Compile cyboi using "make cyboi"
-Test cybol applications, e.g. "../src/controller/cyboi counter/simple/run.cybol"
+Test cybol by executing all example applications by Running make test
 Analyse code using tools "valgrind" and "cppcheck"
 Update api (logic and state) in directory "src/constant/format/cybol/"
 
 Build
 _____
 
-Adapt version constant "VERSION_IDENTIFICATION_CYBOI_MODEL" in file "identification_cyboi_model.c"
-Adapt shell script "dist/adjust_version.sh" manually
-Run shell script "dist/adjust_version.sh" in order to replace copyright year as well as version and date
+Change project version in build/CMakeList.txt
+Run make adjustCopyright
 Adapt directories, files, version in file "build/cmake/packaging.cmake"
 Build project using "make clean" and "make"
 
