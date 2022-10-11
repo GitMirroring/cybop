@@ -18,22 +18,22 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-2022-10-11  Christian Heller  <christian.heller@cybop.org>
-
-        * Update file "dist/release.txt" merging "todo/make_targets.txt" into it
-        * Delete local directory "api/" (not in svn) containing cyboi function description, in order to remove build target "make doc" and tool "doxygen"
-
 2022-10-11  Enrico Gallus  <enrico.gallus@gmail.com>
 
         * Generate cmake config header file during make process
         * Generate copyright info in cmake and use it in cmake_config.h
         * Add new make target for adjusting copyright information
-        * Adjust Line Feed of files in src and override incorrect version number and date for some using the new adjustCopyright.py
-        * delete unused/obsolete bin and dist folder
-        * remove doxygen completely
-        * adjust finding clang-format and fixed execution error
-        * rename make targets
-        * add deb to cpack package list
+        * Adjust Line feed of files in src and override incorrect version number and date for some using the new "adjustCopyright.py"
+        * Delete unused/obsolete bin and dist folder
+        * Remove doxygen completely
+        * Adjust finding clang-format and fixed execution error
+        * Rename make targets
+        * Add deb to cpack package list
+
+2022-10-11  Christian Heller  <christian.heller@cybop.org>
+
+        * Update file "dist/release.txt" merging "todo/make_targets.txt" into it
+        * Delete local directory "api/" (not in svn) containing cyboi function description, in order to remove build target "make doc" and tool "doxygen"
 
 2022-10-10  Christian Heller  <christian.heller@cybop.org>
 

@@ -14,8 +14,10 @@
 Build
 _____
 
-        * Check source code statically using "CppCheck"
-        * Adapt rules of "ClangFormat"
+        * Check source code statically using "CppCheck" and change reported variable names
+        * Adapt rules of "ClangFormat" and correct reported formatting errors
+        * Test new automated build process
+        * Find out how best to exclude log messages from release build (ifdef macro, build script, other idea)
 
 API
 ___
@@ -75,17 +77,6 @@ ____
         * Consider formats "BYTE_NUMBER_STATE_CYBOI_FORMAT" and "ASCII_TEXT_STATE_CYBOI_FORMAT"
         * Implement base64 serialiser and deserialiser
         * Implement binary json (bson) data interchange format with mime type "application/bson" ??
-
-Build
-_____
-
-        * Automate build process (cyboi version and copyright year, api, packaging as deb and rpm) to reach ci/cd with automatic updates
-
-        * Give feedback to Enrico to what has to be changed in python script "build/scripts/adjustcopyright.py" adapting copyright
-        * Correct formatting errors found by "ClangFormat"
-        * Change variable names reported by "CppCheck"
-
-        * Find out how best to exclude log messages from release build (ifdef macro, build script, other idea)
 
 git
 ___
