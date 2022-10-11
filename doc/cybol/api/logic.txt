@@ -6,6 +6,9 @@ convert/decode
 convert/encode
 dispatch/close
 dispatch/open
+flow/branch
+flow/loop
+flow/sequence
 live/exit
 memorise/create
 memorise/destroy

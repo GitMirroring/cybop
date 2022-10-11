@@ -35,6 +35,7 @@
         * Update file "dist/release.txt" merging "todo/make_targets.txt" into it
         * Delete local directory "api/" (not in svn) containing cyboi function description, in order to remove build target "make doc" and tool "doxygen"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/convert_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/flow_logic_cybol_format.c"
 
 2022-10-10  Christian Heller  <christian.heller@cybop.org>
 
