@@ -2,6 +2,8 @@ calculate/add
 communicate/identify
 communicate/receive
 communicate/send
+convert/decode
+convert/encode
 dispatch/close
 dispatch/open
 live/exit

@@ -9,13 +9,14 @@ ___________
 
 1 Change project version in "build/CMakeList.txt"
 2 Adapt directories, files, version in file "build/cmake/packaging.cmake"
-3 Update api (logic and state) in directory "src/constant/format/cybol/"
-4 Analyse source code by running "valgrind"
+3 Analyse source code by running "valgrind"
+4 Update api (logic and state) in directory "src/constant/format/cybol/"
+5 Change project version in "tools/api-generator/app.cybol" node "title"
 
-5 Update files in directory "todo/"
-6 Update ChangeLog
-7 Update AUTHORS reading ChangeLog entries
-8 Update NEWS subsumpting ChangeLog entries
+6 Update files in directory "todo/"
+7 Update ChangeLog
+8 Update AUTHORS reading ChangeLog entries
+9 Update NEWS subsumpting ChangeLog entries
 
 Source Code
 ___________

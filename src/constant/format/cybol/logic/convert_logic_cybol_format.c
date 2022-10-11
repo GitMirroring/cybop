@@ -41,31 +41,32 @@
 /**
  * The convert/decode logic cybol format.
  *
- * Decode data from a special format into cyboi.
- * Decodes the source- into the destination part.
- *
- * CAUTION! The result gets APPENDED to the destination.
- * It does NOT overwrite already existing content in the destination.
- *
  * Description:
  *
-Decodes the source into the destination, according to the given decoding.
+ * Decodes the source into the destination, according to the encoding.
+ *
+ * Caution! The decoded data are appended to the destination. Already existing content is not overwritten.
+ * Therefore, the destination possibly has to get emptied before since otherwise, the new data will get appended to the already existing old data.
  *
  * Examples:
  *
+ * <node name="decode_request" channel="inline" format="convert/decode" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".action"/>
+ *     <node name="source" channel="inline" format="text/cybol-path" model=".request"/>
+ *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+ * </node>
+ *
+ * <node name="decode" channel="inline" format="convert/decode" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="source" channel="inline" format="text/cybol-path" model=".text"/>
+ *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+ * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-destination_item	???	true	???
-source_data ???	???	true	???
-source_count ???	???	true	???
-encoding	???	true	???
- *
- * Expected parametres:
- * - destination (required): the destination wide character string consisting of elements of type wchar_t
- * - source (required): the source byte stream consisting of elements of type char
- * - encoding (required): the encoding
+ * - destination (required) [text/cybol-path]: The destination wide character array consisting of elements of type "wchar_t".
+ * - source (required) [text/cybol-path]: The source byte array consisting of elements of type "char".
+ * - encoding (required) [text/cybol-path | meta/encoding]: The message encoding.
  */
 static wchar_t* DECODE_CONVERT_LOGIC_CYBOL_FORMAT = L"convert/decode";
 static int* DECODE_CONVERT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -73,31 +74,26 @@ static int* DECODE_CONVERT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
 /**
  * The convert/encode logic cybol format.
  *
- * Encode data from cyboi into a special format.
- * Encodes the source- into the destination part.
- *
- * CAUTION! The result gets APPENDED to the destination.
- * It does NOT overwrite already existing content in the destination.
- *
  * Description:
  *
-Encodes the source into the destination, according to the given encoding.
+ * Encodes the source into the destination, according to the encoding.
+ *
+ * Caution! The encoded data are appended to the destination. Already existing content is not overwritten.
+ * Therefore, the destination possibly has to get emptied before since otherwise, the new data will get appended to the already existing old data.
  *
  * Examples:
  *
+ * <node name="decode" channel="inline" format="convert/encode" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".data"/>
+ *     <node name="source" channel="inline" format="text/cybol-path" model=".webpage"/>
+ *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+ * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-destination_item	???	true	???
-source_data ???	???	true	???
-source_count ???	???	true	???
-encoding	???	true	???
- *
- * Expected parametres:
- * - destination (required): the destination byte stream consisting of elements of type char
- * - source (required): the source wide character string consisting of elements of type wchar_t
- * - encoding (required): the encoding
+ * - destination (required) [text/cybol-path]: The destination byte array consisting of elements of type "char".
+ * - source (required) [text/cybol-path]: The source wide character array consisting of elements of type "wchar_t".
+ * - encoding (required) [text/cybol-path | meta/encoding]: The message encoding.
  */
 static wchar_t* ENCODE_CONVERT_LOGIC_CYBOL_FORMAT = L"convert/encode";
 static int* ENCODE_CONVERT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
