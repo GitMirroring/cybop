@@ -23,6 +23,7 @@
         * Generate cmake config header file during make process
         * Generate copyright info in cmake and use it in cmake_config.h
         * Add new make target for adjusting copyright information
+        * Adjust Line Feed of files in src and override incorrect version number and date for some using the new adjustCopyright.py
 
 2022-10-10  Christian Heller  <christian.heller@cybop.org>
 
