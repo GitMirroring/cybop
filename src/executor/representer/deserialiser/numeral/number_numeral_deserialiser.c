@@ -30,6 +30,7 @@
 #include "../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
@@ -76,18 +77,18 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
         // The first pre point value (Vorkommastelle).
         int v1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         // The first post point value (Nachkommastelle, also called "decimals").
-        int d1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        double d1 = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
         // The first number base power (Potenz).
-        double po1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        double po1 = *NUMBER_1_0_DOUBLE_STATE_CYBOI_MODEL;
 
         // The second algebraic sign factor with PLUS (positive number one) as default.
         int s2 = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
         // The second pre point value (Vorkommastelle).
         int v2 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         // The second post point value (Nachkommastelle, also called "decimals").
-        int d2 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        double d2 = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
         // The second number base power (Potenz).
-        double po2 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        double po2 = *NUMBER_1_0_DOUBLE_STATE_CYBOI_MODEL;
 
         // The format with INTEGER as default.
         int f = *INTEGER_NUMBER_STATE_CYBOI_FORMAT;
@@ -98,12 +99,8 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
         // The temporary number.
         void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        fwprintf(stdout, L"Debug: Deserialise numeral number. test 0 first pre point value v1: %i\n", v1);
-
         // Deserialise FIRST part of number.
         deserialise_numeral_part((void*) &s1, (void*) &v1, (void*) &d1, (void*) &po1, p2, p3, (void*) &f, (void*) &t);
-
-        fwprintf(stdout, L"Debug: Deserialise numeral number. test 1 first pre point value v1: %i\n", v1);
 
         if ((t == *FRACTION_NUMBER_STATE_CYBOI_TYPE) || (t == *COMPLEX_NUMBER_STATE_CYBOI_TYPE)) {
 
@@ -126,8 +123,6 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
             deserialise_numeral_part((void*) &s2, (void*) &v2, (void*) &d2, (void*) &po2, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
         }
 
-        fwprintf(stdout, L"Debug: Deserialise numeral number. test 2 first pre point value v1: %i\n", v1);
-
         // Verify detected format.
         compare_integer_equal((void*) &r, (void*) &f, p6);
 
@@ -139,8 +134,6 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
         // but ALSO compare with NULL in order to cover these cases.
         //
         if ((p6 == *NULL_POINTER_STATE_CYBOI_MODEL) || (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
-
-            fwprintf(stdout, L"Debug: Deserialise numeral number. test 3 first pre point value v1: %i\n", v1);
 
             //
             // A destination number item format was NOT given
@@ -162,7 +155,8 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
             // Assemble number.
             select_numeral_assembler(n, (void*) &s1, (void*) &v1, (void*) &d1, (void*) &po1, (void*) &s2, (void*) &v2, (void*) &d2, (void*) &po2, (void*) &f);
 
-            fwprintf(stdout, L"Debug: Deserialise numeral number. test 4 first pre point value v1: %i\n", v1);
+            fwprintf(stdout, L"Debug: Deserialise numeral number. n as int: %i\n", *((int*) n));
+            fwprintf(stdout, L"Debug: Deserialise numeral number. n as double: %f\n", *((double*) n));
 
             //
             // Make sure a destination number item exists.

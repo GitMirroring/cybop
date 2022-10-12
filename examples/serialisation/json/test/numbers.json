@@ -15,6 +15,7 @@
         "scientific_notation_1": 11e0,
         "scientific_notation_3": 0.007,
         "scientific_notation_4": 0.7e-2,
-        "scientific_notation_5": 7.0e-3
+        "scientific_notation_5": 7.0e-3,
+        "standard": -12.345e-2
     }
 }

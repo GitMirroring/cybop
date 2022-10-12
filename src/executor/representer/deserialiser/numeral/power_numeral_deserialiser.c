@@ -31,6 +31,7 @@
 #include "../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/calculator/double/multiply_double_calculator.c"
 #include "../../../../executor/calculator/double/power_double_calculator.c"
 #include "../../../../executor/caster/double/integer_double_caster.c"
 #include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
@@ -66,8 +67,8 @@ void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3, void* p4,
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The power as integer and double value.
-    int powi = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    double powd = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    int powi = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+    double powd = *NUMBER_1_0_DOUBLE_STATE_CYBOI_MODEL;
 
     // Deserialise algebraic sign.
     select_numeral_sign((void*) &s, p1, p2);
@@ -108,8 +109,8 @@ void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3, void* p4,
             // In BOTH cases, the power can now be deserialised.
             //
 
-            fwprintf(stdout, L"Debug: Deserialise numeral power. pc: %i\n", pc);
-            fwprintf(stdout, L"Debug: Deserialise numeral power. pd: %ls\n", (wchar_t*) pd);
+            //?? fwprintf(stdout, L"Debug: Deserialise numeral power. pc: %i\n", pc);
+            //?? fwprintf(stdout, L"Debug: Deserialise numeral power. pd: %ls\n", (wchar_t*) pd);
 
             //
             // Example: 0x123.456e-3
@@ -131,11 +132,14 @@ void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3, void* p4,
             // Deserialise power value as integer with the given number base.
             deserialise_numeral_integer((void*) &powi, pd, (void*) &pc, p3);
 
+            // Multiply power value with algebraic sign factor.
+            calculate_integer_multiply((void*) &powi, (void*) &s);
+
             // Cast integer to double.
             cast_double_integer((void*) &powd, (void*) &powi);
 
             // Initialise destination power factor with number base.
-            copy_double(p0, p3);
+            cast_double_integer(p0, p3);
 
             // Raise the number base to the power of the given value.
             calculate_double_power(p0, (void*) &powd);

@@ -1,3 +1,19 @@
 [selected_node] | element/part | 
 +-root | element/part | 
-| +-simple | number/fraction-decimal | 0.000000
+| +-integer | element/part | 
+| | +-simple | number/integer | 24
+| | +-negative | number/integer | -24
+| | +-leading_zero | number/integer | 24
+| +-fraction-decimal | element/part | 
+| | +-simple | number/fraction-decimal | 24.000000
+| | +-negative_sign | number/fraction-decimal | -24.000000
+| | +-standard | number/fraction-decimal | 7.000000
+| | +-scientific_notation | number/fraction-decimal | 0.007000
+| | +-capital_letter_possible | number/fraction-decimal | 0.007000
+| | +-positive_without_sign | number/fraction-decimal | 7000.000000
+| | +-optional_plus_sign | number/fraction-decimal | 7000.000000
+| | +-scientific_notation_1 | number/fraction-decimal | 11.000000
+| | +-scientific_notation_3 | number/fraction-decimal | 0.013672
+| | +-scientific_notation_4 | number/fraction-decimal | 0.013672
+| | +-scientific_notation_5 | number/fraction-decimal | 0.007000
+| | +-standard | number/fraction-decimal | -0.123450

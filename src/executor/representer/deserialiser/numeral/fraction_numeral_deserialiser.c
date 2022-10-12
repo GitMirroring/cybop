@@ -38,6 +38,7 @@
 #include "../../../../executor/calculator/double/add_double_calculator.c"
 #include "../../../../executor/calculator/double/divide_double_calculator.c"
 #include "../../../../executor/calculator/integer/multiply_integer_calculator.c"
+#include "../../../../executor/caster/double/integer_double_caster.c"
 #include "../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/copier/double_copier.c"
@@ -76,6 +77,8 @@ void deserialise_numeral_fraction(void* p0, void* p1, void* p2, void* p3) {
     double f = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     // The divisor value.
     int d = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The divisor as double.
+    double dd = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     // The result.
     double r = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
 
@@ -128,10 +131,13 @@ void deserialise_numeral_fraction(void* p0, void* p1, void* p2, void* p3) {
         //
         map_digit_wide_character_to_integer((void*) &v, (void*) &c);
 
-        // Assign integer value becoming the dividend.
-        f = (double) v;
+        // Cast integer value to fractional digit.
+        cast_double_integer((void*) &f, (void*) &v);
+        // Cast divisor to double.
+        cast_double_integer((void*) &dd, (void*) &d);
+
         // Divide fractional digit by divisor to reflect the correct decimal position.
-        calculate_double_divide((void*) &f, (void*) &d);
+        calculate_double_divide((void*) &f, (void*) &dd);
         // Add fractional digit to result.
         calculate_double_add((void*) &r, (void*) &f);
 
@@ -146,13 +152,14 @@ void deserialise_numeral_fraction(void* p0, void* p1, void* p2, void* p3) {
         copy_wide_character((void*) &c, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL);
         // Reset integer value.
         copy_integer((void*) &v, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
         // Adjust divisor for next fractional digit on the right-hand side.
         calculate_integer_multiply((void*) &d, p3);
 
         // Increment loop variable.
         j++;
     }
+
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral fraction. r: %f\n", r);
 
     // Copy result.
     copy_double(p0, (void*) &r);

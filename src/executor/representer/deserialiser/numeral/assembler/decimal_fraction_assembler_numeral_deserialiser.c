@@ -49,33 +49,25 @@ void deserialise_numeral_assembler_fraction_decimal(void* p0, void* p1, void* p2
     fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. pre point value p2: %i\n", p2);
     fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. pre point value *p2: %i\n", *((int*) p2));
     fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. decimals p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. decimals *p3: %i\n", *((int*) p3));
+    fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. decimals *p3: %f\n", *((double*) p3));
     fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. power p4: %i\n", p4);
-    fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. power *p4: %i\n", *((int*) p4));
+    fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. power *p4: %f\n", *((double*) p4));
 
     // The algebraic sign factor as double.
     double s = *NUMBER_1_0_DOUBLE_STATE_CYBOI_MODEL;
     // The pre point value as double.
     double v = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
-    // The post point value as double.
-    double d = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
 
     // Cast algebraic sign factor to double.
     cast_double_integer((void*) &s, p1);
-    // Cast pre point value to double.
-    cast_double_integer((void*) &v, p2);
-    // Cast post point value to double.
-    cast_double_integer((void*) &d, p3);
 
     // Initialise destination decimal fraction with pre point value.
-    copy_double(p0, (void*) &v);
-
+    cast_double_integer(p0, p2);
     // Add post point value to destination decimal fraction.
-    calculate_double_add(p0, (void*) &d);
+    calculate_double_add(p0, p3);
 
     // Multiply destination decimal fraction with power factor.
     calculate_double_multiply(p0, p4);
-
     // Multiply destination decimal fraction with algebraic sign factor.
     calculate_double_multiply(p0, (void*) &s);
 }
