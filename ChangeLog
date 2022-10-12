@@ -21,6 +21,7 @@
 2022-10-12  Christian Heller  <christian.heller@cybop.org>
 
         * Add whitespaces as end delimiter to file "end_number_json_selector.c" since otherwise, the last number (which is not followed by a comma) in a json object or array might contain spaces or line breaks in its value
+        * Shorten code by using file "whitespace_selector.c" in "begin_value_json_selector.c"
 
 2022-10-11  Enrico Gallus  <enrico.gallus@gmail.com>
 

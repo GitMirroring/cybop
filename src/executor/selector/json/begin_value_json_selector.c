@@ -157,73 +157,10 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // whitespace
     //
 
-    //
-    // The json standard defines five kinds of white space:
-    // - empty: ""
-    // - space: 0020
-    // - line feed: 000A
-    // - carriage return: 000D
-    // - character tabulation: 0009
-    //
-    // Reference:
-    // https://www.json.org/
-    //
-    // The first (empty) can obviously not be considered.
-    // Therefore, just four comparisons are done below.
-    // All kinds of whitespace characters are skipped.
-    //
-
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p2, p3, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        //
-        // CAUTION! If the searched character sequence was found,
-        // then the function "detect" already MOVED the data position
-        // pointer and decremented the count remaining accordingly,
-        // at least if the last argument move flag is TRUE.
-        //
-        // Therefore, do NOT call function "move" here additionally
-        // since otherwise, some characters would be skipped and
-        // could not be processed later, which is not wanted.
-        //
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        detect((void*) &r, p2, p3, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        //
-        // CAUTION! If the searched character sequence was found,
-        // then the function "detect" already MOVED the data position
-        // pointer and decremented the count remaining accordingly,
-        // at least if the last argument move flag is TRUE.
-        //
-        // Therefore, do NOT call function "move" here additionally
-        // since otherwise, some characters would be skipped and
-        // could not be processed later, which is not wanted.
-        //
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        detect((void*) &r, p2, p3, (void*) CARRIAGE_RETURN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        //
-        // CAUTION! If the searched character sequence was found,
-        // then the function "detect" already MOVED the data position
-        // pointer and decremented the count remaining accordingly,
-        // at least if the last argument move flag is TRUE.
-        //
-        // Therefore, do NOT call function "move" here additionally
-        // since otherwise, some characters would be skipped and
-        // could not be processed later, which is not wanted.
-        //
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        detect((void*) &r, p2, p3, (void*) CHARACTER_TABULATION_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        // Detect whitespace character.
+        select_whitespace((void*) &r, p2, p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
         //
         // CAUTION! If the searched character sequence was found,

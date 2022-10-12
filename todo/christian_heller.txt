@@ -64,7 +64,6 @@ ____________________
 JSON
 ____
 
-        * Use new whitespace deserialiser and -selector in json deserialiser
         * Add file "type_json_deserialiser.c" with branching for the different number types
 
         * Complete file "begin_value_json_selector.c" with new number characters as used in file "number_name.c"
