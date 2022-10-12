@@ -73,8 +73,14 @@ void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, 
     // Deserialise number base.
     select_numeral_base((void*) &b, p4, p5);
 
+    fwprintf(stdout, L"Debug: Deserialise numeral part. b: %i\n", b);
+
     // Deserialise number value.
     deserialise_numeral_value(p1, p4, p5, (void*) &b, (void*) &post, (void*) &p, p6, p7);
+
+    fwprintf(stdout, L"Debug: Deserialise numeral part. p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Deserialise numeral part. *p1: %i\n", *((int*) p1));
+    fwprintf(stdout, L"Debug: Deserialise numeral part. post: %i\n", post);
 
     if (post != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -86,6 +92,12 @@ void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, 
         deserialise_numeral_decimals(p2, p4, p5, (void*) &b, (void*) &p, p6, p7);
     }
 
+    fwprintf(stdout, L"Debug: Deserialise numeral part. SPECIAL 1 *p1: %i\n", *((int*) p1));
+
+    fwprintf(stdout, L"Debug: Deserialise numeral part. p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Deserialise numeral part. *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Deserialise numeral part. p: %i\n", p);
+
     if (p != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
@@ -95,6 +107,8 @@ void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, 
         // Deserialise number base power.
         deserialise_numeral_power(p3, p4, p5, (void*) &b, p6, p7);
     }
+
+    fwprintf(stdout, L"Debug: Deserialise numeral part. SPECIAL 2 *p1: %i\n", *((int*) p1));
 }
 
 /* PART_NUMERAL_DESERIALISER_SOURCE */

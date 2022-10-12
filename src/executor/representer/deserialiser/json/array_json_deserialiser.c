@@ -73,10 +73,10 @@ void deserialise_json_value(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 void deserialise_json_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise json array.");
-    fwprintf(stdout, L"Debug: Deserialise json array. count remaining p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Deserialise json array. count remaining *p3: %i\n", *((int*) p3));
-    fwprintf(stdout, L"Debug: Deserialise json array. data position *p2 lc: %lc\n", *((wchar_t*) *((void**) p2)));
-    fwprintf(stdout, L"Debug: Deserialise json array. data position *p2 lc as int: %i\n", *((wchar_t*) *((void**) p2)));
+    //?? fwprintf(stdout, L"Debug: Deserialise json array. count remaining p3: %i\n", p3);
+    //?? fwprintf(stdout, L"Debug: Deserialise json array. count remaining *p3: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"Debug: Deserialise json array. data position *p2 lc: %lc\n", *((wchar_t*) *((void**) p2)));
+    //?? fwprintf(stdout, L"Debug: Deserialise json array. data position *p2 lc as int: %i\n", *((wchar_t*) *((void**) p2)));
 
     // The array part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;

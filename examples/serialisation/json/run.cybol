@@ -20,6 +20,8 @@
         <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/basic/sample_3.json"/>
         <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/basic/sample_4.json"/>
 
+        <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/numbers.json"/>
+
         <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/json/glossary.json"/>
         <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/json/menu.json"/>
         <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/json/menu2.json"/>
@@ -39,7 +41,7 @@
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/scenario/default.json"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/TMP_numbers.json"/>
     </node>
     <node name="deserialise_data" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>

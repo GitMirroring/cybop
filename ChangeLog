@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-10-12  Christian Heller  <christian.heller@cybop.org>
+
+        * Add whitespaces as end delimiter to file "end_number_json_selector.c" since otherwise, the last number (which is not followed by a comma) in a json object or array might contain spaces or line breaks in its value
+
 2022-10-11  Enrico Gallus  <enrico.gallus@gmail.com>
 
         * Generate cmake config header file during make process
@@ -45,6 +49,7 @@
 2022-10-09  Christian Heller  <christian.heller@cybop.org>
 
         * Add numeral vector deserialiser to be used by cybol deserialiser (but not by json deserialiser)
+        * Use file "preparation_joined_string_deserialiser.c" to separate the single numbers of a numeral vector
 
 2022-10-08  Christian Heller  <christian.heller@cybop.org>
 

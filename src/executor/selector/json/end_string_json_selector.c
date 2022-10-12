@@ -49,8 +49,8 @@
 void select_json_string_end(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select json string end.");
-    fwprintf(stdout, L"Debug: Select json string end. count remaining p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Select json string end. count remaining *p1: %i\n", *((int*) p1));
+    //?? fwprintf(stdout, L"Debug: Select json string end. count remaining p1: %i\n", p1);
+    //?? fwprintf(stdout, L"Debug: Select json string end. count remaining *p1: %i\n", *((int*) p1));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

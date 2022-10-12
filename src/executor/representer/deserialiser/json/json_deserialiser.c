@@ -47,7 +47,7 @@
 void deserialise_json(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise json.");
-    fwprintf(stdout, L"Debug: Deserialise json. destination item p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Deserialise json. destination item p0: %i\n", p0);
 
     // The source data position.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;

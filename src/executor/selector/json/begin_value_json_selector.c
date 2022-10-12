@@ -61,12 +61,12 @@
 void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select json value begin.");
-    fwprintf(stdout, L"Debug: Select json value begin. count remaining p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Select json value begin. count remaining *p3: %i\n", *((int*) p3));
-    fwprintf(stdout, L"Debug: Select json value begin. data position *p2: %i\n", *((void**) p2));
-    fwprintf(stdout, L"Debug: Select json value begin. data position *p2 ls: %ls\n", (wchar_t*) *((void**) p2));
-    fwprintf(stdout, L"Debug: Select json value begin. data position *p2 lc: %lc\n", *((wchar_t*) *((void**) p2)));
-    fwprintf(stdout, L"Debug: Select json value begin. data position *p2 lc as int: %i\n", *((wchar_t*) *((void**) p2)));
+    //?? fwprintf(stdout, L"Debug: Select json value begin. count remaining p3: %i\n", p3);
+    //?? fwprintf(stdout, L"Debug: Select json value begin. count remaining *p3: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"Debug: Select json value begin. data position *p2: %i\n", *((void**) p2));
+    //?? fwprintf(stdout, L"Debug: Select json value begin. data position *p2 ls: %ls\n", (wchar_t*) *((void**) p2));
+    //?? fwprintf(stdout, L"Debug: Select json value begin. data position *p2 lc: %lc\n", *((wchar_t*) *((void**) p2)));
+    //?? fwprintf(stdout, L"Debug: Select json value begin. data position *p2 lc as int: %i\n", *((wchar_t*) *((void**) p2)));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -77,6 +77,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // ]
         detect((void*) &r, p2, p3, (void*) END_ARRAY_JSON_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) END_ARRAY_JSON_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -96,6 +97,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // }
         detect((void*) &r, p2, p3, (void*) END_OBJECT_JSON_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) END_OBJECT_JSON_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -119,6 +121,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // ,
         detect((void*) &r, p2, p3, (void*) SEPARATION_JSON_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SEPARATION_JSON_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         //
@@ -135,6 +138,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // :
         detect((void*) &r, p2, p3, (void*) NAME_VALUE_SEPARATION_JSON_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NAME_VALUE_SEPARATION_JSON_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         //
@@ -239,6 +243,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // [
         detect((void*) &r, p2, p3, (void*) BEGIN_ARRAY_JSON_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_ARRAY_JSON_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -252,6 +257,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // {
         detect((void*) &r, p2, p3, (void*) BEGIN_OBJECT_JSON_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_OBJECT_JSON_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -269,6 +275,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // "
         detect((void*) &r, p2, p3, (void*) BEGIN_END_STRING_JSON_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_END_STRING_JSON_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -283,6 +290,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // null
         detect((void*) &r, p2, p3, (void*) NULL_JSON_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NULL_JSON_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -306,6 +314,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // true
         detect((void*) &r, p2, p3, (void*) TRUE_JSON_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) TRUE_JSON_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -319,6 +328,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // false
         detect((void*) &r, p2, p3, (void*) FALSE_JSON_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_JSON_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -345,6 +355,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // +
         detect((void*) &r, p2, p3, (void*) PLUS_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -358,6 +369,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // -
         detect((void*) &r, p2, p3, (void*) HYPHEN_MINUS_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -371,6 +383,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // 0
         detect((void*) &r, p2, p3, (void*) DIGIT_ZERO_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -384,6 +397,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // 1
         detect((void*) &r, p2, p3, (void*) DIGIT_ONE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -397,6 +411,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // 2
         detect((void*) &r, p2, p3, (void*) DIGIT_TWO_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -410,6 +425,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // 3
         detect((void*) &r, p2, p3, (void*) DIGIT_THREE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -423,6 +439,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // 4
         detect((void*) &r, p2, p3, (void*) DIGIT_FOUR_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -436,6 +453,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // 5
         detect((void*) &r, p2, p3, (void*) DIGIT_FIVE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -449,6 +467,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // 6
         detect((void*) &r, p2, p3, (void*) DIGIT_SIX_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -462,6 +481,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // 7
         detect((void*) &r, p2, p3, (void*) DIGIT_SEVEN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -475,6 +495,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // 8
         detect((void*) &r, p2, p3, (void*) DIGIT_EIGHT_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -488,6 +509,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // 9
         detect((void*) &r, p2, p3, (void*) DIGIT_NINE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -502,6 +524,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // The number might start with a decimal separator without leading zero.
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // .
         detect((void*) &r, p2, p3, (void*) FULL_STOP_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -515,6 +538,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // A
         detect((void*) &r, p2, p3, (void*) LATIN_CAPITAL_LETTER_A_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -528,6 +552,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // B
         detect((void*) &r, p2, p3, (void*) LATIN_CAPITAL_LETTER_B_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -541,6 +566,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // C
         detect((void*) &r, p2, p3, (void*) LATIN_CAPITAL_LETTER_C_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -554,6 +580,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // D
         detect((void*) &r, p2, p3, (void*) LATIN_CAPITAL_LETTER_D_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -567,6 +594,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // E
         detect((void*) &r, p2, p3, (void*) LATIN_CAPITAL_LETTER_E_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -580,6 +608,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // F
         detect((void*) &r, p2, p3, (void*) LATIN_CAPITAL_LETTER_F_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -593,6 +622,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // a
         detect((void*) &r, p2, p3, (void*) LATIN_SMALL_LETTER_A_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -606,6 +636,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // b
         detect((void*) &r, p2, p3, (void*) LATIN_SMALL_LETTER_B_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -619,6 +650,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // c
         detect((void*) &r, p2, p3, (void*) LATIN_SMALL_LETTER_C_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -632,6 +664,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // d
         detect((void*) &r, p2, p3, (void*) LATIN_SMALL_LETTER_D_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -645,6 +678,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // e
         detect((void*) &r, p2, p3, (void*) LATIN_SMALL_LETTER_E_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -658,6 +692,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // f
         detect((void*) &r, p2, p3, (void*) LATIN_SMALL_LETTER_F_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

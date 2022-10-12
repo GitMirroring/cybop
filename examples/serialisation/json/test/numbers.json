@@ -1,0 +1,20 @@
+{
+    "integer": {
+        "simple": 24,
+        "negative": -24,
+        "leading_zero": 030
+    },
+    "fraction-decimal": {
+        "simple": 24.0,
+        "negative_sign": -24.0,
+        "standard": 7.0,
+        "scientific_notation": 7e-3,
+        "capital_letter_possible": 7E-3,
+        "positive_without_sign": 7e3,
+        "optional_plus_sign": 7e+3,
+        "scientific_notation_1": 11e0,
+        "scientific_notation_3": 0.007,
+        "scientific_notation_4": 0.7e-2,
+        "scientific_notation_5": 7.0e-3
+    }
+}

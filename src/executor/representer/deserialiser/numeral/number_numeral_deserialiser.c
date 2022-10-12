@@ -98,8 +98,12 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
         // The temporary number.
         void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+        fwprintf(stdout, L"Debug: Deserialise numeral number. test 0 first pre point value v1: %i\n", v1);
+
         // Deserialise FIRST part of number.
         deserialise_numeral_part((void*) &s1, (void*) &v1, (void*) &d1, (void*) &po1, p2, p3, (void*) &f, (void*) &t);
+
+        fwprintf(stdout, L"Debug: Deserialise numeral number. test 1 first pre point value v1: %i\n", v1);
 
         if ((t == *FRACTION_NUMBER_STATE_CYBOI_TYPE) || (t == *COMPLEX_NUMBER_STATE_CYBOI_TYPE)) {
 
@@ -122,6 +126,8 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
             deserialise_numeral_part((void*) &s2, (void*) &v2, (void*) &d2, (void*) &po2, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
         }
 
+        fwprintf(stdout, L"Debug: Deserialise numeral number. test 2 first pre point value v1: %i\n", v1);
+
         // Verify detected format.
         compare_integer_equal((void*) &r, (void*) &f, p6);
 
@@ -129,10 +135,12 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
         // CAUTION! When parsing json, for example, then a format is NOT given
         // but has to be detected instead.
         // In such cases, the destination number item format parametre is NULL.
-        // Therefore, do not only compare the detected and given format here,
-        // but also compare with null in order to cover these cases.
+        // Therefore, do not only compare the detected and given FORMAT here,
+        // but ALSO compare with NULL in order to cover these cases.
         //
         if ((p6 == *NULL_POINTER_STATE_CYBOI_MODEL) || (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
+
+            fwprintf(stdout, L"Debug: Deserialise numeral number. test 3 first pre point value v1: %i\n", v1);
 
             //
             // A destination number item format was NOT given
@@ -153,6 +161,8 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
 
             // Assemble number.
             select_numeral_assembler(n, (void*) &s1, (void*) &v1, (void*) &d1, (void*) &po1, (void*) &s2, (void*) &v2, (void*) &d2, (void*) &po2, (void*) &f);
+
+            fwprintf(stdout, L"Debug: Deserialise numeral number. test 4 first pre point value v1: %i\n", v1);
 
             //
             // Make sure a destination number item exists.

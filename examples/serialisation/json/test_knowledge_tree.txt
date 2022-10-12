@@ -1,9 +1,3 @@
 [selected_node] | element/part | 
 +-root | element/part | 
-| +-host | text/plain | localhost
-| +-port | number/integer | 3030
-| +-public | text/plain | ../public/
-| +-paginate | element/part | 
-| | +-default | number/integer | 10
-| | +-max | number/integer | 50
-| | +-mongodb | text/plain | mongodb://localhost:27017/api
+| +-simple | number/fraction-decimal | 0.000000

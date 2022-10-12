@@ -98,8 +98,6 @@ void deserialise_json_number(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         select_json_number_end(p2, p3, (void*) &nc, (void*) &b);
 
-        fwprintf(stdout, L"Debug: Deserialise json number. END b: %i\n", b);
-
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             fwprintf(stdout, L"Debug: Deserialise json number. nc: %i\n", nc);

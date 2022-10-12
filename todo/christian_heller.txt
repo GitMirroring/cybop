@@ -16,7 +16,7 @@ _____
 
         * Check source code statically using "CppCheck" and change reported variable names
         * Adapt rules of "ClangFormat" and correct reported formatting errors
-        * Test new automated build process
+        * Test new automated build process by preparing release 0.24.0
         * Find out how best to exclude log messages from release build (ifdef macro, build script, other idea)
 
 API
@@ -28,30 +28,38 @@ ___
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/compare_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/calculate_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/logify_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/cast_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/check_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/access_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/sort_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/time_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/run_logic_cybol_format.c"
-        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/command_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/manipulate_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/randomise_logic_cybol_format.c"
-        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/cast_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/contain_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/command_logic_cybol_format.c"
 
 Numeral Deserialiser
 ____________________
 
+        * Debug error that the pre-point positions of a decimal fraction number are not recognised properly
+            --> reason is probably, that in file "fraction_numeral_deserialiser.c" a double is used,
+                while in file "number_numeral_deserialiser.c", an int is handed over as post point value
+            --> when commenting out call of "deserialise_numeral_decimals" in file "part_numeral_deserialiser.c",
+                then the pre point value does not get falsified
+            ==> therefore, adjust local variable types to either int or double but do NOT mix both
+        * Debug example "numbers.json" where "fraction-decimal" is a sub node of "integer", which it should not
+
+        * Adapt loop section in file "number_json_deserialiser.c" to call function "deserialise_numeral"
+        * Adapt section "number" in file "cybol_deserialiser.c" to call function "deserialise_numeral"
         * Test numeral vector deserialiser
+        * Delete files and directories in cybol deserialiser that have become obsolete due to the new numeral vector deserialiser
 
         * Remove thousands separator using modify replace function
             do NOT just skip it in file "value_numeral_selector.c", since the count has to include them
             call some replace or remove function from within file "value_numeral_deserialiser.c" instead
 
-        * Use function "deserialise_joined_string" to separate the single numbers of a vector
-        * Adapt loop section in file "number_json_deserialiser.c" to call function "deserialise_numeral"
-        * Adapt section "number" in file "cybol_deserialiser.c" to call function "deserialise_numeral"
-        * Delete obsolete files and directories in cybol deserialiser that have become obsolete due to the new numeral deserialiser
+        * Provide flag so that leading zeros are just skipped and not interpreted as octal number, which is needed when calling numeral deserialiser from json
 
 JSON
 ____

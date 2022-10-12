@@ -38,9 +38,9 @@
 void map_digit_wide_character_to_integer(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Map digit wide character to integer.");
-    fwprintf(stdout, L"Debug: Map digit wide character to integer. character p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Map digit wide character to integer. character *p1 as int: %i\n", *((int*) p1));
-    fwprintf(stdout, L"Debug: Map digit wide character to integer. character *p1 as wchar_t: %lc\n", *((wchar_t*) p1));
+    //?? fwprintf(stdout, L"Debug: Map digit wide character to integer. character p1: %i\n", p1);
+    //?? fwprintf(stdout, L"Debug: Map digit wide character to integer. character *p1 as int: %i\n", *((int*) p1));
+    //?? fwprintf(stdout, L"Debug: Map digit wide character to integer. character *p1 as wchar_t: %lc\n", *((wchar_t*) p1));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

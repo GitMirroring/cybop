@@ -69,10 +69,10 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 void deserialise_json_object(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise json object.");
-    fwprintf(stdout, L"Debug: Deserialise json object. count remaining p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Deserialise json object. count remaining *p3: %i\n", *((int*) p3));
-    fwprintf(stdout, L"Debug: Deserialise json object. data position *p2 lc: %lc\n", *((wchar_t*) *((void**) p2)));
-    fwprintf(stdout, L"Debug: Deserialise json object. data position *p2 lc as int: %i\n", *((wchar_t*) *((void**) p2)));
+    //?? fwprintf(stdout, L"Debug: Deserialise json object. count remaining p3: %i\n", p3);
+    //?? fwprintf(stdout, L"Debug: Deserialise json object. count remaining *p3: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"Debug: Deserialise json object. data position *p2 lc: %lc\n", *((wchar_t*) *((void**) p2)));
+    //?? fwprintf(stdout, L"Debug: Deserialise json object. data position *p2 lc as int: %i\n", *((wchar_t*) *((void**) p2)));
 
     // The object part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
