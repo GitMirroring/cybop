@@ -1397,3 +1397,58 @@ Example:
 
 This is the SOLUTION.
 
+
+Beispiel lexikalisch im Gegensatz zu dynamisch
+==============================================
+
+Quelle
+______
+
+AUSZUG aus dem Wikipedia-Artikel "Variable (Programmierung)":
+https://de.wikipedia.org/wiki/Variable_(Programmierung)#Beispiel_lexikalisch_im_Gegensatz_zu_dynamisch
+
+Inhalt
+______
+
+C++ und C verwenden lexikalische (statische) Gültigkeitsbereiche:
+
+int x = 0;
+int f() { return x; }
+int g() { int x = 1; return f(); } /* g() => 0 */
+
+Im obigen Programmfragment ergibt g() immer 0 (den Wert der globalen Variablen x, nicht den Wert der lokalen Variablen x in g()). Dies ist so, weil in f() immer nur das globale x sichtbar ist.
+
+In Perl können lokale Variablen lexikalisch (statisch) mit dem Schlüsselwort my oder dynamisch mit dem irreführenden Schlüsselwort local deklariert werden.[4] Das folgende Beispiel entspricht dem obigen in C:
+
+$x = 0;
+sub f { return $x; }
+sub g { my $x = 1; return f(); }
+print g()."\n";
+
+Dieses Beispiel benutzt my, um $x in g() einen lexikalischen (statischen) Sichtbarkeitsbereich zu geben. Daher wird g() immer 0 ergeben. f() kann g()’s $x nicht sehen, obwohl dies zum Zeitpunkt, zu dem f() aufgerufen wird, noch existiert.
+
+$x = 0;
+sub f { return $x; }
+sub g { local $x = 1; return f(); }
+print g()."\n";
+
+Dieses Beispiel benutzt local, um $x in g() einen dynamischen Sichtbarkeitsbereich zu geben. Somit kann f() den lokal, in g(), geltenden Wert von $x verwenden und g() liefert den Wert 1.
+
+In der Praxis sollte man in der Regel für Variablen in Perl "my" verwenden.
+
+CYBOP
+_____
+
+CYBOL verwendet die DYNAMISCHE Deklaration lokaler Variablen.
+Wenn eine äußere Funktion Variablen definiert, so sind diese auch für
+aufgerufene Kindfunktionen sichtbar und verwendbar.
+
+Beispiel:
+
+    <node name="rows" channel="file" format="element/part" model="application/presence/logic/create/choices/rows.cybol">
+        <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="index" channel="inline" format="number/integer" model="0"/>
+        <node name="count" channel="inline" format="number/integer" model="0"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".logic.create.choices.row"/>
+    </node>
+
