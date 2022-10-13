@@ -14,5 +14,5 @@ add_custom_command(TARGET api
         WORKING_DIRECTORY ${ROOT_DIR}/tools)
 
 add_custom_command(TARGET api
-        COMMAND cp api-generator/index.html ${ROOT_DIR}/www/website/development/api/index.html
+        COMMAND cp api-generator/index.html ${ROOT_DIR}/www/website/documentation/api/index.html
         WORKING_DIRECTORY ${ROOT_DIR}/tools)

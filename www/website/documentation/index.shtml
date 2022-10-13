@@ -4,6 +4,49 @@
     <h1>Documentation</h1>
 </section>
 
+<section class="container">
+    <h2>Application Programming Interface (API)</h2>
+    <p>
+        The CYBOL language offers plenty of data formats (types) and operations,
+        all of which follow the MIME type standard in an extended version.
+    </p>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header h6">
+                    Data Format (Type) Examples
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>number/integer</li>
+                        <li>text/plain</li>
+                        <li>element/part</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header h6">
+                    Operation Examples
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>calculate/add</li>
+                        <li>communicate/send</li>
+                        <li>flow/loop</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="mt-4">
+        <a href="/development/api/">
+            <span class="badge rounded-pill p-3" style="font-size: 14pt;">View API documentation</span>
+        </a>
+    </p>
+</section>
+
 <section class="container mt-5">
     <div class="row mt-5">
         <div class="col-sm-6">
@@ -74,6 +117,7 @@
     </div>
 </section>
 
+<!--
 <section class="container">
     <h2>Developer Manual</h2>
     <p>
@@ -85,5 +129,6 @@
         <li><a href="manual/2013-04-04_manual_en.pdf">Beginner's Tutorial (2013-04-04, English)</a></li>
     </ul>
 </section>
+-->
 
 <!--#include virtual="/bottom.shtml" -->

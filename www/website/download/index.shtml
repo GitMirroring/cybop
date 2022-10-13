@@ -58,6 +58,7 @@
     </p>
 </section>
 
+<!--
 <section class="container">
     <h2>CYBOL Editor (CYBOLE)</h2>
     <p>
@@ -67,5 +68,6 @@
         <span class="badge rounded-pill p-3" style="font-size: 14pt;">GitHub Project Page</span>
     </a>
 </section>
+-->
 
 <!--#include virtual="/bottom.shtml" -->
