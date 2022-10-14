@@ -14,7 +14,6 @@
 Build
 _____
 
-        * Check source code statically using "CppCheck" and change reported variable names
         * Adapt rules of "ClangFormat" and correct reported formatting errors
         * Test new automated build process by preparing release 0.24.0
         * Find out how best to exclude log messages from release build (ifdef macro, build script, other idea)
@@ -22,7 +21,6 @@ _____
 API
 ___
 
-        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/maintain_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/activate_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/feel_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/compare_logic_cybol_format.c"
@@ -42,7 +40,6 @@ ___
 Numeral Deserialiser
 ____________________
 
-        * Debug example "numbers.json" where "fraction-decimal" is a sub node of "integer", which it should not
         * Debug example "numbers.json" where numbers with pre point value zero are not deserialised correctly
         * Provide flag so that leading zeros are just skipped and not interpreted as octal number, which is needed when calling numeral deserialiser from json
 

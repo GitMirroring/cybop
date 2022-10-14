@@ -41,26 +41,20 @@
 /**
  * The maintain/shutdown logic cybol format.
  *
- * Shutdown sensing service.
- *
  * Description:
  *
-Shuts down the service running on the given channel.
+ * Shuts down the service running on the channel.
  *
  * Examples:
  *
- * <node name="shutdown_serial_port" channel="inline" format="maintain/shutdown" model="">
- *     <node name="channel" channel="inline" format="text/cybol-path" model=".settings.device"/>
+ * <node name="shutdown_connexion_to_x_window_system_server" channel="inline" format="maintain/shutdown" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="display"/>
  * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-channel	the channel on which to shutdown a service (terminal, www, x-window-system, ...)	true	path/* | meta/channel
- *
- * Parametres:
- * - channel (required): the communication channel, e.g. socket, display
- * - port (optional): the service identification, e.g. socket port 80
+ * - channel (required) [text/cybol-path | meta/channel]: The communication channel.
+ * - port (optional) [text/cybol-path | number/integer]: The service identification.
  */
 static wchar_t* SHUTDOWN_MAINTAIN_LOGIC_CYBOL_FORMAT = L"maintain/shutdown";
 static int* SHUTDOWN_MAINTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -68,55 +62,54 @@ static int* SHUTDOWN_MAINTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
 /**
  * The maintain/startup logic cybol format.
  *
- * Startup sensing service.
- *
  * Description:
  *
-Starts up a service on the given channel.
+ * Starts up a service on the channel.
  *
  * Examples:
  *
- * <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
- *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
- * </node>
-
-<node name="startup_socket" channel="inline" format="maintain/startup" model="">
+ * <node name="startup_local_unix_domain_socket_with_filename" channel="inline" format="maintain/startup" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+ *     <node name="namespace" channel="inline" format="text/plain" model="local"/>
+ *     <node name="style" channel="inline" format="text/plain" model="datagram"/>
+ *     <node name="protocol" channel="inline" format="text/plain" model="udp"/>
+ *     <node name="device" channel="inline" format="text/plain" model="cyboi.socket"/>
+ *     <node name="connexions" channel="inline" format="number/integer" model="1"/>
+ *     <node name="timeout" channel="inline" format="number/integer" model="5"/>
+ * </node>
+ *
+ * <node name="startup_ipv4_stream_socket" channel="inline" format="maintain/startup" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+ *     <node name="port" channel="inline" format="number/integer" model="1971"/>
  *     <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
  *     <node name="style" channel="inline" format="text/plain" model="stream"/>
  *     <node name="protocol" channel="inline" format="text/plain" model="tcp"/>
- *     <node name="address" channel="inline" format="text/cybol-path" model=".app.var.address"/>
- *     <node name="id" channel="inline" format="text/cybol-path" model=".app.var.port"/>
- *     <node name="mode" channel="inline" format="text/plain" model="server"/>
- *     <node name="blocking" channel="inline" format="logicvalue/boolean" model="false"/>
- *     <node name="connexions" channel="inline" format="number/integer" model="1"/>
+ *     <node name="device" channel="inline" format="text/plain" model="127.0.0.1"/>
+ *     <node name="connexions" channel="inline" format="number/integer" model="10"/>
+ *     <node name="timeout" channel="inline" format="number/integer" model="5"/>
+ * </node>
+ *
+ * <!-- Startup display service and open a window afterwards. -->
+ * <node name="connect_to_x_window_system_server" channel="inline" format="maintain/startup" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="display"/>
+ * </node>
+ * <node name="open_window" channel="inline" format="dispatch/open" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="display"/>
+ *     <!-- Open client window in SERVER mode, so that it gets stored in the display server. -->
+ *     <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+ *     <node name="identification" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
  * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-channel	the channel on which to startup a service (terminal, display, tcp_socket, unix_socket, ...)	true	path/* | meta/channel
-namespace	the address family, e.g. ip6	false	text/plain
-style	the communication style, e.g. stream	false	text/plain
-address	the host address	false	text/plain
-protocol	the protocol, e.g. tcp	false	text/cybol-path
-id	the service identification if having multiple terminals/displays/sockets etc., e.g. socket port 80; either port or service may be specified; port has higher priority; if missing, zero will be used (first io entry)	false	text/cybol-path
-server		false	text/plain
-blocking	the socket status, i.e. whether or not a socket is blocking	false	logicvalue/boolean
-connexions	the number of possible pending client requests	false	number/integer
- *
- * Parametres:
- * - channel (required): the communication channel, e.g. socket, display
- * - port (optional): the service identification, e.g. socket port 80
- * - namespace (optional): the address family, e.g. local, ipv4, ipv6
- * - style (optional): the communication style, e.g. stream, datagram, raw
- * - protocol (optional): the protocol, e.g. tcp, udp, rdp
- * - device (optional):
- *      = filename for channel "socket" with namespace "local" (unix domain socket), e.g. localbuffer.socket
- *      = host address for channel "socket" with namespace "ipv4" or "ipv6", e.g. localhost or 127.0.0.1
- *      = null for channel "display", since the display server does not need it (therefore it is OPTIONAL)
- * - connexions (optional): the maximum number of possible pending client requests, e.g. 10
- * - timeout (optional): the timeout in seconds set for each new client, e.g. 300
+ * - channel (required) [text/cybol-path | meta/channel]: The communication channel.
+ * - port (optional) [text/cybol-path | number/integer]: The service identification.
+ * - namespace (optional) [text/cybol-path | text/plain]: The address family, for example local, ipv4, ipv6.
+ * - style (optional) [text/cybol-path | text/plain]: The communication style, for example stream, datagram, raw.
+ * - protocol (optional) [text/cybol-path | text/plain]: The protocol, for example tcp, udp, rdp.
+ * - device (optional) [text/cybol-path | text/plain]: The filename for channel socket with namespace local (unix domain socket). Example values: localbuffer.socket. The host address for channel socket with namespace ipv4 or ipv6. Example values: localhost or 127.0.0.1. It is null (not given) for channel display, since a client window does not need it.
+ * - connexions (optional) [text/cybol-path | number/integer]: The maximum number of possible pending client requests, for example 10.
+ * - timeout (optional) [text/cybol-path | number/integer]: The timeout in seconds set for each new client, for example 300.
  */
 static wchar_t* STARTUP_MAINTAIN_LOGIC_CYBOL_FORMAT = L"maintain/startup";
 static int* STARTUP_MAINTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;

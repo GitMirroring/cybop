@@ -18,9 +18,14 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-10-14  Christian Heller  <christian.heller@cybop.org>
+
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/maintain_logic_cybol_format.c"
+
 2022-10-12  Christian Heller  <christian.heller@cybop.org>
 
         * Add whitespaces as end delimiter to file "end_number_json_selector.c" since otherwise, the last number (which is not followed by a comma) in a json object or array might contain spaces or line breaks in its value
+        * Fix bug thereby in example "numbers.json" where "fraction-decimal" is a sub node of "integer", which it should not
         * Shorten code by using file "whitespace_selector.c" in "begin_value_json_selector.c"
         * Debug errors in numeral deserialiser caused by usage of int instead of double
         * Complete power numeral deserialiser

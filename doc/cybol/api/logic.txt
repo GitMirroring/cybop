@@ -10,6 +10,8 @@ flow/branch
 flow/loop
 flow/sequence
 live/exit
+maintain/shutdown
+maintain/startup
 memorise/create
 memorise/destroy
 modify/append
