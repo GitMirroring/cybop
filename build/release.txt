@@ -27,6 +27,7 @@ ___________
 2 Compile cyboi by running "make cyboi" which executes gcc
 3 Test cybol example applications by running "make test" which executes cyboi
 4 Check source code statically by running "make analysis" which calls "CppCheck"
+(CAUTION! Possibly skip it. It took almost 48 h. All that was found was some unused functions.)
 5 Verify style by running "make formatting" which calls "ClangFormat" with code changes DISABLED
 
 Build
