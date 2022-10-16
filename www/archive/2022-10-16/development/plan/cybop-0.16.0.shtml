@@ -1,0 +1,52 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.16.0</h1>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <ul>
+        <li>Add new mime type constants (Franziska Wehner)</li>
+        <li>Add iso character set constants (Franziska Wehner)</li>
+        <li>Provide values for command line argument "--test", in order to call one test unit at a time</li>
+        <li>Restructure test units (Melanie Fricke, Philipp Engelmann, Paul-Georg Stengel)</li>
+        <li>Redesign compound copiers/setters/getters for complex/datetime/duration/fraction</li>
+        <li>Complete decimal<li>and vulgar fraction calculator and comparator</li>
+        <li>Add cartesian<li>and polar complex calculator and comparator (Tony Kreißl, Sascha Kühnel, Kevin Wettermann)</li>
+        <li>Add boolean and bitwise logic operations (Tony Kreißl, Sascha Kühnel, Kevin Wettermann)</li>
+        <li>Add directory "executor/container/" with operation comparing if a bounded area contains a given value</li>
+        <li>Add platform-independent shell commands (Alexander Müller, Kevin Glück)</li>
+        <li>Continue gui serialiser</li>
+        <li>Add layout serialiser</li>
+        <li>Add datetime compound structure based on julian day (int) and julian second (double)</li>
+        <li>Add time scale gregorian_date/julian_date/jd/mjd/tjd/tai calendar de-/serialiser</li>
+        <li>Add new entries to xdt de-/serialiser (Birgit Heller)</li>
+        <li>Extend xdt selectors following BDT/KVDT/GDT standard documents (Florian Pachel)</li>
+        <li>Add knowledge path extension for accessing node name using parentheses, e.g. .app.wui.(.app.var.page_name).body.table</li>
+        <li>Add visual studio c adaptations (Mike Feustel, Benno Schilling)</li>
+        <li>Add compilation changes for Apple Mac OSX (Markus Hinkelmann)</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOL</h2>
+    <ul>
+        <li>Add "datetime" cybol application for testing various date formats</li>
+        <li>Add "ui" cybol application with tui, gui, wui</li>
+        <li>Add "calculator" application with tui (Cedric Thomas)</li>
+        <li>Create tool "tools/field_description_xdt_model_generator/"</li>
+        <li>Create tool "tools/xdt_field_description_serialiser_generator/"</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>Project</h2>
+    <ul>
+        <li>Add slides for short lightning talk on cybop to directory "doc/lightning_talk/"</li>
+        <li>Add brochure to directory "doc/presentations/prospectus/"</li>
+        <li>Add shell script "dist/prepare_release.sh"</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

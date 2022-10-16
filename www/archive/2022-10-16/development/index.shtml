@@ -1,0 +1,107 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>Development</h1>
+</section>
+
+<section class="container">
+    <h2>Project Portal</h2>
+    <p>
+        The project is hosted on the GNU Savannah open source software portal.
+    </p>
+    <a href="https://savannah.nongnu.org/projects/cybop/">
+        <img src="/development/sv-nongnu.png" alt="GNU Savannah Logo" vspace="2" width="124" height="32" border="1"/>
+        <br/>
+        https://savannah.nongnu.org/projects/cybop/
+    </a>
+</section>
+
+<section class="container">
+    <h2>Source Code</h2>
+    <p>
+        Our source code repository is managed using the Subversion (SVN) centralised version control system.
+    </p>
+    <p>
+        <a href="http://savannah.nongnu.org/svn/?group=cybop">http://savannah.nongnu.org/svn/?group=cybop</a>
+    </p>
+    <a href="http://svn.savannah.gnu.org/viewvc/cybop/trunk/">
+        <span class="badge rounded-pill p-3" style="font-size: 14pt;">Browse Sources Repository</span>
+    </a>
+</section>
+
+<section class="container">
+    <h2>Code Conventions</h2>
+    <p>
+        The style guide recommendations for coding in the C programming language
+        while developing on the CYBOI interpreter.
+    </p>
+    <a href="/development/conventions/">
+        <span class="badge rounded-pill p-3" style="font-size: 14pt;">Read Code Conventions</span>
+    </a>
+</section>
+
+<section class="container">
+    <h2>Bug Reporting</h2>
+    <p>
+        Developers use their internal TODO lists.
+        Additionally, a list of errors and wishes sent by users is managed in the Savannah portal.
+    </p>
+    <p>
+        <a href="http://savannah.nongnu.org/bugs/?group=cybop">http://savannah.nongnu.org/bugs/?group=cybop</a>
+    </p>
+    <a href="https://savannah.nongnu.org/bugs/?group=cybop&func=additem">
+        <span class="badge rounded-pill p-3" style="font-size: 14pt;">Submit Bug Report</span>
+    </a>
+</section>
+
+<section class="container">
+    <h2>Mailing List</h2>
+    <p>
+        There is currently just one mailing list in the project,
+        which is used mainly for developer discussion.
+        However, interested users seeking support may address this list as well.
+    </p>
+    <ul>
+        <li>Developer List: <a href="mailto:cybop-developers@nongnu.org">cybop-developers@nongnu.org</a></li>
+        <li>Registration: <a href="https://lists.nongnu.org/mailman/listinfo/cybop-developers">https://lists.nongnu.org/mailman/listinfo/cybop-developers</a></li>
+        <li>Overview: <a href="http://savannah.nongnu.org/mail/?group=cybop">Mailing Lists</a></li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>Release Plan</h2>
+    <p>
+        <a href="/development/plan/" class="mt-4">
+            <span class="badge rounded-pill p-3" style="font-size: 14pt;">Study Release Plan</span>
+        </a>
+    </p>
+</section>
+
+<section class="container">
+    <h2>How to Help</h2>
+    <p>
+        We currently follow the development model of "Benevolent Dictatorship". This is for historical reasons.
+        Most contributions come from the project founder who implements ideas which he formulated over the years.
+    </p>
+    <p>
+        However, help from the Community is always welcome and could save time,
+        which can then better be invested in developing the core interpreter.
+        Here are some ideas where your support would be possible and useful:
+    </p>
+    <ul>
+        <li>CYBOL Editor (create development tool with several views: text, xml, json, tree-table, graphical blocks)</li>
+        <li>GUI Designer (develop RAD tool to create user interfaces quickly)</li>
+        <li>Documentation (write user manual and update API)</li>
+        <li>Website (maintain and update content)</li>
+        <li>Build Process (integrate libraries or factor out plug-ins, currently using cmake)</li>
+        <li>Continuous Integration/Delivery (package software for CI/CD)</li>
+        <li>Import/Export Filters (write parser and serialiser for new data formats)</li>
+        <li>Database Concept Integration (optimise JSON/XML file size for storage, provide SQL like queries)</li>
+        <li>Graphical User Interface (design GUI components, make use of fonts, implement layouts, control window)</li>
+        <li>Migration (port CYBOI interpreter to Windows, Mac OSX, Android, iOS)</li>
+        <li>CYBOL Library (provide basic functionality usable by CYBOL applications)</li>
+        <li>Bug Reporting (test cybol applications)</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

@@ -1,0 +1,171 @@
+/*
+ * Colours:
+ *
+ * From logo:
+ * - dark blue: #3873c2
+ * - medium blue: #5287ce
+ * - light blue: #aed6f2
+ *
+ * Others:
+ * - yellow: #ffffc0
+ * - red: #ff8080
+ * - green: #c0ffc0
+ * - orange: #ffdca8
+ */
+
+/* Limit container width, so that the text does not span the whole page. */
+@media (min-width: 1200px) {
+
+    .container {
+
+        max-width: 1100px;
+    }
+}
+
+html {
+
+    /* Avoid white margin below footer. */
+    background-color: #000000;
+}
+
+h1 {
+
+    font-size: 2rem;
+    font-weight: normal;
+    letter-spacing: 4px;
+    margin-top: 2.0rem;
+    margin-bottom: 2.0rem;
+}
+
+h2 {
+
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-top: 2.0rem;
+    margin-bottom: 1.5rem;
+    color: #5287ce;
+}
+
+h3 {
+
+    font-size: 1.0rem;
+    font-weight: bold;
+    margin-top: 2.0rem;
+    margin-bottom: 1.5rem;
+}
+
+thead {
+
+    background-color: #aed6f2;
+}
+
+.navbar {
+
+    /* Switch off default margin and padding. */
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    font-weight: bold;
+}
+
+/* CAUTION! Do NOT change the ORDER of the link states, since it follows css order rules. */
+.navbar-brand a:link { background-color: #000000; }
+.navbar-brand a:visited { background-color: #000000; }
+.navbar-brand a:focus { background-color: #000000; }
+.navbar-brand a:hover { background-color: #000000; }
+.navbar-brand a:active { background-color: #000000; }
+
+.navbar-toggler {
+
+    color: #5287ce;
+    border-color: #5287ce;
+}
+
+.navbar-toggler:focus {
+
+    color: #5287ce;
+}
+
+.navbar-toggler-icon {
+
+    /*
+     * The icon HAS TO BE defined here again as url.
+     * There is NO possibility to overwrite just the colors.
+     * Therefore, the cybop rgb values are explicitly given here.
+     */
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(82,135,206, 1.0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+/*
+ * CAUTION! Do NOT change the ORDER of the link states, since it follows css order rules.
+ *
+ * CAUTION! The vertical padding (top and bottom) has to be specified HERE and
+ * NOT for class "nav-item" since the link's background is to be highlighted.
+ *
+ * CAUTION! Setting the horizontal paddings (left and right) does NOT work here.
+ * Probably, the reason is the class "justify-content-left" applied to the "nav" tag,
+ * which adjusts horizontal paddings automatically.
+ * The left padding is therefore given as CSS STYLE in file "navigation.inc".
+ */
+.nav-item a:link { color: #ffffff; text-decoration: none; background-color: #000000; display: block; padding-top: 20px; padding-bottom: 20px; }
+.nav-item a:visited { color: #ffffff; text-decoration: none; background-color: #000000; display: block; padding-top: 20px; padding-bottom: 20px; }
+.nav-item a:focus { color: #000000; text-decoration: none; background-color: #aed6f2; display: block; padding-top: 20px; padding-bottom: 20px; }
+.nav-item a:hover { color: #000000; text-decoration: none; background-color: #aed6f2; display: block; padding-top: 20px; padding-bottom: 20px; }
+.nav-item a:active { color: #000000; text-decoration: none; background-color: #aed6f2; display: block; padding-top: 20px; padding-bottom: 20px; }
+
+section a {
+
+    font-weight: bold;
+}
+
+.badge {
+
+    background-color: #5287ce;
+    color: #ffffff;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #5287ce;
+}
+
+.badge:hover {
+
+    background-color: #ffffff;
+    color: #5287ce;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #5287ce;
+}
+
+/* CAUTION! Do NOT change the ORDER of the link states, since it follows css order rules. */
+section a:link { color: #5287ce; text-decoration: none; }
+section a:visited { color: #5287ce; text-decoration: none; }
+section a:focus { color: #5287ce; text-decoration: underline; }
+section a:hover { color: #5287ce; text-decoration: underline; }
+section a:active { color: #5287ce; text-decoration: underline; }
+
+footer {
+
+    /* Set explicitly since otherwise, it remains white (even though it is set for "html" as well). */
+    background-color: #000000;
+    /* Print all text in white color (not only links). */
+    color: #ffffff;
+    border-style: solid;
+    border-width: 50px 0px 0px 0px;
+    border-color: #ffffff;
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+
+footer a {
+
+    font-weight: bold;
+}
+
+/* CAUTION! Do NOT change the ORDER of the link states, since it follows css order rules. */
+footer a:link { color: #ffffff; text-decoration: none; }
+footer a:visited { color: #ffffff; text-decoration: none; }
+footer a:focus { color: #ffffff; text-decoration: underline; }
+footer a:hover { color: #ffffff; text-decoration: underline; }
+footer a:active { color: #ffffff; text-decoration: underline; }
+

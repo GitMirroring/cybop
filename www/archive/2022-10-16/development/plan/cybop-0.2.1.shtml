@@ -1,0 +1,31 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.2.1</h1>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <ul>
+        <li>Correct determination of highest priority index in signal memory</li>
+        <li>Restructure project directories:
+            /constants --> /constant;
+            /model --> /array;
+            /model --> /state;
+            /statics --> /state;
+            /dynamics --> /logic</li>
+        <li>Move <i>operation</i> (being state knowledge) to /state</li>
+        <li>Bundle all constants in just one place</li>
+        <li>Use more constants, instead of hard-coded values</li>
+        <li>Introduce constants for log messages</li>
+        <li>Improve logger; removed all dependencies from other project parts (like array)</li>
+        <li>Hand over <i>size</i> and <i>count</i> as parameters; do not keep them in one array with pointers</li>
+        <li>Prepare processing of compound signals</li>
+        <li>Factor out two procedures <i>handle_create_model_signal</i> and <i>handle_send_signal</i> from <i>handle_operation_signal</i></li>
+        <li>Adapt <i>create_model</i> procedure to read cybol sources from several locations like inline|file|ftp</li>
+        <li>Add test procedures in an own testing module</li>
+        <li>Prepare processing of compound signals</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

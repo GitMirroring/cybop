@@ -1,0 +1,36 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.13.0</h1>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <ul>
+        <li>Implement new version of xdt deserialiser, needed for German medical data formats bdt/gdt/ldt</li>
+        <li>Add character encodings: ascii, iso-8859-1, iso-8859-15, windows-1252, c0 and c1 control codes of iso 6429</li>
+        <li>Adjust reference counting to make rubbish (garbage) collection work correctly</li>
+        <li>Add communication channel "serial_port" for talking to microcontroller device via usb</li>
+        <li>Add terminal mode line speed serialiser necessary for converting integer to POSIX.1 baudrate symbols</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOL</h2>
+    <ul>
+        <li>Simplify cybol files by removing attributes like "encoding" and "language"</li>
+        <li>Add new operations: run/sleep-second, run/sleep-nano, modify/fill, cast/character, cast/double, cast/integer</li>
+        <li>Add formats: number/byte, in addition to "text/ascii", both internally mapped to "unsigned char"</li>
+        <li>Add applications "indoor_climate"</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>Project</h2>
+    <ul>
+        <li>Add cybol editor of Benjamin Teßmar and Sebastian Brückner</li>
+        <li>Add cybop-python comparison article of Max Brauer</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

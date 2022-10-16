@@ -1,0 +1,22 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.3.1</h1>
+</section>
+
+<section class="container">
+    <h2>Project</h2>
+    <ul>
+        <li>Debian Package for CYBOI interpreter</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <ul>
+        <li>Prepare TCP/IP sockets</li>
+        <li>Change handling of internals</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

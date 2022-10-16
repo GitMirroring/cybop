@@ -1,0 +1,26 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.15.0</h1>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <ul>
+        <li>Improve channel interrupt detection outside threads in main loop</li>
+        <li>Complete x window system receiver</li>
+        <li>Complete win32 display receiver</li>
+        <li>Complete win32 console receiver</li>
+        <li>Add further "access/" cybol operations</li>
+        <li>Provide first working version of xdt deserialiser, to be used in Res Medicinae tool "xdt2html" (partly by Birgit Heller)</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOL</h2>
+    <ul>
+        <li>Create tool "integer_number_generator" to generate integer number constants</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

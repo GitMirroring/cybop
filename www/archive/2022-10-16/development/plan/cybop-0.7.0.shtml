@@ -1,0 +1,51 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.7.0</h1>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <ul>
+        <li>Update and add more things for wide character handling</li>
+        <li>Prepare access to meta elements of a compound double hierarchy;
+            two knowledge tree separators are now possible: the part separator <i>.</i> and the meta separator <i>#</i></li>
+        <li>Restructure compound handling, so that functions now get handed over the
+            <i>compound model</i> and corresponding <i>compound details</i> (meta information)</li>
+        <li>Provide universal "get" function, so that CYBOL knowledge templates can be written
+            much more flexibly, since models can be given as<br/>
+            1 hard-coded inline value<br/>
+            2 hierarchical name to a model (= encapsulated model)<br/>
+            3 hierarchical name pointing to another hierarchical name containing a model (= double-encapsulated model)</li>
+        <li>Implement threads using mutexes (atomic flags) for reception of signals via x window system and linux console (terminal)</li>
+        <li>Interrupt (exit) and free resources of all <i>receive</i> service threads automatically at
+            system shutdown, which is necessary in case a CYBOL application developer forgot to do that</li>
+        <li>Rework textual user interface (tui) handling; introduce windowing technique</li>
+        <li>Implement selective repaint; small areas instead of the whole textual user interface (tui) can be repainted now</li>
+        <li>Implement x window system gui event handling</li>
+        <li>Add unix shell command processing from within CYBOL</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOL</h2>
+    <ul>
+        <li>Add a number of new model constants (boolean operations, bit manipulation operations etc.)</li>
+        <li>Remove CYBOL_ABSTRACTION everywhere and replace with COMPOUND_ABSTRACTION, which existed in parallel</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>Project</h2>
+    <ul>
+        <li>Add <i>libpthread</i> library to Makefile, for linking</li>
+        <li>Add minor things to Makefile, for Linux-Windows platform compilations,
+            so that conditional preprocessor directives like:
+            <i>#ifdef LINUX_OPERATING_SYSTEM</i> can be used in the source code</li>
+        <li>Provide source code tar balls (tar.gz), as pre-condition</li>
+        <li>Update Debian packages</li>
+        <li>Sponsor Debian packages and upload to testing distribution</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->
