@@ -31,17 +31,33 @@
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
+/** The capital binary 0B base numeral name. */
+static wchar_t* CAPITAL_BINARY_BASE_NUMERAL_NAME = L"0B";
+static int* CAPITAL_BINARY_BASE_NUMERAL_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The capital hexadecimal 0X base numeral name. */
 static wchar_t* CAPITAL_HEXADECIMAL_BASE_NUMERAL_NAME = L"0X";
 static int* CAPITAL_HEXADECIMAL_BASE_NUMERAL_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The capital octal 0O base numeral name. */
+static wchar_t* CAPITAL_OCTAL_BASE_NUMERAL_NAME = L"0O";
+static int* CAPITAL_OCTAL_BASE_NUMERAL_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The octal 0 base numeral name. */
 static wchar_t* OCTAL_BASE_NUMERAL_NAME = DIGIT_ZERO_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
 static int* OCTAL_BASE_NUMERAL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The small binary 0b base numeral name. */
+static wchar_t* SMALL_BINARY_BASE_NUMERAL_NAME = L"0b";
+static int* SMALL_BINARY_BASE_NUMERAL_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The small hexadecimal 0x base numeral name. */
 static wchar_t* SMALL_HEXADECIMAL_BASE_NUMERAL_NAME = L"0x";
 static int* SMALL_HEXADECIMAL_BASE_NUMERAL_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The small octal 0o base numeral name. */
+static wchar_t* SMALL_OCTAL_BASE_NUMERAL_NAME = L"0o";
+static int* SMALL_OCTAL_BASE_NUMERAL_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* BASE_NUMERAL_NAME_CONSTANT_SOURCE */
 #endif

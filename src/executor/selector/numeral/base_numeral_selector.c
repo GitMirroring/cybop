@@ -61,6 +61,46 @@ void select_numeral_base(void* p0, void* p1, void* p2) {
     // The HEXADECIMAL integer with prefix "0x" has to get
     // detected BEFORE the octal integer with prefix just "0".
     //
+    // Recognised number prefixes are:
+    //
+    // binary: 0B and 0b (capital "B" and small "b")
+    // hexadecimal: 0X and 0x (capital "X" and small "x")
+    // octal: 0O and 0o (capital "O" and small "o") as well as the CLASSIC prefix just 0 (zero)
+    //
+    // The prefix "zero and lower- or uppercase letter o" for
+    // octal numbers is NOT used in the c programming language,
+    // but suggested as new format in python since version 3.x.
+    //
+
+    //
+    // binary
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        detect((void*) &r, p1, p2, (void*) SMALL_BINARY_BASE_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SMALL_BINARY_BASE_NUMERAL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Assign binary number base.
+            copy_integer(p0, (void*) BINARY_BASE_NUMERAL_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        detect((void*) &r, p1, p2, (void*) CAPITAL_BINARY_BASE_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CAPITAL_BINARY_BASE_NUMERAL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Assign binary number base.
+            copy_integer(p0, (void*) BINARY_BASE_NUMERAL_MODEL);
+        }
+    }
+
+    //
+    // hexadecimal
+    //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -81,6 +121,32 @@ void select_numeral_base(void* p0, void* p1, void* p2) {
 
             // Assign hexadecimal number base.
             copy_integer(p0, (void*) HEXADECIMAL_BASE_NUMERAL_MODEL);
+        }
+    }
+
+    //
+    // octal
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        detect((void*) &r, p1, p2, (void*) SMALL_OCTAL_BASE_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SMALL_OCTAL_BASE_NUMERAL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Assign octal number base.
+            copy_integer(p0, (void*) OCTAL_BASE_NUMERAL_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        detect((void*) &r, p1, p2, (void*) CAPITAL_OCTAL_BASE_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CAPITAL_OCTAL_BASE_NUMERAL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Assign octal number base.
+            copy_integer(p0, (void*) OCTAL_BASE_NUMERAL_MODEL);
         }
     }
 
