@@ -29,6 +29,7 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/numeral/base_numeral_model.c"
+#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/representer/deserialiser/numeral/decimals_numeral_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/numeral/power_numeral_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/numeral/value_numeral_deserialiser.c"
@@ -50,13 +51,16 @@
  * @param p5 the source count remaining
  * @param p6 the detected format
  * @param p7 the detected type
+ * @param p8 the ignore number base prefix flag
  */
-void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral part.");
     fwprintf(stdout, L"Debug: Deserialise numeral part. source count remaining p5: %i\n", p5);
     fwprintf(stdout, L"Debug: Deserialise numeral part. source count remaining *p5: %i\n", *((int*) p5));
 
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The number base with DECIMAL as default.
     int b = *DECIMAL_BASE_NUMERAL_MODEL;
     // The post point value flag.
@@ -70,8 +74,29 @@ void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, 
     // Deserialise algebraic sign.
     select_numeral_sign(p0, p4, p5);
 
-    // Deserialise number base.
-    select_numeral_base((void*) &b, p4, p5);
+    //
+    // Check ignore number base prefix flag.
+    //
+    // CAUTION! The json specification does not allow using number
+    // prefixes like "0x" for hexadecimal or just "0" for octal numbers.
+    // If a number literal with LEADING ZERO is found in some json data,
+    // then it has to be interpreted as DECIMAL number by default,
+    // by just IGNORING any leading zeros.
+    // Therefore, the ignore number base prefix flag may be used for
+    // such cases like json data parsing, in order to SKIP number base
+    // prefix detection.
+    //
+    compare_integer_equal((void*) &r, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        //
+        // The ignore number base prefix flag is FALSE.
+        //
+
+        // Deserialise number base by evaluating prefix.
+        select_numeral_base((void*) &b, p4, p5);
+    }
 
     fwprintf(stdout, L"Debug: Deserialise numeral part. b: %i\n", b);
 

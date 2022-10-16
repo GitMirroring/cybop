@@ -106,8 +106,14 @@ void deserialise_numeral_vector_list(void* p0, void* p1, void* p2, void* p3) {
             copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
             copy_array_forward((void*) &pmc, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+            //
             // Deserialise and append wide character data to destination number item.
-            deserialise_numeral(p0, *NULL_POINTER_STATE_CYBOI_MODEL, pmd, pmc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3);
+            //
+            // CAUTION! Hand over FALSE as ignore number base prefix flag,
+            // so that number prefixes like "0x" for hexadecimal or just "0"
+            // for octal numbers get detected.
+            //
+            deserialise_numeral(p0, *NULL_POINTER_STATE_CYBOI_MODEL, pmd, pmc, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3);
 
             // Increment loop variable.
             j++;

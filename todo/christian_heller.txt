@@ -38,9 +38,6 @@ ___
 Numeral Deserialiser
 ____________________
 
-        * Debug example "numbers.json" where numbers with pre point value zero are not deserialised correctly
-        * Provide flag so that leading zeros are just skipped and not interpreted as octal number, which is needed when calling numeral deserialiser from json
-
         * Adapt section "number" in file "cybol_deserialiser.c" to call function "deserialise_numeral"
         * Test numeral vector deserialiser
         * Delete files and directories in cybol deserialiser that have become obsolete due to the new numeral vector deserialiser

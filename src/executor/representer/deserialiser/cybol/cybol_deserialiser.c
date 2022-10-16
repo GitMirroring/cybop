@@ -392,7 +392,11 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
             // CAUTION! The number part parametre is NULL and not needed, since
             // a destination item is already handed over to the called function.
             //
-            //?? deserialise_numeral(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4);
+            // CAUTION! Hand over FALSE as ignore number base prefix flag,
+            // so that number prefixes like "0x" for hexadecimal or just "0"
+            // for octal numbers get detected.
+            //
+            //?? deserialise_numeral(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4);
         }
     }
 

@@ -23,6 +23,7 @@
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/activate_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/feel_logic_cybol_format.c"
         * Add number prefixes for binary and new octal format as used in python since version 3.x in file "base_numeral_selector.c"
+        * Provide ignore number base prefix flag so that leading zeros are just skipped and not interpreted as octal number, which is needed when calling numeral deserialiser from json
 
 2022-10-14  Christian Heller  <christian.heller@cybop.org>
 
