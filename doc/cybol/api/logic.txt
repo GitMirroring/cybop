@@ -1,3 +1,5 @@
+activate/disable
+activate/enable
 calculate/add
 communicate/identify
 communicate/receive
@@ -6,6 +8,8 @@ convert/decode
 convert/encode
 dispatch/close
 dispatch/open
+feel/sense
+feel/suspend
 flow/branch
 flow/loop
 flow/sequence

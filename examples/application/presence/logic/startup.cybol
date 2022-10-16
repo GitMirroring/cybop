@@ -22,7 +22,6 @@
     <node name="enable_requests" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="port" channel="inline" format="number/integer" model="1971"/>
-        <node name="language" channel="inline" format="meta/language" model="message/http-request"/>
         <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle.enable"/>
     </node>
 

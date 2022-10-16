@@ -176,7 +176,126 @@ footer a:hover {
 
     color: #aed6f2;
 }
-</style></head><body><nav class="position-fixed nav-left"><h1>Logic Operations</h1><h2>calculate</h2><a href="#calculate-add">add</a><h2>communicate</h2><a href="#communicate-identify">identify</a><a href="#communicate-receive">receive</a><a href="#communicate-send">send</a><h2>convert</h2><a href="#convert-decode">decode</a><a href="#convert-encode">encode</a><h2>dispatch</h2><a href="#dispatch-close">close</a><a href="#dispatch-open">open</a><h2>flow</h2><a href="#flow-branch">branch</a><a href="#flow-loop">loop</a><a href="#flow-sequence">sequence</a><h2>live</h2><a href="#live-exit">exit</a><h2>maintain</h2><a href="#maintain-shutdown">shutdown</a><a href="#maintain-startup">startup</a><h2>memorise</h2><a href="#memorise-create">create</a><a href="#memorise-destroy">destroy</a><h2>modify</h2><a href="#modify-append">append</a><a href="#modify-empty">empty</a><a href="#modify-fill">fill</a><a href="#modify-insert">insert</a><a href="#modify-lower">lower</a><a href="#modify-normalise">normalise</a><a href="#modify-overwrite">overwrite</a><a href="#modify-remove">remove</a><a href="#modify-repeat">repeat</a><a href="#modify-replace">replace</a><a href="#modify-reverse">reverse</a><a href="#modify-strip">strip</a><a href="#modify-strip-leading">strip-leading</a><a href="#modify-strip-trailing">strip-trailing</a><a href="#modify-upper">upper</a><h2>represent</h2><a href="#represent-deserialise">deserialise</a><a href="#represent-serialise">serialise</a><h2>stream</h2><a href="#stream-read">read</a><a href="#stream-write">write</a></nav><nav class="position-fixed nav-right"><h1>State Structures</h1><h2>application</h2><a href="#application-json">json</a><a href="#application-xml">xml</a><h2>colour</h2><a href="#colour-rgb">rgb</a><a href="#colour-terminal">terminal</a><h2>element</h2><a href="#element-part">part</a><a href="#element-property">property</a><h2>image</h2><a href="#image-gif">gif</a><a href="#image-jpeg">jpeg</a><a href="#image-png">png</a><h2>logicvalue</h2><a href="#logicvalue-boolean">boolean</a><h2>meta</h2><a href="#meta-channel">channel</a><a href="#meta-encoding">encoding</a><a href="#meta-format">format</a><a href="#meta-language">language</a><a href="#meta-model">model</a><a href="#meta-name">name</a><a href="#meta-type">type</a><h2>number</h2><a href="#number-byte">byte</a><a href="#number-complex-cartesian">complex-cartesian</a><a href="#number-complex-polar">complex-polar</a><a href="#number-fraction-decimal">fraction-decimal</a><a href="#number-fraction-vulgar">fraction-vulgar</a><a href="#number-integer">integer</a><h2>text</h2><a href="#text-ascii">ascii</a><a href="#text-cybol-path">cybol-path</a><a href="#text-html">html</a><a href="#text-json">json</a><a href="#text-plain">plain</a><a href="#text-xml">xml</a><h2>video</h2><a href="#video-mp4">mp4</a></nav><section class="position-fixed section-center"><header><h1>CYBOL API Specification Version 0.23.0</h1></header><section><section><a name="calculate-add"><h2>calculate/add</h2></a><section><h3>Description</h3><p class="description">Adds the operand to the result.
+</style></head><body><nav class="position-fixed nav-left"><h1>Logic Operations</h1><h2>activate</h2><a href="#activate-disable">disable</a><a href="#activate-enable">enable</a><h2>calculate</h2><a href="#calculate-add">add</a><h2>communicate</h2><a href="#communicate-identify">identify</a><a href="#communicate-receive">receive</a><a href="#communicate-send">send</a><h2>convert</h2><a href="#convert-decode">decode</a><a href="#convert-encode">encode</a><h2>dispatch</h2><a href="#dispatch-close">close</a><a href="#dispatch-open">open</a><h2>feel</h2><a href="#feel-sense">sense</a><a href="#feel-suspend">suspend</a><h2>flow</h2><a href="#flow-branch">branch</a><a href="#flow-loop">loop</a><a href="#flow-sequence">sequence</a><h2>live</h2><a href="#live-exit">exit</a><h2>maintain</h2><a href="#maintain-shutdown">shutdown</a><a href="#maintain-startup">startup</a><h2>memorise</h2><a href="#memorise-create">create</a><a href="#memorise-destroy">destroy</a><h2>modify</h2><a href="#modify-append">append</a><a href="#modify-empty">empty</a><a href="#modify-fill">fill</a><a href="#modify-insert">insert</a><a href="#modify-lower">lower</a><a href="#modify-normalise">normalise</a><a href="#modify-overwrite">overwrite</a><a href="#modify-remove">remove</a><a href="#modify-repeat">repeat</a><a href="#modify-replace">replace</a><a href="#modify-reverse">reverse</a><a href="#modify-strip">strip</a><a href="#modify-strip-leading">strip-leading</a><a href="#modify-strip-trailing">strip-trailing</a><a href="#modify-upper">upper</a><h2>represent</h2><a href="#represent-deserialise">deserialise</a><a href="#represent-serialise">serialise</a><h2>stream</h2><a href="#stream-read">read</a><a href="#stream-write">write</a></nav><nav class="position-fixed nav-right"><h1>State Structures</h1><h2>application</h2><a href="#application-json">json</a><a href="#application-xml">xml</a><h2>colour</h2><a href="#colour-rgb">rgb</a><a href="#colour-terminal">terminal</a><h2>element</h2><a href="#element-part">part</a><a href="#element-property">property</a><h2>image</h2><a href="#image-gif">gif</a><a href="#image-jpeg">jpeg</a><a href="#image-png">png</a><h2>logicvalue</h2><a href="#logicvalue-boolean">boolean</a><h2>meta</h2><a href="#meta-channel">channel</a><a href="#meta-encoding">encoding</a><a href="#meta-format">format</a><a href="#meta-language">language</a><a href="#meta-model">model</a><a href="#meta-name">name</a><a href="#meta-type">type</a><h2>number</h2><a href="#number-byte">byte</a><a href="#number-complex-cartesian">complex-cartesian</a><a href="#number-complex-polar">complex-polar</a><a href="#number-fraction-decimal">fraction-decimal</a><a href="#number-fraction-vulgar">fraction-vulgar</a><a href="#number-integer">integer</a><h2>text</h2><a href="#text-ascii">ascii</a><a href="#text-cybol-path">cybol-path</a><a href="#text-html">html</a><a href="#text-json">json</a><a href="#text-plain">plain</a><a href="#text-xml">xml</a><h2>video</h2><a href="#video-mp4">mp4</a></nav><section class="position-fixed section-center"><header><h1>CYBOL API Specification Version 0.23.0</h1></header><section><section><a name="activate-disable"><h2>activate/disable</h2></a><section><h3>Description</h3><p class="description">Disables the communication channel, so that no more requests/events can be detected.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;disable_server_socket&#x22; channel=&#x22;inline&#x22; format=&#x22;activate/disable&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;port&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1971&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;disable_display_server&#x22; channel=&#x22;inline&#x22; format=&#x22;activate/disable&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;display&#x22;/&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>channel</td><td>true</td><td>text/cybol-path | meta/channel</td><td>The communication channel.</td></tr><tr><td>port</td><td>false</td><td>text/cybol-path | number/integer</td><td>The service identification, for example http socket port 80. If null, the default is zero, for example with channel display.</td></tr></table></section></section><section><a name="activate-enable"><h2>activate/enable</h2></a><section><h3>Description</h3><p class="description">Enables the communication channel, so that requests/events can be detected.
+
+Calling the operation &#x22;feel/sense&#x22; afterwards is not necessary for channel &#x22;display&#x22; on a linux operating system with x window system, since &#x22;activate/enable&#x22; catches the events of all client windows.
+On a windows operating system, however, one separate event thread is run per window, so that calling &#x22;feel/sense&#x22; after this &#x22;activate/enable&#x22; is necessary.
+
+Calling this operation &#x22;activate/enable&#x22; is not necessary for channels &#x22;terminal&#x22; or &#x22;serial&#x22;, since clients get opened manually using &#x22;dispatch/open&#x22; and events can be detected right afterwards using the operation &#x22;feel/sense&#x22;.
+
+The requesting client gets appended to an internal accept buffer list. It can be accessed in operation &#x22;dispatch/open&#x22; using the property &#x22;identification&#x22;. However, this works only, if the &#x22;server&#x22; flag is set to true, so that the client is read from the accept buffer list.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;enable_server_socket&#x22; channel=&#x22;inline&#x22; format=&#x22;activate/enable&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;port&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1971&#x22;/&#x3E;
+    &#x3C;node name=&#x22;handler&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.logic.handle.enable&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;!--
+    Complete socket example with operations: enable, open, sense, identify, close.
+--&#x3E;
+&#x3C;!--
+    File &#x22;startup.cybol&#x22;.
+--&#x3E;
+&#x3C;node name=&#x22;enable_requests&#x22; channel=&#x22;inline&#x22; format=&#x22;activate/enable&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;port&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1971&#x22;/&#x3E;
+    &#x3C;node name=&#x22;handler&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.logic.handle.enable&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+&#x3C;!--
+    File &#x22;enable.cybol&#x22;.
+    This is the enable handler file belonging to the above call of &#x22;.logic.handle.enable&#x22;.
+--&#x3E;
+&#x3C;node name=&#x22;open_client&#x22; channel=&#x22;inline&#x22; format=&#x22;dispatch/open&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;socket&#x22;/&#x3E;
+    &#x3C;!-- Open client device in SERVER mode. It was already pre-configured inside by the accepting server socket. --&#x3E;
+    &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+    &#x3C;node name=&#x22;port&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1971&#x22;/&#x3E;
+    &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.client_socket&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+&#x3C;node name=&#x22;sense_client_data&#x22; channel=&#x22;inline&#x22; format=&#x22;feel/sense&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+    &#x3C;node name=&#x22;port&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1971&#x22;/&#x3E;
+    &#x3C;node name=&#x22;sender&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.client_socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/http-request&#x22;/&#x3E;
+    &#x3C;!-- This is the callback function executed when the client sends data. --&#x3E;
+    &#x3C;node name=&#x22;handler&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.logic.handle.sense&#x22;/&#x3E;
+    &#x3C;!-- This is the callback function executed when the client does not respond and is to be closed. --&#x3E;
+    &#x3C;node name=&#x22;closer&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.logic.handle.close&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+&#x3C;!-- File &#x22;sense.cybol&#x22; with processing instruction is left out here. --&#x3E;
+&#x3C;!--
+    File &#x22;close.cybol&#x22;.
+    This is the close handler file belonging to the above call of &#x22;.logic.handle.close&#x22;.
+--&#x3E;
+&#x3C;!-- Get client belonging to the handler that was placed into the interrupt pipe. --&#x3E;
+&#x3C;node name=&#x22;get_client_id&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/identify&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.client_socket&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+&#x3C;node name=&#x22;handle_close&#x22; channel=&#x22;inline&#x22; format=&#x22;dispatch/close&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+    &#x3C;node name=&#x22;port&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1971&#x22;/&#x3E;
+    &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.client_socket&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;!-- Fill internal input buffer of the corresponding windows with received events. --&#x3E;
+&#x3C;node name=&#x22;enable_display_server&#x22; channel=&#x22;inline&#x22; format=&#x22;activate/enable&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;display&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;enable_display_server_and_add_general_handler&#x22; channel=&#x22;inline&#x22; format=&#x22;activate/enable&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;display&#x22;/&#x3E;
+    &#x3C;!--
+        For standard window event processing, use operation &#x22;feel/sense&#x22;
+        which allows to hand over a SPECIFIC handler for each window.
+        However, it is possible to assign another callback function here,
+        which is OPTIONAL and would be executed upon arrival of EACH event,
+        independently of any window.
+    --&#x3E;
+    &#x3C;node name=&#x22;handler&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.handle_each_event&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;!--
+    Complete display example with operations: enable, sense, identify, receive.
+    The &#x22;maintain/startup&#x22; and &#x22;dispatch/open&#x22; operations are assumed to have been called before.
+--&#x3E;
+&#x3C;node name=&#x22;enable_server&#x22; channel=&#x22;inline&#x22; format=&#x22;activate/enable&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;display&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+&#x3C;node name=&#x22;sense_client_window_events&#x22; channel=&#x22;inline&#x22; format=&#x22;feel/sense&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;display&#x22;/&#x3E;
+    &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+    &#x3C;node name=&#x22;sender&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.gui.window_id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;handler&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.logic.handle&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+&#x3C;!--
+    File &#x22;handle.cybol&#x22;.
+    This is the event handler file belonging to the above call of &#x22;.logic.handle&#x22;.
+--&#x3E;
+&#x3C;!-- Get window client belonging to the handler that was placed into the interrupt pipe. --&#x3E;
+&#x3C;node name=&#x22;get_window_id&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/identify&#x22; model=&#x22;&#x22;&#x3E;
+     &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.gui.window_id&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+&#x3C;!-- The element hierarchy of the window given as &#x22;medium&#x22; gets searched through to identify a suitable action. --&#x3E;
+&#x3C;node name=&#x22;receive_next_event&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/receive&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;display&#x22;/&#x3E;
+    &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+    &#x3C;node name=&#x22;sender&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.gui.window_id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/gui-request&#x22;&#x3E;
+        &#x3C;node name=&#x22;medium&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.gui.window&#x22;/&#x3E;
+    &#x3C;/node&#x3E;
+    &#x3C;node name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;text/plain&#x22;/&#x3E;
+    &#x3C;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.gui.action&#x22;/&#x3E;
+    &#x3C;!-- Read indirectly from internal buffer into which data have been written by activate/enable. --&#x3E;
+    &#x3C;node name=&#x22;asynchronicity&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>channel</td><td>true</td><td>text/cybol-path | meta/channel</td><td>The communication channel.</td></tr><tr><td>port</td><td>false</td><td>text/cybol-path | number/integer</td><td>The service identification, for example http socket port 80. If null, the default is zero, for example with channel display.</td></tr><tr><td>handler</td><td>false</td><td>text/cybol-path</td><td>The callback cybol model to be executed upon arrival of a request/event.</td></tr></table></section></section><section><a name="calculate-add"><h2>calculate/add</h2></a><section><h3>Description</h3><p class="description">Adds the operand to the result.
 
 Caution! Do not use this operation for characters (strings)!
 They may be concatenated by using the &#x22;modify/append&#x22; operation.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;add_integer&#x22; channel=&#x22;inline&#x22; format=&#x22;calculate/add&#x22; model=&#x22;&#x22;&#x3E;
@@ -713,7 +832,66 @@ Therefore, the destination possibly has to get emptied before since otherwise, t
     &#x3C;!-- Open client window in server mode, so that it gets stored in the display server. --&#x3E;
     &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
     &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.gui.window_id&#x22;/&#x3E;
-&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>channel</td><td>true</td><td>text/cybol-path | meta/channel</td><td>The communication channel.</td></tr><tr><td>server</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating server mode. It is used for example for a window or client socket stub. If null, the default is false (standalone client mode).</td></tr><tr><td>port</td><td>false</td><td>text/cybol-path | number/integer</td><td>The service identification. It is relevant only in server mode. If null, the default is zero.</td></tr><tr><td>namespace</td><td>false</td><td>text/cybol-path | text/plain</td><td>The address family. It is relevant only with channel socket. Example values: ipv4 or ipv6.</td></tr><tr><td>style</td><td>false</td><td>text/cybol-path | text/plain</td><td>The communication style. It is relevant only with channel socket. Example values: stream or datagram.</td></tr><tr><td>protocol</td><td>false</td><td>text/cybol-path | text/plain</td><td>The protocol. It is relevant only with channel socket. Example values: tcp or udp.</td></tr><tr><td>mode</td><td>false</td><td>text/cybol-path | text/plain</td><td>The file open mode. Either read or write. If null, the default is read.</td></tr><tr><td>device</td><td>false</td><td>text/cybol-path | text/plain</td><td>The filename for channel file or serial or terminal or fifo. Example values: /path/to/file.txt or /dev/ttyS0 or standard-output or standard-input or standard-error-output. The filename for channel socket with namespace local (unix domain socket). Example values: localbuffer.socket. The host address for channel socket with namespace ipv4 or ipv6. Example values: localhost or 127.0.0.1. It is null (not given) for channel display, since a client window does not need it.</td></tr><tr><td>identification</td><td>true</td><td>text/cybol-path</td><td>The file descriptor or client socket number or window id returned from cyboi when opening the resource.</td></tr></table></section></section><section><a name="flow-branch"><h2>flow/branch</h2></a><section><h3>Description</h3><p class="description">Branches the programme flow, depending on the criterion flag.</p></section><section><h3>Examples</h3><p class="example">&#x3C;!-- Read models from file. --&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>channel</td><td>true</td><td>text/cybol-path | meta/channel</td><td>The communication channel.</td></tr><tr><td>server</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating server mode. It is used for example for a window or client socket stub. If null, the default is false (standalone client mode).</td></tr><tr><td>port</td><td>false</td><td>text/cybol-path | number/integer</td><td>The service identification. It is relevant only in server mode. If null, the default is zero.</td></tr><tr><td>namespace</td><td>false</td><td>text/cybol-path | text/plain</td><td>The address family. It is relevant only with channel socket. Example values: ipv4 or ipv6.</td></tr><tr><td>style</td><td>false</td><td>text/cybol-path | text/plain</td><td>The communication style. It is relevant only with channel socket. Example values: stream or datagram.</td></tr><tr><td>protocol</td><td>false</td><td>text/cybol-path | text/plain</td><td>The protocol. It is relevant only with channel socket. Example values: tcp or udp.</td></tr><tr><td>mode</td><td>false</td><td>text/cybol-path | text/plain</td><td>The file open mode. Either read or write. If null, the default is read.</td></tr><tr><td>device</td><td>false</td><td>text/cybol-path | text/plain</td><td>The filename for channel file or serial or terminal or fifo. Example values: /path/to/file.txt or /dev/ttyS0 or standard-output or standard-input or standard-error-output. The filename for channel socket with namespace local (unix domain socket). Example values: localbuffer.socket. The host address for channel socket with namespace ipv4 or ipv6. Example values: localhost or 127.0.0.1. It is null (not given) for channel display, since a client window does not need it.</td></tr><tr><td>identification</td><td>true</td><td>text/cybol-path</td><td>The file descriptor or client socket number or window id returned from cyboi when opening the resource.</td></tr></table></section></section><section><a name="feel-sense"><h2>feel/sense</h2></a><section><h3>Description</h3><p class="description">Starts sensing data input within a thread on the sender/client with the given identification.
+
+It fills the internal input buffer with those data that were received as input.
+
+Calling this operation is not necessary for channel &#x22;display&#x22; on a linux operating system with x window system, since &#x22;activate/enable&#x22; catches the events of all client windows.
+On a windows operating system, however, one separate event thread is run per window, so that calling &#x22;feel/sense&#x22; is necessary.</p></section><section><h3>Examples</h3><p class="example"> &#x3C;!-- Open terminal and sense input on it. --&#x3E;
+&#x3C;node name=&#x22;open_terminal_stdin&#x22; channel=&#x22;inline&#x22; format=&#x22;dispatch/open&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
+    &#x3C;!-- The text &#x22;standard-input&#x22; is a pre-defined constant and is used instead of a filename here. --&#x3E;
+    &#x3C;node name=&#x22;device&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;standard-input&#x22;/&#x3E;
+    &#x3C;node name=&#x22;identification&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.stdin&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+&#x3C;node name=&#x22;sense_terminal_input&#x22; channel=&#x22;inline&#x22; format=&#x22;feel/sense&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
+    &#x3C;node name=&#x22;sender&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.stdin&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/tui&#x22;/&#x3E;
+    &#x3C;node name=&#x22;handler&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.logic.handle&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;sense_data_on_serial_interface&#x22; channel=&#x22;inline&#x22; format=&#x22;feel/sense&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;serial&#x22;/&#x3E;
+    &#x3C;node name=&#x22;sender&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.serial_id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/binary-crlf&#x22;/&#x3E;
+    &#x3C;node name=&#x22;handler&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.logic.handle&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;sense_client_data_in_binary_format&#x22; channel=&#x22;inline&#x22; format=&#x22;feel/sense&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+    &#x3C;node name=&#x22;port&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1971&#x22;/&#x3E;
+    &#x3C;node name=&#x22;sender&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.client_socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/binary-crlf&#x22;/&#x3E;
+    &#x3C;node name=&#x22;handler&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.logic.handle_sense&#x22;/&#x3E;
+    &#x3C;node name=&#x22;closer&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.logic.handle_close&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;sense_client_data_as_http_request&#x22; channel=&#x22;inline&#x22; format=&#x22;feel/sense&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+    &#x3C;node name=&#x22;port&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1971&#x22;/&#x3E;
+    &#x3C;node name=&#x22;sender&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.var.client_socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;message/http-request&#x22;/&#x3E;
+    &#x3C;node name=&#x22;handler&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.logic.handle.sense&#x22;/&#x3E;
+    &#x3C;node name=&#x22;closer&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.logic.handle.close&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+
+&#x3C;!--
+    This operation &#x22;feel/sense&#x22; for channel &#x22;display&#x22; does NOT run in a separate thread.
+    It is just used to hand over a specific event handler for each window.
+--&#x3E;
+&#x3C;node name=&#x22;assign_handler_for_client_window_events&#x22; channel=&#x22;inline&#x22; format=&#x22;feel/sense&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;display&#x22;/&#x3E;
+    &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+    &#x3C;node name=&#x22;sender&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.gui.window_id&#x22;/&#x3E;
+    &#x3C;node name=&#x22;handler&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.logic.handle&#x22;/&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>channel</td><td>true</td><td>text/cybol-path | meta/channel</td><td>The communication channel.</td></tr><tr><td>server</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating server mode. It means server-side client stub and not standalone client. If null, the default is false (client mode).</td></tr><tr><td>port</td><td>false</td><td>text/cybol-path | number/integer</td><td>The service identification. It is relevant only in server mode.</td></tr><tr><td>sender</td><td>true</td><td>text/cybol-path</td><td>The device identification, for example a file descriptor. Handing it over as hard-coded integer value does not make sense, since the operating system or server assigns it. Therefore, state a cybol-path.</td></tr><tr><td>language</td><td>false</td><td>text/cybol-path | meta/language</td><td>The language used for deserialisation. It is also defining which prefix or suffix indicates the message length, for example binary-crlf, http-request, xdt.</td></tr><tr><td>handler</td><td>true</td><td>text/cybol-path</td><td>The callback cybol model to be executed when data were detected on the sender, in order to read them from the internal input buffer.</td></tr><tr><td>closer</td><td>false</td><td>text/cybol-path</td><td>The callback cybol model to be executed when the client does not respond and is to be closed.</td></tr></table></section></section><section><a name="feel-suspend"><h2>feel/suspend</h2></a><section><h3>Description</h3><p class="description">Pauses data input sensing thread for the sender/client with the given identification.</p></section><section><h3>Examples</h3><p class="example">&#x3C;node name=&#x22;suspend_sensing_thread&#x22; channel=&#x22;inline&#x22; format=&#x22;feel/suspend&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;display&#x22;/&#x3E;
+    &#x3C;node name=&#x22;server&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
+    &#x3C;node name=&#x22;sender&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.gui.window_id&#x22;/&#x3E;
+&#x3C;/node&#x3E;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>channel</td><td>true</td><td>text/cybol-path | meta/channel</td><td>The communication channel.</td></tr><tr><td>server</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating server mode. It means server-side client stub and not standalone client. If null, the default is false (client mode).</td></tr><tr><td>port</td><td>false</td><td>text/cybol-path | number/integer</td><td>The service identification. It is relevant only in server mode.</td></tr><tr><td>sender</td><td>true</td><td>text/cybol-path</td><td>The device identification, for example a file descriptor. Handing it over as hard-coded integer value does not make sense, since the operating system or server assigns it. Therefore, state a cybol-path.</td></tr></table></section></section><section><a name="flow-branch"><h2>flow/branch</h2></a><section><h3>Description</h3><p class="description">Branches the programme flow, depending on the criterion flag.</p></section><section><h3>Examples</h3><p class="example">&#x3C;!-- Read models from file. --&#x3E;
 &#x3C;node name=&#x22;branch_voltage&#x22; channel=&#x22;inline&#x22; format=&#x22;flow/branch&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;criterion&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.settings.voltage_criterion&#x22;/&#x3E;
     &#x3C;node name=&#x22;true&#x22; channel=&#x22;file&#x22; format=&#x22;element/part&#x22; model=&#x22;indoor_climate/add_voltage.cybol&#x22;/&#x3E;

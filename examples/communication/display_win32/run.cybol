@@ -7,7 +7,6 @@
     <node name="enable_server" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
         <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle"/>
-        <!-- <node name="root" channel="inline" format="text/cybol-path" model=".gui.window"/> -->
     </node>
 
     <node name="open_client" channel="inline" format="dispatch/open" model="">
