@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-10-21  Christian Heller  <christian.heller@cybop.org>
+
+        * Add further numbers to cybol application file "serialisation/json/numbers.json"
+
 2022-10-16  Christian Heller  <christian.heller@cybop.org>
 
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/activate_logic_cybol_format.c"

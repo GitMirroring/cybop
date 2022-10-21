@@ -1,5 +1,9 @@
 [selected_node] | element/part | 
 +-root | element/part | 
+| +-byte | element/part | 
+| | +-x | number/integer | 0
+| | +-y | number/integer | 2
+| | +-array | number/integer | 0
 | +-integer | element/part | 
 | | +-simple | number/integer | 24
 | | +-negative | number/integer | -24
@@ -17,3 +21,20 @@
 | | +-scientific_notation_4 | number/fraction-decimal | 0.007000
 | | +-scientific_notation_5 | number/fraction-decimal | 0.007000
 | | +-standard | number/fraction-decimal | -0.123450
+| +-fraction-vulgar | element/part | 
+| | +-positive | number/fraction-vulgar | 
+| | +-negative | number/fraction-vulgar | 
+| +-complex-cartesian | element/part | 
+| | +-standard | number/complex-cartesian | 2.000000,4.000000
+| | +-negative_imaginary_part | number/complex-cartesian | 2.000000,-4.000000
+| | +-negative_real_part | number/complex-cartesian | -2.000000,4.000000
+| | +-both_parts_negative | number/complex-cartesian | -2.000000,-4.000000
+| | +-decimal_fractions | number/complex-cartesian | -1.200000,5.000000
+| | +-scientific_notation | number/complex-cartesian | -1200000.000000,11.000000
+| +-complex-polar | element/part | 
+| | +-standard | number/complex-polar | 2.000000,135.000000
+| | +-with_capital_letter_e | number/complex-polar | 2.000000,135.000000
+| | +-without_times_sign_1 | number/fraction-decimal | -2.000000
+| | +-without_times_sign_2 | number/fraction-decimal | -2.000000
+| | +-decimal_fraction | number/complex-polar | 1.500000,135.000000
+| | +-scientific_notation | number/fraction-decimal | -15000.000000
