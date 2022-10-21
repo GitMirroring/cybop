@@ -21,6 +21,7 @@
 2022-10-21  Christian Heller  <christian.heller@cybop.org>
 
         * Add further numbers to cybol application file "serialisation/json/numbers.json"
+        * Add cybol application "serialisation/cybol/" for number testing
 
 2022-10-16  Christian Heller  <christian.heller@cybop.org>
 
