@@ -26,15 +26,23 @@
 #ifndef BYTE_CYBOL_DESERIALISER_SOURCE
 #define BYTE_CYBOL_DESERIALISER_SOURCE
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/caster/array_caster.c"
+#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/representer/deserialiser/numeral/numeral_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -65,7 +73,19 @@ void deserialise_cybol_byte(void* p0, void* p1, void* p2) {
     //
     allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
-    deserialise_cybol_integer(i, p1, p2);
+    //?? deserialise_cybol_integer(i, p1, p2);
+
+    //
+    // Deserialise numeral.
+    //
+    // CAUTION! The number part parametre is NULL and not needed, since
+    // a destination item is already handed over to the called function.
+    //
+    // CAUTION! Hand over FALSE as ignore number base prefix flag,
+    // so that number prefixes like "0x" for hexadecimal or just "0"
+    // for octal numbers get detected.
+    //
+    deserialise_numeral(i, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
 
     //
     // Get integer item data, count.

@@ -38,8 +38,18 @@ ___
 Numeral Deserialiser
 ____________________
 
-        * Adapt section "number" in file "cybol_deserialiser.c" to call function "deserialise_numeral"
+        * Check why cybol application "tui_control" does not work anymore
+            temporary rollback changes in file "numeral_deserialiser.c", if needed
+
+        * Fix bug that prefix zero in a decimal fraction is interpreted as octal number
+        * Fix bug that vulgar fraction is not recognised in numeral deserialiser
+        * Fix bug that sign is not recognised in complex number with polar coordinates
+        * Fix bug that exponent without multiplication sign is not recognised in complex number with polar coordinates
+
+        * Simplify numeral constants and numeral deserialiser to use only "exp(" and not "e(" in complex number with polar coordinates
+
         * Test numeral vector deserialiser
+        * Adapt number sections in file "cybol_deserialiser.c" to call function "deserialise_numeral_vector"
         * Delete files and directories in cybol deserialiser that have become obsolete due to the new numeral vector deserialiser
 
         * Remove thousands separator using modify replace function

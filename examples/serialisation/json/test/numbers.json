@@ -1,9 +1,4 @@
 {
-    "byte": {
-        "x": 0,
-        "y": 2,
-        "array": 0;1;2;3;4
-    },
     "integer": {
         "simple": 24,
         "negative": -24,

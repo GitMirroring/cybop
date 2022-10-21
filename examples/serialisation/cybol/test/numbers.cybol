@@ -1,15 +1,10 @@
 <node>
 
-    <node name="byte" channel="inline" format="text/plain" model="byte">
-        <node name="x" channel="inline" format="number/byte" model="0"/>
-        <node name="y" channel="inline" format="number/byte" model="2"/>
-        <node name="array" channel="inline" format="number/byte" model="0,1,2,3,4"/>
-    </node>
-
     <node name="integer" channel="inline" format="text/plain" model="integer">
         <node name="simple" channel="inline" format="number/integer" model="24"/>
         <node name="negative" channel="inline" format="number/integer" model="-24"/>
         <node name="leading_zero" channel="inline" format="number/integer" model="030"/>
+        <node name="array" channel="inline" format="number/integer" model="0,1,2,3,4"/>
     </node>
 
     <node name="fraction-decimal" channel="inline" format="text/plain" model="fraction-decimal">

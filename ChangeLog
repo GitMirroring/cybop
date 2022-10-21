@@ -22,6 +22,7 @@
 
         * Add further numbers to cybol application file "serialisation/json/numbers.json"
         * Add cybol application "serialisation/cybol/" for number testing
+        * Adapt number sections in file "cybol_deserialiser.c" to call function "deserialise_numeral"
 
 2022-10-16  Christian Heller  <christian.heller@cybop.org>
 
