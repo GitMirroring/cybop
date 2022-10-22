@@ -55,6 +55,16 @@ void deserialise_numeral_vector_list(void* p0, void* p1, void* p2, void* p3) {
     fwprintf(stdout, L"Debug: Deserialise numeral vector list. source count p2: %i\n", p2);
     fwprintf(stdout, L"Debug: Deserialise numeral vector list. source count *p2: %i\n", *((int*) p2));
 
+    //
+    // Declaration
+    //
+
+    // The type item.
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The type item data.
+    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The number.
+    void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The loop variable.
@@ -66,6 +76,59 @@ void deserialise_numeral_vector_list(void* p0, void* p1, void* p2, void* p3) {
     // The wide character part model item data, count.
     void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Preparation
+    //
+
+    //
+    // Allocate type item.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+
+    //
+    // Initialise type item.
+    //
+    // CAUTION! A type IS ESSENTIAL in order to avoid memory leaks.
+    // Logic formats like "live/exit" do not have a counterpart as type.
+    // Also, invalid formats may have been used in a cybol file.
+    // Therefore, for these cases, assign a default type here.
+    //
+    modify_item(t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    // Deserialise format into type item.
+    deserialise_cybol_type(t, p3);
+
+    //
+    // Get type item data.
+    //
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    //
+    copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Allocation
+    //
+
+    //
+    // Allocate number.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    // CAUTION! This has to be an ARRAY and NOT an item since
+    // it represents a primitive number value.
+    //
+    allocate_array((void*) &n, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, td);
+
+    //
+    // Retrieval
+    //
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -107,18 +170,56 @@ void deserialise_numeral_vector_list(void* p0, void* p1, void* p2, void* p3) {
             copy_array_forward((void*) &pmc, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
             //
-            // Deserialise and append wide character data to destination number item.
+            // Deserialise wide character data to number.
             //
             // CAUTION! Hand over FALSE as ignore number base prefix flag,
             // so that number prefixes like "0x" for hexadecimal or just "0"
-            // for octal numbers get detected.
+            // for octal numbers DO get detected. The reason is that in cybol
+            // (other than json), number prefixes are permitted.
             //
-            deserialise_numeral(p0, *NULL_POINTER_STATE_CYBOI_MODEL, pmd, pmc, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3);
+            //?? deserialise_numeral(p0, *NULL_POINTER_STATE_CYBOI_MODEL, pmd, pmc, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3);
+            deserialise_numeral(n, *NULL_POINTER_STATE_CYBOI_MODEL, pmd, pmc, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3);
+
+            //
+            // Append number to destination number item.
+            //
+            // CAUTION! The "adjust count" flag is set to NULL here,
+            // since the destination count gets ALWAYS adjusted.
+            //
+            // CAUTION! The usage of INSERT_MODIFY_LOGIC_CYBOI_FORMAT
+            // is NOT necessary here. Other deserialisers parse data
+            // diving into depth, so that last values are added first.
+            // However, this is not the case for numeral vectors whose
+            // string values have been provided in the correct order.
+            // Therefore, the APPEND_MODIFY_LOGIC_CYBOI_FORMAT operation
+            // may be used here.
+            //
+            modify_item(p0, n, td, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
             // Increment loop variable.
             j++;
         }
     }
+
+    //
+    // Deallocation
+    //
+
+    //
+    // Deallocate number.
+    //
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    //
+    deallocate_array((void*) &n, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, td);
+    //
+    // Deallocate type item.
+    //
+    // CAUTION! This has to be done AFTER having deallocated
+    // the number above, since the type is needed for it.
+    //
+    deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 }
 
 /* LIST_NUMERAL_VECTOR_DESERIALISER_SOURCE */

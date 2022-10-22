@@ -38,8 +38,8 @@ ___
 Numeral Deserialiser
 ____________________
 
-        * Check why cybol application "tui_control" does not work anymore
-            temporary rollback changes in file "numeral_deserialiser.c", if needed
+        Only integer left:
+        * Delete files and directories in cybol deserialiser that have become obsolete due to the new numeral- and numeral vector deserialiser
 
         * Fix bug that prefix zero in a decimal fraction is interpreted as octal number
         * Fix bug that vulgar fraction is not recognised in numeral deserialiser
@@ -47,10 +47,6 @@ ____________________
         * Fix bug that exponent without multiplication sign is not recognised in complex number with polar coordinates
 
         * Simplify numeral constants and numeral deserialiser to use only "exp(" and not "e(" in complex number with polar coordinates
-
-        * Test numeral vector deserialiser
-        * Adapt number sections in file "cybol_deserialiser.c" to call function "deserialise_numeral_vector"
-        * Delete files and directories in cybol deserialiser that have become obsolete due to the new numeral vector deserialiser
 
         * Remove thousands separator using modify replace function
             do NOT just skip it in file "value_numeral_selector.c", since the count has to include them
@@ -75,6 +71,7 @@ ____
             how do dbms store blobs ??
         * Offer two possibilities via cybol property: file AND base64
         * Consider formats "BYTE_NUMBER_STATE_CYBOI_FORMAT" and "ASCII_TEXT_STATE_CYBOI_FORMAT"
+            --> merge both in all of cyboi ??
         * Implement base64 serialiser and deserialiser
         * Implement binary json (bson) data interchange format with mime type "application/bson" ??
 

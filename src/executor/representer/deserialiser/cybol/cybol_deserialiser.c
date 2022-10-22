@@ -38,8 +38,6 @@
 #include "../../../../executor/representer/deserialiser/ansi_escape_code/ansi_escape_code_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/boolean/boolean_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/colour/terminal_colour_cybol_deserialiser.c"
-//?? #include "../../../../executor/representer/deserialiser/cybol/complex/cartesian/cartesian_complex_cybol_deserialiser.c"
-//?? #include "../../../../executor/representer/deserialiser/cybol/complex/polar/polar_complex_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/datetime/gregorian/gregorian_datetime_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/datetime/jd/jd_datetime_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/datetime/jd/mjd_datetime_cybol_deserialiser.c"
@@ -53,16 +51,13 @@
 #include "../../../../executor/representer/deserialiser/cybol/duration/jd/jd_duration_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/duration/julian/julian_duration_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/duration/si/si_duration_cybol_deserialiser.c"
-//?? #include "../../../../executor/representer/deserialiser/cybol/fraction/decimal/decimal_fraction_cybol_deserialiser.c"
-//?? #include "../../../../executor/representer/deserialiser/cybol/fraction/vulgar/vulgar_fraction_cybol_deserialiser.c"
-//?? #include "../../../../executor/representer/deserialiser/cybol/integer/integer_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/byte_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/channel_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/element_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/format_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/language_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/type_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/numeral/numeral_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/numeral_vector/numeral_vector_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xml/xml_deserialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -103,19 +98,8 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? deserialise_cybol_integer(p0, p2, p3);
-
-            //
             // Deserialise numeral.
-            //
-            // CAUTION! The number part parametre is NULL and not needed, since
-            // a destination item is already handed over to the called function.
-            //
-            // CAUTION! Hand over FALSE as ignore number base prefix flag,
-            // so that number prefixes like "0x" for hexadecimal or just "0"
-            // for octal numbers get detected.
-            //
-            deserialise_numeral(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4);
+            deserialise_numeral_vector(p0, p2, p3, p4);
         }
     }
 
@@ -356,19 +340,8 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? deserialise_cybol_complex_cartesian(p0, p2, p3);
-
-            //
             // Deserialise numeral.
-            //
-            // CAUTION! The number part parametre is NULL and not needed, since
-            // a destination item is already handed over to the called function.
-            //
-            // CAUTION! Hand over FALSE as ignore number base prefix flag,
-            // so that number prefixes like "0x" for hexadecimal or just "0"
-            // for octal numbers get detected.
-            //
-            deserialise_numeral(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4);
+            deserialise_numeral_vector(p0, p2, p3, p4);
         }
     }
 
@@ -378,19 +351,8 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? deserialise_cybol_complex_polar(p0, p2, p3);
-
-            //
             // Deserialise numeral.
-            //
-            // CAUTION! The number part parametre is NULL and not needed, since
-            // a destination item is already handed over to the called function.
-            //
-            // CAUTION! Hand over FALSE as ignore number base prefix flag,
-            // so that number prefixes like "0x" for hexadecimal or just "0"
-            // for octal numbers get detected.
-            //
-            deserialise_numeral(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4);
+            deserialise_numeral_vector(p0, p2, p3, p4);
         }
     }
 
@@ -400,19 +362,8 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? deserialise_cybol_fraction_decimal(p0, p2, p3);
-
-            //
             // Deserialise numeral.
-            //
-            // CAUTION! The number part parametre is NULL and not needed, since
-            // a destination item is already handed over to the called function.
-            //
-            // CAUTION! Hand over FALSE as ignore number base prefix flag,
-            // so that number prefixes like "0x" for hexadecimal or just "0"
-            // for octal numbers get detected.
-            //
-            deserialise_numeral(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4);
+            deserialise_numeral_vector(p0, p2, p3, p4);
         }
     }
 
@@ -422,19 +373,8 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? deserialise_cybol_fraction_vulgar(p0, p2, p3);
-
-            //
             // Deserialise numeral.
-            //
-            // CAUTION! The number part parametre is NULL and not needed, since
-            // a destination item is already handed over to the called function.
-            //
-            // CAUTION! Hand over FALSE as ignore number base prefix flag,
-            // so that number prefixes like "0x" for hexadecimal or just "0"
-            // for octal numbers get detected.
-            //
-            deserialise_numeral(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4);
+            deserialise_numeral_vector(p0, p2, p3, p4);
         }
     }
 
@@ -444,19 +384,8 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? deserialise_cybol_integer(p0, p2, p3);
-
-            //
             // Deserialise numeral.
-            //
-            // CAUTION! The number part parametre is NULL and not needed, since
-            // a destination item is already handed over to the called function.
-            //
-            // CAUTION! Hand over FALSE as ignore number base prefix flag,
-            // so that number prefixes like "0x" for hexadecimal or just "0"
-            // for octal numbers get detected.
-            //
-            deserialise_numeral(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4);
+            deserialise_numeral_vector(p0, p2, p3, p4);
         }
     }
 

@@ -26,28 +26,21 @@
 #ifndef STATE_CYBOI_TYPE_CONSTANT_SOURCE
 #define STATE_CYBOI_TYPE_CONSTANT_SOURCE
 
-#include <stddef.h>
-
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-
-//
-// CAUTION! These constants represent fundamental types close to the machine,
-// e.g. numbers, which are used for fast processing of data internally to cyboi.
-//
 
 //
 // datetime
 //
 
 /** The datetime state cyboi type. */
-static int* DATETIME_STATE_CYBOI_TYPE = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* DATETIME_STATE_CYBOI_TYPE = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // duration
 //
 
 /** The duration state cyboi type. */
-static int* DURATION_STATE_CYBOI_TYPE = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* DURATION_STATE_CYBOI_TYPE = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // element
@@ -75,11 +68,9 @@ static int* BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE = NUMBER_20_INTEGER_STATE_CYBOI_
 /**
  * The byte number state cyboi type.
  *
- * CAUTION! The byte number type internally uses
- * the same size as "unsigned char".
- * However, it IS NECESSARY to distinguish
- * between the two, in order to interpret
- * characters as numbers and NOT ascii codes.
+ * CAUTION! This type internally uses the same size as "unsigned char".
+ * However, it IS NECESSARY to distinguish between the two,
+ * in order to interpret characters as numbers and NOT ascii codes.
  */
 static int* BYTE_NUMBER_STATE_CYBOI_TYPE = NUMBER_30_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

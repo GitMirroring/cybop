@@ -33,8 +33,7 @@
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../../executor/modifier/item_modifier.c"
-#include "../../../../../executor/representer/deserialiser/cybol/fraction/decimal/decimal_fraction_cybol_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/cybol/integer/integer_cybol_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/numeral_vector/numeral_vector_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/xdt/datetime/ddmmyyyy/ddmmyyyy_datetime_xdt_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/xdt/datetime/mmyy/mmyy_datetime_xdt_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/xdt/datetime/qyyyy/qyyyy_datetime_xdt_deserialiser.c"
@@ -143,7 +142,8 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_cybol_fraction_decimal(p0, p1, p2);
+            // Deserialise numeral.
+            deserialise_numeral_vector(p0, p1, p2, p3);
         }
     }
 
@@ -153,7 +153,8 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_cybol_integer(p0, p1, p2);
+            // Deserialise numeral.
+            deserialise_numeral_vector(p0, p1, p2, p3);
         }
     }
 

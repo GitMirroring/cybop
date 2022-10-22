@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-10-22  Christian Heller  <christian.heller@cybop.org>
+
+        * Call numeral vector deserialiser in number sections of file "cybol_deserialiser.c", so that for example x-y-coordinates of cybol application "tui_control" work again
+        * Delete files and directories in cybol deserialiser that have become obsolete due to the new numeral- and numeral vector deserialiser
+        * Return primitive number in numeral deserialiser and item in numeral vector deserialiser
+
 2022-10-21  Christian Heller  <christian.heller@cybop.org>
 
         * Add further numbers to cybol application file "serialisation/json/numbers.json"

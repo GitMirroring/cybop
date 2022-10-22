@@ -54,7 +54,8 @@
  * so that it can be assigned a new value, in case
  * a new number part has to be allocated inside.
  *
- * @param p0 the destination number item (pointer reference)
+ * @param p0 the destination number
+//?? * @param p0 the destination number item (pointer reference)
  * @param p1 the destination number part (pointer reference)
  * @param p2 the source data position (pointer reference)
  * @param p3 the source count remaining
@@ -98,7 +99,7 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
         // The temporary number.
-        void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
+        //?? void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Deserialise FIRST part of number.
         deserialise_numeral_part((void*) &s1, (void*) &v1, (void*) &d1, (void*) &po1, p2, p3, (void*) &f, (void*) &t, p4);
@@ -151,13 +152,16 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
             // it represents a primitive number value to be added to
             // the actual destination number item further below.
             //
-            allocate_array((void*) &n, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) &t);
+            //?? allocate_array((void*) &n, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) &t);
 
             // Assemble number.
-            select_numeral_assembler(n, (void*) &s1, (void*) &v1, (void*) &d1, (void*) &po1, (void*) &s2, (void*) &v2, (void*) &d2, (void*) &po2, (void*) &f);
+            //?? select_numeral_assembler(n, (void*) &s1, (void*) &v1, (void*) &d1, (void*) &po1, (void*) &s2, (void*) &v2, (void*) &d2, (void*) &po2, (void*) &f);
+            select_numeral_assembler(p0, (void*) &s1, (void*) &v1, (void*) &d1, (void*) &po1, (void*) &s2, (void*) &v2, (void*) &d2, (void*) &po2, (void*) &f);
 
-            fwprintf(stdout, L"Debug: Deserialise numeral number. n as int: %i\n", *((int*) n));
-            fwprintf(stdout, L"Debug: Deserialise numeral number. n as double: %f\n", *((double*) n));
+            //?? fwprintf(stdout, L"Debug: Deserialise numeral number. n as int: %i\n", *((int*) n));
+            fwprintf(stdout, L"Debug: Deserialise numeral number. n as int: %i\n", *((int*) p0));
+            //?? fwprintf(stdout, L"Debug: Deserialise numeral number. n as double: %f\n", *((double*) n));
+            fwprintf(stdout, L"Debug: Deserialise numeral number. n as double: %f\n", *((double*) p0));
 
             //
             // Make sure a destination number item exists.
@@ -189,7 +193,8 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
             // Therefore, the APPEND_MODIFY_LOGIC_CYBOI_FORMAT operation
             // may be used here.
             //
-            modify_item(*i, n, (void*) &t, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+            //?? modify_item(*i, n, (void*) &t, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+            //?? modify_part: (p1-modelitem-data) <-- p0 ||| modify_item(*i, p0, (void*) &t, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
             //
             // CAUTION Do NOT append the part to some destination here,
@@ -206,7 +211,7 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
             // since it is only needed for looping elements of type PART,
             // in order to decrement the rubbish (garbage) collection counter.
             //
-            deallocate_array((void*) &n, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) &t);
+            //?? deallocate_array((void*) &n, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) &t);
 
         } else {
 
