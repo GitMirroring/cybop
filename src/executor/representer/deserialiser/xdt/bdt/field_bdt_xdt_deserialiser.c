@@ -34,7 +34,7 @@
 #include "../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/copier/array_copier.c"
-#include "../../../../../executor/representer/deserialiser/cybol/integer/primitive_value_integer_cybol_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/numeral/value_numeral_deserialiser.c"
 #include "../../../../../executor/selector/xdt/bdt/end_compound_field_bdt_xdt_selector.c"
 #include "../../../../../executor/selector/xdt/bdt/field_bdt_xdt_selector.c"
 #include "../../../../../logger/logger.c"
@@ -84,7 +84,7 @@ void deserialise_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4,
         copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         copy_array_forward((void*) &pmc, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
         // Deserialise source field part name string into integer number.
-        deserialise_cybol_integer_value_primitive((void*) &pni, pnd, pnc, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+        deserialise_numeral_value((void*) &pni, (void*) &pnd, pnc, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
         select_xdt_bdt_field_compound_end(p8, (void*) &pni, p7);
 

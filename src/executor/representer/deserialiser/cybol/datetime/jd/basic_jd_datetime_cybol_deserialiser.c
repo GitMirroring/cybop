@@ -36,7 +36,6 @@
 #include "../../../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../../../../executor/modifier/item_modifier.c"
-//?? #include "../../../../../../executor/representer/deserialiser/cybol/fraction/decimal/primitive_value_decimal_fraction_cybol_deserialiser.c"
 #include "../../../../../../executor/representer/deserialiser/numeral/numeral_deserialiser.c"
 #include "../../../../../../executor/representer/deserialiser/time_scale/julian_date/julian_date_time_scale_deserialiser.c"
 #include "../../../../../../logger/logger.c"
@@ -67,7 +66,6 @@ void deserialise_cybol_datetime_jd_basic(void* p0, void* p1, void* p2, void* p3)
     allocate_array((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
 
     // Deserialise source julian date.
-    //?? deserialise_cybol_decimal_fraction_value_primitive((void*) &s, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
     deserialise_numeral((void*) &s, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);
     // Add jd/mjd/tjd correction.
     calculate_double_add((void*) &s, p3);

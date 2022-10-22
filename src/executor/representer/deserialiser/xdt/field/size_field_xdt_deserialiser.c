@@ -32,8 +32,8 @@
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
-#include "../../../../../executor/representer/deserialiser/cybol/integer/primitive_value_integer_cybol_deserialiser.c"
 #include "../../../../../executor/mover/mover.c"
+#include "../../../../../executor/representer/deserialiser/numeral/value_numeral_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**
@@ -46,29 +46,20 @@
  */
 void deserialise_xdt_field_size(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field size.");
 
-        void** sd = (void**) p1;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field size.");
+    // Ensure that array boundaries are not crossed.
+    compare_integer_greater_or_equal((void*) &r, p2, p3);
 
-        // The comparison result.
-        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Ensure that array boundaries are not crossed.
-        compare_integer_greater_or_equal((void*) &r, p2, p3);
+        deserialise_numeral_value(p0, p1, p3, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            deserialise_cybol_integer_value_primitive(p0, *sd, p3, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-
-            // Move position.
-            move(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt field size. The source data is null.");
+        // Move position.
+        move(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 

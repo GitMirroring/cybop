@@ -26,12 +26,15 @@
 #ifndef BOOLEAN_CYBOL_DESERIALISER_SOURCE
 #define BOOLEAN_CYBOL_DESERIALISER_SOURCE
 
+#include "../../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../executor/copier/integer_copier.c"
-#include "../../../../../executor/copier/pointer_copier.c"
-#include "../../../../../executor/representer/deserialiser/cybol/boolean/vector_boolean_cybol_deserialiser.c"
+#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../../constant/model/cybol/state/boolean_state_cybol_model.c"
+#include "../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../executor/checker/operation_checker.c"
+#include "../../../../../executor/modifier/item_modifier.c"
 #include "../../../../../logger/logger.c"
 
 /**
@@ -46,26 +49,33 @@ void deserialise_cybol_boolean(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol boolean.");
 
-    // The source data position.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The source count remaining.
-    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Copy source data position.
-    copy_pointer((void*) &d, (void*) &p1);
-    // Copy source count remaining.
-    copy_integer((void*) &c, p2);
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    //
-    // CAUTION! A copy of source count remaining is forwarded here,
-    // so that the original source value does not get changed.
-    //
-    // CAUTION! The source data position does NOT have to be copied,
-    // since the parametre that was handed over is already a copy.
-    // A local copy was made anyway, not to risk parametre falsification.
-    // Its reference is forwarded, as it gets incremented by sub routines inside.
-    //
-    deserialise_cybol_boolean_vector(p0, (void*) &d, (void*) &c);
+        check_operation((void*) &r, p1, (void*) TRUE_BOOLEAN_STATE_CYBOL_MODEL, p2, (void*) TRUE_BOOLEAN_STATE_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            modify_item(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p1, (void*) FALSE_BOOLEAN_STATE_CYBOL_MODEL, p2, (void*) FALSE_BOOLEAN_STATE_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            modify_item(p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol boolean value. The value cannot be interpreted.");
+    }
 }
 
 /* BOOLEAN_CYBOL_DESERIALISER_SOURCE */

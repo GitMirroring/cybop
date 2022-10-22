@@ -31,8 +31,8 @@
 #include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../../executor/calculator/pointer/add_pointer_calculator.c"
-#include "../../../../../../executor/representer/deserialiser/cybol/integer/primitive_value_integer_cybol_deserialiser.c"
 #include "../../../../../../executor/mover/mover.c"
+#include "../../../../../../executor/representer/deserialiser/numeral/value_numeral_deserialiser.c"
 #include "../../../../../../logger/logger.c"
 
 /**
@@ -76,9 +76,9 @@ void deserialise_xdt_datetime_ddmmyyyy_elements(void* p0, void* p1) {
     // CAUTION! Process numbers in this order: d/m/y.
     // It should also work the other way around, but to
     // be sure, the source is read from left to right.
-    deserialise_cybol_integer_value_primitive((void*) &d, ds, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-    deserialise_cybol_integer_value_primitive((void*) &m, ms, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-    deserialise_cybol_integer_value_primitive((void*) &y, ys, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_numeral_value((void*) &d, (void*) &ds, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_numeral_value((void*) &m, (void*) &ms, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_numeral_value((void*) &y, (void*) &ys, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // Deserialise year/month/day/hour/minute/second.
     deserialise_time_scale_gregorian_calendar(t, (void*) &y, (void*) &m, (void*) &d, (void*) &h, (void*) &min, (void*) &s);

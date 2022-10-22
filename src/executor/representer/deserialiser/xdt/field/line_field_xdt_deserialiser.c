@@ -34,7 +34,7 @@
 #include "../../../../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../../executor/copier/integer_copier.c"
-#include "../../../../../executor/representer/deserialiser/cybol/integer/primitive_value_integer_cybol_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/numeral/value_numeral_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/xdt/field/content_field_xdt_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/xdt/field/identification_field_xdt_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/xdt/field/part_field_xdt_deserialiser.c"
@@ -90,7 +90,8 @@ void deserialise_xdt_field_line(void* p0, void* p1, void* p2) {
     // Deserialise identification.
     deserialise_xdt_field_identification((void*) &id, (void*) &ic, p1, p2, (void*) IDENTIFICATION_FIELD_BDT_XDT_NAME_COUNT);
     // Deserialise identification as integer primitive.
-    deserialise_cybol_integer_value_primitive((void*) &i, id, (void*) &ic, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    //?? deserialise_cybol_integer_value_primitive((void*) &i, id, (void*) &ic, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_numeral_value((void*) &i, (void*) &id, (void*) &ic, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
     // Deserialise content.
     deserialise_xdt_field_content((void*) &cd, (void*) &cc, p1, p2);
 

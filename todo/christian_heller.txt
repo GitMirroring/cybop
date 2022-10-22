@@ -38,8 +38,9 @@ ___
 Numeral Deserialiser
 ____________________
 
-        Only integer left:
-        * Delete files and directories in cybol deserialiser that have become obsolete due to the new numeral- and numeral vector deserialiser
+        * Cleanup and delete directory "executor/representer/deserialiser/cybol/integer/"
+
+        * Assign number to result part (for json) yet in numeral deserialiser
 
         * Fix bug that prefix zero in a decimal fraction is interpreted as octal number
         * Fix bug that vulgar fraction is not recognised in numeral deserialiser
