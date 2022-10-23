@@ -24,6 +24,7 @@
         * Move boolean deserialiser out of cybol deserialiser
         * Move colour deserialiser out of cybol deserialiser
         * Move datetime deserialiser out of cybol deserialiser
+        * Move duration deserialiser out of cybol deserialiser
         * Move socket deserialiser out of cybol deserialiser
 
 2022-10-22  Christian Heller  <christian.heller@cybop.org>

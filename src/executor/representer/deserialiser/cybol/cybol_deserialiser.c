@@ -47,10 +47,10 @@
 #include "../../../../executor/representer/deserialiser/datetime/tai/tai_datetime_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/datetime/ti/ti_datetime_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/datetime/utc/utc_datetime_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/duration/iso/iso_duration_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/duration/jd/jd_duration_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/duration/julian/julian_duration_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/duration/si/si_duration_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/duration/iso/iso_duration_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/duration/jd/jd_duration_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/duration/julian/julian_duration_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/duration/si/si_duration_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/byte_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/channel_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/element_cybol_deserialiser.c"
@@ -152,7 +152,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_cybol_duration_iso(p0, p2, p3);
+            deserialise_duration_iso(p0, p2, p3);
         }
     }
 
@@ -162,7 +162,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_cybol_duration_jd(p0, p2, p3);
+            deserialise_duration_jd(p0, p2, p3);
         }
     }
 
@@ -172,7 +172,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_cybol_duration_julian(p0, p2, p3);
+            deserialise_duration_julian(p0, p2, p3);
         }
     }
 
@@ -182,7 +182,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_cybol_duration_si(p0, p2, p3);
+            deserialise_duration_si(p0, p2, p3);
         }
     }
 

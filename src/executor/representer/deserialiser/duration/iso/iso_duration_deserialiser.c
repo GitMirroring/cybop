@@ -23,14 +23,14 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ISO_DURATION_CYBOL_DESERIALISER_SOURCE
-#define ISO_DURATION_CYBOL_DESERIALISER_SOURCE
+#ifndef ISO_DURATION_DESERIALISER_SOURCE
+#define ISO_DURATION_DESERIALISER_SOURCE
 
-#include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../logger/logger.c"
 
 /**
  * Deserialises the iso duration wide character data into a duration model.
@@ -39,10 +39,10 @@
  * @param p1 the source data
  * @param p2 the source count
  */
-void deserialise_cybol_duration_iso(void* p0, void* p1, void* p2) {
+void deserialise_duration_iso(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol duration iso.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise duration iso.");
 }
 
-/* ISO_DURATION_CYBOL_DESERIALISER_SOURCE */
+/* ISO_DURATION_DESERIALISER_SOURCE */
 #endif
