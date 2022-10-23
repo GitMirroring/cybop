@@ -53,7 +53,6 @@
  *   its model item assigned to the destination number item
  *
  * @param p0 the destination number (for cybol deserialiser; null for json)
-//?? * @param p0 the destination number item (for cybol deserialiser; null for json)
  * @param p1 the destination number part (pointer reference)
  * @param p2 the source wide character data
  * @param p3 the source wide character count
@@ -68,23 +67,11 @@ void deserialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     fwprintf(stdout, L"Debug: Deserialise numeral. source count p3: %i\n", p3);
     fwprintf(stdout, L"Debug: Deserialise numeral. source count *p3: %i\n", *((int*) p3));
 
-    //
-    // The destination number item.
-    //
-    // CAUTION! It has to be declared HERE and NOT only in
-    // file "number_numeral_deserialiser.c", since many numerals
-    // may follow in a sequence (vector, array) recursively calling
-    // the function "deserialise_numeral_number", and this
-    // number item has to be forwarded to all of them.
-    //
-    //?? void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source data position.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source count remaining.
     int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Copy destination number item.
-    //?? copy_pointer((void*) &i, (void*) &p0);
     // Copy source data position.
     copy_pointer((void*) &d, (void*) &p2);
     // Copy source count remaining.
@@ -92,9 +79,6 @@ void deserialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
     //
     // Deserialise number.
-    //
-    // CAUTION! The destination number item is handed over as REFERENCE
-    // since it may get assigned the model of a new allocated part INSIDE.
     //
     // CAUTION! A copy of source count remaining is forwarded here,
     // so that the original source value does not get changed.
@@ -104,7 +88,6 @@ void deserialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
     //
-    //?? deserialise_numeral_number((void*) &i, p1, (void*) &d, (void*) &c, p4, p5, p6, p7);
     deserialise_numeral_number(p0, p1, (void*) &d, (void*) &c, p4, p5, p6, p7);
 }
 

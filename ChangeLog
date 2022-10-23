@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-10-23  Christian Heller  <christian.heller@cybop.org>
+
+        * Cleanup numeral deserialiser
+
 2022-10-22  Christian Heller  <christian.heller@cybop.org>
 
         * Call numeral vector deserialiser in number sections of file "cybol_deserialiser.c", so that for example x-y-coordinates of cybol application "tui_control" work again

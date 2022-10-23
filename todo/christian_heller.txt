@@ -38,6 +38,8 @@ ___
 Numeral Deserialiser
 ____________________
 
+        model-diagram: property values are shown correctly (e.g. cybol serialiser), but model values NOT (e.g. json serialiser)
+
         * Cleanup and delete directory "executor/representer/deserialiser/cybol/integer/"
 
         * Assign number to result part (for json) yet in numeral deserialiser
