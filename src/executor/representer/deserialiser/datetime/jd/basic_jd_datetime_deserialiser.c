@@ -23,22 +23,22 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BASIC_JD_DATETIME_CYBOL_DESERIALISER_SOURCE
-#define BASIC_JD_DATETIME_CYBOL_DESERIALISER_SOURCE
+#ifndef BASIC_JD_DATETIME_DESERIALISER_SOURCE
+#define BASIC_JD_DATETIME_DESERIALISER_SOURCE
 
-#include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../../executor/calculator/double/add_double_calculator.c"
-#include "../../../../../../executor/memoriser/allocator/array_allocator.c"
-#include "../../../../../../executor/memoriser/deallocator/array_deallocator.c"
-#include "../../../../../../executor/modifier/item_modifier.c"
-#include "../../../../../../executor/representer/deserialiser/numeral/numeral_deserialiser.c"
-#include "../../../../../../executor/representer/deserialiser/time_scale/julian_date/julian_date_time_scale_deserialiser.c"
-#include "../../../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../executor/calculator/double/add_double_calculator.c"
+#include "../../../../../executor/memoriser/allocator/array_allocator.c"
+#include "../../../../../executor/memoriser/deallocator/array_deallocator.c"
+#include "../../../../../executor/modifier/item_modifier.c"
+#include "../../../../../executor/representer/deserialiser/numeral/numeral_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/time_scale/julian_date/julian_date_time_scale_deserialiser.c"
+#include "../../../../../logger/logger.c"
 
 /**
  * Deserialises the source jd/mjd/tjd wide character data into the destination datetime item.
@@ -48,9 +48,9 @@
  * @param p2 the source count
  * @param p3 the jd/mjd/tjd correction
  */
-void deserialise_cybol_datetime_jd_basic(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_datetime_jd_basic(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol datetime jd basic.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise datetime jd basic.");
 
     // The temporary datetime.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -85,5 +85,5 @@ void deserialise_cybol_datetime_jd_basic(void* p0, void* p1, void* p2, void* p3)
     deallocate_array((void*) &t, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
 }
 
-/* BASIC_JD_DATETIME_CYBOL_DESERIALISER_SOURCE */
+/* BASIC_JD_DATETIME_DESERIALISER_SOURCE */
 #endif

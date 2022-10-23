@@ -23,18 +23,18 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef UTC_DATETIME_CYBOL_DESERIALISER_SOURCE
-#define UTC_DATETIME_CYBOL_DESERIALISER_SOURCE
+#ifndef UTC_DATETIME_DESERIALISER_SOURCE
+#define UTC_DATETIME_DESERIALISER_SOURCE
 
-#include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../../executor/memoriser/allocator/array_allocator.c"
-#include "../../../../../../executor/memoriser/deallocator/array_deallocator.c"
-#include "../../../../../../executor/modifier/item_modifier.c"
-#include "../../../../../../executor/representer/deserialiser/time_scale/gregorian_calendar/gregorian_calendar_time_scale_deserialiser.c"
-#include "../../../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../executor/memoriser/allocator/array_allocator.c"
+#include "../../../../../executor/memoriser/deallocator/array_deallocator.c"
+#include "../../../../../executor/modifier/item_modifier.c"
+#include "../../../../../executor/representer/deserialiser/time_scale/gregorian_calendar/gregorian_calendar_time_scale_deserialiser.c"
+#include "../../../../../logger/logger.c"
 
 /**
  * Deserialises the source utc date wide character data into the destination datetime item.
@@ -43,9 +43,9 @@
  * @param p1 the source data
  * @param p2 the source count
  */
-void deserialise_cybol_datetime_utc(void* p0, void* p1, void* p2) {
+void deserialise_datetime_utc(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol datetime utc.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise datetime utc.");
 
     // The temporary datetime.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -80,5 +80,5 @@ void deserialise_cybol_datetime_utc(void* p0, void* p1, void* p2) {
     deallocate_array((void*) &t, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
 }
 
-/* UTC_DATETIME_CYBOL_DESERIALISER_SOURCE */
+/* UTC_DATETIME_DESERIALISER_SOURCE */
 #endif

@@ -23,27 +23,27 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef JD_DATETIME_CYBOL_DESERIALISER_SOURCE
-#define JD_DATETIME_CYBOL_DESERIALISER_SOURCE
+#ifndef MJD_DATETIME_DESERIALISER_SOURCE
+#define MJD_DATETIME_DESERIALISER_SOURCE
 
-#include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../../constant/model/time_scale/julian_date_time_scale_model.c"
-#include "../../../../../../executor/representer/deserialiser/cybol/datetime/jd/basic_jd_datetime_cybol_deserialiser.c"
-#include "../../../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/time_scale/julian_date_time_scale_model.c"
+#include "../../../../../executor/representer/deserialiser/datetime/jd/basic_jd_datetime_deserialiser.c"
+#include "../../../../../logger/logger.c"
 
 /**
- * Deserialises the julian date (jd) wide character data into a datetime model.
+ * Deserialises the modified julian date (mjd) wide character data into a datetime model.
  *
  * @param p0 the destination model item
  * @param p1 the source data
  * @param p2 the source count
  */
-void deserialise_cybol_datetime_jd(void* p0, void* p1, void* p2) {
+void deserialise_datetime_mjd(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol datetime jd.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise datetime mjd.");
 
-    deserialise_cybol_datetime_jd_basic(p0, p1, p2, (void*) JULIAN_DATE_TIME_SCALE_MODEL);
+    deserialise_datetime_jd_basic(p0, p1, p2, (void*) MODIFIED_JULIAN_DATE_TIME_SCALE_MODEL);
 }
 
-/* JD_DATETIME_CYBOL_DESERIALISER_SOURCE */
+/* MJD_DATETIME_DESERIALISER_SOURCE */
 #endif

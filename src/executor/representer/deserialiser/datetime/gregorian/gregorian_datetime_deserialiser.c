@@ -23,26 +23,26 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef POSIX_DATETIME_CYBOL_DESERIALISER_SOURCE
-#define POSIX_DATETIME_CYBOL_DESERIALISER_SOURCE
+#ifndef GREGORIAN_DATETIME_DESERIALISER_SOURCE
+#define GREGORIAN_DATETIME_DESERIALISER_SOURCE
 
-#include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../logger/logger.c"
 
 /**
- * Deserialises the posix date wide character data into a datetime model.
+ * Deserialises the gregorian date wide character data into a datetime model.
  *
  * @param p0 the destination model item
  * @param p1 the source data
  * @param p2 the source count
  */
-void deserialise_cybol_datetime_posix(void* p0, void* p1, void* p2) {
+void deserialise_datetime_gregorian(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol datetime posix.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise datetime gregorian.");
 }
 
-/* POSIX_DATETIME_CYBOL_DESERIALISER_SOURCE */
+/* GREGORIAN_DATETIME_DESERIALISER_SOURCE */
 #endif

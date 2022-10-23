@@ -23,26 +23,35 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TAI_DATETIME_CYBOL_DESERIALISER_SOURCE
-#define TAI_DATETIME_CYBOL_DESERIALISER_SOURCE
+#ifndef TI_DATETIME_DESERIALISER_SOURCE
+#define TI_DATETIME_DESERIALISER_SOURCE
 
-#include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../logger/logger.c"
 
 /**
- * Deserialises the tai date wide character data into a datetime model.
+ * Deserialises the ti date wide character data into a datetime model.
+ *
+ * International Time (TI) is a purely atomic time scale
+ * offset from TAI, by a fixed integer number of seconds.
+ * In order to avoid discontinuities for systems
+ * using radio broadcast time signals,
+ * the offset would be equal to the offset of UTC
+ * at the instant of switching from UTC to TI.
  *
  * @param p0 the destination model item
  * @param p1 the source data
  * @param p2 the source count
  */
-void deserialise_cybol_datetime_tai(void* p0, void* p1, void* p2) {
+void deserialise_datetime_ti(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol datetime tai.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise datetime ti.");
+
+    //?? TODO: To be defined in year 2022.
 }
 
-/* TAI_DATETIME_CYBOL_DESERIALISER_SOURCE */
+/* TI_DATETIME_DESERIALISER_SOURCE */
 #endif
