@@ -22,6 +22,7 @@
 
         * Cleanup numeral deserialiser and assign number to result part
         * Move boolean deserialiser out of cybol deserialiser
+        * Move colour deserialiser out of cybol deserialiser
 
 2022-10-22  Christian Heller  <christian.heller@cybop.org>
 

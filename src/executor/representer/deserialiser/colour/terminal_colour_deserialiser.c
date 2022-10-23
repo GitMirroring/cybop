@@ -23,19 +23,19 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TERMINAL_COLOUR_CYBOL_DESERIALISER_SOURCE
-#define TERMINAL_COLOUR_CYBOL_DESERIALISER_SOURCE
+#ifndef TERMINAL_COLOUR_DESERIALISER_SOURCE
+#define TERMINAL_COLOUR_DESERIALISER_SOURCE
 
-#include "../../../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/colour/terminal_colour_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../constant/model/cybol/colour/terminal_colour_cybol_model.c"
-#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../executor/checker/operation_checker.c"
-#include "../../../../../executor/modifier/item_modifier.c"
-#include "../../../../../logger/logger.c"
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/colour/terminal_colour_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cybol/colour/terminal_colour_cybol_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/checker/operation_checker.c"
+#include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Deserialises the terminal colour into a cyboi-internal integer value.
@@ -44,9 +44,9 @@
  * @param p1 the source data
  * @param p2 the source count
  */
-void deserialise_cybol_colour_terminal(void* p0, void* p1, void* p2) {
+void deserialise_colour_terminal(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol colour terminal.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise colour terminal.");
 
     //
     // CAUTION! DO use the "overwrite" function here
@@ -139,5 +139,5 @@ void deserialise_cybol_colour_terminal(void* p0, void* p1, void* p2) {
     }
 }
 
-/* TERMINAL_COLOUR_CYBOL_DESERIALISER_SOURCE */
+/* TERMINAL_COLOUR_DESERIALISER_SOURCE */
 #endif
