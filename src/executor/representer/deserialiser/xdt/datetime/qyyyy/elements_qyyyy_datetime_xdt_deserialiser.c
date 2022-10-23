@@ -29,8 +29,9 @@
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../../constant/model/numeral/base_numeral_model.c"
 #include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../../executor/representer/deserialiser/numeral/value_numeral_deserialiser.c"
+#include "../../../../../../executor/representer/deserialiser/numeral/integer_numeral_deserialiser.c"
 #include "../../../../../../executor/representer/deserialiser/xdt/datetime/qyyyy/quarter_qyyyy_datetime_xdt_deserialiser.c"
 #include "../../../../../../logger/logger.c"
 
@@ -75,8 +76,8 @@ void deserialise_xdt_datetime_qyyyy_elements(void* p0, void* p1) {
     // CAUTION! Process numbers in this order: q/y.
     // It should also work the other way around, but to
     // be sure, the source is read from left to right.
-    deserialise_numeral_value((void*) &q, (void*) &qs, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-    deserialise_numeral_value((void*) &y, (void*) &ys, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_numeral_integer((void*) &q, qs, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deserialise_numeral_integer((void*) &y, ys, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Correct month.
     deserialise_xdt_datetime_qyyyy_quarter((void*) &m, (void*) &d, (void*) &q);

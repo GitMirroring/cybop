@@ -32,13 +32,14 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/model/numeral/base_numeral_model.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../executor/representer/deserialiser/numeral/value_numeral_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/numeral/integer_numeral_deserialiser.c"
 #include "../../../../executor/selector/character_reference/end_character_reference_selector.c"
 #include "../../../../logger/logger.c"
 
@@ -102,7 +103,7 @@ void deserialise_character_reference_decimal(void* p0, void* p1, void* p2) {
     //
     // CAUTION! Hand over number base 10 as parametre!
     //
-    deserialise_numeral_value((void*) &i, (void*) &rd, (void*) &rc, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_numeral_integer((void*) &i, rd, (void*) &rc, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     //
     // Cast integer to wide character.

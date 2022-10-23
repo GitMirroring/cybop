@@ -130,7 +130,7 @@ void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3, void* p4,
             //
 
             // Deserialise power value as integer with the given number base.
-            deserialise_numeral_integer((void*) &powi, pd, (void*) &pc, p3);
+            deserialise_numeral_integer((void*) &powi, pd, (void*) &pc, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             // Multiply power value with algebraic sign factor.
             calculate_integer_multiply((void*) &powi, (void*) &s);

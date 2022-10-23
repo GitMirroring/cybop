@@ -31,10 +31,11 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/numeral/base_numeral_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/name_getter/array_name_getter.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../executor/representer/deserialiser/numeral/value_numeral_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/numeral/integer_numeral_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xdt/record/part_record_xdt_deserialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -60,7 +61,7 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Deserialise identification as integer primitive.
-    deserialise_numeral_value((void*) &i, (void*) &p5, p6, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_numeral_integer((void*) &i, p5, p6, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Compare if field represents a record identification.
     compare_integer_equal((void*) &r, (void*) &i, (void*) NUMBER_8000_INTEGER_STATE_CYBOI_MODEL);

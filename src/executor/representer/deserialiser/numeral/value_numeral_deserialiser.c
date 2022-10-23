@@ -99,7 +99,7 @@ void deserialise_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4,
             // Remove thousands separator using a string function (modify)
 
             // Deserialise integer value representing the destination value.
-            deserialise_numeral_integer(p0, vd, (void*) &vc, p3);
+            deserialise_numeral_integer(p0, vd, (void*) &vc, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             break;
         }

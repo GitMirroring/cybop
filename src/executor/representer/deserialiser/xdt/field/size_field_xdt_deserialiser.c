@@ -30,10 +30,11 @@
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../constant/model/numeral/base_numeral_model.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../../executor/mover/mover.c"
-#include "../../../../../executor/representer/deserialiser/numeral/value_numeral_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/numeral/integer_numeral_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**
@@ -46,20 +47,30 @@
  */
 void deserialise_xdt_field_size(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field size.");
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        void** sd = (void**) p1;
 
-    // Ensure that array boundaries are not crossed.
-    compare_integer_greater_or_equal((void*) &r, p2, p3);
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field size.");
 
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        // The comparison result.
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        deserialise_numeral_value(p0, p1, p3, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+        // Ensure that array boundaries are not crossed.
+        compare_integer_greater_or_equal((void*) &r, p2, p3);
 
-        // Move position.
-        move(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_numeral_integer(p0, *sd, p3, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+            // Move position.
+            move(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt field size. The source data position is null.");
+        fwprintf(stdout, L"Error: Could not deserialise xdt field size. The source data position is null. p1: %i\n", p1);
     }
 }
 

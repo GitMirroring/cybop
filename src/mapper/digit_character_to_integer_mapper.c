@@ -23,36 +23,36 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DIGIT_WIDE_CHARACTER_TO_INTEGER_MAPPER_SOURCE
-#define DIGIT_WIDE_CHARACTER_TO_INTEGER_MAPPER_SOURCE
+#ifndef DIGIT_CHARACTER_TO_INTEGER_MAPPER_SOURCE
+#define DIGIT_CHARACTER_TO_INTEGER_MAPPER_SOURCE
 
-#include "../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../executor/comparator/wide_character/equal_wide_character_comparator.c"
+#include "../executor/comparator/character/equal_character_comparator.c"
 #include "../executor/copier/integer_copier.c"
 #include "../logger/logger.c"
 
 /**
- * Maps the unicode digit character to an integer value.
+ * Maps the ascii digit character to an integer value.
  *
  * @param p0 the integer value
- * @param p1 the unicode wide character
+ * @param p1 the ascii character
  */
-void map_digit_wide_character_to_integer(void* p0, void* p1) {
+void map_digit_character_to_integer(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Map digit wide character to integer.");
-    //?? fwprintf(stdout, L"Debug: Map digit wide character to integer. character p1: %i\n", p1);
-    //?? fwprintf(stdout, L"Debug: Map digit wide character to integer. character *p1 as int: %i\n", *((int*) p1));
-    //?? fwprintf(stdout, L"Debug: Map digit wide character to integer. character *p1 as wchar_t: %lc\n", *((wchar_t*) p1));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Map digit character to integer.");
+    //?? fwprintf(stdout, L"Debug: Map digit character to integer. character p1: %i\n", p1);
+    //?? fwprintf(stdout, L"Debug: Map digit character to integer. character *p1 as int: %i\n", *((int*) p1));
+    //?? fwprintf(stdout, L"Debug: Map digit character to integer. character *p1 as char: %lc\n", *((char*) p1));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_wide_character_equal((void*) &r, p1, (void*) DIGIT_ZERO_UNICODE_CHARACTER_CODE_MODEL);
+        compare_character_equal((void*) &r, p1, (void*) DIGIT_ZERO_ASCII_CHARACTER_CODE_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -62,7 +62,7 @@ void map_digit_wide_character_to_integer(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_wide_character_equal((void*) &r, p1, (void*) DIGIT_ONE_UNICODE_CHARACTER_CODE_MODEL);
+        compare_character_equal((void*) &r, p1, (void*) DIGIT_ONE_ASCII_CHARACTER_CODE_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -72,7 +72,7 @@ void map_digit_wide_character_to_integer(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_wide_character_equal((void*) &r, p1, (void*) DIGIT_TWO_UNICODE_CHARACTER_CODE_MODEL);
+        compare_character_equal((void*) &r, p1, (void*) DIGIT_TWO_ASCII_CHARACTER_CODE_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -82,7 +82,7 @@ void map_digit_wide_character_to_integer(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_wide_character_equal((void*) &r, p1, (void*) DIGIT_THREE_UNICODE_CHARACTER_CODE_MODEL);
+        compare_character_equal((void*) &r, p1, (void*) DIGIT_THREE_ASCII_CHARACTER_CODE_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -92,7 +92,7 @@ void map_digit_wide_character_to_integer(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_wide_character_equal((void*) &r, p1, (void*) DIGIT_FOUR_UNICODE_CHARACTER_CODE_MODEL);
+        compare_character_equal((void*) &r, p1, (void*) DIGIT_FOUR_ASCII_CHARACTER_CODE_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -102,7 +102,7 @@ void map_digit_wide_character_to_integer(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_wide_character_equal((void*) &r, p1, (void*) DIGIT_FIVE_UNICODE_CHARACTER_CODE_MODEL);
+        compare_character_equal((void*) &r, p1, (void*) DIGIT_FIVE_ASCII_CHARACTER_CODE_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -112,7 +112,7 @@ void map_digit_wide_character_to_integer(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_wide_character_equal((void*) &r, p1, (void*) DIGIT_SIX_UNICODE_CHARACTER_CODE_MODEL);
+        compare_character_equal((void*) &r, p1, (void*) DIGIT_SIX_ASCII_CHARACTER_CODE_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -122,7 +122,7 @@ void map_digit_wide_character_to_integer(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_wide_character_equal((void*) &r, p1, (void*) DIGIT_SEVEN_UNICODE_CHARACTER_CODE_MODEL);
+        compare_character_equal((void*) &r, p1, (void*) DIGIT_SEVEN_ASCII_CHARACTER_CODE_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -132,7 +132,7 @@ void map_digit_wide_character_to_integer(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_wide_character_equal((void*) &r, p1, (void*) DIGIT_EIGHT_UNICODE_CHARACTER_CODE_MODEL);
+        compare_character_equal((void*) &r, p1, (void*) DIGIT_EIGHT_ASCII_CHARACTER_CODE_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -142,7 +142,7 @@ void map_digit_wide_character_to_integer(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_wide_character_equal((void*) &r, p1, (void*) DIGIT_NINE_UNICODE_CHARACTER_CODE_MODEL);
+        compare_character_equal((void*) &r, p1, (void*) DIGIT_NINE_ASCII_CHARACTER_CODE_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -152,12 +152,12 @@ void map_digit_wide_character_to_integer(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not map digit wide character to integer. The character is unknown.");
-        fwprintf(stdout, L"Warning: Could not map digit wide character to integer. The character is unknown. character p1: %i\n", p1);
-        fwprintf(stdout, L"Warning: Could not map digit wide character to integer. The character is unknown. character *p1 as int: %i\n", *((int*) p1));
-        fwprintf(stdout, L"Warning: Could not map digit wide character to integer. The character is unknown. character *p1 as wchar_t: %lc\n", *((wchar_t*) p1));
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not map digit character to integer. The character is unknown.");
+        fwprintf(stdout, L"Warning: Could not map digit character to integer. The character is unknown. character p1: %i\n", p1);
+        fwprintf(stdout, L"Warning: Could not map digit character to integer. The character is unknown. character *p1 as int: %i\n", *((int*) p1));
+        fwprintf(stdout, L"Warning: Could not map digit character to integer. The character is unknown. character *p1 as char: %lc\n", *((char*) p1));
     }
 }
 
-/* DIGIT_WIDE_CHARACTER_TO_INTEGER_MAPPER_SOURCE */
+/* DIGIT_CHARACTER_TO_INTEGER_MAPPER_SOURCE */
 #endif

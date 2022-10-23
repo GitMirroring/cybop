@@ -30,14 +30,15 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/numeral/base_numeral_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
-#include "../../../../executor/representer/deserialiser/cybol/integer/char_primitive_value_integer_cybol_deserialiser.c"
 #include "../../../../executor/mover/mover.c"
+#include "../../../../executor/representer/deserialiser/numeral/integer_numeral_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -96,11 +97,18 @@ void deserialise_percent_encoding_character(void* p0, void* p1, void* p2) {
 
         } else {
 
+            // The step.
+            int step = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+
+            //
+            // Move the current position.
+            //
             // CAUTION! The data are available as multibyte (NOT wide) character sequence.
-            move(p1, p2, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            //
+            move(p1, p2, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &step, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // Adjust percent encoding character count.
-            calculate_integer_add((void*) &cc, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+            calculate_integer_add((void*) &cc, (void*) &step);
         }
     }
 
@@ -122,7 +130,7 @@ void deserialise_percent_encoding_character(void* p0, void* p1, void* p2) {
         // Following the specification, a percent-encoded character
         // consists of two digits representing a HEXADECIMAL number.
         //
-        deserialise_cybol_integer_value_primitive_char((void*) &i, cd, (void*) &cc, (void*) NUMBER_16_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+        deserialise_numeral_integer((void*) &i, cd, (void*) &cc, (void*) HEXADECIMAL_BASE_NUMERAL_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         //
         // Cast integer to character.
