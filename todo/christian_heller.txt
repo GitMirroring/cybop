@@ -38,11 +38,10 @@ ___
 Numeral Deserialiser
 ____________________
 
-        model-diagram: property values are shown correctly (e.g. cybol serialiser), but model values NOT (e.g. json serialiser)
+        * Write numeral serialiser
+            model-diagram: text works fine, also property numeral values are shown correctly (e.g. cybol serialiser), but model numeral values NOT (e.g. json serialiser)
 
         * Cleanup and delete directory "executor/representer/deserialiser/cybol/integer/"
-
-        * Assign number to result part (for json) yet in numeral deserialiser
 
         * Fix bug that prefix zero in a decimal fraction is interpreted as octal number
         * Fix bug that vulgar fraction is not recognised in numeral deserialiser

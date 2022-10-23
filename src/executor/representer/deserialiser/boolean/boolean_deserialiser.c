@@ -23,19 +23,19 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BOOLEAN_CYBOL_DESERIALISER_SOURCE
-#define BOOLEAN_CYBOL_DESERIALISER_SOURCE
+#ifndef BOOLEAN_DESERIALISER_SOURCE
+#define BOOLEAN_DESERIALISER_SOURCE
 
-#include "../../../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../../../constant/model/cybol/state/boolean_state_cybol_model.c"
-#include "../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../executor/checker/operation_checker.c"
-#include "../../../../../executor/modifier/item_modifier.c"
-#include "../../../../../logger/logger.c"
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/model/cybol/state/boolean_state_cybol_model.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/checker/operation_checker.c"
+#include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Deserialises the wide character data into an integer item,
@@ -45,9 +45,9 @@
  * @param p1 the source data
  * @param p2 the source count
  */
-void deserialise_cybol_boolean(void* p0, void* p1, void* p2) {
+void deserialise_boolean(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol boolean.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise boolean.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -74,9 +74,9 @@ void deserialise_cybol_boolean(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol boolean value. The value cannot be interpreted.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise boolean value. The value cannot be interpreted.");
     }
 }
 
-/* BOOLEAN_CYBOL_DESERIALISER_SOURCE */
+/* BOOLEAN_DESERIALISER_SOURCE */
 #endif

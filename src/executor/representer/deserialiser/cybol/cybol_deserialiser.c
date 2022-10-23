@@ -36,7 +36,7 @@
 #include "../../../../executor/converter/encoder.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/representer/deserialiser/ansi_escape_code/ansi_escape_code_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/boolean/boolean_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/boolean/boolean_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/colour/terminal_colour_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/datetime/gregorian/gregorian_datetime_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/datetime/jd/jd_datetime_cybol_deserialiser.c"
@@ -220,7 +220,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_cybol_boolean(p0, p2, p3);
+            deserialise_boolean(p0, p2, p3);
         }
     }
 
