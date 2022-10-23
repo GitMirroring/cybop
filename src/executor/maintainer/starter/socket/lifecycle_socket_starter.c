@@ -47,10 +47,10 @@
 #include "../../../../executor/maintainer/starter/socket/listen_socket_starter.c"
 #include "../../../../executor/memoriser/allocator/socket_address/socket_address_allocator.c"
 #include "../../../../executor/memoriser/deallocator/socket_address_deallocator.c"
-#include "../../../../executor/representer/deserialiser/cybol/socket/address_family_socket_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/socket/protocol_family_socket_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/socket/protocol_socket_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/socket/style_socket_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/socket/address_family_socket_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/socket/protocol_family_socket_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/socket/protocol_socket_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/socket/style_socket_deserialiser.c"
 #include "../../../../logger/logger.c"
 #include "../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
 #include "../../../../variable/symbolic_name/protocol_family_socket_symbolic_name.c"
@@ -93,13 +93,13 @@ void startup_socket_lifecycle(void* p0, void* p1, void* p2, void* p3, void* p4, 
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Get protocol family.
-    deserialise_cybol_socket_family_protocol((void*) &pf, p4, p5);
+    deserialise_socket_family_protocol((void*) &pf, p4, p5);
     // Get address family.
-    deserialise_cybol_socket_family_address((void*) &af, p4, p5);
+    deserialise_socket_family_address((void*) &af, p4, p5);
     // Get communication style.
-    deserialise_cybol_socket_style((void*) &st, p6, p7);
+    deserialise_socket_style((void*) &st, p6, p7);
     // Get protocol.
-    deserialise_cybol_socket_protocol((void*) &p, p8, p9);
+    deserialise_socket_protocol((void*) &p, p8, p9);
 
     // Create socket.
     open_socket_device(p0, (void*) &pf, (void*) &st, (void*) &p);

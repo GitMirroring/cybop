@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PROTOCOL_FAMILY_SOCKET_CYBOL_DESERIALISER_SOURCE
-#define PROTOCOL_FAMILY_SOCKET_CYBOL_DESERIALISER_SOURCE
+#ifndef PROTOCOL_FAMILY_SOCKET_DESERIALISER_SOURCE
+#define PROTOCOL_FAMILY_SOCKET_DESERIALISER_SOURCE
 
 #if defined(__linux__) || defined(__unix__)
     #include <sys/socket.h>
@@ -37,15 +37,15 @@
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
-#include "../../../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../../constant/model/cybol/socket/namespace_socket_cybol_model.c"
-#include "../../../../../executor/checker/operation_checker.c"
-#include "../../../../../executor/copier/integer_copier.c"
-#include "../../../../../logger/logger.c"
-#include "../../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
-#include "../../../../../variable/symbolic_name/protocol_family_socket_symbolic_name.c"
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cybol/socket/namespace_socket_cybol_model.c"
+#include "../../../../executor/checker/operation_checker.c"
+#include "../../../../executor/copier/integer_copier.c"
+#include "../../../../logger/logger.c"
+#include "../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
+#include "../../../../variable/symbolic_name/protocol_family_socket_symbolic_name.c"
 
 //
 // On the difference between prefix AF_ and PF_:
@@ -82,9 +82,9 @@
  * @param p1 the family data
  * @param p2 the family count
  */
-void deserialise_cybol_socket_family_protocol(void* p0, void* p1, void* p2) {
+void deserialise_socket_family_protocol(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol socket family protocol.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise socket family protocol.");
 
     // The comparison result.
     int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -172,9 +172,9 @@ void deserialise_cybol_socket_family_protocol(void* p0, void* p1, void* p2) {
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol socket family protocol. The family is not known.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise socket family protocol. The family is not known.");
     }
 }
 
-/* PROTOCOL_FAMILY_SOCKET_CYBOL_DESERIALISER_SOURCE */
+/* PROTOCOL_FAMILY_SOCKET_DESERIALISER_SOURCE */
 #endif
