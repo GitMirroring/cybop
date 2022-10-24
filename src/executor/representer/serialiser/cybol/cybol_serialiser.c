@@ -46,10 +46,6 @@
 #include "../../../../executor/representer/serialiser/cybol/datetime/tai/tai_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/ti/ti_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/utc/utc_datetime_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/duration/iso/iso_duration_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/duration/jd/jd_duration_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/duration/julian/julian_duration_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/duration/si/si_duration_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/fraction/decimal/decimal_fraction_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/fraction/vulgar/vulgar_fraction_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
@@ -60,6 +56,10 @@
 #include "../../../../executor/representer/serialiser/cybol/format_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/language_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/type_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/duration/iso/iso_duration_serialiser.c"
+#include "../../../../executor/representer/serialiser/duration/jd/jd_duration_serialiser.c"
+#include "../../../../executor/representer/serialiser/duration/julian/julian_duration_serialiser.c"
+#include "../../../../executor/representer/serialiser/duration/si/si_duration_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -143,7 +143,7 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_duration_iso(p0, p1, p2);
+            serialise_duration_iso(p0, p1, p2);
         }
     }
 
@@ -153,7 +153,7 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_duration_jd(p0, p1, p2);
+            serialise_duration_jd(p0, p1, p2);
         }
     }
 
@@ -163,7 +163,7 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_duration_julian(p0, p1, p2);
+            serialise_duration_julian(p0, p1, p2);
         }
     }
 
@@ -173,7 +173,7 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_duration_si(p0, p1, p2);
+            serialise_duration_si(p0, p1, p2);
         }
     }
 

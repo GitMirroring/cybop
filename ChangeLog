@@ -23,6 +23,7 @@
         * Add numeral serialiser
         * Move boolean serialiser out of cybol serialiser
         * Move colour serialiser out of cybol serialiser
+        * Move duration serialiser out of cybol serialiser
 
 2022-10-23  Christian Heller  <christian.heller@cybop.org>
 

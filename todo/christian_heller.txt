@@ -39,7 +39,6 @@ Numeral Deserialiser
 ____________________
 
         * Move datetime serialiser out of cybol serialiser
-        * Move duration serialiser out of cybol serialiser
 
         * Continue numeral serialiser
             model-diagram: text works fine, also property numeral values are shown correctly (e.g. cybol serialiser), but model numeral values NOT (e.g. json serialiser)

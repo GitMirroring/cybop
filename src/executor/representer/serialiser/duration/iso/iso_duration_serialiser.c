@@ -23,27 +23,23 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SI_DURATION_CYBOL_SERIALISER_SOURCE
-#define SI_DURATION_CYBOL_SERIALISER_SOURCE
+#ifndef ISO_DURATION_SERIALISER_SOURCE
+#define ISO_DURATION_SERIALISER_SOURCE
 
-#include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../../executor/representer/serialiser/cybol/integer/value_integer_cybol_serialiser.c"
-#include "../../../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../logger/logger.c"
 
 /**
- * Serialises the duration model into an si duration.
+ * Serialises the duration model into an iso duration.
  *
  * @param p0 the destination model item
  * @param p1 the source data
  * @param p2 the source count
  */
-void serialise_cybol_duration_si(void* p0, void* p1, void* p2) {
+void serialise_duration_iso(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol duration si.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise duration iso.");
 }
 
-/* SI_DURATION_CYBOL_SERIALISER_SOURCE */
+/* ISO_DURATION_SERIALISER_SOURCE */
 #endif
