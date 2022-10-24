@@ -23,27 +23,30 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TERMINAL_COLOUR_CYBOL_SERIALISER_SOURCE
-#define TERMINAL_COLOUR_CYBOL_SERIALISER_SOURCE
+#ifndef TERMINAL_COLOUR_SERIALISER_SOURCE
+#define TERMINAL_COLOUR_SERIALISER_SOURCE
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/colour/terminal_colour_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../constant/model/cybol/colour/terminal_colour_cybol_model.c"
-#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../logger/logger.c"
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/colour/terminal_colour_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cybol/colour/terminal_colour_cybol_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../logger/logger.c"
 
 /**
- * Serialises the cyboi-internal integer value into a terminal colour.
+ * Serialises the source terminal colour into the destination wide character sequence.
  *
  * @param p0 the destination item
  * @param p1 the source data
  */
-void serialise_cybol_colour_terminal(void* p0, void* p1) {
+void serialise_colour_terminal(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol colour terminal.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise colour terminal.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -130,9 +133,11 @@ void serialise_cybol_colour_terminal(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol colour terminal. The colour is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise colour terminal. The colour is unknown.");
+        fwprintf(stdout, L"Warning: Could not serialise colour terminal. The colour is unknown. p1: %i\n", p1);
+        fwprintf(stdout, L"Warning: Could not serialise colour terminal. The colour is unknown. *p1: %i\n", *((int*) p1));
     }
 }
 
-/* TERMINAL_COLOUR_CYBOL_SERIALISER_SOURCE */
+/* TERMINAL_COLOUR_SERIALISER_SOURCE */
 #endif

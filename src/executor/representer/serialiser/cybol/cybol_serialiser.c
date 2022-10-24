@@ -34,7 +34,7 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/converter/decoder.c"
 #include "../../../../executor/representer/serialiser/boolean/boolean_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/colour/terminal_colour_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/colour/terminal_colour_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/complex/cartesian/cartesian_complex_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/complex/polar/polar_complex_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/gregorian/gregorian_datetime_cybol_serialiser.c"
@@ -99,7 +99,7 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_colour_terminal(p0, p1);
+            serialise_colour_terminal(p0, p1);
         }
     }
 

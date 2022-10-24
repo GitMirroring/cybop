@@ -38,7 +38,6 @@ ___
 Numeral Deserialiser
 ____________________
 
-        * Move colour serialiser out of cybol serialiser
         * Move datetime serialiser out of cybol serialiser
         * Move duration serialiser out of cybol serialiser
 
