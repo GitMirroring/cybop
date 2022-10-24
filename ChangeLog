@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-10-24  Christian Heller  <christian.heller@cybop.org>
+
+        * Add numeral serialiser
+        * Move boolean serialiser out of cybol serialiser
+
 2022-10-23  Christian Heller  <christian.heller@cybop.org>
 
         * Cleanup numeral deserialiser and assign number to result part
@@ -28,14 +33,15 @@
         * Move socket deserialiser out of cybol deserialiser
         * Factor out files "unicode_numeral_deserialiser.c" and "ascii_numeral_deserialiser.c" from "integer_numeral_deserialiser.c"
         * Add file "digit_character_to_integer_mapper.c" similar to "digit_wide_character_to_integer_mapper.c"
-        * Delete directory "executor/representer/deserialiser/cybol/integer/" and use numeral deserialiser instead
+        * Delete cybol integer deserialiser which got replaced by numeral deserialiser
         * Replace "deserialise_numeral_value" with "deserialise_numeral_integer" everywhere a simple integer value gets deserialised
 
 2022-10-22  Christian Heller  <christian.heller@cybop.org>
 
         * Call numeral vector deserialiser in number sections of file "cybol_deserialiser.c", so that for example x-y-coordinates of cybol application "tui_control" work again
         * Return primitive number in numeral deserialiser and item in numeral vector deserialiser
-        * Delete files and sub directories in cybol deserialiser that have become obsolete due to the new numeral- and numeral vector deserialiser
+        * Delete cybol complex deserialiser which got replaced by numeral deserialiser
+        * Delete cybol fraction deserialiser which got replaced by numeral deserialiser
         * Delete cybol selector
 
 2022-10-21  Christian Heller  <christian.heller@cybop.org>

@@ -23,41 +23,36 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef VALUE_BOOLEAN_CYBOL_SERIALISER_SOURCE
-#define VALUE_BOOLEAN_CYBOL_SERIALISER_SOURCE
+#ifndef BOOLEAN_SERIALISER_SOURCE
+#define BOOLEAN_SERIALISER_SOURCE
 
-#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../constant/model/cybol/state/boolean_state_cybol_model.c"
-#include "../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../../../logger/logger.c"
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cybol/state/boolean_state_cybol_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../logger/logger.c"
 
 /**
- * Serialises the boolean value into a wide character value.
+ * Serialises the source boolean value into the destination wide character sequence.
  *
- * @param p0 the destination item
- * @param p1 the source boolean data
- * @param p2 the source boolean index
+ * @param p0 the destination wide character item
+ * @param p1 the source boolean value
  */
-void serialise_cybol_boolean_value(void* p0, void* p1, void* p2) {
+void serialise_boolean(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol boolean value.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise boolean.");
 
-    // The value.
-    int v = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Get value from vector at index.
-    copy_array_forward((void*) &v, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
-
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, (void*) &v, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -67,7 +62,7 @@ void serialise_cybol_boolean_value(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, (void*) &v, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -77,9 +72,11 @@ void serialise_cybol_boolean_value(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol boolean value. The boolean value is not known.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise boolean. The source boolean value is unknown.");
+        fwprintf(stdout, L"Warning: Could not serialise boolean. The source boolean value is unknown. p1: %i\n", p1);
+        fwprintf(stdout, L"Warning: Could not serialise boolean. The source boolean value is unknown. *p1: %i\n", *((int*) p1));
     }
 }
 
-/* VALUE_BOOLEAN_CYBOL_SERIALISER_SOURCE */
+/* BOOLEAN_SERIALISER_SOURCE */
 #endif

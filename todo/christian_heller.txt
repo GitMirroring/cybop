@@ -38,13 +38,24 @@ ___
 Numeral Deserialiser
 ____________________
 
-        * Write numeral serialiser
+        * Move colour serialiser out of cybol serialiser
+        * Move datetime serialiser out of cybol serialiser
+        * Move duration serialiser out of cybol serialiser
+
+        * Continue numeral serialiser
             model-diagram: text works fine, also property numeral values are shown correctly (e.g. cybol serialiser), but model numeral values NOT (e.g. json serialiser)
 
+        * Delete cybol complex serialiser which got replaced by numeral serialiser
+        * Delete cybol fraction serialiser which got replaced by numeral serialiser
+        * Delete cybol integer serialiser which got replaced by numeral serialiser
+
+        Bugs in numeral deserialiser:
         * Fix bug that prefix zero in a decimal fraction is interpreted as octal number
         * Fix bug that vulgar fraction is not recognised in numeral deserialiser
         * Fix bug that sign is not recognised in complex number with polar coordinates
         * Fix bug that exponent without multiplication sign is not recognised in complex number with polar coordinates
+
+        * Move byte deserialiser out of cybol deserialiser
 
         * Simplify numeral constants and numeral deserialiser to use only "exp(" and not "e(" in complex number with polar coordinates
 
@@ -63,9 +74,7 @@ ____
         * Test json and xml deserialiser and compare results, e.g. with example file "glossary"
         * Continue json deserialiser and selector: number
         * Handle special escaped string characters in file "string_json_deserialiser.c"
-        * Provide cybol deserialiser for numbers in scientific notation (10 to the power of x), to be used in json deserialiser
         * Test real-world json files of directory "serialisation/json/examples/" using a cybol application
-        * Comment out testing log messages in json deserialiser and selector
 
         * Reflect on how to handle binary data in files "cybol_serialiser.c", "xml_serialiser.c", "json_serialiser.c"
             how do dbms store blobs ??
