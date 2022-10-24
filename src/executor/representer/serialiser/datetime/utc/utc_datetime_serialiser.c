@@ -23,14 +23,14 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef UTC_DATETIME_CYBOL_SERIALISER_SOURCE
-#define UTC_DATETIME_CYBOL_SERIALISER_SOURCE
+#ifndef UTC_DATETIME_SERIALISER_SOURCE
+#define UTC_DATETIME_SERIALISER_SOURCE
 
-#include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../../executor/representer/serialiser/time_scale/gregorian_calendar/gregorian_calendar_time_scale_serialiser.c"
-#include "../../../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../executor/representer/serialiser/time_scale/gregorian_calendar/gregorian_calendar_time_scale_serialiser.c"
+#include "../../../../../logger/logger.c"
 
 /**
  * Serialises the datetime into utc date wide character data.
@@ -39,9 +39,9 @@
  * @param p1 the source data
  * @param p2 the source count
  */
-void serialise_cybol_datetime_utc(void* p0, void* p1, void* p2) {
+void serialise_datetime_utc(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol datetime utc.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise datetime utc.");
 
     // The year/month/day/hour/minute/second.
     int y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -63,5 +63,5 @@ void serialise_cybol_datetime_utc(void* p0, void* p1, void* p2) {
     serialise_cybol_integer_value(p0, (void*) &y, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
 }
 
-/* UTC_DATETIME_CYBOL_SERIALISER_SOURCE */
+/* UTC_DATETIME_SERIALISER_SOURCE */
 #endif

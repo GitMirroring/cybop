@@ -23,13 +23,13 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef JD_DATETIME_CYBOL_SERIALISER_SOURCE
-#define JD_DATETIME_CYBOL_SERIALISER_SOURCE
+#ifndef JD_DATETIME_SERIALISER_SOURCE
+#define JD_DATETIME_SERIALISER_SOURCE
 
-#include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../../constant/model/time_scale/julian_date_time_scale_model.c"
-#include "../../../../../../executor/representer/serialiser/cybol/datetime/jd/basic_jd_datetime_cybol_serialiser.c"
-#include "../../../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/time_scale/julian_date_time_scale_model.c"
+#include "../../../../../executor/representer/serialiser/datetime/jd/basic_jd_datetime_serialiser.c"
+#include "../../../../../logger/logger.c"
 
 /**
  * Serialises the datetime into julian date (jd) wide character data.
@@ -38,12 +38,12 @@
  * @param p1 the source data
  * @param p2 the source count
  */
-void serialise_cybol_datetime_jd(void* p0, void* p1, void* p2) {
+void serialise_datetime_jd(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol datetime jd.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise datetime jd.");
 
-    serialise_cybol_datetime_jd_basic(p0, p1, p2, (void*) JULIAN_DATE_TIME_SCALE_MODEL);
+    serialise_datetime_jd_basic(p0, p1, p2, (void*) JULIAN_DATE_TIME_SCALE_MODEL);
 }
 
-/* JD_DATETIME_CYBOL_SERIALISER_SOURCE */
+/* JD_DATETIME_SERIALISER_SOURCE */
 #endif

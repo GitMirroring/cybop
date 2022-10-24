@@ -23,27 +23,27 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TJD_DATETIME_CYBOL_SERIALISER_SOURCE
-#define TJD_DATETIME_CYBOL_SERIALISER_SOURCE
+#ifndef JULIAN_DATETIME_SERIALISER_SOURCE
+#define JULIAN_DATETIME_SERIALISER_SOURCE
 
-#include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../../constant/model/time_scale/julian_date_time_scale_model.c"
-#include "../../../../../../executor/representer/serialiser/cybol/datetime/jd/basic_jd_datetime_cybol_serialiser.c"
-#include "../../../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../executor/representer/serialiser/cybol/integer/value_integer_cybol_serialiser.c"
+#include "../../../../../logger/logger.c"
 
 /**
- * Serialises the datetime into truncated julian date (tjd) wide character data.
+ * Serialises the datetime model into a julian date.
  *
  * @param p0 the destination model item
  * @param p1 the source data
  * @param p2 the source count
  */
-void serialise_cybol_datetime_tjd(void* p0, void* p1, void* p2) {
+void serialise_datetime_julian(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol datetime tjd.");
-
-    serialise_cybol_datetime_jd_basic(p0, p1, p2, (void*) TRUNCATED_JULIAN_DATE_TIME_SCALE_MODEL);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise datetime julian.");
 }
 
-/* TJD_DATETIME_CYBOL_SERIALISER_SOURCE */
+/* JULIAN_DATETIME_SERIALISER_SOURCE */
 #endif
