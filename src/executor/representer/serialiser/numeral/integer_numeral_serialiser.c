@@ -48,8 +48,92 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4,
     //?? fwprintf(stdout, L"Debug: Serialise numeral integer. format p8: %i\n", p8);
     //?? fwprintf(stdout, L"Debug: Serialise numeral integer. format *p8: %i\n", *((int*) p8));
 
-    while (TRUE) {
+    if (zahl < 0) {
 
+        append(minus);
+    }
+
+    if (prefix-flag != FALSE) {
+
+        if (base == BINARY) {
+            // Append binary prefix 0b.
+        } else if (base == DECIMAL) {
+            // Append NOTHING, since decimal numbers do NOT have a prefix.
+        } else if (base == OCTAL) {
+            // Append octal prefix 0o.
+        } else if (base == HEXADECIMAL) {
+            // Append hexadecimal prefix 0x.
+        } else {
+            log(Warning: unknown);
+        }
+    }
+
+    //
+    // Determine pre-point value.
+    //
+    // CAUTION! Convert floating-point number to integer by CASTING it to int.
+    // This is a legitimate method of truncating a floating-point value,
+    // as mentioned in the glibc documentation:
+    // https://www.gnu.org/software/libc/manual/html_mono/libc.html#Rounding-Functions
+    //
+    pre = (int) orig-zahl;
+
+    // Determine post-point value (decimal places).
+    post = orig-zahl - pre;
+
+    //
+    // Append pre-point value.
+    //
+    // Beispielzahl: 124
+    // Basis: 10
+    //
+    while (TRUE) {
+        rest(4) = zahl mod 10;
+        insert_at_pos_zero(rest);
+        zahl = zahl / 10;
+        // ?? Cast zahl from double to int
+    }
+
+    // Append decimal separator.
+    append(SEPARATOR);
+
+    //
+    // Append post-point value (decimal places).
+    //
+    // Beispielzahl: 0.24
+    // Basis: 10
+    //
+    while (TRUE) {
+        if (j >= param-decimal-places) {
+            break;
+        }
+        tmp = zahl * 10;
+        if (j < last-number-index) {
+            //
+            // Determine pre-point value representing the next digit.
+            //
+            // CAUTION! Convert floating-point number to integer by CASTING it to int.
+            // This is a legitimate method of truncating a floating-point value,
+            // as mentioned in the glibc documentation:
+            // https://www.gnu.org/software/libc/manual/html_mono/libc.html#Rounding-Functions
+            //
+            digit = (int) tmp;
+        } else {
+            //?? TODO: #include <math.h>
+            //
+            // Round pre-point value upwards to the nearest integer,
+            // returning that value as a double. Thus, ceil (1.5) is 2.0.
+            //
+            //?? TODO:
+            // Cast to double as needed:
+            // double ceil(double x)
+            //
+            double d = (double) tmp;
+            d = ceil(d);
+            digit = (int) d;
+        }
+        append(digit);
+        zahl = tmp - digit;
     }
 }
 
