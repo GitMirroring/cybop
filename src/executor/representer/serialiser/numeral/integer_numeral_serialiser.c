@@ -33,9 +33,9 @@
  * Serialises the integer value into a wide character sequence.
  *
  * @param p0 the destination item
- * @param p1 the source data
- * @param p2 the source count
- * @param p3 the number base
+ * @param p1 the source number
+ * @param p2 the number base
+ * @param p3 the sign flag
  * @param p4 the number prefix flag
  * @param p5 the decimal separator
  * @param p6 the decimal places
@@ -48,10 +48,41 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4,
     //?? fwprintf(stdout, L"Debug: Serialise numeral integer. format p8: %i\n", p8);
     //?? fwprintf(stdout, L"Debug: Serialise numeral integer. format *p8: %i\n", *((int*) p8));
 
+    // The normalised floating point number in scientific notation.
+    double n = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    // The power exponent.
+    int p = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
     if (zahl < 0) {
 
-        append(minus);
+        // Append minus sign to destination item.
+        append(p0, MINUS);
+
+    } else {
+
+        if (sign-flag != FALSE) {
+
+            // Append plus sign to destination item.
+            append(p0, PLUS);
+        }
     }
+
+    // Eliminate sign from number.
+    //?? TODO: calculate_absolute((void*) &n);
+
+    // ---------- START -- only if double
+    if (p8-format == DOUBLE_CYBOI_FORMAT) {
+
+        if (scientific notation flag != FALSE) {
+
+            // Initialise normalised floating point number in scientific notation.
+            copy_double((void*) &n, p1);
+
+            // Convert floating point number into scientific notation.
+            calculate_double_scientific((void*) &n, (void*) &p, p3);
+        }
+    }
+    // ---------- END
 
     if (prefix-flag != FALSE) {
 

@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-10-26  Christian Heller  <christian.heller@cybop.org>
+
+        * Add files "scientific_double_calculator.c" and "normalise_double_calculator.c" for determining the scientific notation with power exponent of a floating point number
+
 2022-10-24  Christian Heller  <christian.heller@cybop.org>
 
         * Add numeral serialiser
