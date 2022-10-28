@@ -48,11 +48,6 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4,
     //?? fwprintf(stdout, L"Debug: Serialise numeral integer. format p8: %i\n", p8);
     //?? fwprintf(stdout, L"Debug: Serialise numeral integer. format *p8: %i\n", *((int*) p8));
 
-    // The normalised floating point number in scientific notation.
-    double n = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
-    // The power exponent.
-    int p = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
     if (zahl < 0) {
 
         // Append minus sign to destination item.
@@ -68,49 +63,36 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4,
     }
 
     // Eliminate sign from number.
-    //?? TODO: calculate_absolute((void*) &n);
-
-    // ---------- START -- only if double
-    if (p8-format == DOUBLE_CYBOI_FORMAT) {
-
-        if (scientific notation flag != FALSE) {
-
-            // Initialise normalised floating point number in scientific notation.
-            copy_double((void*) &n, p1);
-
-            // Convert floating point number into scientific notation.
-            calculate_double_scientific((void*) &n, (void*) &p, p3);
-        }
-    }
-    // ---------- END
+    calculate_absolute((void*) &n);
 
     if (prefix-flag != FALSE) {
 
         if (base == BINARY) {
+
             // Append binary prefix 0b.
+            //?? TODO
+
         } else if (base == DECIMAL) {
+
+            //
             // Append NOTHING, since decimal numbers do NOT have a prefix.
+            //
+
         } else if (base == OCTAL) {
+
             // Append octal prefix 0o.
+            //?? TODO
+
         } else if (base == HEXADECIMAL) {
+
             // Append hexadecimal prefix 0x.
+            //?? TODO
+
         } else {
+
             log(Warning: unknown);
         }
     }
-
-    //
-    // Determine pre-point value.
-    //
-    // CAUTION! Convert floating-point number to integer by CASTING it to int.
-    // This is a legitimate method of truncating a floating-point value,
-    // as mentioned in the glibc documentation:
-    // https://www.gnu.org/software/libc/manual/html_mono/libc.html#Rounding-Functions
-    //
-    pre = (int) orig-zahl;
-
-    // Determine post-point value (decimal places).
-    post = orig-zahl - pre;
 
     //
     // Append pre-point value.
@@ -119,52 +101,20 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4,
     // Basis: 10
     //
     while (TRUE) {
-        rest(4) = zahl mod 10;
-        insert_at_pos_zero(rest);
-        zahl = zahl / 10;
-        // ?? Cast zahl from double to int
-    }
 
-    // Append decimal separator.
-    append(SEPARATOR);
+        if (zahl <= 0) {
 
-    //
-    // Append post-point value (decimal places).
-    //
-    // Beispielzahl: 0.24
-    // Basis: 10
-    //
-    while (TRUE) {
-        if (j >= param-decimal-places) {
             break;
         }
-        tmp = zahl * 10;
-        if (j < last-number-index) {
-            //
-            // Determine pre-point value representing the next digit.
-            //
-            // CAUTION! Convert floating-point number to integer by CASTING it to int.
-            // This is a legitimate method of truncating a floating-point value,
-            // as mentioned in the glibc documentation:
-            // https://www.gnu.org/software/libc/manual/html_mono/libc.html#Rounding-Functions
-            //
-            digit = (int) tmp;
-        } else {
-            //?? TODO: #include <math.h>
-            //
-            // Round pre-point value upwards to the nearest integer,
-            // returning that value as a double. Thus, ceil (1.5) is 2.0.
-            //
-            //?? TODO:
-            // Cast to double as needed:
-            // double ceil(double x)
-            //
-            double d = (double) tmp;
-            d = ceil(d);
-            digit = (int) d;
-        }
-        append(digit);
-        zahl = tmp - digit;
+
+        // Calculate remainder.
+        rest(4) = zahl mod base(10);
+
+        // Insert remainder as digit at the BEGINNING.
+        insert_at_index_zero(rest);
+
+        // Divide number by base.
+        zahl = zahl / base(10);
     }
 }
 
