@@ -30,9 +30,9 @@
 #include "../logger/logger.c"
 
 /**
- * Maps the integer value to a unicode digit character.
+ * Maps the integer value to a unicode digit wide character.
  *
- * @param p0 the unicode wide character
+ * @param p0 the unicode digit wide character
  * @param p1 the integer value
  */
 void map_integer_to_digit_wide_character(void* p0, void* p1) {

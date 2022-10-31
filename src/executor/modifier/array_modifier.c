@@ -49,15 +49,15 @@
  * Modifies the destination array using the given operation.
  *
  * @param p0 the destination array (pointer reference)
- * @param p1 the source array
+ * @param p1 the source array (should be null for remove)
  * @param p2 the type
  * @param p3 the deep copying flag
  * @param p4 the count
- * @param p5 the destination index
- * @param p6 the source index
+ * @param p5 the destination index (should be null for append)
+ * @param p6 the source index (should be null for remove)
  * @param p7 the destination array count
  * @param p8 the destination array size
- * @param p9 the adjust count flag
+ * @param p9 the adjust count flag (should be null for append and insert)
  * @param p10 the repetition number for "modify/repeat"
  * @param p11 the searchterm data for "modify/replace"
  * @param p12 the searchterm count for "modify/replace"

@@ -35,7 +35,7 @@
 #include "../logger/logger.c"
 
 /**
- * Maps the unicode digit character to an integer value.
+ * Maps the unicode digit wide character to an integer value.
  *
  * @param p0 the integer value
  * @param p1 the unicode wide character

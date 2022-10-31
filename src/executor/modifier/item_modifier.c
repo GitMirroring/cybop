@@ -48,7 +48,7 @@
  * @param p4 the count
  * @param p5 the destination index (should be null for append)
  * @param p6 the source index (should be null for remove)
- * @param p7 the adjust count flag
+ * @param p7 the adjust count flag (should be null for append and insert)
  * @param p8 the repetition number for "modify/repeat"
  * @param p9 the searchterm data for "modify/replace"
  * @param p10 the searchterm count for "modify/replace"

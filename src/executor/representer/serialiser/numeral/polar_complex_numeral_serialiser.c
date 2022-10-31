@@ -35,12 +35,17 @@
  * @param p0 the destination item
  * @param p1 the source number
  * @param p2 the sign flag
+ * @param p3 the number base
+ * @param p4 the prefix flag
+ * @param p5 the decimal separator
+ * @param p6 the decimal places
+ * @param p7 the scientific notation flag
  */
-void serialise_numeral_cartesian_polar(void* p0, void* p1, void* p2) {
+void serialise_numeral_cartesian_polar(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral cartesian polar.");
-    //?? fwprintf(stdout, L"Debug: Serialise numeral cartesian polar. sign flag p2: %i\n", p2);
-    //?? fwprintf(stdout, L"Debug: Serialise numeral cartesian polar. sign flag *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Serialise numeral cartesian polar. sign flag p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Serialise numeral cartesian polar. sign flag *p2: %i\n", *((int*) p2));
 
     // Serialise value.
     serialise_numeral_fraction_decimal();

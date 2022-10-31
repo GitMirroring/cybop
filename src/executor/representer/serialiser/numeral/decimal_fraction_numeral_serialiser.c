@@ -44,8 +44,8 @@
 void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral fraction decimal.");
-    //?? fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. sign flag p2: %i\n", p2);
-    //?? fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. sign flag *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. sign flag p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. sign flag *p2: %i\n", *((int*) p2));
 
     // The normalised floating point number in scientific notation.
     double n = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;

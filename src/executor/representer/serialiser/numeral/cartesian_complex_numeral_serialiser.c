@@ -27,6 +27,7 @@
 #define CARTESIAN_COMPLEX_NUMERAL_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../executor/representer/serialiser/decimal_fraction_numeral_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -35,12 +36,17 @@
  * @param p0 the destination item
  * @param p1 the source number
  * @param p2 the sign flag
+ * @param p3 the number base
+ * @param p4 the prefix flag
+ * @param p5 the decimal separator
+ * @param p6 the decimal places
+ * @param p7 the scientific notation flag
  */
-void serialise_numeral_cartesian_complex(void* p0, void* p1, void* p2) {
+void serialise_numeral_cartesian_complex(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral cartesian complex.");
-    //?? fwprintf(stdout, L"Debug: Serialise numeral cartesian complex. sign flag p2: %i\n", p2);
-    //?? fwprintf(stdout, L"Debug: Serialise numeral cartesian complex. sign flag *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Serialise numeral cartesian complex. sign flag p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Serialise numeral cartesian complex. sign flag *p2: %i\n", *((int*) p2));
 
     serialise_numeral_fraction_decimal();
     serialise_numeral_fraction_decimal();

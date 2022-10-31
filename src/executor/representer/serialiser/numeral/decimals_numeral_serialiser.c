@@ -26,6 +26,7 @@
 #ifndef DECIMALS_NUMERAL_SERIALISER_SOURCE
 #define DECIMALS_NUMERAL_SERIALISER_SOURCE
 
+#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
@@ -37,19 +38,18 @@
  *
  * @param p0 the destination item
  * @param p1 the source number
- * @param p2 the number base
- * @param p3 the sign flag
- * @param p4 the number prefix flag
+ * @param p2 the sign flag
+ * @param p3 the number base
+ * @param p4 the prefix flag
  * @param p5 the decimal separator
  * @param p6 the decimal places
  * @param p7 the scientific notation flag
- * @param p8 the format
  */
 void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral decimals.");
-    //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. format p8: %i\n", p8);
-    //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. format *p8: %i\n", *((int*) p8));
+    fwprintf(stdout, L"Debug: Serialise numeral decimals. format p8: %i\n", p8);
+    fwprintf(stdout, L"Debug: Serialise numeral decimals. format *p8: %i\n", *((int*) p8));
 
     // The number base as double with decimal base as default.
     double b = *NUMBER_10_0_FLOAT;
@@ -136,7 +136,8 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3, void* p4
             d = (int) n;
         }
 
-        map_int_to_wchar((void*) &wc, (void*) &d);
+        // Map integer value to a unicode digit wide character.
+        map_integer_to_digit_wide_character((void*) &wc, (void*) &d);
 
         // Append digit wide character to destination number string.
         modify_item(p0, (void*) &wc, APPEND);

@@ -26,14 +26,16 @@
 #ifndef NUMERAL_SERIALISER_SOURCE
 #define NUMERAL_SERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../logger/logger.c"
---
 #include "../../../../constant/format/cyboi/state_cyboi_format.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../../executor/representer/serialiser/json/part_json_serialiser.c"
-#include "../../../../executor/representer/serialiser/json/string_json_serialiser.c"
+#include "../../../../executor/representer/serialiser/numeral/cartesian_complex_numeral_serialiser.c"
+#include "../../../../executor/representer/serialiser/numeral/decimal_fraction_numeral_serialiser.c"
+#include "../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
+#include "../../../../executor/representer/serialiser/numeral/polar_complex_numeral_serialiser.c"
+#include "../../../../executor/representer/serialiser/numeral/vulgar_fraction_numeral_serialiser.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Serialises the source number into a wide character numeral sequence.
@@ -46,23 +48,20 @@
  * @param p2 the sign flag
  * @param p3 the number base
  * @param p4 the prefix flag
- * @param p5 the decimal separator
- * @param p6 the decimal places
- * @param p7 the scientific notation flag
- * @param p8 the format
+ * @param p5 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param p6 the decimal separator
+ * @param p7 the decimal places
+ * @param p8 the scientific notation flag
+ * @param p9 the format
  */
-void serialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void serialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral.");
-    //?? fwprintf(stdout, L"Debug: Serialise numeral. format p8: %i\n", p8);
-    //?? fwprintf(stdout, L"Debug: Serialise numeral. format *p8: %i\n", *((int*) p8));
+    fwprintf(stdout, L"Debug: Serialise numeral. format p8: %i\n", p8);
+    fwprintf(stdout, L"Debug: Serialise numeral. format *p8: %i\n", *((int*) p8));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    //
-    // number
-    //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -26,76 +26,95 @@
 #ifndef INTEGER_NUMERAL_SERIALISER_SOURCE
 #define INTEGER_NUMERAL_SERIALISER_SOURCE
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/name/numeral/sign_numeral_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/calculator/integer/absolute_integer_calculator.c"
+#include "../../../../executor/calculator/integer/divide_integer_calculator.c"
+#include "../../../../executor/calculator/integer/modulo_integer_calculator.c"
+#include "../../../../executor/comparator/integer/less_integer_comparator.c"
+#include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
+#include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
+#include "../../../../executor/copier/integer_copier.c"
+#include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/representer/serialiser/prefix_numeral_serialiser.c"
 #include "../../../../logger/logger.c"
+#include "../../../../mapper/integer_to_digit_wide_character_mapper.c"
 
 /**
  * Serialises the integer value into a wide character sequence.
  *
  * @param p0 the destination item
  * @param p1 the source number
- * @param p2 the number base
- * @param p3 the sign flag
- * @param p4 the prefix flag
+ * @param p2 the sign flag
+ * @param p3 the number base
+ * @param p4 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param p5 the prefix flag
  */
-void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral integer.");
-    //?? fwprintf(stdout, L"Debug: Serialise numeral integer. source number p1: %i\n", p1);
-    //?? fwprintf(stdout, L"Debug: Serialise numeral integer. source number *p1: %i\n", *((int*) p1));
+    fwprintf(stdout, L"Debug: Serialise numeral integer. source number p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Serialise numeral integer. source number *p1: %i\n", *((int*) p1));
 
-    if (zahl < 0) {
+    //
+    // The temporary number.
+    //
+    // CAUTION! It is necessary in order to avoid manipulation of
+    // the original number, for example when calculating the
+    // absolute value below.
+    //
+    int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The negative number comparison result.
+    int neg = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The sign flag comparison result.
+    int s = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The prefix flag comparison result.
+    int p = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The remainder.
+    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The digit as wide character.
+    wchar_t wc = *NULL_UNICODE_CHARACTER_CODE_MODEL;
+
+    // Initialise temporary number.
+    copy_integer((void*) &n, p1);
+
+    compare_integer_less((void*) &neg, (void*) &n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+    if (neg != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Append minus sign to destination item.
-        append(p0, MINUS);
+        modify_item(p0, (void*) MINUS_SIGN_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MINUS_SIGN_NUMERAL_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
     } else {
 
-        if (sign-flag != FALSE) {
+        compare_integer_unequal((void*) &s, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        if (s != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Append plus sign to destination item.
-            append(p0, PLUS);
+            modify_item(p0, (void*) PLUS_SIGN_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PLUS_SIGN_NUMERAL_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
         }
     }
 
-    // Eliminate sign from number.
-    calculate_absolute((void*) &n);
+    // Eliminate sign from temporary number.
+    calculate_integer_absolute((void*) &n, (void*) &n);
 
-    if (prefix-flag != FALSE) {
+    compare_integer_unequal((void*) &p, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (base == BINARY) {
+    if (p != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Append binary prefix 0b.
-            modify_item("0b", APPEND);
-
-        } else if (base == DECIMAL) {
-
-            //
-            // Append NOTHING, since decimal numbers do NOT have a prefix.
-            //
-
-        } else if (base == OCTAL) {
-
-            if (classic_flag == FALSE) {
-
-                // Append octal prefix 0o.
-                modify_item("0o", APPEND);
-
-            } else {
-
-                // Append octal prefix 0o.
-                modify_item("0", APPEND);
-            }
-
-        } else if (base == HEXADECIMAL) {
-
-            // Append hexadecimal prefix 0x.
-            modify_item("0x", APPEND);
-
-        } else {
-
-            log(Warning: unknown);
-        }
+        // Append suitable prefix depending on the given number base.
+        serialise_numeral_prefix(p0, p3, p4);
     }
 
     //
@@ -104,21 +123,29 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4)
     // Beispielzahl: 124
     // Basis: 10
     //
-    while (TRUE) {
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        if (zahl <= 0) {
+        compare_integer_less_or_equal((void*) &b, (void*) &n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
+
+        } else {
+
+            // Initialise remainder.
+            copy_integer((void*) &r, (void*) &n);
+            // Calculate remainder.
+            calculate_integer_modulo((void*) &r, p3);
+
+            // Map integer value to a unicode digit wide character.
+            map_integer_to_digit_wide_character((void*) &wc, (void*) &r);
+            // Insert remainder as digit wide character at the BEGINNING.
+            modify_item(p0, (void*) &wc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INSERT_MODIFY_LOGIC_CYBOI_FORMAT);
+
+            // Divide number by base.
+            calculate_integer_divide((void*) &n, p3);
         }
-
-        // Calculate remainder.
-        rest(4) = zahl mod base(10);
-
-        // Insert remainder as digit at the BEGINNING.
-        insert_at_index_zero(rest);
-
-        // Divide number by base.
-        zahl = zahl / base(10);
     }
 }
 
