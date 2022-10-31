@@ -41,9 +41,10 @@
  * @param p2 the sign flag
  * @param p3 the number base
  * @param p4 the prefix flag
- * @param p5 the decimal separator
- * @param p6 the decimal places
- * @param p7 the scientific notation flag
+ * @param p5 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param p6 the decimal separator
+ * @param p7 the decimal places
+ * @param p8 the scientific notation flag
  */
 void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
@@ -52,19 +53,19 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3, void* p4
     fwprintf(stdout, L"Debug: Serialise numeral decimals. format *p8: %i\n", *((int*) p8));
 
     // The number base as double with decimal base as default.
-    double b = *NUMBER_10_0_FLOAT;
+    double b = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     // The decimal places count with default value.
-    int c = *NUMBER_6_INTEGER;
+    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The last number index.
-    int l = *NUMBER_0_INTEGER;
+    int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The decimals (post point value).
-    double v = *NUMBER_0_0_FLOAT;
+    double v = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     // The digit.
-    int d = *NUMBER_0_INTEGER;
+    int d = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The digit as wide character.
-    wchar_t wc = *NULL_WIDE_CHARACTER;
+    wchar_t wc = *NULL_UNICODE_CHARACTER_CODE_MODEL;
     // The digit as double.
-    double dd = NUMBER_0_0_FLOAT;
+    double dd = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
 
     // Initialise decimal places count.
     if (decimal places count parametre < MAX_COUNT(see glibc constants and count manually and enter here as literal integer constant)) {
@@ -93,9 +94,11 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3, void* p4
     // Beispielzahl: 0.24
     // Basis: 10
     //
-    while (TRUE) {
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        if (j >= param-decimal-places) {
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, param-decimal-places);
+
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }

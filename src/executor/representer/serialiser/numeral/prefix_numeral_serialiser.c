@@ -48,8 +48,8 @@
 void serialise_numeral_prefix(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral prefix.");
-    fwprintf(stdout, L"Debug: Serialise numeral prefix. source number p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Serialise numeral prefix. source number *p1: %i\n", *((int*) p1));
+    fwprintf(stdout, L"Debug: Serialise numeral prefix. source number base p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Serialise numeral prefix. source number base *p1: %i\n", *((int*) p1));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

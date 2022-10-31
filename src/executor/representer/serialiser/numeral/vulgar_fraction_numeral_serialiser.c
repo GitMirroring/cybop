@@ -26,7 +26,17 @@
 #ifndef VULGAR_FRACTION_NUMERAL_SERIALISER_SOURCE
 #define VULGAR_FRACTION_NUMERAL_SERIALISER_SOURCE
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/fraction_state_cyboi_name.c"
+#include "../../../../constant/name/numeral/sign_numeral_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/accessor/getter/fraction_getter.c"
+#include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/representer/serialiser/integer_numeral_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -36,25 +46,33 @@
  * @param p1 the source number
  * @param p2 the sign flag
  * @param p3 the number base
- * @param p4 the prefix flag
- * @param p5 the decimal separator
- * @param p6 the decimal places
- * @param p7 the scientific notation flag
+ * @param p4 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param p5 the prefix flag
  */
-void serialise_numeral_fraction_vulgar(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void serialise_numeral_fraction_vulgar(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral fraction vulgar.");
     fwprintf(stdout, L"Debug: Serialise numeral fraction vulgar. sign flag p2: %i\n", p2);
     fwprintf(stdout, L"Debug: Serialise numeral fraction vulgar. sign flag *p2: %i\n", *((int*) p2));
 
-    // Serialise numerator.
-    serialise_numeral_integer(p0, p1, (void*) NUMBER_BASE_10_MODEL, p2, (void*) PREFIX-FALSE);
+    // The numerator.
+    int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The denominator.
+    int d = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Append decimal separator.
-    modify_item("/", APPEND);
+    // Get vulgar fraction numerator.
+    get_fraction_element((void*) &n, p1, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
+    // Get vulgar fraction denominator.
+    get_fraction_element((void*) &d, p1, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
+
+    // Serialise numerator.
+    serialise_numeral_integer(p0, (void*) &n, p2, p3, p4, p5);
+
+    // Append decimal separator to destination item.
+    modify_item(p0, (void*) BAR_FRACTION_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) BAR_FRACTION_NUMERAL_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
     // Serialise denominator.
-    serialise_numeral_integer(p0, p1, (void*) NUMBER_BASE_10_MODEL, p2, (void*) PREFIX-FALSE);
+    serialise_numeral_integer(p0, (void*) &d, p2, p3, p4, p5);
 }
 
 /* VULGAR_FRACTION_NUMERAL_SERIALISER_SOURCE */
