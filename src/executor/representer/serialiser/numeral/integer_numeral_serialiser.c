@@ -36,17 +36,13 @@
  * @param p1 the source number
  * @param p2 the number base
  * @param p3 the sign flag
- * @param p4 the number prefix flag
- * @param p5 the decimal separator
- * @param p6 the decimal places
- * @param p7 the scientific notation flag
- * @param p8 the format
+ * @param p4 the prefix flag
  */
-void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral integer.");
-    //?? fwprintf(stdout, L"Debug: Serialise numeral integer. format p8: %i\n", p8);
-    //?? fwprintf(stdout, L"Debug: Serialise numeral integer. format *p8: %i\n", *((int*) p8));
+    //?? fwprintf(stdout, L"Debug: Serialise numeral integer. source number p1: %i\n", p1);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral integer. source number *p1: %i\n", *((int*) p1));
 
     if (zahl < 0) {
 
@@ -70,7 +66,7 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4,
         if (base == BINARY) {
 
             // Append binary prefix 0b.
-            //?? TODO
+            modify_item("0b", APPEND);
 
         } else if (base == DECIMAL) {
 
@@ -80,13 +76,21 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4,
 
         } else if (base == OCTAL) {
 
-            // Append octal prefix 0o.
-            //?? TODO
+            if (classic_flag == FALSE) {
+
+                // Append octal prefix 0o.
+                modify_item("0o", APPEND);
+
+            } else {
+
+                // Append octal prefix 0o.
+                modify_item("0", APPEND);
+            }
 
         } else if (base == HEXADECIMAL) {
 
             // Append hexadecimal prefix 0x.
-            //?? TODO
+            modify_item("0x", APPEND);
 
         } else {
 

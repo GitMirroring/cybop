@@ -42,10 +42,10 @@
  * in file "number_state_cybol_format.c".
  *
  * @param p0 the destination item
- * @param p1 the source data
- * @param p2 the source count
+ * @param p1 the source number
+ * @param p2 the sign flag
  * @param p3 the number base
- * @param p4 the number prefix flag
+ * @param p4 the prefix flag
  * @param p5 the decimal separator
  * @param p6 the decimal places
  * @param p7 the scientific notation flag
@@ -70,10 +70,7 @@ void serialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? serialise_numeral_complex_cartesian(p0, p1, p2);
-
-            serialise_numeral_fraction_decimal();
-            serialise_numeral_fraction_decimal();
+            serialise_numeral_complex_cartesian(p0, p1, p2);
         }
     }
 
@@ -83,15 +80,7 @@ void serialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? serialise_numeral_complex_polar(p0, p1, p2);
-
-            // Serialise value.
-            serialise_numeral_fraction_decimal();
-            modify_item("exp", APPEND);
-            modify_item("(", APPEND);
-            modify_item(")", APPEND);
-            // Serialise argument.
-            serialise_numeral_fraction_decimal();
+            serialise_numeral_complex_polar(p0, p1, p2);
         }
     }
 
@@ -101,52 +90,7 @@ void serialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? serialise_numeral_fraction_decimal();
-
-            // The normalised floating point number in scientific notation.
-            double n = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
-            // The power exponent.
-            int p = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-            if (scientific_notation_flag != FALSE) {
-
-                // Initialise normalised floating point number in scientific notation.
-                copy_double((void*) &n, p1);
-
-                // Convert floating point number into scientific notation.
-                calculate_double_scientific((void*) &n, (void*) &p, p3);
-            }
-
-            //
-            // Determine pre-point value.
-            //
-            // CAUTION! Convert floating-point number to integer by CASTING it to int.
-            // This is a legitimate method of truncating a floating-point value,
-            // as mentioned in the glibc documentation:
-            // https://www.gnu.org/software/libc/manual/html_mono/libc.html#Rounding-Functions
-            //
-            pre = (int) orig-zahl;
-
-            // Determine post-point value (decimal places).
-            post = orig-zahl - pre;
-
-            // Serialise pre-point value.
-            serialise_numeral_integer(p0, pre);
-
-            // Append decimal separator.
-            modify_item(".", APPEND);
-
-            // Serialise post-point value.
-            serialise_numeral_decimals(p0, (void*) &post);
-
-            if (scientific_notation_flag != FALSE) {
-
-                // Append "e".
-                modify_item("e", APPEND);
-
-                // Serialise power exponent value.
-                serialise_numeral_integer(p0, p);
-            }
+            serialise_numeral_fraction_decimal();
         }
     }
 
@@ -156,16 +100,7 @@ void serialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? serialise_numeral_fraction_vulgar(p0, p1, p2, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
-
-            // Serialise numerator.
-            //?? serialise_numeral_integer(p0, p1, p2, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
-
-            // Append decimal separator.
-            modify_item("/", APPEND);
-
-            // Serialise denominator.
-            //?? serialise_numeral_integer(p0, p1, p2, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+            serialise_numeral_fraction_vulgar(p0, p1, p2, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 

@@ -38,10 +38,10 @@ ___
 Numeral Deserialiser
 ____________________
 
-        * Rename file "content_element_part_cybol_serialiser.c" into just "content_cybol_serialiser.c"
-
         * Continue numeral serialiser
             model-diagram: text works fine, also property numeral values are shown correctly (e.g. cybol serialiser), but model numeral values NOT (e.g. json serialiser)
+
+        * Rename file "content_element_part_cybol_serialiser.c" into just "content_cybol_serialiser.c"
 
         * Delete cybol complex serialiser which got replaced by numeral serialiser
         * Delete cybol fraction serialiser which got replaced by numeral serialiser
