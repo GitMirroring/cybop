@@ -21,6 +21,8 @@
 2022-11-01  Christian Heller  <christian.heller@cybop.org>
 
         * Continue numeral serialiser
+        * Provide files "cartesian_polar_complex_calculator.c" and "polar_cartesian_complex_calculator.c"
+        * Delete file "cartesian_complex_transformer_numeral_deserialiser.c"
 
 2022-10-31  Christian Heller  <christian.heller@cybop.org>
 

@@ -30,8 +30,8 @@
 #include "../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
 #include "../../../../../constant/name/cyboi/state/complex_state_cyboi_name.c"
 #include "../../../../../executor/accessor/setter/complex_setter.c"
+#include "../../../../../executor/calculator/complex/polar_cartesian_complex_calculator.c"
 #include "../../../../../executor/representer/deserialiser/numeral/assembler/decimal_fraction_assembler_numeral_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/numeral/transformer/cartesian_complex_transformer_numeral_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**
@@ -70,7 +70,7 @@ void deserialise_numeral_assembler_complex_polar(void* p0, void* p1, void* p2, v
     deserialise_numeral_assembler_fraction_decimal((void*) &a, p5, p6, p7, p8);
 
     // Transform polar into cartesian complex number coordinates.
-    deserialise_numeral_transformer_complex_cartesian((void*) &r, (void*) &i, (void*) &v, (void*) &a);
+    calculate_complex_cartesian_polar((void*) &r, (void*) &i, (void*) &v, (void*) &a);
 
     // Assign real part.
     set_complex_element(p0, (void*) &r, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);

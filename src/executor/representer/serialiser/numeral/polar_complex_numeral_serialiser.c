@@ -50,14 +50,14 @@ void serialise_numeral_cartesian_polar(void* p0, void* p1, void* p2, void* p3, v
     fwprintf(stdout, L"Debug: Serialise numeral cartesian polar. sign flag *p2: %i\n", *((int*) p2));
 
     // Serialise value.
-    serialise_numeral_fraction_decimal();
+    serialise_numeral_fraction_decimal(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
 
-    modify_item("exp", APPEND);
-    modify_item("(", APPEND);
-    modify_item(")", APPEND);
-
+    // Append decimal separator to destination item.
+    modify_item(p0, (void*) MULTIPLICATION_ABBREVIATION_BEGIN_EXPONENT_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MULTIPLICATION_ABBREVIATION_BEGIN_EXPONENT_NUMERAL_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
     // Serialise argument.
-    serialise_numeral_fraction_decimal();
+    serialise_numeral_fraction_decimal(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
+    // Append decimal separator to destination item.
+    modify_item(p0, (void*) END_EXPONENT_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) END_EXPONENT_NUMERAL_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 }
 
 /* POLAR_COMPLEX_NUMERAL_SERIALISER_SOURCE */

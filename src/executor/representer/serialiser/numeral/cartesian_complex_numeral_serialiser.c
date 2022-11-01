@@ -27,6 +27,10 @@
 #define CARTESIAN_COMPLEX_NUMERAL_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/complex_state_cyboi_name.c"
+#include "../../../../executor/accessor/getter/complex_getter.c"
 #include "../../../../executor/representer/serialiser/decimal_fraction_numeral_serialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -50,8 +54,25 @@ void serialise_numeral_cartesian_complex(void* p0, void* p1, void* p2, void* p3,
     fwprintf(stdout, L"Debug: Serialise numeral cartesian complex. sign flag p2: %i\n", p2);
     fwprintf(stdout, L"Debug: Serialise numeral cartesian complex. sign flag *p2: %i\n", *((int*) p2));
 
-    serialise_numeral_fraction_decimal();
-    serialise_numeral_fraction_decimal();
+    // The real part.
+    double r = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    // The imaginary part.
+    double i = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+
+    // Get real part.
+    get_complex_element((void*) &r, p1, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
+    // Get imaginary part.
+    get_complex_element((void*) &i, p1, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
+
+    // Serialise real part.
+    serialise_numeral_fraction_decimal(p0, (void*) &r, p2, p3, p4, p5, p6, p7, p8, p9);
+    //
+    // Serialise imaginary part.
+    //
+    // CAUTION! The sign parametre value has to be set to TRUE in any case
+    // in order to SEPARATE the imaginary from the real part.
+    //
+    serialise_numeral_fraction_decimal(p0, (void*) &i, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4, p5, p6, p7, p8, p9);
 }
 
 /* CARTESIAN_COMPLEX_NUMERAL_SERIALISER_SOURCE */
