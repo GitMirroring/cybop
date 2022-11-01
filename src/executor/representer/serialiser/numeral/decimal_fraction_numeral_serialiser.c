@@ -26,7 +26,23 @@
 #ifndef DECIMAL_FRACTION_NUMERAL_SERIALISER_SOURCE
 #define DECIMAL_FRACTION_NUMERAL_SERIALISER_SOURCE
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/numeral/power_numeral_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/calculator/double/scientific_double_calculator.c"
+#include "../../../../executor/calculator/double/subtract_double_calculator.c"
+#include "../../../../executor/caster/double/integer_double_caster.c"
+#include "../../../../executor/caster/integer/double_integer_caster.c"
+#include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
+#include "../../../../executor/copier/double_copier.c"
+#include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/representer/serialiser/decimals_numeral_serialiser.c"
+#include "../../../../executor/representer/serialiser/integer_numeral_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -36,27 +52,38 @@
  * @param p1 the source number
  * @param p2 the sign flag
  * @param p3 the number base
- * @param p4 the prefix flag
- * @param p5 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
- * @param p6 the decimal separator
- * @param p7 the decimal places
- * @param p8 the scientific notation flag
+ * @param p4 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param p5 the prefix flag
+ * @param p6 the decimal separator data
+ * @param p7 the decimal separator count
+ * @param p8 the decimal places
+ * @param p9 the scientific notation flag
  */
-void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral fraction decimal.");
     fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. sign flag p2: %i\n", p2);
     fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. sign flag *p2: %i\n", *((int*) p2));
 
-    // The normalised floating point number in scientific notation.
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The temporary floating point number.
     double n = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     // The power exponent.
     int p = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The pre-point value.
+    int pre = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The pre-point value as double.
+    double pred = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    // The post-point value.
+    double post = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
 
-    if (scientific_notation_flag != FALSE) {
+    // Initialise temporary floating point number.
+    copy_double((void*) &n, p1);
 
-        // Initialise normalised floating point number in scientific notation.
-        copy_double((void*) &n, p1);
+    compare_integer_unequal((void*) &r, p9, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Convert floating point number into scientific notation.
         calculate_double_scientific((void*) &n, (void*) &p, p3);
@@ -70,27 +97,38 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
     // as mentioned in the glibc documentation:
     // https://www.gnu.org/software/libc/manual/html_mono/libc.html#Rounding-Functions
     //
-    pre = (int) orig-zahl;
+    cast_integer_double((void*) &pre, (void*) &n);
 
+    //
     // Determine post-point value (decimal places).
-    post = orig-zahl - pre;
+    //
+
+    // Initialise post-point value with original number.
+    copy_double((void*) &post, (void*) &n);
+    // Cast pre-point value to double.
+    cast_double_integer((void*) &pred, (void*) &pre);
+    //
+    // Subtract pre-point value so that only the relevant decimal places (decimals)
+    // remain and a ZERO is standing before the decimal separator.
+    //
+    calculate_double_subtract((void*) &post, (void*) &pred);
 
     // Serialise pre-point value.
-    serialise_numeral_integer(p0, pre);
+    serialise_numeral_integer(p0, (void*) &pre, p2, p3, p4, p5);
 
-    // Append decimal separator.
-    modify_item(".", APPEND);
+    // Append decimal separator wide character to destination item.
+    modify_item(p0, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p7, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
     // Serialise post-point value.
-    serialise_numeral_decimals(p0, (void*) &post);
+    serialise_numeral_decimals(p0, (void*) &post, p3, p8);
 
-    if (scientific_notation_flag != FALSE) {
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Append "e".
-        modify_item("e", APPEND);
+        // Append power exponent letter "e" wide character to destination item.
+        modify_item(p0, (void*) SMALL_POWER_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) SMALL_POWER_NUMERAL_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
         // Serialise power exponent value.
-        serialise_numeral_integer(p0, p);
+        serialise_numeral_integer(p0, (void*) &p, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4, p5);
     }
 }
 

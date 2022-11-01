@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-11-01  Christian Heller  <christian.heller@cybop.org>
+
+        * Continue numeral serialiser
+
 2022-10-31  Christian Heller  <christian.heller@cybop.org>
 
         * Add further files to numeral serialiser and adapt includes

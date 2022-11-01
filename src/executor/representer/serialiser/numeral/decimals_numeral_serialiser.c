@@ -85,6 +85,8 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3) {
     wchar_t wc = *NULL_UNICODE_CHARACTER_CODE_MODEL;
     // The digit as double.
     double dd = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    // The decimal places flag.
+    int dp = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The comparison result.
@@ -95,9 +97,9 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3) {
     // which would cause calculation errors due to injuring the number value range
     // or just too many loop cycles below.
     //
-    compare_integer_less_or_equal((void*) &bxx, p3, (void*) NUMBER_100_INTEGER_STATE_CYBOI_MODEL);
+    compare_integer_less_or_equal((void*) &dp, p3, (void*) NUMBER_100_INTEGER_STATE_CYBOI_MODEL);
 
-    if (bxx != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (dp != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Assign decimal places count parametre.
         copy_integer((void*) &c, p3);

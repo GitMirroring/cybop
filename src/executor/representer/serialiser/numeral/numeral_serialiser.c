@@ -47,14 +47,15 @@
  * @param p1 the source number
  * @param p2 the sign flag
  * @param p3 the number base
- * @param p4 the prefix flag
- * @param p5 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
- * @param p6 the decimal separator
- * @param p7 the decimal places
- * @param p8 the scientific notation flag
- * @param p9 the format
+ * @param p4 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param p5 the prefix flag
+ * @param p6 the decimal separator data
+ * @param p7 the decimal separator count
+ * @param p8 the decimal places
+ * @param p9 the scientific notation flag
+ * @param p10 the format
  */
-void serialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void serialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral.");
     fwprintf(stdout, L"Debug: Serialise numeral. format p8: %i\n", p8);
