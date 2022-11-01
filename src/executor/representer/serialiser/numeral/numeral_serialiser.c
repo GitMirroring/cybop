@@ -59,7 +59,7 @@ void serialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral.");
     fwprintf(stdout, L"Debug: Serialise numeral. format p8: %i\n", p8);
-    fwprintf(stdout, L"Debug: Serialise numeral. format *p8: %i\n", *((int*) p8));
+    //?? fwprintf(stdout, L"Debug: Serialise numeral. format *p8: %i\n", *((int*) p8));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -100,7 +100,7 @@ void serialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_numeral_fraction_vulgar(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
+            serialise_numeral_fraction_vulgar(p0, p1, p2, p3, p4, p5);
         }
     }
 
@@ -110,7 +110,7 @@ void serialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_numeral_integer(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
+            serialise_numeral_integer(p0, p1, p2, p3, p4, p5);
         }
     }
 }

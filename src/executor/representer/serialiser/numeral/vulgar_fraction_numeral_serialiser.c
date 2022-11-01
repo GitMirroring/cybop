@@ -36,7 +36,7 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/getter/fraction_getter.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../executor/representer/serialiser/integer_numeral_serialiser.c"
+#include "../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**

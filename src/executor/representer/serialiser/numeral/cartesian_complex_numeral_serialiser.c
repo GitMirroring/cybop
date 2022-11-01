@@ -31,7 +31,7 @@
 #include "../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/complex_state_cyboi_name.c"
 #include "../../../../executor/accessor/getter/complex_getter.c"
-#include "../../../../executor/representer/serialiser/decimal_fraction_numeral_serialiser.c"
+#include "../../../../executor/representer/serialiser/numeral/decimal_fraction_numeral_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -48,11 +48,11 @@
  * @param p8 the decimal places
  * @param p9 the scientific notation flag
  */
-void serialise_numeral_cartesian_complex(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void serialise_numeral_complex_cartesian(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral cartesian complex.");
-    fwprintf(stdout, L"Debug: Serialise numeral cartesian complex. sign flag p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Serialise numeral cartesian complex. sign flag *p2: %i\n", *((int*) p2));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral complex cartesian.");
+    fwprintf(stdout, L"Debug: Serialise numeral complex cartesian. sign flag p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Serialise numeral complex cartesian. sign flag *p2: %i\n", *((int*) p2));
 
     // The real part.
     double r = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;

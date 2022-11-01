@@ -71,6 +71,8 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3) {
     fwprintf(stdout, L"Debug: Serialise numeral decimals. source number p1: %i\n", p1);
     fwprintf(stdout, L"Debug: Serialise numeral decimals. source number *p1: %f\n", *((double*) p1));
 
+    // The decimal places flag.
+    int dp = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The number base as double with decimal base as default.
     double base = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     // The decimal places count with an arbitrarily chosen default value that may be changed here in cyboi if necessary one day.
@@ -79,18 +81,18 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3) {
     int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The decimals (post point value).
     double v = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The loop variable.
+    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The digit.
     int d = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The digit as wide character.
     wchar_t wc = *NULL_UNICODE_CHARACTER_CODE_MODEL;
     // The digit as double.
     double dd = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
-    // The decimal places flag.
-    int dp = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The break flag.
-    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
     // CAUTION! This check is necessary in order to filter out TOO LARGE numbers
@@ -165,6 +167,9 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3) {
 
             // Subtract digit from decimals (post point value).
             calculate_double_subtract((void*) &v, (void*) &dd);
+
+            // Increment loop variable.
+            j++;
         }
     }
 }

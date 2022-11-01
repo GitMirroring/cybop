@@ -44,7 +44,7 @@
 #include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../executor/representer/serialiser/prefix_numeral_serialiser.c"
+#include "../../../../executor/representer/serialiser/numeral/prefix_numeral_serialiser.c"
 #include "../../../../logger/logger.c"
 #include "../../../../mapper/integer_to_digit_wide_character_mapper.c"
 

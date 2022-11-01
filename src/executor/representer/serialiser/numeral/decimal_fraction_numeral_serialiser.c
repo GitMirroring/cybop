@@ -41,8 +41,8 @@
 #include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../../executor/copier/double_copier.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../executor/representer/serialiser/decimals_numeral_serialiser.c"
-#include "../../../../executor/representer/serialiser/integer_numeral_serialiser.c"
+#include "../../../../executor/representer/serialiser/numeral/decimals_numeral_serialiser.c"
+#include "../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
