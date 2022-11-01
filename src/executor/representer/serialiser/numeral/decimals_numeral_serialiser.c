@@ -60,7 +60,7 @@
  * CAUTION! The source floating point number handed over must have been
  * prepared to NOT contain any relevant PRE-POINT values, but just ZERO.
  *
- * @param p0 the destination item
+ * @param p0 the destination wide character item
  * @param p1 the source number (a floating point value with just ZERO before the decimal separator)
  * @param p2 the number base
  * @param p3 the decimal places
@@ -68,8 +68,8 @@
 void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral decimals.");
-    fwprintf(stdout, L"Debug: Serialise numeral decimals. format p8: %i\n", p8);
-    fwprintf(stdout, L"Debug: Serialise numeral decimals. format *p8: %i\n", *((int*) p8));
+    fwprintf(stdout, L"Debug: Serialise numeral decimals. source number p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Serialise numeral decimals. source number *p1: %f\n", *((double*) p1));
 
     // The number base as double with decimal base as default.
     double base = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;

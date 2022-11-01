@@ -41,7 +41,7 @@
 /**
  * Appends a suitable prefix depending on the given number base.
  *
- * @param p0 the destination item
+ * @param p0 the destination wide character item
  * @param p1 the source number base
  * @param p2 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
  */

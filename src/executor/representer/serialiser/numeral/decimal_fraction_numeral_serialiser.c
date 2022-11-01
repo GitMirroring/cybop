@@ -48,7 +48,7 @@
 /**
  * Serialises the decimal fraction into a wide character sequence.
  *
- * @param p0 the destination item
+ * @param p0 the destination wide character item
  * @param p1 the source number
  * @param p2 the sign flag
  * @param p3 the number base
@@ -62,8 +62,8 @@
 void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral fraction decimal.");
-    fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. sign flag p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. sign flag *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. source number p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. source number *p1: %f\n", *((double*) p1));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

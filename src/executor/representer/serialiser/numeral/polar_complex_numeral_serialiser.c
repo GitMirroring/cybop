@@ -26,13 +26,25 @@
 #ifndef POLAR_COMPLEX_NUMERAL_SERIALISER_SOURCE
 #define POLAR_COMPLEX_NUMERAL_SERIALISER_SOURCE
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/complex_state_cyboi_name.c"
+#include "../../../../constant/name/numeral/exponent_numeral_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/accessor/getter/complex_getter.c"
+#include "../../../../executor/calculator/complex/cartesian_polar_complex_calculator.c"
+#include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/representer/serialiser/decimal_fraction_numeral_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Serialises the vulgar fraction into a wide character sequence.
  *
- * @param p0 the destination item
+ * @param p0 the destination wide character item
  * @param p1 the source number
  * @param p2 the sign flag
  * @param p3 the number base
@@ -49,13 +61,29 @@ void serialise_numeral_cartesian_polar(void* p0, void* p1, void* p2, void* p3, v
     fwprintf(stdout, L"Debug: Serialise numeral cartesian polar. sign flag p2: %i\n", p2);
     fwprintf(stdout, L"Debug: Serialise numeral cartesian polar. sign flag *p2: %i\n", *((int*) p2));
 
-    // Serialise value.
-    serialise_numeral_fraction_decimal(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
+    // The real part.
+    double r = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    // The imaginary part.
+    double i = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    // The absolute value.
+    double v = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    // The argument.
+    double a = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
 
+    // Get real part.
+    get_complex_element((void*) &r, p1, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
+    // Get imaginary part.
+    get_complex_element((void*) &i, p1, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
+
+    // Transform cartesian into polar complex number coordinates.
+    calculate_complex_polar_cartesian((void*) &v, (void*) &a, (void*) &r, (void*) &i);
+
+    // Serialise absolute value.
+    serialise_numeral_fraction_decimal(p0, (void*) &v, p2, p3, p4, p5, p6, p7, p8, p9);
     // Append decimal separator to destination item.
     modify_item(p0, (void*) MULTIPLICATION_ABBREVIATION_BEGIN_EXPONENT_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MULTIPLICATION_ABBREVIATION_BEGIN_EXPONENT_NUMERAL_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
     // Serialise argument.
-    serialise_numeral_fraction_decimal(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
+    serialise_numeral_fraction_decimal(p0, (void*) &a, p2, p3, p4, p5, p6, p7, p8, p9);
     // Append decimal separator to destination item.
     modify_item(p0, (void*) END_EXPONENT_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) END_EXPONENT_NUMERAL_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 }

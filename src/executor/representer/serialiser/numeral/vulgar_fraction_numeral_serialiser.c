@@ -42,7 +42,7 @@
 /**
  * Serialises the vulgar fraction into a wide character sequence.
  *
- * @param p0 the destination item
+ * @param p0 the destination wide character item
  * @param p1 the source number
  * @param p2 the sign flag
  * @param p3 the number base

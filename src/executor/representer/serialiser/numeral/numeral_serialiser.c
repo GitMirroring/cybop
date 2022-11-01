@@ -43,7 +43,7 @@
  * A description of possible numeral formats can be found
  * in file "number_state_cybol_format.c".
  *
- * @param p0 the destination item
+ * @param p0 the destination wide character item
  * @param p1 the source number
  * @param p2 the sign flag
  * @param p3 the number base
@@ -66,51 +66,51 @@ void serialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p8, (void*) COMPLEX_CARTESIAN_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p10, (void*) COMPLEX_CARTESIAN_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_numeral_complex_cartesian(p0, p1, p2);
+            serialise_numeral_complex_cartesian(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p8, (void*) COMPLEX_POLAR_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p10, (void*) COMPLEX_POLAR_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_numeral_complex_polar(p0, p1, p2);
+            serialise_numeral_complex_polar(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p8, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p10, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_numeral_fraction_decimal();
+            serialise_numeral_fraction_decimal(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p8, (void*) FRACTION_VULGAR_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p10, (void*) FRACTION_VULGAR_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_numeral_fraction_vulgar(p0, p1, p2, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+            serialise_numeral_fraction_vulgar(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p8, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p10, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_numeral_integer(p0, p1, p2, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+            serialise_numeral_integer(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
         }
     }
 }
