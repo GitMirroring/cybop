@@ -40,9 +40,7 @@ ____________________
 
         * Test cybol application "examples/serialisation/cybol/" and debug logic errors
             e.g. use part instead of item as destination ??
-        * Delete "prefix flag" in all numeral serialiser functions, since it is always needed when the number base is another than decimal
-
-        * Continue numeral serialiser
+        * Test numeral serialiser
             model-diagram: text works fine, also property numeral values are shown correctly (e.g. cybol serialiser), but model numeral values NOT (e.g. json serialiser)
 
         * Rename file "content_element_part_cybol_serialiser.c" into just "content_cybol_serialiser.c"

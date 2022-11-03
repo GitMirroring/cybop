@@ -48,69 +48,68 @@
  * @param p2 the sign flag
  * @param p3 the number base
  * @param p4 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
- * @param p5 the prefix flag
- * @param p6 the decimal separator data
- * @param p7 the decimal separator count
- * @param p8 the decimal places
- * @param p9 the scientific notation flag
- * @param p10 the format
+ * @param p5 the decimal separator data
+ * @param p6 the decimal separator count
+ * @param p7 the decimal places
+ * @param p8 the scientific notation flag
+ * @param p9 the format
  */
-void serialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void serialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral.");
-    fwprintf(stdout, L"Debug: Serialise numeral. format p8: %i\n", p8);
-    //?? fwprintf(stdout, L"Debug: Serialise numeral. format *p8: %i\n", *((int*) p8));
+    fwprintf(stdout, L"Debug: Serialise numeral. format p9: %i\n", p9);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral. format *p9: %i\n", *((int*) p9));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p10, (void*) COMPLEX_CARTESIAN_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p9, (void*) COMPLEX_CARTESIAN_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_numeral_complex_cartesian(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
+            serialise_numeral_complex_cartesian(p0, p1, p2, p3, p4, p5, p6, p7, p8);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p10, (void*) COMPLEX_POLAR_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p9, (void*) COMPLEX_POLAR_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_numeral_complex_polar(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
+            serialise_numeral_complex_polar(p0, p1, p2, p3, p4, p5, p6, p7, p8);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p10, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p9, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_numeral_fraction_decimal(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
+            serialise_numeral_fraction_decimal(p0, p1, p2, p3, p4, p5, p6, p7, p8);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p10, (void*) FRACTION_VULGAR_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p9, (void*) FRACTION_VULGAR_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_numeral_fraction_vulgar(p0, p1, p2, p3, p4, p5);
+            serialise_numeral_fraction_vulgar(p0, p1, p2, p3, p4);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p10, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p9, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_numeral_integer(p0, p1, p2, p3, p4, p5);
+            serialise_numeral_integer(p0, p1, p2, p3, p4);
         }
     }
 }

@@ -47,9 +47,8 @@
  * @param p2 the sign flag
  * @param p3 the number base
  * @param p4 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
- * @param p5 the prefix flag
  */
-void serialise_numeral_fraction_vulgar(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void serialise_numeral_fraction_vulgar(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral fraction vulgar.");
     fwprintf(stdout, L"Debug: Serialise numeral fraction vulgar. sign flag p2: %i\n", p2);
@@ -66,13 +65,13 @@ void serialise_numeral_fraction_vulgar(void* p0, void* p1, void* p2, void* p3, v
     get_fraction_element((void*) &d, p1, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
 
     // Serialise numerator.
-    serialise_numeral_integer(p0, (void*) &n, p2, p3, p4, p5);
+    serialise_numeral_integer(p0, (void*) &n, p2, p3, p4);
 
     // Append decimal separator to destination item.
     modify_item(p0, (void*) BAR_FRACTION_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) BAR_FRACTION_NUMERAL_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
     // Serialise denominator.
-    serialise_numeral_integer(p0, (void*) &d, p2, p3, p4, p5);
+    serialise_numeral_integer(p0, (void*) &d, p2, p3, p4);
 }
 
 /* VULGAR_FRACTION_NUMERAL_SERIALISER_SOURCE */

@@ -56,9 +56,8 @@
  * @param p2 the sign flag
  * @param p3 the number base
  * @param p4 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
- * @param p5 the prefix flag
  */
-void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral integer.");
     fwprintf(stdout, L"Debug: Serialise numeral integer. source number p1: %i\n", p1);
@@ -76,8 +75,6 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4,
     int neg = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The sign flag comparison result.
     int s = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The prefix flag comparison result.
-    int p = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The remainder.
@@ -109,13 +106,8 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4,
     // Eliminate sign from temporary number.
     calculate_integer_absolute((void*) &n, (void*) &n);
 
-    compare_integer_unequal((void*) &p, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-    if (p != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        // Append suitable prefix depending on the given number base.
-        serialise_numeral_prefix(p0, p3, p4);
-    }
+    // Append suitable prefix depending on the given number base.
+    serialise_numeral_prefix(p0, p3, p4);
 
     //
     // Append pre-point value.

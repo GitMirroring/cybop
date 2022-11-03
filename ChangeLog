@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-11-03  Christian Heller  <christian.heller@cybop.org>
+
+        * Delete prefix flag parametre in numeral serialiser functions, since a prefix is always needed and just ignored for decimal number base
+
 2022-11-01  Christian Heller  <christian.heller@cybop.org>
 
         * Continue numeral serialiser
