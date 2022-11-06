@@ -40,12 +40,16 @@
  * @param p1 the destination properties item
  * @param p2 the source data position (pointer reference)
  * @param p3 the source count remaining
- * @param p4 the member name data
- * @param p5 the member name count
- * @param p6 the break flag
- * @param p7 the object flag (true if this is an object; false for array or otherwise the default)
+ * @param p4 the decimal separator data
+ * @param p5 the decimal separator count
+ * @param p6 the thousands separator data
+ * @param p7 the thousands separator count
+ * @param p8 the member name data
+ * @param p9 the member name count
+ * @param p10 the break flag
+ * @param p11 the object flag (true if this is an object; false for array or otherwise the default)
  */
-void select_json_string_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void select_json_string_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select json string type.");
     //?? fwprintf(stdout, L"Debug: Select json string type. count remaining p3: %i\n", p3);
@@ -54,7 +58,7 @@ void select_json_string_type(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_unequal((void*) &r, p7, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, p11, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -64,10 +68,10 @@ void select_json_string_type(void* p0, void* p1, void* p2, void* p3, void* p4, v
         // - object member value
         //
 
-        deserialise_json_string(p0, p1, p2, p3, p4, p5);
+        deserialise_json_string(p0, p1, p2, p3, p8, p9);
 
         // Set break flag.
-        copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        copy_integer(p10, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     } else {
 
@@ -77,7 +81,7 @@ void select_json_string_type(void* p0, void* p1, void* p2, void* p3, void* p4, v
         // - object member value
         //
 
-        deserialise_json_member(p0, p1, p2, p3);
+        deserialise_json_member(p0, p1, p2, p3, p4, p5, p6, p7);
     }
 }
 

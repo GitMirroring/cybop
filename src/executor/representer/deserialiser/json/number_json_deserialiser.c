@@ -49,10 +49,14 @@
  * @param p1 the destination properties item
  * @param p2 the source data position (pointer reference)
  * @param p3 the source count remaining
- * @param p4 the name data
- * @param p5 the name count
+ * @param p4 the decimal separator data
+ * @param p5 the decimal separator count
+ * @param p6 the thousands separator data
+ * @param p7 the thousands separator count
+ * @param p8 the name data
+ * @param p9 the name count
  */
-void deserialise_json_number(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_json_number(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise json number.");
     fwprintf(stdout, L"Debug: Deserialise json number. count remaining p3: %i\n", p3);
@@ -107,7 +111,7 @@ void deserialise_json_number(void* p0, void* p1, void* p2, void* p3, void* p4, v
             // Deserialise numeral.
             //
             // CAUTION! The number part gets allocated inside the called function.
-            // Therefore, its name data and count (p4, p5) are handed over as parametre.
+            // Therefore, its name data and count are handed over as parametre.
             //
             // CAUTION! Hand over TRUE as ignore number base prefix flag,
             // since the json specification does not allow using number
@@ -116,7 +120,7 @@ void deserialise_json_number(void* p0, void* p1, void* p2, void* p3, void* p4, v
             // then it has to be interpreted as DECIMAL number by default,
             // by just IGNORING any leading zeros.
             //
-            deserialise_numeral(*NULL_POINTER_STATE_CYBOI_MODEL, (void*) &p, nd, (void*) &nc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL);
+            deserialise_numeral(*NULL_POINTER_STATE_CYBOI_MODEL, (void*) &p, nd, (void*) &nc, p4, p5, p6, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p8, p9, *NULL_POINTER_STATE_CYBOI_MODEL);
 
             //
             // Append number part to destination.

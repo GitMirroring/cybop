@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-11-06  Christian Heller  <christian.heller@cybop.org>
+
+        * Provide parametres "decimal separator" and "thousands separator" in numeral deserialiser as cybol property
+        * Add file "constraints_json_deserialiser.c" to json deserialiser for reading language properties constraints decimal separator and thousands separator
+
 2022-11-03  Christian Heller  <christian.heller@cybop.org>
 
         * Delete prefix flag parametre in numeral serialiser functions, since a prefix is always needed and just ignored for decimal number base

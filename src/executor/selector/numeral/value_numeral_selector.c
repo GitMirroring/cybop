@@ -73,18 +73,11 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The decimal separator data, count.
-    void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int dc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    void* dd = SEPARATOR_DECIMAL_NUMERAL_NAME;
+    int dc = *SEPARATOR_DECIMAL_NUMERAL_NAME_COUNT;
     // The thousands separator data, count.
-    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int tc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    // Initialise decimal separator data, count.
-    copy_pointer((void*) &dd, (void*) &SEPARATOR_DECIMAL_NUMERAL_NAME);
-    copy_integer((void*) &dc, (void*) SEPARATOR_DECIMAL_NUMERAL_NAME_COUNT);
-    // Initialise thousands separator data, count.
-    copy_pointer((void*) &td, (void*) &SEPARATOR_THOUSANDS_NUMERAL_NAME);
-    copy_integer((void*) &tc, (void*) SEPARATOR_THOUSANDS_NUMERAL_NAME_COUNT);
+    void* td = SEPARATOR_THOUSANDS_NUMERAL_NAME;
+    int tc = *SEPARATOR_THOUSANDS_NUMERAL_NAME_COUNT;
 
     // Assign decimal separator data, count.
     copy_pointer((void*) &dd, (void*) &p2);

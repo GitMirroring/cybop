@@ -47,7 +47,7 @@
 // Forward declarations
 //
 
-void deserialise_json_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void deserialise_json_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10);
 
 /**
  * Deserialises the json object member.
@@ -56,8 +56,12 @@ void deserialise_json_value(void* p0, void* p1, void* p2, void* p3, void* p4, vo
  * @param p1 the destination properties item
  * @param p2 the source data position (pointer reference)
  * @param p3 the source count remaining
+ * @param p4 the decimal separator data
+ * @param p5 the decimal separator count
+ * @param p6 the thousands separator data
+ * @param p7 the thousands separator count
  */
-void deserialise_json_member(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_json_member(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise json member.");
     //?? fwprintf(stdout, L"Debug: Deserialise json member. count remaining p3: %i\n", p3);
@@ -104,7 +108,7 @@ void deserialise_json_member(void* p0, void* p1, void* p2, void* p3) {
     // but function "deserialise_json_value" instead, since that contains
     // a loop which is necessary for detecting and skipping unnecessary characters.
     //
-    deserialise_json_value(p0, p1, p2, p3, nd, (void*) &nc, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_json_value(p0, p1, p2, p3, p4, p5, p6, p7, nd, (void*) &nc, *NULL_POINTER_STATE_CYBOI_MODEL);
 }
 
 /* MEMBER_JSON_DESERIALISER_SOURCE */

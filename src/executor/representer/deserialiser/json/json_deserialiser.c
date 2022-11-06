@@ -29,10 +29,9 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/json/json_cyboi_name.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
-#include "../../../../executor/representer/deserialiser/json/value_json_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/json/constraints_json_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -42,9 +41,13 @@
  * @param p1 the destination properties item
  * @param p2 the source data
  * @param p3 the source count
- * @param p4 the format
+ * @param p4 the language properties (constraints) data
+ * @param p5 the language properties (constraints) count
+ * @param p6 the knowledge memory part (pointer reference)
+ * @param p7 the stack memory item
+ * @param p8 the internal memory data
  */
-void deserialise_json(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_json(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise json.");
     //?? fwprintf(stdout, L"Debug: Deserialise json. destination item p0: %i\n", p0);
@@ -72,7 +75,7 @@ void deserialise_json(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
     //
-    deserialise_json_value(p0, p1, (void*) &d, (void*) &c, (void*) ROOT_JSON_CYBOI_NAME, (void*) ROOT_JSON_CYBOI_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_json_constraints(p0, p1, (void*) &d, (void*) &c, p4, p5, p6, p7, p8);
 }
 
 /* JSON_DESERIALISER_SOURCE */

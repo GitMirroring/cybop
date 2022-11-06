@@ -38,7 +38,7 @@ ___
 Numeral Deserialiser
 ____________________
 
-        * Provide additional parametres "decimal separator" and "thousands separator" in numeral deserialiser as cybol property
+        * Adapt json deserialiser to reading language properties constraints for retrieving decimal separator and thousands separator
         * Factor out sub functions of file "number_numeral_deserialiser.c" into separate files
 
         * Test cybol application "examples/serialisation/cybol/" and debug logic errors
@@ -52,7 +52,7 @@ ____________________
         * Delete cybol fraction serialiser which got replaced by numeral serialiser
         * Delete cybol integer serialiser which got replaced by numeral serialiser
 
-        * Investigate how to assign the initial constant values SEPARATOR_DECIMAL_NUMERAL_NAME and SEPARATOR_THOUSANDS_NUMERAL_NAME in file "value_numeral_selector.c"
+        * Investigate correct assigning of the initial constant values SEPARATOR_DECIMAL_NUMERAL_NAME and SEPARATOR_THOUSANDS_NUMERAL_NAME in file "value_numeral_selector.c"
         * Reflect about how to assign the constant value in file "thousands_numeral_name.c" (COMMA_UNICODE_CHARACTER_CODE_MODEL_COUNT or NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY)
         * Assign then count similarly for all unicode character constants, since they now have an own count variable
 
