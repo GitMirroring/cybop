@@ -38,6 +38,9 @@ ___
 Numeral Deserialiser
 ____________________
 
+        * Provide additional parametres "decimal separator" and "thousands separator" in numeral deserialiser as cybol property
+        * Factor out sub functions of file "number_numeral_deserialiser.c" into separate files
+
         * Test cybol application "examples/serialisation/cybol/" and debug logic errors
             e.g. use part instead of item as destination ??
         * Test numeral serialiser
@@ -48,6 +51,10 @@ ____________________
         * Delete cybol complex serialiser which got replaced by numeral serialiser
         * Delete cybol fraction serialiser which got replaced by numeral serialiser
         * Delete cybol integer serialiser which got replaced by numeral serialiser
+
+        * Investigate how to assign the initial constant values SEPARATOR_DECIMAL_NUMERAL_NAME and SEPARATOR_THOUSANDS_NUMERAL_NAME in file "value_numeral_selector.c"
+        * Reflect about how to assign the constant value in file "thousands_numeral_name.c" (COMMA_UNICODE_CHARACTER_CODE_MODEL_COUNT or NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY)
+        * Assign then count similarly for all unicode character constants, since they now have an own count variable
 
         Bugs in numeral deserialiser:
         * Fix bug that prefix zero in a decimal fraction is interpreted as octal number
@@ -62,6 +69,9 @@ ____________________
         * Remove thousands separator using modify replace function
             do NOT just skip it in file "value_numeral_selector.c", since the count has to include them
             call some replace or remove function from within file "value_numeral_deserialiser.c" instead
+
+        Reflect in general:
+        * Merge "language" and "format" constants ??
 
 JSON
 ____

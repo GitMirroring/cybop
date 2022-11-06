@@ -85,7 +85,7 @@ void deserialise_cybol_byte(void* p0, void* p1, void* p2) {
     // so that number prefixes like "0x" for hexadecimal or just "0"
     // for octal numbers get detected.
     //
-    deserialise_numeral(i, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
+    deserialise_numeral(i, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
 
     //
     // Get integer item data, count.

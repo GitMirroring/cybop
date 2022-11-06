@@ -66,7 +66,7 @@ void deserialise_datetime_jd_basic(void* p0, void* p1, void* p2, void* p3) {
     allocate_array((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
 
     // Deserialise source julian date.
-    deserialise_numeral((void*) &s, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);
+    deserialise_numeral((void*) &s, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);
     // Add jd/mjd/tjd correction.
     calculate_double_add((void*) &s, p3);
     // Deserialise julian date.

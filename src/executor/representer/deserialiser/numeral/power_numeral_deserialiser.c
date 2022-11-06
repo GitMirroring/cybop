@@ -148,7 +148,7 @@ void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3, void* p4,
         }
 
         // Select number base power.
-        select_numeral_value(p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p5, (void*) &pc, (void*) &b);
+        select_numeral_value(p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p5, (void*) &pc, (void*) &b);
     }
 }
 

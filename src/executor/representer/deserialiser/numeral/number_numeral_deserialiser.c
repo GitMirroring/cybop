@@ -50,12 +50,16 @@
  * @param p1 the destination number part (pointer reference)
  * @param p2 the source data position (pointer reference)
  * @param p3 the source count remaining
- * @param p4 the ignore number base prefix flag
- * @param p5 the number part name data
- * @param p6 the number part name count
- * @param p7 the destination number format
+ * @param p4 the decimal separator data
+ * @param p5 the decimal separator count
+ * @param p6 the thousands separator data
+ * @param p7 the thousands separator count
+ * @param p8 the ignore number base prefix flag (true means ignore prefixes like "0x" as is needed in json; false means consider prefixes as in c/c++, perl or python)
+ * @param p9 the number part name data
+ * @param p10 the number part name count
+ * @param p11 the destination number format
  */
-void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral number.");
     fwprintf(stdout, L"Debug: Deserialise numeral number. source count remaining p3: %i\n", p3);
@@ -89,7 +93,7 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
     void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Deserialise FIRST part of number.
-    deserialise_numeral_part((void*) &s1, (void*) &v1, (void*) &d1, (void*) &po1, p2, p3, (void*) &f, (void*) &t, p4);
+    deserialise_numeral_part((void*) &s1, (void*) &v1, (void*) &d1, (void*) &po1, p2, p3, p4, p5, p6, p7, (void*) &f, (void*) &t, p8);
 
     if ((t == *FRACTION_NUMBER_STATE_CYBOI_TYPE) || (t == *COMPLEX_NUMBER_STATE_CYBOI_TYPE)) {
 
@@ -109,11 +113,11 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
         // - fraction: numerator and denominator part as INTEGER
         // - complex: real and imaginary part as FLOAT
         //
-        deserialise_numeral_part((void*) &s2, (void*) &v2, (void*) &d2, (void*) &po2, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4);
+        deserialise_numeral_part((void*) &s2, (void*) &v2, (void*) &d2, (void*) &po2, p2, p3, p4, p5, p6, p7, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p8);
     }
 
     // Verify detected format.
-    compare_integer_equal((void*) &r, (void*) &f, p7);
+    compare_integer_equal((void*) &r, (void*) &f, p11);
 
     //
     // CAUTION! When parsing json, for example, then a format is NOT given
@@ -122,7 +126,7 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
     // Therefore, do not only compare the detected and given FORMAT here,
     // but ALSO compare with NULL in order to cover these cases.
     //
-    if ((p7 == *NULL_POINTER_STATE_CYBOI_MODEL) || (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
+    if ((p11 == *NULL_POINTER_STATE_CYBOI_MODEL) || (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
 
         //
         // A destination number format was NOT given
@@ -151,7 +155,7 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
             //
 
             // Allocate a new number part.
-            deserialise_numeral_allocation(p1, p5, p6, (void*) &f, (void*) &t);
+            deserialise_numeral_allocation(p1, p9, p10, (void*) &f, (void*) &t);
 
             if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -195,8 +199,8 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise numeral number. The detected format and given destination number item format are not identical.");
-        fwprintf(stdout, L"Error: Could not deserialise numeral number. The detected format: %i and given destination number item format: p7 are not identical.\n", f, p7);
-        fwprintf(stdout, L"Error: Could not deserialise numeral number. The detected format: %i and given destination number item format: *p7 are not identical.\n", f, *((int*) p7));
+        fwprintf(stdout, L"Error: Could not deserialise numeral number. The detected format: %i and given destination number item format: p11 are not identical.\n", f, p11);
+        fwprintf(stdout, L"Error: Could not deserialise numeral number. The detected format: %i and given destination number item format: *p11 are not identical.\n", f, *((int*) p11));
     }
 }
 

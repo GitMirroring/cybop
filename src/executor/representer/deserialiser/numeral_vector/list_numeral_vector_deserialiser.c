@@ -177,8 +177,7 @@ void deserialise_numeral_vector_list(void* p0, void* p1, void* p2, void* p3) {
             // for octal numbers DO get detected. The reason is that in cybol
             // (other than json), number prefixes are permitted.
             //
-            //?? deserialise_numeral(p0, *NULL_POINTER_STATE_CYBOI_MODEL, pmd, pmc, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3);
-            deserialise_numeral(n, *NULL_POINTER_STATE_CYBOI_MODEL, pmd, pmc, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3);
+            deserialise_numeral(n, *NULL_POINTER_STATE_CYBOI_MODEL, pmd, pmc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3);
 
             //
             // Append number to destination number item.

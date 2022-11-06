@@ -23,17 +23,17 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FRACTION_NUMERAL_NAME_CONSTANT_SOURCE
-#define FRACTION_NUMERAL_NAME_CONSTANT_SOURCE
+#ifndef THOUSANDS_NUMERAL_NAME_CONSTANT_SOURCE
+#define THOUSANDS_NUMERAL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h> // wchar_t
 
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The slash / fraction numeral name. */
-static wchar_t* SLASH_FRACTION_NUMERAL_NAME = SOLIDUS_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* SLASH_FRACTION_NUMERAL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The separator . thousands numeral name. */
+static wchar_t* SEPARATOR_THOUSANDS_NUMERAL_NAME = COMMA_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+static int* SEPARATOR_THOUSANDS_NUMERAL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* FRACTION_NUMERAL_NAME_CONSTANT_SOURCE */
+/* THOUSANDS_NUMERAL_NAME_CONSTANT_SOURCE */
 #endif

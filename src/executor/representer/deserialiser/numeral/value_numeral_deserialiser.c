@@ -43,13 +43,17 @@
  * @param p0 the destination value
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
- * @param p3 the number base
- * @param p4 the post point value flag
- * @param p5 the number base power flag
- * @param p6 the detected format
- * @param p7 the detected type
+ * @param p3 the decimal separator data
+ * @param p4 the decimal separator count
+ * @param p5 the thousands separator data
+ * @param p6 the thousands separator count
+ * @param p7 the number base
+ * @param p8 the post point value flag
+ * @param p9 the number base power flag
+ * @param p10 the detected format
+ * @param p11 the detected type
  */
-void deserialise_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void deserialise_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral value.");
     fwprintf(stdout, L"Debug: Deserialise numeral value. source count remaining p2: %i\n", p2);
@@ -99,13 +103,13 @@ void deserialise_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4,
             // Remove thousands separator using a string function (modify)
 
             // Deserialise integer value representing the destination value.
-            deserialise_numeral_integer(p0, vd, (void*) &vc, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            deserialise_numeral_integer(p0, vd, (void*) &vc, p7, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             break;
         }
 
         // Select numeral value.
-        select_numeral_value(p1, p2, p4, p5, p6, p7, (void*) &vc, (void*) &b);
+        select_numeral_value(p1, p2, p3, p4, p5, p6, p8, p9, p10, p11, (void*) &vc, (void*) &b);
     }
 }
 

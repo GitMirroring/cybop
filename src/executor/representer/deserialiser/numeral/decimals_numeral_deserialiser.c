@@ -104,7 +104,7 @@ void deserialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3, void* 
         }
 
         // Select numeral decimals (post point value).
-        select_numeral_value(p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p5, p6, (void*) &dc, (void*) &b);
+        select_numeral_value(p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p5, p6, (void*) &dc, (void*) &b);
     }
 }
 

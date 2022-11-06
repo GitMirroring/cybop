@@ -49,11 +49,15 @@
  * @param p3 the destination number base power
  * @param p4 the source data position (pointer reference)
  * @param p5 the source count remaining
- * @param p6 the detected format
- * @param p7 the detected type
- * @param p8 the ignore number base prefix flag
+ * @param p6 the decimal separator data
+ * @param p7 the decimal separator count
+ * @param p8 the thousands separator data
+ * @param p9 the thousands separator count
+ * @param p10 the detected format
+ * @param p11 the detected type
+ * @param p12 the ignore number base prefix flag (true means ignore prefixes like "0x" as is needed in json; false means consider prefixes as in c/c++, perl or python)
  */
-void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral part.");
     fwprintf(stdout, L"Debug: Deserialise numeral part. source count remaining p5: %i\n", p5);
@@ -86,7 +90,7 @@ void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, 
     // such cases like json data parsing, in order to SKIP number base
     // prefix detection.
     //
-    compare_integer_equal((void*) &r, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_equal((void*) &r, p12, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -101,7 +105,7 @@ void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, 
     fwprintf(stdout, L"Debug: Deserialise numeral part. b: %i\n", b);
 
     // Deserialise number value.
-    deserialise_numeral_value(p1, p4, p5, (void*) &b, (void*) &post, (void*) &p, p6, p7);
+    deserialise_numeral_value(p1, p4, p5, p6, p7, p8, p9, (void*) &b, (void*) &post, (void*) &p, p10, p11);
 
     //?? fwprintf(stdout, L"Debug: Deserialise numeral part. pre point value p1: %i\n", p1);
     //?? fwprintf(stdout, L"Debug: Deserialise numeral part. pre point value *p1: %i\n", *((int*) p1));
@@ -115,7 +119,7 @@ void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, 
         //
 
         // Deserialise post point value.
-        deserialise_numeral_decimals(p2, p4, p5, (void*) &b, (void*) &p, p6, p7);
+        deserialise_numeral_decimals(p2, p4, p5, (void*) &b, (void*) &p, p10, p11);
     }
 
     //?? fwprintf(stdout, L"Debug: Deserialise numeral part. post point value p2: %i\n", p2);
@@ -129,7 +133,7 @@ void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, 
         //
 
         // Deserialise number base power.
-        deserialise_numeral_power(p3, p4, p5, (void*) &b, p6, p7);
+        deserialise_numeral_power(p3, p4, p5, (void*) &b, p10, p11);
     }
 
     //?? fwprintf(stdout, L"Debug: Deserialise numeral part. number base power p3: %i\n", p3);

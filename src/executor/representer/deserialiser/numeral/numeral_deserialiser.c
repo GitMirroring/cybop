@@ -56,12 +56,16 @@
  * @param p1 the destination number part (pointer reference)
  * @param p2 the source wide character data
  * @param p3 the source wide character count
- * @param p4 the ignore number base prefix flag
- * @param p5 the number part name data
- * @param p6 the number part name count
- * @param p7 the destination number item format
+ * @param p4 the decimal separator data
+ * @param p5 the decimal separator count
+ * @param p6 the thousands separator data
+ * @param p7 the thousands separator count
+ * @param p8 the ignore number base prefix flag (true means ignore prefixes like "0x" as is needed in json; false means consider prefixes as in c/c++, perl or python)
+ * @param p9 the number part name data
+ * @param p10 the number part name count
+ * @param p11 the destination number item format
  */
-void deserialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void deserialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral.");
     fwprintf(stdout, L"Debug: Deserialise numeral. source count p3: %i\n", p3);
@@ -88,7 +92,7 @@ void deserialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
     //
-    deserialise_numeral_number(p0, p1, (void*) &d, (void*) &c, p4, p5, p6, p7);
+    deserialise_numeral_number(p0, p1, (void*) &d, (void*) &c, p4, p5, p6, p7, p8, p9, p10, p11);
 }
 
 /* NUMERAL_DESERIALISER_SOURCE */

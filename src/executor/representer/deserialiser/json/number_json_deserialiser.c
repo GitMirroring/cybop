@@ -116,7 +116,7 @@ void deserialise_json_number(void* p0, void* p1, void* p2, void* p3, void* p4, v
             // then it has to be interpreted as DECIMAL number by default,
             // by just IGNORING any leading zeros.
             //
-            deserialise_numeral(*NULL_POINTER_STATE_CYBOI_MODEL, (void*) &p, nd, (void*) &nc, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL);
+            deserialise_numeral(*NULL_POINTER_STATE_CYBOI_MODEL, (void*) &p, nd, (void*) &nc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL);
 
             //
             // Append number part to destination.
