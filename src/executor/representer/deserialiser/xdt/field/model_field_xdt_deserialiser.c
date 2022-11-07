@@ -48,9 +48,13 @@
  * @param p0 the destination model item
  * @param p1 the source data
  * @param p2 the source count
- * @param p3 the format
+ * @param p3 the decimal separator data
+ * @param p4 the decimal separator count
+ * @param p5 the thousands separator data
+ * @param p6 the thousands separator count
+ * @param p7 the format
  */
-void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field model.");
 
@@ -70,7 +74,7 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) DDMMYYYY_DATETIME_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p7, (void*) DDMMYYYY_DATETIME_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -80,7 +84,7 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) MMYY_DATETIME_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p7, (void*) MMYY_DATETIME_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -90,7 +94,7 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) QYYYY_DATETIME_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p7, (void*) QYYYY_DATETIME_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -104,7 +108,7 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p7, (void*) DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -114,7 +118,7 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) HHMMHHMM_DURATION_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p7, (void*) HHMMHHMM_DURATION_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -124,7 +128,7 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) YYYY_DURATION_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p7, (void*) YYYY_DURATION_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -138,23 +142,23 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p7, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise numeral.
-            deserialise_numeral_vector(p0, p1, p2, p3);
+            deserialise_numeral_vector(p0, p1, p2, p3, p4, p5, p6, p7);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p7, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise numeral.
-            deserialise_numeral_vector(p0, p1, p2, p3);
+            deserialise_numeral_vector(p0, p1, p2, p3, p4, p5, p6, p7);
         }
     }
 
@@ -164,7 +168,7 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p7, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -175,6 +179,8 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt field model. The format is unknown.");
+        fwprintf(stdout, L"Warning: Could not deserialise xdt field model. The format is unknown. format p7: %i\n", p7);
+        fwprintf(stdout, L"Warning: Could not deserialise xdt field model. The format is unknown. format *p7: %i\n", *((int*) p7));
     }
 }
 

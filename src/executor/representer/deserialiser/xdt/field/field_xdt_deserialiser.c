@@ -87,8 +87,13 @@
  * @param p0 the destination item
  * @param p1 the source data
  * @param p2 the source count
+ * @param p3 the language properties (constraints) data
+ * @param p4 the language properties (constraints) count
+ * @param p5 the knowledge memory part (pointer reference)
+ * @param p6 the stack memory item
+ * @param p7 the internal memory data
  */
-void deserialise_xdt_field(void* p0, void* p1, void* p2) {
+void deserialise_xdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field.");
 
@@ -108,7 +113,7 @@ void deserialise_xdt_field(void* p0, void* p1, void* p2) {
     // since the parametre that was handed over is already a copy.
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
-    deserialise_xdt_field_lines(p0, (void*) &d, (void*) &c);
+    deserialise_xdt_field_lines(p0, (void*) &d, (void*) &c, p3, p4, p5, p6, p7);
 }
 
 /* FIELD_XDT_DESERIALISER_SOURCE */

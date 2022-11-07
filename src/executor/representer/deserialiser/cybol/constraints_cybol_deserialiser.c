@@ -23,14 +23,13 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONSTRAINTS_JSON_DESERIALISER_SOURCE
-#define CONSTRAINTS_JSON_DESERIALISER_SOURCE
+#ifndef CONSTRAINTS_CYBOL_DESERIALISER_SOURCE
+#define CONSTRAINTS_CYBOL_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/json/json_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
@@ -41,7 +40,7 @@
 #include "../../../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/representer/deserialiser/json/value_json_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/cybol_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -49,19 +48,20 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source data position (pointer reference)
- * @param p3 the source count remaining
+ * @param p2 the source data
+ * @param p3 the source count
  * @param p4 the language properties (constraints) data
  * @param p5 the language properties (constraints) count
  * @param p6 the knowledge memory part (pointer reference)
  * @param p7 the stack memory item
  * @param p8 the internal memory data
+ * @param p9 the format
  */
-void deserialise_json_constraints(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void deserialise_cybol_constraints(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise json constraints.");
-    //?? fwprintf(stdout, L"Debug: Deserialise json constraints. source count remaining p3: %i\n", p3);
-    //?? fwprintf(stdout, L"Debug: Deserialise json constraints. source count remaining *p3: %i\n", *((int*) p3));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol constraints.");
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol constraints. format p9: %i\n", p9);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol constraints. format *p9: %i\n", *((int*) p9));
 
     //
     // Declaration
@@ -131,9 +131,9 @@ void deserialise_json_constraints(void* p0, void* p1, void* p2, void* p3, void* 
     // Functionality
     //
 
-    // Deserialise json value.
-    deserialise_json_value(p0, p1, p2, p3, (void*) &decimal_separator_data, (void*) &decimal_separator_count, (void*) &thousands_separator_data, (void*) &thousands_separator_count, (void*) ROOT_JSON_CYBOI_NAME, (void*) ROOT_JSON_CYBOI_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL);
+    // Deserialise cybol.
+    deserialise_cybol(p0, p1, p2, p3, p4, p5, p6, p7, p8, (void*) &decimal_separator_data, (void*) &decimal_separator_count, (void*) &thousands_separator_data, (void*) &thousands_separator_count, p9);
 }
 
-/* CONSTRAINTS_JSON_DESERIALISER_SOURCE */
+/* CONSTRAINTS_CYBOL_DESERIALISER_SOURCE */
 #endif

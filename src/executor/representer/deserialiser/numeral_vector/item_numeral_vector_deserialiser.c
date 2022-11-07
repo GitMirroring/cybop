@@ -48,9 +48,13 @@
  * @param p0 the destination number item
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
- * @param p3 the destination number item format
+ * @param p3 the decimal separator data
+ * @param p4 the decimal separator count
+ * @param p5 the thousands separator data
+ * @param p6 the thousands separator count
+ * @param p7 the destination number item format
  */
-void deserialise_numeral_vector_item(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_numeral_vector_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral vector item.");
     fwprintf(stdout, L"Debug: Deserialise numeral vector item. source count p2: %i\n", p2);
@@ -78,7 +82,7 @@ void deserialise_numeral_vector_item(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &tc, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Iterates through the list items in order to deserialise them into numbers.
-    deserialise_numeral_vector_list(p0, td, tc, p3);
+    deserialise_numeral_vector_list(p0, td, tc, p3, p4, p5, p6, p7);
 
     // Deallocate temporary part element item.
     deallocate_item((void*) &t, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);

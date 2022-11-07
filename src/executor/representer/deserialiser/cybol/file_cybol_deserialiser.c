@@ -55,14 +55,19 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
  * @param p0 the destination item
  * @param p1 the source data
  * @param p2 the source count
- * @param p3 the channel
- * @param p4 the format
+ * @param p3 the language properties (constraints) data
+ * @param p4 the language properties (constraints) count
+ * @param p5 the knowledge memory part (pointer reference)
+ * @param p6 the stack memory item
+ * @param p7 the internal memory data
+ * @param p8 the channel
+ * @param p9 the format
  */
-void deserialise_cybol_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_cybol_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol file.");
-    //?? fwprintf(stdout, L"Debug: Deserialise cybol file. p3: %i\n", p3);
-    //?? fwprintf(stdout, L"Debug: Deserialise cybol file. *p3: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol file. channel p8: %i\n", p8);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol file. channel *p8: %i\n", *((int*) p8));
 
     //
     // CAUTION! The default encoding value MUST NOT be assigned
@@ -90,7 +95,7 @@ void deserialise_cybol_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // CAUTION! Use the CYBOL cyboi destination type determined above
     // (and NOT the cyboi destination type)!
     //
-    receive_data(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &id, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, (void*) UTF_8_CYBOI_ENCODING, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3);
+    receive_data(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &id, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3, p4, p5, p6, p7, p9, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, (void*) UTF_8_CYBOI_ENCODING, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p8);
 
     // Close file.
     close_basic((void*) &id);

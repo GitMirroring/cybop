@@ -85,8 +85,13 @@
  * @param p2 the source model count
  * @param p3 the source properties data
  * @param p4 the source properties count
+ * @param p5 the language properties (constraints) data
+ * @param p6 the language properties (constraints) count
+ * @param p7 the knowledge memory part (pointer reference)
+ * @param p8 the stack memory item
+ * @param p9 the internal memory data
  */
-void deserialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol content.");
     //?? fwprintf(stdout, L"Debug: Deserialise cybol content. source model count p2: %i\n", p2);
@@ -172,7 +177,7 @@ void deserialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4)
     deserialise_cybol_test((void*) &r, sn, sc, sf, sm);
 
     // Deserialise cybol node (standard or root).
-    deserialise_cybol_node(p0, snmd, snmc, scmd, scmc, sfmd, sfmc, smmd, smmc, p1, p2, (void*) &r);
+    deserialise_cybol_node(p0, snmd, snmc, scmd, scmc, sfmd, sfmc, smmd, smmc, p1, p2, p5, p6, p7, p8, p9, (void*) &r);
 }
 
 /* CONTENT_CYBOL_DESERIALISER_SOURCE */

@@ -50,6 +50,14 @@ static wchar_t* CLEAR_LANGUAGE_STATE_CYBOL_NAME = L"clear";
 static int* CLEAR_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The decimal separator language state cybol name.
+ *
+ * Used in data formats containing numbers, for example xml or json.
+ */
+static wchar_t* DECIMAL_SEPARATOR_LANGUAGE_STATE_CYBOL_NAME = L"decimal_separator";
+static int* DECIMAL_SEPARATOR_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The delimiter language state cybol name.
  *
  * Used with joined strings or character (comma) separated values (csv).
@@ -76,7 +84,7 @@ static int* HEADER_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBO
 /**
  * The indentation language state cybol name.
  *
- * Used with e.g. xml or html.
+ * Used with for example xml or html.
  * Beautifies the serialised data by indenting the single lines
  * depending on the current hierarchical level.
  */
@@ -123,7 +131,7 @@ static int* NEWLINE_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYB
 /**
  * The normalisation language state cybol name.
  *
- * Used with e.g. xml or html.
+ * Used with for example xml or html.
  * Summarises (condenses) spaces and line breaks to just ONE space.
  */
 static wchar_t* NORMALISATION_LANGUAGE_STATE_CYBOL_NAME = L"normalisation";
@@ -134,7 +142,7 @@ static int* NORMALISATION_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_13_INTEGER_ST
  *
  * Used with joined strings or character (comma) separated values (csv).
  * Quotes the single fields (values).
- * This is necessary if the delimiter character (e.g. comma) is part of the value.
+ * This is necessary if the delimiter character (for example comma) is part of the value.
  *
  * Example:
  *
@@ -142,6 +150,14 @@ static int* NORMALISATION_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_13_INTEGER_ST
  */
 static wchar_t* QUOTATION_LANGUAGE_STATE_CYBOL_NAME = L"quotation";
 static int* QUOTATION_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The thousands separator language state cybol name.
+ *
+ * Used in data formats containing numbers, for example xml or json.
+ */
+static wchar_t* THOUSANDS_SEPARATOR_LANGUAGE_STATE_CYBOL_NAME = L"thousands_separator";
+static int* THOUSANDS_SEPARATOR_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The width language state cybol name.

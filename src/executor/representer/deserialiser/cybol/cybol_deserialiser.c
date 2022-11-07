@@ -64,17 +64,35 @@
 /**
  * Deserialises the source into the destination, according to the given format.
  *
+ * The decimal separator and thousands separator have been retrieved before
+ * and are already available here as parametre, in order to be forwarded
+ * to function "deserialise_numeral_vector".
+ *
+ * However, the language properties (constraints) are FORWARDED to here
+ * AND ON as well, so that child nodes can access them. Since cybol
+ * language constraints are given together with the destination node,
+ * but NOT for each single child node, they have to get forwarded.
+ *
  * @param p0 the destination model item
  * @param p1 the destination properties item
  * @param p2 the source data
  * @param p3 the source count
- * @param p4 the format
+ * @param p4 the language properties (constraints) data
+ * @param p5 the language properties (constraints) count
+ * @param p6 the knowledge memory part (pointer reference)
+ * @param p7 the stack memory item
+ * @param p8 the internal memory data
+ * @param p9 the decimal separator data
+ * @param p10 the decimal separator count
+ * @param p11 the thousands separator data
+ * @param p12 the thousands separator count
+ * @param p13 the format
  */
-void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol.");
-    //?? fwprintf(stdout, L"Information: Deserialise cybol. p4: %i\n", p4);
-    //?? fwprintf(stdout, L"Information: Deserialise cybol. *p4: %i\n", *((int*) p4));
+    //?? fwprintf(stdout, L"Information: Deserialise cybol. format p13: %i\n", p13);
+    //?? fwprintf(stdout, L"Information: Deserialise cybol. format *p13: %i\n", *((int*) p13));
 
     //
     // The functions below are for STATE models only.
@@ -94,18 +112,18 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) RGB_COLOUR_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) RGB_COLOUR_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise numeral.
-            deserialise_numeral_vector(p0, p2, p3, p4);
+            deserialise_numeral_vector(p0, p2, p3, p9, p10, p11, p12, p13);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_COLOUR_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) TERMINAL_COLOUR_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -124,7 +142,7 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
 void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) DDMMYYYY_DATETIME_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) DDMMYYYY_DATETIME_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -134,7 +152,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) ISO_DATETIME_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) ISO_DATETIME_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -148,7 +166,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) ISO_DURATION_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) ISO_DURATION_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -158,7 +176,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) JD_DURATION_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) JD_DURATION_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -168,7 +186,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) JULIAN_DURATION_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) JULIAN_DURATION_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -178,7 +196,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) SI_DURATION_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) SI_DURATION_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -192,21 +210,21 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_cybol_element(p0, p1, p2, p3, p4);
+            deserialise_cybol_element(p0, p1, p2, p3, p4, p5, p6, p7, p8, p13);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) PROPERTY_ELEMENT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) PROPERTY_ELEMENT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_cybol_element(p0, p1, p2, p3, p4);
+            deserialise_cybol_element(p0, p1, p2, p3, p4, p5, p6, p7, p8, p13);
         }
     }
 
@@ -216,7 +234,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -230,7 +248,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) CHANNEL_META_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) CHANNEL_META_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -240,7 +258,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) ENCODING_META_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) ENCODING_META_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -250,7 +268,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) LANGUAGE_META_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) LANGUAGE_META_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -260,7 +278,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) FORMAT_META_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) FORMAT_META_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -270,7 +288,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) TYPE_META_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) TYPE_META_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -326,7 +344,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) BYTE_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) BYTE_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -336,56 +354,56 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) COMPLEX_CARTESIAN_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) COMPLEX_CARTESIAN_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise numeral.
-            deserialise_numeral_vector(p0, p2, p3, p4);
+            deserialise_numeral_vector(p0, p2, p3, p9, p10, p11, p12, p13);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) COMPLEX_POLAR_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) COMPLEX_POLAR_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise numeral.
-            deserialise_numeral_vector(p0, p2, p3, p4);
+            deserialise_numeral_vector(p0, p2, p3, p9, p10, p11, p12, p13);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise numeral.
-            deserialise_numeral_vector(p0, p2, p3, p4);
+            deserialise_numeral_vector(p0, p2, p3, p9, p10, p11, p12, p13);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) FRACTION_VULGAR_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) FRACTION_VULGAR_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise numeral.
-            deserialise_numeral_vector(p0, p2, p3, p4);
+            deserialise_numeral_vector(p0, p2, p3, p9, p10, p11, p12, p13);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise numeral.
-            deserialise_numeral_vector(p0, p2, p3, p4);
+            deserialise_numeral_vector(p0, p2, p3, p9, p10, p11, p12, p13);
         }
     }
 
@@ -395,7 +413,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) ASCII_TEXT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) ASCII_TEXT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -421,7 +439,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) CYBOL_PATH_TEXT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) CYBOL_PATH_TEXT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -431,7 +449,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -446,8 +464,9 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
         // The source is unknown for LOGIC formats.
         //
         // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol. The format is unknown.");
-        //?? fwprintf(stdout, L"Warning: Could not deserialise cybol. The format is unknown. format p4: %i\n", p4);
-        //?? fwprintf(stdout, L"Warning: Could not deserialise cybol. The format is unknown. format *p4: %i\n", *((int*) p4));
+        // fwprintf(stdout, L"Warning: Could not deserialise cybol. The format is unknown. format p13: %i\n", p13);
+        // fwprintf(stdout, L"Warning: Could not deserialise cybol. The format is unknown. format *p13: %i\n", *((int*) p13));
+        //
     }
 }
 

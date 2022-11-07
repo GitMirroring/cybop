@@ -23,45 +23,44 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONSTRAINTS_JSON_DESERIALISER_SOURCE
-#define CONSTRAINTS_JSON_DESERIALISER_SOURCE
+#ifndef CONSTRAINTS_FIELD_XDT_DESERIALISER_SOURCE
+#define CONSTRAINTS_FIELD_XDT_DESERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/json/json_cyboi_name.c"
-#include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
-#include "../../../../constant/name/cyboi/state/part_state_cyboi_name.c"
-#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../constant/name/cybol/state/language_state_cybol_name.c"
-#include "../../../../constant/name/numeral/decimal_numeral_name.c"
-#include "../../../../constant/name/numeral/thousands_numeral_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../../../executor/copier/array_copier.c"
-#include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/representer/deserialiser/json/value_json_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../../../../constant/name/cyboi/state/part_state_cyboi_name.c"
+#include "../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../../constant/name/cybol/state/language_state_cybol_name.c"
+#include "../../../../../constant/name/numeral/decimal_numeral_name.c"
+#include "../../../../../constant/name/numeral/thousands_numeral_name.c"
+#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../executor/accessor/getter/part/name_part_getter.c"
+#include "../../../../../executor/copier/array_copier.c"
+#include "../../../../../executor/copier/integer_copier.c"
+#include "../../../../../executor/representer/deserialiser/xdt/field/model_field_xdt_deserialiser.c"
+#include "../../../../../logger/logger.c"
 
 /**
  * Retrieves language properties (constraints) necessary for deserialisation.
  *
  * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the source data position (pointer reference)
- * @param p3 the source count remaining
- * @param p4 the language properties (constraints) data
- * @param p5 the language properties (constraints) count
- * @param p6 the knowledge memory part (pointer reference)
- * @param p7 the stack memory item
- * @param p8 the internal memory data
+ * @param p1 the source data
+ * @param p2 the source count
+ * @param p3 the language properties (constraints) data
+ * @param p4 the language properties (constraints) count
+ * @param p5 the knowledge memory part (pointer reference)
+ * @param p6 the stack memory item
+ * @param p7 the internal memory data
+ * @param p8 the format
  */
-void deserialise_json_constraints(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void deserialise_xdt_field_constraints(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise json constraints.");
-    //?? fwprintf(stdout, L"Debug: Deserialise json constraints. source count remaining p3: %i\n", p3);
-    //?? fwprintf(stdout, L"Debug: Deserialise json constraints. source count remaining *p3: %i\n", *((int*) p3));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field constraints.");
+    //?? fwprintf(stdout, L"Debug: Deserialise xdt field constraints. format p8: %i\n", p8);
+    //?? fwprintf(stdout, L"Debug: Deserialise xdt field constraints. format *p8: %i\n", *((int*) p8));
 
     //
     // Declaration
@@ -89,9 +88,9 @@ void deserialise_json_constraints(void* p0, void* p1, void* p2, void* p3, void* 
     //
 
     // Get decimal separator part.
-    get_part_name((void*) &d, p4, (void*) DECIMAL_SEPARATOR_LANGUAGE_STATE_CYBOL_NAME, (void*) DECIMAL_SEPARATOR_LANGUAGE_STATE_CYBOL_NAME_COUNT, p5, p6, p7, p8);
+    get_part_name((void*) &d, p3, (void*) DECIMAL_SEPARATOR_LANGUAGE_STATE_CYBOL_NAME, (void*) DECIMAL_SEPARATOR_LANGUAGE_STATE_CYBOL_NAME_COUNT, p4, p5, p6, p7);
     // Get thousands separator part.
-    get_part_name((void*) &t, p4, (void*) THOUSANDS_SEPARATOR_LANGUAGE_STATE_CYBOL_NAME, (void*) THOUSANDS_SEPARATOR_LANGUAGE_STATE_CYBOL_NAME_COUNT, p5, p6, p7, p8);
+    get_part_name((void*) &t, p3, (void*) THOUSANDS_SEPARATOR_LANGUAGE_STATE_CYBOL_NAME, (void*) THOUSANDS_SEPARATOR_LANGUAGE_STATE_CYBOL_NAME_COUNT, p4, p5, p6, p7);
 
     // Get decimal separator part model item.
     copy_array_forward((void*) &dm, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -131,9 +130,9 @@ void deserialise_json_constraints(void* p0, void* p1, void* p2, void* p3, void* 
     // Functionality
     //
 
-    // Deserialise json value.
-    deserialise_json_value(p0, p1, p2, p3, (void*) &decimal_separator_data, (void*) &decimal_separator_count, (void*) &thousands_separator_data, (void*) &thousands_separator_count, (void*) ROOT_JSON_CYBOI_NAME, (void*) ROOT_JSON_CYBOI_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL);
+    // Deserialise xdt field model.
+    deserialise_xdt_field_model(p0, p1, p2, (void*) &decimal_separator_data, (void*) &decimal_separator_count, (void*) &thousands_separator_data, (void*) &thousands_separator_count, p8);
 }
 
-/* CONSTRAINTS_JSON_DESERIALISER_SOURCE */
+/* CONSTRAINTS_FIELD_XDT_DESERIALISER_SOURCE */
 #endif

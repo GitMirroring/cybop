@@ -47,9 +47,13 @@
  * @param p0 the destination number item
  * @param p1 the source part element data
  * @param p2 the source part element count
- * @param p3 the destination number item format
+ * @param p3 the decimal separator data
+ * @param p4 the decimal separator count
+ * @param p5 the thousands separator data
+ * @param p6 the thousands separator count
+ * @param p7 the destination number item format
  */
-void deserialise_numeral_vector_list(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_numeral_vector_list(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral vector list.");
     fwprintf(stdout, L"Debug: Deserialise numeral vector list. source count p2: %i\n", p2);
@@ -100,7 +104,7 @@ void deserialise_numeral_vector_list(void* p0, void* p1, void* p2, void* p3) {
     modify_item(t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
     // Deserialise format into type item.
-    deserialise_cybol_type(t, p3);
+    deserialise_cybol_type(t, p7);
 
     //
     // Get type item data.
@@ -177,7 +181,7 @@ void deserialise_numeral_vector_list(void* p0, void* p1, void* p2, void* p3) {
             // for octal numbers DO get detected. The reason is that in cybol
             // (other than json), number prefixes are permitted.
             //
-            deserialise_numeral(n, *NULL_POINTER_STATE_CYBOI_MODEL, pmd, pmc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3);
+            deserialise_numeral(n, *NULL_POINTER_STATE_CYBOI_MODEL, pmd, pmc, p3, p4, p5, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p7);
 
             //
             // Append number to destination number item.

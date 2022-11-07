@@ -51,31 +51,36 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
  * @param p0 the destination item
  * @param p1 the source data
  * @param p2 the source count
- * @param p3 the channel
- * @param p4 the format
+ * @param p3 the language properties (constraints) data
+ * @param p4 the language properties (constraints) count
+ * @param p5 the knowledge memory part (pointer reference)
+ * @param p6 the stack memory item
+ * @param p7 the internal memory data
+ * @param p8 the channel
+ * @param p9 the format
  */
-void deserialise_cybol_source(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_cybol_source(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol source.");
-    //?? fwprintf(stdout, L"Debug: Deserialise cybol source. p3: %i\n", p3);
-    //?? fwprintf(stdout, L"Debug: Deserialise cybol source. *p3: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol source. channel p8: %i\n", p8);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol source. channel *p8: %i\n", *((int*) p8));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) FILE_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p8, (void*) FILE_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_cybol_file(p0, p1, p2, p3, p4);
+            deserialise_cybol_file(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) INLINE_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p8, (void*) INLINE_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -91,15 +96,15 @@ void deserialise_cybol_source(void* p0, void* p1, void* p2, void* p3, void* p4) 
             // since an INLINE model is already available as wide character array,
             // so that decoding it would cause wrong data and processing errors.
             //
-            receive_data(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3);
+            receive_data(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3, p4, p5, p6, p7, p9, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p8);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol source. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not deserialise cybol source. The channel is unknown. p3: %i\n", p3);
-        fwprintf(stdout, L"Warning: Could not deserialise cybol source. The channel is unknown. *p3: %i\n", *((int*) p3));
+        fwprintf(stdout, L"Warning: Could not deserialise cybol source. The channel is unknown. p8: %i\n", p8);
+        fwprintf(stdout, L"Warning: Could not deserialise cybol source. The channel is unknown. *p8: %i\n", *((int*) p8));
     }
 }
 

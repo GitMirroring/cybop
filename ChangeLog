@@ -18,10 +18,16 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-11-07  Christian Heller  <christian.heller@cybop.org>
+
+        * Forward language properties constraints to cybol deserialiser functions, so that child nodes can access them, since they are given only for the destination root node
+        * Add file "constraints_field_xdt_deserialiser.c" for reading language properties constraints decimal separator and thousands separator
+
 2022-11-06  Christian Heller  <christian.heller@cybop.org>
 
         * Provide parametres "decimal separator" and "thousands separator" in numeral deserialiser as cybol property
-        * Add file "constraints_json_deserialiser.c" to json deserialiser for reading language properties constraints decimal separator and thousands separator
+        * Add file "constraints_json_deserialiser.c" for reading language properties constraints decimal separator and thousands separator
+        * Add file "constraints_cybol_deserialiser.c" for reading language properties constraints decimal separator and thousands separator
 
 2022-11-03  Christian Heller  <christian.heller@cybop.org>
 

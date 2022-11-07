@@ -39,7 +39,7 @@
 // Forward declarations
 //
 
-void deserialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4);
+void deserialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9);
 void deserialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
 
 /**
@@ -49,13 +49,18 @@ void deserialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
  * @param p1 the destination properties item
  * @param p2 the source data
  * @param p3 the source count
- * @param p4 the format
+ * @param p4 the language properties (constraints) data
+ * @param p5 the language properties (constraints) count
+ * @param p6 the knowledge memory part (pointer reference)
+ * @param p7 the stack memory item
+ * @param p8 the internal memory data
+ * @param p9 the format
  */
-void deserialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol element.");
-    //?? fwprintf(stdout, L"Debug: Deserialise cybol element. format p4: %i\n", p4);
-    //?? fwprintf(stdout, L"Debug: Deserialise cybol element. format *p4: %i\n", *((int*) p4));
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol element. format p9: %i\n", p9);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol element. format *p9: %i\n", *((int*) p9));
 
     //
     // Declaration
@@ -118,7 +123,7 @@ void deserialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4)
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p9, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -127,13 +132,13 @@ void deserialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4)
             //
             // CAUTION! The tags (structural data) and attributes (meta data) are swapped in meaning.
             //
-            deserialise_cybol_content(p0, md, mc, pd, pc);
+            deserialise_cybol_content(p0, md, mc, pd, pc, p4, p5, p6, p7, p8);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) PROPERTY_ELEMENT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p9, (void*) PROPERTY_ELEMENT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -142,7 +147,7 @@ void deserialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4)
             //
             // CAUTION! The tags (structural data) and attributes (meta data) are swapped in meaning.
             //
-            deserialise_cybol_content(p1, md, mc, pd, pc);
+            deserialise_cybol_content(p1, md, mc, pd, pc, p4, p5, p6, p7, p8);
         }
     }
 

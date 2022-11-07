@@ -38,15 +38,14 @@ ___
 Numeral Deserialiser
 ____________________
 
-        * Adapt json deserialiser to reading language properties constraints for retrieving decimal separator and thousands separator
+        * Rename file "content_element_part_cybol_serialiser.c" into just "content_cybol_serialiser.c"
+
         * Factor out sub functions of file "number_numeral_deserialiser.c" into separate files
 
         * Test cybol application "examples/serialisation/cybol/" and debug logic errors
             e.g. use part instead of item as destination ??
         * Test numeral serialiser
             model-diagram: text works fine, also property numeral values are shown correctly (e.g. cybol serialiser), but model numeral values NOT (e.g. json serialiser)
-
-        * Rename file "content_element_part_cybol_serialiser.c" into just "content_cybol_serialiser.c"
 
         * Delete cybol complex serialiser which got replaced by numeral serialiser
         * Delete cybol fraction serialiser which got replaced by numeral serialiser

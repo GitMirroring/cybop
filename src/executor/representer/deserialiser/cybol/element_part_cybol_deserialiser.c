@@ -43,8 +43,13 @@
  * @param p0 the destination item
  * @param p1 the source model data
  * @param p2 the source model index
+ * @param p3 the language properties (constraints) data
+ * @param p4 the language properties (constraints) count
+ * @param p5 the knowledge memory part (pointer reference)
+ * @param p6 the stack memory item
+ * @param p7 the internal memory data
  */
-void deserialise_cybol_part_element(void* p0, void* p1, void* p2) {
+void deserialise_cybol_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol part element.");
 
@@ -70,7 +75,7 @@ void deserialise_cybol_part_element(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &ppd, pp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &ppc, pp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    deserialise_cybol_content(p0, pmd, pmc, ppd, ppc);
+    deserialise_cybol_content(p0, pmd, pmc, ppd, ppc, p3, p4, p5, p6, p7);
 }
 
 /* ELEMENT_PART_CYBOL_DESERIALISER_SOURCE */

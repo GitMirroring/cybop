@@ -55,7 +55,7 @@
 // Forward declaration
 //
 
-void deserialise_cybol_part(void* p0, void* p1, void* p2);
+void deserialise_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
  * Deserialises a cybol standard node.
@@ -71,8 +71,13 @@ void deserialise_cybol_part(void* p0, void* p1, void* p2);
  * @param p8 the source model count
  * @param p9 the source properties data
  * @param p10 the source properties count
+ * @param p11 the language properties (constraints) data
+ * @param p12 the language properties (constraints) count
+ * @param p13 the knowledge memory part (pointer reference)
+ * @param p14 the stack memory item
+ * @param p15 the internal memory data
  */
-void deserialise_cybol_standard(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void deserialise_cybol_standard(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol standard.");
     //?? fwprintf(stdout, L"Debug: Deserialise cybol standard. name data p1: %ls\n", (wchar_t*) p1);
@@ -219,7 +224,7 @@ void deserialise_cybol_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     // since an INLINE model is already available as wide character array,
     // so that decoding it would cause wrong data and processing errors.
     //
-    deserialise_cybol_source(pm, p7, p8, cd, fd);
+    deserialise_cybol_source(pm, p7, p8, p11, p12, p13, p14, p15, cd, fd);
 
     //
     // Fill part properties item taken from cybol source part model.
@@ -227,7 +232,7 @@ void deserialise_cybol_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     // CAUTION! What is the model hierarchy in a parsed xml/cybol file,
     // becomes the properties (meta data) in the cyboi-internal knowledge tree.
     //
-    deserialise_cybol_part(pp, p9, p10);
+    deserialise_cybol_part(pp, p9, p10, p11, p12, p13, p14, p15);
 
     //
     // Add part to destination.

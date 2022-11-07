@@ -44,8 +44,13 @@
  * @param p0 the destination item
  * @param p1 the source model data
  * @param p2 the source model count
+ * @param p3 the language properties (constraints) data
+ * @param p4 the language properties (constraints) count
+ * @param p5 the knowledge memory part (pointer reference)
+ * @param p6 the stack memory item
+ * @param p7 the internal memory data
  */
-void deserialise_cybol_part(void* p0, void* p1, void* p2) {
+void deserialise_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol part.");
 
@@ -78,7 +83,7 @@ void deserialise_cybol_part(void* p0, void* p1, void* p2) {
             break;
         }
 
-        deserialise_cybol_part_element(p0, p1, (void*) &j);
+        deserialise_cybol_part_element(p0, p1, (void*) &j, p3, p4, p5, p6, p7);
 
         // Increment loop variable.
         j++;

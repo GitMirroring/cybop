@@ -56,8 +56,13 @@
  * @param p0 the destination item
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
+ * @param p3 the language properties (constraints) data
+ * @param p4 the language properties (constraints) count
+ * @param p5 the knowledge memory part (pointer reference)
+ * @param p6 the stack memory item
+ * @param p7 the internal memory data
  */
-void deserialise_xdt_field_line(void* p0, void* p1, void* p2) {
+void deserialise_xdt_field_line(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field line.");
 
@@ -132,7 +137,7 @@ void deserialise_xdt_field_line(void* p0, void* p1, void* p2) {
         // Both field content counts match, i.e. everything is fine.
         //
 
-        deserialise_xdt_field_part(p0, id, (void*) &ic, cd, (void*) &cc, (void*) &i);
+        deserialise_xdt_field_part(p0, id, (void*) &ic, cd, (void*) &cc, p3, p4, p5, p6, p7, (void*) &i);
 
     } else {
 

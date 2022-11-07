@@ -48,9 +48,14 @@
  * @param p1 the destination properties item
  * @param p2 the source data
  * @param p3 the source count
- * @param p4 the language
+ * @param p4 the language properties (constraints) data
+ * @param p5 the language properties (constraints) count
+ * @param p6 the knowledge memory part (pointer reference)
+ * @param p7 the stack memory item
+ * @param p8 the internal memory data
+ * @param p9 the language
  */
-void deserialise_xdt(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_xdt(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt.");
 
@@ -76,7 +81,7 @@ void deserialise_xdt(void* p0, void* p1, void* p2, void* p3, void* p4) {
     allocate_item((void*) &rm, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
     // Deserialise all xdt fields into field temporary model item.
-    deserialise_xdt_field(fm, p2, p3);
+    deserialise_xdt_field(fm, p2, p3, p4, p5, p6, p7, p8);
 
     // Get field temporary model data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -98,7 +103,7 @@ void deserialise_xdt(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // Deserialise record temporary model item (bdt or gdt or ldt)
     // into cyboi model, depending on given language.
-    deserialise_xdt_standard(p0, p1, rmd, rmc, p4);
+    deserialise_xdt_standard(p0, p1, rmd, rmc, p9);
 
     // Deallocate field temporary model item.
     deallocate_item((void*) &fm, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);

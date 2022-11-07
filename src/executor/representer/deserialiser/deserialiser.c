@@ -34,7 +34,7 @@
 #include "../../../executor/representer/deserialiser/authority/authority_deserialiser.c"
 #include "../../../executor/representer/deserialiser/binary_crlf/binary_crlf_deserialiser.c"
 #include "../../../executor/representer/deserialiser/csv/csv_deserialiser.c"
-#include "../../../executor/representer/deserialiser/cybol/cybol_deserialiser.c"
+#include "../../../executor/representer/deserialiser/cybol/constraints_cybol_deserialiser.c"
 #include "../../../executor/representer/deserialiser/gui_event/gui_event_deserialiser.c"
 #include "../../../executor/representer/deserialiser/gui/constraints_gui_deserialiser.c"
 #include "../../../executor/representer/deserialiser/html/html_deserialiser.c"
@@ -225,7 +225,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_xdt(p0, p1, p2, p3, p12);
+            deserialise_xdt(p0, p1, p2, p3, p6, p7, p8, p9, p10, p12);
         }
     }
 
@@ -245,7 +245,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_cybol(p0, p1, p2, p3, p11);
+            deserialise_cybol_constraints(p0, p1, p2, p3, p6, p7, p8, p9, p10, p11);
         }
     }
 
@@ -255,7 +255,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_xdt(p0, p1, p2, p3, p12);
+            deserialise_xdt(p0, p1, p2, p3, p6, p7, p8, p9, p10, p12);
         }
     }
 
@@ -285,7 +285,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_xdt(p0, p1, p2, p3, p12);
+            deserialise_xdt(p0, p1, p2, p3, p6, p7, p8, p9, p10, p12);
         }
     }
 
