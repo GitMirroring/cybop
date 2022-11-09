@@ -19,6 +19,10 @@
 <section class="container">
     <h2>Source Code</h2>
     <p>
+        There are currently about 464 thousand lines of source code in the cyboi interpreter.
+        They belong to about 1.800 files and are organised in about 500 sub directories.
+    </p>
+    <p>
         Our source code repository is managed using the Subversion (SVN) centralised version control system.
     </p>
     <p>
