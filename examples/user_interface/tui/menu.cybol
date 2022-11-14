@@ -8,28 +8,21 @@
         <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="underline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-    <node name="mc" channel="inline" format="text/plain" model="m - Start Midnight Commander (MC)">
+    <node name="hint" channel="inline" format="text/plain" model="You may press the following keys:">
         <node name="position" channel="inline" format="number/integer" model="2,3"/>
         <node name="size" channel="inline" format="number/integer" model="60,1"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-    <node name="exit" channel="inline" format="text/plain" model="e - Exit Programme">
-        <node name="position" channel="inline" format="number/integer" model="2,4"/>
+    <node name="keys" channel="inline" format="text/plain" model="arrow down/up/left/right, enter, escape, e">
+        <node name="position" channel="inline" format="number/integer" model="2,5"/>
         <node name="size" channel="inline" format="number/integer" model="60,1"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-    <node name="keys_heading" channel="inline" format="text/plain" model="You may press the following keys:">
-        <node name="position" channel="inline" format="number/integer" model="2,6"/>
-        <node name="size" channel="inline" format="number/integer" model="60,1"/>
-        <node name="background" channel="inline" format="colour/terminal" model="blue"/>
-        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
-        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-    <node name="keys_content" channel="inline" format="text/plain" model="arrow down/up/left/right, enter, escape, m, e">
+    <node name="exit" channel="inline" format="text/plain" model="The programme gets exited using escape or e.">
         <node name="position" channel="inline" format="number/integer" model="2,7"/>
         <node name="size" channel="inline" format="number/integer" model="60,1"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>

@@ -6,7 +6,6 @@
     <node name="arrow-left" channel="inline" format="text/cybol-path" model=".logic.move_arrow_left"/>
     <node name="enter" channel="inline" format="text/cybol-path" model=".logic.enter_sub_menu"/>
     <node name="escape" channel="inline" format="text/cybol-path" model=".logic.exit_programme"/>
-    <node name="m" channel="inline" format="text/cybol-path" model=".logic.start_mc"/>
     <node name="e" channel="inline" format="text/cybol-path" model=".logic.exit_programme"/>
 
 </node>

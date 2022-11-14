@@ -5,10 +5,10 @@
         <node name="size" channel="inline" format="number/integer" model="80,15"/>
         <node name="background" channel="inline" format="colour/terminal" model="green"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <node name="border" channel="inline" format="text/plain" model="ascii"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
         <!-- This property is evaluated by win32 console only. -->
         <node name="intense" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="border" channel="inline" format="text/plain" model="ascii"/>
     </node>
 
     <node name="cursor" channel="inline" format="text/plain" model="">

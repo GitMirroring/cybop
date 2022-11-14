@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-11-14  Christian Heller  <christian.heller@cybop.org>
+
+        * Update cybol application "tui"
+
 2022-11-07  Christian Heller  <christian.heller@cybop.org>
 
         * Forward language properties constraints to cybol deserialiser functions, so that child nodes can access them, since they are given only for the destination root node
