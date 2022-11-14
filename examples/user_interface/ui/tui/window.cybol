@@ -1,8 +1,8 @@
 <node>
 
     <node name="heading" channel="inline" format="text/plain" model="CYBOL User Interface (UI) Example">
-        <node name="position" channel="inline" format="number/integer" model="5,1"/>
-        <node name="size" channel="inline" format="number/integer" model="40,1"/>
+        <node name="position" channel="inline" format="number/integer" model="5,2"/>
+        <node name="size" channel="inline" format="number/integer" model="33,1"/>
         <node name="background" channel="inline" format="colour/terminal" model="green"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -12,8 +12,8 @@
     </node>
 
     <node name="box" channel="file" format="element/part" model="user_interface/ui/tui/box.cybol">
-        <node name="position" channel="inline" format="number/integer" model="5,3"/>
-        <node name="size" channel="inline" format="number/integer" model="40,10"/>
+        <node name="position" channel="inline" format="number/integer" model="5,4"/>
+        <node name="size" channel="inline" format="number/integer" model="70,14"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -23,8 +23,10 @@
     </node>
 
     <node name="control" channel="file" format="element/part" model="user_interface/ui/tui/control.cybol">
-        <node name="position" channel="inline" format="number/integer" model="5,15"/>
-        <node name="size" channel="inline" format="number/integer" model="40,5"/>
+        <node name="position" channel="inline" format="number/integer" model="5,19"/>
+        <node name="size" channel="inline" format="number/integer" model="70,3"/>
+        <node name="background" channel="inline" format="colour/terminal" model="green"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
     </node>
 
 </node>

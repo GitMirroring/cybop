@@ -1,15 +1,15 @@
 <node>
 
+    <node name="stdout" channel="inline" format="number/integer" model=""/>
+    <node name="stdin" channel="inline" format="number/integer" model=""/>
+    <node name="window_id" channel="inline" format="number/integer" model=""/>
+    <node name="client_socket" channel="inline" format="number/integer" model="-1"/>
+
     <node name="domain" channel="file" format="element/part" model="user_interface/ui/domain.cybol"/>
 
     <node name="tui" channel="file" format="element/part" model="user_interface/ui/tui.cybol"/>
     <node name="gui" channel="file" format="element/part" model="user_interface/ui/gui.cybol"/>
     <node name="wui" channel="file" format="element/part" model="user_interface/ui/wui.cybol"/>
-
-    <node name="stdout" channel="inline" format="number/integer" model=""/>
-    <node name="stdin" channel="inline" format="number/integer" model=""/>
-    <node name="window_id" channel="inline" format="number/integer" model=""/>
-    <node name="client_socket" channel="inline" format="number/integer" model="-1"/>
 
     <node name="logic" channel="file" format="element/part" model="user_interface/ui/logic.cybol"/>
 

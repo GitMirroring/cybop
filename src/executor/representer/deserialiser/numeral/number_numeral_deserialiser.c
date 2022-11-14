@@ -199,8 +199,8 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise numeral number. The detected format and given destination number item format are not identical.");
-        fwprintf(stdout, L"Error: Could not deserialise numeral number. The detected format: %i and given destination number item format: p11 are not identical.\n", f, p11);
-        fwprintf(stdout, L"Error: Could not deserialise numeral number. The detected format: %i and given destination number item format: *p11 are not identical.\n", f, *((int*) p11));
+        fwprintf(stdout, L"Error: Could not deserialise numeral number. The detected format: %i and given destination number item format: %i are not identical.\n", f, p11);
+        fwprintf(stdout, L"Error: Could not deserialise numeral number. The detected format: %i and given destination number item format: %i are not identical.\n", f, *((int*) p11));
     }
 }
 

@@ -25,10 +25,12 @@
     </node>
 -->
 
+<!--
     <node name="enable_socket" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="port" channel="inline" format="number/integer" model="1971"/>
         <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle.socket_enable"/>
     </node>
+-->
 
 </node>

@@ -25,6 +25,7 @@
     </node>
 -->
 
+<!--
     <node name="startup_socket" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="port" channel="inline" format="number/integer" model="1971"/>
@@ -35,5 +36,6 @@
         <node name="connexions" channel="inline" format="number/integer" model="10"/>
         <node name="timeout" channel="inline" format="number/integer" model="5"/>
     </node>
+-->
 
 </node>

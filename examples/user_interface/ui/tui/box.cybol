@@ -2,7 +2,7 @@
 
     <node name="label" channel="inline" format="text/plain" model="Box">
         <node name="position" channel="inline" format="number/integer" model="2,2"/>
-        <node name="size" channel="inline" format="number/integer" model="36,1"/>
+        <node name="size" channel="inline" format="number/integer" model="20,3"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
     </node>
 
