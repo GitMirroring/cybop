@@ -108,6 +108,8 @@
  *
  * Constraints for Property Language:
  *
+ * - decimal_separator (optional) [text/plain]: The symbol (or character sequence) used to separate the integer part from the fractional part of a floating point (decimal) number.
+ * - thousands_separator (optional) [text/plain]: The symbol (or character sequence) used for digit grouping.
  * - delimiter (optional) [text/plain]: The separator between the single fields (values). It may consist of many characters, but also be a simple comma, for example. Used with joined strings or character (comma) separated values (csv).
  * - quotation (optional) [text/plain]: The marker sequence used at the beginning and end of string fields (values). It may consist of many characters. Quotation is necessary if the delimiter character is part of the value. If the quotation is to be part of the value, then it has to be escaped by writing it twice (doubled). Used with joined strings or character (comma) separated values (csv).
  * - header (optional) [logicvalue/boolean]: The flag indicating whether or not the source data contain a header, so that the deserialiser can treat the first line differently. Used with character (comma) separated values (csv). Caution! It should not be mixed up with the headermodel property in represent/serialise.
@@ -115,6 +117,8 @@
  * - maximum (optional) [number/integer]: The maximum number of bytes to be transmitted. Used with serial (port) interface.
  * - minimum (optional) [number/integer]: The minimum number of bytes to be transmitted. Used with serial (port) interface.
  * - medium (optional) [text/cybol-path]: The window to which the mouse button or keyboard key refers. It is needed to search through the hierarchy of gui elements via mouse coordinates, for a suitable action. Used with graphical user interface (gui).
+ *
+ * CAUTION! When changing these constraints, then copy them 1:1 to file "communicate_logic_cybol_format.c".
  */
 static wchar_t* DESERIALISE_REPRESENT_LOGIC_CYBOL_FORMAT = L"represent/deserialise";
 static int* DESERIALISE_REPRESENT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -174,6 +178,8 @@ static int* DESERIALISE_REPRESENT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  *
  * Constraints for Property Language:
  *
+ * - decimal_separator (optional) [text/plain]: The symbol (or character sequence) used to separate the integer part from the fractional part of a floating point (decimal) number.
+ * - thousands_separator (optional) [text/plain]: The symbol (or character sequence) used for digit grouping.
  * - newline (optional) [logicvalue/boolean]: The flag indicating whether or not a line break is added at the end of the printed characters. Used with text (pseudo) terminal.
  * - clear (optional) [logicvalue/boolean]: The flag indicating whether or not the terminal screen is cleared before printing characters on it. Used with text (pseudo) terminal.
  * - indentation (optional) [logicvalue/boolean]: The flag indicating whether or not the serialised data get beautified (pretty-formatted) by indenting the single lines depending on the hierarchy level. Used with xml or html, for example.
@@ -183,6 +189,8 @@ static int* DESERIALISE_REPRESENT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  * - width (optional) [number/integer]: The number of characters (or digits) belonging to a value. Free places get filled up with the character given in the fill property. This was defined in the original specification of character (comma) separated values (csv), in order to have fields (values) with equal width. Used with joined strings or csv.
  * - fill (optional) [text/plain]: The characters (or digit) to be used to fill free places in a value whose width is greater.
  * - headermodel (optional) [text/cybol-path]: The header data to be written as first line, yet before the actual content. Used with character (comma) separated values (csv). Caution! It should not be mixed up with the header property flag in represent/deserialise.
+ *
+ * CAUTION! When changing these constraints, then copy them 1:1 to file "communicate_logic_cybol_format.c".
  */
 static wchar_t* SERIALISE_REPRESENT_LOGIC_CYBOL_FORMAT = L"represent/serialise";
 static int* SERIALISE_REPRESENT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;

@@ -21,6 +21,7 @@
 2022-11-14  Christian Heller  <christian.heller@cybop.org>
 
         * Update cybol application "tui"
+        * Add language properties constraints "decimal_separator" and "thousands_separator" to cybol api documentation
 
 2022-11-07  Christian Heller  <christian.heller@cybop.org>
 

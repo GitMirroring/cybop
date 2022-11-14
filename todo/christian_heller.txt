@@ -38,8 +38,6 @@ ___
 Numeral Deserialiser
 ____________________
 
-        * Add (latest additions to language constraints -- see Changelog) to cybol api documentation
-
         * Rename file "content_element_part_cybol_serialiser.c" into just "content_cybol_serialiser.c"
 
         * Factor out sub functions of file "number_numeral_deserialiser.c" into separate files
