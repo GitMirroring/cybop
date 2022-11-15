@@ -1,5 +1,6 @@
 <node>
 
+    <node name="send-index" channel="inline" format="text/cybol-path" model=".logic.greet-world"/>
     <node name="greet-world" channel="inline" format="text/cybol-path" model=".logic.greet-world"/>
     <node name="greet-cybop" channel="inline" format="text/cybol-path" model=".logic.greet-cybop"/>
     <node name="exit" channel="inline" format="text/cybol-path" model=".logic.exit"/>

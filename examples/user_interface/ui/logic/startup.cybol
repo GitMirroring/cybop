@@ -1,5 +1,7 @@
 <node>
 
+    <!-- Terminal -->
+
     <node name="open_stdout" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="device" channel="inline" format="text/plain" model="standard-output"/>
@@ -11,6 +13,8 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".stdin"/>
     </node>
 
+    <!-- Display -->
+
     <node name="startup_display" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
     </node>
@@ -20,8 +24,6 @@
         <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".window_id"/>
     </node>
-
-    <!-- Test window id. -->
 
     <node name="TEST" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -37,6 +39,8 @@
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".window_id"/>
     </node>
+
+    <!-- Socket -->
 
     <node name="startup_socket" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>

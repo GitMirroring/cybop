@@ -1,5 +1,7 @@
 <node>
 
+    <!-- Terminal -->
+
 <!--
     <node name="sense_terminal" channel="inline" format="feel/sense" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -8,6 +10,8 @@
         <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle.terminal"/>
     </node>
 -->
+
+    <!-- Display -->
 
 <!--
     <node name="enable_display" channel="inline" format="activate/enable" model="">
@@ -27,6 +31,8 @@
         <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle.display"/>
     </node>
 -->
+
+    <!-- Socket -->
 
     <node name="enable_socket" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>

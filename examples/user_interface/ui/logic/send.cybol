@@ -1,6 +1,6 @@
 <node>
 
-    <!-- tui -->
+    <!-- Terminal -->
 
 <!--
     <node name="send_tui" channel="inline" format="communicate/send" model="">
@@ -21,23 +21,19 @@
     </node>
 -->
 
-    <!-- gui -->
+    <!-- Display -->
 
-<!--
     <node name="send_gui" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
--->
         <!-- This flag is IMPORTANT for finding the correct client entry in the server list. -->
-<!--
         <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".window_id"/>
         <node name="language" channel="inline" format="meta/language" model="message/gui-response"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".gui.window"/>
     </node>
--->
 
-    <!-- wui -->
+    <!-- Socket -->
 
     <node name="reset_webpage" channel="inline" format="modify/empty" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".wui.webpage"/>
@@ -52,8 +48,7 @@
         <node name="source" channel="inline" format="text/cybol-path" model=".wui.index"/>
     </node>
 
-    <!-- wui testing -->
-
+    <!-- Socket testing -->
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
@@ -73,6 +68,7 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
+<!--
     <node name="send_webpage" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -80,6 +76,7 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+-->
         <!--
             For the http response, the following headers are recommended:
             - Date
@@ -100,7 +97,9 @@
             with which the constraints are recognised properly.
             Therefore, the necessary "encoding" is added at the part ".webpage" DIRECTLY.
         -->
+<!--
         <node name="message" channel="inline" format="text/cybol-path" model=".wui.webpage"/>
     </node>
+-->
 
 </node>
