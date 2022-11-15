@@ -129,13 +129,16 @@ void serialise_xcb_context(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                     xcb_colormap_t cm = (*s).default_colormap;
                     // The foreground colour red, green, blue.
                     // Default value: 0,0,0 == "black"
-                    int fgr = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                    //?? int fgr = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                    int fgr = *NUMBER_255_INTEGER_STATE_CYBOI_MODEL;
                     int fgg = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                     int fgb = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                     // The background colour red, green, blue.
                     // Default value: 255,255,255 == "white"
-                    int bgr = *NUMBER_255_INTEGER_STATE_CYBOI_MODEL;
-                    int bgg = *NUMBER_255_INTEGER_STATE_CYBOI_MODEL;
+                    //?? int bgr = *NUMBER_255_INTEGER_STATE_CYBOI_MODEL;
+                    int bgr = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                    //?? int bgg = *NUMBER_255_INTEGER_STATE_CYBOI_MODEL;
+                    int bgg = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                     int bgb = *NUMBER_255_INTEGER_STATE_CYBOI_MODEL;
                     // The foreground colour.
                     uint32_t fg = (*s).black_pixel;
