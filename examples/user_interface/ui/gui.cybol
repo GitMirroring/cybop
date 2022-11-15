@@ -3,35 +3,24 @@
     <node name="window" channel="file" format="element/part" model="user_interface/ui/gui/window.cybol">
         <!-- This flag indicates that this is a window to which the properties are to be applied. -->
         <node name="window" channel="inline" format="logicvalue/boolean" model="true"/>
-        <node name="title" channel="inline" format="text/plain" model="GUI Example"/>
+        <node name="title" channel="inline" format="text/plain" model="CYBOL User Interface (UI) Example"/>
         <node name="icon_title" channel="inline" format="text/plain" model="Iconised GUI Example"/>
 <!--
-        <node name="icon" channel="file" format="png" model="user_interface/gui/icon.png"/>
+        <node name="icon" channel="file" format="png" model="user_interface/ui/gui/icon.png"/>
 -->
-        <node name="position" channel="inline" format="number/integer" model="0,50"/>
-        <node name="size" channel="inline" format="number/integer" model="600,400"/>
+        <node name="position" channel="inline" format="number/integer" model="100,50"/>
+        <node name="size" channel="inline" format="number/integer" model="640,480"/>
 <!--
         <node name="background" channel="inline" format="colour/rgb" model="255,255,255"/>
 -->
-        <node name="foreground" channel="inline" format="colour/rgb" model="255,0,0"/>
+        <node name="foreground" channel="inline" format="colour/rgb" model="255,255,128"/>
+        <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
         <node name="layout" channel="inline" format="text/plain" model="absolute"/>
         <node name="expose" channel="inline" format="text/plain" model=".logic.send.gui"/>
+        <node name="close-window" channel="inline" format="text/plain" model=".logic.exit"/>
     </node>
 
-    <!-- The following variable is used in file "handler.cybol". -->
-    <node name="action" channel="inline" format="text/plain" model="">
-        <node name="event" channel="inline" format="text/plain" model=""/>
-        <node name="window" channel="inline" format="number/integer" model="0"/>
-        <node name="exposed_x" channel="inline" format="number/integer" model="0"/>
-        <node name="exposed_y" channel="inline" format="number/integer" model="0"/>
-        <node name="exposed_width" channel="inline" format="number/integer" model="0"/>
-        <node name="exposed_height" channel="inline" format="number/integer" model="0"/>
-        <node name="x" channel="inline" format="number/integer" model="0"/>
-        <node name="y" channel="inline" format="number/integer" model="0"/>
-        <node name="button" channel="inline" format="number/integer" model="0"/>
-        <node name="keycode" channel="inline" format="number/integer" model="0"/>
-        <node name="mask" channel="inline" format="number/integer" model="0"/>
-        <node name="mode" channel="inline" format="number/integer" model="0"/>
-    </node>
+    <!-- This variable is used in file "handle.cybol". -->
+    <node name="action" channel="inline" format="text/plain" model=""/>
 
 </node>

@@ -76,7 +76,7 @@
     </node>
 
     <!--
-        CAUTION! Use path REFERENCE (asterisk) here, since the action is just
+        CAUTION! Use path REFERENCE here, since the action is just
         a string pointing to the actual model to be executed.
     -->
     <node name="execute_action" channel="inline" format="text/cybol-path" model="{.gui.action}"/>

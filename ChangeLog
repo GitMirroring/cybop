@@ -18,11 +18,15 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-11-15  Christian Heller  <christian.heller@cybop.org>
+
+        * Update gui of cybol application "ui"
+
 2022-11-14  Christian Heller  <christian.heller@cybop.org>
 
         * Update cybol application "tui"
         * Add language properties constraints "decimal_separator" and "thousands_separator" to cybol api documentation
-        * Update cybol application "ui" with tui
+        * Update tui of cybol application "ui"
 
 2022-11-07  Christian Heller  <christian.heller@cybop.org>
 

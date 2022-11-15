@@ -1,8 +1,8 @@
 <node>
 
-    <node name="stdout" channel="inline" format="number/integer" model=""/>
-    <node name="stdin" channel="inline" format="number/integer" model=""/>
-    <node name="window_id" channel="inline" format="number/integer" model=""/>
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+    <node name="stdin" channel="inline" format="number/integer" model="-1"/>
+    <node name="window_id" channel="inline" format="number/integer" model="-1"/>
     <node name="client_socket" channel="inline" format="number/integer" model="-1"/>
 
     <node name="domain" channel="file" format="element/part" model="user_interface/ui/domain.cybol"/>

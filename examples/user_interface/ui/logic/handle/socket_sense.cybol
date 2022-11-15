@@ -10,7 +10,7 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Received client request on socket:"/>
+        <node name="message" channel="inline" format="text/plain" model="Receive input from client via socket:"/>
     </node>
     <node name="print_socket" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>

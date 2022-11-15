@@ -6,14 +6,14 @@
         <node name="background" channel="inline" format="colour/terminal" model="green"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
-        <node name="underline" channel="inline" format="logicvalue/boolean" model="true"/>
         <!-- This property is evaluated by win32 console only. -->
         <node name="intense" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="underline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="box" channel="file" format="element/part" model="user_interface/ui/tui/box.cybol">
         <node name="position" channel="inline" format="number/integer" model="5,4"/>
-        <node name="size" channel="inline" format="number/integer" model="70,14"/>
+        <node name="size" channel="inline" format="number/integer" model="70,12"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -23,10 +23,9 @@
     </node>
 
     <node name="control" channel="file" format="element/part" model="user_interface/ui/tui/control.cybol">
-        <node name="position" channel="inline" format="number/integer" model="5,19"/>
-        <node name="size" channel="inline" format="number/integer" model="70,3"/>
+        <node name="position" channel="inline" format="number/integer" model="5,17"/>
+        <node name="size" channel="inline" format="number/integer" model="70,6"/>
         <node name="background" channel="inline" format="colour/terminal" model="green"/>
-        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
     </node>
 
 </node>

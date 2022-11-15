@@ -3,6 +3,7 @@
     <node name="label" channel="inline" format="text/plain" model="Greet CYBOP">
         <node name="position" channel="inline" format="number/integer" model="10,10"/>
         <node name="size" channel="inline" format="number/integer" model="80,20"/>
+        <!-- black on x -->
         <node name="background" channel="inline" format="colour/rgb" model="255,255,0"/>
         <node name="foreground" channel="inline" format="colour/rgb" model="0,0,0"/>
         <node name="shape" channel="inline" format="text/plain" model="rectangle"/>

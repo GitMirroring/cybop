@@ -3,6 +3,7 @@
     <node name="label" channel="inline" format="text/plain" model="Box">
         <node name="position" channel="inline" format="number/integer" model="5,5"/>
         <node name="size" channel="inline" format="number/integer" model="390,140"/>
+        <!-- blue -->
         <node name="foreground" channel="inline" format="colour/rgb" model="0,0,255"/>
         <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
         <node name="font" channel="inline" format="text/plain" model="7x13"/>

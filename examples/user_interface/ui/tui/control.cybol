@@ -2,8 +2,8 @@
 
     <!-- TODO: When using a pure string here, the positioning does NOT work. -->
     <node name="world_button" channel="file" format="element/part" model="user_interface/ui/tui/world_button.cybol">
-        <node name="position" channel="inline" format="number/integer" model="0,1"/>
-        <node name="size" channel="inline" format="number/integer" model="15,3"/>
+        <node name="position" channel="inline" format="number/integer" model="0,0"/>
+        <node name="size" channel="inline" format="number/integer" model="17,3"/>
         <node name="background" channel="inline" format="colour/terminal" model="yellow"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="black"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -14,14 +14,26 @@
 
     <!-- TODO: When using a pure string here, the positioning does NOT work. -->
     <node name="cybop_button" channel="file" format="element/part" model="user_interface/ui/tui/cybop_button.cybol">
-        <node name="position" channel="inline" format="number/integer" model="21,1"/>
-        <node name="size" channel="inline" format="number/integer" model="15,3"/>
+        <node name="position" channel="inline" format="number/integer" model="18,0"/>
+        <node name="size" channel="inline" format="number/integer" model="17,3"/>
         <node name="background" channel="inline" format="colour/terminal" model="yellow"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="black"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <!-- This property is evaluated by win32 console only. -->
         <node name="intense" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="border" channel="inline" format="text/plain" model="ascii"/>
+    </node>
+
+    <!-- TODO: When using a pure string here, the positioning does NOT work. -->
+    <node name="cybop_button" channel="file" format="element/part" model="user_interface/ui/tui/button_label.cybol">
+        <node name="position" channel="inline" format="number/integer" model="0,4"/>
+        <node name="size" channel="inline" format="number/integer" model="40,1"/>
+    </node>
+
+    <!-- TODO: When using a pure string here, the positioning does NOT work. -->
+    <node name="cybop_button" channel="file" format="element/part" model="user_interface/ui/tui/exit_label.cybol">
+        <node name="position" channel="inline" format="number/integer" model="0,5"/>
+        <node name="size" channel="inline" format="number/integer" model="40,1"/>
     </node>
 
 </node>
