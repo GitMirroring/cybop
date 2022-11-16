@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONTENT_ELEMENT_PART_CYBOL_SERIALISER_SOURCE
-#define CONTENT_ELEMENT_PART_CYBOL_SERIALISER_SOURCE
+#ifndef CONTENT_CYBOL_SERIALISER_SOURCE
+#define CONTENT_CYBOL_SERIALISER_SOURCE
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -96,11 +96,11 @@ void serialise_cybol_part(void* p0, void* p1, void* p2);
  * @param p6 the source properties data
  * @param p7 the source properties count
  */
-void serialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void serialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol part element content.");
-    //?? fwprintf(stdout, L"Debug: Serialise cybol part element content. source format p3: %i\n", p3);
-    //?? fwprintf(stdout, L"Debug: Serialise cybol part element content. source format *p3: %i\n", *((int*) p3));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol content.");
+    //?? fwprintf(stdout, L"Debug: Serialise cybol content. source format p3: %i\n", p3);
+    //?? fwprintf(stdout, L"Debug: Serialise cybol content. source format *p3: %i\n", *((int*) p3));
 
     //
     // Declaration
@@ -231,5 +231,5 @@ void serialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3
     modify_item(p0, (void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 }
 
-/* CONTENT_ELEMENT_PART_CYBOL_SERIALISER_SOURCE */
+/* CONTENT_CYBOL_SERIALISER_SOURCE */
 #endif

@@ -83,7 +83,7 @@ void serialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
         //
         // This IS a PART.
         //
-        // Therefore, draw properties first and
+        // Therefore, draw PROPERTIES FIRST and
         // only afterwards, dive into the hierarchy.
         //
         // Otherwise, inner elements would be drawn first
@@ -121,7 +121,7 @@ void serialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
         //
         // This is NOT a part, but a PRIMITIVE VALUE.
         //
-        // Therefore, serialise value first and
+        // Therefore, serialise VALUE FIRST and
         // only afterwards, draw its properties.
         //
         // The reason is that the serialised value

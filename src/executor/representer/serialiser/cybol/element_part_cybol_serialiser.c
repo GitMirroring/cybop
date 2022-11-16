@@ -31,7 +31,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/cybol/content_element_part_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/content_cybol_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -94,7 +94,7 @@ void serialise_cybol_part_element(void* p0, void* p1, void* p2) {
     //
 
     // Serialise part element content.
-    serialise_cybol_part_element_content(p0, nd, nc, fd, md, mc, pd, pc);
+    serialise_cybol_content(p0, nd, nc, fd, md, mc, pd, pc);
 }
 
 /* ELEMENT_PART_CYBOL_SERIALISER_SOURCE */

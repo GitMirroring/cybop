@@ -15,7 +15,11 @@ Display / XCB
 _____________
 
         * Make cybol application "gui" display colours again
-            see and check default values in file "context_xcb_serialiser.c" as well as colour transformation using "uint16_t fgrt = (uint16_t) (fgr * 257);"
+            the last working version of the source code is from 2022-09-29
+            the cybol application "gui" itself works fine with it and is ok
+            this is probably related to the new number de-/serialiser --> complete this first and then check again
+            reset default values of variables fgr, fgg etc. (which got modified for testing) in file "context_xcb_serialiser.c"
+        * Check working gui with cybol application "ui" as well
 
 Numeral Deserialiser
 ____________________
