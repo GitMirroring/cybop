@@ -31,7 +31,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/representer/serialiser/xml/break_xml_serialiser.c"
-#include "../../../../executor/representer/serialiser/xml/end_tag_xml_serialiser.c"
+#include "../../../../executor/representer/serialiser/xml/end_xml_serialiser.c"
 #include "../../../../executor/representer/serialiser/xml/indentation_xml_serialiser.c"
 #include "../../../../executor/representer/serialiser/xml/primitive_xml_serialiser.c"
 #include "../../../../logger/logger.c"
@@ -91,7 +91,7 @@ void serialise_xml_filled(void* p0, void* p1, void* p2, void* p3, void* p4, void
     // CAUTION! Use original indentation that was handed over as parametre.
     serialise_xml_indentation(p0, p6, p7);
     // Append end tag.
-    serialise_xml_end_tag(p0, p3, p4);
+    serialise_xml_end(p0, p3, p4);
     // Serialise line break.
     serialise_xml_break(p0, p6);
 }

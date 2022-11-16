@@ -32,10 +32,10 @@
 #include "../../../../constant/name/cybol/state/wui/tag_wui_state_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/representer/serialiser/character_reference/character_reference_serialiser.c"
-#include "../../../../executor/representer/serialiser/xml/begin_tag_xml_serialiser.c"
+#include "../../../../executor/representer/serialiser/xml/begin_xml_serialiser.c"
 #include "../../../../executor/representer/serialiser/xml/break_xml_serialiser.c"
 #include "../../../../executor/representer/serialiser/xml/empty_xml_serialiser.c"
-#include "../../../../executor/representer/serialiser/xml/end_tag_xml_serialiser.c"
+#include "../../../../executor/representer/serialiser/xml/end_xml_serialiser.c"
 #include "../../../../executor/representer/serialiser/xml/filled_xml_serialiser.c"
 #include "../../../../executor/representer/serialiser/xml/indentation_xml_serialiser.c"
 #include "../../../../logger/logger.c"
@@ -105,7 +105,7 @@ void serialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // Serialise indentation.
     serialise_xml_indentation(p0, p5, p6);
     // Append begin tag.
-    serialise_xml_begin_tag(p0, tmd, tmc, p3, p4, (void*) &e, p7);
+    serialise_xml_begin(p0, tmd, tmc, p3, p4, (void*) &e, p7);
     // Serialise line break.
     serialise_xml_break(p0, p5);
 
