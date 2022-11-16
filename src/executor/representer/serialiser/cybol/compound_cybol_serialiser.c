@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENT_CYBOL_SERIALISER_SOURCE
-#define ELEMENT_CYBOL_SERIALISER_SOURCE
+#ifndef COMPOUND_CYBOL_SERIALISER_SOURCE
+#define COMPOUND_CYBOL_SERIALISER_SOURCE
 
 #include "../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -46,7 +46,7 @@
 void serialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
 
 /**
- * Serialises the cybol element (part or property).
+ * Serialises the cybol compound element (part or property).
  *
  * @param p0 the destination item
  * @param p1 the source model data
@@ -54,9 +54,9 @@ void serialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4, voi
  * @param p3 the source properties data
  * @param p4 the source properties count
  */
-void serialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void serialise_cybol_compound(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol element.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol compound.");
 
     // The temporary model, properties item.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -113,5 +113,5 @@ void serialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
     deallocate_item((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 }
 
-/* ELEMENT_CYBOL_SERIALISER_SOURCE */
+/* COMPOUND_CYBOL_SERIALISER_SOURCE */
 #endif

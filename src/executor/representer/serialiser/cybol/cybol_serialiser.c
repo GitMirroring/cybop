@@ -42,7 +42,7 @@
 //?? #include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/byte_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/channel_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/element_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/compound_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/encoding_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/format_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/language_cybol_serialiser.c"
@@ -188,7 +188,7 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_element(p0, p1, p2, p3, p4);
+            serialise_cybol_compound(p0, p1, p2, p3, p4);
         }
     }
 
@@ -198,7 +198,7 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_element(p0, p1, p2, p3, p4);
+            serialise_cybol_compound(p0, p1, p2, p3, p4);
         }
     }
 
