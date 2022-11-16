@@ -31,7 +31,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/cybol/element_part_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/element_cybol_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -74,7 +74,7 @@ void serialise_cybol_part(void* p0, void* p1, void* p2) {
             break;
         }
 
-        serialise_cybol_part_element(p0, p1, (void*) &j);
+        serialise_cybol_element(p0, p1, (void*) &j);
 
         // Increment loop variable.
         j++;

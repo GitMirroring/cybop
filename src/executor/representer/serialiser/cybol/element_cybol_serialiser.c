@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENT_PART_CYBOL_SERIALISER_SOURCE
-#define ELEMENT_PART_CYBOL_SERIALISER_SOURCE
+#ifndef ELEMENT_CYBOL_SERIALISER_SOURCE
+#define ELEMENT_CYBOL_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -41,9 +41,9 @@
  * @param p1 the source model data
  * @param p2 the source model index
  */
-void serialise_cybol_part_element(void* p0, void* p1, void* p2) {
+void serialise_cybol_element(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol part element.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol element.");
 
     //
     // Declaration
@@ -97,5 +97,5 @@ void serialise_cybol_part_element(void* p0, void* p1, void* p2) {
     serialise_cybol_content(p0, nd, nc, fd, md, mc, pd, pc);
 }
 
-/* ELEMENT_PART_CYBOL_SERIALISER_SOURCE */
+/* ELEMENT_CYBOL_SERIALISER_SOURCE */
 #endif
