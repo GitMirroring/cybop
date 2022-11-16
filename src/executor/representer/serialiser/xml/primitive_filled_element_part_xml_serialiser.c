@@ -88,7 +88,7 @@ void serialise_xml_part_element_filled_primitive(void* p0, void* p1, void* p2, v
         // - serialise_xml
         // - serialise_xml_part
         // - serialise_xml_part_element
-        // - serialise_xml_part_element_content
+        // - serialise_xml_content
         //
         // However, this is NOT the case for primitive values like a text or number.
         // Therefore, those have to get indented right here.
@@ -160,7 +160,7 @@ void serialise_xml_part_element_filled_primitive(void* p0, void* p1, void* p2, v
     // - serialise_xml
     // - serialise_xml_part
     // - serialise_xml_part_element
-    // - serialise_xml_part_element_content
+    // - serialise_xml_content
     //
     // However, this is NOT the case for primitive values like a text or number.
     // Therefore, those have to get added a line break right here.

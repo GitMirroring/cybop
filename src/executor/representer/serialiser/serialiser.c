@@ -59,8 +59,8 @@
 //?? #include "../../../executor/representer/serialiser/xdt_field_description/xdt_field_description_serialiser.c"
 #include "../../../executor/representer/serialiser/xdt/xdt_serialiser.c"
 //
-// CAUTION! Do NOT include the "content_element_part_xml_serialiser.c" module.
-// It is true, the "serialise_xml_part_element_content" function is called from here,
+// CAUTION! Do NOT include the "content_xml_serialiser.c" module.
+// It is true, the "serialise_xml_content" function is called from here,
 // but the module dependency hierarchy slightly differs and just goes top-down
 // by module granularity and NOT by call hierarchy.
 //

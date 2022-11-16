@@ -43,7 +43,7 @@
 // Forward declarations
 //
 
-void serialise_xml_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
+void serialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
 
 /**
  * Serialises the cybol element (part or property).
@@ -106,7 +106,7 @@ void serialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
     int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Serialise temporary model, properties data, count into destination item.
-    serialise_xml_part_element_content(p0, md, mc, pd, pc, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+    serialise_xml_content(p0, md, mc, pd, pc, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
 
     // Deallocate temporary model, properties item.
     deallocate_item((void*) &m, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);

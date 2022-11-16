@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONTENT_ELEMENT_PART_XML_SERIALISER_SOURCE
-#define CONTENT_ELEMENT_PART_XML_SERIALISER_SOURCE
+#ifndef CONTENT_XML_SERIALISER_SOURCE
+#define CONTENT_XML_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -53,9 +53,9 @@
  * @param p7 the void flag
  * @param p8 the format
  */
-void serialise_xml_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void serialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xml part element content.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xml content.");
 
     // The tag part.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -121,5 +121,5 @@ void serialise_xml_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     }
 }
 
-/* CONTENT_ELEMENT_PART_XML_SERIALISER_SOURCE */
+/* CONTENT_XML_SERIALISER_SOURCE */
 #endif

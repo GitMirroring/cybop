@@ -31,7 +31,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/xml/content_element_part_xml_serialiser.c"
+#include "../../../../executor/representer/serialiser/xml/content_xml_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -75,7 +75,7 @@ void serialise_xml_part_element(void* p0, void* p1, void* p2, void* p3, void* p4
     copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Serialise part element content.
-    serialise_xml_part_element_content(p0, md, mc, pd, pc, p3, p4, p5, fd);
+    serialise_xml_content(p0, md, mc, pd, pc, p3, p4, p5, fd);
 }
 
 /* ELEMENT_PART_XML_SERIALISER_SOURCE */
