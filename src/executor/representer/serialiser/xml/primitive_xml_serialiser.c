@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PRIMITIVE_FILLED_ELEMENT_PART_XML_SERIALISER_SOURCE
-#define PRIMITIVE_FILLED_ELEMENT_PART_XML_SERIALISER_SOURCE
+#ifndef PRIMITIVE_XML_SERIALISER_SOURCE
+#define PRIMITIVE_XML_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -53,9 +53,9 @@ void serialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
  * @param p6 the format
  * @param p7 the preformatted data
  */
-void serialise_xml_part_element_filled_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void serialise_xml_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xml part element filled primitive.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xml primitive.");
 
     //
     // This is a primitive value, NOT a compound element.
@@ -170,5 +170,5 @@ void serialise_xml_part_element_filled_primitive(void* p0, void* p1, void* p2, v
     serialise_xml_break(p0, p3);
 }
 
-/* PRIMITIVE_FILLED_ELEMENT_PART_XML_SERIALISER_SOURCE */
+/* PRIMITIVE_XML_SERIALISER_SOURCE */
 #endif
