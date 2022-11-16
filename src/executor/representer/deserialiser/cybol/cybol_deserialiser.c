@@ -40,7 +40,7 @@
 #include "../../../../executor/representer/deserialiser/colour/terminal_colour_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/byte_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/channel_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/element_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/compound_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/format_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/language_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/type_cybol_deserialiser.c"
@@ -214,7 +214,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_cybol_element(p0, p1, p2, p3, p4, p5, p6, p7, p8, p13);
+            deserialise_cybol_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p13);
         }
     }
 
@@ -224,7 +224,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_cybol_element(p0, p1, p2, p3, p4, p5, p6, p7, p8, p13);
+            deserialise_cybol_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p13);
         }
     }
 

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENT_CYBOL_DESERIALISER_SOURCE
-#define ELEMENT_CYBOL_DESERIALISER_SOURCE
+#ifndef COMPOUND_CYBOL_DESERIALISER_SOURCE
+#define COMPOUND_CYBOL_DESERIALISER_SOURCE
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/format/cyboi/state_cyboi_format.c"
@@ -43,7 +43,7 @@ void deserialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4,
 void deserialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
 
 /**
- * Deserialises the cybol element (part or property).
+ * Deserialises the cybol compound element (part or property).
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
@@ -56,11 +56,11 @@ void deserialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
  * @param p8 the internal memory data
  * @param p9 the format
  */
-void deserialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void deserialise_cybol_compound(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol element.");
-    //?? fwprintf(stdout, L"Debug: Deserialise cybol element. format p9: %i\n", p9);
-    //?? fwprintf(stdout, L"Debug: Deserialise cybol element. format *p9: %i\n", *((int*) p9));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol compound.");
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol compound. format p9: %i\n", p9);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol compound. format *p9: %i\n", *((int*) p9));
 
     //
     // Declaration
@@ -160,5 +160,5 @@ void deserialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4,
     deallocate_item((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 }
 
-/* ELEMENT_CYBOL_DESERIALISER_SOURCE */
+/* COMPOUND_CYBOL_DESERIALISER_SOURCE */
 #endif
