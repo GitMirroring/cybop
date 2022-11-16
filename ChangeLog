@@ -22,7 +22,7 @@
 
         * Make multi-channel "Hello World!" cybol application "ui" work with tui, gui, wui
         * Add temporary wui action "refresh" to update the wui in a web browser, until one day web sockets with push messages are implemented in cyboi
-        * Shorten source code filenames in cybol serialiser and xml serialiser
+        * Shorten source code filenames in cybol deserialiser, cybol serialiser, xml serialiser
 
 2022-11-15  Christian Heller  <christian.heller@cybop.org>
 

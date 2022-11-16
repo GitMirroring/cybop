@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENT_PART_CYBOL_DESERIALISER_SOURCE
-#define ELEMENT_PART_CYBOL_DESERIALISER_SOURCE
+#ifndef ELEMENT_CYBOL_DESERIALISER_SOURCE
+#define ELEMENT_CYBOL_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -49,9 +49,9 @@
  * @param p6 the stack memory item
  * @param p7 the internal memory data
  */
-void deserialise_cybol_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void deserialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol part element.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol element.");
 
     // The source part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -78,5 +78,5 @@ void deserialise_cybol_part_element(void* p0, void* p1, void* p2, void* p3, void
     deserialise_cybol_content(p0, pmd, pmc, ppd, ppc, p3, p4, p5, p6, p7);
 }
 
-/* ELEMENT_PART_CYBOL_DESERIALISER_SOURCE */
+/* ELEMENT_CYBOL_DESERIALISER_SOURCE */
 #endif
