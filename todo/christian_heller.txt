@@ -17,8 +17,6 @@ _____________
         * Make cybol application "gui" display colours again
             see and check default values in file "context_xcb_serialiser.c" as well as colour transformation using "uint16_t fgrt = (uint16_t) (fgr * 257);"
 
-        * Make multi-channel "Hello World!" cybol application "ui" work with tui, gui, wui
-
 Numeral Deserialiser
 ____________________
 

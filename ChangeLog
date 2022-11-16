@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-11-16  Christian Heller  <christian.heller@cybop.org>
+
+        * Make multi-channel "Hello World!" cybol application "ui" work with tui, gui, wui
+        * Add temporary wui action "refresh" to update the wui in a web browser, until one day web sockets with push messages are implemented in cyboi
+
 2022-11-15  Christian Heller  <christian.heller@cybop.org>
 
         * Update gui of cybol application "ui"
