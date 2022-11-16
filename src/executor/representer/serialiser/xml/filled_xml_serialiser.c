@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FILLED_ELEMENT_PART_XML_SERIALISER_SOURCE
-#define FILLED_ELEMENT_PART_XML_SERIALISER_SOURCE
+#ifndef FILLED_XML_SERIALISER_SOURCE
+#define FILLED_XML_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -56,9 +56,9 @@ void serialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
  * @param p8 the void flag
  * @param p9 the format
  */
-void serialise_xml_part_element_filled(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void serialise_xml_filled(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xml part element filled.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xml filled.");
 
     // The compound flag.
     int c = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -96,5 +96,5 @@ void serialise_xml_part_element_filled(void* p0, void* p1, void* p2, void* p3, v
     serialise_xml_break(p0, p6);
 }
 
-/* FILLED_ELEMENT_PART_XML_SERIALISER_SOURCE */
+/* FILLED_XML_SERIALISER_SOURCE */
 #endif

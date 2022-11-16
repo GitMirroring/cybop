@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef EMPTY_ELEMENT_PART_XML_SERIALISER_SOURCE
-#define EMPTY_ELEMENT_PART_XML_SERIALISER_SOURCE
+#ifndef EMPTY_XML_SERIALISER_SOURCE
+#define EMPTY_XML_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -45,9 +45,9 @@
  * @param p4 the indentation level
  * @param p5 the void flag
  */
-void serialise_xml_part_element_empty(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void serialise_xml_empty(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xml part element empty.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xml empty.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -85,5 +85,5 @@ void serialise_xml_part_element_empty(void* p0, void* p1, void* p2, void* p3, vo
     }
 }
 
-/* EMPTY_ELEMENT_PART_XML_SERIALISER_SOURCE */
+/* EMPTY_XML_SERIALISER_SOURCE */
 #endif

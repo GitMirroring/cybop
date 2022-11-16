@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENT_PART_XML_SERIALISER_SOURCE
-#define ELEMENT_PART_XML_SERIALISER_SOURCE
+#ifndef ELEMENT_XML_SERIALISER_SOURCE
+#define ELEMENT_XML_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -44,9 +44,9 @@
  * @param p4 the indentation level
  * @param p5 the void flag
  */
-void serialise_xml_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void serialise_xml_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xml part element.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xml element.");
 
     // The part.
     void* part = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -78,5 +78,5 @@ void serialise_xml_part_element(void* p0, void* p1, void* p2, void* p3, void* p4
     serialise_xml_content(p0, md, mc, pd, pc, p3, p4, p5, fd);
 }
 
-/* ELEMENT_PART_XML_SERIALISER_SOURCE */
+/* ELEMENT_XML_SERIALISER_SOURCE */
 #endif

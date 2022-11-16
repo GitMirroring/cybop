@@ -31,7 +31,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/xml/element_part_xml_serialiser.c"
+#include "../../../../executor/representer/serialiser/xml/element_xml_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -77,7 +77,7 @@ void serialise_xml_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             break;
         }
 
-        serialise_xml_part_element(p0, p1, (void*) &j, p3, p4, p5);
+        serialise_xml_element(p0, p1, (void*) &j, p3, p4, p5);
 
         // Increment loop variable.
         j++;

@@ -34,9 +34,9 @@
 #include "../../../../executor/representer/serialiser/character_reference/character_reference_serialiser.c"
 #include "../../../../executor/representer/serialiser/xml/begin_tag_xml_serialiser.c"
 #include "../../../../executor/representer/serialiser/xml/break_xml_serialiser.c"
-#include "../../../../executor/representer/serialiser/xml/empty_element_part_xml_serialiser.c"
+#include "../../../../executor/representer/serialiser/xml/empty_xml_serialiser.c"
 #include "../../../../executor/representer/serialiser/xml/end_tag_xml_serialiser.c"
-#include "../../../../executor/representer/serialiser/xml/filled_element_part_xml_serialiser.c"
+#include "../../../../executor/representer/serialiser/xml/filled_xml_serialiser.c"
 #include "../../../../executor/representer/serialiser/xml/indentation_xml_serialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -112,12 +112,12 @@ void serialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     if (e != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // The content IS empty.
-        serialise_xml_part_element_empty(p0, tmd, tmc, p5, p6, p7);
+        serialise_xml_empty(p0, tmd, tmc, p5, p6, p7);
 
     } else {
 
         // The content is NOT empty.
-        serialise_xml_part_element_filled(p0, p1, p2, tmd, tmc, pmd, p5, p6, p7, p8);
+        serialise_xml_filled(p0, p1, p2, tmd, tmc, pmd, p5, p6, p7, p8);
     }
 }
 
