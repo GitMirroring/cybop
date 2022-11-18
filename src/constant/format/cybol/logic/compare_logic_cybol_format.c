@@ -41,7 +41,11 @@
 /**
  * The compare/equal logic cybol format.
  *
- * Compare for equality: ==
+Compares left and right for equality.
+ *
+ * Description:
+ *
+ * Commonly used operator in other programming languages: ==
  *
  * Left and right operand as well as the boolean result are treated as vector,
  * i.e. ONE boolean result value is returned PER EACH operand vector ELEMENT.
@@ -65,10 +69,6 @@
  * left operand: 33
  * right operand: 3
  * result value: 0 (which corresponds to "false")
- *
- * Description:
- *
-Compares left and right parametre.
  *
  * Examples:
  *

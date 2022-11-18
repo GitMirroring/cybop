@@ -33,6 +33,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/name/numeral/sign_numeral_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
@@ -42,7 +43,10 @@
 #include "../../../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
+#include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/copier/integer_copier.c"
+#include "../../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/representer/serialiser/numeral/prefix_numeral_serialiser.c"
 #include "../../../../logger/logger.c"
@@ -71,6 +75,17 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4)
     // absolute value below.
     //
     int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    //
+    // The temporary number wide character item.
+    //
+    // CAUTION! It is necessary since the single digits get inserted at the
+    // beginning. If they were added to the destination wide character item
+    // directly, they would stand in front and mix up the order of text output.
+    //
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The temporary number wide character item data, count.
+    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ic = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The negative number comparison result.
     int neg = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The sign flag comparison result.
@@ -98,16 +113,28 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4)
 
         if (s != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
+            // The sign flag IS set.
+            //
+
             // Append plus sign to destination item.
             modify_item(p0, (void*) PLUS_SIGN_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PLUS_SIGN_NUMERAL_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
         }
     }
 
-    // Eliminate sign from temporary number.
+    // Eliminate sign from temporary number, since the sign was already added above.
     calculate_integer_absolute((void*) &n, (void*) &n);
 
     // Append suitable prefix depending on the given number base.
     serialise_numeral_prefix(p0, p3, p4);
+
+    //
+    // Allocate temporary number wide character item.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     //
     // Append pre-point value.
@@ -133,12 +160,22 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4)
             // Map integer value to a unicode digit wide character.
             map_integer_to_digit_wide_character((void*) &wc, (void*) &r);
             // Insert remainder as digit wide character at the BEGINNING.
-            modify_item(p0, (void*) &wc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INSERT_MODIFY_LOGIC_CYBOI_FORMAT);
+            modify_item(i, (void*) &wc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INSERT_MODIFY_LOGIC_CYBOI_FORMAT);
 
             // Divide number by base.
             calculate_integer_divide((void*) &n, p3);
         }
     }
+
+    // Get temporary number wide character item data, count.
+    copy_array_forward((void*) &id, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ic, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    // Append temporary number wide character item data to destination wide character item.
+    modify_item(p0, id, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, ic, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    // Deallocate temporary number wide character item.
+    deallocate_item((void*) &i, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* INTEGER_NUMERAL_SERIALISER_SOURCE */

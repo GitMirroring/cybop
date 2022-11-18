@@ -41,26 +41,21 @@
 /**
  * The calculate/absolute logic cybol format.
  *
- * Determine the absolute value of a number.
- *
  * Description:
  *
-Determine the absolute value of a number.
+ * Determines the absolute value of a number.
  *
  * Examples:
  *
  * <node name="absolute" channel="inline" format="calculate/absolute" model="">
  *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
- *     <node name="operand" channel="inline" format="number/integer" model="1,2,3"/>
- *     <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+ *     <node name="operand" channel="inline" format="number/integer" model="-2,+4"/>
  * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-result	The absolute value of the given number.	true	path/*
-operand	... .	true	path/* | number/*
-type	The number type. It has to be identical for all parametres.	true	path/* | meta/type
+ * - result (required) [text/cybol-path]: The absolute value of the given number.
+ * - operand (required) [text/cybol-path | number/any]: The source number.
  */
 static wchar_t* ABSOLUTE_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/absolute";
 static int* ABSOLUTE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;

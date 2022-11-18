@@ -36,10 +36,10 @@
 #include "../../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/representer/deserialiser/numeral/allocation_numeral_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/numeral/part_numeral_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/numeral/verification_numeral_deserialiser.c"
 #include "../../../../executor/selector/numeral/assembler_numeral_selector.c"
 #include "../../../../logger/logger.c"
 
@@ -89,8 +89,6 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
     int t = *INTEGER_NUMBER_STATE_CYBOI_TYPE;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The temporary number.
-    void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Deserialise FIRST part of number.
     deserialise_numeral_part((void*) &s1, (void*) &v1, (void*) &d1, (void*) &po1, p2, p3, p4, p5, p6, p7, (void*) &f, (void*) &t, p8);
@@ -117,7 +115,10 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
     }
 
     // Verify detected format.
-    compare_integer_equal((void*) &r, (void*) &f, p11);
+    //?? deserialise_numeral_verification((void*) &r, (void*) &t, p11);
+
+    //?? TODO: Delete again later! Only for testing.
+    r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
     // CAUTION! When parsing json, for example, then a format is NOT given
@@ -127,6 +128,9 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
     // but ALSO compare with NULL in order to cover these cases.
     //
     if ((p11 == *NULL_POINTER_STATE_CYBOI_MODEL) || (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
+
+        // The temporary number.
+        void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         //
         // A destination number format was NOT given
@@ -167,13 +171,19 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
                 // The destination number part model item data.
                 void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+                fwprintf(stdout, L"Debug: Deserialise numeral number. test pre pmd: %i\n", pmd);
+
                 // Get destination number part model item.
                 copy_array_forward((void*) &pm, *p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
                 // Get destination number part model item data.
                 copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+                fwprintf(stdout, L"Debug: Deserialise numeral number. test post pmd: %i\n", pmd);
+
                 // Assign part model item data as temporary number.
                 n = pmd;
+
+                fwprintf(stdout, L"Debug: Deserialise numeral number. test inside n: %i\n", n);
 
                 //
                 // CAUTION Do NOT append the part to some destination here,
@@ -186,9 +196,11 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
             } else {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise numeral number. The allocated part is null.");
-                fwprintf(stdout, L"Error: Could not deserialise numeral number. The allocated part is null. p1: \n", p1);
+                fwprintf(stdout, L"Error: Could not deserialise numeral number. The allocated part is null. p1: %i\n", p1);
             }
         }
+
+        fwprintf(stdout, L"Debug: Deserialise numeral number. test outside n: %i\n", n);
 
         // Assemble number.
         select_numeral_assembler(n, (void*) &s1, (void*) &v1, (void*) &d1, (void*) &po1, (void*) &s2, (void*) &v2, (void*) &d2, (void*) &po2, (void*) &f);
@@ -199,8 +211,8 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise numeral number. The detected format and given destination number item format are not identical.");
-        fwprintf(stdout, L"Error: Could not deserialise numeral number. The detected format: %i and given destination number item format: %i are not identical.\n", f, p11);
-        fwprintf(stdout, L"Error: Could not deserialise numeral number. The detected format: %i and given destination number item format: %i are not identical.\n", f, *((int*) p11));
+        fwprintf(stdout, L"Error: Could not deserialise numeral number. The detected type %i (format: %i) and destination type (format p11: %i) are not identical.\n", t, f, p11);
+        fwprintf(stdout, L"Error: Could not deserialise numeral number. The detected type %i (format: %i) and destination type (format *p11: %i) are not identical.\n", t, f, *((int*) p11));
     }
 }
 

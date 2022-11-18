@@ -24,6 +24,11 @@ _____________
 Numeral Deserialiser
 ____________________
 
+        * bei ENDzeichen /+- den TYP ändern in complex oder fraction (je nach Zeichen)
+        * Problem? +- auch für Exponent wiss. Not. verwendet
+
+        * Check if local variable pmd assigned to n has to be moved OUTSIDE the block, since it gets destroyed when leaving the block, in file "number_numeral_deserialiser.c"
+        * Delete temporary value TRUE of local variable r in file "number_numeral_deserialiser.c" into separate files
         * Factor out sub functions of file "number_numeral_deserialiser.c" into separate files
 
         * Test cybol application "examples/serialisation/cybol/" and debug logic errors
@@ -87,11 +92,11 @@ _____
 API
 ___
 
-        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/compare_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/calculate_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/logify_logic_cybol_format.c"
-        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/cast_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/check_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/compare_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/cast_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/access_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/sort_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/time_logic_cybol_format.c"

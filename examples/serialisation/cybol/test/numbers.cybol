@@ -4,11 +4,14 @@
         <node name="simple" channel="inline" format="number/integer" model="24"/>
         <node name="negative" channel="inline" format="number/integer" model="-24"/>
         <node name="leading_zero" channel="inline" format="number/integer" model="030"/>
+<!--
         <node name="array" channel="inline" format="number/integer" model="0,1,2,3,4"/>
+-->
     </node>
 
     <node name="fraction-decimal" channel="inline" format="text/plain" model="fraction-decimal">
         <node name="simple" channel="inline" format="number/fraction-decimal" model="24.0"/>
+<!--
         <node name="negative_sign" channel="inline" format="number/fraction-decimal" model="-24.0"/>
         <node name="standard" channel="inline" format="number/fraction-decimal" model="7.0"/>
         <node name="scientific_notation" channel="inline" format="number/fraction-decimal" model="7e-3"/>
@@ -20,6 +23,7 @@
         <node name="scientific_notation_3" channel="inline" format="number/fraction-decimal" model="0.7e-2"/>
         <node name="scientific_notation_4" channel="inline" format="number/fraction-decimal" model="7.0e-3"/>
         <node name="standard" channel="inline" format="number/fraction-decimal" model="-12.345e-2"/>
+-->
     </node>
 
     <node name="fraction-vulgar" channel="inline" format="text/plain" model="fraction-vulgar">
@@ -28,21 +32,25 @@
     </node>
 
     <node name="complex-cartesian" channel="inline" format="text/plain" model="complex-cartesian">
+<!--
         <node name="standard" channel="inline" format="number/complex-cartesian" model="2+4"/>
         <node name="negative_imaginary_part" channel="inline" format="number/complex-cartesian" model="2-4"/>
         <node name="negative_real_part" channel="inline" format="number/complex-cartesian" model="-2+4"/>
         <node name="both_parts_negative" channel="inline" format="number/complex-cartesian" model="-2-4"/>
         <node name="decimal_fractions" channel="inline" format="number/complex-cartesian" model="-1.2+5.0"/>
         <node name="scientific_notation" channel="inline" format="number/complex-cartesian" model="-1.2e6+.11e2"/>
+-->
     </node>
 
     <node name="complex-polar" channel="inline" format="text/plain" model="complex-polar">
+<!--
         <node name="standard" channel="inline" format="number/complex-polar" model="-2*exp(-45)"/>
         <node name="with_capital_letter_e" channel="inline" format="number/complex-polar" model="-2*E(-45)"/>
         <node name="without_times_sign_1" channel="inline" format="number/complex-polar" model="-2exp(-45)"/>
         <node name="without_times_sign_2" channel="inline" format="number/complex-polar" model="-2E(-45)"/>
         <node name="decimal_fraction" channel="inline" format="number/complex-polar" model="-1.5*exp(-45)"/>
         <node name="scientific_notation" channel="inline" format="number/complex-polar" model="-1.5E4E(-45)"/>
+-->
     </node>
 
 </node>
