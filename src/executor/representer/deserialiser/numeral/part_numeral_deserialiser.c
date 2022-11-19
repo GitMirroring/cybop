@@ -107,12 +107,14 @@ void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, 
     // Deserialise number value.
     deserialise_numeral_value(p1, p4, p5, p6, p7, p8, p9, (void*) &b, (void*) &post, (void*) &p, p10, p11);
 
-    //?? fwprintf(stdout, L"Debug: Deserialise numeral part. pre point value p1: %i\n", p1);
-    //?? fwprintf(stdout, L"Debug: Deserialise numeral part. pre point value *p1: %i\n", *((int*) p1));
-    //?? fwprintf(stdout, L"Debug: Deserialise numeral part. post point value flag post: %i\n", post);
-    //?? fwprintf(stdout, L"Debug: Deserialise numeral part. number base power flag p: %i\n", p);
+    fwprintf(stdout, L"Debug: Deserialise numeral part. pre point value p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Deserialise numeral part. pre point value *p1: %i\n", *((int*) p1));
+    fwprintf(stdout, L"Debug: Deserialise numeral part. post point value flag post: %i\n", post);
+    fwprintf(stdout, L"Debug: Deserialise numeral part. number base power flag p: %i\n", p);
 
     if (post != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        fwprintf(stdout, L"Debug: Deserialise numeral part. post: %i\n", post);
 
         //
         // This is a decimal fraction with post point value.
@@ -127,6 +129,8 @@ void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, 
     //?? fwprintf(stdout, L"Debug: Deserialise numeral part. number base power flag p: %i\n", p);
 
     if (p != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        fwprintf(stdout, L"Debug: Deserialise numeral part. p: %i\n", p);
 
         //
         // This is a decimal fraction with number base power.

@@ -63,10 +63,10 @@
 void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select numeral value.");
-    //?? fwprintf(stdout, L"Debug: Select numeral value. source count remaining p1: %i\n", p1);
-    //?? fwprintf(stdout, L"Debug: Select numeral value. source count remaining *p1: %i\n", *((int*) p1));
+    fwprintf(stdout, L"Debug: Select numeral value. source count remaining p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Select numeral value. source count remaining *p1: %i\n", *((int*) p1));
     //?? fwprintf(stdout, L"Debug: Select numeral value. source data position *p0: %i\n", *((void**) p0));
-    //?? fwprintf(stdout, L"Debug: Select numeral value. source data position *p0 ls: %ls\n", (wchar_t*) *((void**) p0));
+    fwprintf(stdout, L"Debug: Select numeral value. source data position *p0 ls: %ls\n", (wchar_t*) *((void**) p0));
     //?? fwprintf(stdout, L"Debug: Select numeral value. source data position *p0 lc: %lc\n", *((wchar_t*) *((void**) p0)));
     //?? fwprintf(stdout, L"Debug: Select numeral value. source data position *p0 lc as int: %i\n", *((wchar_t*) *((void**) p0)));
 
@@ -121,10 +121,15 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        fwprintf(stdout, L"Debug: Select numeral value. section decimals *p0 lc: %lc\n", *((wchar_t*) *((void**) p0)));
+        fwprintf(stdout, L"Debug: Select numeral value. section decimals dd: %ls\n", (wchar_t*) dd);
+
         // .
         detect((void*) &r, p0, p1, dd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &dc, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            fwprintf(stdout, L"Debug: Select numeral value. section decimals r: %i\n", r);
 
             // Assign format and type.
             copy_integer(p8, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);

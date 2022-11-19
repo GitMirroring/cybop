@@ -24,13 +24,14 @@ _____________
 Numeral Deserialiser
 ____________________
 
+        * Test cybol application "serialisation/cybol/" and make scientific notation get de-/serialised properly
+            --> error is probably in detector which returns 1 even if one of the two arguments is null
+
         * Search all source code for casts to "int" via "cast_integer_double", in order to apply special handling (add/subtract 0.5 to avoid imprecise floating point number)
 
         * Factor out sub functions of file "number_numeral_deserialiser.c" into separate files
         * Factor out sub functions of files in numeral serialiser into separate files
 
-        * Test cybol application "serialisation/cybol/" and debug logic errors
-            e.g. use part instead of item as destination ??
         * Test numeral serialiser
             model-diagram: text works fine, also property numeral values are shown correctly (e.g. cybol serialiser), but model numeral values NOT (e.g. json serialiser)
 

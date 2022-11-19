@@ -12,9 +12,11 @@
     </node>
 
     <node name="fraction-decimal" channel="inline" format="text/plain" model="fraction-decimal">
+<!--
         <node name="simple" channel="inline" format="number/fraction-decimal" model="24.4"/>
         <node name="negative_sign" channel="inline" format="number/fraction-decimal" model="-24.4"/>
         <node name="standard" channel="inline" format="number/fraction-decimal" model="7.0"/>
+-->
         <node name="scientific_notation" channel="inline" format="number/fraction-decimal" model="7e-3"/>
 <!--
         <node name="capital_letter_possible" channel="inline" format="number/fraction-decimal" model="7E-3"/>
