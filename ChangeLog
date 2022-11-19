@@ -24,6 +24,7 @@
         * Make decimal fraction deserialiser work thereby whose destination value was always zero
         * Fix error in file "decimals_numeral_serialiser.c" producing wrong output due to type cast not considering precision-dependent storage with inaccuracy of floating point numbers
         * Test with cybol application "serialisation/cybol/"
+        * Use absolute pre-point and post-point value in file "decimal_fraction_numeral_serialiser.c", so that negative floating point numbers get serialised correctly
 
 2022-11-18  Christian Heller  <christian.heller@cybop.org>
 

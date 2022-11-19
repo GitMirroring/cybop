@@ -34,6 +34,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/numeral/power_numeral_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/calculator/double/absolute_double_calculator.c"
 #include "../../../../executor/calculator/double/scientific_double_calculator.c"
 #include "../../../../executor/calculator/double/subtract_double_calculator.c"
 #include "../../../../executor/caster/double/integer_double_caster.c"
@@ -76,6 +77,8 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
     double post = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     // The pre-point value as double.
     double pred = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    // The pre-point absolute value.
+    double prea = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
 
     // Initialise temporary floating point number.
     copy_double((void*) &n, p1);
@@ -109,17 +112,31 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
     // Initialise post-point value with original number.
     copy_double((void*) &post, (void*) &n);
     fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. post: %f\n", post);
+    // Eliminate sign from post-point value.
+    calculate_double_absolute((void*) &post, (void*) &post);
     // Cast pre-point value to double.
     cast_double_integer((void*) &pred, (void*) &pre);
     fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. pred: %f\n", pred);
+    // Eliminate sign from pre-point value.
+    calculate_double_absolute((void*) &prea, (void*) &pred);
     //
     // Subtract pre-point value so that only the relevant decimal places (decimals)
     // remain and a ZERO is standing before the decimal separator.
     //
-    calculate_double_subtract((void*) &post, (void*) &pred);
+    // CAUTION! For this to work properly, the ABSOLUTE value greater or
+    // equal to zero needs to be handed over as subtrahend since otherwise,
+    // wrong values will be calculated as result.
+    //
+    calculate_double_subtract((void*) &post, (void*) &prea);
     fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. sub post: %f\n", post);
 
+    //
     // Serialise pre-point value.
+    //
+    // CAUTION! Do NOT hand over the absolute value as source here but the
+    // ORIGINAL pre-point value instead, since it might be negative and
+    // its sign needed to get processed inside.
+    //
     serialise_numeral_integer(p0, (void*) &pre, p2, p3, p4);
 
     // Append decimal separator wide character to destination item.

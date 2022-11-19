@@ -24,12 +24,12 @@ _____________
 Numeral Deserialiser
 ____________________
 
-        * Subtract or ADD pre-point value (if negative pre-point value) in file "decimal_fraction_numeral_serialiser.c"
         * Search all source code for casts to "int" via "cast_integer_double", in order to apply special handling (add/subtract 0.5 to avoid imprecise floating point number)
 
         * Factor out sub functions of file "number_numeral_deserialiser.c" into separate files
+        * Factor out sub functions of files in numeral serialiser into separate files
 
-        * Test cybol application "examples/serialisation/cybol/" and debug logic errors
+        * Test cybol application "serialisation/cybol/" and debug logic errors
             e.g. use part instead of item as destination ??
         * Test numeral serialiser
             model-diagram: text works fine, also property numeral values are shown correctly (e.g. cybol serialiser), but model numeral values NOT (e.g. json serialiser)

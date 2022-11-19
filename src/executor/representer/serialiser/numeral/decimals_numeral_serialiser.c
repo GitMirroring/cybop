@@ -38,6 +38,7 @@
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/calculator/double/add_double_calculator.c"
 #include "../../../../executor/calculator/double/multiply_double_calculator.c"
 #include "../../../../executor/calculator/double/subtract_double_calculator.c"
 #include "../../../../executor/caster/double/integer_double_caster.c"
@@ -180,6 +181,10 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3) {
 
             // Copy decimals (post point value) to that prepared for casting.
             copy_double((void*) &p, (void*) &v);
+            fwprintf(stdout, L"Debug: Serialise numeral decimals. pre-cast v: %f\n", v);
+            fwprintf(stdout, L"Debug: Serialise numeral decimals. pre-cast d: %i\n", d);
+            calculate_double_add((void*) &p, (void*) NUMBER_0_5_DOUBLE_STATE_CYBOI_MODEL);
+            fwprintf(stdout, L"Debug: Serialise numeral decimals. added 0.5 v: %f\n", v);
             //
             // Determine pre-point value representing the next digit.
             //
@@ -207,10 +212,6 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3) {
             // But since only POSITIVE (greater or equal to zero) values are
             // expected as source here, the 0.5 may always be ADDED.
             //
-            fwprintf(stdout, L"Debug: Serialise numeral decimals. pre-cast v: %f\n", v);
-            fwprintf(stdout, L"Debug: Serialise numeral decimals. pre-cast d: %i\n", d);
-            calculate_double_add((void*) &p, (void*) NUMBER_0_5_DOUBLE_STATE_CYBOI_MODEL);
-            fwprintf(stdout, L"Debug: Serialise numeral decimals. added 0.5 v: %f\n", v);
             cast_integer_double((void*) &d, (void*) &p);
             fwprintf(stdout, L"Debug: Serialise numeral decimals. post-cast v: %f\n", v);
             fwprintf(stdout, L"Debug: Serialise numeral decimals. post-cast d: %i\n", d);
