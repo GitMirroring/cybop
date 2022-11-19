@@ -132,7 +132,7 @@ void deserialise_json_constraints(void* p0, void* p1, void* p2, void* p3, void* 
     //
 
     // Deserialise json value.
-    deserialise_json_value(p0, p1, p2, p3, (void*) &decimal_separator_data, (void*) &decimal_separator_count, (void*) &thousands_separator_data, (void*) &thousands_separator_count, (void*) ROOT_JSON_CYBOI_NAME, (void*) ROOT_JSON_CYBOI_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_json_value(p0, p1, p2, p3, decimal_separator_data, (void*) &decimal_separator_count, thousands_separator_data, (void*) &thousands_separator_count, (void*) ROOT_JSON_CYBOI_NAME, (void*) ROOT_JSON_CYBOI_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL);
 }
 
 /* CONSTRAINTS_JSON_DESERIALISER_SOURCE */

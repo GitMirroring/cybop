@@ -115,10 +115,7 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
     }
 
     // Verify detected format.
-    //?? deserialise_numeral_verification((void*) &r, (void*) &t, p11);
-
-    //?? TODO: Delete again later! Only for testing.
-    r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+    deserialise_numeral_verification((void*) &r, (void*) &t, p11);
 
     //
     // CAUTION! When parsing json, for example, then a format is NOT given

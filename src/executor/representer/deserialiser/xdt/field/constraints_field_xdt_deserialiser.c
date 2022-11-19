@@ -131,7 +131,7 @@ void deserialise_xdt_field_constraints(void* p0, void* p1, void* p2, void* p3, v
     //
 
     // Deserialise xdt field model.
-    deserialise_xdt_field_model(p0, p1, p2, (void*) &decimal_separator_data, (void*) &decimal_separator_count, (void*) &thousands_separator_data, (void*) &thousands_separator_count, p8);
+    deserialise_xdt_field_model(p0, p1, p2, decimal_separator_data, (void*) &decimal_separator_count, thousands_separator_data, (void*) &thousands_separator_count, p8);
 }
 
 /* CONSTRAINTS_FIELD_XDT_DESERIALISER_SOURCE */

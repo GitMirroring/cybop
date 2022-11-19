@@ -90,7 +90,7 @@ void deserialise_numeral_verification(void* p0, void* p1, void* p2) {
     fwprintf(stdout, L"Debug: Deserialise numeral verification. destination number type *td: %i\n", *((int*) td));
 
     // Compare types.
-    compare_integer_equal(p0, p1, (void*) &td);
+    compare_integer_equal(p0, p1, td);
 
     //
     // Deallocate type item.

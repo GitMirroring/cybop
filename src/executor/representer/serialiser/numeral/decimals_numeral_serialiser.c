@@ -115,12 +115,16 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3) {
 
     // Cast number base to double.
     cast_double_integer((void*) &base, p2);
+    fwprintf(stdout, L"Debug: Serialise numeral decimals. base: %f\n", base);
     // Initialise last number index with decimal places count.
     copy_integer((void*) &l, (void*) &c);
+    fwprintf(stdout, L"Debug: Serialise numeral decimals. l: %i\n", l);
     // Subtract ONE from last number index, since it is an INDEX.
     copy_integer((void*) &l, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    fwprintf(stdout, L"Debug: Serialise numeral decimals. sub l: %i\n", l);
     // Initialise decimals (post point value) with source floating point number.
     copy_double((void*) &v, p1);
+    fwprintf(stdout, L"Debug: Serialise numeral decimals. v: %f\n", v);
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -136,6 +140,8 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3) {
             calculate_double_multiply((void*) &v, (void*) &base);
 
             compare_integer_equal((void*) &r, (void*) &j, (void*) &l);
+            fwprintf(stdout, L"Debug: Serialise numeral decimals. j: %i\n", j);
+            fwprintf(stdout, L"Debug: Serialise numeral decimals. l: %i\n", l);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -144,6 +150,7 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3) {
                 // returning that value as a double. Thus, ceil (1.5) is 2.0.
                 //
                 v = ceil(v);
+                fwprintf(stdout, L"Debug: Serialise numeral decimals. ceil v: %f\n", v);
             }
 
             //
@@ -155,18 +162,22 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3) {
             // https://www.gnu.org/software/libc/manual/html_mono/libc.html#Rounding-Functions
             //
             cast_integer_double((void*) &d, (void*) &v);
+            fwprintf(stdout, L"Debug: Serialise numeral decimals. d: %i\n", d);
 
             // Map integer value to a unicode digit wide character.
             map_integer_to_digit_wide_character((void*) &wc, (void*) &d);
+            fwprintf(stdout, L"Debug: Serialise numeral decimals. wc: %lc\n", wc);
 
             // Append digit wide character to destination number string.
             modify_item(p0, (void*) &wc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
             // Cast digit to double.
             cast_double_integer((void*) &dd, (void*) &d);
+            fwprintf(stdout, L"Debug: Serialise numeral decimals. dd: %f\n", dd);
 
             // Subtract digit from decimals (post point value).
             calculate_double_subtract((void*) &v, (void*) &dd);
+            fwprintf(stdout, L"Debug: Serialise numeral decimals. v: %f\n", v);
 
             // Increment loop variable.
             j++;

@@ -79,6 +79,17 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
     void* td = SEPARATOR_THOUSANDS_NUMERAL_NAME;
     int tc = *SEPARATOR_THOUSANDS_NUMERAL_NAME_COUNT;
 
+/*??
+    fwprintf(stdout, L"Debug: Select numeral value. p3: %i\n", p3);
+    fwprintf(stdout, L"Debug: Select numeral value. *p3: %i\n", *((int*) p3));
+    fwprintf(stdout, L"Debug: Select numeral value. p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Select numeral value. p2 as string: %ls\n", (wchar_t*) p2);
+
+    fwprintf(stdout, L"Debug: Select numeral value. dc: %i\n", dc);
+    fwprintf(stdout, L"Debug: Select numeral value. dd: %i\n", dd);
+    fwprintf(stdout, L"Debug: Select numeral value. dd as string: %ls\n", (wchar_t*) dd);
+*/
+
     // Assign decimal separator data, count.
     copy_pointer((void*) &dd, (void*) &p2);
     copy_integer((void*) &dc, p3);

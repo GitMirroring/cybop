@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-11-19  Christian Heller  <christian.heller@cybop.org>
+
+        * Fix bug at several places in source code that SEPARATOR_DECIMAL_NUMERAL_NAME got handed over as reference instead of as pure pointer value, so that types got not recognised correctly in file "verification_numeral_deserialiser.c"
+        * Make decimal fraction deserialiser work thereby whose destination value was always zero
+
 2022-11-18  Christian Heller  <christian.heller@cybop.org>
 
         * Insert digits at the beginning of a temporary local variable before appending them to the destination in file "integer_numeral_serialiser.c"

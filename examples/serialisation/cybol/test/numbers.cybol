@@ -1,18 +1,20 @@
 <node>
 
     <node name="integer" channel="inline" format="text/plain" model="integer">
+<!--
         <node name="simple" channel="inline" format="number/integer" model="24"/>
         <node name="negative" channel="inline" format="number/integer" model="-24"/>
         <node name="leading_zero" channel="inline" format="number/integer" model="030"/>
+-->
 <!--
         <node name="array" channel="inline" format="number/integer" model="0,1,2,3,4"/>
 -->
     </node>
 
     <node name="fraction-decimal" channel="inline" format="text/plain" model="fraction-decimal">
-        <node name="simple" channel="inline" format="number/fraction-decimal" model="24.0"/>
+        <node name="simple" channel="inline" format="number/fraction-decimal" model="24.4"/>
 <!--
-        <node name="negative_sign" channel="inline" format="number/fraction-decimal" model="-24.0"/>
+        <node name="negative_sign" channel="inline" format="number/fraction-decimal" model="-24.4"/>
         <node name="standard" channel="inline" format="number/fraction-decimal" model="7.0"/>
         <node name="scientific_notation" channel="inline" format="number/fraction-decimal" model="7e-3"/>
         <node name="capital_letter_possible" channel="inline" format="number/fraction-decimal" model="7E-3"/>
@@ -27,8 +29,10 @@
     </node>
 
     <node name="fraction-vulgar" channel="inline" format="text/plain" model="fraction-vulgar">
+<!--
         <node name="positive" channel="inline" format="number/fraction-vulgar" model="1/2"/>
         <node name="negative" channel="inline" format="number/fraction-vulgar" model="-2/3"/>
+-->
     </node>
 
     <node name="complex-cartesian" channel="inline" format="text/plain" model="complex-cartesian">

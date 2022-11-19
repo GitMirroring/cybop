@@ -24,11 +24,8 @@ _____________
 Numeral Deserialiser
 ____________________
 
-        * bei ENDzeichen /+- den TYP ändern in complex oder fraction (je nach Zeichen)
-        * Problem? +- auch für Exponent wiss. Not. verwendet
+        * Fix errors in file "decimals_numeral_serialiser.c" producing 24.33 instead of 24.0 with cybol application "serialisation/cybol/"
 
-        * Check if local variable pmd assigned to n has to be moved OUTSIDE the block, since it gets destroyed when leaving the block, in file "number_numeral_deserialiser.c"
-        * Delete temporary value TRUE of local variable r in file "number_numeral_deserialiser.c" into separate files
         * Factor out sub functions of file "number_numeral_deserialiser.c" into separate files
 
         * Test cybol application "examples/serialisation/cybol/" and debug logic errors

@@ -83,6 +83,9 @@ void deserialise_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4,
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
+    fwprintf(stdout, L"Debug: Deserialise numeral value. pre format *p10: %i\n", *((int*) p10));
+    fwprintf(stdout, L"Debug: Deserialise numeral value. pre type *p11: %i\n", *((int*) p11));
+
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_less_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
@@ -101,6 +104,9 @@ void deserialise_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4,
 
             //?? TODO:
             // Remove thousands separator using a string function (modify)
+
+            fwprintf(stdout, L"Debug: Deserialise numeral value. post format *p10: %i\n", *((int*) p10));
+            fwprintf(stdout, L"Debug: Deserialise numeral value. post type *p11: %i\n", *((int*) p11));
 
             // Deserialise integer value representing the destination value.
             deserialise_numeral_integer(p0, vd, (void*) &vc, p7, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

@@ -58,7 +58,7 @@ void serialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral.");
     fwprintf(stdout, L"Debug: Serialise numeral. format p9: %i\n", p9);
-    //?? fwprintf(stdout, L"Debug: Serialise numeral. format *p9: %i\n", *((int*) p9));
+    fwprintf(stdout, L"Debug: Serialise numeral. format *p9: %i\n", *((int*) p9));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
