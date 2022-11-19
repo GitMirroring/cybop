@@ -24,7 +24,8 @@ _____________
 Numeral Deserialiser
 ____________________
 
-        * Fix errors in file "decimals_numeral_serialiser.c" producing 24.33 instead of 24.0 with cybol application "serialisation/cybol/"
+        * Subtract or ADD pre-point value (if negative pre-point value) in file "decimal_fraction_numeral_serialiser.c"
+        * Search all source code for casts to "int" via "cast_integer_double", in order to apply special handling (add/subtract 0.5 to avoid imprecise floating point number)
 
         * Factor out sub functions of file "number_numeral_deserialiser.c" into separate files
 

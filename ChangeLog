@@ -22,6 +22,8 @@
 
         * Fix bug at several places in source code that SEPARATOR_DECIMAL_NUMERAL_NAME got handed over as reference instead of as pure pointer value, so that types got not recognised correctly in file "verification_numeral_deserialiser.c"
         * Make decimal fraction deserialiser work thereby whose destination value was always zero
+        * Fix error in file "decimals_numeral_serialiser.c" producing wrong output due to type cast not considering precision-dependent storage with inaccuracy of floating point numbers
+        * Test with cybol application "serialisation/cybol/"
 
 2022-11-18  Christian Heller  <christian.heller@cybop.org>
 
