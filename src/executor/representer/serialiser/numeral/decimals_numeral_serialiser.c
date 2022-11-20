@@ -26,7 +26,7 @@
 #ifndef DECIMALS_NUMERAL_SERIALISER_SOURCE
 #define DECIMALS_NUMERAL_SERIALISER_SOURCE
 
-#include <math.h> // ceil
+#include <math.h> // round
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
@@ -38,12 +38,12 @@
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/calculator/double/add_double_calculator.c"
+#include "../../../../executor/calculator/double/divide_double_calculator.c"
 #include "../../../../executor/calculator/double/multiply_double_calculator.c"
+#include "../../../../executor/calculator/double/power_double_calculator.c"
 #include "../../../../executor/calculator/double/subtract_double_calculator.c"
 #include "../../../../executor/caster/double/integer_double_caster.c"
 #include "../../../../executor/caster/integer/double_integer_caster.c"
-#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/double_copier.c"
@@ -76,32 +76,23 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3) {
     fwprintf(stdout, L"Debug: Serialise numeral decimals. source number p1: %i\n", p1);
     fwprintf(stdout, L"Debug: Serialise numeral decimals. source number *p1: %f\n", *((double*) p1));
 
-    // The decimal places flag.
-    int dp = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The number base as double with decimal base as default.
-    double base = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     //
     // The decimal places count with an arbitrarily chosen default value
     // that may be changed here in cyboi if necessary one day.
     //
-    int c = *NUMBER_4_INTEGER_STATE_CYBOI_MODEL;
-    // The last digit index.
-    int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int c = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
+    // The number base as double with decimal base as default.
+    double base = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    // The power factor.
+    double p = *NUMBER_1_0_DOUBLE_STATE_CYBOI_MODEL;
+    // The decimal places count as double.
+    double cd = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     // The decimals (post point value).
     double v = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
-    //
-    // The decimals (post point value) prepared for casting.
-    //
-    // CAUTION! It is necessary in order to avoid manipulation of
-    // the original decimals (post point value) v.
-    //
-    double p = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The digit.
     int d = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The digit as wide character.
@@ -109,43 +100,34 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3) {
     // The digit as double.
     double dd = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
 
-    //
-    // CAUTION! This check is necessary in order to filter out TOO LARGE numbers
-    // which would cause calculation errors due to injuring the number value range
-    // or just too many loop cycles below.
-    //
-    compare_integer_less_or_equal((void*) &dp, p3, (void*) NUMBER_100_INTEGER_STATE_CYBOI_MODEL);
-
-    fwprintf(stdout, L"Debug: Serialise numeral decimals. p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Serialise numeral decimals. *p3: %i\n", *((int*) p3));
-
-    if (dp != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        // Assign decimal places count parametre.
-        copy_integer((void*) &c, p3);
-        fwprintf(stdout, L"Debug: Serialise numeral decimals. inside c: %i\n", c);
-
-    } else {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise numeral decimals. The given decimal places value is too large. The cyboi system uses a maximum of 100.");
-        fwprintf(stdout, L"Warning: Could not serialise numeral decimals. The given decimal places value is too large. The cyboi system uses a maximum of 100. decimal places p3: %i\n", p3);
-        fwprintf(stdout, L"Warning: Could not serialise numeral decimals. The given decimal places value is too large. The cyboi system uses a maximum of 100. decimal places *p3: %i\n", *((int*) p3));
-    }
-
-    fwprintf(stdout, L"Debug: Serialise numeral decimals. c: %i\n", c);
-
+    // Initialise decimal places count with parametre.
+    copy_integer((void*) &c, p3);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. c: %i\n", c);
     // Cast number base to double.
     cast_double_integer((void*) &base, p2);
-    fwprintf(stdout, L"Debug: Serialise numeral decimals. base: %f\n", base);
-    // Initialise last digit index with decimal places count.
-    copy_integer((void*) &l, (void*) &c);
-    fwprintf(stdout, L"Debug: Serialise numeral decimals. l: %i\n", l);
-    // Subtract ONE from last digit index, since it is an INDEX.
-    copy_integer((void*) &l, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-    fwprintf(stdout, L"Debug: Serialise numeral decimals. sub l: %i\n", l);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. base: %f\n", base);
+    // Initialise power factor with number base.
+    copy_double((void*) &p, (void*) &base);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. with base p: %f\n", p);
+    // Cast decimal places count to double.
+    cast_double_integer((void*) &cd, (void*) &c);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. cast cd: %f\n", cd);
+    // Raise the number base to the power of the decimal places count.
+    calculate_double_power((void*) &p, (void*) &cd);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. with cd power p: %f\n", p);
+
     // Initialise decimals (post point value) with source floating point number.
     copy_double((void*) &v, p1);
-    fwprintf(stdout, L"Debug: Serialise numeral decimals. v: %f\n", v);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. init v: %f\n", v);
+    // Multiply decimals (post point value) with power factor.
+    calculate_double_multiply((void*) &v, (void*) &p);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. multiply v: %f\n", v);
+    // Round decimals (post point value).
+    v = round(v);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. round v: %f\n", v);
+    // Divide decimals (post point value) by power factor.
+    calculate_double_divide((void*) &v, (void*) &p);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. divide v: %f\n", v);
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -159,32 +141,8 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3) {
 
             // Multiply decimals (post point value) with base.
             calculate_double_multiply((void*) &v, (void*) &base);
-            fwprintf(stdout, L"Debug: Serialise numeral decimals. multiply v: %f\n", v);
+            //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. multiply v: %f\n", v);
 
-            // Reset comparison result.
-            r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-            compare_integer_equal((void*) &r, (void*) &j, (void*) &l);
-            fwprintf(stdout, L"Debug: Serialise numeral decimals. j: %i\n", j);
-            fwprintf(stdout, L"Debug: Serialise numeral decimals. l: %i\n", l);
-
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                //
-                // Round pre-point value upwards to the nearest integer,
-                // returning that value as a double. Thus, ceil (1.5) is 2.0.
-                //
-                fwprintf(stdout, L"Debug: Serialise numeral decimals. pre ceil v: %f\n", v);
-                v = ceil(v);
-                fwprintf(stdout, L"Debug: Serialise numeral decimals. post ceil v: %f\n", v);
-            }
-
-            // Copy decimals (post point value) to that prepared for casting.
-            copy_double((void*) &p, (void*) &v);
-            fwprintf(stdout, L"Debug: Serialise numeral decimals. pre-cast v: %f\n", v);
-            fwprintf(stdout, L"Debug: Serialise numeral decimals. pre-cast d: %i\n", d);
-            calculate_double_add((void*) &p, (void*) NUMBER_0_5_DOUBLE_STATE_CYBOI_MODEL);
-            fwprintf(stdout, L"Debug: Serialise numeral decimals. added 0.5 v: %f\n", v);
             //
             // Determine pre-point value representing the next digit.
             //
@@ -193,43 +151,23 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3) {
             // as mentioned in the glibc documentation:
             // https://www.gnu.org/software/libc/manual/html_mono/libc.html#Rounding-Functions
             //
-            // CAUTION! However, special handling is necessary, since floating
-            // point numbers are precision-dependent and have an inaccuracy.
-            // For example, the decimal number 9.2 is never exactly equal to 9.2:
-            // - 32-bit "single precision" float: 9.19999980926513671875
-            // - 64-bit "double precision" float: 9.199999999999999289457264239899814128875732421875
-            // https://stackoverflow.com/questions/21895756/why-are-floating-point-numbers-inaccurate
-            //
-            // This has the effect that when casting for example the double value 4.0
-            // which is internally represented as 3.999... to integer it becomes 3,
-            // even though 4 would be expected.
-            //
-            // Therefore, the following preparation has to be applied BEFORE casting:
-            // v > 0: add 0.5
-            // v < 0: subtract 0.5
-            // https://stackoverflow.com/questions/9695329/c-how-to-round-a-double-to-an-int
-            //
-            // But since only POSITIVE (greater or equal to zero) values are
-            // expected as source here, the 0.5 may always be ADDED.
-            //
-            cast_integer_double((void*) &d, (void*) &p);
-            fwprintf(stdout, L"Debug: Serialise numeral decimals. post-cast v: %f\n", v);
-            fwprintf(stdout, L"Debug: Serialise numeral decimals. post-cast d: %i\n", d);
+            cast_integer_double((void*) &d, (void*) &v);
+            //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. d: %i\n", d);
 
             // Map integer value to a unicode digit wide character.
             map_integer_to_digit_wide_character((void*) &wc, (void*) &d);
-            fwprintf(stdout, L"Debug: Serialise numeral decimals. wc: %lc\n", wc);
+            //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. wc: %lc\n", wc);
 
             // Append digit wide character to destination number string.
             modify_item(p0, (void*) &wc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
             // Cast digit to double.
             cast_double_integer((void*) &dd, (void*) &d);
-            fwprintf(stdout, L"Debug: Serialise numeral decimals. dd: %f\n", dd);
+            //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. dd: %f\n", dd);
 
             // Subtract digit from decimals (post point value).
             calculate_double_subtract((void*) &v, (void*) &dd);
-            fwprintf(stdout, L"Debug: Serialise numeral decimals. v: %f\n", v);
+            //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. v: %f\n", v);
 
             // Increment loop variable.
             j++;

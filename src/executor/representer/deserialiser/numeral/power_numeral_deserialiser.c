@@ -72,6 +72,7 @@ void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     // Deserialise algebraic sign.
     select_numeral_sign((void*) &s, p1, p2);
+    fwprintf(stdout, L"Debug: Deserialise numeral power. sign s: %i\n", s);
 
     //
     // Initialise power data.
@@ -99,6 +100,7 @@ void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3, void* p4,
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_less_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        fwprintf(stdout, L"Debug: Deserialise numeral power. break flag b: %i\n", b);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -109,8 +111,8 @@ void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3, void* p4,
             // In BOTH cases, the power can now be deserialised.
             //
 
-            //?? fwprintf(stdout, L"Debug: Deserialise numeral power. pc: %i\n", pc);
-            //?? fwprintf(stdout, L"Debug: Deserialise numeral power. pd: %ls\n", (wchar_t*) pd);
+            fwprintf(stdout, L"Debug: Deserialise numeral power. pc: %i\n", pc);
+            fwprintf(stdout, L"Debug: Deserialise numeral power. pd: %ls\n", (wchar_t*) pd);
 
             //
             // Example: 0x123.456e-3
@@ -131,24 +133,32 @@ void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3, void* p4,
 
             // Deserialise power value as integer with the given number base.
             deserialise_numeral_integer((void*) &powi, pd, (void*) &pc, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            fwprintf(stdout, L"Debug: Deserialise numeral power. powi: %i\n", powi);
 
             // Multiply power value with algebraic sign factor.
             calculate_integer_multiply((void*) &powi, (void*) &s);
+            fwprintf(stdout, L"Debug: Deserialise numeral power. with sign powi: %i\n", powi);
 
             // Cast integer to double.
             cast_double_integer((void*) &powd, (void*) &powi);
+            fwprintf(stdout, L"Debug: Deserialise numeral power. powd: %f\n", powd);
 
             // Initialise destination power factor with number base.
             cast_double_integer(p0, p3);
+            fwprintf(stdout, L"Debug: Deserialise numeral power. *p3: %i\n", *((int*) p3));
+            fwprintf(stdout, L"Debug: Deserialise numeral power. base *p0: %f\n", *((double*) p0));
 
             // Raise the number base to the power of the given value.
             calculate_double_power(p0, (void*) &powd);
+            fwprintf(stdout, L"Debug: Deserialise numeral power. power *p0: %f\n", *((double*) p0));
 
             break;
-        }
 
-        // Select number base power.
-        select_numeral_value(p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p5, (void*) &pc, (void*) &b);
+        } else {
+
+            // Select number base power.
+            select_numeral_value(p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p5, (void*) &pc, (void*) &b);
+        }
     }
 }
 

@@ -33,7 +33,7 @@
 /**
  * Casts the source of type double to the destination of type integer.
  *
- * CAUTION! Any fractional/decimal parts are lost.
+ * CAUTION! The fractional/decimal post-point value gets lost.
  *
  * @param p0 the destination
  * @param p1 the source
@@ -49,17 +49,21 @@ void cast_integer_double(void* p0, void* p1) {
             int* d = (int*) p0;
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cast integer double.");
+            //?? fwprintf(stdout, L"Debug: Cast integer double. source *p1: %f\n", *((int*) p1));
 
+            // Cast double to integer value.
             *d = (int) *s;
 
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast integer double. The destination is null.");
+            fwprintf(stdout, L"Error: Could not cast integer double. The destination is null. p0: %i\n", p0);
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast integer double. The source is null.");
+        fwprintf(stdout, L"Error: Could not cast integer double. The source is null. p1: %i\n", p1);
     }
 }
 

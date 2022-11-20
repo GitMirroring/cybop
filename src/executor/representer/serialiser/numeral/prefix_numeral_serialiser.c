@@ -71,7 +71,10 @@ void serialise_numeral_prefix(void* p0, void* p1, void* p2) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // Append NOTHING, since decimal numbers do NOT have a prefix.
+            // CAUTION! Append NOTHING, since decimal numbers do NOT have a prefix.
+            //
+            // CAUTION! Do NOT delete this empty section since otherwise,
+            // a warning will be printed by the last if-branch below.
             //
         }
     }

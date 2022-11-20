@@ -24,7 +24,13 @@ _____________
 Numeral Deserialiser
 ____________________
 
-        * Search all source code for casts to "int" via "cast_integer_double", in order to apply special handling (add/subtract 0.5 to avoid imprecise floating point number)
+        * Add cybol language properties constraints "sign", "number_base", "classic_octal_prefix", "decimal_places" and "scientific_notation"
+        * Forward language properties constraints to cybol serialiser functions, so that child nodes can access them, since they are given only for the destination root node
+
+        * Call "serialise_numeral_vector" instead of just "serialise_numeral" in file "cybol_serialiser.c" and others where numeral serialiser is used
+
+        * Search all source code for casts to "int" via (int) x AND also via function "cast_integer_double", in order to apply special handling (add/subtract 0.5 to avoid imprecise floating point number)
+            ==> do this in function "cast_integer_double" (at one place usable by all source code)
 
         * Test cybol application "serialisation/cybol/" and make scientific notation get de-/serialised properly
             --> error is probably in detector which returns 1 even if one of the two arguments is null
@@ -1229,4 +1235,98 @@ _____
         * Goldener Schnitt ??
         * 1/3 + 2/3 = name + model = key + value
         * Fraktale
+
+Type Casting and Rounding
+_________________________
+
+#ifndef DOUBLE_INTEGER_CASTER_SOURCE
+#define DOUBLE_INTEGER_CASTER_SOURCE
+
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/double_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/calculator/double/add_double_calculator.c"
+#include "../../../executor/calculator/double/subtract_double_calculator.c"
+#include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
+#include "../../../executor/copier/double_copier.c"
+#include "../../../logger/logger.c"
+
+/**
+ * Casts the source of type double to the destination of type integer.
+ *
+ * CAUTION! The fractional/decimal post-point value gets lost.
+ *
+ * CAUTION! Floating point numbers are precision-dependent and have an inaccuracy.
+ * For example, the decimal number 9.2 is never exactly equal to 9.2:
+ * - 32-bit "single precision" float: 9.19999980926513671875
+ * - 64-bit "double precision" float: 9.199999999999999289457264239899814128875732421875
+ * https://stackoverflow.com/questions/21895756/why-are-floating-point-numbers-inaccurate
+ *
+ * This has the effect that when casting for example the double value 4.0
+ * which is internally represented as 3.999... to integer it becomes 3,
+ * even though 4 would be expected.
+ *
+ * Therefore, the following preparation has to be applied BEFORE casting:
+ * x > 0: add 0.5
+ * x < 0: subtract 0.5
+ * where x is the value to be casted.
+ * https://stackoverflow.com/questions/9695329/c-how-to-round-a-double-to-an-int
+ *
+ * @param p0 the destination
+ * @param p1 the source
+ */
+void cast_integer_double(void* p0, void* p1) {
+
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            int* d = (int*) p0;
+
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cast integer double.");
+            //?? fwprintf(stdout, L"Debug: Cast integer double. *p1: %f\n", *((int*) p1));
+
+            //
+            // The temporary value to be prepared for casting.
+            //
+            // CAUTION! It IS necessary in order to AVOID manipulation
+            // of the original source value.
+            //
+            double p = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+            // The comparison result.
+            int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+            // Copy decimals (post point value) to that prepared for casting.
+            copy_double((void*) &p, p1);
+
+            compare_double_greater_or_equal((void*) &r, (void*) &p, (void*) NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL);
+
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                calculate_double_add((void*) &p, (void*) NUMBER_0_5_DOUBLE_STATE_CYBOI_MODEL);
+
+            } else {
+
+                calculate_double_subtract((void*) &p, (void*) NUMBER_0_5_DOUBLE_STATE_CYBOI_MODEL);
+            }
+
+            // Cast double to integer value.
+            *d = (int) p;
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast integer double. The destination is null.");
+            fwprintf(stdout, L"Error: Could not cast integer double. The destination is null. p0: %i\n", p0);
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast integer double. The source is null.");
+        fwprintf(stdout, L"Error: Could not cast integer double. The destination is null. p1: %i\n", p1);
+    }
+}
+
+/* DOUBLE_INTEGER_CASTER_SOURCE */
+#endif
 

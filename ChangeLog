@@ -21,6 +21,7 @@
 2022-11-20  Christian Heller  <christian.heller@cybop.org>
 
         * Debug wrong copying of values with function "copy_pointer" in files "constraints_cybol_deserialiser.c", "constraints_json_deserialiser.c", "constraints_field_xdt_deserialiser.c"
+        * Round number before processing single digits in file "decimals_numeral_serialiser.c"
 
 2022-11-19  Christian Heller  <christian.heller@cybop.org>
 
