@@ -81,21 +81,46 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
 /*??
     fwprintf(stdout, L"Debug: Select numeral value. p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Select numeral value. *p3: %i\n", *((int*) p3));
     fwprintf(stdout, L"Debug: Select numeral value. p2: %i\n", p2);
     fwprintf(stdout, L"Debug: Select numeral value. p2 as string: %ls\n", (wchar_t*) p2);
 
-    fwprintf(stdout, L"Debug: Select numeral value. dc: %i\n", dc);
-    fwprintf(stdout, L"Debug: Select numeral value. dd: %i\n", dd);
-    fwprintf(stdout, L"Debug: Select numeral value. dd as string: %ls\n", (wchar_t*) dd);
+    fwprintf(stdout, L"Debug: Select numeral value. pre dc: %i\n", dc);
+    fwprintf(stdout, L"Debug: Select numeral value. pre dd: %i\n", dd);
+    fwprintf(stdout, L"Debug: Select numeral value. pre dd as string: %ls\n", (wchar_t*) dd);
 */
 
-    // Assign decimal separator data, count.
-    copy_pointer((void*) &dd, (void*) &p2);
-    copy_integer((void*) &dc, p3);
-    // Assign thousands separator data, count.
-    copy_pointer((void*) &td, (void*) &p4);
-    copy_integer((void*) &tc, p5);
+    //
+    // CAUTION! The following checks for null ARE necessary BEFORE copying the pointer,
+    // in order to ensure that the initial destination value remains untouched
+    // in case the parametres are null.
+    //
+    // The count integer value gets copied ONLY if the source value is NOT NULL,
+    // which is checked inside the function "copy_integer".
+    // However, for copying the data pointer, this would NOT work, since its value
+    // has to be handed over as pointer REFERENCE, but can then never be null,
+    // which makes the check for null inside function "copy_pointer" useless.
+    // Therefore, the data pointer gets checked here as well.
+    //
+
+    if ((p2 != *NULL_POINTER_STATE_CYBOI_MODEL) && (p3 != *NULL_POINTER_STATE_CYBOI_MODEL)) {
+
+        // Assign decimal separator data, count.
+        copy_pointer((void*) &dd, (void*) &p2);
+        copy_integer((void*) &dc, p3);
+    }
+
+    if ((p4 != *NULL_POINTER_STATE_CYBOI_MODEL) && (p5 != *NULL_POINTER_STATE_CYBOI_MODEL)) {
+
+        // Assign thousands separator data, count.
+        copy_pointer((void*) &td, (void*) &p4);
+        copy_integer((void*) &tc, p5);
+    }
+
+/*??
+    fwprintf(stdout, L"Debug: Select numeral value. post dc: %i\n", dc);
+    fwprintf(stdout, L"Debug: Select numeral value. post dd: %i\n", dd);
+    fwprintf(stdout, L"Debug: Select numeral value. post dd as string: %ls\n", (wchar_t*) dd);
+*/
 
     //
     // CAUTION! The ORDER of the following comparisons is IMPORTANT!
@@ -121,15 +146,10 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        fwprintf(stdout, L"Debug: Select numeral value. section decimals *p0 lc: %lc\n", *((wchar_t*) *((void**) p0)));
-        fwprintf(stdout, L"Debug: Select numeral value. section decimals dd: %ls\n", (wchar_t*) dd);
-
         // .
         detect((void*) &r, p0, p1, dd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &dc, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            fwprintf(stdout, L"Debug: Select numeral value. section decimals r: %i\n", r);
 
             // Assign format and type.
             copy_integer(p8, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT);

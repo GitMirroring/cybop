@@ -24,10 +24,10 @@ _____________
 Numeral Deserialiser
 ____________________
 
+        * Search all source code for casts to "int" via "cast_integer_double", in order to apply special handling (add/subtract 0.5 to avoid imprecise floating point number)
+
         * Test cybol application "serialisation/cybol/" and make scientific notation get de-/serialised properly
             --> error is probably in detector which returns 1 even if one of the two arguments is null
-
-        * Search all source code for casts to "int" via "cast_integer_double", in order to apply special handling (add/subtract 0.5 to avoid imprecise floating point number)
 
         * Factor out sub functions of file "number_numeral_deserialiser.c" into separate files
         * Factor out sub functions of files in numeral serialiser into separate files

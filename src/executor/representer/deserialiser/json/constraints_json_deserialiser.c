@@ -106,33 +106,11 @@ void deserialise_json_constraints(void* p0, void* p1, void* p2, void* p3, void* 
     copy_array_forward((void*) &tmc, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     //
-    // Default values
-    //
-
-    // Set decimal separator data, count default.
-    void* decimal_separator_data = SEPARATOR_DECIMAL_NUMERAL_NAME;
-    int decimal_separator_count = *SEPARATOR_DECIMAL_NUMERAL_NAME_COUNT;
-    // Set thousands separator data, count default.
-    void* thousands_separator_data = SEPARATOR_THOUSANDS_NUMERAL_NAME;
-    int thousands_separator_count = *SEPARATOR_THOUSANDS_NUMERAL_NAME_COUNT;
-
-    //
-    // CAUTION! The following values are ONLY copied,
-    // if the source value is NOT NULL.
-    // This is tested inside the "copy_integer" function.
-    // Otherwise, the destination value remains as is.
-    //
-    copy_pointer((void*) &decimal_separator_data, (void*) &dmd);
-    copy_integer((void*) &decimal_separator_count, dmc);
-    copy_pointer((void*) &thousands_separator_data, (void*) &tmd);
-    copy_integer((void*) &thousands_separator_count, tmc);
-
-    //
     // Functionality
     //
 
     // Deserialise json value.
-    deserialise_json_value(p0, p1, p2, p3, decimal_separator_data, (void*) &decimal_separator_count, thousands_separator_data, (void*) &thousands_separator_count, (void*) ROOT_JSON_CYBOI_NAME, (void*) ROOT_JSON_CYBOI_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_json_value(p0, p1, p2, p3, dmd, dmc, tmd, tmc, (void*) ROOT_JSON_CYBOI_NAME, (void*) ROOT_JSON_CYBOI_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL);
 }
 
 /* CONSTRAINTS_JSON_DESERIALISER_SOURCE */

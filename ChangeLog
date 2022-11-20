@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-11-20  Christian Heller  <christian.heller@cybop.org>
+
+        * Debug wrong copying of values with function "copy_pointer" in files "constraints_cybol_deserialiser.c", "constraints_json_deserialiser.c", "constraints_field_xdt_deserialiser.c"
+
 2022-11-19  Christian Heller  <christian.heller@cybop.org>
 
         * Fix bug at several places in source code that SEPARATOR_DECIMAL_NUMERAL_NAME got handed over as reference instead of as pure pointer value, so that types got not recognised correctly in file "verification_numeral_deserialiser.c"
