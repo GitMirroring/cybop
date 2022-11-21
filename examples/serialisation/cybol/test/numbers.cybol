@@ -9,9 +9,10 @@
         <node name="negative_octal" channel="inline" format="number/integer" model="-030"/>
         <node name="hexadecimal" channel="inline" format="number/integer" model="0x18"/>
         <node name="negative_hexadecimal" channel="inline" format="number/integer" model="-0x18"/>
+        <node name="hexadecimal_small_letter" channel="inline" format="number/integer" model="0xb"/>
 -->
-        <node name="hexadecimal_letters" channel="inline" format="number/integer" model="0x1c"/>
 <!--
+        <node name="hexadecimal_capital_letter" channel="inline" format="number/integer" model="0x1C"/>
         <node name="array" channel="inline" format="number/integer" model="0,1,2,3,4"/>
 -->
     </node>

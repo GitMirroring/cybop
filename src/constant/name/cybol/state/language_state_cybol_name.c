@@ -41,6 +41,14 @@
 //
 
 /**
+ * The classic octal prefix language state cybol name.
+ *
+ * It is used in the numeral serialiser.
+ */
+static wchar_t* CLASSIC_OCTAL_PREFIX_LANGUAGE_STATE_CYBOL_NAME = L"classic_octal_prefix";
+static int* CLASSIC_OCTAL_PREFIX_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The clear language state cybol name.
  *
  * Used with text (pseudo) terminal.
@@ -48,6 +56,14 @@
  */
 static wchar_t* CLEAR_LANGUAGE_STATE_CYBOL_NAME = L"clear";
 static int* CLEAR_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The decimal places language state cybol name.
+ *
+ * It is used in the numeral serialiser.
+ */
+static wchar_t* DECIMAL_PLACES_LANGUAGE_STATE_CYBOL_NAME = L"decimal_places";
+static int* DECIMAL_PLACES_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The decimal separator language state cybol name.
@@ -138,6 +154,14 @@ static wchar_t* NORMALISATION_LANGUAGE_STATE_CYBOL_NAME = L"normalisation";
 static int* NORMALISATION_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The number base language state cybol name.
+ *
+ * It is used in the numeral serialiser.
+ */
+static wchar_t* NUMBER_BASE_LANGUAGE_STATE_CYBOL_NAME = L"number_base";
+static int* NUMBER_BASE_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The quotation language state cybol name.
  *
  * Used with joined strings or character (comma) separated values (csv).
@@ -150,6 +174,24 @@ static int* NORMALISATION_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_13_INTEGER_ST
  */
 static wchar_t* QUOTATION_LANGUAGE_STATE_CYBOL_NAME = L"quotation";
 static int* QUOTATION_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The scientific notation language state cybol name.
+ *
+ * It is used in the numeral serialiser.
+ */
+static wchar_t* SCIENTIFIC_NOTATION_LANGUAGE_STATE_CYBOL_NAME = L"scientific_notation";
+static int* SCIENTIFIC_NOTATION_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The sign language state cybol name.
+ *
+ * It is used in the numeral serialiser as FLAG indicating whether or not
+ * a plus sign shall be printed at the beginning of positive numbers.
+ * A minus sign, on the other hand, gets ALWAYS printed if a number is negative.
+ */
+static wchar_t* SIGN_LANGUAGE_STATE_CYBOL_NAME = L"sign";
+static int* SIGN_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The thousands separator language state cybol name.

@@ -22,6 +22,7 @@
 
         * Consider zero before looping with remainder in file "integer_numeral_serialiser.c", so that a leading zero does not get lost
         * Add small and capital hexadecimal letters to files "digit_wide_character_to_integer_mapper.c" and "integer_to_digit_wide_character_mapper.c" as well as to "digit_character_to_integer_mapper.c"
+        * Add cybol language properties constraints "sign", "number_base", "classic_octal_prefix", "decimal_places" and "scientific_notation" to file "language_state_cybol_name.c"
 
 2022-11-20  Christian Heller  <christian.heller@cybop.org>
 

@@ -42,7 +42,7 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram">
-            <node name="decimal_places" channel="inline" format="number/integer" model="6"/>
+            <node name="decimal_places" channel="inline" format="number/integer" model="8"/>
         </node>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".data"/>
