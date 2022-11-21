@@ -68,14 +68,6 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4)
     fwprintf(stdout, L"Debug: Serialise numeral integer. source number *p1: %i\n", *((int*) p1));
 
     //
-    // The temporary number.
-    //
-    // CAUTION! It is necessary in order to avoid manipulation of
-    // the original number, for example when calculating the
-    // absolute value below.
-    //
-    int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    //
     // The temporary number wide character item.
     //
     // CAUTION! It is necessary since the single digits get inserted at the
@@ -86,16 +78,26 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4)
     // The temporary number wide character item data, count.
     void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* ic = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //
+    // The temporary number.
+    //
+    // CAUTION! It is necessary in order to avoid manipulation of
+    // the original number, for example when calculating the
+    // absolute value below.
+    //
+    int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The negative number comparison result.
     int neg = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The sign flag comparison result.
     int s = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The zero flag comparison result.
+    int z = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The digit as wide character.
+    wchar_t wc = *NULL_UNICODE_CHARACTER_CODE_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The remainder.
     int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The digit as wide character.
-    wchar_t wc = *NULL_UNICODE_CHARACTER_CODE_MODEL;
 
     // Initialise temporary number.
     copy_integer((void*) &n, p1);
@@ -136,34 +138,46 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4)
     //
     allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    //
-    // Append pre-point value.
-    //
-    // Beispielzahl: 124
-    // Basis: 10
-    //
-    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+    compare_integer_equal((void*) &z, (void*) &n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-        compare_integer_less_or_equal((void*) &b, (void*) &n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    if (z != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        // Map integer value to a unicode digit wide character.
+        map_integer_to_digit_wide_character((void*) &wc, (void*) &n);
+        // Insert remainder as digit wide character at the BEGINNING.
+        modify_item(i, (void*) &wc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INSERT_MODIFY_LOGIC_CYBOI_FORMAT);
 
-            break;
+    } else {
 
-        } else {
+        //
+        // Append pre-point value.
+        //
+        // Beispielzahl: 124
+        // Basis: 10
+        //
+        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Initialise remainder.
-            copy_integer((void*) &r, (void*) &n);
-            // Calculate remainder.
-            calculate_integer_modulo((void*) &r, p3);
+            compare_integer_less_or_equal((void*) &b, (void*) &n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-            // Map integer value to a unicode digit wide character.
-            map_integer_to_digit_wide_character((void*) &wc, (void*) &r);
-            // Insert remainder as digit wide character at the BEGINNING.
-            modify_item(i, (void*) &wc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INSERT_MODIFY_LOGIC_CYBOI_FORMAT);
+            if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Divide number by base.
-            calculate_integer_divide((void*) &n, p3);
+                break;
+
+            } else {
+
+                // Initialise remainder.
+                copy_integer((void*) &r, (void*) &n);
+                // Calculate remainder.
+                calculate_integer_modulo((void*) &r, p3);
+
+                // Map integer value to a unicode digit wide character.
+                map_integer_to_digit_wide_character((void*) &wc, (void*) &r);
+                // Insert remainder as digit wide character at the BEGINNING.
+                modify_item(i, (void*) &wc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INSERT_MODIFY_LOGIC_CYBOI_FORMAT);
+
+                // Divide number by base.
+                calculate_integer_divide((void*) &n, p3);
+            }
         }
     }
 

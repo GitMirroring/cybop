@@ -24,6 +24,8 @@ _____________
 Numeral Deserialiser
 ____________________
 
+        * Uncomment assigning of decimal places in file "decimals_numeral_serialiser.c" (was commented out for testing)
+
         * Add cybol language properties constraints "sign", "number_base", "classic_octal_prefix", "decimal_places" and "scientific_notation"
         * Forward language properties constraints to cybol serialiser functions, so that child nodes can access them, since they are given only for the destination root node
 

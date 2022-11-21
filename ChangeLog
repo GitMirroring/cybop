@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-11-21  Christian Heller  <christian.heller@cybop.org>
+
+        * Consider zero before looping with remainder in file "integer_numeral_serialiser.c", so that a leading zero does not get lost
+        * Add small and capital hexadecimal letters to files "digit_wide_character_to_integer_mapper.c" and "integer_to_digit_wide_character_mapper.c" as well as to "digit_character_to_integer_mapper.c"
+
 2022-11-20  Christian Heller  <christian.heller@cybop.org>
 
         * Debug wrong copying of values with function "copy_pointer" in files "constraints_cybol_deserialiser.c", "constraints_json_deserialiser.c", "constraints_field_xdt_deserialiser.c"
