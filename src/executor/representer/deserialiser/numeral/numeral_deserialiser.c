@@ -52,6 +52,12 @@
  * - afterwards, a new number part may get allocated and
  *   its model item assigned to the destination number item
  *
+ * CAUTION! The retrieval of language properties constraints such as the
+ * decimal separator should NOT happen here since then, they would have
+ * to be read for each single number which is not very efficient.
+ * Therefore, retrieve the constraints somewhere outside in the calling
+ * function and hand them over as ready parametres to here.
+ *
  * @param p0 the destination number (for cybol deserialiser; null for json)
  * @param p1 the destination number part (pointer reference)
  * @param p2 the source wide character data

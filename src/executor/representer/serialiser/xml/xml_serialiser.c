@@ -39,12 +39,19 @@
  * @param p0 the destination item
  * @param p1 the source model data
  * @param p2 the source model count
- * @param p3 the indentation flag
- * @param p4 the indentation level
- * @param p5 the void flag
- * @param p6 the format
+ * @param p3 the sign flag
+ * @param p4 the number base
+ * @param p5 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param p6 the decimal separator data
+ * @param p7 the decimal separator count
+ * @param p8 the decimal places
+ * @param p9 the scientific notation flag
+ * @param p10 the indentation flag
+ * @param p11 the indentation level
+ * @param p12 the void flag
+ * @param p13 the format
  */
-void serialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void serialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xml.");
 
@@ -57,21 +64,21 @@ void serialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_xml_part(p0, p1, p2, p3, p4, p5);
+            serialise_xml_part(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) PROPERTY_ELEMENT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) PROPERTY_ELEMENT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_xml_part(p0, p1, p2, p3, p4, p5);
+            serialise_xml_part(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
 
@@ -82,7 +89,7 @@ void serialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Leave processing of other formats to cybol serialiser.
-        serialise_cybol(p0, p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p6);
+        serialise_cybol(p0, p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3, p4, p5, p6, p7, p8, p9, p13);
     }
 }
 

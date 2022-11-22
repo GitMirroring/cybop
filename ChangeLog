@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-11-22  Christian Heller  <christian.heller@cybop.org>
+
+        * Add file "constraints_cybol_serialiser.c" for reading language properties constraints
+        * Adapt xml serialiser to language properties constraints
+
 2022-11-21  Christian Heller  <christian.heller@cybop.org>
 
         * Consider zero before looping with remainder in file "integer_numeral_serialiser.c", so that a leading zero does not get lost

@@ -40,8 +40,15 @@
  * @param p0 the destination item
  * @param p1 the source model data
  * @param p2 the source model index
+ * @param p3 the sign flag
+ * @param p4 the number base
+ * @param p5 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param p6 the decimal separator data
+ * @param p7 the decimal separator count
+ * @param p8 the decimal places
+ * @param p9 the scientific notation flag
  */
-void serialise_cybol_element(void* p0, void* p1, void* p2) {
+void serialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol element.");
 
@@ -94,7 +101,7 @@ void serialise_cybol_element(void* p0, void* p1, void* p2) {
     //
 
     // Serialise part element content.
-    serialise_cybol_content(p0, nd, nc, fd, md, mc, pd, pc);
+    serialise_cybol_content(p0, nd, nc, fd, md, mc, pd, pc, p3, p4, p5, p6, p7, p8, p9);
 }
 
 /* ELEMENT_CYBOL_SERIALISER_SOURCE */

@@ -24,13 +24,33 @@ _____________
 Numeral Deserialiser
 ____________________
 
-        * Forward language properties constraints to cybol serialiser functions, so that child nodes can access them, since they are given only for the destination root node
+        * After having finished editing, UNCOMMENT call of "serialise_cybol" in:
+            model_diagram_serialiser.c
+            element_part_model_diagram_serialiser.c
+            string_json_serialiser.c
+            html_serialiser.c
+            primitive_tui_serialiser.c
+            gui_serialiser.c
+        * Uncomment function calls in file "serialiser.c"
 
-            SIGN_LANGUAGE_STATE_CYBOL_NAME = L"sign";
-            NUMBER_BASE_LANGUAGE_STATE_CYBOL_NAME = L"number_base";
-            CLASSIC_OCTAL_PREFIX_LANGUAGE_STATE_CYBOL_NAME = L"classic_octal_prefix";
-            DECIMAL_PLACES_LANGUAGE_STATE_CYBOL_NAME = L"decimal_places";
-            SCIENTIFIC_NOTATION_LANGUAGE_STATE_CYBOL_NAME = L"scientific_notation";
+ * @param px the sign flag
+ * @param px the number base
+ * @param px the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param px the decimal separator data
+ * @param px the decimal separator count
+ * @param px the decimal places
+ * @param px the scientific notation flag
+
+        * Add file "constraints_model_diagram_serialiser.c" for reading language properties constraints
+            start by searching "serialise_cybol" in file "model_diagram_serialiser.c"
+        * Add file "constraints_json_serialiser.c" for reading language properties constraints
+            start by searching "serialise_cybol" in file "string_json_serialiser.c"
+        * Add file "constraints_html_serialiser.c" for reading language properties constraints
+            start by searching "serialise_cybol" in file "html_serialiser.c"
+        * Add file "constraints_tui_serialiser.c" for reading language properties constraints
+            start by searching "serialise_cybol" in file "primitive_tui_serialiser.c"
+        * Add file "constraints_gui_serialiser.c" for reading language properties constraints
+            start by searching "serialise_cybol" in file "gui_serialiser.c"
 
         * Uncomment assigning of decimal places in file "decimals_numeral_serialiser.c" (was commented out for testing)
 
@@ -75,6 +95,8 @@ ____________________
 
 JSON
 ____
+
+        * Refactor file "json_serialiser.c" a little bit so that number vectors are serialised using semicolon as separator and do NOT (as currently done) put them in quotation marks
 
         * Add file "type_json_deserialiser.c" with branching for the different number types
 

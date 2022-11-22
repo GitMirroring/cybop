@@ -36,13 +36,13 @@
 #include "../../../executor/representer/serialiser/binary_crlf/binary_crlf_serialiser.c"
 #include "../../../executor/representer/serialiser/cli/constraints_cli_serialiser.c"
 //?? #include "../../../executor/representer/serialiser/csv/csv_serialiser.c"
-#include "../../../executor/representer/serialiser/cybol/cybol_serialiser.c"
+#include "../../../executor/representer/serialiser/cybol/constraints_cybol_serialiser.c"
 #include "../../../executor/representer/serialiser/gui/initial_gui_serialiser.c"
-#include "../../../executor/representer/serialiser/html/constraints_html_serialiser.c"
+#include "../../../executor/representer/serialiser/html/html_serialiser.c"
 #include "../../../executor/representer/serialiser/http_request/http_request_serialiser.c"
 #include "../../../executor/representer/serialiser/http_response/http_response_serialiser.c"
 //?? #include "../../../executor/representer/serialiser/joined_string/joined_string_serialiser.c"
-#include "../../../executor/representer/serialiser/json/constraints_json_serialiser.c"
+#include "../../../executor/representer/serialiser/json/json_serialiser.c"
 //
 // CAUTION! Do NOT include the "content_element_part_model_diagram_serialiser.c" module.
 // It is true, the "serialise_model_diagram_part_element_content" function is called from here,
@@ -54,7 +54,7 @@
 #include "../../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
 #include "../../../executor/representer/serialiser/terminal_mode/terminal_mode_serialiser.c"
 //?? #include "../../../executor/representer/serialiser/textline_list/textline_list_serialiser.c"
-#include "../../../executor/representer/serialiser/tui/constraints_tui_serialiser.c"
+#include "../../../executor/representer/serialiser/tui/tui_serialiser.c"
 #include "../../../executor/representer/serialiser/tui/primitive_tui_serialiser.c"
 //?? #include "../../../executor/representer/serialiser/xdt_field_description/xdt_field_description_serialiser.c"
 #include "../../../executor/representer/serialiser/xdt/xdt_serialiser.c"
@@ -75,7 +75,7 @@
 /**
  * Serialises the source into the destination, according to the given language.
  *
- * @param p0 the destination item
+ * @param p0 the destination wide character item
  * @param p1 the source model data
  * @param p2 the source model count
  * @param p3 the source properties data
@@ -115,8 +115,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Retrieve language properties (constraints) necessary for serialisation.
-            serialise_json_constraints(p0, p1, p2, p5, p6, p7, p8, p9);
+            serialise_json(p0, p1, p2, p5, p6, p7, p8, p9);
         }
     }
 
@@ -158,7 +157,6 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             // Serialise data and encode them as utf-8 multibyte character sequence.
             serialise_tui_primitive(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p11);
 
-            // Retrieve language properties (constraints) necessary for serialisation.
             serialise_cli_constraints(p0, p5, p6, p7, p8, p9);
         }
     }
@@ -205,8 +203,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Retrieve language properties (constraints) necessary for serialisation.
-            serialise_tui_constraints(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11);
+            //?? TODO: serialise_tui(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11);
         }
     }
 
@@ -264,7 +261,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol(p0, p1, p2, p3, p4, p11);
+            serialise_cybol_constraints(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11);
         }
     }
 
@@ -284,8 +281,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Retrieve language properties (constraints) necessary for serialisation.
-            serialise_html_constraints(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11);
+            //?? TODO: serialise_html(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11);
         }
     }
 
@@ -323,7 +319,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             //
             int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-            serialise_model_diagram_part_element_content(p0, (void*) L"[selected_node]", (void*) NUMBER_15_INTEGER_STATE_CYBOI_MODEL, p11, p1, p2, p3, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l);
+            serialise_model_diagram_part_element_content(p0, (void*) L"[selected_node]", (void*) NUMBER_15_INTEGER_STATE_CYBOI_MODEL, p11, p1, p2, p3, p4, p5, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l);
         }
     }
 

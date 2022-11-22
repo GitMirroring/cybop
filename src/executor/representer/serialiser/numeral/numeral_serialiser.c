@@ -43,6 +43,12 @@
  * A description of possible numeral formats can be found
  * in file "number_state_cybol_format.c".
  *
+ * CAUTION! The retrieval of language properties constraints such as the
+ * decimal separator should NOT happen here since then, they would have
+ * to be read for each single number which is not very efficient.
+ * Therefore, retrieve the constraints somewhere outside in the calling
+ * function and hand them over as ready parametres to here.
+ *
  * @param p0 the destination wide character item
  * @param p1 the source number
  * @param p2 the sign flag

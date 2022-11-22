@@ -39,7 +39,7 @@
 // Forward declarations
 //
 
-void serialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void serialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13);
 
 /**
  * Serialises the primitive filled part element into xml.
@@ -47,13 +47,20 @@ void serialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
  * @param p0 the destination item
  * @param p1 the source model data
  * @param p2 the source model count
- * @param p3 the indentation flag
- * @param p4 the indentation level
- * @param p5 the void flag
- * @param p6 the format
- * @param p7 the preformatted data
+ * @param p3 the sign flag
+ * @param p4 the number base
+ * @param p5 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param p6 the decimal separator data
+ * @param p7 the decimal separator count
+ * @param p8 the decimal places
+ * @param p9 the scientific notation flag
+ * @param p10 the indentation flag
+ * @param p11 the indentation level
+ * @param p12 the void flag
+ * @param p13 the format
+ * @param p14 the preformatted data
  */
-void serialise_xml_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void serialise_xml_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xml primitive.");
 
@@ -71,7 +78,7 @@ void serialise_xml_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // so that the corresponding flag is NULL.
     // Or, the flag IS given, but was set to FALSE.
     //
-    if ((p7 == *NULL_POINTER_STATE_CYBOI_MODEL) || ((p7 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p7) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
+    if ((p14 == *NULL_POINTER_STATE_CYBOI_MODEL) || ((p14 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p14) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
         //
         // This is a primitive value, NOT a compound element.
@@ -99,7 +106,7 @@ void serialise_xml_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, v
         //
 
         // Serialise indentation.
-        serialise_xml_indentation(p0, p3, p4);
+        serialise_xml_indentation(p0, p10, p11);
     }
 
     //
@@ -125,7 +132,7 @@ void serialise_xml_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, v
     allocate_item((void*) &r, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Serialise primitive value, e.g. a date, number or arbitrary text.
-    serialise_xml(r, p1, p2, p3, p4, p5, p6);
+    serialise_xml(r, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
 
     //
     // Get numeric character reference item data, count.
@@ -167,7 +174,7 @@ void serialise_xml_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, v
     //
 
     // Serialise line break.
-    serialise_xml_break(p0, p3);
+    serialise_xml_break(p0, p10);
 }
 
 /* PRIMITIVE_XML_SERIALISER_SOURCE */

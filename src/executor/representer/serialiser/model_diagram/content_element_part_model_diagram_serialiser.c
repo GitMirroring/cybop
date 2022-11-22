@@ -40,7 +40,7 @@
 // Forward declarations
 //
 
-void serialise_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void serialise_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
 void serialise_model_diagram_part(void* p0, void* p1, void* p2, void* p3, void* p4);
 
 /**
@@ -54,17 +54,19 @@ void serialise_model_diagram_part(void* p0, void* p1, void* p2, void* p3, void* 
  * @param p5 the source model count
  * @param p6 the source properties data
  * @param p7 the source properties count
- * @param p8 the properties flag
- * @param p9 the tree level
+ * @param p8 the language properties (constraints) data
+ * @param p9 the language properties (constraints) count
+ * @param p10 the properties flag
+ * @param p11 the tree level
  */
-void serialise_model_diagram_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void serialise_model_diagram_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise model diagram part element content.");
-    //?? fwprintf(stdout, L"Debug: Serialise model diagram part element content. tree level p9: %i\n", p9);
-    //?? fwprintf(stdout, L"Debug: Serialise model diagram part element content. tree level *p9: %i\n", *((int*) p9));
+    //?? fwprintf(stdout, L"Debug: Serialise model diagram part element content. tree level p11: %i\n", p11);
+    //?? fwprintf(stdout, L"Debug: Serialise model diagram part element content. tree level *p11: %i\n", *((int*) p11));
 
     // Append indentation.
-    serialise_model_diagram_indentation(p0, p8, p9);
+    serialise_model_diagram_indentation(p0, p10, p11);
     // Append part name.
     modify_item(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
     // Append line.
@@ -74,9 +76,9 @@ void serialise_model_diagram_part_element_content(void* p0, void* p1, void* p2, 
     // Append line.
     serialise_model_diagram_line(p0);
     // Append part model.
-    serialise_model_diagram(p0, p4, p5, p6, p7, p9, p3);
+    serialise_model_diagram(p0, p4, p5, p6, p7, p8, p9, p11, p3);
     // Append part properties.
-    serialise_model_diagram_part(p0, p6, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p9);
+    serialise_model_diagram_part(p0, p6, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p11);
 }
 
 /* CONTENT_ELEMENT_PART_MODEL_DIAGRAM_SERIALISER_SOURCE */

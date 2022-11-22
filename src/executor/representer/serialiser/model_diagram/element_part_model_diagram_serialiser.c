@@ -94,7 +94,7 @@ void serialise_model_diagram_part_element(void* p0, void* p1, void* p2, void* p3
     modify_item(p0, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
     // Serialise part element content.
-    serialise_model_diagram_part_element_content(p0, nd, nc, fd, md, mc, pd, pc, p3, p4);
+    //?? TODO: serialise_model_diagram_part_element_content(p0, nd, nc, fd, md, mc, pd, pc, p3, p4);
 }
 
 /* ELEMENT_PART_MODEL_DIAGRAM_SERIALISER_SOURCE */

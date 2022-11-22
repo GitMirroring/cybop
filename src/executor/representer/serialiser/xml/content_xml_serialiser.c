@@ -48,12 +48,19 @@
  * @param p2 the source model count
  * @param p3 the source properties data
  * @param p4 the source properties count
- * @param p5 the indentation flag
- * @param p6 the indentation level
- * @param p7 the void flag
- * @param p8 the format
+ * @param p5 the sign flag
+ * @param p6 the number base
+ * @param p7 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param p8 the decimal separator data
+ * @param p9 the decimal separator count
+ * @param p10 the decimal places
+ * @param p11 the scientific notation flag
+ * @param p12 the indentation flag
+ * @param p13 the indentation level
+ * @param p14 the void flag
+ * @param p15 the format
  */
-void serialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void serialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xml content.");
 
@@ -92,8 +99,10 @@ void serialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // Get preformatted part model item data.
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    //
     // Assign default tag name for each nameless tag,
     // for which no "tag" property has been specified.
+    //
     if ((tmd == *NULL_POINTER_STATE_CYBOI_MODEL) || (tmc == *NULL_POINTER_STATE_CYBOI_MODEL)) {
 
         tmd = (void*) NODE_XML_CYBOL_NAME;
@@ -103,21 +112,21 @@ void serialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // Test if source model count is empty.
     compare_integer_less_or_equal((void*) &e, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     // Serialise indentation.
-    serialise_xml_indentation(p0, p5, p6);
+    serialise_xml_indentation(p0, p12, p13);
     // Append begin tag.
-    serialise_xml_begin(p0, tmd, tmc, p3, p4, (void*) &e, p7);
+    serialise_xml_begin(p0, tmd, tmc, p3, p4, (void*) &e, p14);
     // Serialise line break.
-    serialise_xml_break(p0, p5);
+    serialise_xml_break(p0, p12);
 
     if (e != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // The content IS empty.
-        serialise_xml_empty(p0, tmd, tmc, p5, p6, p7);
+        serialise_xml_empty(p0, tmd, tmc, p12, p13, p14);
 
     } else {
 
         // The content is NOT empty.
-        serialise_xml_filled(p0, p1, p2, tmd, tmc, pmd, p5, p6, p7, p8);
+        serialise_xml_filled(p0, p1, p2, p5, p6, p7, p8, p9, p10, p11, tmd, tmc, pmd, p12, p13, p14, p15);
     }
 }
 

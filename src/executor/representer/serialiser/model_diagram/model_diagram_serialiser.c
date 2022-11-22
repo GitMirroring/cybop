@@ -46,14 +46,16 @@
  * @param p2 the source model count
  * @param p3 the source properties data
  * @param p4 the source properties count
- * @param p5 the tree level
- * @param p6 the format
+ * @param p5 the language properties (constraints) data
+ * @param p6 the language properties (constraints) count
+ * @param p7 the tree level
+ * @param p8 the format
  */
-void serialise_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void serialise_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise model diagram.");
-    //?? fwprintf(stdout, L"Debug: Serialise model diagram. format p6: %i\n", p6);
-    //?? fwprintf(stdout, L"Debug: Serialise model diagram. format *p6: %i\n", *((int*) p6));
+    //?? fwprintf(stdout, L"Debug: Serialise model diagram. format p8: %i\n", p8);
+    //?? fwprintf(stdout, L"Debug: Serialise model diagram. format *p8: %i\n", *((int*) p8));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -64,17 +66,17 @@ void serialise_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p8, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_model_diagram_part(p0, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p5);
+            serialise_model_diagram_part(p0, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p7);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) PROPERTY_ELEMENT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p8, (void*) PROPERTY_ELEMENT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -85,7 +87,7 @@ void serialise_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4, v
             // The distinction between model and properties by setting the properties flag
             // is made in file "content_element_part_model_diagram_serialiser.c".
             //
-            serialise_model_diagram_part(p0, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p5);
+            serialise_model_diagram_part(p0, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p7);
         }
     }
 
@@ -96,7 +98,7 @@ void serialise_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4, v
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Leave processing of other formats to cybol serialiser.
-        serialise_cybol(p0, p1, p2, p3, p4, p6);
+        //?? TODO: serialise_cybol(p0, p1, p2, p3, p4, p5, p6, p8);
     }
 }
 
