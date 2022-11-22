@@ -37,20 +37,27 @@
 /**
  * Serialises the source cyboi knowledge tree into the destination json format.
  *
- * @param p0 the destination item
+ * @param p0 the destination wide character item
  * @param p1 the source model data
  * @param p2 the source model count
  * @param p3 the source properties data
  * @param p4 the source properties count
- * @param p5 the indentation flag
- * @param p6 the tree level
- * @param p7 the format
+ * @param p5 the sign flag
+ * @param p6 the number base
+ * @param p7 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param p8 the decimal separator data
+ * @param p9 the decimal separator count
+ * @param p10 the decimal places
+ * @param p11 the scientific notation flag
+ * @param p12 the indentation flag
+ * @param p13 the tree level
+ * @param p14 the format
  */
-void serialise_json(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void serialise_json(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise json.");
-    //?? fwprintf(stdout, L"Debug: Serialise json. format p7: %i\n", p7);
-    //?? fwprintf(stdout, L"Debug: Serialise json. format *p7: %i\n", *((int*) p7));
+    //?? fwprintf(stdout, L"Debug: Serialise json. format p14: %i\n", p14);
+    //?? fwprintf(stdout, L"Debug: Serialise json. format *p14: %i\n", *((int*) p14));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -61,17 +68,17 @@ void serialise_json(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p7, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p14, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_json_part(p0, p1, p2, p5, p6);
+            serialise_json_part(p0, p1, p2, p5, p6, p7, p8, p9, p10, p11, p12, p13);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p7, (void*) PROPERTY_ELEMENT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p14, (void*) PROPERTY_ELEMENT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -82,7 +89,7 @@ void serialise_json(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
             // The distinction between model and properties by setting the properties flag
             // is made in file "content_json_serialiser.c".
             //
-            serialise_json_part(p0, p1, p2, p5, p6);
+            serialise_json_part(p0, p1, p2, p5, p6, p7, p8, p9, p10, p11, p12, p13);
         }
     }
 
@@ -92,7 +99,7 @@ void serialise_json(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p7, (void*) BYTE_NUMBER_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p14, (void*) BYTE_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -106,7 +113,7 @@ void serialise_json(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) ASCII_TEXT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p14, (void*) ASCII_TEXT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -150,7 +157,7 @@ void serialise_json(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         // The currently implemented solution is number 3.
         //
 
-        serialise_json_string(p0, p1, p2, p3, p4, p7);
+        serialise_json_string(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p14);
     }
 }
 

@@ -41,14 +41,16 @@ ____________________
  * @param px the decimal places
  * @param px the scientific notation flag
 
-        * Add file "constraints_json_serialiser.c" for reading language properties constraints
-            start by searching "serialise_cybol" in file "string_json_serialiser.c"
         * Add file "constraints_html_serialiser.c" for reading language properties constraints
             start by searching "serialise_cybol" in file "html_serialiser.c"
         * Add file "constraints_tui_serialiser.c" for reading language properties constraints
             start by searching "serialise_cybol" in file "primitive_tui_serialiser.c"
         * Add file "constraints_gui_serialiser.c" for reading language properties constraints
             start by searching "serialise_cybol" in file "gui_serialiser.c"
+        POSSIBLY ??
+        * Add file "constraints_xml_serialiser.c" for reading language properties constraints ??
+        * Add xml serialiser as branch to file "serialiser.c"
+        * Add xml test cybol application "serialiser/xml/"
 
         * Uncomment assigning of decimal places in file "decimals_numeral_serialiser.c" (was commented out for testing)
 

@@ -23,6 +23,7 @@
         * Add file "constraints_cybol_serialiser.c" for reading language properties constraints
         * Adapt xml serialiser to language properties constraints
         * Add file "constraints_model_diagram_serialiser.c" for reading language properties constraints
+        * Add file "constraints_json_serialiser.c" for reading language properties constraints
 
 2022-11-21  Christian Heller  <christian.heller@cybop.org>
 
