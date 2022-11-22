@@ -43,15 +43,7 @@
 #include "../../../executor/representer/serialiser/http_response/http_response_serialiser.c"
 //?? #include "../../../executor/representer/serialiser/joined_string/joined_string_serialiser.c"
 #include "../../../executor/representer/serialiser/json/json_serialiser.c"
-//
-// CAUTION! Do NOT include the "content_element_part_model_diagram_serialiser.c" module.
-// It is true, the "serialise_model_diagram_part_element_content" function is called from here,
-// but the module dependency hierarchy slightly differs and just goes top-down
-// by module granularity and NOT by call hierarchy.
-//
-// Therefore, the "model_diagram_serialiser.c" module is included here.
-//
-#include "../../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
+#include "../../../executor/representer/serialiser/model_diagram/constraints_model_diagram_serialiser.c"
 #include "../../../executor/representer/serialiser/terminal_mode/terminal_mode_serialiser.c"
 //?? #include "../../../executor/representer/serialiser/textline_list/textline_list_serialiser.c"
 #include "../../../executor/representer/serialiser/tui/tui_serialiser.c"
@@ -311,15 +303,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //
-            // The tree level.
-            //
-            // CAUTION! Do NOT forward the NUMBER_0_INTEGER_STATE_CYBOI_MODEL constant directly,
-            // since the tree level value gets changed in the following functions!
-            //
-            int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-            serialise_model_diagram_part_element_content(p0, (void*) L"[selected_node]", (void*) NUMBER_15_INTEGER_STATE_CYBOI_MODEL, p11, p1, p2, p3, p4, p5, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l);
+            serialise_model_diagram_constraints(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11);
         }
     }
 

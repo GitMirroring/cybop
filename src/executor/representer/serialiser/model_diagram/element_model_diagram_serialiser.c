@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENT_PART_MODEL_DIAGRAM_SERIALISER_SOURCE
-#define ELEMENT_PART_MODEL_DIAGRAM_SERIALISER_SOURCE
+#ifndef ELEMENT_MODEL_DIAGRAM_SERIALISER_SOURCE
+#define ELEMENT_MODEL_DIAGRAM_SERIALISER_SOURCE
 
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -37,26 +37,33 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../executor/representer/serialiser/model_diagram/content_element_part_model_diagram_serialiser.c"
+#include "../../../../executor/representer/serialiser/model_diagram/content_model_diagram_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Serialises the part element into model diagram.
  *
- * @param p0 the destination item
+ * @param p0 the destination wide character item
  * @param p1 the source model data
  * @param p2 the source model index
- * @param p3 the properties flag
- * @param p4 the tree level
+ * @param p3 the sign flag
+ * @param p4 the number base
+ * @param p5 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param p6 the decimal separator data
+ * @param p7 the decimal separator count
+ * @param p8 the decimal places
+ * @param p9 the scientific notation flag
+ * @param p10 the tree level
+ * @param p11 the properties flag
  */
-void serialise_model_diagram_part_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void serialise_model_diagram_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise model diagram part element.");
-    //?? fwprintf(stdout, L"Debug: Serialise model diagram part element. tree level p4: %i\n", p4);
-    //?? fwprintf(stdout, L"Debug: Serialise model diagram part element. tree level *p4: %i\n", *((int*) p4));
-    //?? fwprintf(stdout, L"Debug: Serialise model diagram part element. source model index p2: %i\n", p2);
-    //?? fwprintf(stdout, L"Debug: Serialise model diagram part element. source model index *p2: %i\n", *((int*) p2));
-    //?? fwprintf(stdout, L"Debug: Serialise model diagram part element. source model data p1: %i\n", p1);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise model diagram element.");
+    //?? fwprintf(stdout, L"Debug: Serialise model diagram element. tree level p10: %i\n", p10);
+    //?? fwprintf(stdout, L"Debug: Serialise model diagram element. tree level *p10: %i\n", *((int*) p10));
+    //?? fwprintf(stdout, L"Debug: Serialise model diagram element. source model index p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Serialise model diagram element. source model index *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Serialise model diagram element. source model data p1: %i\n", p1);
 
     // The part.
     void* part = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -94,8 +101,8 @@ void serialise_model_diagram_part_element(void* p0, void* p1, void* p2, void* p3
     modify_item(p0, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
     // Serialise part element content.
-    //?? TODO: serialise_model_diagram_part_element_content(p0, nd, nc, fd, md, mc, pd, pc, p3, p4);
+    serialise_model_diagram_content(p0, md, mc, pd, pc, p3, p4, p5, p6, p7, p8, p9, fd, p10, nd, nc, p11);
 }
 
-/* ELEMENT_PART_MODEL_DIAGRAM_SERIALISER_SOURCE */
+/* ELEMENT_MODEL_DIAGRAM_SERIALISER_SOURCE */
 #endif
