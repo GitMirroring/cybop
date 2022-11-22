@@ -1,0 +1,58 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.5.0</h1>
+</section>
+
+<section class="container">
+    <h2>Project</h2>
+    <ul>
+        <li>Create Debian Packages <i>cybop</i>, <i>cybop-papers</i>,
+            <i>cybop-presentations</i>, <i>cyboi-dev</i></li>
+        <li>Move additional application packages like <i>resadmin</i> etc. to
+            <a href="http://www.resmedicinae.org">Res Medicinae</a> project</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <ul>
+        <li>Complete implementation of the <i>loop</i> operation</li>
+        <li>Correct bug in <i>get_new_signal_id</i> of signal_memory_accessor.c</li>
+        <li>Implement <i>Web User Interface</i> (WUI) handling by generating (translating)
+            HTML from CYBOL (comparable to XUL/ UIML)</li>
+        <li>Extend sources for handing over string parameters in URL, using escape code sequences</li>
+        <li>Add <i>url_refresh</i> operation</li>
+        <li>Implement <i>post</i> operation for web communication</li>
+        <li>Add new abstraction <i>knowledge</i> for runtime access to knowledge model</li>
+        <li>Enable dynamically created logic models</li>
+        <li>Generalise handling of services using startup/ shutdown operations</li>
+        <li>Run tcp service in an own thread</li>
+        <li>Synchronise signal memory using <i>Mutex</i></li>
+        <li>Use <i>send</i> operation for placing runtime signals read from a CYBOL
+            source into the signal memory</li>
+        <li>Restructure source directories, following <i>von Neumann</i> architecture
+            (<i>controller</i>, <i>memory</i>, <i>computer</i>, <i>globals</i>)</li>
+        <li>Remove /web directory
+            (tcp procedures are now in receive_tcp_socket.c;
+            client socket and signal numbers are in internals_memory_accessor.c)</li>
+        <li>Remove input_output_activator.c
+            (now done by startup/ shutdown and receive/ interrupt/ send
+            service calls in CYBOL)</li>
+        <li>Remove input_output_handler.c
+            (activation/ blocking flags etc. are now created/ destroyed
+            in corresponding startup/ shutdown procedure)</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOL</h2>
+    <ul>
+        <li>Get <i>Res Admin</i> application with web frontend running</li>
+        <li>Remove all <i>examples</i> prefixes from model directory names in <i>Res Admin</i> application</li>
+        <li>Replace <i>helloworld_with_shutdown</i> through <i>helloworld_dynamic_logic</i></li>
+        <li>Rename <i>configuration.cybol</i> to <i>run.cybol</i> in all CYBOL applications</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->
