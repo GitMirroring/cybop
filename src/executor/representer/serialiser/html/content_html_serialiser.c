@@ -23,22 +23,22 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONTENT_ELEMENT_PART_HTML_SERIALISER_SOURCE
-#define CONTENT_ELEMENT_PART_HTML_SERIALISER_SOURCE
+#ifndef CONTENT_HTML_SERIALISER_SOURCE
+#define CONTENT_HTML_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/state/wui/tag_wui_state_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/html/begin_tag_html_serialiser.c"
+#include "../../../../executor/representer/serialiser/html/begin_html_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/break_html_serialiser.c"
-#include "../../../../executor/representer/serialiser/html/document_type_html_serialiser.c"
-#include "../../../../executor/representer/serialiser/html/empty_element_part_html_serialiser.c"
-#include "../../../../executor/representer/serialiser/html/end_tag_html_serialiser.c"
-#include "../../../../executor/representer/serialiser/html/filled_element_part_html_serialiser.c"
+#include "../../../../executor/representer/serialiser/html/doctype_html_serialiser.c"
+#include "../../../../executor/representer/serialiser/html/empty_html_serialiser.c"
+#include "../../../../executor/representer/serialiser/html/end_html_serialiser.c"
+#include "../../../../executor/representer/serialiser/html/filled_html_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/indentation_html_serialiser.c"
-#include "../../../../executor/representer/serialiser/html/void_element_html_serialiser.c"
+#include "../../../../executor/representer/serialiser/html/void_html_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -49,13 +49,20 @@
  * @param p2 the source model count
  * @param p3 the source properties data
  * @param p4 the source properties count
- * @param p5 the indentation flag
- * @param p6 the indentation level
- * @param p7 the format
+ * @param p5 the sign flag
+ * @param p6 the number base
+ * @param p7 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param p8 the decimal separator data
+ * @param p9 the decimal separator count
+ * @param p10 the decimal places
+ * @param p11 the scientific notation flag
+ * @param p12 the indentation flag
+ * @param p13 the indentation level
+ * @param p14 the format
  */
-void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void serialise_html_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise html part element content.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise html content.");
 
     // The tag part.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -111,7 +118,7 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
     if ((dtmd != *NULL_POINTER_STATE_CYBOI_MODEL) && (dtmc != *NULL_POINTER_STATE_CYBOI_MODEL)) {
 
         // Serialise document type.
-        serialise_html_document_type(p0, dtmd, dtmc, p5);
+        serialise_html_doctype(p0, dtmd, dtmc, p12);
     }
 
     //
@@ -128,25 +135,25 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
     // Test if source model count is empty.
     compare_integer_less_or_equal((void*) &e, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     // Test if element is allowed to be void.
-    serialise_html_void_element((void*) &v, tmd, tmc);
+    serialise_html_void((void*) &v, tmd, tmc);
     // Serialise indentation.
-    serialise_html_indentation(p0, p5, p6);
+    serialise_html_indentation(p0, p12, p13);
     // Append begin tag.
-    serialise_html_begin_tag(p0, tmd, tmc, p3, p4, (void*) &e, (void*) &v);
+    serialise_html_begin(p0, tmd, tmc, p3, p4, (void*) &e, (void*) &v);
     // Serialise line break.
-    serialise_html_break(p0, p5);
+    serialise_html_break(p0, p12);
 
     if (e != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // The content IS empty.
-        serialise_html_part_element_empty(p0, tmd, tmc, p5, p6, (void*) &v);
+        serialise_html_empty(p0, tmd, tmc, p12, p13, (void*) &v);
 
     } else {
 
         // The content is NOT empty.
-        serialise_html_part_element_filled(p0, p1, p2, tmd, tmc, pmd, p5, p6, p7);
+        serialise_html_filled(p0, p1, p2, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, pmd, tmd, tmc);
     }
 }
 
-/* CONTENT_ELEMENT_PART_HTML_SERIALISER_SOURCE */
+/* CONTENT_HTML_SERIALISER_SOURCE */
 #endif

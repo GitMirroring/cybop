@@ -23,15 +23,15 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef EMPTY_ELEMENT_PART_HTML_SERIALISER_SOURCE
-#define EMPTY_ELEMENT_PART_HTML_SERIALISER_SOURCE
+#ifndef EMPTY_HTML_SERIALISER_SOURCE
+#define EMPTY_HTML_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/representer/serialiser/html/break_html_serialiser.c"
-#include "../../../../executor/representer/serialiser/html/end_tag_html_serialiser.c"
+#include "../../../../executor/representer/serialiser/html/end_html_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/indentation_html_serialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -45,9 +45,9 @@
  * @param p4 the indentation level
  * @param p5 the void flag
  */
-void serialise_html_part_element_empty(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void serialise_html_empty(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise html part element empty.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise html empty.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -80,11 +80,11 @@ void serialise_html_part_element_empty(void* p0, void* p1, void* p2, void* p3, v
         //
         serialise_html_indentation(p0, p3, p4);
         // Append end tag.
-        serialise_html_end_tag(p0, p1, p2);
+        serialise_html_end(p0, p1, p2);
         // Serialise line break.
         serialise_html_break(p0, p3);
     }
 }
 
-/* EMPTY_ELEMENT_PART_HTML_SERIALISER_SOURCE */
+/* EMPTY_HTML_SERIALISER_SOURCE */
 #endif

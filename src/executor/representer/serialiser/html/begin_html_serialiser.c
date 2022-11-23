@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BEGIN_TAG_HTML_SERIALISER_SOURCE
-#define BEGIN_TAG_HTML_SERIALISER_SOURCE
+#ifndef BEGIN_HTML_SERIALISER_SOURCE
+#define BEGIN_HTML_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -47,9 +47,9 @@
  * @param p5 the empty flag
  * @param p6 the void flag
  */
-void serialise_html_begin_tag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void serialise_html_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise html begin tag.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise html begin.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -77,5 +77,5 @@ void serialise_html_begin_tag(void* p0, void* p1, void* p2, void* p3, void* p4, 
     modify_item(p0, (void*) GREATER_THAN_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 }
 
-/* BEGIN_TAG_HTML_SERIALISER_SOURCE */
+/* BEGIN_HTML_SERIALISER_SOURCE */
 #endif

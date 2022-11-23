@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-11-23  Christian Heller  <christian.heller@cybop.org>
+
+        * Add file "constraints_html_serialiser.c" for reading language properties constraints
+
 2022-11-22  Christian Heller  <christian.heller@cybop.org>
 
         * Add file "constraints_cybol_serialiser.c" for reading language properties constraints

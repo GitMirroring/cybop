@@ -23,29 +23,36 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENT_PART_HTML_SERIALISER_SOURCE
-#define ELEMENT_PART_HTML_SERIALISER_SOURCE
+#ifndef ELEMENT_HTML_SERIALISER_SOURCE
+#define ELEMENT_HTML_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/html/content_element_part_html_serialiser.c"
+#include "../../../../executor/representer/serialiser/html/content_html_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Serialises the part element into html.
  *
- * @param p0 the destination item
+ * @param p0 the destination wide character item
  * @param p1 the source model data
  * @param p2 the source model index
- * @param p3 the indentation flag
- * @param p4 the indentation level
+ * @param p3 the sign flag
+ * @param p4 the number base
+ * @param p5 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param p6 the decimal separator data
+ * @param p7 the decimal separator count
+ * @param p8 the decimal places
+ * @param p9 the scientific notation flag
+ * @param p10 the indentation flag
+ * @param p11 the indentation level
  */
-void serialise_html_part_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void serialise_html_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise html part element.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise html element.");
 
     // The part.
     void* part = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -74,7 +81,7 @@ void serialise_html_part_element(void* p0, void* p1, void* p2, void* p3, void* p
     copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Serialise part element content.
-    serialise_html_part_element_content(p0, md, mc, pd, pc, p3, p4, fd);
+    serialise_html_content(p0, md, mc, pd, pc, p3, p4, p5, p6, p7, p8, p9, p10, p11, fd);
 }
 
 /* ELEMENT_PART_HTML_SERIALISER_SOURCE */

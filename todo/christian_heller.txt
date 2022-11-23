@@ -41,8 +41,6 @@ ____________________
  * @param px the decimal places
  * @param px the scientific notation flag
 
-        * Add file "constraints_html_serialiser.c" for reading language properties constraints
-            start by searching "serialise_cybol" in file "html_serialiser.c"
         * Add file "constraints_tui_serialiser.c" for reading language properties constraints
             start by searching "serialise_cybol" in file "primitive_tui_serialiser.c"
         * Add file "constraints_gui_serialiser.c" for reading language properties constraints
@@ -92,6 +90,8 @@ ____________________
 
         Reflect in general:
         * Merge "language" and "format" constants ??
+
+        * Figure out which function to use for getting properties or constraints: either "get_name_array" (for flat names which are NOT a path ??) or "get_part_name" (useful with knowledge tree path ??)
 
 JSON
 ____

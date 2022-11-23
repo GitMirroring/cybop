@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DOCUMENT_TYPE_HTML_SERIALISER_SOURCE
-#define DOCUMENT_TYPE_HTML_SERIALISER_SOURCE
+#ifndef DOCTYPE_HTML_SERIALISER_SOURCE
+#define DOCTYPE_HTML_SERIALISER_SOURCE
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
@@ -42,13 +42,13 @@
  * Serialises the html document type.
  *
  * @param p0 the destination item
- * @param p1 the document type data
- * @param p2 the document type count
+ * @param p1 the doctype data
+ * @param p2 the doctype count
  * @param p3 the indentation flag
  */
-void serialise_html_document_type(void* p0, void* p1, void* p2, void* p3) {
+void serialise_html_doctype(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise html document type.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise html doctype.");
 
     // Append less than character.
     modify_item(p0, (void*) LESS_THAN_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
@@ -66,5 +66,5 @@ void serialise_html_document_type(void* p0, void* p1, void* p2, void* p3) {
     serialise_html_break(p0, p3);
 }
 
-/* DOCUMENT_TYPE_HTML_SERIALISER_SOURCE */
+/* DOCTYPE_HTML_SERIALISER_SOURCE */
 #endif

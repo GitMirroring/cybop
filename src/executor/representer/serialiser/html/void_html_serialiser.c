@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef VOID_ELEMENT_HTML_SERIALISER_SOURCE
-#define VOID_ELEMENT_HTML_SERIALISER_SOURCE
+#ifndef VOID_HTML_SERIALISER_SOURCE
+#define VOID_HTML_SERIALISER_SOURCE
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -66,9 +66,9 @@
  * @param p1 the tag name data
  * @param p2 the tag name count
  */
-void serialise_html_void_element(void* p0, void* p1, void* p2) {
+void serialise_html_void(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise html void element.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise html void.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -160,5 +160,5 @@ void serialise_html_void_element(void* p0, void* p1, void* p2) {
     }
 }
 
-/* VOID_ELEMENT_HTML_SERIALISER_SOURCE */
+/* VOID_HTML_SERIALISER_SOURCE */
 #endif
