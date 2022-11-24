@@ -55,7 +55,7 @@ void serialise_ansi_escape_code_position(void* p0, void* p1, void* p2) {
     //
     // CAUTION! The top-left terminal corner is 1:1,
     // but the given cybol positions start counting from 0,
-    // so that 1 has to be added to all positions!
+    // so that 1 has to be ADDED to all positions!
     // Therefore, the coordinates handed over need to be corrected.
     //
 

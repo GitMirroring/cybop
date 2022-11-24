@@ -180,8 +180,9 @@ static int* DESERIALISE_REPRESENT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  *
  * - decimal_separator (optional) [text/plain]: The symbol (or character sequence) used to separate the integer part from the fractional part of a floating point (decimal) number.
  * - thousands_separator (optional) [text/plain]: The symbol (or character sequence) used for digit grouping.
- * - newline (optional) [logicvalue/boolean]: The flag indicating whether or not a line break is added at the end of the printed characters. Used with text (pseudo) terminal.
- * - clear (optional) [logicvalue/boolean]: The flag indicating whether or not the terminal screen is cleared before printing characters on it. Used with text (pseudo) terminal.
+ * - newline (optional) [logicvalue/boolean]: The flag indicating whether or not a line break is added at the end of the printed characters. If null, the default is true (line gets broken). Used with text (pseudo) terminal.
+ * - clear (optional) [logicvalue/boolean]: The flag indicating whether or not the terminal screen is cleared before printing characters on it. If null, the default is false (no clearing). Used with text (pseudo) terminal.
+ * - positioning (optional) [logicvalue/boolean]: The flag indicating whether or not the cursor position may get changed. If null, the default is false (no repositioning). Used with text (pseudo) terminal.
  * - indentation (optional) [logicvalue/boolean]: The flag indicating whether or not the serialised data get beautified (pretty-formatted) by indenting the single lines depending on the hierarchy level. Used with xml or html, for example.
  * - delimiter (optional) [text/plain]: The separator between the single fields (values). It may consist of many characters, but also be a simple comma, for example. Used with joined strings or character (comma) separated values (csv).
  * - quotation (optional) [text/plain]: The marker sequence used at the beginning and end of string fields (values). It may consist of many characters. Quotation is necessary if the delimiter character is part of the value. If the quotation is to be part of the value, then it has to be escaped by writing it twice (doubled). Used with joined strings or character (comma) separated values (csv).

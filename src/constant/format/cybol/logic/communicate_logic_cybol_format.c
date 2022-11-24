@@ -346,10 +346,25 @@ static int* RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  * <!-- Send main menu as text user interface (tui) to terminal. -->
  * <node name="send_menu" channel="inline" format="communicate/send" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
- *     <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
- *     <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/tui">
+ *         <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
+ *         <node name="positioning" channel="inline" format="logicvalue/boolean" model="true"/>
+ *     </node>
  *     <node name="format" channel="inline" format="meta/format" model="element/part"/>
  *     <node name="message" channel="inline" format="text/cybol-path" model=".tui.main"/>
+ * </node>
+ *
+ * <node name="set_cursor" channel="inline" format="communicate/send" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+ *     <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/tui">
+ *         <!-- The clear flag is false by default and therefore does not have to be added here. -->
+ *         <node name="positioning" channel="inline" format="logicvalue/boolean" model="true"/>
+ *     </node>
+ *     <!-- Use text/plain instead of element/part, since the cursor has just the position property but an empty model. -->
+ *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".tui.cursor"/>
  * </node>
  *
  * <!-- Draw graphical user interface (gui) window on display. -->
@@ -530,8 +545,9 @@ static int* RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *
  * - decimal_separator (optional) [text/plain]: The symbol (or character sequence) used to separate the integer part from the fractional part of a floating point (decimal) number.
  * - thousands_separator (optional) [text/plain]: The symbol (or character sequence) used for digit grouping.
- * - newline (optional) [logicvalue/boolean]: The flag indicating whether or not a line break is added at the end of the printed characters. Used with text (pseudo) terminal.
- * - clear (optional) [logicvalue/boolean]: The flag indicating whether or not the terminal screen is cleared before printing characters on it. Used with text (pseudo) terminal.
+ * - newline (optional) [logicvalue/boolean]: The flag indicating whether or not a line break is added at the end of the printed characters. If null, the default is true (line gets broken). Used with text (pseudo) terminal.
+ * - clear (optional) [logicvalue/boolean]: The flag indicating whether or not the terminal screen is cleared before printing characters on it. If null, the default is false (no clearing). Used with text (pseudo) terminal.
+ * - positioning (optional) [logicvalue/boolean]: The flag indicating whether or not the cursor position may get changed. If null, the default is false (no repositioning). Used with text (pseudo) terminal.
  * - indentation (optional) [logicvalue/boolean]: The flag indicating whether or not the serialised data get beautified (pretty-formatted) by indenting the single lines depending on the hierarchy level. Used with xml or html, for example.
  * - delimiter (optional) [text/plain]: The separator between the single fields (values). It may consist of many characters, but also be a simple comma, for example. Used with joined strings or character (comma) separated values (csv).
  * - quotation (optional) [text/plain]: The marker sequence used at the beginning and end of string fields (values). It may consist of many characters. Quotation is necessary if the delimiter character is part of the value. If the quotation is to be part of the value, then it has to be escaped by writing it twice (doubled). Used with joined strings or character (comma) separated values (csv).

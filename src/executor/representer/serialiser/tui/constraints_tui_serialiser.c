@@ -66,10 +66,12 @@ void serialise_tui_constraints(void* p0, void* p1, void* p2, void* p3, void* p4,
     // Declaration
     //
 
-    // The clear part.
-    void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The newline part.
     void* nl = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The clear part.
+    void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The positioning part.
+    void* po = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The sign flag part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The number base part.
@@ -83,10 +85,12 @@ void serialise_tui_constraints(void* p0, void* p1, void* p2, void* p3, void* p4,
     // The scientific notation flag part.
     void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The clear part model item.
-    void* clm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The newline part model item.
     void* nlm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The clear part model item.
+    void* clm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The positioning part model item.
+    void* pom = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The sign flag part model item.
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The number base part model item.
@@ -100,10 +104,12 @@ void serialise_tui_constraints(void* p0, void* p1, void* p2, void* p3, void* p4,
     // The scientific notation part model item.
     void* nm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The clear part model item data.
-    void* clmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The newline part model item data.
     void* nlmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The clear part model item data.
+    void* clmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The positioning part model item data.
+    void* pomd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The sign flag part model item data, count.
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The number base part model item data, count.
@@ -122,10 +128,12 @@ void serialise_tui_constraints(void* p0, void* p1, void* p2, void* p3, void* p4,
     // Retrieval
     //
 
-    // Get clear part.
-    get_part_name((void*) &cl, p5, (void*) CLEAR_LANGUAGE_STATE_CYBOL_NAME, (void*) CLEAR_LANGUAGE_STATE_CYBOL_NAME_COUNT, p6, p7, p8, p9);
     // Get newline part.
     get_part_name((void*) &nl, p5, (void*) NEWLINE_LANGUAGE_STATE_CYBOL_NAME, (void*) NEWLINE_LANGUAGE_STATE_CYBOL_NAME_COUNT, p6, p7, p8, p9);
+    // Get clear part.
+    get_part_name((void*) &cl, p5, (void*) CLEAR_LANGUAGE_STATE_CYBOL_NAME, (void*) CLEAR_LANGUAGE_STATE_CYBOL_NAME_COUNT, p6, p7, p8, p9);
+    // Get positioning part.
+    get_part_name((void*) &po, p5, (void*) POSITIONING_LANGUAGE_STATE_CYBOL_NAME, (void*) POSITIONING_LANGUAGE_STATE_CYBOL_NAME_COUNT, p6, p7, p8, p9);
     // Get sign flag part.
     get_part_name((void*) &s, p5, (void*) SIGN_LANGUAGE_STATE_CYBOL_NAME, (void*) SIGN_LANGUAGE_STATE_CYBOL_NAME_COUNT, p6, p7, p8, p9);
     // Get number base part.
@@ -139,10 +147,12 @@ void serialise_tui_constraints(void* p0, void* p1, void* p2, void* p3, void* p4,
     // Get scientific notation part.
     get_part_name((void*) &n, p5, (void*) SCIENTIFIC_NOTATION_LANGUAGE_STATE_CYBOL_NAME, (void*) SCIENTIFIC_NOTATION_LANGUAGE_STATE_CYBOL_NAME_COUNT, p6, p7, p8, p9);
 
-    // Get clear part model item.
-    copy_array_forward((void*) &clm, cl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get newline part model item.
     copy_array_forward((void*) &nlm, nl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get clear part model item.
+    copy_array_forward((void*) &clm, cl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get positioning part model item.
+    copy_array_forward((void*) &pom, po, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get sign flag part model item.
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get number base part model item.
@@ -156,10 +166,12 @@ void serialise_tui_constraints(void* p0, void* p1, void* p2, void* p3, void* p4,
     // Get scientific notation part model item.
     copy_array_forward((void*) &nm, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Get clear part model item data.
-    copy_array_forward((void*) &clmd, clm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get newline part model item data.
     copy_array_forward((void*) &nlmd, nlm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get clear part model item data.
+    copy_array_forward((void*) &clmd, clm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get positioning part model item data.
+    copy_array_forward((void*) &pomd, pom, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get sign flag part model item data, count.
     copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get number base part model item data, count.
@@ -178,10 +190,12 @@ void serialise_tui_constraints(void* p0, void* p1, void* p2, void* p3, void* p4,
     // Default values
     //
 
-    // Set clear flag to TRUE (enabled) by default.
-    int clear = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
     // Set newline flag to TRUE (enabled) by default.
     int newline = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+    // Set clear flag to FALSE (disabled) by default.
+    int clear = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // Set positioning flag to FALSE (disabled) by default.
+    int positioning = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
     // CAUTION! The following values are ONLY copied,
@@ -189,15 +203,16 @@ void serialise_tui_constraints(void* p0, void* p1, void* p2, void* p3, void* p4,
     // This is tested inside the "copy_integer" function.
     // Otherwise, the destination value remains as is.
     //
-    copy_integer((void*) &clear, clmd);
     copy_integer((void*) &newline, nlmd);
+    copy_integer((void*) &clear, clmd);
+    copy_integer((void*) &positioning, pomd);
 
     //
     // Functionality
     //
 
     // Initialise tui serialiser.
-    serialise_tui_initial(p0, p1, p2, p3, p4, smd, bmd, cmd, dmd, dmc, pmd, nmd, (void*) &clear, (void*) &newline, p7, p8, p9, p10);
+    serialise_tui_initial(p0, p1, p2, p3, p4, smd, bmd, cmd, dmd, dmc, pmd, nmd, (void*) &newline, (void*) &clear, (void*) &positioning, p7, p8, p9, p10);
 }
 
 /* CONSTRAINTS_TUI_SERIALISER_SOURCE */

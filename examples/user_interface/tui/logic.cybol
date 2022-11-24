@@ -39,8 +39,4 @@
 
     <node name="exit_programme" channel="inline" format="live/exit" model=""/>
 
-    <node name="start_mc" channel="inline" format="run/run" model="">
-        <node name="programme" channel="inline" format="text/plain" model="mc"/>
-    </node>
-
 </node>

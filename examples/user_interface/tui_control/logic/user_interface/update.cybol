@@ -17,9 +17,21 @@
     <node name="send_tui" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
+            <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
+            <node name="positioning" channel="inline" format="logicvalue/boolean" model="true"/>
+        </node>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".tui.main"/>
+    </node>
+    <node name="set_cursor" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
+            <node name="positioning" channel="inline" format="logicvalue/boolean" model="true"/>
+        </node>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".tui.cursor"/>
     </node>
 
 </node>

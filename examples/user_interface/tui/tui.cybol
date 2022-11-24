@@ -15,6 +15,4 @@
         <node name="position" channel="inline" format="number/integer" model="0,16"/>
     </node>
 
-    <!-- Further windows and dialogues may follow here. -->
-
 </node>

@@ -21,6 +21,7 @@
 2022-11-24  Christian Heller  <christian.heller@cybop.org>
 
         * Extend file "constraints_tui_serialiser.c" for reading language properties constraints
+        * Add language properties constraint "positioning" to be used in tui serialiser
 
 2022-11-23  Christian Heller  <christian.heller@cybop.org>
 

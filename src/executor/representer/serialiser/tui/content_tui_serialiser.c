@@ -64,7 +64,7 @@
 // Forward declarations
 //
 
-void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20);
+void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21);
 
 /**
  * Serialises the part element content into tui.
@@ -84,20 +84,21 @@ void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
  * @param p12 the decimal separator count
  * @param p13 the decimal places
  * @param p14 the scientific notation flag
- * @param p15 the clear flag
- * @param p16 the newline flag
- * @param p17 the knowledge memory part (pointer reference)
- * @param p18 the stack memory item
- * @param p19 the internal memory data
- * @param p20 the tree level
- * @param p21 the original attributes
- * @param p22 the format
+ * @param p15 the newline flag
+ * @param p16 the clear flag
+ * @param p17 the positioning flag
+ * @param p18 the knowledge memory part (pointer reference)
+ * @param p19 the stack memory item
+ * @param p20 the internal memory data
+ * @param p21 the tree level
+ * @param p22 the original attributes
+ * @param p23 the format
  */
-void serialise_tui_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22) {
+void serialise_tui_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22, void* p23) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui content.");
-    //?? fwprintf(stdout, L"Debug: Serialise tui content. format p22: %i\n", p22);
-    //?? fwprintf(stdout, L"Debug: Serialise tui content. format *p22: %i\n", *((int*) p22));
+    //?? fwprintf(stdout, L"Debug: Serialise tui content. format p23: %i\n", p23);
+    //?? fwprintf(stdout, L"Debug: Serialise tui content. format *p23: %i\n", *((int*) p23));
 
     //
     // Declaration
@@ -120,7 +121,7 @@ void serialise_tui_content(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, p20, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    compare_integer_equal((void*) &r, p21, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -128,7 +129,7 @@ void serialise_tui_content(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         // If this is the first tui element being processed (tree level zero),
         // then store the current original win32 console attributes.
         //
-        serialise_win32_console_state(p21, p1);
+        serialise_win32_console_state(p22, p1);
 
     } else {
 
@@ -137,7 +138,7 @@ void serialise_tui_content(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         // then reset console to original attributes
         // before actually manipulating them below.
         //
-        serialise_win32_console_reset(p1, p21);
+        serialise_win32_console_reset(p1, p22);
     }
 #endif
 
@@ -146,12 +147,12 @@ void serialise_tui_content(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     //
 
     // Clear terminal screen.
-    serialise_tui_clear(p0, p1, p15, p20);
+    serialise_tui_clear(p0, p1, p16, p21);
 
     //?? fwprintf(stdout, L"Debug: Serialise tui content. destination count 0: %i\n", *((int*) ((void**) p0)[1]));
 
     // Append properties.
-    serialise_tui_properties(p0, p1, p4, p5, p6, p7, p17, p18, p19);
+    serialise_tui_properties(p0, p1, p4, p5, p6, p7, p18, p19, p20, p17);
 
     //?? fwprintf(stdout, L"Debug: Serialise tui content. destination count 1: %i\n", *((int*) ((void**) p0)[1]));
 
@@ -175,7 +176,7 @@ void serialise_tui_content(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     //
 
     // Increment tree level.
-    calculate_integer_add(p20, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    calculate_integer_add(p21, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
     //
     // Append EMBEDDED model.
@@ -183,12 +184,12 @@ void serialise_tui_content(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // CAUTION! Hand over the local serisalised item s
     // and NOT the destination ansi escape code item p0.
     //
-    serialise_tui(s, p1, p2, p3, p4, p5, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22);
+    serialise_tui(s, p1, p2, p3, p4, p5, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23);
 
     //?? fwprintf(stdout, L"Debug: Serialise tui content. sub sequence s count: %i\n", *((int*) ((void**) s)[1]));
 
     // Decrement tree level.
-    calculate_integer_subtract(p20, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    calculate_integer_subtract(p21, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
     //
     // Retrieval
@@ -213,7 +214,7 @@ void serialise_tui_content(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     //?? fwprintf(stdout, L"Debug: Serialise tui content. destination count 2: %i\n", *((int*) ((void**) p0)[1]));
 
     // Append newline.
-    serialise_tui_newline(p0, p1, p16, p20);
+    serialise_tui_newline(p0, p1, p15, p21);
 
     //?? fwprintf(stdout, L"Debug: Serialise tui content. destination count 3: %i\n", *((int*) ((void**) p0)[1]));
 
@@ -229,7 +230,7 @@ void serialise_tui_content(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // after having painted a part here.
     //
 #ifdef WIN32
-    serialise_win32_console_reset(p1, p21);
+    serialise_win32_console_reset(p1, p22);
 #else
     serialise_ansi_escape_code_reset(p0);
 #endif

@@ -162,6 +162,15 @@ static wchar_t* NUMBER_BASE_LANGUAGE_STATE_CYBOL_NAME = L"number_base";
 static int* NUMBER_BASE_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The positioning language state cybol name.
+ *
+ * Used with text (pseudo) terminal.
+ * Repositions the cursor as needed for printing characters on terminal screen.
+ */
+static wchar_t* POSITIONING_LANGUAGE_STATE_CYBOL_NAME = L"positioning";
+static int* POSITIONING_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The quotation language state cybol name.
  *
  * Used with joined strings or character (comma) separated values (csv).

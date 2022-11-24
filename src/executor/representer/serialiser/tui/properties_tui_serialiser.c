@@ -27,12 +27,14 @@
 #define PROPERTIES_TUI_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/vector_state_cyboi_name.c"
 #include "../../../../constant/name/cybol/state/tui/tui_state_cybol_name.c"
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../../executor/representer/serialiser/tui/origo_tui_serialiser.c"
 #include "../../../../executor/representer/serialiser/tui/rectangle_tui_serialiser.c"
 #include "../../../../logger/logger.c"
@@ -60,8 +62,9 @@
  * @param p6 the knowledge memory part (pointer reference)
  * @param p7 the stack memory item
  * @param p8 the internal memory data
+ * @param p9 the positioning flag
  */
-void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui properties.");
     //?? fwprintf(stdout, L"Debug: Serialise tui properties. p0: %i\n", p0);
@@ -167,6 +170,9 @@ void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
     // The whole size part model item data coordinates.
     int wsmdx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int wsmdy = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Get parts.
     get_part_name((void*) &super, p2, (void*) SUPER_CYBOL_NAME, (void*) SUPER_CYBOL_NAME_COUNT, p3, p6, p7, p8);
@@ -331,19 +337,35 @@ void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
     fwprintf(stdout, L"\n");
 */
 
-    //
-    // This function call is important for two reasons:
-    //
-    // 1 Reset cursor position, so that following embedded
-    //   model characters are printed at the origo.
-    //
-    // 2 Position the cursor correctly for ZERO-size models.
-    //   Such positioning is necessary for instance to
-    //   place the cursor at a special input field.
-    //   The "serialise_*_character" functions are NOT
-    //   achieving this, since loops won't run with zero count.
-    //
-    serialise_tui_origo(p0, p1, (void*) &pmdx, (void*) &pmdy);
+    compare_integer_unequal((void*) &r, p9, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        //
+        // The positioning flag IS set.
+        //
+
+        //
+        // When printing a simple line as terminal output, then the cursor is
+        // expected to stay where it is and be NOT repositioned into the
+        // origin of coordinates (origo).
+        //
+        // When using a complete text user interface (tui) taking up the
+        // whole screen space, however, positioning the cursor IS necessary.
+        //
+        // CAUTION! This function call is important for two reasons:
+        //
+        // 1 Reset cursor position, so that following EMBEDDED
+        //   model characters are printed at the origo.
+        //
+        // 2 Position the cursor correctly for ZERO-size models.
+        //   Such positioning is necessary for instance to
+        //   place the cursor at a special input field.
+        //   The "serialise_*_character" functions are NOT
+        //   achieving this, since loops won't run with zero count.
+        //
+        serialise_tui_origo(p0, p1, (void*) &pmdx, (void*) &pmdy);
+    }
 }
 
 /* PROPERTIES_TUI_SERIALISER_SOURCE */

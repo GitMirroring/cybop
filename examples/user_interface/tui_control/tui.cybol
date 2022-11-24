@@ -16,6 +16,10 @@
     <node name="main_actions" channel="file" format="element/part" model="user_interface/tui_control/tui/main/actions.cybol"/>
     <node name="about_actions" channel="file" format="element/part" model="user_interface/tui_control/tui/about/actions.cybol"/>
 
+    <node name="cursor" channel="inline" format="text/plain" model="">
+        <node name="position" channel="inline" format="number/integer" model="0,25"/>
+    </node>
+
     <!-- The active window which is in front. -->
     <node name="active" channel="inline" format="text/plain" model=""/>
 
