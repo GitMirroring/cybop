@@ -40,7 +40,7 @@
 
         ["receiver", "inline", "text/cybol-path", ".stdout", []],
 
-        ["language", "inline", "meta/language", "message/cli", []],
+        ["language", "inline", "meta/language", "message/tui", []],
 
         ["format", "inline", "meta/format", "number/integer", []],
 

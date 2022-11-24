@@ -127,7 +127,7 @@ static int* ASCII_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  * <node name="print_action" channel="inline" format="communicate/send" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
  *     <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
- *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/tui"/>
  *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
  *     <node name="message" channel="inline" format="text/cybol-path" model="{.var.action_path}"/>
  * </node>

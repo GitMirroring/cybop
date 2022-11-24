@@ -5,7 +5,7 @@
     <node name="newline1" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model=""/>
     </node>
@@ -13,7 +13,7 @@
     <node name="str_laenge" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli">
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
             <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
         </node>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
@@ -23,7 +23,7 @@
     <node name="laenge" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli">
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
             <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
         </node>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
@@ -34,7 +34,7 @@
     <node name="newline2" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model=""/>
     </node>
@@ -42,7 +42,7 @@
     <node name="str_klein" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli">
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
             <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
         </node>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
@@ -52,7 +52,7 @@
     <node name="klein" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli">
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
             <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
         </node>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
@@ -63,7 +63,7 @@
     <node name="newline3" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model=""/>
     </node>
@@ -71,7 +71,7 @@
     <node name="str_gross" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli">
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
             <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
         </node>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
@@ -81,7 +81,7 @@
     <node name="gross" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli">
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
             <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
         </node>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
@@ -92,7 +92,7 @@
     <node name="newline4" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model=""/>
     </node>
@@ -100,7 +100,7 @@
     <node name="str_zahlen" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli">
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
             <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
         </node>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
@@ -110,7 +110,7 @@
     <node name="zahlen" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli">
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
             <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
         </node>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
@@ -121,7 +121,7 @@
     <node name="newline5" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model=""/>
     </node>
@@ -129,7 +129,7 @@
     <node name="str_sonder" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli">
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
             <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
         </node>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
@@ -139,7 +139,7 @@
     <node name="sonder" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".app.var.sonder"/>
     </node>
@@ -147,7 +147,7 @@
     <node name="newline6" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model=""/>
     </node>
@@ -155,7 +155,7 @@
     <node name="newline7" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli">
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
             <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
         </node>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
@@ -176,7 +176,7 @@
     <node name="newline8" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model=""/>
     </node>
@@ -184,7 +184,7 @@
     <node name="newline9" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model=""/>
     </node>

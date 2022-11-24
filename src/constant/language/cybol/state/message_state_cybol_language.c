@@ -69,16 +69,6 @@ static wchar_t* BINARY_CRLF_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/binary-crlf
 static int* BINARY_CRLF_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The message/cli state cybol language.
- *
- * A command line interface message.
- *
- * This is a CYBOL extension.
- */
-static wchar_t* CLI_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/cli";
-static int* CLI_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
  * The message/ftp-response state cybol language.
  *
  * An FTP response message.

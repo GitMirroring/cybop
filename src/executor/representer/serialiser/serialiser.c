@@ -34,7 +34,6 @@
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/modifier/item_modifier.c"
 #include "../../../executor/representer/serialiser/binary_crlf/binary_crlf_serialiser.c"
-#include "../../../executor/representer/serialiser/cli/constraints_cli_serialiser.c"
 //?? #include "../../../executor/representer/serialiser/csv/csv_serialiser.c"
 #include "../../../executor/representer/serialiser/cybol/constraints_cybol_serialiser.c"
 #include "../../../executor/representer/serialiser/gui/initial_gui_serialiser.c"
@@ -47,7 +46,6 @@
 #include "../../../executor/representer/serialiser/terminal_mode/terminal_mode_serialiser.c"
 //?? #include "../../../executor/representer/serialiser/textline_list/textline_list_serialiser.c"
 #include "../../../executor/representer/serialiser/tui/constraints_tui_serialiser.c"
-#include "../../../executor/representer/serialiser/tui/primitive_tui_serialiser.c"
 //?? #include "../../../executor/representer/serialiser/xdt_field_description/xdt_field_description_serialiser.c"
 #include "../../../executor/representer/serialiser/xdt/xdt_serialiser.c"
 //
@@ -137,23 +135,6 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             serialise_binary_crlf(p0, p1, p2);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p12, (void*) CLI_MESSAGE_STATE_CYBOI_LANGUAGE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_tui_constraints(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11);
-
-/*??
-            // Serialise data and encode them as utf-8 multibyte character sequence.
-            serialise_tui_primitive(p0, TODO, ??, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p11);
-
-            serialise_cli_constraints(p0, p5, p6, p7, p8, p9);
-*/
         }
     }
 

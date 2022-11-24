@@ -293,7 +293,7 @@ static int* RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  * <node name="say_hello" channel="inline" format="communicate/send" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
  *     <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
- *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/tui"/>
  *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
  *     <node name="message" channel="inline" format="text/plain" model="Hello World!"/>
  * </node>
@@ -302,7 +302,7 @@ static int* RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  * <node name="print_query" channel="inline" format="communicate/send" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
  *     <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
- *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/tui"/>
  *     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
  *     <node name="message" channel="inline" format="text/cybol-path" model=".var.request:uri:query.action"/>
  * </node>
@@ -311,7 +311,7 @@ static int* RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  * <node name="print_request" channel="inline" format="communicate/send" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
  *     <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
- *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/tui"/>
  *     <node name="format" channel="inline" format="meta/format" model="text/ascii"/>
  *     <node name="message" channel="inline" format="text/cybol-path" model=".request"/>
  * </node>
@@ -320,7 +320,7 @@ static int* RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  * <node name="log_flag" channel="inline" format="communicate/send" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
  *     <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
- *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/tui"/>
  *     <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
  *     <node name="message" channel="inline" format="text/cybol-path" model=".result_flag"/>
  * </node>
@@ -329,7 +329,7 @@ static int* RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  * <node name="print_number" channel="inline" format="communicate/send" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
  *     <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
- *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/tui"/>
  *     <node name="format" channel="inline" format="meta/format" model="number/integer"/>
  *     <node name="message" channel="inline" format="text/cybol-path" model=".index"/>
  * </node>
@@ -338,7 +338,7 @@ static int* RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  * <node name="print_adc_value" channel="inline" format="communicate/send" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
  *     <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
- *     <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+ *     <node name="language" channel="inline" format="meta/language" model="message/tui"/>
  *     <node name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
  *     <node name="message" channel="inline" format="text/cybol-path" model=".settings.adc"/>
  * </node>

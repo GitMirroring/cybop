@@ -32,11 +32,6 @@ ____________________
  * @param px the decimal places
  * @param px the scientific notation flag
 
-        * Activate and check command line interface (cli) in file "serialiser.c"
-            Delete cli serialiser which is now covered by tui serialiser
-            Delete channel cli at all and replace it with tui in all cybol applications
-        * Adjust api by replacing message/cli with message/tui
-
         * Add file "constraints_gui_serialiser.c" for reading language properties constraints
             start by searching "serialise_cybol" in file "gui_serialiser.c"
             Uncomment call of "serialise_cybol" in file "gui_serialiser.c"

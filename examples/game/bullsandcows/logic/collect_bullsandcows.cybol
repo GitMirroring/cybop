@@ -7,7 +7,7 @@
     <node name="print_bull_label" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli">
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
             <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
         </node>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
@@ -16,7 +16,7 @@
     <node name="print_bull" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli">
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
             <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
         </node>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
@@ -30,7 +30,7 @@
     <node name="print_cow_label" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli">
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
             <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
         </node>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
@@ -39,7 +39,7 @@
     <node name="print_cow" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".app.var.cow"/>
     </node>

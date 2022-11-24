@@ -64,14 +64,14 @@
     <!--<node name="print_choice1" channel="inline" format="communicate/send" model="">-->
         <!--<node name="channel" channel="inline" format="meta/channel" model="terminal"/>-->
         <!--<node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>-->
-        <!--<node name="language" channel="inline" format="meta/language" model="message/cli"/>-->
+        <!--<node name="language" channel="inline" format="meta/language" model="message/tui"/>-->
         <!--<node name="format" channel="inline" format="meta/format" model="number/integer"/>-->
         <!--<node name="message" channel="inline" format="text/cybol-path" model=".app.guess_array.choice1"/>-->
     <!--</node>-->
     <!--<node name="print_choice2" channel="inline" format="communicate/send" model="">-->
         <!--<node name="channel" channel="inline" format="meta/channel" model="terminal"/>-->
         <!--<node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>-->
-        <!--<node name="language" channel="inline" format="meta/language" model="message/cli"/>-->
+        <!--<node name="language" channel="inline" format="meta/language" model="message/tui"/>-->
         <!--<node name="format" channel="inline" format="meta/format" model="number/integer"/>-->
         <!--<node name="message" channel="inline" format="text/cybol-path" model=".app.guess_array.choice2"/>-->
         <!--<node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>-->
@@ -79,7 +79,7 @@
     <!--<node name="print_choice3" channel="inline" format="communicate/send" model="">-->
         <!--<node name="channel" channel="inline" format="meta/channel" model="terminal"/>-->
         <!--<node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>-->
-        <!--<node name="language" channel="inline" format="meta/language" model="message/cli"/>-->
+        <!--<node name="language" channel="inline" format="meta/language" model="message/tui"/>-->
         <!--<node name="format" channel="inline" format="meta/format" model="number/integer"/>-->
         <!--<node name="message" channel="inline" format="text/cybol-path" model=".app.guess_array.choice3"/>-->
         <!--<node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>-->
@@ -87,7 +87,7 @@
     <!--<node name="print_choice4" channel="inline" format="communicate/send" model="">-->
         <!--<node name="channel" channel="inline" format="meta/channel" model="terminal"/>-->
         <!--<node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>-->
-        <!--<node name="language" channel="inline" format="meta/language" model="message/cli"/>-->
+        <!--<node name="language" channel="inline" format="meta/language" model="message/tui"/>-->
         <!--<node name="format" channel="inline" format="meta/format" model="number/integer"/>-->
         <!--<node name="message" channel="inline" format="text/cybol-path" model=".app.guess_array.choice4"/>-->
         <!--<node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>-->

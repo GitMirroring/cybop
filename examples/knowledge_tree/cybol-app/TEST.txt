@@ -1,23 +1,23 @@
-[selected_node] | element/part | 
-+-domain | element/part | 
+[selected_node] | element/part |
++-domain | element/part |
 | +-sum | number/integer | 30
 | +-summand | number/integer | 30
-| +-wui | text/plain | 
+| +-wui | text/plain |
 | | #-encoding | meta/encoding | utf-8
 | +-client_socket | number/integer | 0
-+-wui | element/part | 
-| +-head | element/part | 
++-wui | element/part |
+| +-head | element/part |
 | | #-tag | text/plain | head
-| +-body | element/part | 
+| +-body | element/part |
 | | +-sum | path/knowledge | .app.domain.sum
 | | | #-tag | text/plain | h1
 | | #-tag | text/plain | body
 | #-tag | text/plain | html
-+-logic | element/part | 
-| +-startup | element/part | 
-| | +-startup_terminal | maintain/startup | 
++-logic | element/part |
+| +-startup | element/part |
+| | +-startup_terminal | maintain/startup |
 | | | #-channel | meta/channel | terminal
-| | +-startup_socket | maintain/startup | 
+| | +-startup_socket | maintain/startup |
 | | | #-channel | meta/channel | socket
 | | | #-namespace | text/plain | ipv4
 | | | #-style | text/plain | stream
@@ -27,32 +27,32 @@
 | | | #-mode | text/plain | server
 | | | #-blocking | logicvalue/boolean | false
 | | | #-connexions | number/integer | 1
-| +-send | element/part | 
-| | +-translate_wui | represent/serialise | 
+| +-send | element/part |
+| | +-translate_wui | represent/serialise |
 | | | #-destination | path/knowledge | .app.domain.wui
 | | | #-source | path/knowledge | .app.wui
 | | | #-format | meta/format | element/part
 | | | #-language | meta/language | text/html
 | | | | #-indentation | logicvalue/boolean | true
-| | +-send_to_client_socket | communicate/send | 
+| | +-send_to_client_socket | communicate/send |
 | | | #-channel | meta/channel | socket
 | | | #-language | meta/language | message/http-response
 | | | #-format | meta/format | text/plain
 | | | #-message | path/knowledge | .app.domain.wui
 | | | #-receiver | path/knowledge | .app.domain.client_socket
-| | +-send_cli | communicate/send | 
+| | +-send_cli | communicate/send |
 | | | #-channel | meta/channel | terminal
 | | | #-encoding | meta/encoding | utf-8
-| | | #-language | meta/language | message/cli
+| | | #-language | meta/language | message/tui
 | | | #-format | meta/format | text/plain
 | | | #-message | path/knowledge | .app.domain.wui
 | | | #-newline | logicvalue/boolean | true
-| +-sense | element/part | 
-| | +-sense_requests | live/sense | 
+| +-sense | element/part |
+| | +-sense_requests | live/sense |
 | | | #-channel | meta/channel | socket
 | | | #-id | number/integer | 1971
 | | | #-handler | path/knowledge | .app.logic.send
 | | | #-sender | path/knowledge | .app.domain.client_socket
-| +-handler | element/part | 
-| | +-send | flow/sequence | 
+| +-handler | element/part |
+| | +-send | flow/sequence |
 | | | #-model | path/knowledge | .app.logic.send
