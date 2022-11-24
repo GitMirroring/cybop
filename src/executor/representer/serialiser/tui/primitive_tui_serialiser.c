@@ -51,13 +51,20 @@
  * @param p3 the source model count
  * @param p4 the source properties data
  * @param p5 the source properties count
- * @param p6 the format
+ * @param p6 the sign flag
+ * @param p7 the number base
+ * @param p8 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param p9 the decimal separator data
+ * @param p10 the decimal separator count
+ * @param p11 the decimal places
+ * @param p12 the scientific notation flag
+ * @param p13 the format
  */
-void serialise_tui_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void serialise_tui_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui primitive.");
-    //?? fwprintf(stdout, L"Debug: Serialise tui primitive. format p6: %i\n", p6);
-    //?? fwprintf(stdout, L"Debug: Serialise tui primitive. format *p6: %i\n", *((int*) p6));
+    //?? fwprintf(stdout, L"Debug: Serialise tui primitive. format p13: %i\n", p13);
+    //?? fwprintf(stdout, L"Debug: Serialise tui primitive. format *p13: %i\n", *((int*) p13));
 
     // The wide character item.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -74,7 +81,7 @@ void serialise_tui_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, v
     allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Serialise primitive data using cybol serialiser.
-    //?? TODO: serialise_cybol(i, p2, p3, p4, p5, p6);
+    serialise_cybol(i, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
 
     //
     // Get wide character item data, count.

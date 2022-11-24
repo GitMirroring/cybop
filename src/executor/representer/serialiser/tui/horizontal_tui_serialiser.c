@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef VERTICAL_POSITION_TUI_SERIALISER_SOURCE
-#define VERTICAL_POSITION_TUI_SERIALISER_SOURCE
+#ifndef HORIZONTAL_TUI_SERIALISER_SOURCE
+#define HORIZONTAL_TUI_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -32,18 +32,18 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Determines the vertical position of the given y coordinate.
+ * Determines the horizontal position of the given y coordinate.
  *
- * @param p0 the destination top vertical position flag
- * @param p1 the destination middle vertical position flag
- * @param p2 the destination bottom vertical position flag
- * @param p3 the source y coordinate
- * @param p4 the top border index
- * @param p5 the bottom border index
+ * @param p0 the destination left horizontal position flag
+ * @param p1 the destination centre horizontal position flag
+ * @param p2 the destination right horizontal position flag
+ * @param p3 the source x coordinate
+ * @param p4 the left border index
+ * @param p5 the right border index
  */
-void serialise_tui_position_vertical(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void serialise_tui_horizontal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui position vertical.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui horizontal.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -53,6 +53,10 @@ void serialise_tui_position_vertical(void* p0, void* p1, void* p2, void* p3, voi
         compare_integer_equal((void*) &r, p3, p4);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // This is the left side.
+            //
 
             copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
             copy_integer(p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -66,6 +70,10 @@ void serialise_tui_position_vertical(void* p0, void* p1, void* p2, void* p3, voi
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
+            // This is the right side.
+            //
+
             copy_integer(p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
             copy_integer(p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
             copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -74,11 +82,15 @@ void serialise_tui_position_vertical(void* p0, void* p1, void* p2, void* p3, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
+        // This is the centre.
+        //
+
         copy_integer(p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
         copy_integer(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         copy_integer(p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 
-/* VERTICAL_POSITION_TUI_SERIALISER_SOURCE */
+/* HORIZONTAL_TUI_SERIALISER_SOURCE */
 #endif

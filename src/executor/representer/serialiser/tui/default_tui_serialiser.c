@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DEFAULT_CHARACTER_TUI_SERIALISER_SOURCE
-#define DEFAULT_CHARACTER_TUI_SERIALISER_SOURCE
+#ifndef DEFAULT_TUI_SERIALISER_SOURCE
+#define DEFAULT_TUI_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -50,9 +50,9 @@
  * @param p11 the middle vertical position flag
  * @param p12 the bottom vertical position flag
  */
-void serialise_tui_character_default(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void serialise_tui_default(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui character default.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui default.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -63,6 +63,10 @@ void serialise_tui_character_default(void* p0, void* p1, void* p2, void* p3, voi
         logify_boolean_and((void*) &r, p10);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // The top left.
+            //
 
             copy_wide_character(p0, p3);
         }
@@ -78,6 +82,10 @@ void serialise_tui_character_default(void* p0, void* p1, void* p2, void* p3, voi
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
+            // The top right.
+            //
+
             copy_wide_character(p0, p4);
         }
     }
@@ -92,6 +100,10 @@ void serialise_tui_character_default(void* p0, void* p1, void* p2, void* p3, voi
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
+            // The top centre.
+            //
+
             copy_wide_character(p0, p1);
         }
     }
@@ -105,6 +117,10 @@ void serialise_tui_character_default(void* p0, void* p1, void* p2, void* p3, voi
         logify_boolean_and((void*) &r, p12);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // The bottom left.
+            //
 
             copy_wide_character(p0, p5);
         }
@@ -120,6 +136,10 @@ void serialise_tui_character_default(void* p0, void* p1, void* p2, void* p3, voi
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
+            // The bottom right.
+            //
+
             copy_wide_character(p0, p6);
         }
     }
@@ -133,6 +153,10 @@ void serialise_tui_character_default(void* p0, void* p1, void* p2, void* p3, voi
         logify_boolean_and((void*) &r, p12);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // The bottom centre.
+            //
 
             copy_wide_character(p0, p1);
         }
@@ -148,6 +172,10 @@ void serialise_tui_character_default(void* p0, void* p1, void* p2, void* p3, voi
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
+            // The middle left.
+            //
+
             copy_wide_character(p0, p2);
         }
     }
@@ -161,6 +189,10 @@ void serialise_tui_character_default(void* p0, void* p1, void* p2, void* p3, voi
         logify_boolean_and((void*) &r, p11);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // The middle right.
+            //
 
             copy_wide_character(p0, p2);
         }
@@ -176,10 +208,14 @@ void serialise_tui_character_default(void* p0, void* p1, void* p2, void* p3, voi
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
+            // The middle centre (any other position NOT belonging to the border.
+            //
+
             copy_wide_character(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL);
         }
     }
 }
 
-/* DEFAULT_CHARACTER_TUI_SERIALISER_SOURCE */
+/* DEFAULT_TUI_SERIALISER_SOURCE */
 #endif

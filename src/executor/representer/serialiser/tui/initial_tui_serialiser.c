@@ -47,18 +47,25 @@
  * @param p2 the source model count
  * @param p3 the source properties data
  * @param p4 the source properties count
- * @param p5 the knowledge memory part (pointer reference)
- * @param p6 the stack memory item
- * @param p7 the internal memory data
- * @param p8 the clear flag
- * @param p9 the newline flag
- * @param p10 the format
+ * @param p5 the sign flag
+ * @param p6 the number base
+ * @param p7 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param p8 the decimal separator data
+ * @param p9 the decimal separator count
+ * @param p10 the decimal places
+ * @param p11 the scientific notation flag
+ * @param p12 the clear flag
+ * @param p13 the newline flag
+ * @param p14 the knowledge memory part (pointer reference)
+ * @param p15 the stack memory item
+ * @param p16 the internal memory data
+ * @param p17 the format
  */
-void serialise_tui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void serialise_tui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui initial.");
-    //?? fwprintf(stdout, L"Debug: Serialise tui initial. format p10: %i\n", p10);
-    //?? fwprintf(stdout, L"Debug: Serialise tui initial. format *p10: %i\n", *((int*) p10));
+    //?? fwprintf(stdout, L"Debug: Serialise tui initial. format p17: %i\n", p17);
+    //?? fwprintf(stdout, L"Debug: Serialise tui initial. format *p17: %i\n", *((int*) p17));
 
     // The output.
     void* op = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -108,7 +115,7 @@ void serialise_tui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 #endif
 
     // Get output.
-//??    copy_array_forward((void*) &op, p7, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    //?? copy_array_forward((void*) &op, p16, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     //
     // CAUTION! Handing over the output item is necessary
@@ -121,7 +128,7 @@ void serialise_tui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // which is used to avoid cursor positioning,
     // since that is NOT wanted for cli.
     //
-    serialise_tui_part_element_content(p0, op, p1, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, p6, p7, p8, p9, (void*) &l, (void*) &a, p10);
+    serialise_tui_content(p0, op, p1, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, (void*) &l, (void*) &a, p17);
 }
 
 /* INITIAL_TUI_SERIALISER_SOURCE */

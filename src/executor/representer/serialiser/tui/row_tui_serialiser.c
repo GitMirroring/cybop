@@ -32,8 +32,8 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/tui/default_character_tui_serialiser.c"
-#include "../../../../executor/representer/serialiser/tui/horizontal_position_tui_serialiser.c"
+#include "../../../../executor/representer/serialiser/tui/default_tui_serialiser.c"
+#include "../../../../executor/representer/serialiser/tui/horizontal_tui_serialiser.c"
 #include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
@@ -110,6 +110,8 @@ void serialise_tui_row(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     copy_integer((void*) &ri, (void*) &c);
     calculate_integer_subtract((void*) &ri, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
+    //?? TODO: Check loop count parametre for null!
+
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_greater_or_equal((void*) &b, (void*) &x, (void*) &c);
@@ -120,7 +122,7 @@ void serialise_tui_row(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         }
 
         // Determine horizontal position of x coordinate.
-        serialise_tui_position_horizontal((void*) &lp, (void*) &cp, (void*) &rp, (void*) &x, (void*) &li, (void*) &ri);
+        serialise_tui_horizontal((void*) &lp, (void*) &cp, (void*) &rp, (void*) &x, (void*) &li, (void*) &ri);
 #if defined(__linux__) || defined(__unix__)
         serialise_ansi_escape_code_position(p0, (void*) &x, p10);
 #elif defined(__APPLE__) && defined(__MACH__)
@@ -132,7 +134,7 @@ void serialise_tui_row(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
-        serialise_tui_character_default((void*) &ch, p2, p3, p4, p5, p6, p7, (void*) &lp, (void*) &cp, (void*) &rp, p11, p12, p13);
+        serialise_tui_default((void*) &ch, p2, p3, p4, p5, p6, p7, (void*) &lp, (void*) &cp, (void*) &rp, p11, p12, p13);
 
 #if defined(__linux__) || defined(__unix__)
         serialise_ansi_escape_code_wide_character(p0, (void*) &ch, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);

@@ -71,8 +71,11 @@ void serialise_tui_newline(void* p0, void* p1, void* p2, void* p3) {
 #if defined(__linux__) || defined(__unix__)
             serialise_tui_wide_character(p0, p1, (void*) UNIX_NEWLINE_TEXT_MODEL, (void*) UNIX_NEWLINE_TEXT_MODEL_COUNT);
 #elif defined(__APPLE__) && defined(__MACH__)
-            // CR (carriage return) is only used until mac os x version 9
-            // unfortunately there was no easy way to determine the major version without linking special libraries
+            //
+            // CR (carriage return) is only used until mac os x version 9.
+            // Unfortunately, there was no easy way to determine the
+            // major version without linking special libraries.
+            //
             serialise_tui_wide_character(p0, p1, (void*) MACINTOSH_NEWLINE_TEXT_MODEL, (void*) MACINTOSH_NEWLINE_TEXT_MODEL_COUNT);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)

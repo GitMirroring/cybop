@@ -65,7 +65,10 @@ void serialise_tui_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // The right bottom border character.
     wchar_t rbc = *SPACE_UNICODE_CHARACTER_CODE_MODEL;
 
+    // Serialise tui border.
     serialise_tui_border((void*) &hc, (void*) &vc, (void*) &ltc, (void*) &rtc, (void*) &lbc, (void*) &rbc, p6, p7);
+
+    // Serialise tui rows.
     serialise_tui_rows(p0, p1, (void*) &hc, (void*) &vc, (void*) &ltc, (void*) &rtc, (void*) &lbc, (void*) &rbc, p2, p3, p4, p5);
 }
 

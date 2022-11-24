@@ -32,7 +32,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/representer/serialiser/tui/row_tui_serialiser.c"
-#include "../../../../executor/representer/serialiser/tui/vertical_position_tui_serialiser.c"
+#include "../../../../executor/representer/serialiser/tui/vertical_tui_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -91,7 +91,7 @@ void serialise_tui_rows(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         }
 
         // Determine vertical position of y coordinate.
-        serialise_tui_position_vertical((void*) &tp, (void*) &mp, (void*) &bp, (void*) &y, (void*) &ti, (void*) &bi);
+        serialise_tui_vertical((void*) &tp, (void*) &mp, (void*) &bp, (void*) &y, (void*) &ti, (void*) &bi);
         serialise_tui_row(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, (void*) &y, (void*) &tp, (void*) &mp, (void*) &bp);
 
         // Increment loop variable.

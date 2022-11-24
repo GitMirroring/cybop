@@ -31,7 +31,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/tui/element_part_tui_serialiser.c"
+#include "../../../../executor/representer/serialiser/tui/element_tui_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -43,15 +43,22 @@
  * @param p3 the source model count
  * @param p4 the source properties data
  * @param p5 the source properties count
- * @param p6 the knowledge memory part (pointer reference)
- * @param p7 the stack memory item
- * @param p8 the internal memory data
- * @param p9 the clear flag
- * @param p10 the newline flag
- * @param p11 the tree level
- * @param p12 the original attributes
+ * @param p6 the sign flag
+ * @param p7 the number base
+ * @param p8 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param p9 the decimal separator data
+ * @param p10 the decimal separator count
+ * @param p11 the decimal places
+ * @param p12 the scientific notation flag
+ * @param p13 the clear flag
+ * @param p14 the newline flag
+ * @param p15 the knowledge memory part (pointer reference)
+ * @param p16 the stack memory item
+ * @param p17 the internal memory data
+ * @param p18 the tree level
+ * @param p19 the original attributes
  */
-void serialise_tui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void serialise_tui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui part.");
 
@@ -62,13 +69,16 @@ void serialise_tui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
     if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
         // Therefore, in this case, the break flag is set to true already here.
+        //
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
+        //
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
@@ -81,7 +91,7 @@ void serialise_tui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             break;
         }
 
-        serialise_tui_part_element(p0, p1, p2, (void*) &j, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+        serialise_tui_element(p0, p1, p2, (void*) &j, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19);
 
         // Increment loop variable.
         j++;

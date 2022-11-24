@@ -18,15 +18,19 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-11-24  Christian Heller  <christian.heller@cybop.org>
+
+        * Extend file "constraints_tui_serialiser.c" for reading language properties constraints
+
 2022-11-23  Christian Heller  <christian.heller@cybop.org>
 
-        * Add file "constraints_html_serialiser.c" for reading language properties constraints
+        * Extend file "constraints_html_serialiser.c" for reading language properties constraints
 
 2022-11-22  Christian Heller  <christian.heller@cybop.org>
 
         * Add file "constraints_cybol_serialiser.c" for reading language properties constraints
         * Adapt xml serialiser to language properties constraints
-        * Add file "constraints_model_diagram_serialiser.c" for reading language properties constraints
+        * Extend file "constraints_model_diagram_serialiser.c" for reading language properties constraints
         * Add file "constraints_json_serialiser.c" for reading language properties constraints
 
 2022-11-21  Christian Heller  <christian.heller@cybop.org>

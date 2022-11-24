@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONTENT_ELEMENT_PART_TUI_SERIALISER_SOURCE
-#define CONTENT_ELEMENT_PART_TUI_SERIALISER_SOURCE
+#ifndef CONTENT_TUI_SERIALISER_SOURCE
+#define CONTENT_TUI_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -64,7 +64,7 @@
 // Forward declarations
 //
 
-void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13);
+void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20);
 
 /**
  * Serialises the part element content into tui.
@@ -77,20 +77,27 @@ void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
  * @param p5 the source properties count
  * @param p6 the source whole properties data
  * @param p7 the source whole properties count
- * @param p8 the knowledge memory part (pointer reference)
- * @param p9 the stack memory item
- * @param p10 the internal memory data
- * @param p11 the clear flag
- * @param p12 the newline flag
- * @param p13 the tree level
- * @param p14 the original attributes
- * @param p15 the format
+ * @param p8 the sign flag
+ * @param p9 the number base
+ * @param p10 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param p11 the decimal separator data
+ * @param p12 the decimal separator count
+ * @param p13 the decimal places
+ * @param p14 the scientific notation flag
+ * @param p15 the clear flag
+ * @param p16 the newline flag
+ * @param p17 the knowledge memory part (pointer reference)
+ * @param p18 the stack memory item
+ * @param p19 the internal memory data
+ * @param p20 the tree level
+ * @param p21 the original attributes
+ * @param p22 the format
  */
-void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
+void serialise_tui_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui part element content.");
-    //?? fwprintf(stdout, L"Debug: Serialise tui part element content. format p15: %i\n", p15);
-    //?? fwprintf(stdout, L"Debug: Serialise tui part element content. format *p15: %i\n", *((int*) p15));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui content.");
+    //?? fwprintf(stdout, L"Debug: Serialise tui content. format p22: %i\n", p22);
+    //?? fwprintf(stdout, L"Debug: Serialise tui content. format *p22: %i\n", *((int*) p22));
 
     //
     // Declaration
@@ -113,7 +120,7 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, p13, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    compare_integer_equal((void*) &r, p20, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -121,7 +128,7 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
         // If this is the first tui element being processed (tree level zero),
         // then store the current original win32 console attributes.
         //
-        serialise_win32_console_state(p14, p1);
+        serialise_win32_console_state(p21, p1);
 
     } else {
 
@@ -130,7 +137,7 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
         // then reset console to original attributes
         // before actually manipulating them below.
         //
-        serialise_win32_console_reset(p1, p14);
+        serialise_win32_console_reset(p1, p21);
     }
 #endif
 
@@ -139,14 +146,14 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     //
 
     // Clear terminal screen.
-    serialise_tui_clear(p0, p1, p11, p13);
+    serialise_tui_clear(p0, p1, p15, p20);
 
-    //?? fwprintf(stdout, L"Debug: Serialise tui part element content. destination count 0: %i\n", *((int*) ((void**) p0)[1]));
+    //?? fwprintf(stdout, L"Debug: Serialise tui content. destination count 0: %i\n", *((int*) ((void**) p0)[1]));
 
     // Append properties.
-    serialise_tui_properties(p0, p1, p4, p5, p6, p7, p8, p9, p10);
+    serialise_tui_properties(p0, p1, p4, p5, p6, p7, p17, p18, p19);
 
-    //?? fwprintf(stdout, L"Debug: Serialise tui part element content. destination count 1: %i\n", *((int*) ((void**) p0)[1]));
+    //?? fwprintf(stdout, L"Debug: Serialise tui content. destination count 1: %i\n", *((int*) ((void**) p0)[1]));
 
     //
     // Allocation
@@ -168,7 +175,7 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     //
 
     // Increment tree level.
-    calculate_integer_add(p13, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    calculate_integer_add(p20, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
     //
     // Append EMBEDDED model.
@@ -176,12 +183,12 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     // CAUTION! Hand over the local serisalised item s
     // and NOT the destination ansi escape code item p0.
     //
-    serialise_tui(s, p1, p2, p3, p4, p5, p8, p9, p10, p11, p12, p13, p14, p15);
+    serialise_tui(s, p1, p2, p3, p4, p5, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22);
 
-    //?? fwprintf(stdout, L"Debug: Serialise tui part element content. sub sequence s count: %i\n", *((int*) ((void**) s)[1]));
+    //?? fwprintf(stdout, L"Debug: Serialise tui content. sub sequence s count: %i\n", *((int*) ((void**) s)[1]));
 
     // Decrement tree level.
-    calculate_integer_subtract(p13, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    calculate_integer_subtract(p20, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
     //
     // Retrieval
@@ -203,12 +210,12 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     serialise_ansi_escape_code_character(p0, sd, sc);
 #endif
 
-    //?? fwprintf(stdout, L"Debug: Serialise tui part element content. destination count 2: %i\n", *((int*) ((void**) p0)[1]));
+    //?? fwprintf(stdout, L"Debug: Serialise tui content. destination count 2: %i\n", *((int*) ((void**) p0)[1]));
 
     // Append newline.
-    serialise_tui_newline(p0, p1, p12, p13);
+    serialise_tui_newline(p0, p1, p16, p20);
 
-    //?? fwprintf(stdout, L"Debug: Serialise tui part element content. destination count 3: %i\n", *((int*) ((void**) p0)[1]));
+    //?? fwprintf(stdout, L"Debug: Serialise tui content. destination count 3: %i\n", *((int*) ((void**) p0)[1]));
 
     //
     // Reset terminal attributes in order to have
@@ -222,12 +229,12 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     // after having painted a part here.
     //
 #ifdef WIN32
-    serialise_win32_console_reset(p1, p14);
+    serialise_win32_console_reset(p1, p21);
 #else
     serialise_ansi_escape_code_reset(p0);
 #endif
 
-    //?? fwprintf(stdout, L"Debug: Serialise tui part element content. destination count 4: %i\n", *((int*) ((void**) p0)[1]));
+    //?? fwprintf(stdout, L"Debug: Serialise tui content. destination count 4: %i\n", *((int*) ((void**) p0)[1]));
 
     //
     // Deallocation
@@ -237,5 +244,5 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     deallocate_item((void*) &s, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
-/* CONTENT_ELEMENT_PART_TUI_SERIALISER_SOURCE */
+/* CONTENT_TUI_SERIALISER_SOURCE */
 #endif
