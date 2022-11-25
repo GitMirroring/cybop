@@ -54,6 +54,16 @@
  * - eight with symbol 8
  * - nine with symbol 9
  *
+ * The following hexadecimal digits get detected as well:
+ * - ten with symbol a
+ * - eleven with symbol b
+ * - twelve with symbol c
+ * - thirteen with symbol d
+ * - fourteen with symbol e
+ * - fifteen with symbol f
+ *
+ * Additionally, the capital letter version gets detected.
+ *
  * @param p0 the destination digit flag
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
@@ -198,6 +208,174 @@ void select_digit(void* p0, void* p1, void* p2, void* p3, void* p4) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         detect((void*) &r, p1, p2, (void*) DIGIT_NINE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p3);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Adjust move count.
+            calculate_integer_add(p4, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+
+            // Set destination digit flag.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        detect((void*) &r, p1, p2, (void*) LATIN_SMALL_LETTER_A_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p3);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Adjust move count.
+            calculate_integer_add(p4, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+
+            // Set destination digit flag.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        detect((void*) &r, p1, p2, (void*) LATIN_SMALL_LETTER_B_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p3);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Adjust move count.
+            calculate_integer_add(p4, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+
+            // Set destination digit flag.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        detect((void*) &r, p1, p2, (void*) LATIN_SMALL_LETTER_C_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p3);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Adjust move count.
+            calculate_integer_add(p4, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+
+            // Set destination digit flag.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        detect((void*) &r, p1, p2, (void*) LATIN_SMALL_LETTER_D_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p3);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Adjust move count.
+            calculate_integer_add(p4, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+
+            // Set destination digit flag.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        detect((void*) &r, p1, p2, (void*) LATIN_SMALL_LETTER_E_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p3);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Adjust move count.
+            calculate_integer_add(p4, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+
+            // Set destination digit flag.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        detect((void*) &r, p1, p2, (void*) LATIN_SMALL_LETTER_F_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p3);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Adjust move count.
+            calculate_integer_add(p4, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+
+            // Set destination digit flag.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        detect((void*) &r, p1, p2, (void*) LATIN_CAPITAL_LETTER_A_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p3);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Adjust move count.
+            calculate_integer_add(p4, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+
+            // Set destination digit flag.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        detect((void*) &r, p1, p2, (void*) LATIN_CAPITAL_LETTER_B_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p3);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Adjust move count.
+            calculate_integer_add(p4, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+
+            // Set destination digit flag.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        detect((void*) &r, p1, p2, (void*) LATIN_CAPITAL_LETTER_C_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p3);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Adjust move count.
+            calculate_integer_add(p4, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+
+            // Set destination digit flag.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        detect((void*) &r, p1, p2, (void*) LATIN_CAPITAL_LETTER_D_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p3);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Adjust move count.
+            calculate_integer_add(p4, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+
+            // Set destination digit flag.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        detect((void*) &r, p1, p2, (void*) LATIN_CAPITAL_LETTER_E_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p3);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Adjust move count.
+            calculate_integer_add(p4, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+
+            // Set destination digit flag.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        detect((void*) &r, p1, p2, (void*) LATIN_CAPITAL_LETTER_F_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p3);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

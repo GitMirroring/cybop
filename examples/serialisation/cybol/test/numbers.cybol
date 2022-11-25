@@ -10,16 +10,16 @@
         <node name="hexadecimal" channel="inline" format="number/integer" model="0x18"/>
         <node name="negative_hexadecimal" channel="inline" format="number/integer" model="-0x18"/>
         <node name="hexadecimal_small_letter" channel="inline" format="number/integer" model="0xb"/>
+        <node name="hexadecimal_capital_letter" channel="inline" format="number/integer" model="0x1C"/>
 -->
 <!--
-        <node name="hexadecimal_capital_letter" channel="inline" format="number/integer" model="0x1C"/>
         <node name="array" channel="inline" format="number/integer" model="0,1,2,3,4"/>
 -->
     </node>
 
     <node name="fraction-decimal" channel="inline" format="text/plain" model="fraction-decimal">
-<!--
         <node name="simple" channel="inline" format="number/fraction-decimal" model="24.4"/>
+<!--
         <node name="negative_sign" channel="inline" format="number/fraction-decimal" model="-24.4"/>
         <node name="standard" channel="inline" format="number/fraction-decimal" model="7.0"/>
         <node name="extra" channel="inline" format="number/fraction-decimal" model="123.45697"/>

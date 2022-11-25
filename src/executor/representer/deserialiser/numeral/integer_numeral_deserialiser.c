@@ -54,6 +54,7 @@ void deserialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral integer.");
     fwprintf(stdout, L"Debug: Deserialise numeral integer. source count p2: %i\n", p2);
     fwprintf(stdout, L"Debug: Deserialise numeral integer. source count *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Deserialise numeral integer. source count p1: %ls\n", (wchar_t*) p1);
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -101,6 +102,8 @@ void deserialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p
 
             deserialise_numeral_ascii((void*) &v, p1, p4, (void*) &j);
         }
+
+        fwprintf(stdout, L"Debug: Deserialise numeral integer. v: %i\n", v);
 
         //
         // Move existing result by one digit.

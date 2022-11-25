@@ -90,6 +90,8 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4)
     int neg = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The sign flag comparison result.
     int s = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The number base.
+    int nb = *DECIMAL_BASE_NUMERAL_MODEL;
     // The zero flag comparison result.
     int z = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The digit as wide character.
@@ -127,8 +129,11 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4)
     // Eliminate sign from temporary number, since the sign was already added above.
     calculate_integer_absolute((void*) &n, (void*) &n);
 
+    // Initialise number base.
+    copy_integer((void*) &nb, p3);
+
     // Append suitable prefix depending on the given number base.
-    serialise_numeral_prefix(p0, p3, p4);
+    serialise_numeral_prefix(p0, (void*) &nb, p4);
 
     //
     // Allocate temporary number wide character item.
@@ -168,7 +173,7 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4)
                 // Initialise remainder.
                 copy_integer((void*) &r, (void*) &n);
                 // Calculate remainder.
-                calculate_integer_modulo((void*) &r, p3);
+                calculate_integer_modulo((void*) &r, (void*) &nb);
 
                 // Map integer value to a unicode digit wide character.
                 map_integer_to_digit_wide_character((void*) &wc, (void*) &r);
@@ -176,7 +181,7 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4)
                 modify_item(i, (void*) &wc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INSERT_MODIFY_LOGIC_CYBOI_FORMAT);
 
                 // Divide number by base.
-                calculate_integer_divide((void*) &n, p3);
+                calculate_integer_divide((void*) &n, (void*) &nb);
             }
         }
     }

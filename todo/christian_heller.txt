@@ -24,7 +24,7 @@ _____________
 Numeral Deserialiser
 ____________________
 
-        * Adapt cybol serialiser so that compound parts of type "element/part" get written into different files
+        * Add default values to local variables to make numeral serialiser work properly
 
         * Uncomment assigning of decimal places in file "decimals_numeral_serialiser.c" (was commented out for testing)
 
@@ -39,7 +39,7 @@ ____________________
         * Factor out sub functions of file "number_numeral_deserialiser.c" into separate files
         * Factor out sub functions of files in numeral serialiser into separate files
 
-        * Test numeral serialiser
+        * DONE ??: Test numeral serialiser
             model-diagram: text works fine, also property numeral values are shown correctly (e.g. cybol serialiser), but model numeral values NOT (e.g. json serialiser)
 
         * Delete cybol complex serialiser which got replaced by numeral serialiser
@@ -68,6 +68,8 @@ ____________________
         * Merge "language" and "format" constants ??
 
         * Figure out which function to use for getting properties or constraints: either "get_name_array" (for flat names which are NOT a path ??) or "get_part_name" (useful with knowledge tree path ??)
+
+        * Adapt cybol serialiser so that compound parts of type "element/part" get written into different files
 
 JSON
 ____

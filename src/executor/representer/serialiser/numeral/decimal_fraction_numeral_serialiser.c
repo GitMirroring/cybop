@@ -97,9 +97,12 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
     //
     // Determine pre-point value.
     //
-    // CAUTION! Convert floating-point number to integer by CASTING it to int.
-    // This is a legitimate method of truncating a floating-point value,
-    // as mentioned in the glibc documentation:
+
+    //
+    // Convert floating-point number to integer by CASTING it to int.
+    //
+    // CAUTION! This is a legitimate method of truncating a floating-point
+    // value, as mentioned in the glibc documentation:
     // https://www.gnu.org/software/libc/manual/html_mono/libc.html#Rounding-Functions
     //
     cast_integer_double((void*) &pre, (void*) &n);
