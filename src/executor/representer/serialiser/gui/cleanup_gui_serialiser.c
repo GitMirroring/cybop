@@ -23,14 +23,14 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLEANUP_CONTEXT_GUI_SERIALISER_SOURCE
-#define CLEANUP_CONTEXT_GUI_SERIALISER_SOURCE
+#ifndef CLEANUP_GUI_SERIALISER_SOURCE
+#define CLEANUP_GUI_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/representer/serialiser/xcb/cleanup_context_xcb_serialiser.c"
+    #include "../../../../executor/representer/serialiser/xcb/cleanup_xcb_serialiser.c"
 #elif defined(__APPLE__) && defined(__MACH__)
     //?? TODO: Add support for Cocoa
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
@@ -49,12 +49,12 @@
  * @param p4 the font
  * @param p5 the win32 device context
  */
-void serialise_gui_context_cleanup(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void serialise_gui_cleanup(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui context cleanup.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui cleanup.");
 
 #if defined(__linux__) || defined(__unix__)
-    serialise_xcb_context_cleanup(p0, p1, p2, p3, p4);
+    serialise_xcb_cleanup(p0, p1, p2, p3, p4);
 #elif defined(__APPLE__) && defined(__MACH__)
     //?? TODO: Add support for Cocoa
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
@@ -64,5 +64,5 @@ void serialise_gui_context_cleanup(void* p0, void* p1, void* p2, void* p3, void*
 #endif
 }
 
-/* CLEANUP_CONTEXT_GUI_SERIALISER_SOURCE */
+/* CLEANUP_GUI_SERIALISER_SOURCE */
 #endif

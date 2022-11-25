@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLEANUP_CONTEXT_XCB_SERIALISER_SOURCE
-#define CLEANUP_CONTEXT_XCB_SERIALISER_SOURCE
+#ifndef CLEANUP_XCB_SERIALISER_SOURCE
+#define CLEANUP_XCB_SERIALISER_SOURCE
 
 #include <xcb/xcb.h>
 
@@ -42,7 +42,7 @@
  * @param p3 the graphic context
  * @param p4 the font
  */
-void serialise_xcb_context_cleanup(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void serialise_xcb_cleanup(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -52,7 +52,7 @@ void serialise_xcb_context_cleanup(void* p0, void* p1, void* p2, void* p3, void*
 
             xcb_connection_t* c = (xcb_connection_t*) p0;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xcb context cleanup.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xcb cleanup.");
 
             // The xcb font type value.
             xcb_font_t ft = *f;
@@ -62,14 +62,14 @@ void serialise_xcb_context_cleanup(void* p0, void* p1, void* p2, void* p3, void*
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb context cleanup. The connexion is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb cleanup. The connexion is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb context cleanup. The font is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb cleanup. The font is null.");
     }
 }
 
-/* CLEANUP_CONTEXT_XCB_SERIALISER_SOURCE */
+/* CLEANUP_XCB_SERIALISER_SOURCE */
 #endif

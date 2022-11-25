@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-11-25  Christian Heller  <christian.heller@cybop.org>
+
+        * Add file "constraints_gui_serialiser.c" for reading language properties constraints
+
 2022-11-24  Christian Heller  <christian.heller@cybop.org>
 
         * Extend file "constraints_tui_serialiser.c" for reading language properties constraints

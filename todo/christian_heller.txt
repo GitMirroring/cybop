@@ -24,19 +24,6 @@ _____________
 Numeral Deserialiser
 ____________________
 
- * @param px the sign flag
- * @param px the number base
- * @param px the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
- * @param px the decimal separator data
- * @param px the decimal separator count
- * @param px the decimal places
- * @param px the scientific notation flag
-
-        * Add file "constraints_gui_serialiser.c" for reading language properties constraints
-            start by searching "serialise_cybol" in file "gui_serialiser.c"
-            Uncomment call of "serialise_cybol" in file "gui_serialiser.c"
-        * Uncomment function calls in file "serialiser.c"
-        POSSIBLY ??
         * Add file "constraints_xml_serialiser.c" for reading language properties constraints ??
         * Add xml serialiser as branch to file "serialiser.c"
         * Add xml test cybol application "serialiser/xml/"

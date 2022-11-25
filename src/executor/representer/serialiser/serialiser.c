@@ -36,7 +36,7 @@
 #include "../../../executor/representer/serialiser/binary_crlf/binary_crlf_serialiser.c"
 //?? #include "../../../executor/representer/serialiser/csv/csv_serialiser.c"
 #include "../../../executor/representer/serialiser/cybol/constraints_cybol_serialiser.c"
-#include "../../../executor/representer/serialiser/gui/initial_gui_serialiser.c"
+#include "../../../executor/representer/serialiser/gui/constraints_gui_serialiser.c"
 #include "../../../executor/representer/serialiser/html/constraints_html_serialiser.c"
 #include "../../../executor/representer/serialiser/http_request/http_request_serialiser.c"
 #include "../../../executor/representer/serialiser/http_response/http_response_serialiser.c"
@@ -144,13 +144,10 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // The destination window identification item data.
-            void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-            // Get destination window identification item data.
-            copy_array_forward((void*) &w, p10, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-            serialise_gui_initial(w, p1, p2, p3, p4, p7, p8, p9, p11);
+            //
+            // CAUTION! Do hand over the window id p10 and NOT p0 as destination.
+            //
+            serialise_gui_constraints(p10, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11);
         }
     }
 

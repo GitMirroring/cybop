@@ -38,7 +38,7 @@
 #include "../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/copier/array_copier.c"
-#include "../../../../executor/representer/serialiser/gui/element_gui_serialiser.c"
+#include "../../../../executor/representer/serialiser/gui/component_gui_serialiser.c"
 #include "../../../../executor/representer/serialiser/gui/window_gui_serialiser.c"
 #include "../../../../executor/representer/serialiser/layout/layout_serialiser.c"
 #include "../../../../logger/logger.c"
@@ -251,7 +251,7 @@ void serialise_gui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
         calculate_integer_add((void*) &sy, (void*) &pmdy);
 
         // Draw shape, colours, text.
-        serialise_gui_element(p0, p1, p2, p3, p4, p5, p6, p7, (void*) &sx, (void*) &sy, (void*) &smdw, (void*) &smdh, p8, p9, p10, p11, p12, p15);
+        serialise_gui_component(p0, p1, p2, p3, p4, p5, p6, p7, (void*) &sx, (void*) &sy, (void*) &smdw, (void*) &smdh, p8, p9, p10, p11, p12, p15);
 
     } else {
 
@@ -292,7 +292,7 @@ void serialise_gui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
         // However, its initial properties such as the background colour
         // do have to be painted here calling a separate function.
         //
-        serialise_gui_element(p0, p1, p2, p3, p4, p5, p6, p7, p13, p14, (void*) &smdw, (void*) &smdh, p8, p9, p10, p11, p12, p15);
+        serialise_gui_component(p0, p1, p2, p3, p4, p5, p6, p7, p13, p14, (void*) &smdw, (void*) &smdh, p8, p9, p10, p11, p12, p15);
     }
 }
 

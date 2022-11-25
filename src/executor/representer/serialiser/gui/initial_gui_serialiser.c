@@ -31,8 +31,8 @@
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../executor/copier/array_copier.c"
 //
-// CAUTION! Do NOT include the "content_element_part_gui_serialiser.c" module.
-// It is true, the "serialise_gui_part_element_content" function is called from here,
+// CAUTION! Do NOT include the "content_gui_serialiser.c" module.
+// It is true, the "serialise_gui_content" function is called from here,
 // but the module dependency hierarchy slightly differs and just goes top-down
 // by module granularity and NOT by call hierarchy.
 // Therefore, the "gui_serialiser.c" module is included here.
@@ -43,25 +43,35 @@
 /**
  * Initialises the gui serialiser.
  *
- * @param p0 the destination window
+ * @param p0 the destination window identification item
  * @param p1 the source model data
  * @param p2 the source model count
  * @param p3 the source properties data
  * @param p4 the source properties count
- * @param p5 the knowledge memory part (pointer reference)
- * @param p6 the stack memory item
- * @param p7 the internal memory data
- * @param p8 the format
+ * @param p5 the sign flag
+ * @param p6 the number base
+ * @param p7 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param p8 the decimal separator data
+ * @param p9 the decimal separator count
+ * @param p10 the decimal places
+ * @param p11 the scientific notation flag
+ * @param p12 the knowledge memory part (pointer reference)
+ * @param p13 the stack memory item
+ * @param p14 the internal memory data
+ * @param p15 the format
  */
-void serialise_gui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void serialise_gui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui initial.");
-    fwprintf(stdout, L"Debug: Serialise gui initial. format p8: %i\n", p8);
-    fwprintf(stdout, L"Debug: Serialise gui initial. format *p8: %i\n", *((int*) p8));
+    fwprintf(stdout, L"Debug: Serialise gui initial. format p15: %i\n", p15);
+    fwprintf(stdout, L"Debug: Serialise gui initial. format *p15: %i\n", *((int*) p15));
 
     //
     // Declaration.
     //
+
+    // The destination window identification item data.
+    void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The input output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -85,8 +95,11 @@ void serialise_gui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // Retrieval.
     //
 
+    // Get destination window identification item data.
+    copy_array_forward((void*) &w, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
     // Get input output entry from internal memory.
-    copy_array_forward((void*) &io, p7, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DISPLAY_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &io, p14, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DISPLAY_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get server list from input output entry.
     copy_array_forward((void*) &sl, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SERVERS_INPUT_OUTPUT_STATE_CYBOI_NAME);
     //
@@ -109,7 +122,7 @@ void serialise_gui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // Retrieve win32 device context from server entry.
     copy_array_forward((void*) &dc, se, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DEVICE_CONTEXT_WIN32_DISPLAY_SERVER_STATE_CYBOI_NAME);
 
-    serialise_gui_part_element_content(c, s, p0, gc, f, dc, p1, p2, p3, p4, p5, p6, p7, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p8);
+    serialise_gui_content(c, s, w, gc, f, dc, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p15);
 }
 
 /* INITIAL_GUI_SERIALISER_SOURCE */
