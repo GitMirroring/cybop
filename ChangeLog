@@ -24,6 +24,7 @@
         * Add file "constraints_xml_serialiser.c" for reading language properties constraints
         * Extend cybol application "serialiser/xml/"
         * Add languages "text/cybol+xml" and "text/cybol+json" to cyboi
+        * Extend cybol application "serialiser/cybol/"
 
 2022-11-24  Christian Heller  <christian.heller@cybop.org>
 
