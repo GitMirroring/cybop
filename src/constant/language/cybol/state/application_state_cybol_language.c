@@ -37,7 +37,7 @@
 //
 
 /**
- * The application/json state cybol language.
+ * The application/json application state cybol language.
  *
  * Java Script Object Notation (JSON)
  *
@@ -52,7 +52,7 @@ static wchar_t* JSON_APPLICATION_STATE_CYBOL_LANGUAGE = L"application/json";
 static int* JSON_APPLICATION_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/xml state cybol language.
+ * The application/xml application state cybol language.
  *
  * Extensible Markup Language (XML)
  *

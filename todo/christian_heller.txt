@@ -24,8 +24,6 @@ _____________
 Numeral Deserialiser
 ____________________
 
-        * Replace language "text/cybol" with "application/cybol" in cyboi and all cybol applications
-
         * Uncomment assigning of decimal places in file "decimals_numeral_serialiser.c" (was commented out for testing)
 
         * Call "serialise_numeral_vector" instead of just "serialise_numeral" in file "cybol_serialiser.c" and others where numeral serialiser is used
@@ -83,6 +81,12 @@ ____
         * Continue json deserialiser and selector: number
         * Handle special escaped string characters in file "string_json_deserialiser.c"
         * Test real-world json files of directory "serialisation/json/examples/" using a cybol application
+
+        * Replace function call "serialise_cybol" in other serialisers directly with "serialise_numeral" and other primitive serialisers
+            reasons:
+            (1) reduce dependencies (includes)
+            (2) make other serialisers independent from cybol serialiser
+            (3) other language's serialisers like xdt have different formats (e.g. for date) than cybol offers
 
         * Reflect on how to handle binary data in files "cybol_serialiser.c", "xml_serialiser.c", "json_serialiser.c"
             how do dbms store blobs ??

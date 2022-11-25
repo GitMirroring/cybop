@@ -130,8 +130,8 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     //
     // Initialise buffer.
     //
-    // CAUTION! The "wchar_t" buffer is used by default.
-    // It applies to languages like e.g. "text/cybol", "text/html" etc.
+    // CAUTION! The "wchar_t" buffer is used by default. It applies to
+    // languages like for example "text/cybol" and "text/html".
     // Also, text given via "inline" channel is processed as wide characters.
     // Therefore, setting the buffer to "wchar_t" by default IS IMPORTANT.
     //

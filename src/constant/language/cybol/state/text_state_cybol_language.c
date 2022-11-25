@@ -91,17 +91,37 @@ static wchar_t* CSV_TEXT_STATE_CYBOL_LANGUAGE = L"text/csv";
 static int* CSV_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The text/cybol+json text state cybol language.
+ *
+ * CYBOL (JSON)
+ *
+ * Suffixes: cybolj
+ */
+static wchar_t* CYBOL_JSON_TEXT_STATE_CYBOL_LANGUAGE = L"text/cybol+json";
+static int* CYBOL_JSON_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The text/cybol text state cybol language.
  *
  * CYBOL (XML)
  *
- * Specification:
- * http://www.nongnu.org/cybop/books/cybol/cybol.pdf
+ * It is identical to "text/cybol+xml" but shorter and easier to use.
+ * This is the DEFAULT media type for cybol data.
  *
  * Suffixes: cybol
  */
 static wchar_t* CYBOL_TEXT_STATE_CYBOL_LANGUAGE = L"text/cybol";
 static int* CYBOL_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The text/cybol+xml text state cybol language.
+ *
+ * CYBOL (XML)
+ *
+ * Suffixes: cybol
+ */
+static wchar_t* CYBOL_XML_TEXT_STATE_CYBOL_LANGUAGE = L"text/cybol+xml";
+static int* CYBOL_XML_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The text/gdt text state cybol language.
