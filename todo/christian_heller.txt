@@ -24,9 +24,7 @@ _____________
 Numeral Deserialiser
 ____________________
 
-        * Add file "constraints_xml_serialiser.c" for reading language properties constraints ??
-        * Add xml serialiser as branch to file "serialiser.c"
-        * Add xml test cybol application "serialiser/xml/"
+        * Replace language "text/cybol" with "application/cybol" in cyboi and all cybol applications
 
         * Uncomment assigning of decimal places in file "decimals_numeral_serialiser.c" (was commented out for testing)
 

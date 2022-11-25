@@ -52,31 +52,41 @@ void serialise_xml_empty(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_unequal((void*) &r, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    //
+    // Two kinds of elements exist.
+    //
+    // 1 standard
+    //
+    // It is represented by an opening AND closing tag.
+    //
+    // Example:
+    //
+    // <div>
+    //     Here is the content of the element.
+    // </div>
+    //
+    // 2 void | empty
+    //
+    // It is represented by just ONE tag.
+    //
+    // Example:
+    //
+    // <img alt="without content, but attributes are possible"/>
+    //
+
+    compare_integer_equal((void*) &r, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // This element IS allowed to be void.
-        // It may therefore be represented as empty tag.
         //
-        // Example:
-        // <img/>
-
-        // NOTHING is to be done here.
-        // The compiler will remove this block, since it is empty.
-        // So, no need to worry about memory or bad performance.
-
-    } else {
-
         // This element is NOT allowed to be void.
-        // It therefore has to be represented with opening and closing tag.
         //
-        // Example:
-        // <div>
-        // </div>
 
+        //
         // Serialise indentation.
+        //
         // CAUTION! Use original indentation that was handed over as parametre.
+        //
         serialise_xml_indentation(p0, p3, p4);
         // Append end tag.
         serialise_xml_end(p0, p1, p2);

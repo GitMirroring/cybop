@@ -49,18 +49,11 @@
 //?? #include "../../../executor/representer/serialiser/xdt_field_description/xdt_field_description_serialiser.c"
 #include "../../../executor/representer/serialiser/xdt/xdt_serialiser.c"
 //
-// CAUTION! Do NOT include the "content_xml_serialiser.c" module.
-// It is true, the "serialise_xml_content" function is called from here,
-// but the module dependency hierarchy slightly differs and just goes top-down
-// by module granularity and NOT by call hierarchy.
-//
-// Therefore, the "xml_serialiser.c" module is included here.
-//
 // CAUTION! The xml serialiser is used e.g. in the cybol serialiser.
 // Therefore, do NOT delete this include, even if the xml serialiser
 // is possibly not called directly below.
 //
-#include "../../../executor/representer/serialiser/xml/xml_serialiser.c"
+#include "../../../executor/representer/serialiser/xml/constraints_xml_serialiser.c"
 
 /**
  * Serialises the source into the destination, according to the given language.
@@ -82,6 +75,8 @@
 void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise.");
+    //?? fwprintf(stdout, L"Information: Serialise. language p12: %i\n", p12);
+    //?? fwprintf(stdout, L"Information: Serialise. language *p12: %i\n", *((int*) p12));
 
     //
     // The functions below are for STATE models only.
@@ -106,6 +101,16 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             serialise_json_constraints(p0, p1, p2, p5, p6, p7, p8, p9);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p12, (void*) XML_APPLICATION_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_xml_constraints(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11);
         }
     }
 
@@ -330,6 +335,8 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise. The language is unknown or null.");
+        fwprintf(stdout, L"Warning: Could not serialise. The language is unknown or null. language p12: %i\n", p12);
+        fwprintf(stdout, L"Warning: Could not serialise. The language is unknown or null. language *p12: %i\n", *((int*) p12));
     }
 }
 

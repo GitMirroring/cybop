@@ -63,6 +63,8 @@
 void serialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xml content.");
+    fwprintf(stdout, L"Debug: Serialise xml content. format p15: %i\n", p15);
+    fwprintf(stdout, L"Debug: Serialise xml content. format *p15: %i\n", *((int*) p15));
 
     // The tag part.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -100,7 +102,7 @@ void serialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     //
-    // Assign default tag name for each nameless tag,
+    // Assign DEFAULT TAG name for each nameless tag,
     // for which no "tag" property has been specified.
     //
     if ((tmd == *NULL_POINTER_STATE_CYBOI_MODEL) || (tmc == *NULL_POINTER_STATE_CYBOI_MODEL)) {

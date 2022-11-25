@@ -176,8 +176,8 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
                         // Therefore, only set the eof-or-close flag below.
                         //
 
-                        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read basic. The return value is zero, which means EOF for file or connexion closed for socket. Setting eof-or-close flag now.");
-                        //?? fwprintf(stdout, L"Debug: Could not read basic. The return value is zero, which means EOF for file or connexion closed for socket. Setting eof-or-close flag now. n: %i\n", n);
+                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read basic. The return value is zero, which means EOF for file or connexion closed for socket. Setting eof-or-close flag now.");
+                        //?? fwprintf(stdout, L"Warning: Could not read basic. The return value is zero, which means EOF for file or connexion closed for socket. Setting eof-or-close flag now. n: %i\n", n);
 
                         // Set eof-or-close flag.
                         copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -185,7 +185,8 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
                     } else {
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read basic. An error occured. Did you open the device? Setting eof-or-close flag now.");
-                        fwprintf(stdout, L"Error: Could not read basic. An error occured. Did you open the device? Setting eof-or-close flag now. n: %i\n", n);
+                        fwprintf(stdout, L"Error: Could not read basic. An error occured. n: %i\n", n);
+                        fwprintf(stdout, L"Hint: Did you open the device? Setting eof-or-close flag now.\n");
                         log_errno((void*) &errno);
 
                         //

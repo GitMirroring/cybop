@@ -1,6 +1,6 @@
 <node>
 
-    <!-- Initialisation -->
+    <!-- Creation -->
 
     <node name="create_id" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="id"/>
@@ -11,7 +11,7 @@
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
     </node>
 
-    <!-- Deserialisation -->
+    <!-- Deserialisation from xml -->
 
 <!--
         Possible xml files that can be used:
@@ -28,7 +28,7 @@
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/xml/test/reference.xml"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/xml/test/widget.xml"/>
     </node>
     <node name="deserialise_data" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -45,7 +45,7 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
-    <!-- Testing -->
+    <!-- Serialisation into model diagram -->
 
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -53,11 +53,32 @@
         <node name="device" channel="inline" format="text/plain" model="serialisation/xml/test_knowledge_tree.txt"/>
         <node name="mode" channel="inline" format="text/plain" model="write"/>
     </node>
-    <node name="send_knowledge" channel="inline" format="communicate/send" model="">
+    <node name="send_data" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".data"/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+    <!-- Serialisation into xml -->
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/xml/test_output.xml"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
+    </node>
+    <node name="send_data" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="application/xml"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".data"/>
     </node>

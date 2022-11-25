@@ -21,6 +21,8 @@
 2022-11-25  Christian Heller  <christian.heller@cybop.org>
 
         * Add file "constraints_gui_serialiser.c" for reading language properties constraints
+        * Add file "constraints_xml_serialiser.c" for reading language properties constraints
+        * Extend cybol application "serialiser/xml/"
 
 2022-11-24  Christian Heller  <christian.heller@cybop.org>
 

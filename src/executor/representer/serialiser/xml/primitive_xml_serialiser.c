@@ -66,7 +66,9 @@ void serialise_xml_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     //
     // This is a primitive value, NOT a compound element.
+    //
     // Example:
+    //
     // <p>
     //     some text
     // </p>
@@ -76,6 +78,7 @@ void serialise_xml_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // CAUTION! If this is NOT a preformatted element,
     // then the preformatted property may NOT be given
     // so that the corresponding flag is NULL.
+    //
     // Or, the flag IS given, but was set to FALSE.
     //
     if ((p14 == *NULL_POINTER_STATE_CYBOI_MODEL) || ((p14 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p14) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
@@ -83,7 +86,9 @@ void serialise_xml_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, v
         //
         // This is a primitive value, NOT a compound element.
         // Further, this is NOT a preformatted element.
+        //
         // Example:
+        //
         // <p>
         //     some text
         // </p>
@@ -92,9 +97,10 @@ void serialise_xml_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, v
         //
         // CAUTION! The content of compound parts gets
         // indented inside the called function stack:
+        //
         // - serialise_xml
         // - serialise_xml_part
-        // - serialise_xml_part_element
+        // - serialise_xml_element
         // - serialise_xml_content
         //
         // However, this is NOT the case for primitive values like a text or number.
@@ -155,7 +161,9 @@ void serialise_xml_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     //
     // This is a primitive value, NOT a compound element.
+    //
     // Example:
+    //
     // <p>
     //     some text
     // </p>
@@ -164,6 +172,7 @@ void serialise_xml_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, v
     //
     // CAUTION! The content of compound parts gets
     // added a line break inside the called function stack:
+    //
     // - serialise_xml
     // - serialise_xml_part
     // - serialise_xml_part_element
