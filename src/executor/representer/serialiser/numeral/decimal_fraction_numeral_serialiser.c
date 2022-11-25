@@ -32,6 +32,7 @@
 #include "../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/numeral/decimal_numeral_name.c"
 #include "../../../../constant/name/numeral/power_numeral_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/calculator/double/absolute_double_calculator.c"
@@ -65,6 +66,13 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
     fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. source number p1: %i\n", p1);
     fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. source number *p1: %f\n", *((double*) p1));
 
+    //
+    // Declaration
+    //
+
+    // The decimal separator with FULL STOP (dot) as default data, count.
+    void* sd = (void*) SEPARATOR_DECIMAL_NUMERAL_NAME;
+    int sc = *SEPARATOR_DECIMAL_NUMERAL_NAME_COUNT;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The temporary floating point number.
@@ -79,6 +87,21 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
     double pred = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     // The pre-point absolute value.
     double prea = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+
+    //
+    // Initialisation
+    //
+
+    //
+    // CAUTION! This check IS necessary since function "copy_pointer" tests
+    // for NULL inside, but the argument handed over is a local variable's
+    // pointer reference and thus NOT null, even if the actual value IS null.
+    //
+    if ((p5 != *NULL_POINTER_STATE_CYBOI_MODEL) && (p6 != *NULL_POINTER_STATE_CYBOI_MODEL)) {
+
+        copy_pointer((void*) &sd, (void*) &p5);
+        copy_integer((void*) &sc, p6);
+    }
 
     // Initialise temporary floating point number.
     copy_double((void*) &n, p1);
@@ -95,7 +118,7 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
     }
 
     //
-    // Determine pre-point value.
+    // Determine pre-point value
     //
 
     //
@@ -109,7 +132,7 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
     fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. pre: %i\n", pre);
 
     //
-    // Determine post-point value (decimal places).
+    // Determine post-point value (decimal places)
     //
 
     // Initialise post-point value with original number.
@@ -143,7 +166,7 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
     serialise_numeral_integer(p0, (void*) &pre, p2, p3, p4);
 
     // Append decimal separator wide character to destination item.
-    modify_item(p0, p5, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    modify_item(p0, sd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &sc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
     // Serialise post-point value.
     serialise_numeral_decimals(p0, (void*) &post, p3, p7);

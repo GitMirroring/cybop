@@ -26,6 +26,7 @@
         * Add languages "text/cybol+xml" and "text/cybol+json" to cyboi
         * Extend cybol application "serialiser/cybol/"
         * Make detection of hexadecimal letters work in numeral deserialiser by adding hexadecimal letter digits to file "digit_selector.c"
+        * Add default values for decimal separator and other local variables to make numeral serialiser work properly
 
 2022-11-24  Christian Heller  <christian.heller@cybop.org>
 

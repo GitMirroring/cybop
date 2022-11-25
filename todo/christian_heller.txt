@@ -24,8 +24,6 @@ _____________
 Numeral Deserialiser
 ____________________
 
-        * Add default values to local variables to make numeral serialiser work properly
-
         * Uncomment assigning of decimal places in file "decimals_numeral_serialiser.c" (was commented out for testing)
 
         * Call "serialise_numeral_vector" instead of just "serialise_numeral" in file "cybol_serialiser.c" and others where numeral serialiser is used

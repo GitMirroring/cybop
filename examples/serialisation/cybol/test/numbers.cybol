@@ -18,15 +18,14 @@
     </node>
 
     <node name="fraction-decimal" channel="inline" format="text/plain" model="fraction-decimal">
-        <node name="simple" channel="inline" format="number/fraction-decimal" model="24.4"/>
 <!--
+        <node name="simple" channel="inline" format="number/fraction-decimal" model="24.4"/>
         <node name="negative_sign" channel="inline" format="number/fraction-decimal" model="-24.4"/>
         <node name="standard" channel="inline" format="number/fraction-decimal" model="7.0"/>
         <node name="extra" channel="inline" format="number/fraction-decimal" model="123.45697"/>
 -->
-<!--
-        <node name="scientific_notation" channel="inline" format="number/fraction-decimal" model="7e-3"/>
         <node name="capital_letter_possible" channel="inline" format="number/fraction-decimal" model="7E-3"/>
+<!--
         <node name="positive_without_sign" channel="inline" format="number/fraction-decimal" model="7e3"/>
         <node name="optional_plus_sign" channel="inline" format="number/fraction-decimal" model="7e+3"/>
         <node name="scientific_notation_1" channel="inline" format="number/fraction-decimal" model="11e0"/>
