@@ -77,6 +77,10 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3) {
     fwprintf(stdout, L"Debug: Serialise numeral decimals. source number *p1: %f\n", *((double*) p1));
 
     //
+    // Declaration
+    //
+
+    //
     // The decimal places count with an arbitrarily chosen DEFAULT value
     // that may be changed here in cyboi if necessary one day.
     //
@@ -100,8 +104,12 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3) {
     // The digit as double.
     double dd = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
 
+    //
+    // Power
+    //
+
     // Initialise decimal places count with parametre.
-    //?? copy_integer((void*) &c, p3);
+    copy_integer((void*) &c, p3);
     fwprintf(stdout, L"Debug: Serialise numeral decimals. c: %i\n", c);
     // Cast number base to double.
     cast_double_integer((void*) &base, p2);
@@ -115,6 +123,10 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3) {
     // Raise the number base to the power of the decimal places count.
     calculate_double_power((void*) &p, (void*) &cd);
     fwprintf(stdout, L"Debug: Serialise numeral decimals. with cd power p: %f\n", p);
+
+    //
+    // Rounding
+    //
 
     // Initialise decimals (post point value) with source floating point number.
     copy_double((void*) &v, p1);

@@ -68,6 +68,10 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4)
     fwprintf(stdout, L"Debug: Serialise numeral integer. source number *p1: %i\n", *((int*) p1));
 
     //
+    // Declaration
+    //
+
+    //
     // The temporary number wide character item.
     //
     // CAUTION! It is necessary since the single digits get inserted at the
@@ -100,6 +104,10 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4)
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The remainder.
     int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    //
+    // Initialisation
+    //
 
     // Initialise temporary number.
     copy_integer((void*) &n, p1);
@@ -136,6 +144,10 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4)
     serialise_numeral_prefix(p0, (void*) &nb, p4);
 
     //
+    // Assembling
+    //
+
+    //
     // Allocate temporary number wide character item.
     //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
@@ -143,9 +155,20 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4)
     //
     allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
+    //
+    // Compare temporary number for ZERO value.
+    //
+    // CAUTION! This special block for zero IS necessary since due to
+    // the break condition, the loop below would NEVER enter a cycle
+    // if the number were zero.
+    //
     compare_integer_equal((void*) &z, (void*) &n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     if (z != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        //
+        // The value is ZERO
+        //
 
         // Map integer value to a unicode digit wide character.
         map_integer_to_digit_wide_character((void*) &wc, (void*) &n);
@@ -185,6 +208,10 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4)
             }
         }
     }
+
+    //
+    // Assignment
+    //
 
     // Get temporary number wide character item data, count.
     copy_array_forward((void*) &id, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
