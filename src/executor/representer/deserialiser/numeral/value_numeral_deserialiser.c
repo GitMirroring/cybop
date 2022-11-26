@@ -112,10 +112,12 @@ void deserialise_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4,
             deserialise_numeral_integer(p0, vd, (void*) &vc, p7, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             break;
-        }
 
-        // Select numeral value.
-        select_numeral_value(p1, p2, p3, p4, p5, p6, p8, p9, p10, p11, (void*) &vc, (void*) &b);
+        } else {
+
+            // Select numeral value.
+            select_numeral_value(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, (void*) &vc, (void*) &b);
+        }
     }
 }
 

@@ -31,6 +31,7 @@
 #include "../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/numeral/base_numeral_model.c"
 #include "../../../../executor/calculator/double/multiply_double_calculator.c"
 #include "../../../../executor/calculator/double/power_double_calculator.c"
 #include "../../../../executor/caster/double/integer_double_caster.c"
@@ -59,6 +60,17 @@ void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3, void* p4,
     fwprintf(stdout, L"Debug: Deserialise numeral power. source count p2: %i\n", p2);
     fwprintf(stdout, L"Debug: Deserialise numeral power. source count *p2: %i\n", *((int*) p2));
 
+    //
+    // Declaration
+    //
+
+    //
+    // The number base with DECIMAL as default.
+    //
+    // CAUTION! Using this local variable is IMPORTANT to assign a default value.
+    // If the parametre got used directly and were null, calculations below would fail.
+    //
+    int nb = *DECIMAL_BASE_NUMERAL_MODEL;
     // The algebraic sign factor with PLUS (positive number one) as default.
     int s = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
     // The power data, count.
@@ -69,6 +81,13 @@ void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3, void* p4,
     // The power as integer and double value.
     int powi = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
     double powd = *NUMBER_1_0_DOUBLE_STATE_CYBOI_MODEL;
+
+    //
+    // Initialisation
+    //
+
+    // Copy number base. If null, it gets ignored.
+    copy_integer((void*) &nb, p3);
 
     // Deserialise algebraic sign.
     select_numeral_sign((void*) &s, p1, p2);
@@ -96,6 +115,10 @@ void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3, void* p4,
         //
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
+
+    //
+    // Assignment
+    //
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -132,7 +155,7 @@ void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3, void* p4,
             //
 
             // Deserialise power value as integer with the given number base.
-            deserialise_numeral_integer((void*) &powi, pd, (void*) &pc, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            deserialise_numeral_integer((void*) &powi, pd, (void*) &pc, (void*) &nb, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
             fwprintf(stdout, L"Debug: Deserialise numeral power. powi: %i\n", powi);
 
             // Multiply power value with algebraic sign factor.
@@ -144,8 +167,8 @@ void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3, void* p4,
             fwprintf(stdout, L"Debug: Deserialise numeral power. powd: %f\n", powd);
 
             // Initialise destination power factor with number base.
-            cast_double_integer(p0, p3);
-            fwprintf(stdout, L"Debug: Deserialise numeral power. *p3: %i\n", *((int*) p3));
+            cast_double_integer(p0, (void*) &nb);
+            fwprintf(stdout, L"Debug: Deserialise numeral power. nb: %i\n", nb);
             fwprintf(stdout, L"Debug: Deserialise numeral power. base *p0: %f\n", *((double*) p0));
 
             // Raise the number base to the power of the given value.
@@ -157,7 +180,7 @@ void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3, void* p4,
         } else {
 
             // Select number base power.
-            select_numeral_value(p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p5, (void*) &pc, (void*) &b);
+            select_numeral_value(p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &nb, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p5, (void*) &pc, (void*) &b);
         }
     }
 }

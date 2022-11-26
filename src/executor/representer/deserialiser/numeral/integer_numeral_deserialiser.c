@@ -30,6 +30,7 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/numeral/base_numeral_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../executor/calculator/integer/multiply_integer_calculator.c"
@@ -63,7 +64,7 @@ void deserialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p
     //
     // The number base with DECIMAL as default.
     //
-    // CAUTION! Using this local variable is important to assign a default value.
+    // CAUTION! Using this local variable is IMPORTANT to assign a default value.
     // If the parametre got used directly and were null, calculations below would fail.
     //
     int nb = *DECIMAL_BASE_NUMERAL_MODEL;

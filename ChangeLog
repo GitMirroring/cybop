@@ -23,6 +23,8 @@
         * Reduce numeral constants to simplify numeral selector for complex number with polar coordinates
         * Clean up source code examples in cybol application "serialisation/cybol/test/numbers.cybol" and api documentation file "number_state_cybol_format.c"
         * Use local variables with default values instead of parametres directly in numeral deserialiser to make it work properly
+        * Split file "digit_selector.c" into "decimal_digit_selector.c" and "hexadecimal_digit_selector.c"
+        * Adapt file "value_numeral_selector.c" to detect hexadecimal digits only if number base is hexadecimal, in order to avoid conflict with "E" used as both, hexadecimal number digit and power exponent for scientific notation
 
 2022-11-25  Christian Heller  <christian.heller@cybop.org>
 

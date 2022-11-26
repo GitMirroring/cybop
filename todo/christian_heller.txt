@@ -14,15 +14,14 @@
 Numeral Deserialiser
 ____________________
 
-        * Use local variables with default values instead of parametres directly in numeral deserialiser to make it work properly
-            --> Finish checking for necessary DEFAULT values, only two files are left to be checked: "part_numeral_deserialiser.c" and "power_numeral_deserialiser.c"
-        * Debug numeral deserialiser for floating point number (decimal fraction) with power exponent
+        * Debug error that floating point pre-point value gets detected as OCTAL number when having a leading ZERO in file "value_numeral_selector.c"
+        * Debug error that sign is not printed for scientific notation in file "value_numeral_selector.c"
         * Test cybol application "serialisation/cybol/" and make scientific notation get de-/serialised properly
-            --> error is probably in detector which returns 1 even if one of the two arguments is null
 
-        * Make api generator work again
-
-        * Call "serialise_numeral_vector" instead of just "serialise_numeral" in file "cybol_serialiser.c" and others where numeral serialiser is used
+        Bugs in numeral deserialiser:
+        * Fix bug that vulgar fraction is not recognised in numeral deserialiser
+        * Fix bug that sign is not recognised in complex number with polar coordinates
+        * Fix bug that exponent without multiplication sign is not recognised in complex number with polar coordinates
 
         * Search all source code for casts to "int" via (int) x AND also via function "cast_integer_double", in order to apply special handling (add/subtract 0.5 to avoid imprecise floating point number)
             ==> do this in function "cast_integer_double" (at one place usable by all source code)
@@ -37,14 +36,9 @@ ____________________
         * Delete cybol fraction serialiser which got replaced by numeral serialiser
         * Delete cybol integer serialiser which got replaced by numeral serialiser
 
-        * Investigate correct assigning of the initial constant values SEPARATOR_DECIMAL_NUMERAL_NAME and SEPARATOR_THOUSANDS_NUMERAL_NAME in file "value_numeral_selector.c"
-        * Reflect about how to assign the constant value in file "thousands_numeral_name.c" (COMMA_UNICODE_CHARACTER_CODE_MODEL_COUNT or NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY)
-        * Assign then count similarly for all unicode character constants, since they now have an own count variable
+        * Make api generator work again
 
-        Bugs in numeral deserialiser:
-        * Fix bug that vulgar fraction is not recognised in numeral deserialiser
-        * Fix bug that sign is not recognised in complex number with polar coordinates
-        * Fix bug that exponent without multiplication sign is not recognised in complex number with polar coordinates
+        * Call "serialise_numeral_vector" instead of just "serialise_numeral" in file "cybol_serialiser.c" and others where numeral serialiser is used
 
         * Move byte deserialiser out of cybol deserialiser into separate directory ??
 
