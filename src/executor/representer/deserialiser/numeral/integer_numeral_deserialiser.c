@@ -56,6 +56,17 @@ void deserialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p
     fwprintf(stdout, L"Debug: Deserialise numeral integer. source count *p2: %i\n", *((int*) p2));
     fwprintf(stdout, L"Debug: Deserialise numeral integer. source count p1: %ls\n", (wchar_t*) p1);
 
+    //
+    // Declaration
+    //
+
+    //
+    // The number base with DECIMAL as default.
+    //
+    // CAUTION! Using this local variable is important to assign a default value.
+    // If the parametre got used directly and were null, calculations below would fail.
+    //
+    int nb = *DECIMAL_BASE_NUMERAL_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The loop variable.
@@ -66,6 +77,13 @@ void deserialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p
     int v = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The result.
     int res = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    //
+    // Initialisation
+    //
+
+    // Copy number base. If null, it gets ignored.
+    copy_integer((void*) &nb, p3);
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -81,6 +99,10 @@ void deserialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p
         //
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
+
+    //
+    // Assignment
+    //
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -111,11 +133,11 @@ void deserialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p
         // CAUTION! Walk through the single digits by multiplying them
         // with the numeral base that was handed over as paramere.
         //
-        // CAUTION! In the FIRST loop cycle, the result is zero,
+        // CAUTION! In the FIRST loop cycle, the result is ZERO,
         // which is WANTED BEHAVIOUR, so that the value gets
         // added below on the FIRST position.
         //
-        calculate_integer_multiply((void*) &res, p3);
+        calculate_integer_multiply((void*) &res, (void*) &nb);
         // Add current digit.
         calculate_integer_add((void*) &res, (void*) &v);
 

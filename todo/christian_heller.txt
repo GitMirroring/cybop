@@ -11,22 +11,16 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-Display / XCB
-_____________
-
-        * Make cybol application "gui" display colours again
-            the last working version of the source code is from 2022-09-29
-            the cybol application "gui" itself works fine with it and is ok
-            this is probably related to the new number de-/serialiser --> complete this first and then check again
-            reset default values of variables fgr, fgg etc. (which got modified for testing) in file "context_xcb_serialiser.c"
-        * Check working gui with cybol application "ui" as well
-
 Numeral Deserialiser
 ____________________
 
+        * Use local variables with default values instead of parametres directly in numeral deserialiser to make it work properly
+            --> Finish checking for necessary DEFAULT values, only two files are left to be checked: "part_numeral_deserialiser.c" and "power_numeral_deserialiser.c"
         * Debug numeral deserialiser for floating point number (decimal fraction) with power exponent
         * Test cybol application "serialisation/cybol/" and make scientific notation get de-/serialised properly
             --> error is probably in detector which returns 1 even if one of the two arguments is null
+
+        * Make api generator work again
 
         * Call "serialise_numeral_vector" instead of just "serialise_numeral" in file "cybol_serialiser.c" and others where numeral serialiser is used
 
@@ -62,6 +56,8 @@ ____________________
         * Merge "language" and "format" constants ??
 
         * Adapt cybol serialiser so that compound parts of type "element/part" get written into different files
+
+        * Reset gui default values of variables fgr, fgg etc. (which got modified for testing) in file "context_xcb_serialiser.c"
 
 JSON
 ____
