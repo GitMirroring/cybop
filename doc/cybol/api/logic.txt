@@ -1,5 +1,6 @@
 activate/disable
 activate/enable
+calculate/absolute
 calculate/add
 communicate/identify
 communicate/receive

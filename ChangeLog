@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-11-26  Christian Heller  <christian.heller@cybop.org>
+
+        * Reduce numeral constants to simplify numeral selector for complex number with polar coordinates
+        * Clean up source code examples in cybol application "serialisation/cybol/test/numbers.cybol" and api documentation file "number_state_cybol_format.c"
+
 2022-11-25  Christian Heller  <christian.heller@cybop.org>
 
         * Add file "constraints_gui_serialiser.c" for reading language properties constraints

@@ -31,25 +31,13 @@
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The abbreviation begin exp( exponent numeral name. */
-static wchar_t* ABBREVIATION_BEGIN_EXPONENT_NUMERAL_NAME = L"exp(";
-static int* ABBREVIATION_BEGIN_EXPONENT_NUMERAL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The end ) exponent numeral name. */
 static wchar_t* END_EXPONENT_NUMERAL_NAME = L")";
 static int* END_EXPONENT_NUMERAL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The letter begin E( exponent numeral name. */
-static wchar_t* LETTER_BEGIN_EXPONENT_NUMERAL_NAME = L"E(";
-static int* LETTER_BEGIN_EXPONENT_NUMERAL_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The multiplication abbreviation begin *exp( exponent numeral name. */
-static wchar_t* MULTIPLICATION_ABBREVIATION_BEGIN_EXPONENT_NUMERAL_NAME = L"*exp(";
-static int* MULTIPLICATION_ABBREVIATION_BEGIN_EXPONENT_NUMERAL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The multiplication letter begin *E( exponent numeral name. */
-static wchar_t* MULTIPLICATION_LETTER_BEGIN_EXPONENT_NUMERAL_NAME = L"*E(";
-static int* MULTIPLICATION_LETTER_BEGIN_EXPONENT_NUMERAL_NAME_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The begin *exp( exponent numeral name. */
+static wchar_t* BEGIN_EXPONENT_NUMERAL_NAME = L"*exp(";
+static int* BEGIN_EXPONENT_NUMERAL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* EXPONENT_NUMERAL_NAME_CONSTANT_SOURCE */
 #endif

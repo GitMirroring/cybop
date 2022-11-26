@@ -25,20 +25,19 @@ Numeral Deserialiser
 ____________________
 
         * Debug numeral deserialiser for floating point number (decimal fraction) with power exponent
+        * Test cybol application "serialisation/cybol/" and make scientific notation get de-/serialised properly
+            --> error is probably in detector which returns 1 even if one of the two arguments is null
 
         * Call "serialise_numeral_vector" instead of just "serialise_numeral" in file "cybol_serialiser.c" and others where numeral serialiser is used
 
         * Search all source code for casts to "int" via (int) x AND also via function "cast_integer_double", in order to apply special handling (add/subtract 0.5 to avoid imprecise floating point number)
             ==> do this in function "cast_integer_double" (at one place usable by all source code)
 
-        * Test cybol application "serialisation/cybol/" and make scientific notation get de-/serialised properly
-            --> error is probably in detector which returns 1 even if one of the two arguments is null
-
         * Factor out sub functions of file "number_numeral_deserialiser.c" into separate files
         * Factor out sub functions of files in numeral serialiser into separate files
 
-        * DONE ??: Test numeral serialiser
-            model-diagram: text works fine, also property numeral values are shown correctly (e.g. cybol serialiser), but model numeral values NOT (e.g. json serialiser)
+        * DONE ??: Test numeral serialiser (e.g. json serialiser)
+            model-diagram: text works fine, also property numeral values are shown correctly (e.g. cybol serialiser), but model numeral values NOT
 
         * Delete cybol complex serialiser which got replaced by numeral serialiser
         * Delete cybol fraction serialiser which got replaced by numeral serialiser
@@ -49,14 +48,11 @@ ____________________
         * Assign then count similarly for all unicode character constants, since they now have an own count variable
 
         Bugs in numeral deserialiser:
-        * Fix bug that prefix zero in a decimal fraction is interpreted as octal number
         * Fix bug that vulgar fraction is not recognised in numeral deserialiser
         * Fix bug that sign is not recognised in complex number with polar coordinates
         * Fix bug that exponent without multiplication sign is not recognised in complex number with polar coordinates
 
-        * Move byte deserialiser out of cybol deserialiser
-
-        * Simplify numeral constants and numeral deserialiser to use only "exp(" and not "e(" in complex number with polar coordinates
+        * Move byte deserialiser out of cybol deserialiser into separate directory ??
 
         * Remove thousands separator using modify replace function
             do NOT just skip it in file "value_numeral_selector.c", since the count has to include them
@@ -64,8 +60,6 @@ ____________________
 
         Reflect in general:
         * Merge "language" and "format" constants ??
-
-        * Figure out which function to use for getting properties or constraints: either "get_name_array" (for flat names which are NOT a path ??) or "get_part_name" (useful with knowledge tree path ??)
 
         * Adapt cybol serialiser so that compound parts of type "element/part" get written into different files
 

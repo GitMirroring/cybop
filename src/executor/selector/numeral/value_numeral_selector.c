@@ -280,55 +280,7 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // *exp(
-        detect((void*) &r, p0, p1, (void*) MULTIPLICATION_ABBREVIATION_BEGIN_EXPONENT_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MULTIPLICATION_ABBREVIATION_BEGIN_EXPONENT_NUMERAL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Assign format and type.
-            copy_integer(p8, (void*) COMPLEX_POLAR_NUMBER_STATE_CYBOI_FORMAT);
-            copy_integer(p9, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
-
-            // Set loop break flag.
-            copy_integer(p11, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        // *E(
-        detect((void*) &r, p0, p1, (void*) MULTIPLICATION_LETTER_BEGIN_EXPONENT_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MULTIPLICATION_LETTER_BEGIN_EXPONENT_NUMERAL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Assign format and type.
-            copy_integer(p8, (void*) COMPLEX_POLAR_NUMBER_STATE_CYBOI_FORMAT);
-            copy_integer(p9, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
-
-            // Set loop break flag.
-            copy_integer(p11, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        // exp(
-        detect((void*) &r, p0, p1, (void*) ABBREVIATION_BEGIN_EXPONENT_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ABBREVIATION_BEGIN_EXPONENT_NUMERAL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Assign format and type.
-            copy_integer(p8, (void*) COMPLEX_POLAR_NUMBER_STATE_CYBOI_FORMAT);
-            copy_integer(p9, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
-
-            // Set loop break flag.
-            copy_integer(p11, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        // E(
-        detect((void*) &r, p0, p1, (void*) LETTER_BEGIN_EXPONENT_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LETTER_BEGIN_EXPONENT_NUMERAL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p0, p1, (void*) BEGIN_EXPONENT_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_EXPONENT_NUMERAL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

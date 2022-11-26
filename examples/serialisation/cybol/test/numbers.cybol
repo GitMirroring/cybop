@@ -1,8 +1,16 @@
 <node>
 
+    <node name="byte" channel="inline" format="text/plain" model="byte">
+<!--
+        <node name="x" channel="inline" format="number/byte" model="0"/>
+        <node name="y" channel="inline" format="number/byte" model="2"/>
+        <node name="array" channel="inline" format="number/byte" model="0,1,2,3,4"/>
+-->
+    </node>
+
     <node name="integer" channel="inline" format="text/plain" model="integer">
 <!--
-        <node name="decimal" channel="inline" format="number/integer" model="24"/>
+        <node name="decimal_base" channel="inline" format="number/integer" model="24"/>
         <node name="negative" channel="inline" format="number/integer" model="-24"/>
         <node name="octal" channel="inline" format="number/integer" model="030"/>
         <node name="many_zeros" channel="inline" format="number/integer" model="00030"/>
@@ -21,22 +29,28 @@
 <!--
         <node name="simple" channel="inline" format="number/fraction-decimal" model="24.4"/>
         <node name="negative_sign" channel="inline" format="number/fraction-decimal" model="-24.4"/>
+        <node name="array" channel="inline" format="fraction-decimal" model="1.5,2.5,3.5"/>
         <node name="standard" channel="inline" format="number/fraction-decimal" model="7.0"/>
         <node name="extra" channel="inline" format="number/fraction-decimal" model="123.45697"/>
 -->
-        <node name="capital_letter_possible" channel="inline" format="number/fraction-decimal" model="7E-3"/>
-<!--
         <node name="positive_without_sign" channel="inline" format="number/fraction-decimal" model="7e3"/>
+<!--
         <node name="optional_plus_sign" channel="inline" format="number/fraction-decimal" model="7e+3"/>
+        <node name="minus_sign" channel="inline" format="number/fraction-decimal" model="7e-3"/>
+        <node name="capital_letter_possible" channel="inline" format="number/fraction-decimal" model="7E-3"/>
+        <node name="lacking_decimal_places" channel="inline" format="number/fraction-decimal" model="7."/>
+        <node name="lacking_pre-decimal_point_position" channel="inline" format="number/fraction-decimal" model=".7"/>
+        <node name="scientific_notation" channel="inline" format="number/fraction-decimal" model="7e-3"/>
         <node name="scientific_notation_1" channel="inline" format="number/fraction-decimal" model="11e0"/>
+        <node name="scientific_notation_2" channel="inline" format="number/fraction-decimal" model=".11e2"/>
 -->
 <!--
-        <node name="scientific_notation_2" channel="inline" format="number/fraction-decimal" model="0.007"/>
+        <node name="scientific_notation_3" channel="inline" format="number/fraction-decimal" model="0.007"/>
 -->
 <!--
-        <node name="scientific_notation_3" channel="inline" format="number/fraction-decimal" model="0.7e-2"/>
-        <node name="scientific_notation_4" channel="inline" format="number/fraction-decimal" model="7.0e-3"/>
-        <node name="standard" channel="inline" format="number/fraction-decimal" model="-12.345e-2"/>
+        <node name="scientific_notation_4" channel="inline" format="number/fraction-decimal" model="0.7e-2"/>
+        <node name="scientific_notation_5" channel="inline" format="number/fraction-decimal" model="7.0e-3"/>
+        <node name="longer_number" channel="inline" format="number/fraction-decimal" model="-12.34567e-2"/>
 -->
     </node>
 
@@ -60,12 +74,12 @@
 
     <node name="complex-polar" channel="inline" format="text/plain" model="complex-polar">
 <!--
-        <node name="standard" channel="inline" format="number/complex-polar" model="-2*exp(-45)"/>
-        <node name="with_capital_letter_e" channel="inline" format="number/complex-polar" model="-2*E(-45)"/>
-        <node name="without_times_sign_1" channel="inline" format="number/complex-polar" model="-2exp(-45)"/>
-        <node name="without_times_sign_2" channel="inline" format="number/complex-polar" model="-2E(-45)"/>
-        <node name="decimal_fraction" channel="inline" format="number/complex-polar" model="-1.5*exp(-45)"/>
-        <node name="scientific_notation" channel="inline" format="number/complex-polar" model="-1.5E4E(-45)"/>
+        <node name="standard" channel="inline" format="number/complex-polar" model="2*exp(45)"/>
+        <node name="plus_sign" channel="inline" format="number/complex-polar" model="+2*exp(+45)"/>
+        <node name="minus_sign" channel="inline" format="number/complex-polar" model="-2*exp(-45)"/>
+        <node name="decimal_fraction_value" channel="inline" format="number/complex-polar" model="-1.5*exp(45)"/>
+        <node name="decimal_fraction_argument" channel="inline" format="number/complex-polar" model="2*exp(-45.2)"/>
+        <node name="scientific_notation" channel="inline" format="number/complex-polar" model="-1.5e4*exp(-45)"/>
 -->
     </node>
 
