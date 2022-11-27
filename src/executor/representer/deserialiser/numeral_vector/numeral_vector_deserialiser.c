@@ -53,9 +53,10 @@
  * @param p4 the decimal separator count
  * @param p5 the thousands separator data
  * @param p6 the thousands separator count
- * @param p7 the destination number item format
+ * @param p7 the consider number base prefix flag (true means CONSIDER prefixes; false means IGNORE them)
+ * @param p8 the destination number item format
  */
-void deserialise_numeral_vector(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void deserialise_numeral_vector(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral vector.");
     fwprintf(stdout, L"Debug: Deserialise numeral vector. source count p2: %i\n", p2);
@@ -82,7 +83,7 @@ void deserialise_numeral_vector(void* p0, void* p1, void* p2, void* p3, void* p4
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
     //
-    deserialise_numeral_vector_item(p0, (void*) &d, (void*) &c, p3, p4, p5, p6, p7);
+    deserialise_numeral_vector_item(p0, (void*) &d, (void*) &c, p3, p4, p5, p6, p7, p8);
 }
 
 /* NUMERAL_VECTOR_DESERIALISER_SOURCE */

@@ -14,8 +14,6 @@
 Numeral Deserialiser
 ____________________
 
-        * Add language properties constraint "consider_number_base_prefix" and forward it as parametre to numeral deserialiser functions
-
         * Debug error that sign is not printed for scientific notation in file "value_numeral_selector.c"
         * Test cybol application "serialisation/cybol/" and make scientific notation get de-/serialised properly
 

@@ -147,7 +147,7 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3, void* p
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise numeral.
-            deserialise_numeral_vector(p0, p1, p2, p3, p4, p5, p6, p7);
+            deserialise_numeral_vector(p0, p1, p2, p3, p4, p5, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p7);
         }
     }
 
@@ -158,7 +158,7 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3, void* p
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise numeral.
-            deserialise_numeral_vector(p0, p1, p2, p3, p4, p5, p6, p7);
+            deserialise_numeral_vector(p0, p1, p2, p3, p4, p5, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p7);
         }
     }
 

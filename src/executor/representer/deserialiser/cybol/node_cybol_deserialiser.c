@@ -86,6 +86,8 @@ void deserialise_cybol_node(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         // CAUTION! What is the model hierarchy in a parsed xml/cybol file,
         // becomes the properties (meta data) in the cyboi-internal knowledge tree.
         //
+        // Therefore, hand over the source PROPERTIES becoming the source model.
+        //
         deserialise_cybol_part(p0, p9, p10, p11, p12, p13, p14, p15);
     }
 }

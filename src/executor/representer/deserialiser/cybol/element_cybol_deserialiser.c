@@ -42,7 +42,7 @@
  *
  * @param p0 the destination item
  * @param p1 the source model data
- * @param p2 the source model index
+ * @param p2 the source model index (NOT count)
  * @param p3 the language properties (constraints) data
  * @param p4 the language properties (constraints) count
  * @param p5 the knowledge memory part (pointer reference)

@@ -60,7 +60,7 @@ static int* CLEAR_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI
 /**
  * The consider number base prefix language state cybol name.
  *
- * It is used in the numeral serialiser.
+ * It is used in the numeral deserialiser.
  */
 static wchar_t* CONSIDER_NUMBER_BASE_PREFIX_LANGUAGE_STATE_CYBOL_NAME = L"consider_number_base_prefix";
 static int* CONSIDER_NUMBER_BASE_PREFIX_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_27_INTEGER_STATE_CYBOI_MODEL_ARRAY;

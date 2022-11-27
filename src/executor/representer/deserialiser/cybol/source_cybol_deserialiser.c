@@ -87,9 +87,6 @@ void deserialise_cybol_source(void* p0, void* p1, void* p2, void* p3, void* p4, 
             //
             // Fill part model item taken from cybol source part properties.
             //
-            // CAUTION! What is the properties in a parsed xml/cybol file,
-            // becomes the model in the cyboi-internal knowledge tree.
-            //
             // CAUTION! Use the cybol FORMAT and NOT the cyboi destination type.
             //
             // CAUTION! Hand over an encoding value of NULL by default,

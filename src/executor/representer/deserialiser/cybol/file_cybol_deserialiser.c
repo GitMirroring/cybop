@@ -74,7 +74,7 @@ void deserialise_cybol_file(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     // in general and for all parts above, since the function
     // "receive_data" below tests the encoding for null.
     //
-    // If the language is e.g. "message/binary", then NO encoding
+    // If the language is for example "message/binary", then NO encoding
     // is given, since it does not make sense for images etc.
     //
     // Therefore, assign standard encoding ONLY for channel "file".
@@ -89,11 +89,9 @@ void deserialise_cybol_file(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     //
     // Fill part model item taken from cybol source part properties.
     //
-    // CAUTION! What is the properties in a parsed xml/cybol file,
-    // becomes the model in the cyboi-internal knowledge tree.
+    // CAUTION! Use the cybol FORMAT and NOT the cyboi destination type.
     //
-    // CAUTION! Use the CYBOL cyboi destination type determined above
-    // (and NOT the cyboi destination type)!
+    // CAUTION! Hand over utf-8 encoding since cybol files are using it by default.
     //
     receive_data(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &id, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3, p4, p5, p6, p7, p9, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, (void*) UTF_8_CYBOI_ENCODING, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p8);
 

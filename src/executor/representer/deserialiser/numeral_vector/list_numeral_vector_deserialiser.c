@@ -56,9 +56,10 @@
  * @param p4 the decimal separator count
  * @param p5 the thousands separator data
  * @param p6 the thousands separator count
- * @param p7 the destination number item format
+ * @param p7 the consider number base prefix flag (true means CONSIDER prefixes; false means IGNORE them)
+ * @param p8 the destination number item format
  */
-void deserialise_numeral_vector_list(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void deserialise_numeral_vector_list(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral vector list.");
     fwprintf(stdout, L"Debug: Deserialise numeral vector list. source count p2: %i\n", p2);
@@ -109,7 +110,7 @@ void deserialise_numeral_vector_list(void* p0, void* p1, void* p2, void* p3, voi
     modify_item(t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
     // Deserialise format into type item.
-    deserialise_cybol_type(t, p7);
+    deserialise_cybol_type(t, p8);
 
     //
     // Get type item data.
@@ -185,7 +186,7 @@ void deserialise_numeral_vector_list(void* p0, void* p1, void* p2, void* p3, voi
             // so that floating-point numbers with leading zero as pre-point
             // value get recognised correctly and used with decimal number base.
             //
-            deserialise_numeral(n, *NULL_POINTER_STATE_CYBOI_MODEL, pmd, pmc, p3, p4, p5, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p7);
+            deserialise_numeral(n, *NULL_POINTER_STATE_CYBOI_MODEL, pmd, pmc, p3, p4, p5, p6, p7, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p8);
 
             //
             // Append number to destination number item.
