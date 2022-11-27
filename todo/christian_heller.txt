@@ -15,16 +15,12 @@ Numeral Deserialiser
 ____________________
 
         * Debug error that sign is not printed for scientific notation in file "value_numeral_selector.c"
-        * Test cybol application "serialisation/cybol/" and make scientific notation get de-/serialised properly
-
-        * Hand over language properties constraint "consider number base prefix" as parametre to deserialise numeral functions
-        * Add consider number base prefix parametre to function "deserialise_numeral_vector_list" and forward it to function "deserialise_numeral"
-            (replace FALSE constant there with parametre)
+        * Test cybol application "serialisation/cybol/"
 
         Bugs in numeral deserialiser:
         * Fix bug that vulgar fraction is not recognised in numeral deserialiser
         * Fix bug that sign is not recognised in complex number with polar coordinates
-        * Fix bug that exponent without multiplication sign is not recognised in complex number with polar coordinates
+        * Fix bug that exponent is not recognised in complex number with polar coordinates
 
         * Search all source code for casts to "int" via (int) x AND also via function "cast_integer_double", in order to apply special handling (add/subtract 0.5 to avoid imprecise floating point number)
             ==> do this in function "cast_integer_double" (at one place usable by all source code)
