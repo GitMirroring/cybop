@@ -14,9 +14,14 @@
 Numeral Deserialiser
 ____________________
 
-        * Debug error that floating point pre-point value gets detected as OCTAL number when having a leading ZERO in file "value_numeral_selector.c"
+        * Add language properties constraint "consider_number_base_prefix" and forward it as parametre to numeral deserialiser functions
+
         * Debug error that sign is not printed for scientific notation in file "value_numeral_selector.c"
         * Test cybol application "serialisation/cybol/" and make scientific notation get de-/serialised properly
+
+        * Hand over language properties constraint "consider number base prefix" as parametre to deserialise numeral functions
+        * Add consider number base prefix parametre to function "deserialise_numeral_vector_list" and forward it to function "deserialise_numeral"
+            (replace FALSE constant there with parametre)
 
         Bugs in numeral deserialiser:
         * Fix bug that vulgar fraction is not recognised in numeral deserialiser

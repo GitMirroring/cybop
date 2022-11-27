@@ -181,10 +181,9 @@ void deserialise_numeral_vector_list(void* p0, void* p1, void* p2, void* p3, voi
             //
             // Deserialise wide character data to number.
             //
-            // CAUTION! Hand over FALSE as ignore number base prefix flag,
-            // so that number prefixes like "0x" for hexadecimal or just "0"
-            // for octal numbers DO get detected. The reason is that in cybol
-            // (other than json), number prefixes are permitted.
+            // CAUTION! Hand over FALSE as consider number base prefix flag,
+            // so that floating-point numbers with leading zero as pre-point
+            // value get recognised correctly and used with decimal number base.
             //
             deserialise_numeral(n, *NULL_POINTER_STATE_CYBOI_MODEL, pmd, pmc, p3, p4, p5, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p7);
 

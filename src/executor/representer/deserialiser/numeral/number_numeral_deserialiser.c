@@ -46,6 +46,13 @@
 /**
  * Deserialises the number value.
  *
+ * The consider number base prefix flag has the following meaning:
+ * - true: CONSIDER integer prefixes like "0x" for hexadecimal,
+ *   as used in c/c++, perl or python
+ * - false: IGNORE prefixes as is needed in json and is the DEFAULT so that
+ *   floating point numbers with zero as pre-point value get recognised
+ *   correctly with decimal number base
+ *
  * @param p0 the destination number
  * @param p1 the destination number part (pointer reference)
  * @param p2 the source data position (pointer reference)
@@ -54,7 +61,7 @@
  * @param p5 the decimal separator count
  * @param p6 the thousands separator data
  * @param p7 the thousands separator count
- * @param p8 the ignore number base prefix flag (true means ignore prefixes like "0x" as is needed in json; false means consider prefixes as in c/c++, perl or python)
+ * @param p8 the consider number base prefix flag (true means CONSIDER prefixes; false means IGNORE them)
  * @param p9 the number part name data
  * @param p10 the number part name count
  * @param p11 the destination number format

@@ -203,6 +203,8 @@ static int* FRACTION_VULGAR_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
  *
  * <node name="decimal_base" channel="inline" format="number/integer" model="24"/>
  * <node name="negative" channel="inline" format="number/integer" model="-24"/>
+ * <node name="array" channel="inline" format="number/integer" model="0,1,2,3,4"/>
+ * <!-- These numbers will get recognised only if the consider number base prefix flag is set. -->
  * <node name="octal" channel="inline" format="number/integer" model="030"/>
  * <node name="many_zeros" channel="inline" format="number/integer" model="00030"/>
  * <node name="negative_octal" channel="inline" format="number/integer" model="-030"/>
@@ -210,7 +212,6 @@ static int* FRACTION_VULGAR_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
  * <node name="negative_hexadecimal" channel="inline" format="number/integer" model="-0x18"/>
  * <node name="hexadecimal_small_letter" channel="inline" format="number/integer" model="0xb"/>
  * <node name="hexadecimal_capital_letter" channel="inline" format="number/integer" model="0x1C"/>
- * <node name="array" channel="inline" format="number/integer" model="0,1,2,3,4"/>
  */
 static wchar_t* INTEGER_NUMBER_STATE_CYBOL_FORMAT = L"number/integer";
 static int* INTEGER_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;

@@ -113,14 +113,16 @@ void deserialise_json_number(void* p0, void* p1, void* p2, void* p3, void* p4, v
             // CAUTION! The number part gets allocated inside the called function.
             // Therefore, its name data and count are handed over as parametre.
             //
-            // CAUTION! Hand over TRUE as ignore number base prefix flag,
+            // CAUTION! Hand over FALSE as consider number base prefix flag,
             // since the json specification does not allow using number
             // prefixes like "0x" for hexadecimal or just "0" for octal numbers.
             // If a number literal with LEADING ZERO is found in some json data,
             // then it has to be interpreted as DECIMAL number by default,
             // by just IGNORING any leading zeros.
+            // Furthermore, this is important so that leading zeros as pre-point
+            // value get recognised correctly and used with decimal number base.
             //
-            deserialise_numeral(*NULL_POINTER_STATE_CYBOI_MODEL, (void*) &p, nd, (void*) &nc, p4, p5, p6, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p8, p9, *NULL_POINTER_STATE_CYBOI_MODEL);
+            deserialise_numeral(*NULL_POINTER_STATE_CYBOI_MODEL, (void*) &p, nd, (void*) &nc, p4, p5, p6, p7, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p8, p9, *NULL_POINTER_STATE_CYBOI_MODEL);
 
             //
             // Append number part to destination.

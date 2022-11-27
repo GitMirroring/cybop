@@ -29,7 +29,7 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/numeral/base_numeral_model.c"
-#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../../executor/representer/deserialiser/numeral/decimals_numeral_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/numeral/power_numeral_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/numeral/value_numeral_deserialiser.c"
@@ -43,6 +43,13 @@
  *
  * A vulgar fraction or a complex number consist of TWO parts.
  *
+ * The consider number base prefix flag has the following meaning:
+ * - true: CONSIDER integer prefixes like "0x" for hexadecimal,
+ *   as used in c/c++, perl or python
+ * - false: IGNORE prefixes as is needed in json and is the DEFAULT so that
+ *   floating point numbers with zero as pre-point value get recognised
+ *   correctly with decimal number base
+ *
  * @param p0 the destination algebraic sign
  * @param p1 the destination pre point value
  * @param p2 the destination post point value
@@ -55,7 +62,7 @@
  * @param p9 the thousands separator count
  * @param p10 the detected format
  * @param p11 the detected type
- * @param p12 the ignore number base prefix flag (true means ignore prefixes like "0x" as is needed in json; false means consider prefixes as in c/c++, perl or python)
+ * @param p12 the consider number base prefix flag (true means CONSIDER prefixes; false means IGNORE them)
  */
 void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
@@ -79,23 +86,23 @@ void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, 
     select_numeral_sign(p0, p4, p5);
 
     //
-    // Check ignore number base prefix flag.
+    // Check consider number base prefix flag.
     //
     // CAUTION! The json specification does not allow using number
     // prefixes like "0x" for hexadecimal or just "0" for octal numbers.
     // If a number literal with LEADING ZERO is found in some json data,
     // then it has to be interpreted as DECIMAL number by default,
     // by just IGNORING any leading zeros.
-    // Therefore, the ignore number base prefix flag may be used for
-    // such cases like json data parsing, in order to SKIP number base
-    // prefix detection.
     //
-    compare_integer_equal((void*) &r, p12, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    // Therefore, the consider number base prefix flag may be used to
+    // enable number base prefix detection when necessary.
+    //
+    compare_integer_unequal((void*) &r, p12, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
-        // The ignore number base prefix flag is FALSE.
+        // The consider number base prefix flag IS set.
         //
 
         // Deserialise number base by evaluating prefix.

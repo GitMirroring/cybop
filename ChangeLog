@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-11-27  Christian Heller  <christian.heller@cybop.org>
+
+        * Rename ignore prefix flag into "consider number base prefix", so that floating-point numbers with leading zero get recognised correctly and not misinterpreted as octal number
+
 2022-11-26  Christian Heller  <christian.heller@cybop.org>
 
         * Reduce numeral constants to simplify numeral selector for complex number with polar coordinates

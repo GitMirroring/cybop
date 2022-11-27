@@ -81,11 +81,11 @@ void deserialise_cybol_byte(void* p0, void* p1, void* p2) {
     // CAUTION! The number part parametre is NULL and not needed, since
     // a destination item is already handed over to the called function.
     //
-    // CAUTION! Hand over FALSE as ignore number base prefix flag,
+    // CAUTION! Hand over TRUE as consider number base prefix flag,
     // so that number prefixes like "0x" for hexadecimal or just "0"
     // for octal numbers get detected.
     //
-    deserialise_numeral(i, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
+    deserialise_numeral(i, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
 
     //
     // Get integer item data, count.
