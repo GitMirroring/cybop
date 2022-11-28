@@ -14,20 +14,6 @@
 Numeral Deserialiser
 ____________________
 
-        Bugs in numeral deserialiser:
-        * Provide language properties constraint "polar" as flag indicating serialisation of a complex number using polar coordinates
-        * Fix bug that sign is not recognised in complex number with polar coordinates
-        * Fix bug that exponent is not recognised in complex number with polar coordinates
-
-        * Search all source code for casts to "int" via (int) x AND also via function "cast_integer_double", in order to apply special handling (add/subtract 0.5 to avoid imprecise floating point number)
-            ==> do this in function "cast_integer_double" (at one place usable by all source code)
-
-        * Factor out sub functions of file "number_numeral_deserialiser.c" into separate files
-        * Factor out sub functions of files in numeral serialiser into separate files
-
-        * DONE ??: Test numeral serialiser (e.g. json serialiser)
-            model-diagram: text works fine, also property numeral values are shown correctly (e.g. cybol serialiser), but model numeral values NOT
-
         * Delete cybol complex serialiser which got replaced by numeral serialiser
         * Delete cybol fraction serialiser which got replaced by numeral serialiser
         * Delete cybol integer serialiser which got replaced by numeral serialiser
@@ -49,7 +35,10 @@ ____________________
 
         * Reset gui default values of variables fgr, fgg etc. (which got modified for testing) in file "context_xcb_serialiser.c"
 
-        * Consider thousands separator in numeral serialiser
+        * Consider grouping via thousands separator in numeral serialiser
+
+        * Provide language properties constraint "polar" as flag indicating serialisation of a complex number using polar coordinates
+        * Verify if sign is recognised and printed properly in complex number with polar coordinates in numeral de-/serialiser
 
 JSON
 ____

@@ -25,6 +25,7 @@
         * Document language properties constraints in api
         * Prevent double sign for cartesian complex number by adjusting sign flag in file "decimal_fraction_numeral_serialiser.c"
         * Rename to simplify some constants in file "language_state_cybol_name.c"
+        * Factor out sub functions of file "number_numeral_deserialiser.c" into separate file "null_numeral_deserialiser.c"
 
 2022-11-27  Christian Heller  <christian.heller@cybop.org>
 

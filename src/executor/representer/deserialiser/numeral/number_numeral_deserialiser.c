@@ -31,13 +31,8 @@
 #include "../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
-#include "../../../../constant/name/cyboi/state/part_state_cyboi_name.c"
-#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/copier/array_copier.c"
-#include "../../../../executor/representer/deserialiser/numeral/allocation_numeral_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/numeral/null_numeral_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/numeral/part_numeral_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/numeral/verification_numeral_deserialiser.c"
 #include "../../../../executor/selector/numeral/assembler_numeral_selector.c"
@@ -162,49 +157,8 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
             // so that the destination part has to be ALLOCATED yet.
             //
 
-            // Allocate a new number part.
-            deserialise_numeral_allocation(p1, p9, p10, (void*) &f, (void*) &t);
-
-            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                // The destination number part (pointer reference).
-                void** p = (void**) p1;
-
-                // The destination number part model item.
-                void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
-                // The destination number part model item data.
-                void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-                fwprintf(stdout, L"Debug: Deserialise numeral number. test pre pmd: %i\n", pmd);
-
-                // Get destination number part model item.
-                copy_array_forward((void*) &pm, *p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-                // Get destination number part model item data.
-                copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-                fwprintf(stdout, L"Debug: Deserialise numeral number. test post pmd: %i\n", pmd);
-
-                // Assign part model item data as temporary number.
-                n = pmd;
-
-                fwprintf(stdout, L"Debug: Deserialise numeral number. test inside n: %i\n", n);
-
-                //
-                // CAUTION Do NOT append the part to some destination here,
-                // since this is done in other deserialisers' files such as:
-                //
-                // - CYBOL: "standard_cybol_deserialiser.c"
-                // - JSON: "number_json_deserialiser.c", "string_json_deserialiser.c"
-                //
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise numeral number. The allocated part is null.");
-                fwprintf(stdout, L"Error: Could not deserialise numeral number. The allocated part is null. p1: %i\n", p1);
-            }
+            deserialise_numeral_null((void*) &n, p1, p9, p10, (void*) &f, (void*) &t);
         }
-
-        fwprintf(stdout, L"Debug: Deserialise numeral number. test outside n: %i\n", n);
 
         // Assemble number.
         select_numeral_assembler(n, (void*) &s1, (void*) &v1, (void*) &d1, (void*) &po1, (void*) &s2, (void*) &v2, (void*) &d2, (void*) &po2, (void*) &f);
