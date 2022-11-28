@@ -90,8 +90,13 @@
  * @param p7 the knowledge memory part (pointer reference)
  * @param p8 the stack memory item
  * @param p9 the internal memory data
+ * @param p10 the decimal separator data
+ * @param p11 the decimal separator count
+ * @param p12 the thousands separator data
+ * @param p13 the thousands separator count
+ * @param p14 the consider number base prefix flag (true means CONSIDER prefixes; false means IGNORE them)
  */
-void deserialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void deserialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol content.");
     //?? fwprintf(stdout, L"Debug: Deserialise cybol content. source model count p2: %i\n", p2);
@@ -177,7 +182,7 @@ void deserialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4,
     deserialise_cybol_test((void*) &r, sn, sc, sf, sm);
 
     // Deserialise cybol node (standard or root).
-    deserialise_cybol_node(p0, snmd, snmc, scmd, scmc, sfmd, sfmc, smmd, smmc, p1, p2, p5, p6, p7, p8, p9, (void*) &r);
+    deserialise_cybol_node(p0, snmd, snmc, scmd, scmc, sfmd, sfmc, smmd, smmc, p1, p2, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, (void*) &r);
 }
 
 /* CONTENT_CYBOL_DESERIALISER_SOURCE */
