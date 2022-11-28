@@ -15,7 +15,7 @@ Numeral Deserialiser
 ____________________
 
         Bugs in numeral deserialiser:
-        * Fix bug that vulgar fraction is not recognised in numeral deserialiser
+        * Provide language properties constraint "polar" as flag indicating serialisation of a complex number using polar coordinates
         * Fix bug that sign is not recognised in complex number with polar coordinates
         * Fix bug that exponent is not recognised in complex number with polar coordinates
 

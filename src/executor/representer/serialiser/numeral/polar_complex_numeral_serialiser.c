@@ -57,8 +57,8 @@
 void serialise_numeral_complex_polar(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral complex polar.");
-    fwprintf(stdout, L"Debug: Serialise numeral complex polar. sign flag p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Serialise numeral complex polar. sign flag *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Serialise numeral complex polar. source number p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Serialise numeral complex polar. source number *p1: %i\n", *((int*) p1));
 
     // The real part.
     double r = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;

@@ -51,8 +51,8 @@
 void serialise_numeral_fraction_vulgar(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral fraction vulgar.");
-    fwprintf(stdout, L"Debug: Serialise numeral fraction vulgar. sign flag p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Serialise numeral fraction vulgar. sign flag *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Serialise numeral fraction vulgar. source number p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Serialise numeral fraction vulgar. source number *p1: %i\n", *((int*) p1));
 
     // The numerator.
     int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;

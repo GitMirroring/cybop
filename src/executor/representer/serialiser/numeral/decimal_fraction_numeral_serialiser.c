@@ -228,7 +228,10 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
     // CAUTION! Hand over the ABSOLUTE value as source here,
     // since the SIGN got already appended above.
     //
-    serialise_numeral_integer(p0, (void*) &pre, p2, p3, p4);
+    // CAUTION! Set sign flag to FALSE, since the SIGN got already appended above.
+    // Otherwise, the destination wide character item would receive TWO signs.
+    //
+    serialise_numeral_integer(p0, (void*) &pre, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4);
 
     // Append decimal separator wide character to destination item.
     modify_item(p0, sd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &sc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
