@@ -14,9 +14,6 @@
 Numeral Deserialiser
 ____________________
 
-        * Debug error that sign is not printed for scientific notation in file "value_numeral_selector.c"
-        * Test cybol application "serialisation/cybol/"
-
         Bugs in numeral deserialiser:
         * Fix bug that vulgar fraction is not recognised in numeral deserialiser
         * Fix bug that sign is not recognised in complex number with polar coordinates

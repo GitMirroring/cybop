@@ -31,6 +31,7 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/numeral/decimal_numeral_name.c"
 #include "../../../../constant/name/numeral/power_numeral_name.c"
@@ -38,8 +39,10 @@
 #include "../../../../executor/calculator/double/absolute_double_calculator.c"
 #include "../../../../executor/calculator/double/scientific_double_calculator.c"
 #include "../../../../executor/calculator/double/subtract_double_calculator.c"
+#include "../../../../executor/calculator/integer/absolute_integer_calculator.c"
 #include "../../../../executor/caster/double/integer_double_caster.c"
 #include "../../../../executor/caster/integer/double_integer_caster.c"
+#include "../../../../executor/comparator/double/less_double_comparator.c"
 #include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../../executor/copier/double_copier.c"
 #include "../../../../executor/modifier/item_modifier.c"
@@ -73,7 +76,7 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
     // The decimal separator with FULL STOP (dot) as default data, count.
     void* sd = (void*) SEPARATOR_DECIMAL_NUMERAL_NAME;
     int sc = *SEPARATOR_DECIMAL_NUMERAL_NAME_COUNT;
-    // The comparison result.
+    // The scientific notation flag comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The temporary floating point number.
     double n = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
@@ -87,6 +90,10 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
     double pred = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     // The pre-point absolute value.
     double prea = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    // The sign comparison result.
+    int s = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The sign flag comparison result.
+    int sf = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
     // Initialisation
@@ -107,9 +114,24 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
     copy_double((void*) &n, p1);
     fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. n: %f\n", n);
 
+    //
+    // Eliminate negative sign from temporary floating point number.
+    //
+    // CAUTION! The sign gets considered separately below.
+    // Negative values might only falsify calculation.
+    // Therefore, calculate with POSITIVE values only.
+    //
+    calculate_double_absolute((void*) &n, (void*) &n);
+    fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. absolute n: %f\n", n);
+
+    // Check scientific notation flag.
     compare_integer_unequal((void*) &r, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        //
+        // The scientific notation flag is set.
+        //
 
         // Convert floating point number into scientific notation.
         calculate_double_scientific((void*) &n, (void*) &p, p3);
@@ -157,11 +179,54 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
     fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. sub post: %f\n", post);
 
     //
+    // Serialisation
+    //
+
+    //
+    // Check for negative number.
+    //
+    // CAUTION! The sign needs to be treated SEPARATELY here,
+    // since the function "serialise_numeral_integer" called below
+    // does NOT append a minus sign in case of a ZERO value.
+    //
+    compare_double_less((void*) &s, p1, (void*) NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL);
+
+    fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. s: %i\n", s);
+
+    if (s != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        //
+        // The number is NEGATIVE.
+        //
+
+        // Append minus sign wide character to destination item.
+        modify_item(p0, (void*) MINUS_SIGN_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MINUS_SIGN_NUMERAL_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    } else {
+
+        //
+        // The number is POSITIVE or ZERO.
+        //
+
+        // Check sign flag.
+        compare_integer_unequal((void*) &sf, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        if (sf != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Append plus sign wide character to destination item.
+            modify_item(p0, (void*) PLUS_SIGN_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PLUS_SIGN_NUMERAL_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    // Determine ABSOLUTE pre-point value.
+    calculate_integer_absolute((void*) &pre, (void*) &pre);
+    fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. absolute pre: %i\n", pre);
+
+    //
     // Serialise pre-point value.
     //
-    // CAUTION! Do NOT hand over the absolute value as source here but the
-    // ORIGINAL pre-point value instead, since it might be negative and
-    // its sign needed to get processed inside.
+    // CAUTION! Hand over the ABSOLUTE value as source here,
+    // since the SIGN got already appended above.
     //
     serialise_numeral_integer(p0, (void*) &pre, p2, p3, p4);
 

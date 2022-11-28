@@ -21,6 +21,7 @@
 2022-11-28  Christian Heller  <christian.heller@cybop.org>
 
         * Call function "deserialise_cybol" instead of "receive_data" in file "source_cybol_deserialiser.c"
+        * Treat sign separately in file "decimal_fraction_numeral_serialiser.c" to print it also for a zero pre-point value
 
 2022-11-27  Christian Heller  <christian.heller@cybop.org>
 

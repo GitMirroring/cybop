@@ -134,7 +134,7 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4)
         }
     }
 
-    // Eliminate sign from temporary number, since the sign was already added above.
+    // Eliminate sign from negative temporary number, since the sign was already added above.
     calculate_integer_absolute((void*) &n, (void*) &n);
 
     // Initialise number base.

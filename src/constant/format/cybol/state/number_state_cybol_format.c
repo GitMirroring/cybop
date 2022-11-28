@@ -142,7 +142,7 @@ static int* COMPLEX_POLAR_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_ST
  * 1.23E+4
  *
  * The plus sign of the number is optional.
- * The plus sign of the scientific notation exponent is mandatory.
+ * The plus sign of the scientific notation exponent is optional.
  *
  * Examples:
  *

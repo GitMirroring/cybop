@@ -61,11 +61,6 @@ void detect(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
     //?? fwprintf(stdout, L"Debug: Detect. count p5: %i\n", p5);
     //?? fwprintf(stdout, L"Debug: Detect. count *p5: %i\n", *((int*) p5));
 
-    //?? TEST only!
-    if (p5 == NULL) {
-        fwprintf(stdout, L"\n\nDebug: Detect comparison. count p5: %i\n\n\n", p5);
-    }
-
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
