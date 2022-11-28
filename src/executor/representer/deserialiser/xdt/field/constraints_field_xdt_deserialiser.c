@@ -88,9 +88,9 @@ void deserialise_xdt_field_constraints(void* p0, void* p1, void* p2, void* p3, v
     //
 
     // Get decimal separator part.
-    get_part_name((void*) &d, p3, (void*) DECIMAL_SEPARATOR_LANGUAGE_STATE_CYBOL_NAME, (void*) DECIMAL_SEPARATOR_LANGUAGE_STATE_CYBOL_NAME_COUNT, p4, p5, p6, p7);
+    get_part_name((void*) &d, p3, (void*) SEPARATOR_LANGUAGE_STATE_CYBOL_NAME, (void*) SEPARATOR_LANGUAGE_STATE_CYBOL_NAME_COUNT, p4, p5, p6, p7);
     // Get thousands separator part.
-    get_part_name((void*) &t, p3, (void*) THOUSANDS_SEPARATOR_LANGUAGE_STATE_CYBOL_NAME, (void*) THOUSANDS_SEPARATOR_LANGUAGE_STATE_CYBOL_NAME_COUNT, p4, p5, p6, p7);
+    get_part_name((void*) &t, p3, (void*) GROUPING_LANGUAGE_STATE_CYBOL_NAME, (void*) GROUPING_LANGUAGE_STATE_CYBOL_NAME_COUNT, p4, p5, p6, p7);
 
     // Get decimal separator part model item.
     copy_array_forward((void*) &dm, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

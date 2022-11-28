@@ -41,52 +41,50 @@
 //
 
 /**
- * The classic octal prefix language state cybol name.
+ * The base language state cybol name.
  *
- * It is used in the numeral serialiser.
+ * It is used as number base in the numeral serialiser.
+ *
+ * Used with numeral serialiser.
  */
-static wchar_t* CLASSIC_OCTAL_PREFIX_LANGUAGE_STATE_CYBOL_NAME = L"classic_octal_prefix";
-static int* CLASSIC_OCTAL_PREFIX_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* BASE_LANGUAGE_STATE_CYBOL_NAME = L"base";
+static int* BASE_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The classicoctal language state cybol name.
+ *
+ * It is used as classic octal prefix in the numeral serialiser.
+ *
+ * Used with numeral serialiser.
+ */
+static wchar_t* CLASSICOCTAL_LANGUAGE_STATE_CYBOL_NAME = L"classicoctal";
+static int* CLASSICOCTAL_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The clear language state cybol name.
  *
- * Used with text (pseudo) terminal.
  * Clears the terminal screen before printing characters on it.
+ *
+ * Used with text user interface (tui) serialiser for text (pseudo) terminal.
  */
 static wchar_t* CLEAR_LANGUAGE_STATE_CYBOL_NAME = L"clear";
 static int* CLEAR_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The consider number base prefix language state cybol name.
+ * The decimals language state cybol name.
  *
- * It is used in the numeral deserialiser.
+ * Used with numeral serialiser.
  */
-static wchar_t* CONSIDER_NUMBER_BASE_PREFIX_LANGUAGE_STATE_CYBOL_NAME = L"consider_number_base_prefix";
-static int* CONSIDER_NUMBER_BASE_PREFIX_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_27_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The decimal places language state cybol name.
- *
- * It is used in the numeral serialiser.
- */
-static wchar_t* DECIMAL_PLACES_LANGUAGE_STATE_CYBOL_NAME = L"decimal_places";
-static int* DECIMAL_PLACES_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The decimal separator language state cybol name.
- *
- * Used in data formats containing numbers, for example xml or json.
- */
-static wchar_t* DECIMAL_SEPARATOR_LANGUAGE_STATE_CYBOL_NAME = L"decimal_separator";
-static int* DECIMAL_SEPARATOR_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* DECIMALS_LANGUAGE_STATE_CYBOL_NAME = L"decimals";
+static int* DECIMALS_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The delimiter language state cybol name.
  *
- * Used with joined strings or character (comma) separated values (csv).
  * Separates the single fields (values).
  * The delimiter may be a comma, for example.
+ *
+ * Used with joined string or character (comma) separated values (csv) serialiser.
  *
  * Example:
  *
@@ -96,21 +94,54 @@ static wchar_t* DELIMITER_LANGUAGE_STATE_CYBOL_NAME = L"delimiter";
 static int* DELIMITER_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The fill language state cybol name.
+ *
+ * The characters (or digit) to be used to fill free places in a value whose width is greater.
+ *
+ * Used with character (comma) separated values (csv) serialiser.
+ */
+static wchar_t* FILL_LANGUAGE_STATE_CYBOL_NAME = L"fill";
+static int* FILL_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The grouping language state cybol name.
+ *
+ * Defines the thousands separator.
+ *
+ * Used with numeral serialiser.
+ */
+static wchar_t* GROUPING_LANGUAGE_STATE_CYBOL_NAME = L"grouping";
+static int* GROUPING_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The header language state cybol name.
  *
- * Used with character (comma) separated values (csv).
  * Defines as flag whether or not the data contain a header,
  * so that the deserialiser can treat the first line differently.
+ *
+ * Used with character (comma) separated values (csv) serialiser.
  */
 static wchar_t* HEADER_LANGUAGE_STATE_CYBOL_NAME = L"header";
 static int* HEADER_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The headermodel language state cybol name.
+ *
+ * It is used as header data to be written as first line, yet before
+ * the actual content, with character (comma) separated values (csv).
+ *
+ * Used with character (comma) separated values (csv) serialiser.
+ */
+static wchar_t* HEADERMODEL_LANGUAGE_STATE_CYBOL_NAME = L"headermodel";
+static int* HEADERMODEL_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The indentation language state cybol name.
  *
- * Used with for example xml or html.
  * Beautifies the serialised data by indenting the single lines
  * depending on the current hierarchical level.
+ *
+ * Used with xml or html or json serialiser.
  */
 static wchar_t* INDENTATION_LANGUAGE_STATE_CYBOL_NAME = L"indentation";
 static int* INDENTATION_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -118,8 +149,9 @@ static int* INDENTATION_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_STAT
 /**
  * The maximum language state cybol name.
  *
- * Used with serial (port) interface.
  * Defines the number of data to be transmitted.
+ *
+ * Used with binary serialiser for serial (port) interface.
  */
 static wchar_t* MAXIMUM_LANGUAGE_STATE_CYBOL_NAME = L"maximum";
 static int* MAXIMUM_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -127,9 +159,10 @@ static int* MAXIMUM_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYB
 /**
  * The medium language state cybol name.
  *
- * Used with graphical user interface (gui).
  * References the window to which the mouse button or keyboard key refers,
  * in order to search through the gui elements for a suitable action.
+ *
+ * Used with graphical user interface (gui) serialiser.
  */
 static wchar_t* MEDIUM_LANGUAGE_STATE_CYBOL_NAME = L"medium";
 static int* MEDIUM_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -137,8 +170,9 @@ static int* MEDIUM_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBO
 /**
  * The minimum language state cybol name.
  *
- * Used with serial (port) interface.
  * Defines the number of data to be transmitted.
+ *
+ * Used with binary serialiser for serial (port) interface.
  */
 static wchar_t* MINIMUM_LANGUAGE_STATE_CYBOL_NAME = L"minimum";
 static int* MINIMUM_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -146,8 +180,9 @@ static int* MINIMUM_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYB
 /**
  * The newline language state cybol name.
  *
- * Used with text (pseudo) terminal.
- * Adds a line break (newline) at the end of the characters printed on the terminal screen.
+ * Adds a line break (newline) at the end of the printed characters.
+ *
+ * Used with text user interface (tui) serialiser for text (pseudo) terminal.
  */
 static wchar_t* NEWLINE_LANGUAGE_STATE_CYBOL_NAME = L"newline";
 static int* NEWLINE_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -155,35 +190,50 @@ static int* NEWLINE_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYB
 /**
  * The normalisation language state cybol name.
  *
- * Used with for example xml or html.
  * Summarises (condenses) spaces and line breaks to just ONE space.
+ *
+ * Used with xml or html or json serialiser.
  */
 static wchar_t* NORMALISATION_LANGUAGE_STATE_CYBOL_NAME = L"normalisation";
 static int* NORMALISATION_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The number base language state cybol name.
+ * The polar language state cybol name.
  *
- * It is used in the numeral serialiser.
+ * The flag indicating whether or not to write the complex number using polar coordinates.
+ *
+ * Used with numeral serialiser.
  */
-static wchar_t* NUMBER_BASE_LANGUAGE_STATE_CYBOL_NAME = L"number_base";
-static int* NUMBER_BASE_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* POLAR_LANGUAGE_STATE_CYBOL_NAME = L"polar";
+static int* POLAR_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The positioning language state cybol name.
  *
- * Used with text (pseudo) terminal.
  * Repositions the cursor as needed for printing characters on terminal screen.
+ *
+ * Used with text user interface (tui) serialiser for text (pseudo) terminal.
  */
 static wchar_t* POSITIONING_LANGUAGE_STATE_CYBOL_NAME = L"positioning";
 static int* POSITIONING_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The prefix language state cybol name.
+ *
+ * The flag indicating whether or not to consider the number base prefix.
+ *
+ * Used with numeral deserialiser.
+ */
+static wchar_t* PREFIX_LANGUAGE_STATE_CYBOL_NAME = L"prefix";
+static int* PREFIX_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The quotation language state cybol name.
  *
- * Used with joined strings or character (comma) separated values (csv).
  * Quotes the single fields (values).
  * This is necessary if the delimiter character (for example comma) is part of the value.
+ *
+ * Used with joined strings or character (comma) separated values (csv) serialiser.
  *
  * Example:
  *
@@ -193,38 +243,41 @@ static wchar_t* QUOTATION_LANGUAGE_STATE_CYBOL_NAME = L"quotation";
 static int* QUOTATION_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The scientific notation language state cybol name.
+ * The scientific language state cybol name.
  *
- * It is used in the numeral serialiser.
+ * It defines whether or not to use scientific notation.
+ *
+ * Used with numeral serialiser.
  */
-static wchar_t* SCIENTIFIC_NOTATION_LANGUAGE_STATE_CYBOL_NAME = L"scientific_notation";
-static int* SCIENTIFIC_NOTATION_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* SCIENTIFIC_LANGUAGE_STATE_CYBOL_NAME = L"scientific";
+static int* SCIENTIFIC_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The separator language state cybol name.
+ *
+ * It is used as decimal separator.
+ *
+ * Used with numeral serialiser.
+ */
+static wchar_t* SEPARATOR_LANGUAGE_STATE_CYBOL_NAME = L"separator";
+static int* SEPARATOR_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The sign language state cybol name.
  *
- * It is used in the numeral serialiser as FLAG indicating whether or not
- * a plus sign shall be printed at the beginning of positive numbers.
- * A minus sign, on the other hand, gets ALWAYS printed if a number is negative.
+ * Used with numeral serialiser.
  */
 static wchar_t* SIGN_LANGUAGE_STATE_CYBOL_NAME = L"sign";
 static int* SIGN_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The thousands separator language state cybol name.
- *
- * Used in data formats containing numbers, for example xml or json.
- */
-static wchar_t* THOUSANDS_SEPARATOR_LANGUAGE_STATE_CYBOL_NAME = L"thousands_separator";
-static int* THOUSANDS_SEPARATOR_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
  * The width language state cybol name.
  *
- * Used with joined strings or character (comma) separated values (csv).
  * Fills up any free spaces with zero.
  * This was defined in the original specification of csv,
  * in order to have fields (values) with equal width.
+ *
+ * Used with joined strings or character (comma) separated values (csv) serialiser.
  *
  * Example:
  *

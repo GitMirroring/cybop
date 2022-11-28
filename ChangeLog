@@ -24,6 +24,7 @@
         * Treat sign separately in file "decimal_fraction_numeral_serialiser.c" to print it also for a zero pre-point value
         * Document language properties constraints in api
         * Prevent double sign for cartesian complex number by adjusting sign flag in file "decimal_fraction_numeral_serialiser.c"
+        * Rename to simplify some constants in file "language_state_cybol_name.c"
 
 2022-11-27  Christian Heller  <christian.heller@cybop.org>
 

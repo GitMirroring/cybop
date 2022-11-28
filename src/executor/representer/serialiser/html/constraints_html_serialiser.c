@@ -129,15 +129,15 @@ void serialise_html_constraints(void* p0, void* p1, void* p2, void* p3, void* p4
     // Get sign flag part.
     get_part_name((void*) &s, p5, (void*) SIGN_LANGUAGE_STATE_CYBOL_NAME, (void*) SIGN_LANGUAGE_STATE_CYBOL_NAME_COUNT, p6, p7, p8, p9);
     // Get number base part.
-    get_part_name((void*) &b, p5, (void*) NUMBER_BASE_LANGUAGE_STATE_CYBOL_NAME, (void*) NUMBER_BASE_LANGUAGE_STATE_CYBOL_NAME_COUNT, p6, p7, p8, p9);
+    get_part_name((void*) &b, p5, (void*) BASE_LANGUAGE_STATE_CYBOL_NAME, (void*) BASE_LANGUAGE_STATE_CYBOL_NAME_COUNT, p6, p7, p8, p9);
     // Get classic octal prefix flag part.
-    get_part_name((void*) &c, p5, (void*) CLASSIC_OCTAL_PREFIX_LANGUAGE_STATE_CYBOL_NAME, (void*) CLASSIC_OCTAL_PREFIX_LANGUAGE_STATE_CYBOL_NAME_COUNT, p6, p7, p8, p9);
+    get_part_name((void*) &c, p5, (void*) CLASSICOCTAL_LANGUAGE_STATE_CYBOL_NAME, (void*) CLASSICOCTAL_LANGUAGE_STATE_CYBOL_NAME_COUNT, p6, p7, p8, p9);
     // Get decimal separator part.
-    get_part_name((void*) &d, p5, (void*) DECIMAL_SEPARATOR_LANGUAGE_STATE_CYBOL_NAME, (void*) DECIMAL_SEPARATOR_LANGUAGE_STATE_CYBOL_NAME_COUNT, p6, p7, p8, p9);
+    get_part_name((void*) &d, p5, (void*) SEPARATOR_LANGUAGE_STATE_CYBOL_NAME, (void*) SEPARATOR_LANGUAGE_STATE_CYBOL_NAME_COUNT, p6, p7, p8, p9);
     // Get decimal places part.
-    get_part_name((void*) &p, p5, (void*) DECIMAL_PLACES_LANGUAGE_STATE_CYBOL_NAME, (void*) DECIMAL_PLACES_LANGUAGE_STATE_CYBOL_NAME_COUNT, p6, p7, p8, p9);
+    get_part_name((void*) &p, p5, (void*) DECIMALS_LANGUAGE_STATE_CYBOL_NAME, (void*) DECIMALS_LANGUAGE_STATE_CYBOL_NAME_COUNT, p6, p7, p8, p9);
     // Get scientific notation part.
-    get_part_name((void*) &n, p5, (void*) SCIENTIFIC_NOTATION_LANGUAGE_STATE_CYBOL_NAME, (void*) SCIENTIFIC_NOTATION_LANGUAGE_STATE_CYBOL_NAME_COUNT, p6, p7, p8, p9);
+    get_part_name((void*) &n, p5, (void*) SCIENTIFIC_LANGUAGE_STATE_CYBOL_NAME, (void*) SCIENTIFIC_LANGUAGE_STATE_CYBOL_NAME_COUNT, p6, p7, p8, p9);
 
     // Get indentation part model item.
     copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

@@ -178,13 +178,14 @@ static int* DESERIALISE_REPRESENT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  *
  * Constraints for Property Language:
  *
- * - sign (optional) [text/plain]: The flag indicating whether or not a sign is to be displayed for positive numbers. Negative numbers have a minus sign in any case. If null, the default is false (no plus sign for positive numbers).
- * - number_base (optional) [text/plain]: The symbol (or character sequence) used to separate the integer part from the fractional part of a floating point (decimal) number.
- * - classic_octal_prefix (optional) [text/plain]: The flag indicating whether or not the octal number base prefix is to be displayed as 0 as in classic c/c++ or using modern style 0o as in perl and python. If null, the default is false (modern style with prefix 0o).
- * - thousands_separator (optional) [text/plain]: The symbol (or character sequence) used for digit grouping.
- * - decimal_separator (optional) [text/plain]: The symbol (or character sequence) used to separate the integer part from the fractional part of a floating point (decimal) number.
- * - decimal_places (optional) [text/plain]: The symbol (or character sequence) used to separate the integer part from the fractional part of a floating point (decimal) number.
- * - scientific_notation (optional) [text/plain]: The flag indicating whether or not the decimal fraction gets displayed with mantissa and exponent. If null, the default is false (standard representation without exponent).
+ * - sign (optional) [logicvalue/boolean]: The flag indicating whether or not a plus sign is to be displayed for positive numbers. Negative numbers have a minus sign in any case. If null, the default is false (no plus sign for positive numbers).
+ * - base (optional) [number/integer]: The number base for example 2 for binary (dual), 8 for octal, 10 for decimal, 16 for hexadecimal. If null, the default is 10 (decimal number base).
+ * - classicoctal (optional) [logicvalue/boolean]: The flag indicating whether or not the octal number base prefix is to be displayed as 0 as in classic c/c++ or using modern style 0o as in perl and python. If null, the default is false (modern style with prefix 0o).
+ * - grouping (optional) [text/plain]: The symbol or character sequence used for digit grouping in thousands. If null, the default is not to use any thousands separator at all.
+ * - separator (optional) [text/plain]: The symbol or character sequence used to separate the integer part from the fractional part of a floating point decimal number. If null, the default is to use the full stop (dot).
+ * - decimals (optional) [number/integer]: The number of post-point decimal places (decimals). If null, the default is 4.
+ * - scientific (optional) [logicvalue/boolean]: The flag indicating whether or not the decimal fraction gets displayed with mantissa and exponent. If null, the default is false (standard representation without exponent).
+ * - polar (optional) [logicvalue/boolean]: The flag indicating whether or not to write the complex number using polar coordinates. If null, the default is false (using the cartesian form).
  * - newline (optional) [logicvalue/boolean]: The flag indicating whether or not a line break is added at the end of the printed characters. If null, the default is true (line gets broken). Used with text (pseudo) terminal.
  * - clear (optional) [logicvalue/boolean]: The flag indicating whether or not the terminal screen is cleared before printing characters on it. If null, the default is false (no clearing). Used with text (pseudo) terminal.
  * - positioning (optional) [logicvalue/boolean]: The flag indicating whether or not the cursor position may get changed. If null, the default is false (no repositioning). Used with text (pseudo) terminal.
@@ -194,7 +195,7 @@ static int* DESERIALISE_REPRESENT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  * - normalisation (optional) [logicvalue/boolean]: The flag indicating whether or not whitespaces and line breaks are merged into just one space. Used with xml or html, for example. If null, then the default is true (normalisation enabled).
  * - width (optional) [number/integer]: The number of characters (or digits) belonging to a value. Free places get filled up with the character given in the fill property. This was defined in the original specification of character (comma) separated values (csv), in order to have fields (values) with equal width. Used with joined strings or csv.
  * - fill (optional) [text/plain]: The characters (or digit) to be used to fill free places in a value whose width is greater.
- * - headermodel (optional) [text/cybol-path]: The header data to be written as first line, yet before the actual content. Used with character (comma) separated values (csv). Caution! It should not be mixed up with the header property flag in represent/deserialise.
+ * - headermodel (optional) [text/cybol-path]: The header data to be written as first line, yet before the actual content. Used with character (comma) separated values (csv). Caution! It should not be mixed up with the header property flag in represent/deserialise or communicate/receive.
  *
  * CAUTION! When changing these constraints, then copy them 1:1 to file "communicate_logic_cybol_format.c".
  */
