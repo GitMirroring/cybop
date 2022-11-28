@@ -40,7 +40,6 @@
 <!--
         <node name="array" channel="inline" format="fraction-decimal" model="1.5,2.5,3.5"/>
 -->
-<!--
         <node name="scientific" channel="inline" format="number/fraction-decimal" model="7e3"/>
         <node name="optional_plus_sign" channel="inline" format="number/fraction-decimal" model="7e+3"/>
         <node name="minus_sign" channel="inline" format="number/fraction-decimal" model="7e-3"/>
@@ -50,9 +49,7 @@
         <node name="scientific_notation_3" channel="inline" format="number/fraction-decimal" model="0.007e-2"/>
         <node name="scientific_notation_4" channel="inline" format="number/fraction-decimal" model="0.7e-2"/>
         <node name="scientific_notation_5" channel="inline" format="number/fraction-decimal" model="7.0e-3"/>
--->
         <node name="longer_number" channel="inline" format="number/fraction-decimal" model="-12.34567e-2"/>
-        <node name="longer_number" channel="inline" format="number/fraction-decimal" model="-12.34"/>
     </node>
 
     <node name="fraction-vulgar" channel="inline" format="text/plain" model="fraction-vulgar">

@@ -49,6 +49,8 @@ ____________________
 
         * Reset gui default values of variables fgr, fgg etc. (which got modified for testing) in file "context_xcb_serialiser.c"
 
+        * Consider thousands separator in numeral serialiser
+
 JSON
 ____
 

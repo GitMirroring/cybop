@@ -543,8 +543,13 @@ static int* RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *
  * Constraints for Property Language:
  *
- * - decimal_separator (optional) [text/plain]: The symbol (or character sequence) used to separate the integer part from the fractional part of a floating point (decimal) number.
+ * - sign (optional) [text/plain]: The flag indicating whether or not a sign is to be displayed for positive numbers. Negative numbers have a minus sign in any case. If null, the default is false (no plus sign for positive numbers).
+ * - number_base (optional) [text/plain]: The symbol (or character sequence) used to separate the integer part from the fractional part of a floating point (decimal) number.
+ * - classic_octal_prefix (optional) [text/plain]: The flag indicating whether or not the octal number base prefix is to be displayed as 0 as in classic c/c++ or using modern style 0o as in perl and python. If null, the default is false (modern style with prefix 0o).
  * - thousands_separator (optional) [text/plain]: The symbol (or character sequence) used for digit grouping.
+ * - decimal_separator (optional) [text/plain]: The symbol (or character sequence) used to separate the integer part from the fractional part of a floating point (decimal) number.
+ * - decimal_places (optional) [text/plain]: The symbol (or character sequence) used to separate the integer part from the fractional part of a floating point (decimal) number.
+ * - scientific_notation (optional) [text/plain]: The flag indicating whether or not the decimal fraction gets displayed with mantissa and exponent. If null, the default is false (standard representation without exponent).
  * - newline (optional) [logicvalue/boolean]: The flag indicating whether or not a line break is added at the end of the printed characters. If null, the default is true (line gets broken). Used with text (pseudo) terminal.
  * - clear (optional) [logicvalue/boolean]: The flag indicating whether or not the terminal screen is cleared before printing characters on it. If null, the default is false (no clearing). Used with text (pseudo) terminal.
  * - positioning (optional) [logicvalue/boolean]: The flag indicating whether or not the cursor position may get changed. If null, the default is false (no repositioning). Used with text (pseudo) terminal.
