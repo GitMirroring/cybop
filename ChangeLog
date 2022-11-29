@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-11-29  Christian Heller  <christian.heller@cybop.org>
+
+        * Replace language "message/cli" with "message/tui" in api generator to make it work again
+
 2022-11-28  Christian Heller  <christian.heller@cybop.org>
 
         * Call function "deserialise_cybol" instead of "receive_data" in file "source_cybol_deserialiser.c"
