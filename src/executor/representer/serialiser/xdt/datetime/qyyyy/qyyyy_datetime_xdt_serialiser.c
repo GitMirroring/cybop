@@ -40,7 +40,7 @@
 #include "../../../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../../../executor/modifier/item_modifier.c"
 #include "../../../../../../executor/copier/array_copier.c"
-#include "../../../../../../executor/representer/serialiser/cybol/integer/value_integer_cybol_serialiser.c"
+#include "../../../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
 #include "../../../../../../executor/representer/serialiser/time_scale/gregorian_calendar/gregorian_calendar_time_scale_serialiser.c"
 #include "../../../../../../executor/representer/serialiser/xdt/datetime/qyyyy/quarter_qyyyy_datetime_xdt_serialiser.c"
 #include "../../../../../../logger/logger.c"
@@ -85,7 +85,7 @@ void serialise_xdt_datetime_qyyyy(void* p0, void* p1, void* p2) {
     serialise_xdt_datetime_qyyyy_quarter((void*) &q, (void*) &m);
 
     // Serialise year.
-    serialise_cybol_integer_value(yi, (void*) &y, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+    serialise_numeral_integer(yi, (void*) &y, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // Get serialised item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -104,7 +104,7 @@ void serialise_xdt_datetime_qyyyy(void* p0, void* p1, void* p2) {
     //
 
     // The quarter.
-    serialise_cybol_integer_value(p0, (void*) &q, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+    serialise_numeral_integer(p0, (void*) &q, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // The year.
     if (yr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

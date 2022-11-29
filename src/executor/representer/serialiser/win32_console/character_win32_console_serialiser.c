@@ -33,7 +33,6 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/cybol/integer/value_integer_cybol_serialiser.c"
 #include "../../../../logger/logger.c"
 
 //

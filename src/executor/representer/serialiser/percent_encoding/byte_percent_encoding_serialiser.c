@@ -31,6 +31,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/percent_encoding/percent_encoding_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -43,10 +44,12 @@ void serialise_percent_encoding_byte(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise percent encoding byte.");
 
+    //
     // Serialise byte into string of two hexadecimal digits.
     //
     // CAUTION! Hand over NUMBER BASE 16 as parametre!
-    serialise_cybol_integer_value((void*) &i, rd, (void*) &rc, (void*) NUMBER_16_INTEGER_STATE_CYBOI_MODEL);
+    //
+    serialise_numeral_integer((void*) &i, rd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) HEXADECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 }
 
 /* BYTE_PERCENT_ENCODING_SERIALISER_SOURCE */

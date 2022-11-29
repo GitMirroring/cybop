@@ -27,17 +27,20 @@
 #define BASIC_JD_DATETIME_SERIALISER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
-#include "../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../constant/model/numeral/base_numeral_model.c"
 #include "../../../../../executor/calculator/double/subtract_double_calculator.c"
-#include "../../../../../executor/representer/serialiser/cybol/fraction/decimal/value_decimal_fraction_cybol_serialiser.c"
+#include "../../../../../executor/representer/serialiser/numeral/decimal_fraction_numeral_serialiser.c"
 #include "../../../../../executor/representer/serialiser/time_scale/julian_date/julian_date_time_scale_serialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**
  * Serialises the source datetime into destination jd/mjd/tjd wide character data.
  *
- * @param p0 the destination item
+ * @param p0 the destination wide character item
  * @param p1 the source data
  * @param p2 the source count
  * @param p3 the jd/mjd/tjd correction
@@ -56,7 +59,7 @@ void serialise_datetime_jd_basic(void* p0, void* p1, void* p2, void* p3) {
     calculate_double_subtract((void*) &d, p3);
 
     // Assign resulting temporary julian date to destination.
-    serialise_cybol_fraction_decimal_value(p0, (void*) &d, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    serialise_numeral_fraction_decimal(p0, (void*) &d, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 }
 
 /* BASIC_JD_DATETIME_SERIALISER_SOURCE */

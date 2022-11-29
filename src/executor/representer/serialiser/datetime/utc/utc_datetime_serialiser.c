@@ -29,6 +29,7 @@
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
 #include "../../../../../executor/representer/serialiser/time_scale/gregorian_calendar/gregorian_calendar_time_scale_serialiser.c"
 #include "../../../../../logger/logger.c"
 
@@ -54,13 +55,15 @@ void serialise_datetime_utc(void* p0, void* p1, void* p2) {
     // Serialise datetime.
     serialise_time_scale_gregorian_calendar((void*) &y, (void*) &m, (void*) &d, (void*) &h, (void*) &min, (void*) &s, p1);
 
+    //
     //?? TODO: Replace the following using ISO format!
     //?? The following lines are just for testing.
+    //
 
     // Serialise year/month/day/hour/minute/second.
-    serialise_cybol_integer_value(p0, (void*) &d, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
-    serialise_cybol_integer_value(p0, (void*) &m, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
-    serialise_cybol_integer_value(p0, (void*) &y, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+    serialise_numeral_integer(p0, (void*) &d, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    serialise_numeral_integer(p0, (void*) &m, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    serialise_numeral_integer(p0, (void*) &y, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 }
 
 /* UTC_DATETIME_SERIALISER_SOURCE */

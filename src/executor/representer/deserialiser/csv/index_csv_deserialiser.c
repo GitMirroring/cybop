@@ -38,7 +38,7 @@
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/representer/deserialiser/csv/part_csv_deserialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -80,7 +80,7 @@ void deserialise_csv_index(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Serialise loop variable to be used as part name.
-    serialise_cybol_integer(i, p13, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+    serialise_numeral_integer(i, p13, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // Get index item data, count.
     copy_array_forward((void*) &id, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);

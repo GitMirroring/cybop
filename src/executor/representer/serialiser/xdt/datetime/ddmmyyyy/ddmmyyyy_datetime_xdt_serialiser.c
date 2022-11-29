@@ -40,7 +40,7 @@
 #include "../../../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../../../executor/modifier/item_modifier.c"
 #include "../../../../../../executor/copier/array_copier.c"
-#include "../../../../../../executor/representer/serialiser/cybol/integer/value_integer_cybol_serialiser.c"
+#include "../../../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
 #include "../../../../../../executor/representer/serialiser/time_scale/gregorian_calendar/gregorian_calendar_time_scale_serialiser.c"
 #include "../../../../../../logger/logger.c"
 
@@ -88,9 +88,9 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1) {
     serialise_time_scale_gregorian_calendar((void*) &y, (void*) &m, (void*) &d, (void*) &h, (void*) &min, (void*) &s, p1);
 
     // Serialise year/month/day.
-    serialise_cybol_integer_value(yi, (void*) &y, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
-    serialise_cybol_integer_value(mi, (void*) &m, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
-    serialise_cybol_integer_value(di, (void*) &d, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+    serialise_numeral_integer(yi, (void*) &y, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    serialise_numeral_integer(mi, (void*) &m, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    serialise_numeral_integer(di, (void*) &d, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // Get serialised item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!

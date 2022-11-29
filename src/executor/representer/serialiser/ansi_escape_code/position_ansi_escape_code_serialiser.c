@@ -35,7 +35,6 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/integer/value_integer_cybol_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -79,9 +78,9 @@ void serialise_ansi_escape_code_position(void* p0, void* p1, void* p2) {
     //
 
     serialise_ansi_escape_code_character(p0, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL_COUNT);
-    serialise_cybol_integer_value_char(p0, (void*) &cy, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+    //?? serialise_cybol_integer_value_char(p0, (void*) &cy, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
     serialise_ansi_escape_code_character(p0, (void*) ATTRIBUTE_SEPARATOR_ANSI_ESCAPE_CODE_MODEL, (void*) ATTRIBUTE_SEPARATOR_ANSI_ESCAPE_CODE_MODEL_COUNT);
-    serialise_cybol_integer_value_char(p0, (void*) &cx, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+    //?? serialise_cybol_integer_value_char(p0, (void*) &cx, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
     serialise_ansi_escape_code_character(p0, (void*) POSITION_SUFFIX_ANSI_ESCAPE_CODE_MODEL, (void*) POSITION_SUFFIX_ANSI_ESCAPE_CODE_MODEL_COUNT);
 }
 

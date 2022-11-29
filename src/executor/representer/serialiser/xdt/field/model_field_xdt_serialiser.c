@@ -33,14 +33,14 @@
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../../executor/modifier/item_modifier.c"
+#include "../../../../../executor/representer/serialiser/numeral/decimal_fraction_numeral_serialiser.c"
+#include "../../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
 #include "../../../../../executor/representer/serialiser/xdt/datetime/ddmmyyyy/ddmmyyyy_datetime_xdt_serialiser.c"
 #include "../../../../../executor/representer/serialiser/xdt/datetime/mmyy/mmyy_datetime_xdt_serialiser.c"
 #include "../../../../../executor/representer/serialiser/xdt/datetime/qyyyy/qyyyy_datetime_xdt_serialiser.c"
 #include "../../../../../executor/representer/serialiser/xdt/duration/ddmmyyyyddmmyyyy/ddmmyyyyddmmyyyy_duration_xdt_serialiser.c"
 #include "../../../../../executor/representer/serialiser/xdt/duration/hhmmhhmm/hhmmhhmm_duration_xdt_serialiser.c"
 #include "../../../../../executor/representer/serialiser/xdt/duration/yyyy/yyyy_duration_xdt_serialiser.c"
-#include "../../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
-#include "../../../../../executor/representer/serialiser/cybol/fraction/decimal/decimal_fraction_cybol_serialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**
@@ -143,7 +143,7 @@ void serialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_fraction_decimal(p0, p1, p2);
+            serialise_numeral_fraction_decimal(p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -153,7 +153,7 @@ void serialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_integer(p0, p1, p2, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+            serialise_numeral_integer(p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
         }
     }
 

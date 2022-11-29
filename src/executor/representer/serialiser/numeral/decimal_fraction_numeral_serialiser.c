@@ -54,7 +54,7 @@
  * Serialises the decimal fraction into a wide character sequence.
  *
  * @param p0 the destination wide character item
- * @param p1 the source number
+ * @param p1 the source double value
  * @param p2 the sign flag
  * @param p3 the number base
  * @param p4 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)

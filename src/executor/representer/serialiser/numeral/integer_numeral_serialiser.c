@@ -33,6 +33,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/model/numeral/base_numeral_model.c"
 #include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/name/numeral/sign_numeral_name.c"
@@ -56,7 +57,7 @@
  * Serialises the integer value into a wide character sequence.
  *
  * @param p0 the destination wide character item
- * @param p1 the source number
+ * @param p1 the source integer value
  * @param p2 the sign flag
  * @param p3 the number base
  * @param p4 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)

@@ -35,11 +35,6 @@
 #include "../../../../executor/converter/decoder.c"
 #include "../../../../executor/representer/serialiser/boolean/boolean_serialiser.c"
 #include "../../../../executor/representer/serialiser/colour/terminal_colour_serialiser.c"
-//?? #include "../../../../executor/representer/serialiser/cybol/complex/cartesian/cartesian_complex_cybol_serialiser.c"
-//?? #include "../../../../executor/representer/serialiser/cybol/complex/polar/polar_complex_cybol_serialiser.c"
-//?? #include "../../../../executor/representer/serialiser/cybol/fraction/decimal/decimal_fraction_cybol_serialiser.c"
-//?? #include "../../../../executor/representer/serialiser/cybol/fraction/vulgar/vulgar_fraction_cybol_serialiser.c"
-//?? #include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/byte_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/channel_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/compound_cybol_serialiser.c"
@@ -97,8 +92,6 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? serialise_cybol_integer(p0, p1, p2, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
-            //?? serialise_numeral(p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p12);
             serialise_numeral(p0, p1, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
@@ -346,8 +339,6 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? serialise_cybol_complex_cartesian(p0, p1, p2);
-            //?? serialise_numeral(p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) SEPARATOR_DECIMAL_NUMERAL_NAME, (void*) SEPARATOR_DECIMAL_NUMERAL_NAME_COUNT, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p12);
             serialise_numeral(p0, p1, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
@@ -358,8 +349,6 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? serialise_cybol_complex_polar(p0, p1, p2);
-            //?? serialise_numeral(p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) SEPARATOR_DECIMAL_NUMERAL_NAME, (void*) SEPARATOR_DECIMAL_NUMERAL_NAME_COUNT, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p12);
             serialise_numeral(p0, p1, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
@@ -370,8 +359,6 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? serialise_cybol_fraction_decimal(p0, p1, p2);
-            //?? serialise_numeral(p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) SEPARATOR_DECIMAL_NUMERAL_NAME, (void*) SEPARATOR_DECIMAL_NUMERAL_NAME_COUNT, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p12);
             serialise_numeral(p0, p1, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
@@ -382,8 +369,6 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? serialise_cybol_fraction_vulgar(p0, p1, p2, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
-            //?? serialise_numeral(p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p12);
             serialise_numeral(p0, p1, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
@@ -394,7 +379,6 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? serialise_cybol_integer(p0, p1, p2, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
             serialise_numeral(p0, p1, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
@@ -452,8 +436,7 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
-        // CAUTION! Do NOT log this warning.
-        // The source is unknown for LOGIC formats.
+        // CAUTION! Do NOT log this warning, since the source is unknown for LOGIC formats.
         //
         // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol. The format is unknown.");
         // fwprintf(stdout, L"Debug: Could not serialise cybol. The format is unknown. format p6: %i\n", p6);

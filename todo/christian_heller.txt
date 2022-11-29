@@ -11,34 +11,33 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+        * Reset gui default values of variables fgr, fgg etc. (which got modified for testing) in file "context_xcb_serialiser.c"
+
 Numeral Deserialiser
 ____________________
 
-        * Delete cybol complex serialiser which got replaced by numeral serialiser
-        * Delete cybol fraction serialiser which got replaced by numeral serialiser
-        * Delete cybol integer serialiser which got replaced by numeral serialiser
-
-        * Make api generator work again
+        * Replace call of function "deserialise_cybol_integer_value_primitive" in file "line_field_xdt_deserialiser.c" and elsewhere
+        * Replace call of function "serialise_cybol_integer_value" in file "line_field_xdt_deserialiser.c"
+        * Replace call of function "serialise_cybol_integer_value_char" in file "content_length_header_http_response_serialiser.c" using ascii deserialiser
+        * Replace call of function "serialise_cybol_integer_value_char" in file "position_ansi_escape_code_serialiser.c" using ascii deserialiser
+        * Add ascii serialiser and deserialiser or better use file "ascii_decoder.c" ??
+        * Delete file "append_utf_8_encoder.c" which has been replaced by "ascii_deserialiser.c"
+        * Delete file "append_utf_8_decoder.c" which has been replaced by "ascii_serialiser.c"
+        * Clear up what file "ascii_decoder.c" is used for and if it should be replaced with one of the above
 
         * Call "serialise_numeral_vector" instead of just "serialise_numeral" in file "cybol_serialiser.c" and others where numeral serialiser is used
 
         * Move byte deserialiser out of cybol deserialiser into separate directory ??
 
+        * Consider grouping via thousands separator in numeral serialiser
         * Remove thousands separator using modify replace function
             do NOT just skip it in file "value_numeral_selector.c", since the count has to include them
             call some replace or remove function from within file "value_numeral_deserialiser.c" instead
 
-        Reflect in general:
-        * Merge "language" and "format" constants ??
-
-        * Adapt cybol serialiser so that compound parts of type "element/part" get written into different files
-
-        * Reset gui default values of variables fgr, fgg etc. (which got modified for testing) in file "context_xcb_serialiser.c"
-
-        * Consider grouping via thousands separator in numeral serialiser
-
         * Provide language properties constraint "polar" as flag indicating serialisation of a complex number using polar coordinates
         * Verify if sign is recognised and printed properly in complex number with polar coordinates in numeral de-/serialiser
+
+        * Adapt cybol serialiser so that compound parts of type "element/part" get written into different files
 
 JSON
 ____
@@ -78,6 +77,8 @@ _____
 
 API
 ___
+
+        * Provide at least one example per category
 
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/calculate_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/logify_logic_cybol_format.c"
