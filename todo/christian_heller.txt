@@ -16,8 +16,6 @@
 Numeral Deserialiser
 ____________________
 
-        * Encapsulate call of function "deserialise_numeral_integer" with CHARACTER_TEXT_STATE_CYBOI_TYPE in file "character_percent_encoding_deserialiser.c" in wide character
-
         * Call "serialise_numeral_vector" instead of just "serialise_numeral" in file "cybol_serialiser.c" and others where numeral serialiser is used
 
         * Move byte deserialiser out of cybol deserialiser into separate directory ??

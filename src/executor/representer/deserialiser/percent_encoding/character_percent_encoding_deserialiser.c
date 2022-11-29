@@ -30,15 +30,22 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/model/numeral/base_numeral_model.c"
+#include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
-#include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
+#include "../../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/mover/mover.c"
 #include "../../../../executor/representer/deserialiser/numeral/integer_numeral_deserialiser.c"
+#include "../../../../executor/representer/serialiser/ascii/ascii_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -51,6 +58,8 @@
 void deserialise_percent_encoding_character(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise percent encoding character.");
+    //?? fwprintf(stdout, L"Debug: Deserialise percent encoding character. source character count remaining p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise percent encoding character. source character count remaining *p2: %i\n", *((int*) p2));
 
     // The percent encoding character data, count.
     void* cd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -120,18 +129,45 @@ void deserialise_percent_encoding_character(void* p0, void* p1, void* p2) {
     //
     if (cc == *NUMBER_2_INTEGER_STATE_CYBOI_MODEL) {
 
+        // The wide character item.
+        void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The wide character item data, count.
+        void* wd = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* wc = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The deserialised integer.
         int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The character.
+        unsigned char c = *NULL_ASCII_CHARACTER_CODE_MODEL;
 
         //
-        // Deserialise percent encoding character data into integer number.
+        // Allocate wide character item.
+        //
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        //
+        allocate_item((void*) &w, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        // Serialise percent encoding ascii character data into wide character data.
+        serialise_ascii(w, cd, (void*) &cc);
+
+        //
+        // Get wide character item data, count.
+        //
+        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+        // Inside the structure, arrays may have been reallocated,
+        // with elements pointing to different memory areas now.
+        //
+        copy_array_forward((void*) &wd, w, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &wc, w, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+        //
+        // Deserialise wide character data into integer value.
         //
         // CAUTION! Hand over NUMBER BASE 16 as parametre!
         // Following the specification, a percent-encoded character
         // consists of two digits representing a HEXADECIMAL number.
         //
-        //?? TODO: Replace with some suitable encapsulation function since CHARACTER_TEXT_STATE_CYBOI_TYPE is given as source but the function requires WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE !
-        //?? TODO: deserialise_numeral_integer((void*) &i, cd, (void*) &cc, (void*) HEXADECIMAL_BASE_NUMERAL_MODEL);
+        deserialise_numeral_integer((void*) &i, wd, wc, (void*) HEXADECIMAL_BASE_NUMERAL_MODEL);
 
         //
         // Cast integer to character.
@@ -139,18 +175,24 @@ void deserialise_percent_encoding_character(void* p0, void* p1, void* p2) {
         // CAUTION! The type "int" has a size of 4 Byte,
         // whilst the type "char" has only a size of 1 Byte.
         // This means, that information loss is possible.
+        //
         // However, the integer number deserialised above
         // should lie in the ASCII range, as defined by
         // the percent encoding specification.
         //
-        unsigned char c = (unsigned char) i;
+        cast_character_integer((void*) &c, (void*) &i);
 
         // Append character to destination.
         modify_item(p0, (void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
+        // Deallocate wide character item.
+        deallocate_item((void*) &w, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise percent encoding character. The character count (number of digits) is unequal two.");
+        fwprintf(stdout, L"Error: Could not deserialise percent encoding character. The character count (number of digits) is unequal two. source character count remaining p2: %i\n", p2);
+        fwprintf(stdout, L"Error: Could not deserialise percent encoding character. The character count (number of digits) is unequal two. source character count remaining *p2: %i\n", *((int*) p2));
     }
 }
 
