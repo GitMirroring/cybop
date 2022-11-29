@@ -64,8 +64,8 @@
 void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral number.");
-    fwprintf(stdout, L"Debug: Deserialise numeral number. source count remaining p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Deserialise numeral number. source count remaining *p3: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral number. source count remaining p3: %i\n", p3);
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral number. source count remaining *p3: %i\n", *((int*) p3));
 
     // The first algebraic sign factor with PLUS (positive number one) as default.
     int s1 = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
@@ -163,8 +163,8 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
         // Assemble number.
         select_numeral_assembler(n, (void*) &s1, (void*) &v1, (void*) &d1, (void*) &po1, (void*) &s2, (void*) &v2, (void*) &d2, (void*) &po2, (void*) &f);
 
-        fwprintf(stdout, L"Debug: Deserialise numeral number. n as int: %i\n", *((int*) n));
-        fwprintf(stdout, L"Debug: Deserialise numeral number. n as double: %f\n", *((double*) n));
+        //?? fwprintf(stdout, L"Debug: Deserialise numeral number. n as int: %i\n", *((int*) n));
+        //?? fwprintf(stdout, L"Debug: Deserialise numeral number. n as double: %f\n", *((double*) n));
 
     } else {
 

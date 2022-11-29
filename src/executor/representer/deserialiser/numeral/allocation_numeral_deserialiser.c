@@ -54,13 +54,13 @@ void deserialise_numeral_allocation(void* p0, void* p1, void* p2, void* p3, void
         void** p = (void**) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral allocation.");
-        fwprintf(stdout, L"Debug: Deserialise numeral allocation. name data p1: %ls\n", (wchar_t*) p1);
-        fwprintf(stdout, L"Debug: Deserialise numeral allocation. name count p2: %i\n", p2);
-        fwprintf(stdout, L"Debug: Deserialise numeral allocation. name count *p2: %i\n", *((int*) p2));
-        fwprintf(stdout, L"Debug: Deserialise numeral allocation. format p3: %i\n", p3);
-        fwprintf(stdout, L"Debug: Deserialise numeral allocation. format *p3: %i\n", *((int*) p3));
-        fwprintf(stdout, L"Debug: Deserialise numeral allocation. type p4: %i\n", p4);
-        fwprintf(stdout, L"Debug: Deserialise numeral allocation. type *p4: %i\n", *((int*) p4));
+        //?? fwprintf(stdout, L"Debug: Deserialise numeral allocation. name data p1: %ls\n", (wchar_t*) p1);
+        //?? fwprintf(stdout, L"Debug: Deserialise numeral allocation. name count p2: %i\n", p2);
+        //?? fwprintf(stdout, L"Debug: Deserialise numeral allocation. name count *p2: %i\n", *((int*) p2));
+        //?? fwprintf(stdout, L"Debug: Deserialise numeral allocation. format p3: %i\n", p3);
+        //?? fwprintf(stdout, L"Debug: Deserialise numeral allocation. format *p3: %i\n", *((int*) p3));
+        //?? fwprintf(stdout, L"Debug: Deserialise numeral allocation. type p4: %i\n", p4);
+        //?? fwprintf(stdout, L"Debug: Deserialise numeral allocation. type *p4: %i\n", *((int*) p4));
 
         //
         // Declaration

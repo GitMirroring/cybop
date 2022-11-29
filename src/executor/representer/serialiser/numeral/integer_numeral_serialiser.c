@@ -65,8 +65,8 @@
 void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral integer.");
-    fwprintf(stdout, L"Debug: Serialise numeral integer. source number p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Serialise numeral integer. source number *p1: %i\n", *((int*) p1));
+    //?? fwprintf(stdout, L"Debug: Serialise numeral integer. source number p1: %i\n", p1);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral integer. source number *p1: %i\n", *((int*) p1));
 
     //
     // Declaration

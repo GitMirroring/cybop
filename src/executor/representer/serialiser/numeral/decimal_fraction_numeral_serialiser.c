@@ -66,8 +66,8 @@
 void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral fraction decimal.");
-    fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. source number p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. source number *p1: %f\n", *((double*) p1));
+    //?? fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. source number p1: %i\n", p1);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. source number *p1: %f\n", *((double*) p1));
 
     //
     // Declaration
@@ -112,7 +112,7 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
 
     // Initialise temporary floating point number.
     copy_double((void*) &n, p1);
-    fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. n: %f\n", n);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. n: %f\n", n);
 
     //
     // Eliminate negative sign from temporary floating point number.
@@ -122,7 +122,7 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
     // Therefore, calculate with POSITIVE values only.
     //
     calculate_double_absolute((void*) &n, (void*) &n);
-    fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. absolute n: %f\n", n);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. absolute n: %f\n", n);
 
     // Check scientific notation flag.
     compare_integer_unequal((void*) &r, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -135,8 +135,8 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
 
         // Convert floating point number into scientific notation.
         calculate_double_scientific((void*) &n, (void*) &p, p3);
-        fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. sci n: %f\n", n);
-        fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. sci p: %i\n", p);
+        //?? fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. sci n: %f\n", n);
+        //?? fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. sci p: %i\n", p);
     }
 
     //
@@ -151,7 +151,7 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
     // https://www.gnu.org/software/libc/manual/html_mono/libc.html#Rounding-Functions
     //
     cast_integer_double((void*) &pre, (void*) &n);
-    fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. pre: %i\n", pre);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. pre: %i\n", pre);
 
     //
     // Determine post-point value (decimal places)
@@ -159,12 +159,12 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
 
     // Initialise post-point value with original number.
     copy_double((void*) &post, (void*) &n);
-    fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. post: %f\n", post);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. post: %f\n", post);
     // Eliminate sign from post-point value.
     calculate_double_absolute((void*) &post, (void*) &post);
     // Cast pre-point value to double.
     cast_double_integer((void*) &pred, (void*) &pre);
-    fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. pred: %f\n", pred);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. pred: %f\n", pred);
     // Eliminate sign from pre-point value.
     calculate_double_absolute((void*) &prea, (void*) &pred);
     //
@@ -176,7 +176,7 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
     // wrong values will be calculated as result.
     //
     calculate_double_subtract((void*) &post, (void*) &prea);
-    fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. sub post: %f\n", post);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. sub post: %f\n", post);
 
     //
     // Serialisation
@@ -190,8 +190,7 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
     // does NOT append a minus sign in case of a ZERO value.
     //
     compare_double_less((void*) &s, p1, (void*) NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL);
-
-    fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. s: %i\n", s);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. s: %i\n", s);
 
     if (s != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -220,7 +219,7 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
 
     // Determine ABSOLUTE pre-point value.
     calculate_integer_absolute((void*) &pre, (void*) &pre);
-    fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. absolute pre: %i\n", pre);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. absolute pre: %i\n", pre);
 
     //
     // Serialise pre-point value.

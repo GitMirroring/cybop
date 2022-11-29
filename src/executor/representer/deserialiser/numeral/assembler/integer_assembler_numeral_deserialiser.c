@@ -41,8 +41,8 @@
 void deserialise_numeral_assembler_integer(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral assembler integer.");
-    fwprintf(stdout, L"Debug: Deserialise numeral assembler integer. value p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise numeral assembler integer. value *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral assembler integer. value p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral assembler integer. value *p2: %i\n", *((int*) p2));
 
     // Copy value to destination integer.
     copy_integer(p0, p2);

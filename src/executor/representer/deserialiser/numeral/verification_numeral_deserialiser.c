@@ -56,10 +56,10 @@
 void deserialise_numeral_verification(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral verification.");
-    fwprintf(stdout, L"Debug: Deserialise numeral verification. detected type p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Deserialise numeral verification. detected type *p1: %i\n", *((int*) p1));
-    fwprintf(stdout, L"Debug: Deserialise numeral verification. destination number format p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise numeral verification. destination number format *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral verification. detected type p1: %i\n", p1);
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral verification. detected type *p1: %i\n", *((int*) p1));
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral verification. destination number format p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral verification. destination number format *p2: %i\n", *((int*) p2));
 
     // The type item.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -86,8 +86,8 @@ void deserialise_numeral_verification(void* p0, void* p1, void* p2) {
     //
     copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    fwprintf(stdout, L"Debug: Deserialise numeral verification. destination number type td: %i\n", td);
-    fwprintf(stdout, L"Debug: Deserialise numeral verification. destination number type *td: %i\n", *((int*) td));
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral verification. destination number type td: %i\n", td);
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral verification. destination number type *td: %i\n", *((int*) td));
 
     // Compare types.
     compare_integer_equal(p0, p1, td);

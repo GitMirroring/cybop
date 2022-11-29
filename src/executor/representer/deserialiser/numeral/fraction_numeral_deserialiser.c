@@ -58,8 +58,8 @@
 void deserialise_numeral_fraction(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral fraction.");
-    fwprintf(stdout, L"Debug: Deserialise numeral fraction. source count p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise numeral fraction. source count *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral fraction. source count p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral fraction. source count *p2: %i\n", *((int*) p2));
 
     //
     // Declaration

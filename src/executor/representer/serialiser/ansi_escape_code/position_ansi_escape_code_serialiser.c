@@ -31,10 +31,20 @@
 
 #include "../../../../constant/model/ansi_escape_code/ansi_escape_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/model/numeral/base_numeral_model.c"
+#include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../../../executor/representer/deserialiser/ascii/ascii_deserialiser.c"
 #include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
+#include "../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -61,6 +71,23 @@ void serialise_ansi_escape_code_position(void* p0, void* p1, void* p2) {
     // The y, x coordinates.
     int cy = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int cx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The y, x wide character items.
+    void* iy = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ix = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The y, x wide character items data, count.
+    void* iyd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* iyc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ixd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ixc = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Allocate y, x wide character items.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_item((void*) &iy, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    allocate_item((void*) &ix, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     //
     // Correct y, x coordinates.
@@ -73,15 +100,37 @@ void serialise_ansi_escape_code_position(void* p0, void* p1, void* p2) {
     calculate_integer_add((void*) &cx, p1);
     calculate_integer_add((void*) &cx, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
+    // Serialise integer values into wide character items.
+    serialise_numeral_integer(iy, (void*) &cy, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    serialise_numeral_integer(ix, (void*) &cx, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+
+    //
+    // Get y, x wide character items data, count.
+    //
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    //
+    copy_array_forward((void*) &iyd, iy, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &iyc, iy, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ixd, ix, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ixc, ix, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
     //
     // Position cursor.
     //
 
     serialise_ansi_escape_code_character(p0, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL_COUNT);
-    //?? serialise_cybol_integer_value_char(p0, (void*) &cy, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+    // Deserialise y wide character data into ascii character data.
+    deserialise_ascii(p0, iyd, iyc);
     serialise_ansi_escape_code_character(p0, (void*) ATTRIBUTE_SEPARATOR_ANSI_ESCAPE_CODE_MODEL, (void*) ATTRIBUTE_SEPARATOR_ANSI_ESCAPE_CODE_MODEL_COUNT);
-    //?? serialise_cybol_integer_value_char(p0, (void*) &cx, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+    // Deserialise x wide character data into ascii character data.
+    deserialise_ascii(p0, ixd, ixc);
     serialise_ansi_escape_code_character(p0, (void*) POSITION_SUFFIX_ANSI_ESCAPE_CODE_MODEL, (void*) POSITION_SUFFIX_ANSI_ESCAPE_CODE_MODEL_COUNT);
+
+    // Deallocate y, x wide character items.
+    deallocate_item((void*) &iy, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &ix, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* POSITION_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */

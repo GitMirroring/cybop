@@ -46,12 +46,12 @@
 void deserialise_numeral_assembler_fraction_decimal(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral assembler fraction decimal.");
-    fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. pre point value p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. pre point value *p2: %i\n", *((int*) p2));
-    fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. decimals p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. decimals *p3: %f\n", *((double*) p3));
-    fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. power p4: %i\n", p4);
-    fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. power *p4: %f\n", *((double*) p4));
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. pre point value p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. pre point value *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. decimals p3: %i\n", p3);
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. decimals *p3: %f\n", *((double*) p3));
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. power p4: %i\n", p4);
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction decimal. power *p4: %f\n", *((double*) p4));
 
     // The algebraic sign factor as double.
     double s = *NUMBER_1_0_DOUBLE_STATE_CYBOI_MODEL;

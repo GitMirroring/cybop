@@ -54,8 +54,8 @@
 void deserialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral decimals.");
-    fwprintf(stdout, L"Debug: Deserialise numeral decimals. source count remaining p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise numeral decimals. source count remaining *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral decimals. source count remaining p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral decimals. source count remaining *p2: %i\n", *((int*) p2));
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -94,8 +94,8 @@ void deserialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3, void* 
             // In BOTH cases, the decimals (post point value) can now be deserialised.
             //
 
-            fwprintf(stdout, L"Debug: Deserialise numeral decimals. dc: %i\n", dc);
-            fwprintf(stdout, L"Debug: Deserialise numeral decimals. dd: %ls\n", (wchar_t*) dd);
+            //?? fwprintf(stdout, L"Debug: Deserialise numeral decimals. dc: %i\n", dc);
+            //?? fwprintf(stdout, L"Debug: Deserialise numeral decimals. dd: %ls\n", (wchar_t*) dd);
 
             // Deserialise fractional digits.
             deserialise_numeral_fraction(p0, dd, (void*) &dc, p3);

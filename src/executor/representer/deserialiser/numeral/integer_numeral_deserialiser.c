@@ -47,16 +47,16 @@
  * Deserialises the integer value.
  *
  * @param p0 the destination integer value
- * @param p1 the source wide character data OR character data
- * @param p2 the source wide character count OR character count
+ * @param p1 the source wide character data
+ * @param p2 the source wide character count
  * @param p3 the number base
  */
 void deserialise_numeral_integer(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral integer.");
-    fwprintf(stdout, L"Debug: Deserialise numeral integer. source count p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise numeral integer. source count *p2: %i\n", *((int*) p2));
-    fwprintf(stdout, L"Debug: Deserialise numeral integer. source count p1: %ls\n", (wchar_t*) p1);
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral integer. source count p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral integer. source count *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral integer. source count p1: %ls\n", (wchar_t*) p1);
 
     //
     // Declaration
@@ -128,7 +128,7 @@ void deserialise_numeral_integer(void* p0, void* p1, void* p2, void* p3) {
         // proper here. Therefore, a MAPPING table is used instead.
         //
         map_digit_wide_character_to_integer((void*) &v, (void*) &c);
-        fwprintf(stdout, L"Debug: Deserialise numeral integer. v: %i\n", v);
+        //?? fwprintf(stdout, L"Debug: Deserialise numeral integer. v: %i\n", v);
 
         //
         // Move existing result by one digit.

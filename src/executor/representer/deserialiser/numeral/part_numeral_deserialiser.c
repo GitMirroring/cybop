@@ -67,8 +67,8 @@
 void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral part.");
-    fwprintf(stdout, L"Debug: Deserialise numeral part. source count remaining p5: %i\n", p5);
-    fwprintf(stdout, L"Debug: Deserialise numeral part. source count remaining *p5: %i\n", *((int*) p5));
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral part. source count remaining p5: %i\n", p5);
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral part. source count remaining *p5: %i\n", *((int*) p5));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -109,19 +109,19 @@ void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, 
         select_numeral_base((void*) &b, p4, p5);
     }
 
-    fwprintf(stdout, L"Debug: Deserialise numeral part. b: %i\n", b);
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral part. b: %i\n", b);
 
     // Deserialise number value.
     deserialise_numeral_value(p1, p4, p5, p6, p7, p8, p9, (void*) &b, (void*) &post, (void*) &p, p10, p11);
 
-    fwprintf(stdout, L"Debug: Deserialise numeral part. pre point value p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Deserialise numeral part. pre point value *p1: %i\n", *((int*) p1));
-    fwprintf(stdout, L"Debug: Deserialise numeral part. post point value flag post: %i\n", post);
-    fwprintf(stdout, L"Debug: Deserialise numeral part. number base power flag p: %i\n", p);
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral part. pre point value p1: %i\n", p1);
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral part. pre point value *p1: %i\n", *((int*) p1));
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral part. post point value flag post: %i\n", post);
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral part. number base power flag p: %i\n", p);
 
     if (post != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        fwprintf(stdout, L"Debug: Deserialise numeral part. post: %i\n", post);
+        //?? fwprintf(stdout, L"Debug: Deserialise numeral part. post: %i\n", post);
 
         //
         // This is a decimal fraction with post point value.
@@ -137,7 +137,7 @@ void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
     if (p != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        fwprintf(stdout, L"Debug: Deserialise numeral part. p: %i\n", p);
+        //?? fwprintf(stdout, L"Debug: Deserialise numeral part. p: %i\n", p);
 
         //
         // This is a decimal fraction with number base power.

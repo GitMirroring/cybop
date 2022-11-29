@@ -45,10 +45,10 @@
 void deserialise_numeral_assembler_fraction_vulgar(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral assembler fraction vulgar.");
-    fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction vulgar. numerator value p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction vulgar. numerator value *p2: %i\n", *((int*) p2));
-    fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction vulgar. denominator value p4: %i\n", p4);
-    fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction vulgar. denominator value *p4: %i\n", *((int*) p4));
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction vulgar. numerator value p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction vulgar. numerator value *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction vulgar. denominator value p4: %i\n", p4);
+    //?? fwprintf(stdout, L"Debug: Deserialise numeral assembler fraction vulgar. denominator value *p4: %i\n", *((int*) p4));
 
     // The numerator.
     int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;

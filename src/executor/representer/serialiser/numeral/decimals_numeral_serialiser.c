@@ -73,8 +73,8 @@
 void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral decimals.");
-    fwprintf(stdout, L"Debug: Serialise numeral decimals. source number p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Serialise numeral decimals. source number *p1: %f\n", *((double*) p1));
+    //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. source number p1: %i\n", p1);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. source number *p1: %f\n", *((double*) p1));
 
     //
     // Declaration
@@ -110,19 +110,19 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3) {
 
     // Initialise decimal places count with parametre.
     copy_integer((void*) &c, p3);
-    fwprintf(stdout, L"Debug: Serialise numeral decimals. c: %i\n", c);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. c: %i\n", c);
     // Cast number base to double.
     cast_double_integer((void*) &base, p2);
-    fwprintf(stdout, L"Debug: Serialise numeral decimals. base: %f\n", base);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. base: %f\n", base);
     // Initialise power factor with number base.
     copy_double((void*) &p, (void*) &base);
-    fwprintf(stdout, L"Debug: Serialise numeral decimals. with base p: %f\n", p);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. with base p: %f\n", p);
     // Cast decimal places count to double.
     cast_double_integer((void*) &cd, (void*) &c);
-    fwprintf(stdout, L"Debug: Serialise numeral decimals. cast cd: %f\n", cd);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. cast cd: %f\n", cd);
     // Raise the number base to the power of the decimal places count.
     calculate_double_power((void*) &p, (void*) &cd);
-    fwprintf(stdout, L"Debug: Serialise numeral decimals. with cd power p: %f\n", p);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. with cd power p: %f\n", p);
 
     //
     // Rounding
@@ -130,16 +130,16 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3) {
 
     // Initialise decimals (post point value) with source floating point number.
     copy_double((void*) &v, p1);
-    fwprintf(stdout, L"Debug: Serialise numeral decimals. init v: %f\n", v);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. init v: %f\n", v);
     // Multiply decimals (post point value) with power factor.
     calculate_double_multiply((void*) &v, (void*) &p);
-    fwprintf(stdout, L"Debug: Serialise numeral decimals. multiply v: %f\n", v);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. multiply v: %f\n", v);
     // Round decimals (post point value).
     v = round(v);
-    fwprintf(stdout, L"Debug: Serialise numeral decimals. round v: %f\n", v);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. round v: %f\n", v);
     // Divide decimals (post point value) by power factor.
     calculate_double_divide((void*) &v, (void*) &p);
-    fwprintf(stdout, L"Debug: Serialise numeral decimals. divide v: %f\n", v);
+    //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. divide v: %f\n", v);
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -153,7 +153,7 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3) {
 
             // Multiply decimals (post point value) with base.
             calculate_double_multiply((void*) &v, (void*) &base);
-            fwprintf(stdout, L"Debug: Serialise numeral decimals. multiply v: %f\n", v);
+            //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. multiply v: %f\n", v);
 
             //
             // Determine pre-point value representing the next digit.
@@ -164,11 +164,11 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3) {
             // https://www.gnu.org/software/libc/manual/html_mono/libc.html#Rounding-Functions
             //
             cast_integer_double((void*) &d, (void*) &v);
-            fwprintf(stdout, L"Debug: Serialise numeral decimals. d: %i\n", d);
+            //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. d: %i\n", d);
 
             // Map integer value to a unicode digit wide character.
             map_integer_to_digit_wide_character((void*) &wc, (void*) &d);
-            fwprintf(stdout, L"Debug: Serialise numeral decimals. wc: %lc\n", wc);
+            //?? fwprintf(stdout, L"Debug: Serialise numeral decimals. wc: %lc\n", wc);
 
             // Append digit wide character to destination number string.
             modify_item(p0, (void*) &wc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
