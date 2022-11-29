@@ -77,9 +77,9 @@ void deserialise_xdt_datetime_ddmmyyyy_elements(void* p0, void* p1) {
     // CAUTION! Process numbers in this order: d/m/y.
     // It should also work the other way around, but to
     // be sure, the source is read from left to right.
-    deserialise_numeral_integer((void*) &d, ds, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    deserialise_numeral_integer((void*) &m, ms, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    deserialise_numeral_integer((void*) &y, ys, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deserialise_numeral_integer((void*) &d, ds, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL);
+    deserialise_numeral_integer((void*) &m, ms, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL);
+    deserialise_numeral_integer((void*) &y, ys, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL);
 
     // Deserialise year/month/day/hour/minute/second.
     deserialise_time_scale_gregorian_calendar(t, (void*) &y, (void*) &m, (void*) &d, (void*) &h, (void*) &min, (void*) &s);

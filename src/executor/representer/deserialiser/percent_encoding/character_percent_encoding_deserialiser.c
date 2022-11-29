@@ -130,7 +130,8 @@ void deserialise_percent_encoding_character(void* p0, void* p1, void* p2) {
         // Following the specification, a percent-encoded character
         // consists of two digits representing a HEXADECIMAL number.
         //
-        deserialise_numeral_integer((void*) &i, cd, (void*) &cc, (void*) HEXADECIMAL_BASE_NUMERAL_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        //?? TODO: Replace with some suitable encapsulation function since CHARACTER_TEXT_STATE_CYBOI_TYPE is given as source but the function requires WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE !
+        //?? TODO: deserialise_numeral_integer((void*) &i, cd, (void*) &cc, (void*) HEXADECIMAL_BASE_NUMERAL_MODEL);
 
         //
         // Cast integer to character.

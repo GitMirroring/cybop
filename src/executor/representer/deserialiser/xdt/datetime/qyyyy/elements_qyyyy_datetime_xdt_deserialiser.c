@@ -76,8 +76,8 @@ void deserialise_xdt_datetime_qyyyy_elements(void* p0, void* p1) {
     // CAUTION! Process numbers in this order: q/y.
     // It should also work the other way around, but to
     // be sure, the source is read from left to right.
-    deserialise_numeral_integer((void*) &q, qs, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    deserialise_numeral_integer((void*) &y, ys, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deserialise_numeral_integer((void*) &q, qs, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL);
+    deserialise_numeral_integer((void*) &y, ys, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL);
 
     // Correct month.
     deserialise_xdt_datetime_qyyyy_quarter((void*) &m, (void*) &d, (void*) &q);

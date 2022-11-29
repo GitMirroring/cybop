@@ -155,7 +155,7 @@ void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3, void* p4,
             //
 
             // Deserialise power value as integer with the given number base.
-            deserialise_numeral_integer((void*) &powi, pd, (void*) &pc, (void*) &nb, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            deserialise_numeral_integer((void*) &powi, pd, (void*) &pc, (void*) &nb);
             fwprintf(stdout, L"Debug: Deserialise numeral power. powi: %i\n", powi);
 
             // Multiply power value with algebraic sign factor.

@@ -73,8 +73,8 @@ void deserialise_xdt_datetime_mmyy_elements(void* p0, void* p1) {
     // CAUTION! Process numbers in this order: m/y.
     // It should also work the other way around, but to
     // be sure, the source is read from left to right.
-    deserialise_numeral_integer((void*) &m, ms, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    deserialise_numeral_integer((void*) &y, ys, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deserialise_numeral_integer((void*) &m, ms, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL);
+    deserialise_numeral_integer((void*) &y, ys, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL);
 
     // Add 1900 to two-digit year.
     calculate_integer_add((void*) &y, (void*) NUMBER_1900_INTEGER_STATE_CYBOI_MODEL);

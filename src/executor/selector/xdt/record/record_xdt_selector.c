@@ -61,7 +61,7 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Deserialise identification as integer primitive.
-    deserialise_numeral_integer((void*) &i, p5, p6, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deserialise_numeral_integer((void*) &i, p5, p6, (void*) DECIMAL_BASE_NUMERAL_MODEL);
 
     // Compare if field represents a record identification.
     compare_integer_equal((void*) &r, (void*) &i, (void*) NUMBER_8000_INTEGER_STATE_CYBOI_MODEL);

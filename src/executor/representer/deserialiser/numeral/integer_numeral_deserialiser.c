@@ -26,20 +26,22 @@
 #ifndef INTEGER_NUMERAL_DESERIALISER_SOURCE
 #define INTEGER_NUMERAL_DESERIALISER_SOURCE
 
+#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/model/numeral/base_numeral_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../executor/calculator/integer/multiply_integer_calculator.c"
-#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
+#include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/representer/deserialiser/numeral/ascii_numeral_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/numeral/unicode_numeral_deserialiser.c"
 #include "../../../../logger/logger.c"
+#include "../../../../mapper/digit_wide_character_to_integer_mapper.c"
 
 /**
  * Deserialises the integer value.
@@ -48,9 +50,8 @@
  * @param p1 the source wide character data OR character data
  * @param p2 the source wide character count OR character count
  * @param p3 the number base
- * @param p4 the source type
  */
-void deserialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_numeral_integer(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral integer.");
     fwprintf(stdout, L"Debug: Deserialise numeral integer. source count p2: %i\n", p2);
@@ -72,8 +73,8 @@ void deserialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The digit wide character.
+    wchar_t c = *NULL_UNICODE_CHARACTER_CODE_MODEL;
     // The integer value.
     int v = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The result.
@@ -114,18 +115,19 @@ void deserialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p
             break;
         }
 
-        // Check whether type is unicode- or ascii character.
-        compare_integer_equal((void*) &r, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        // Get digit wide character at given index.
+        copy_array_forward((void*) &c, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            deserialise_numeral_unicode((void*) &v, p1, p4, (void*) &j);
-
-        } else {
-
-            deserialise_numeral_ascii((void*) &v, p1, p4, (void*) &j);
-        }
-
+        //
+        // Determine integer value from digit wide character.
+        //
+        // CAUTION! One could subtract the zero wide character UNICODE value
+        // from the current digit wide character UNICODE value, in order to
+        // get the actual numeric integer value.
+        // However, using unicode values for calculation is NOT considered
+        // proper here. Therefore, a MAPPING table is used instead.
+        //
+        map_digit_wide_character_to_integer((void*) &v, (void*) &c);
         fwprintf(stdout, L"Debug: Deserialise numeral integer. v: %i\n", v);
 
         //

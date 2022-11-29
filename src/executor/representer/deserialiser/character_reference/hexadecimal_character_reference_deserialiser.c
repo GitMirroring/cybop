@@ -103,7 +103,7 @@ void deserialise_character_reference_hexadecimal(void* p0, void* p1, void* p2) {
     //
     // CAUTION! Hand over number base 16 as parametre!
     //
-    deserialise_numeral_integer((void*) &i, rd, (void*) &rc, (void*) HEXADECIMAL_BASE_NUMERAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deserialise_numeral_integer((void*) &i, rd, (void*) &rc, (void*) HEXADECIMAL_BASE_NUMERAL_MODEL);
 
     //
     // Cast integer to wide character.

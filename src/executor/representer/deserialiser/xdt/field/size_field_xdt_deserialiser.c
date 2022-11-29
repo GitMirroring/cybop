@@ -61,7 +61,7 @@ void deserialise_xdt_field_size(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_numeral_integer(p0, *sd, p3, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            deserialise_numeral_integer(p0, *sd, p3, (void*) DECIMAL_BASE_NUMERAL_MODEL);
 
             // Move position.
             move(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);

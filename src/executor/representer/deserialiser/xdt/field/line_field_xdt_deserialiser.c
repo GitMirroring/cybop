@@ -97,7 +97,7 @@ void deserialise_xdt_field_line(void* p0, void* p1, void* p2, void* p3, void* p4
     deserialise_xdt_field_identification((void*) &id, (void*) &ic, p1, p2, (void*) IDENTIFICATION_FIELD_BDT_XDT_NAME_COUNT);
     // Deserialise identification as integer primitive.
     //?? deserialise_cybol_integer_value_primitive((void*) &i, id, (void*) &ic, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-    deserialise_numeral_integer((void*) &i, id, (void*) &ic, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deserialise_numeral_integer((void*) &i, id, (void*) &ic, (void*) DECIMAL_BASE_NUMERAL_MODEL);
     // Deserialise content.
     deserialise_xdt_field_content((void*) &cd, (void*) &cc, p1, p2);
 

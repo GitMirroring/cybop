@@ -26,6 +26,7 @@
         * Delete cybol integer serialiser and replace its calls with numeral serialiser
         * Replace file "append_utf_8_encoder.c" with new file "ascii_deserialiser.c"
         * Replace file "append_utf_8_decoder.c" with new file "ascii_serialiser.c"
+        * Delete files "unicode_numeral_deserialiser.c", "ascii_numeral_deserialiser.c", "digit_character_to_integer_mapper.c", since characters can be retrieved from wide characters
 
 2022-11-28  Christian Heller  <christian.heller@cybop.org>
 

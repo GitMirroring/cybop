@@ -16,10 +16,8 @@
 Numeral Deserialiser
 ____________________
 
-        * Clear up what file "ascii_decoder.c" is used for and if it should be replaced with "ascii_serialiser.c"
-
-        * Replace call of function "deserialise_cybol_integer_value_primitive" in file "line_field_xdt_deserialiser.c" and elsewhere
-        * Replace call of function "serialise_cybol_integer_value" in file "line_field_xdt_deserialiser.c"
+        * Encapsulate call of function "deserialise_numeral_integer" with CHARACTER_TEXT_STATE_CYBOI_TYPE in file "character_percent_encoding_deserialiser.c" in wide character
+        * Replace call of function "deserialise_cybol_integer_value_primitive" in file "line_field_xdt_deserialiser.c"
         * Replace call of function "serialise_cybol_integer_value_char" in file "content_length_header_http_response_serialiser.c" using ascii deserialiser
         * Replace call of function "serialise_cybol_integer_value_char" in file "position_ansi_escape_code_serialiser.c" using ascii deserialiser
             --> only then tui menu will be displayed correctly again
