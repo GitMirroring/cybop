@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef APPEND_UTF_8_ENCODER_SOURCE
-#define APPEND_UTF_8_ENCODER_SOURCE
+#ifndef ASCII_SERIALISER_SOURCE
+#define ASCII_SERIALISER_SOURCE
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -35,7 +35,7 @@
 #include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/converter/encoder/utf/utf_8_encoder.c"
+#include "../../../../executor/converter/decoder/utf/utf_8_decoder.c"
 #include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
@@ -43,36 +43,35 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Encodes the source and appends it to the destination.
+ * Serialises the ascii character data into wide character data.
  *
- * @param p0 the destination multibyte character item
- * @param p1 the source wide character data
- * @param p2 the source wide character count
+ * @param p0 the destination wide character item
+ * @param p1 the source ascii character data
+ * @param p2 the source ascii character count
  */
-void encode_utf_8_append(void* p0, void* p1, void* p2) {
+void serialise_ascii(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode utf-8 append.");
-    //?? fwprintf(stdout, L"Debug: Encode utf-8 append. source count p2: %i\n", p2);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ascii.");
 
-    // The character item.
+    // The wide character item.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The character item data, count.
+    // The wide character item data, count.
     void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* ic = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
-    // Allocate character item.
+    // Allocate wide character item.
     //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     //
-    allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // Encode wide character data into multibyte character item.
-    encode_utf_8(i, p1, p2);
+    // Decode multibyte character data into wide character item.
+    decode_utf_8(i, p1, p2);
 
     //
-    // Get character item data, count.
+    // Get wide character item data, count.
     //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
@@ -81,12 +80,12 @@ void encode_utf_8_append(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &id, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &ic, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // Append character data to destination.
-    modify_item(p0, id, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, ic, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    // Append wide character data to destination.
+    modify_item(p0, id, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, ic, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
-    // Deallocate character item.
-    deallocate_item((void*) &i, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate wide character item.
+    deallocate_item((void*) &i, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
-/* APPEND_UTF_8_ENCODER_SOURCE */
+/* ASCII_SERIALISER_SOURCE */
 #endif

@@ -16,14 +16,13 @@
 Numeral Deserialiser
 ____________________
 
+        * Clear up what file "ascii_decoder.c" is used for and if it should be replaced with "ascii_serialiser.c"
+
         * Replace call of function "deserialise_cybol_integer_value_primitive" in file "line_field_xdt_deserialiser.c" and elsewhere
         * Replace call of function "serialise_cybol_integer_value" in file "line_field_xdt_deserialiser.c"
         * Replace call of function "serialise_cybol_integer_value_char" in file "content_length_header_http_response_serialiser.c" using ascii deserialiser
         * Replace call of function "serialise_cybol_integer_value_char" in file "position_ansi_escape_code_serialiser.c" using ascii deserialiser
-        * Add ascii serialiser and deserialiser or better use file "ascii_decoder.c" ??
-        * Delete file "append_utf_8_encoder.c" which has been replaced by "ascii_deserialiser.c"
-        * Delete file "append_utf_8_decoder.c" which has been replaced by "ascii_serialiser.c"
-        * Clear up what file "ascii_decoder.c" is used for and if it should be replaced with one of the above
+            --> only then tui menu will be displayed correctly again
 
         * Call "serialise_numeral_vector" instead of just "serialise_numeral" in file "cybol_serialiser.c" and others where numeral serialiser is used
 

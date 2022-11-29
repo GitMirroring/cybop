@@ -27,7 +27,7 @@
 #define WIDE_CHARACTER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../executor/converter/encoder/utf/append_utf_8_encoder.c"
+#include "../../../../executor/representer/deserialiser/ascii/ascii_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -42,7 +42,7 @@ void serialise_ansi_escape_code_wide_character(void* p0, void* p1, void* p2) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code wide character.");
 
     // Encode wide character and append it to the destination.
-    encode_utf_8_append(p0, p1, p2);
+    deserialise_ascii(p0, p1, p2);
 }
 
 /* WIDE_CHARACTER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */

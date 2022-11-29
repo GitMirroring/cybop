@@ -28,7 +28,7 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/converter/decoder/utf/append_utf_8_decoder.c"
+#include "../../../../executor/representer/serialiser/ascii/ascii_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -49,7 +49,7 @@ void deserialise_ansi_escape_code_character(void* p0, void* p1, void* p2) {
         //?? fwprintf(stdout, L"Debug: Deserialise ansi escape code character. count remaining *p2: %i\n", *((int*) p2));
 
         // Decode multibyte character array into wide character item.
-        decode_utf_8_append(p0, *d, p2);
+        serialise_ascii(p0, *d, p2);
 
     } else {
 

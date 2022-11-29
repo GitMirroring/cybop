@@ -24,6 +24,8 @@
         * Delete cybol complex serialiser and replace its calls with numeral serialiser
         * Delete cybol fraction serialiser and replace its calls with numeral serialiser
         * Delete cybol integer serialiser and replace its calls with numeral serialiser
+        * Replace file "append_utf_8_encoder.c" with new file "ascii_deserialiser.c"
+        * Replace file "append_utf_8_decoder.c" with new file "ascii_serialiser.c"
 
 2022-11-28  Christian Heller  <christian.heller@cybop.org>
 
