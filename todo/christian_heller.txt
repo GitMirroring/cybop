@@ -16,6 +16,8 @@ _____
 
         * Test new automated build process with release 0.24.0
         * Release CYBOP 0.24.0
+        * Provide simplified zip file containing just readme + cyboi + a few functioning apps
+
         * Adapt rules of "ClangFormat" and correct reported formatting errors
         * Find out how best to exclude log messages from release build (ifdef macro, build script, other idea)
 
