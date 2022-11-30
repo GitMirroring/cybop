@@ -3,7 +3,8 @@
     <node name="window" channel="file" format="element/part" model="user_interface/ui/tui/window.cybol">
         <node name="position" channel="inline" format="number/integer" model="0,0"/>
         <node name="size" channel="inline" format="number/integer" model="80,25"/>
-        <node name="background" channel="inline" format="colour/terminal" model="green"/>
+        <node name="background" channel="inline" format="colour/terminal" model="white"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="green"/>
         <node name="border" channel="inline" format="text/plain" model="ascii"/>
     </node>
 

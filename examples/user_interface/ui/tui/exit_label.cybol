@@ -4,7 +4,7 @@
         <node name="position" channel="inline" format="number/integer" model="5,17"/>
         <node name="size" channel="inline" format="number/integer" model="70,1"/>
         <node name="background" channel="inline" format="colour/terminal" model="green"/>
-        <node name="foreground" channel="inline" format="colour/terminal" model="black"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
     </node>
 
 </node>

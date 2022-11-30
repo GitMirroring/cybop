@@ -10,13 +10,10 @@
 -->
         <node name="position" channel="inline" format="number/integer" model="100,50"/>
         <node name="size" channel="inline" format="number/integer" model="640,480"/>
-<!--
-        <node name="background" channel="inline" format="colour/rgb" model="255,255,255"/>
--->
-        <node name="foreground" channel="inline" format="colour/rgb" model="255,255,128"/>
+        <node name="foreground" channel="inline" format="colour/rgb" model="255,255,255"/>
         <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
         <node name="layout" channel="inline" format="text/plain" model="absolute"/>
-        <node name="expose" channel="inline" format="text/plain" model=".logic.send.gui"/>
+        <node name="expose" channel="inline" format="text/plain" model=".logic.send.send_gui"/>
         <node name="close-window" channel="inline" format="text/plain" model=".logic.exit"/>
     </node>
 

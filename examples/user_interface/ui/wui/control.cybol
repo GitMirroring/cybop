@@ -10,4 +10,9 @@
         <node name="href" channel="inline" format="text/plain" model="http://localhost:1971/?action=greet-cybop"/>
     </node>
 
+    <node name="refresh" channel="inline" format="text/plain" model="Refresh">
+        <node name="tag" channel="inline" format="text/plain" model="a"/>
+        <node name="href" channel="inline" format="text/plain" model="http://localhost:1971/?action=refresh"/>
+    </node>
+
 </node>

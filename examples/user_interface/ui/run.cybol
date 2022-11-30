@@ -30,8 +30,9 @@
     <!-- Lifecycle -->
 
     <node name="startup" channel="inline" format="text/cybol-path" model=".logic.startup"/>
-    <node name="greet" channel="inline" format="text/cybol-path" model=".logic.greet-world"/>
+    <!-- Start sensing BEFORE calling "greet" below, so that the gui display may refresh itself -->
     <node name="sense" channel="inline" format="text/cybol-path" model=".logic.sense"/>
+    <node name="greet" channel="inline" format="text/cybol-path" model=".logic.greet-world"/>
 
 </node>
 

@@ -11,24 +11,35 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-        * Reset gui default values of variables fgr, fgg etc. (which got modified for testing) in file "context_xcb_serialiser.c"
+Build
+_____
 
-Numeral Deserialiser
-____________________
+        * Prepare release 0.24.0
+        * Test new automated build process for release 0.24.0
+        * Release CYBOP 0.23.0
+        * Adapt rules of "ClangFormat" and correct reported formatting errors
+        * Find out how best to exclude log messages from release build (ifdef macro, build script, other idea)
 
-        * Call "serialise_numeral_vector" instead of just "serialise_numeral" in file "cybol_serialiser.c" and others where numeral serialiser is used
+API
+___
 
-        * Move byte deserialiser out of cybol deserialiser into separate directory ??
+        * Provide at least one example per category
 
-        * Consider grouping via thousands separator in numeral serialiser
-        * Remove thousands separator using modify replace function
-            do NOT just skip it in file "value_numeral_selector.c", since the count has to include them
-            call some replace or remove function from within file "value_numeral_deserialiser.c" instead
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/calculate_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/logify_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/check_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/compare_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/cast_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/access_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/sort_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/time_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/run_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/manipulate_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/randomise_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/contain_logic_cybol_format.c"
+        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/command_logic_cybol_format.c"
 
-        * Provide language properties constraint "polar" as flag indicating serialisation of a complex number using polar coordinates
-        * Verify if sign is recognised and printed properly in complex number with polar coordinates in numeral de-/serialiser
-
-        * Adapt cybol serialiser so that compound parts of type "element/part" get written into different files
+        * Use "application/octet-stream" as replacement for "text/ascii"
 
 JSON
 ____
@@ -58,34 +69,6 @@ ____
             --> merge both in all of cyboi ??
         * Implement base64 serialiser and deserialiser
         * Implement binary json (bson) data interchange format with mime type "application/bson" ??
-
-Build
-_____
-
-        * Adapt rules of "ClangFormat" and correct reported formatting errors
-        * Test new automated build process by preparing release 0.24.0
-        * Find out how best to exclude log messages from release build (ifdef macro, build script, other idea)
-
-API
-___
-
-        * Provide at least one example per category
-
-        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/calculate_logic_cybol_format.c"
-        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/logify_logic_cybol_format.c"
-        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/check_logic_cybol_format.c"
-        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/compare_logic_cybol_format.c"
-        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/cast_logic_cybol_format.c"
-        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/access_logic_cybol_format.c"
-        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/sort_logic_cybol_format.c"
-        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/time_logic_cybol_format.c"
-        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/run_logic_cybol_format.c"
-        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/manipulate_logic_cybol_format.c"
-        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/randomise_logic_cybol_format.c"
-        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/contain_logic_cybol_format.c"
-        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/command_logic_cybol_format.c"
-
-        * Use "application/octet-stream" as replacement for "text/ascii"
 
 git
 ___
@@ -129,15 +112,34 @@ ______
 
         * Implement part serialiser called from file "cybol_serialiser.c"
 
+Numeral Deserialiser
+____________________
+
+        * Call "serialise_numeral_vector" instead of just "serialise_numeral" in number sections of file "cybol_serialiser.c"
+        * Return primitive number in numeral serialiser and item in numeral vector serialiser
+
+        * Move byte deserialiser out of cybol deserialiser into separate directory ??
+
+        * Consider grouping via thousands separator in numeral serialiser
+        * Remove thousands separator using modify replace function
+            do NOT just skip it in file "value_numeral_selector.c", since the count has to include them
+            call some replace or remove function from within file "value_numeral_deserialiser.c" instead
+
+        * Provide language properties constraint "polar" as flag indicating serialisation of a complex number using polar coordinates
+        * Verify if sign is recognised and printed properly in complex number with polar coordinates in numeral de-/serialiser
+
+        * Adapt cybol serialiser so that compound parts of type "element/part" get written into different files
+
 De-/Serialiser
 ______________
 
-        * Add joined string serialiser as replacement for planned "modify/concatenate"
+        * Add csv serialiser
+        * Add textline list serialiser
+        * Add joined string serialiser (as replacement for outdated-planned "modify/concatenate")
+        * Add numeral vector serialiser
+
         * Provide an optional cybol property "separator" to be used as such between the concatenated strings
         * Test joined string deserialiser using cybol application "container_modification/stripper/" (and possibly rename it to "serialiser/joined_string/" or remove it)
-
-        * Add textline list serialiser
-        * Add csv serialiser
 
         * Complete unicode section in backslash escape serialiser and deserialiser
         * Handle backslash escape characters in ansi escape code serialiser ??
