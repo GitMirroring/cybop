@@ -35,6 +35,7 @@ INSTALL(DIRECTORY ${ROOT_DIR}/src/ DESTINATION src)
 INSTALL(FILES ${ROOT_DIR}/build/manpage/cybol.5.gz DESTINATION build/manpage)
 INSTALL(DIRECTORY ${ROOT_DIR}/tools/api-generator/ DESTINATION tools/api-generator)
 INSTALL(DIRECTORY ${ROOT_DIR}/doc/cybol/ DESTINATION doc/cybol)
+INSTALL(DIRECTORY ${ROOT_DIR}/app/ DESTINATION app)
 INSTALL(DIRECTORY ${ROOT_DIR}/examples/ DESTINATION examples)
 
 # The cybop component.

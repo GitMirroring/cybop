@@ -21,6 +21,7 @@
 2022-11-30  Christian Heller  <christian.heller@cybop.org>
 
         * Make cybol application "ui" work fully and save screenshots of tui, gui, wui
+        * Move working cybol applications from directory "examples" to new directory "app" for demonstration
 
 2022-11-29  Christian Heller  <christian.heller@cybop.org>
 
