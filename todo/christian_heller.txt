@@ -14,9 +14,8 @@
 Build
 _____
 
-        * Prepare release 0.24.0
-        * Test new automated build process for release 0.24.0
-        * Release CYBOP 0.23.0
+        * Test new automated build process with release 0.24.0
+        * Release CYBOP 0.24.0
         * Adapt rules of "ClangFormat" and correct reported formatting errors
         * Find out how best to exclude log messages from release build (ifdef macro, build script, other idea)
 

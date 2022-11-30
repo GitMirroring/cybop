@@ -13,6 +13,54 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+CYBOP 0.24.0, 2022-12-24, Christian Heller  <christian.heller@cybop.org>
+
+        * CYBOI:
+            General:
+            - Remove channel, encoding, language from cyboi-internal allocated part structure
+            - Add reverser providing functionality for cybol operation "modify/reverse"
+            - Add lowerer providing functionality for cybol operation "modify/lower"
+            - Add upperer providing functionality for cybol operation "modify/upper"
+            - Add repeater providing functionality for cybol operation "modify/repeat"
+            - Add replacer providing functionality for cybol operation "modify/replace"
+            Serialiser and Deserialiser:
+            - Clean up cybol de-/serialiser from obsolete channel, encoding, language
+            - Move boolean/colour/datetime/duration/socket out of cybol de-/serialiser
+            - Add numeral vector de-/serialiser
+            - Add numeral de-/serialiser detecting number format automatically which is needed in json
+            - Consider number base prefix and process dual/octal/decimal/hexadecimal numbers
+            - Offer scientific notation for decimal fractions
+            - Handle complex numbers in cartesian and polar form
+            - Provide language properties constraints to various de-/serialisers
+        * CYBOL:
+            Properties:
+            - Add property "repetition" for cybol operation "modify/repeat"
+            - Add property "searchword" for cybol operation "modify/replace"
+            - Replace language "message/cli" with "message/tui"
+            - Add languages "text/cybol+xml" and "text/cybol+json"
+            Language Properties (Constraints):
+            - "separator", "grouping" (thousands separator) used in numeral deserialiser
+            - "sign", "base", "classicoctal", "grouping", "separator", "decimals", "scientific" used in numeral serialiser
+            - "positioning" used in tui serialiser
+            Applications:
+            - Add cybol application "knowledge_tree/creation/"
+            - Add cybol applications "reverser", "lowerer", "upperer", "repeater", "replacer" to directory "examples/container_modification/"
+            - Add cybol application "serialiser/xml/"
+            - Add cybol application "serialiser/cybol/"
+            - Make multi-channel "Hello World!" cybol application "ui" work fully and save screenshots of tui, gui, wui
+            - Move working cybol applications from directory "examples" to new directory "app" for demonstration
+        * Project:
+            Documentation:
+            - Update cybol api specification in javadoc comment blocks of files in directory "constant/format/cybol/"
+            - Update cyboi interpreter c code conventions style guide and upload to website
+            - Update release instructions
+            Build Process:
+            - Delete unused/obsolete bin and dist folder (Enrico Gallus)
+            - Remove doxygen completely (Enrico Gallus)
+            - Rename make targets (Enrico Gallus)
+            - Generate cmake config header file during make process (Enrico Gallus)
+            - Add deb to cpack package list (Enrico Gallus)
+
 CYBOP 0.23.0, 2022-09-04, Christian Heller  <christian.heller@cybop.org>
 
         * CYBOI:

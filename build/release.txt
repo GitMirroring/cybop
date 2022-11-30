@@ -11,7 +11,7 @@ ___________
 2 Adapt directories, files, version in file "build/cmake/packaging.cmake"
 3 Analyse source code by running "valgrind"
 4 Update api (logic and state) in directory "src/constant/format/cybol/"
-5 Change project version in "tools/api-generator/app.cybol" node "title"
+5 Change project version in "tools/api-generator/app.cybol" node "title" and "copyright"
 
 6 Update files in directory "todo/"
 7 Update ChangeLog

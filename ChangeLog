@@ -22,6 +22,7 @@
 
         * Make cybol application "ui" work fully and save screenshots of tui, gui, wui
         * Move working cybol applications from directory "examples" to new directory "app" for demonstration
+        * Prepare file "NEWS" for release 0.24.0
 
 2022-11-29  Christian Heller  <christian.heller@cybop.org>
 
