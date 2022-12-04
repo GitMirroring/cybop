@@ -1,0 +1,10 @@
+<!--
+    This application contains just one "exit" operation.
+    It shuts down the application right after startup.
+-->
+
+<node>
+
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
+</node>

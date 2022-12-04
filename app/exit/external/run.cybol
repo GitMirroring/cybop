@@ -1,0 +1,10 @@
+<!--
+    This application reads the "exit" operation from an external file.
+    Therefore, the path to that file is given as model.
+-->
+
+<node>
+
+    <node name="exit_application" channel="file" format="element/part" model="exit/external/exit.cybol"/>
+
+</node>

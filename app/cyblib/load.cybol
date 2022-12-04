@@ -1,19 +1,21 @@
 <node>
 
-    <!-- Create cybol knowledge tree node. -->
+    <!-- Creation -->
+
     <node name="create_cybol" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
     </node>
 
-    <!-- Receive modules. -->
+    <!-- Initialisation -->
+
     <node name="create_id" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="id"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>
     <node name="open_id" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="device" channel="inline" format="text/plain" model="cybolib/modules.cybol"/>
+        <node name="device" channel="inline" format="text/plain" model="cyblib/modules.cybol"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
     <node name="receive_library" channel="inline" format="communicate/receive" model="">

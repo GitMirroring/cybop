@@ -1,13 +1,13 @@
 <!--
-    This application sends the "exit" operation as signal (event)
-    to the cyboi interpreter which then executes it.
+    This application sends an event to cyboi and reads the "exit" operation
+    from an external file.
 -->
 
 <node>
 
     <node name="send_exit_signal" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="signal"/>
-        <node name="message" channel="inline" format="live/exit" model=""/>
+        <node name="message" channel="file" format="element/part" model="exit/file/exit.cybol"/>
     </node>
 
 </node>

@@ -1,3 +1,7 @@
+<!--
+    This example prints the famous greeting "Hello World!" on console.
+-->
+
 <node>
 
     <!-- Creation -->
@@ -29,7 +33,3 @@
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
 
 </node>
-
-<!--
-    This example prints the famous greeting "Hello World!" on console.
--->

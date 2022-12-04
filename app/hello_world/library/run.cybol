@@ -1,6 +1,12 @@
+<!--
+    This example prints the famous greeting "Hello World!" on console
+    and then exits the application.
+    In order to be very short, it uses the "cyblib" library.
+-->
+
 <node>
 
-    <node name="load_cybol_library" channel="file" format="element/part" model="cybol/load.cybol"/>
+    <node name="load_cyblib" channel="file" format="element/part" model="cyblib/load.cybol"/>
 
 <!--
     <node name="print" channel="file" format="element/part" model="cybol/terminal/print-newline.cybol">
@@ -15,8 +21,3 @@
     <node name="exit" channel="inline" format="live/exit" model=""/>
 
 </node>
-
-<!--
-    This example prints the famous greeting "Hello World!" on console
-    and then exits the application.
--->
