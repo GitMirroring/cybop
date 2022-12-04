@@ -46,7 +46,7 @@
 void shutdown_socket(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown socket.");
-    fwprintf(stdout, L"Debug: Shutdown socket. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Shutdown socket. p0: %i\n", p0);
 
     //
     // Declaration

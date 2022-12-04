@@ -85,10 +85,10 @@ void deserialise_gui_action_button_release(void* p0, void* p1, void* p2, void* p
             int* mx = (int*) p12;
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui action button release.");
-            fwprintf(stdout, L"Debug: Deserialise gui action button release. mouse x coordinate p12: %i\n", p12);
-            fwprintf(stdout, L"Debug: Deserialise gui action button release. mouse y coordinate p13: %i\n", p13);
-            fwprintf(stdout, L"Debug: Deserialise gui action button release. mouse x coordinate *p12: %i\n", *((int*) p12));
-            fwprintf(stdout, L"Debug: Deserialise gui action button release. mouse y coordinate *p13: %i\n", *((int*) p13));
+            //?? fwprintf(stdout, L"Debug: Deserialise gui action button release. mouse x coordinate p12: %i\n", p12);
+            //?? fwprintf(stdout, L"Debug: Deserialise gui action button release. mouse y coordinate p13: %i\n", p13);
+            //?? fwprintf(stdout, L"Debug: Deserialise gui action button release. mouse x coordinate *p12: %i\n", *((int*) p12));
+            //?? fwprintf(stdout, L"Debug: Deserialise gui action button release. mouse y coordinate *p13: %i\n", *((int*) p13));
 
             //
             // Declaration
@@ -153,10 +153,10 @@ void deserialise_gui_action_button_release(void* p0, void* p1, void* p2, void* p
             calculate_integer_add((void*) &x, p15);
             calculate_integer_add((void*) &y, p16);
 
-            fwprintf(stdout, L"Debug: Deserialise gui action button release. x: %i\n", x);
-            fwprintf(stdout, L"Debug: Deserialise gui action button release. y: %i\n", y);
-            fwprintf(stdout, L"Debug: Deserialise gui action button release. w: %i\n", w);
-            fwprintf(stdout, L"Debug: Deserialise gui action button release. h: %i\n", h);
+            //?? fwprintf(stdout, L"Debug: Deserialise gui action button release. x: %i\n", x);
+            //?? fwprintf(stdout, L"Debug: Deserialise gui action button release. y: %i\n", y);
+            //?? fwprintf(stdout, L"Debug: Deserialise gui action button release. w: %i\n", w);
+            //?? fwprintf(stdout, L"Debug: Deserialise gui action button release. h: %i\n", h);
 
             //
             // Check whether or not the mouse x- and y coordinate
@@ -173,7 +173,7 @@ void deserialise_gui_action_button_release(void* p0, void* p1, void* p2, void* p
                 // the gui element's area.
                 //
 
-                fwprintf(stdout, L"Debug: Deserialise gui action button release. The mouse x- and y coordinate ARE within the gui element's area.\n");
+                //?? fwprintf(stdout, L"Debug: Deserialise gui action button release. The mouse x- and y coordinate ARE within the gui element's area.\n");
 
                 //
                 // Set BREAK flag, so that the loop can be left in the next cycle.
@@ -197,11 +197,11 @@ void deserialise_gui_action_button_release(void* p0, void* p1, void* p2, void* p
                         // is done here above.
                         //
 
-                        fwprintf(stdout, L"Debug: Deserialise gui action button release. Modify overwrite action.\n");
-                        fwprintf(stdout, L"Debug: Deserialise gui action button release. amc: %i\n", amc);
-                        fwprintf(stdout, L"Debug: Deserialise gui action button release. *amc: %i\n", *((int*) amc));
-                        fwprintf(stdout, L"Debug: Deserialise gui action button release. amd: %i\n", amd);
-                        fwprintf(stdout, L"Debug: Deserialise gui action button release. (wchar_t*) amd: %ls\n", (wchar_t*) amd);
+                        //?? fwprintf(stdout, L"Debug: Deserialise gui action button release. Modify overwrite action.\n");
+                        //?? fwprintf(stdout, L"Debug: Deserialise gui action button release. amc: %i\n", amc);
+                        //?? fwprintf(stdout, L"Debug: Deserialise gui action button release. *amc: %i\n", *((int*) amc));
+                        //?? fwprintf(stdout, L"Debug: Deserialise gui action button release. amd: %i\n", amd);
+                        //?? fwprintf(stdout, L"Debug: Deserialise gui action button release. (wchar_t*) amd: %ls\n", (wchar_t*) amd);
 
                         //
                         // Overwrite previous action of parent element

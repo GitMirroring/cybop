@@ -56,8 +56,8 @@
 void shutdown_server(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown server.");
-    fwprintf(stdout, L"Information: Shutdown server. p1: %i\n", p1);
-    fwprintf(stdout, L"Information: Shutdown server. *p1: %i\n", *((int*) p1));
+    //?? fwprintf(stdout, L"Information: Shutdown server. p1: %i\n", p1);
+    //?? fwprintf(stdout, L"Information: Shutdown server. *p1: %i\n", *((int*) p1));
 
     //
     // Declaration

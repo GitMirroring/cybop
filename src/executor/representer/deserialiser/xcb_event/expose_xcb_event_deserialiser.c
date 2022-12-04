@@ -53,8 +53,8 @@ void deserialise_xcb_event_expose(void* p0, void* p1) {
         xcb_expose_event_t* e = (xcb_expose_event_t*) p1;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise expose xcb event.");
-        fwprintf(stdout, L"Debug: Deserialise expose xcb event. p1: %i\n", p1);
-        fwprintf(stdout, L"Debug: Deserialise expose xcb event. (*e).count: %i\n", (*e).count);
+        //?? fwprintf(stdout, L"Debug: Deserialise expose xcb event. p1: %i\n", p1);
+        //?? fwprintf(stdout, L"Debug: Deserialise expose xcb event. (*e).count: %i\n", (*e).count);
 
         //
         // CAUTION! Consider only the LAST in a row of multiple expose

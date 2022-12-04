@@ -44,7 +44,7 @@
 void enable_entry(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable entry.");
-    fwprintf(stdout, L"Debug: Enable entry. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Enable entry. p0: %i\n", p0);
 
     //
     // Storage.

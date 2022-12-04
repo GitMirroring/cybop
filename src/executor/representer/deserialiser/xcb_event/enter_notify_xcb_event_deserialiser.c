@@ -50,7 +50,7 @@ void deserialise_xcb_event_enter_notify(void* p0, void* p1) {
         xcb_enter_notify_event_t* e = (xcb_enter_notify_event_t*) p1;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise enter notify xcb event.");
-        fwprintf(stdout, L"Debug: Deserialise enter notify xcb event. p1: %i\n", p1);
+        //?? fwprintf(stdout, L"Debug: Deserialise enter notify xcb event. p1: %i\n", p1);
 
         // Get window identification.
         int w = (int) (*e).event;

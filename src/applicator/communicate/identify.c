@@ -89,8 +89,8 @@ void apply_identify(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Copy identification.
     copy_integer(imd, id);
 
-    fwprintf(stdout, L"\n\n\nDebug: Apply identify. imd: %i\n", imd);
-    fwprintf(stdout, L"Debug: Apply identify. *imd: %i\n\n\n\n", *((int*) imd));
+    //?? fwprintf(stdout, L"\n\n\nDebug: Apply identify. imd: %i\n", imd);
+    //?? fwprintf(stdout, L"Debug: Apply identify. *imd: %i\n\n\n\n", *((int*) imd));
 }
 
 /* IDENTIFY_SOURCE */

@@ -65,7 +65,7 @@
 int write_function(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write function.");
-    fwprintf(stdout, L"Debug: Write function. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Write function. p0: %i\n", p0);
 
     //
     // Declaration.

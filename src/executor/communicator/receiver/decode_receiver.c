@@ -49,11 +49,12 @@
  */
 void receive_decode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    //?? TEST ONLY!
-    if ((p5 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p5) != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL)) {
-    //?? if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // Filter out null value for better performance.
+    if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive decode.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive decode.");
+        //?? fwprintf(stdout, L"Debug: Receive decode. encoding p5: %i\n", p5);
+        //?? fwprintf(stdout, L"Debug: Receive decode. encoding *p5: %i\n", *((int*) p5));
 
         // Decode message.
         decode(p2, p3, p4, p5);
@@ -74,6 +75,8 @@ void receive_decode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     } else {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive decode. The encoding is null.");
+        //?? fwprintf(stdout, L"Warning: Could not receive decode. The encoding is null. encoding p5: %i\n", p5);
+        //?? fwprintf(stdout, L"Warning: Could not receive decode. The encoding is null. encoding *p5: %i\n", *((int*) p5));
     }
 }
 

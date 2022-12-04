@@ -48,9 +48,12 @@
  */
 void send_encode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
+    // Filter out null value for better performance.
     if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send encode.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send encode.");
+        //?? fwprintf(stdout, L"Debug: Send encode. encoding p5: %i\n", p5);
+        //?? fwprintf(stdout, L"Debug: Send encode. encoding *p5: %i\n", *((int*) p5));
 
         // Encode message.
         encode(p2, p3, p4, p5);
@@ -70,7 +73,9 @@ void send_encode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     } else {
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send encode. The encoding is null.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send encode. The encoding is null.");
+        //?? fwprintf(stdout, L"Warning: Could not send encode. The encoding is null. encoding p5: %i\n", p5);
+        //?? fwprintf(stdout, L"Warning: Could not send encode. The encoding is null. encoding *p5: %i\n", *((int*) p5));
     }
 }
 

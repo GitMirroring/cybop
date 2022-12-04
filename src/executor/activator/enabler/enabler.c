@@ -52,8 +52,8 @@
 void enable(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable.");
-    fwprintf(stdout, L"Information: Enable. p1: %i\n", p1);
-    fwprintf(stdout, L"Information: Enable. *p1: %i\n", *((int*) p1));
+    //?? fwprintf(stdout, L"Information: Enable. p1: %i\n", p1);
+    //?? fwprintf(stdout, L"Information: Enable. *p1: %i\n", *((int*) p1));
 
     // The internal memory name.
     int n = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;

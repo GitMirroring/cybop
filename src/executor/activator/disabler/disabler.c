@@ -51,8 +51,8 @@
 void disable(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Disable.");
-    fwprintf(stdout, L"Information: Disable. p2: %i\n", p2);
-    fwprintf(stdout, L"Information: Disable. *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Information: Disable. p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Information: Disable. *p2: %i\n", *((int*) p2));
 
     //
     // Declaration

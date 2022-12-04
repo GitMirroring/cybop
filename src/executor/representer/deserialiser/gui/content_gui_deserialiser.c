@@ -68,9 +68,9 @@
 void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui content.");
-    fwprintf(stdout, L"Debug: Deserialise gui content. event name count p11: %i\n", p11);
-    fwprintf(stdout, L"Debug: Deserialise gui content. event name count *p11: %i\n", *((int*) p11));
-    fwprintf(stdout, L"Debug: Deserialise gui content. event name data p10: %ls\n", (wchar_t*) p10);
+    //?? fwprintf(stdout, L"Debug: Deserialise gui content. event name count p11: %i\n", p11);
+    //?? fwprintf(stdout, L"Debug: Deserialise gui content. event name count *p11: %i\n", *((int*) p11));
+    //?? fwprintf(stdout, L"Debug: Deserialise gui content. event name data p10: %ls\n", (wchar_t*) p10);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

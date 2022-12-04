@@ -56,12 +56,12 @@ void deserialise_xcb_event(void* p0, void* p1) {
         xcb_generic_event_t* e = (xcb_generic_event_t*) p1;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xcb event.");
-        fwprintf(stdout, L"Debug: Deserialise xcb event. source event e: %i\n", e);
+        //?? fwprintf(stdout, L"Debug: Deserialise xcb event. source event e: %i\n", e);
 
         // Get response type.
         uint8_t t = (*e).response_type;
 
-        fwprintf(stdout, L"Debug: Deserialise xcb event. response type t: %i\n", t);
+        //?? fwprintf(stdout, L"Debug: Deserialise xcb event. response type t: %i\n", t);
 
         //
         // The hexadecimal value 0x80 is decimal 128.
@@ -74,7 +74,7 @@ void deserialise_xcb_event(void* p0, void* p1) {
         //
         t = t & (~0x80);
 
-        fwprintf(stdout, L"Debug: Deserialise xcb event. converted response type t: %i\n", t);
+        //?? fwprintf(stdout, L"Debug: Deserialise xcb event. converted response type t: %i\n", t);
 
         if (t == XCB_BUTTON_PRESS) {
 

@@ -53,9 +53,9 @@ void write_xcb(void* p0, void* p1) {
         int* w = (int*) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write xcb.");
-        fwprintf(stdout, L"Debug: Write xcb. window id p0: %i\n", p0);
-        fwprintf(stdout, L"Debug: Write xcb. window id *p0: %i\n", *((int*) p0));
-        fwprintf(stdout, L"Debug: Write xcb. client entry p1: %i\n", p1);
+        //?? fwprintf(stdout, L"Debug: Write xcb. window id p0: %i\n", p0);
+        //?? fwprintf(stdout, L"Debug: Write xcb. window id *p0: %i\n", *((int*) p0));
+        //?? fwprintf(stdout, L"Debug: Write xcb. client entry p1: %i\n", p1);
 
         // The server entry.
         void* se = *NULL_POINTER_STATE_CYBOI_MODEL;

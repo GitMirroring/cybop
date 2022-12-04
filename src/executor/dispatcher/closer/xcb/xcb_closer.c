@@ -51,8 +51,8 @@ void close_xcb(void* p0, void* p1) {
         int* w = (int*) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close xcb.");
-        fwprintf(stdout, L"Debug: Close xcb. w: %i\n", w);
-        fwprintf(stdout, L"Debug: Close xcb. *w: %i\n", *w);
+        //?? fwprintf(stdout, L"Debug: Close xcb. w: %i\n", w);
+        //?? fwprintf(stdout, L"Debug: Close xcb. *w: %i\n", *w);
 
         // The server entry.
         void* se = *NULL_POINTER_STATE_CYBOI_MODEL;

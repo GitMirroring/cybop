@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-12-04  Christian Heller  <christian.heller@cybop.org>
+
+        * Comment out plenty of debug log messages
+        * Sort out exit application variants
+
 2022-11-30  Christian Heller  <christian.heller@cybop.org>
 
         * Make cybol application "ui" work fully and save screenshots of tui, gui, wui

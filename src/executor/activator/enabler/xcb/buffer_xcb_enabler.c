@@ -50,9 +50,9 @@ void enable_xcb_buffer(void* p0, void* p1, void* p2) {
     //
     // CAUTION! Do NOT log messages, since there are too many.
     //
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable xcb buffer.");
-    fwprintf(stdout, L"Debug: Enable xcb buffer. source event p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Enable xcb buffer. source event *p1: %i\n", *((void**) p1));
+    //?? log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable xcb buffer.");
+    //?? fwprintf(stdout, L"Debug: Enable xcb buffer. source event p1: %i\n", p1);
+    //?? fwprintf(stdout, L"Debug: Enable xcb buffer. source event *p1: %i\n", *((void**) p1));
 
     // Lock mutex.
     lock(p2);

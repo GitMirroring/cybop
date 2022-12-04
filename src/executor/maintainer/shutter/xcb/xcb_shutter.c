@@ -93,7 +93,7 @@ void shutdown_xcb(void* p0) {
 
         if (gc != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            fwprintf(stdout, L"Debug: Shutdown xcb. inside gc: %i\n", gc);
+            //?? fwprintf(stdout, L"Debug: Shutdown xcb. inside gc: %i\n", gc);
 
             //
             // Cast graphic context to integer.
@@ -110,14 +110,14 @@ void shutdown_xcb(void* p0) {
             // ... *gct ...
             //
             uint32_t* gci = (uint32_t*) gc;
-            fwprintf(stdout, L"Debug: Shutdown xcb. gci: %i\n", gci);
-            fwprintf(stdout, L"Debug: Shutdown xcb. *gci: %i\n", *gci);
+            //?? fwprintf(stdout, L"Debug: Shutdown xcb. gci: %i\n", gci);
+            //?? fwprintf(stdout, L"Debug: Shutdown xcb. *gci: %i\n", *gci);
             // Cast graphic context to correct type.
             xcb_gcontext_t gct = (xcb_gcontext_t) *gci;
-            fwprintf(stdout, L"Debug: Shutdown xcb. free gct: %i\n", gct);
+            //?? fwprintf(stdout, L"Debug: Shutdown xcb. free gct: %i\n", gct);
             // Free graphic context.
             xcb_free_gc(ct, gct);
-            fwprintf(stdout, L"Debug: Shutdown xcb. post free gct: %i\n", gct);
+            //?? fwprintf(stdout, L"Debug: Shutdown xcb. post free gct: %i\n", gct);
 
         } else {
 

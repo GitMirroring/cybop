@@ -357,8 +357,8 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise. The language is unknown or null.");
-        fwprintf(stdout, L"Warning: Could not serialise. The language is unknown or null. language p12: %i\n", p12);
-        fwprintf(stdout, L"Warning: Could not serialise. The language is unknown or null. language *p12: %i\n", *((int*) p12));
+        //?? fwprintf(stdout, L"Warning: Could not serialise. The language is unknown or null. language p12: %i\n", p12);
+        //?? fwprintf(stdout, L"Warning: Could not serialise. The language is unknown or null. language *p12: %i\n", *((int*) p12));
     }
 }
 

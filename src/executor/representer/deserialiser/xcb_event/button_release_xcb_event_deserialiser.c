@@ -50,7 +50,7 @@ void deserialise_xcb_event_button_release(void* p0, void* p1) {
         xcb_button_release_event_t* e = (xcb_button_release_event_t*) p1;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise button release xcb event.");
-        fwprintf(stdout, L"Debug: Deserialise button release xcb event. p1: %i\n", p1);
+        //?? fwprintf(stdout, L"Debug: Deserialise button release xcb event. p1: %i\n", p1);
 
         // Get window identification.
         int w = (int) (*e).event;

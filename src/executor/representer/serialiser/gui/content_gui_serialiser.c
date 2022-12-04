@@ -75,10 +75,10 @@ void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 void serialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui content.");
-    fwprintf(stdout, L"Debug: Serialise gui content. source model count p7: %i\n", p7);
-    fwprintf(stdout, L"Debug: Serialise gui content. source model count *p7: %i\n", *((int*) p7));
-    fwprintf(stdout, L"Debug: Serialise gui content. source properties count p9: %i\n", p9);
-    fwprintf(stdout, L"Debug: Serialise gui content. source properties count *p9: %i\n", *((int*) p9));
+    //?? fwprintf(stdout, L"Debug: Serialise gui content. source model count p7: %i\n", p7);
+    //?? fwprintf(stdout, L"Debug: Serialise gui content. source model count *p7: %i\n", *((int*) p7));
+    //?? fwprintf(stdout, L"Debug: Serialise gui content. source properties count p9: %i\n", p9);
+    //?? fwprintf(stdout, L"Debug: Serialise gui content. source properties count *p9: %i\n", *((int*) p9));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

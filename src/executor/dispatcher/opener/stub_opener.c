@@ -53,8 +53,8 @@
 void open_stub(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open stub.");
-    fwprintf(stdout, L"Debug: Open stub. p0: %i\n", p0);
-    fwprintf(stdout, L"Debug: Open stub. *p0: %i\n", *((int*) p0));
+    //?? fwprintf(stdout, L"Debug: Open stub. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Open stub. *p0: %i\n", *((int*) p0));
 
     // The server entry.
     void* se = *NULL_POINTER_STATE_CYBOI_MODEL;

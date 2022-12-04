@@ -50,33 +50,33 @@ void deserialise_xcb_event_client_message(void* p0, void* p1) {
         xcb_client_message_event_t* e = (xcb_client_message_event_t*) p1;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise client message xcb event.");
-        fwprintf(stdout, L"Debug: Deserialise client message xcb event. p1: %i\n", p1);
+        //?? fwprintf(stdout, L"Debug: Deserialise client message xcb event. p1: %i\n", p1);
 
         // Get window identification.
         uint32_t w = (uint32_t) (*e).window;
-        fwprintf(stdout, L"Debug: deserialise xcb XCB_CLIENT_MESSAGE 0 w: %i\n", w);
+        //?? fwprintf(stdout, L"Debug: deserialise xcb XCB_CLIENT_MESSAGE 0 w: %i\n", w);
         // Get type.
         uint32_t ty = (uint32_t) (*e).type;
-        fwprintf(stdout, L"Debug: deserialise xcb XCB_CLIENT_MESSAGE 1 ty: %i\n", ty);
+        //?? fwprintf(stdout, L"Debug: deserialise xcb XCB_CLIENT_MESSAGE 1 ty: %i\n", ty);
         // Get data.
         xcb_client_message_data_t d = (*e).data;
-        fwprintf(stdout, L"Debug: deserialise xcb XCB_CLIENT_MESSAGE 2 d: %i\n", d);
+        //?? fwprintf(stdout, L"Debug: deserialise xcb XCB_CLIENT_MESSAGE 2 d: %i\n", d);
 
         // Allocate window identification part and append it to the destination properties item.
         append_item_part(p0, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &w, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-        fwprintf(stdout, L"Debug: deserialise xcb XCB_CLIENT_MESSAGE 3 w: %i\n", w);
+        //?? fwprintf(stdout, L"Debug: deserialise xcb XCB_CLIENT_MESSAGE 3 w: %i\n", w);
 
         // The delete window cookie.
         void* dwc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Retrieve delete window cookie from input/output entry.
-        fwprintf(stdout, L"Debug: deserialise xcb XCB_CLIENT_MESSAGE 4 dwc: %i\n", dwc);
+        //?? fwprintf(stdout, L"Debug: deserialise xcb XCB_CLIENT_MESSAGE 4 dwc: %i\n", dwc);
         //?? copy_array_forward((void*) &dwc, p02, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        fwprintf(stdout, L"Debug: deserialise xcb XCB_CLIENT_MESSAGE 5 dwc: %i\n", dwc);
+        //?? fwprintf(stdout, L"Debug: deserialise xcb XCB_CLIENT_MESSAGE 5 dwc: %i\n", dwc);
 
         // The delete window cookie structure.
         xcb_intern_atom_reply_t* dwcs = (xcb_intern_atom_reply_t*) dwc;
-        fwprintf(stdout, L"Debug: deserialise xcb XCB_CLIENT_MESSAGE 6 dwcs: %i\n", dwcs);
+        //?? fwprintf(stdout, L"Debug: deserialise xcb XCB_CLIENT_MESSAGE 6 dwcs: %i\n", dwcs);
 /*??
         xcb_intern_atom_reply_t test = *dwcs;
         fwprintf(stdout, L"Debug: deserialise xcb XCB_CLIENT_MESSAGE 7-8 test\n");

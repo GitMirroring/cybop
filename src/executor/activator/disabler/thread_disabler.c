@@ -46,7 +46,7 @@
 void disable_thread(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Disable thread.");
-    fwprintf(stdout, L"Debug: Disable thread. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Disable thread. p0: %i\n", p0);
 
     // The enable thread identification.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;

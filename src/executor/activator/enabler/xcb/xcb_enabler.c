@@ -55,7 +55,7 @@
 void enable_xcb(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable xcb.");
-    fwprintf(stdout, L"Debug: Enable xcb. server entry p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Enable xcb. server entry p0: %i\n", p0);
 
     //
     // Declaration
@@ -105,7 +105,7 @@ void enable_xcb(void* p0) {
 
         if (w >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            fwprintf(stdout, L"Debug: Enable xcb. client window identification w: %i\n", w);
+            //?? fwprintf(stdout, L"Debug: Enable xcb. client window identification w: %i\n", w);
 
             // Get client list from server entry.
             copy_array_forward((void*) &cl, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_CLIENTS_SERVER_STATE_CYBOI_NAME);
@@ -176,8 +176,14 @@ void enable_xcb(void* p0) {
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable xcb. The window identification is invalid.");
-            fwprintf(stdout, L"Error: Could not enable xcb. The window identification is invalid. w: %i\n", w);
+            //
+            // CAUTION! There seem to be many unknown event response types,
+            // so that the event is null and also the window identification is.
+            // Therefore, this log message is commented out.
+            //
+
+            //?? log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable xcb. The window identification is invalid.");
+            //?? fwprintf(stdout, L"Error: Could not enable xcb. The window identification is invalid. w: %i\n", w);
 
             //
             // Deallocate event.

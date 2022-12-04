@@ -47,9 +47,12 @@
  */
 void receive_extract(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
+    // Filter out null value for better performance.
     if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive extract.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive extract.");
+        //?? fwprintf(stdout, L"Debug: Receive extract. compression p5: %i\n", p5);
+        //?? fwprintf(stdout, L"Debug: Receive extract. compression *p5: %i\n", *((int*) p5));
 
         // Extract message.
         extract(p2, p3, p4, p5);
@@ -69,7 +72,9 @@ void receive_extract(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
     } else {
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive extract. The compression is null.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive extract. The compression is null.");
+        fwprintf(stdout, L"Warning: Could not receive extract. The compression is null. compression p5: %i\n", p5);
+        fwprintf(stdout, L"Warning: Could not receive extract. The compression is null. compression *p5: %i\n", *((int*) p5));
     }
 }
 

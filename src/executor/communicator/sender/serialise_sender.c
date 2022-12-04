@@ -58,22 +58,32 @@
  */
 void send_serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send serialise.");
-    //?? fwprintf(stdout, L"Debug: Send serialise p7: %i\n", p7);
-    //?? fwprintf(stdout, L"Debug: Send serialise *p7: %i\n", *((int*) p7));
+    // Filter out null value for better performance.
+    if (p14 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // Serialise message.
-    serialise(p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14);
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send serialise.");
+        //?? fwprintf(stdout, L"Debug: Send serialise. language p14: %i\n", p14);
+        //?? fwprintf(stdout, L"Debug: Send serialise. language *p14: %i\n", *((int*) p14));
 
-    //
-    // Get item data, count.
-    //
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    //
-    copy_array_forward(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward(p1, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+        // Serialise message.
+        serialise(p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14);
+
+        //
+        // Get item data, count.
+        //
+        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+        // Inside the structure, arrays may have been reallocated,
+        // with elements pointing to different memory areas now.
+        //
+        copy_array_forward(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward(p1, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    } else {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send serialise. The language is null.");
+        //?? fwprintf(stdout, L"Warning: Could not send serialise. The language is null. language p14: %i\n", p14);
+        //?? fwprintf(stdout, L"Warning: Could not send serialise. The language is null. language *p14: %i\n", *((int*) p14));
+    }
 }
 
 /* SERIALISE_SENDER_SOURCE */

@@ -52,8 +52,8 @@ void deserialise_xcb_event_configure_notify(void* p0, void* p1) {
         //
         // CAUTION! Comment out if necessary since this is called very often.
         //
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise configure notify xcb event.");
-        fwprintf(stdout, L"Debug: Deserialise configure notify xcb event. p1: %i\n", p1);
+        //?? log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise configure notify xcb event.");
+        //?? fwprintf(stdout, L"Debug: Deserialise configure notify xcb event. p1: %i\n", p1);
 
         //
         //?? TODO: The "static" keyword does probably NOT work for

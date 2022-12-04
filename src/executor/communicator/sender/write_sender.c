@@ -47,10 +47,22 @@
  */
 void send_write(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send write.");
+    // Filter out null value for better performance.
+    if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // Write message.
-    write_data(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send write.");
+        //?? fwprintf(stdout, L"Debug: Send write. channel p5: %i\n", p5);
+        //?? fwprintf(stdout, L"Debug: Send write. channel *p5: %i\n", *((int*) p5));
+
+        // Write message.
+        write_data(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
+
+    } else {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send serialise. The channel is null.");
+        fwprintf(stdout, L"Warning: Could not send write. The channel is null. channel p5: %i\n", p5);
+        fwprintf(stdout, L"Warning: Could not send write. The channel is null. channel *p5: %i\n", *((int*) p5));
+    }
 }
 
 /* WRITE_SENDER_SOURCE */

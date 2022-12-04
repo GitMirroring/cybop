@@ -49,7 +49,7 @@ void enable_xcb_event(void* p0, void* p1) {
             void** e = (void**) p0;
 
             // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable xcb event.");
-            fwprintf(stdout, L"Debug: Enable xcb event. c: %i\n", c);
+            //?? fwprintf(stdout, L"Debug: Enable xcb event. c: %i\n", c);
 
             //
             // Get next event available from x window system server.
@@ -67,7 +67,7 @@ void enable_xcb_event(void* p0, void* p1) {
             // HAS TO BE STORED, in order to be able to process it later on.
             //
             *e = (void*) xcb_wait_for_event(c);
-            fwprintf(stdout, L"Debug: Enable xcb event. received event *e: %i\n", *e);
+            //?? fwprintf(stdout, L"Debug: Enable xcb event. received event *e: %i\n", *e);
 
         } else {
 

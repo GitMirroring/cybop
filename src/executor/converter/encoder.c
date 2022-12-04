@@ -46,6 +46,8 @@
 void encode(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode.");
+    //?? fwprintf(stdout, L"Information: Encode. encoding p3: %i\n", p3);
+    //?? fwprintf(stdout, L"Information: Encode. encoding *p3: %i\n", *((int*) p3));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -77,6 +79,8 @@ void encode(void* p0, void* p1, void* p2, void* p3) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode. The encoding is unknown.");
+        //?? fwprintf(stdout, L"Warning: Could not encode. The encoding is unknown or null. encoding p3: %i\n", p3);
+        //?? fwprintf(stdout, L"Warning: Could not encode. The encoding is unknown or null. encoding *p3: %i\n", *((int*) p3));
     }
 }
 

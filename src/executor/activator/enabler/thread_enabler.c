@@ -46,7 +46,7 @@
 void enable_thread(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable thread.");
-    fwprintf(stdout, L"Debug: Enable thread. channel p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Enable thread. channel p0: %i\n", p0);
 
     // The thread identification.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;

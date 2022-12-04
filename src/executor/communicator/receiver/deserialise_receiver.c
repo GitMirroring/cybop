@@ -50,20 +50,21 @@
  */
 void receive_deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
+    // Filter out null value for better performance.
     if (p12 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        //
-        // A language is given.
-        //
-
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive deserialise.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive deserialise.");
+        //?? fwprintf(stdout, L"Debug: Receive deserialise. language p12: %i\n", p12);
+        //?? fwprintf(stdout, L"Debug: Receive deserialise. language *p12: %i\n", *((int*) p12));
 
         // Deserialise message.
         deserialise(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
 
     } else {
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive deserialise. The language is null.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive deserialise. The language is null.");
+        fwprintf(stdout, L"Warning: Could not receive deserialise. The language is null. language p12: %i\n", p12);
+        fwprintf(stdout, L"Warning: Could not receive deserialise. The language is null. language *p12: %i\n", *((int*) p12));
     }
 }
 

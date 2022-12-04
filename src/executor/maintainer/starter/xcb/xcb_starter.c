@@ -47,7 +47,7 @@
 void startup_xcb(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup xcb.");
-    fwprintf(stdout, L"Debug: Startup xcb. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Startup xcb. p0: %i\n", p0);
 
     //
     // Allocate and open connexion.

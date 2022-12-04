@@ -42,7 +42,7 @@
 void write_thread(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write thread.");
-    fwprintf(stdout, L"Debug: Write thread. client entry p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Write thread. client entry p0: %i\n", p0);
 
     // The thread identification.
     thrd_t t = DEFAULT_THREAD_IDENTIFICATION;

@@ -72,8 +72,8 @@
 void startup_server(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup server.");
-    fwprintf(stdout, L"Information: Startup server. p1: %i\n", p1);
-    fwprintf(stdout, L"Information: Startup server. *p1: %i\n", *((int*) p1));
+    //?? fwprintf(stdout, L"Information: Startup server. p1: %i\n", p1);
+    //?? fwprintf(stdout, L"Information: Startup server. *p1: %i\n", *((int*) p1));
 
     // The internal memory name.
     int n = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;

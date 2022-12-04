@@ -42,7 +42,7 @@
 void enable_xcb_client(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable xcb client.");
-    fwprintf(stdout, L"Debug: Enable xcb client. p1: %i\n", p1);
+    //?? fwprintf(stdout, L"Debug: Enable xcb client. p1: %i\n", p1);
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -51,7 +51,7 @@ void enable_xcb_client(void* p0, void* p1) {
         // Get event response type.
         uint8_t t = (*e).response_type;
 
-        fwprintf(stdout, L"Debug: Enable xcb client. response type t: %i\n", t);
+        //?? fwprintf(stdout, L"Debug: Enable xcb client. response type t: %i\n", t);
 
         //
         // Reset highest-level bit to zero.
@@ -66,7 +66,7 @@ void enable_xcb_client(void* p0, void* p1) {
         //
         t = t & (~0x80);
 
-        fwprintf(stdout, L"Debug: Enable xcb client. converted response type t: %i\n", t);
+        //?? fwprintf(stdout, L"Debug: Enable xcb client. converted response type t: %i\n", t);
 
         if (t == XCB_BUTTON_PRESS) {
 
@@ -74,7 +74,7 @@ void enable_xcb_client(void* p0, void* p1) {
 
             // Get window identification.
             int w = (int) (*ev).event;
-            fwprintf(stdout, L"Debug: Enable xcb client. XCB_BUTTON_PRESS w: %i\n", w);
+            //?? fwprintf(stdout, L"Debug: Enable xcb client. XCB_BUTTON_PRESS w: %i\n", w);
 
             copy_integer(p0, (void*) &w);
 
@@ -84,7 +84,7 @@ void enable_xcb_client(void* p0, void* p1) {
 
             // Get window identification.
             int w = (int) (*ev).event;
-            fwprintf(stdout, L"Debug: Enable xcb client. XCB_BUTTON_RELEASE w: %i\n", w);
+            //?? fwprintf(stdout, L"Debug: Enable xcb client. XCB_BUTTON_RELEASE w: %i\n", w);
 
             copy_integer(p0, (void*) &w);
 
@@ -102,7 +102,7 @@ void enable_xcb_client(void* p0, void* p1) {
 
             // Get window.
             uint32_t w = (uint32_t) (*ev).window;
-            fwprintf(stdout, L"Debug: Enable xcb client. XCB_CLIENT_MESSAGE w: %i\n", w);
+            //?? fwprintf(stdout, L"Debug: Enable xcb client. XCB_CLIENT_MESSAGE w: %i\n", w);
 
             copy_integer(p0, (void*) &w);
 
@@ -119,7 +119,7 @@ void enable_xcb_client(void* p0, void* p1) {
             //?? xcb_configure_notify_event_t* ev = (xcb_configure_notify_event_t*) e;
 
             //?? There was no field to determine the window identification.
-            fwprintf(stdout, L"Debug: Enable xcb client. XCB_CONFIGURE_NOTIFY -1: %i\n", -1);
+            //?? fwprintf(stdout, L"Debug: Enable xcb client. XCB_CONFIGURE_NOTIFY -1: %i\n", -1);
 
         } else if (t == XCB_CONFIGURE_REQUEST) {
 
@@ -127,11 +127,11 @@ void enable_xcb_client(void* p0, void* p1) {
 
         } else if (t == XCB_CREATE_NOTIFY) {
 
-            fwprintf(stdout, L"Debug: Enable xcb client. TODO ?? XCB_CREATE_NOTIFY t: %i\n", t);
+            //?? fwprintf(stdout, L"Debug: Enable xcb client. TODO ?? XCB_CREATE_NOTIFY t: %i\n", t);
 
         } else if (t == XCB_DESTROY_NOTIFY) {
 
-            fwprintf(stdout, L"Debug: Enable xcb client. TODO ?? XCB_DESTROY_NOTIFY t: %i\n", t);
+            //?? fwprintf(stdout, L"Debug: Enable xcb client. TODO ?? XCB_DESTROY_NOTIFY t: %i\n", t);
 
         } else if (t == XCB_ENTER_NOTIFY) {
 
@@ -139,7 +139,7 @@ void enable_xcb_client(void* p0, void* p1) {
 
             // Get window identification.
             int w = (int) (*ev).event;
-            fwprintf(stdout, L"Debug: Enable xcb client. XCB_ENTER_NOTIFY w: %i\n", w);
+            //?? fwprintf(stdout, L"Debug: Enable xcb client. XCB_ENTER_NOTIFY w: %i\n", w);
 
             copy_integer(p0, (void*) &w);
 
@@ -155,7 +155,7 @@ void enable_xcb_client(void* p0, void* p1) {
 
                 // Get window identification.
                 int w = (int) (*ev).window;
-                fwprintf(stdout, L"Debug: Enable xcb client. XCB_EXPOSE w: %i\n", w);
+                //?? fwprintf(stdout, L"Debug: Enable xcb client. XCB_EXPOSE w: %i\n", w);
 
                 copy_integer(p0, (void*) &w);
             }
@@ -186,7 +186,7 @@ void enable_xcb_client(void* p0, void* p1) {
 
             // Get window identification.
             int w = (int) (*ev).event;
-            fwprintf(stdout, L"Debug: Enable xcb client. XCB_KEY_PRESS w: %i\n", w);
+            //?? fwprintf(stdout, L"Debug: Enable xcb client. XCB_KEY_PRESS w: %i\n", w);
 
             copy_integer(p0, (void*) &w);
 
@@ -196,13 +196,13 @@ void enable_xcb_client(void* p0, void* p1) {
 
             // Get window identification.
             int w = (int) (*ev).event;
-            fwprintf(stdout, L"Debug: Enable xcb client. XCB_KEY_RELEASE w: %i\n", w);
+            //?? fwprintf(stdout, L"Debug: Enable xcb client. XCB_KEY_RELEASE w: %i\n", w);
 
             copy_integer(p0, (void*) &w);
 
         } else if (t == XCB_KEYMAP_NOTIFY) {
 
-            fwprintf(stdout, L"Debug: Enable xcb client. TODO ?? XCB_KEYMAP_NOTIFY t: %i\n", t);
+            //?? fwprintf(stdout, L"Debug: Enable xcb client. TODO ?? XCB_KEYMAP_NOTIFY t: %i\n", t);
 
         } else if (t == XCB_LEAVE_NOTIFY) {
 
@@ -210,7 +210,7 @@ void enable_xcb_client(void* p0, void* p1) {
 
             // Get window identification.
             int w = (int) (*ev).event;
-            fwprintf(stdout, L"Debug: Enable xcb client. XCB_LEAVE_NOTIFY w: %i\n", w);
+            //?? fwprintf(stdout, L"Debug: Enable xcb client. XCB_LEAVE_NOTIFY w: %i\n", w);
 
             copy_integer(p0, (void*) &w);
 
@@ -232,7 +232,7 @@ void enable_xcb_client(void* p0, void* p1) {
 
             // Get window identification.
             int w = (int) (*ev).event;
-            fwprintf(stdout, L"Debug: Enable xcb client. XCB_MOTION_NOTIFY w: %i\n", w);
+            //?? fwprintf(stdout, L"Debug: Enable xcb client. XCB_MOTION_NOTIFY w: %i\n", w);
 
             copy_integer(p0, (void*) &w);
 
@@ -247,7 +247,7 @@ void enable_xcb_client(void* p0, void* p1) {
             //
 
             //?? fwprintf(stdout, L"Debug: Enable xcb client. TODO ?? XCB_PROPERTY_NOTIFY t: %i\n", t);
-            fwprintf(stdout, L"Debug: Enable xcb client. XCB_PROPERTY_NOTIFY -1: %i\n", -1);
+            //?? fwprintf(stdout, L"Debug: Enable xcb client. XCB_PROPERTY_NOTIFY -1: %i\n", -1);
 
         } else if (t == XCB_REPARENT_NOTIFY) {
 
@@ -279,7 +279,13 @@ void enable_xcb_client(void* p0, void* p1) {
 
         } else {
 
-            fwprintf(stdout, L"Warning: Could not enable xcb client. The event response type is unknown. t: %i\n", t);
+            //
+            // CAUTION! There seem to be too many unknown event response types.
+            // Therefore, this log message is commented out.
+            //
+
+            //?? log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable xcb client. The event response type is unknown.");
+            //?? fwprintf(stdout, L"Warning: Could not enable xcb client. The event response type is unknown. t: %i\n", t);
         }
 
     } else {

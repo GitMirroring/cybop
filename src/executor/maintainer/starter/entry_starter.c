@@ -49,7 +49,7 @@
 void startup_entry(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup entry.");
-    fwprintf(stdout, L"Debug: Startup entry. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Startup entry. p0: %i\n", p0);
 
     //
     // Declaration
