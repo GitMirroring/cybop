@@ -1,0 +1,51 @@
+<node>
+
+    <!-- Startup -->
+
+    <node name="startup_display" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
+    </node>
+    <node name="open_window" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
+        <!-- Open client window in SERVER mode, so that it gets stored in the display server. -->
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".cybol.display.window_id"/>
+    </node>
+
+    <!-- Configuration -->
+
+<!--
+    <node name="configure_title" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".cybol.display.window:title"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#title"/>
+    </node>
+    <node name="configure_position" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".cybol.display.window:position"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#position"/>
+    </node>
+    <node name="configure_size" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".cybol.display.window:size"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#size"/>
+    </node>
+-->
+    <node name="configure_text" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".cybol.display.window.label"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#text"/>
+    </node>
+
+    <!-- Display -->
+
+    <node name="show_window" channel="inline" format="text/cybol-path" model=".cybol.display.refresh"/>
+
+    <node name="enable_server" channel="inline" format="activate/enable" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
+    </node>
+
+    <node name="sense_client_window_data" channel="inline" format="feel/sense" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".cybol.display.window_id"/>
+        <node name="handler" channel="inline" format="text/cybol-path" model=".cybol.display.handle"/>
+    </node>
+
+</node>

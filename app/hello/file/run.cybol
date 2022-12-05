@@ -1,0 +1,15 @@
+<!--
+    This application reads the greeting from a file.
+-->
+
+<node>
+
+    <node name="load_cyblib" channel="file" format="element/part" model="cyblib/load.cybol"/>
+
+    <node name="print" channel="file" format="element/part" model="cyblib/terminal/print.cybol">
+        <node name="text" channel="file" format="text/plain" model="hello/file/greeting.txt"/>
+    </node>
+
+    <node name="exit" channel="inline" format="live/exit" model=""/>
+
+</node>

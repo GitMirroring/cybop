@@ -7,7 +7,7 @@
 
     <node name="send_exit_signal" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="signal"/>
-        <node name="message" channel="file" format="element/part" model="exit/file/exit.cybol"/>
+        <node name="message" channel="file" format="element/part" model="exit/extended/exit.cybol"/>
     </node>
 
 </node>

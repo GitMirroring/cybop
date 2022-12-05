@@ -41,6 +41,8 @@
         <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
+    <!-- Test -->
+
     <node name="TEST" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
@@ -74,6 +76,8 @@
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
+
+    <!-- Execution -->
 
     <!--
         CAUTION! Use path REFERENCE here, since the action is just

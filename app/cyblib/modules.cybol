@@ -1,10 +1,6 @@
 <node>
 
     <node name="terminal" channel="file" format="element/part" model="cyblib/terminal/terminal.cybol"/>
-
-    <!--
-    <node name="gui" channel="file" format="element/part" model="cyblib/gui.cybol"/>
-    <node name="logic" channel="file" format="element/part" model="cyblib/logic.cybol"/>
-    -->
+    <node name="display" channel="file" format="element/part" model="cyblib/display/display.cybol"/>
 
 </node>

@@ -1,6 +1,7 @@
 <node>
 
-    <!-- Close standard input, output, error output. -->
+    <!-- Finalisation -->
+
     <node name="close_stdin" channel="inline" format="dispatch/close" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".cybol.terminal.stdin"/>
@@ -14,9 +15,13 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".cybol.terminal.stderr"/>
     </node>
 
-    <!-- Destroy cybol knowledge tree node. -->
+    <!-- Destruction -->
+
     <node name="destroy_cybol" channel="inline" format="memorise/destroy" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".cybol"/>
+    </node>
+    <node name="destroy_id" channel="inline" format="memorise/destroy" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
 </node>

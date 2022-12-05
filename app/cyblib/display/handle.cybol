@@ -1,0 +1,42 @@
+<node>
+
+    <!-- Get window client belonging to the handler that was placed into the interrupt pipe. -->
+    <node name="get_window_id" channel="inline" format="communicate/identify" model="">
+        <node name="identification" channel="inline" format="text/cybol-path" model=".cybol.display.window_id"/>
+    </node>
+
+    <!--
+        CAUTION! If these variables were not reset here, then the last valid
+        previous action would be executed again and again, neverendingly.
+        CAUTION! Assigning an empty string with "modify/overwrite" does NOT work.
+        Instead, the operation "modify/empty" has to be used here.
+    -->
+    <node name="reset_action_model" channel="inline" format="modify/empty" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".cybol.display.action"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+    <node name="reset_action_properties" channel="inline" format="modify/empty" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".cybol.display.action"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="receive_event" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".cybol.display.window_id"/>
+        <node name="language" channel="inline" format="meta/language" model="message/gui-request">
+            <node name="medium" channel="inline" format="text/cybol-path" model=".cybol.display.window"/>
+        </node>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".cybol.display.action"/>
+        <!-- Read indirectly from internal buffer into which data have been written by activate/enable. -->
+        <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <!--
+        CAUTION! Use path REFERENCE here, since the action is just
+        a string pointing to the actual model to be executed.
+    -->
+    <node name="execute_action" channel="inline" format="text/cybol-path" model="{.cybol.display.action}"/>
+
+</node>

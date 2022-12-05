@@ -1,0 +1,13 @@
+<!--
+    This application uses a window as graphical user interface (gui).
+-->
+
+<node>
+
+    <node name="load_cyblib" channel="file" format="element/part" model="cyblib/load.cybol"/>
+
+    <node name="print" channel="file" format="element/part" model="cyblib/display/show.cybol">
+        <node name="text" channel="inline" format="text/plain" model="Hello World!"/>
+    </node>
+
+</node>

@@ -11,6 +11,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+App
+___
+
+        * Update user interface cybol applications
+        * Update internet cybol applications
+
 Build
 _____
 

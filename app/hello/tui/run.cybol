@@ -1,3 +1,7 @@
+<!--
+    This application uses text user interface (tui) capabilities like colour.
+-->
+
 <node>
 
     <!-- Creation -->
@@ -22,10 +26,10 @@
         </node>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Hello World!">
-            <node name="position" channel="inline" format="number/integer" model="0,0"/>
+            <node name="position" channel="inline" format="number/integer" model="0,10"/>
             <node name="size" channel="inline" format="number/integer" model="20,1"/>
             <node name="foreground" channel="inline" format="colour/terminal" model="blue"/>
-            <node name="background" channel="inline" format="colour/terminal" model="green"/>
+            <node name="background" channel="inline" format="colour/terminal" model="white"/>
         </node>
     </node>
     <node name="close_stdout" channel="inline" format="dispatch/close" model="">
@@ -33,11 +37,8 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
     </node>
 
+    <!-- Shutdown -->
+
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
 
 </node>
-
-<!--
-    This example prints the famous greeting "Hello World!" on console.
-    It uses text user interface (tui) capabilities like for example colour.
--->

@@ -1,0 +1,13 @@
+<node>
+
+    <node name="label" channel="inline" format="text/plain" model="A Label">
+        <node name="position" channel="inline" format="number/integer" model="20,50"/>
+        <node name="size" channel="inline" format="number/integer" model="200,50"/>
+        <!-- blue on yellow -->
+        <node name="background" channel="inline" format="colour/rgb" model="255,255,0"/>
+        <node name="foreground" channel="inline" format="colour/rgb" model="0,0,255"/>
+        <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
+        <node name="font" channel="inline" format="text/plain" model="7x13"/>
+    </node>
+
+</node>
