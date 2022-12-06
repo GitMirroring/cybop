@@ -52,16 +52,16 @@
         <div class="col-sm-6">
             <h2>Terminology</h2>
             <p>
-                <b>CYBOP</b> stands for <i>Cybernetics Oriented Programming</i> and is a new theory
-                for software development, building on concepts which are taken from nature.
+                <b>CYBOP</b> stands for <i>Cybernetics Oriented Programming</i> and is a new approach
+                to software development, which is based on the principle of simple tree structures.
             </p>
             <p>
-                <b>CYBOL</b> is an application programming- and knowledge specification language
-                based on XML or JSON and thus completely platform-independent.
+                <b>CYBOL</b> is a platform-independent language for knowledge specification and
+                application programming, which may be saved in either XML or JSON format.
             </p>
             <p>
                 <b>CYBOI</b> is the corresponding interpreter, written in C,
-                that is needed to execute systems defined in CYBOL.
+                that is needed to execute applications defined in CYBOL.
             </p>
         </div>
         <div class="col-sm-6">
@@ -85,38 +85,6 @@
     </div>
 </section>
 
-<section class="container">
-    <h2>Explanatory Video</h2>
-    <p>
-        Short films explain the various aspects of CYBOP and CYBOL development.
-        They can be found on the following video portals:
-    </p>
-    <div class="row mt-5">
-        <div class="col-sm-2">
-            <a href="https://www.bitchute.com/channel/U8V0UgCN4SSw/">
-                <span class="badge rounded-pill p-3" style="font-size: 14pt;">BitChute</span>
-            </a>
-        </div>
-        <div class="col-sm-2">
-            <a href="https://odysee.com/@christian.heller:8">
-                <span class="badge rounded-pill p-3" style="font-size: 14pt;">Odysee</span>
-            </a>
-        </div>
-        <div class="col-sm-2">
-            <a href="https://rumble.com/c/c-1655383">
-                <span class="badge rounded-pill p-3" style="font-size: 14pt;">Rumble</span>
-            </a>
-        </div>
-        <div class="col-sm-2">
-            <a href="https://www.youtube.com/channel/UCTyTRyQ7Nq6DhcOrxa9BkEw">
-                <span class="badge rounded-pill p-3" style="font-size: 14pt;">YouTube</span>
-            </a>
-        </div>
-        <div class="col-sm-4">
-        </div>
-    </div>
-</section>
-
 <!--
 <section class="container">
     <h2>Developer Manual</h2>
@@ -130,5 +98,27 @@
     </ul>
 </section>
 -->
+
+<section class="container">
+    <h2>Project Name</h2>
+    <p>
+        This project has nothing to do with the idea of "Transhumanism".
+        It is just about seeing god's own nature as teacher and applying
+        its ideas for the design of better technical systems.
+    </p>
+    <p>
+        Cybernetics as scientific discipline deals with the control of
+        systems as well as with information processing within the same.
+        Its sub field of Bionics puts focus on transferring phenomena
+        of nature to technics.
+    </p>
+    <p>
+        The CYBOP project was baptised this way because it takes some ideas from
+        nature (for example forwarding of the DNA at cell separation in biology)
+        and from other scientific disciplines (for example abstraction principles
+        of human thinking as described by psychology) and applies these to
+        software development.
+    </p>
+</section>
 
 <!--#include virtual="/bottom.shtml" -->

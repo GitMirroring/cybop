@@ -46,6 +46,9 @@
                         <a href="/documentation/" class="nav-link" style="padding-left: 40px; padding-right: 40px;">Documentation</a>
                     </li>
                     <li class="nav-item">
+                        <a href="/tutorial/" class="nav-link" style="padding-left: 40px; padding-right: 40px;">Tutorial</a>
+                    </li>
+                    <li class="nav-item">
                         <a href="/development/" class="nav-link" style="padding-left: 40px; padding-right: 40px;">Development</a>
                     </li>
                     <li class="nav-item">

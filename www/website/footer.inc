@@ -23,6 +23,9 @@
                         <a href="/documentation/">Documentation</a>
                     </li>
                     <li class="pt-1">
+                        <a href="/tutorial/">Tutorial</a>
+                    </li>
+                    <li class="pt-1">
                         <a href="/development/">Development</a>
                     </li>
                     <li class="pt-1">
@@ -66,7 +69,7 @@
                     Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0).
                 </p>
                 <p>
-                    Last Update: 2022-06-18
+                    Last Update: 2022-12-06
                 </p>
             </div>
         </div>

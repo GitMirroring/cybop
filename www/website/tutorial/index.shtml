@@ -1,0 +1,232 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>Tutorial</h1>
+    <p>
+        Short films explain the various aspects of CYBOP development.
+        They can be found on some video portals.
+    </p>
+</section>
+
+<section class="container">
+    <h2>CYBOP Theory and Ideas</h2>
+    <table class="table table-hover table-sm">
+        <tr>
+            <th style="width: 50%;" class="py-3">Deutsch (German)</th>
+            <th class="py-3">English</th>
+        </tr>
+        <tr>
+            <td class="py-3">
+                Die Idee hinter CYBOP<br/>
+                (Baumstruktur, XML und JSON, tabellenorientierter Editor zur Programmierung)<br/>
+                <br/>
+                <a href="https://www.bitchute.com/video/uZguTAsn082C/">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                |
+                <a href="https://odysee.com/@christian.heller:8/2022-11-02_-_die_idee_hinter_cybop:d?r=7CvS3EapJUqewPfEPNQ44AwhdiFzeMhu">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                |
+                <a href="https://rumble.com/v1r63te-die-idee-hinter-cybop.html">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                |
+                <a href="https://youtu.be/1QGuKK7CE5A">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+            <td class="py-3">
+                TODO<br/>
+                <br/>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                |
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                |
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                |
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td class="py-3">
+                Die Bestandteile von CYBOP<br/>
+                (CYBOP-Theorie, universelles Schema, plattformunabhängige CYBOL-Sprache, Zustände und Logik, CYBOI-Interpreter)<br/>
+                <br/>
+                <a href="https://www.bitchute.com/video/z7JTrTzjP5TH/">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                |
+                <a href="https://odysee.com/@christian.heller:8/2022-11-02_-_die_bestandteile_von_cybop:1?r=7CvS3EapJUqewPfEPNQ44AwhdiFzeMhu">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                |
+                <a href="https://rumble.com/v1r63o4-die-bestandteile-von-cybop.html">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                |
+                <a href="https://youtu.be/0XvCEU09Vq4">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+            <td class="py-3">
+                TODO<br/>
+                <br/>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                |
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                |
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                |
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td class="py-3">
+                Das CYBOP-Schema als Informationsgerüst<br/>
+                (Universelles Schema als Grundgerüst, Metapher DNS-Molekül, Anwendungsdaten und Abläufe, Baum mit Doppelhierarchie)<br/>
+                <br/>
+                <a href="https://www.bitchute.com/video/mXI15DLJunGQ/">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                |
+                <a href="https://odysee.com/@christian.heller:8/2022-11-02_-_das_cybop-schema_als_informationsgeruest:6?r=7CvS3EapJUqewPfEPNQ44AwhdiFzeMhu">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                |
+                <a href="https://rumble.com/v1r639y-das-cybop-schema-als-informationsgerst.html">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                |
+                <a href="https://youtu.be/IkgN8IJm6Xk">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+            <td class="py-3">
+                TODO<br/>
+                <br/>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                |
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                |
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                |
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td class="py-3">
+                Visionäre Programmentwicklung mit CYBOP<br/>
+                (Fachdaten, Benutzungsoberfläche, sternförmige Übersetzung, vereinfachter Entwicklungsprozess)<br/>
+                <br/>
+                <a href="https://www.bitchute.com/video/vPya4sqgpuy2/">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                |
+                <a href="https://odysee.com/@christian.heller:8/2022-11-02_-_visionaere_programmentwicklung_mit_cybop:1?r=7CvS3EapJUqewPfEPNQ44AwhdiFzeMhu">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                |
+                <a href="https://rumble.com/v1r63hg-visionre-programmentwicklung-mit-cybop.html">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                |
+                <a href="https://youtu.be/_Lr_mEOxJUg">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+            <td class="py-3">
+                TODO<br/>
+                <br/>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                |
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                |
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                |
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td class="py-3">
+                Interdisziplinäre Entwurfsprinzipien in CYBOP<br/>
+                (Kybernetik, Bionik, Natur, Wissenschaftsgebiete als Ideenlieferant für die Informatik)<br/>
+                <br/>
+                <a href="https://www.bitchute.com/video/65BhyZVVy7la/">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                |
+                <a href="https://odysee.com/@christian.heller:8/2022-11-02_-_interdisziplinaere_entwurfsprinzipien_in_cybop:a?r=7CvS3EapJUqewPfEPNQ44AwhdiFzeMhu">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                |
+                <a href="https://rumble.com/v1yp9qu-interdisziplinre-entwurfsprinzipien-in-cybop.html">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                |
+                <a href="https://youtu.be/92w9WMCBLXw">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+            <td class="py-3">
+                TODO<br/>
+                <br/>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                |
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                |
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                |
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+        </tr>
+    </table>
+</section>
+
+<!--
+<section class="container">
+    <h2>CYBOL Language and Applications</h2>
+</section>
+-->
+
+<!--#include virtual="/bottom.shtml" -->
