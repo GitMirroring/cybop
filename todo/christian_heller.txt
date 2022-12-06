@@ -14,6 +14,7 @@
 App
 ___
 
+        * Update counter cybol applications
         * Update user interface cybol applications
         * Update internet cybol applications
 

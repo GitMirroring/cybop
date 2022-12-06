@@ -1,0 +1,20 @@
+<!--
+    This application works with local stack variables.
+    It calls a subroutine and hands over defined variables.
+-->
+
+<node>
+
+    <!-- Execution -->
+
+    <node name="call_subroutine" channel="file" format="element/part" model="addition/stack/subroutine.cybol">
+        <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+        <node name="summand" channel="inline" format="number/integer" model="3"/>
+        <node name="sum" channel="inline" format="number/integer" model="6"/>
+    </node>
+
+    <!-- Shutdown -->
+
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
+</node>

@@ -1,0 +1,8 @@
+<node>
+
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+
+    <node name="sum" channel="inline" format="number/integer" model="2"/>
+    <node name="summand" channel="inline" format="number/integer" model="15"/>
+
+</node>

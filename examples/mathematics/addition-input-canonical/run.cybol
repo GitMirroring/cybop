@@ -1,0 +1,20 @@
+<!--
+    This application receives operands as user input via terminal.
+-->
+
+<node>
+
+    <!-- Execution -->
+
+    <node name="call_subroutine" channel="file" format="element/part" model="addition/input/subroutine.cybol">
+        <node name="sum" channel="inline" format="number/integer" model="0"/>
+        <node name="summand" channel="inline" format="number/integer" model="0"/>
+        <node name="stdin" channel="inline" format="number/integer" model="-1"/>
+        <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+    </node>
+
+    <!-- Shutdown -->
+
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
+</node>

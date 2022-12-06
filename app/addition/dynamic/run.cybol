@@ -1,18 +1,35 @@
+<!--
+    This application creates and initialises three integer values dynamically,
+    using one separate operation for each step.
+-->
+
 <node>
+
+    <!-- Creation -->
+
+    <node name="create_stdout" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="stdout"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
     <node name="create_summand_1" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="summand_1"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-
     </node>
     <node name="create_summand_2" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="summand_2"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-
     </node>
     <node name="create_sum" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="sum"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
 
+    <!-- Initialisation -->
+
+    <node name="open_stdout" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="device" channel="inline" format="text/plain" model="standard-output"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
     </node>
     <node name="initialise_summand_1" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".summand_1"/>
@@ -26,6 +43,9 @@
         <node name="destination" channel="inline" format="text/cybol-path" model=".sum"/>
         <node name="source" channel="inline" format="number/integer" model="0"/>
     </node>
+
+    <!-- Addition -->
+
     <node name="add_operand_1" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".sum"/>
         <node name="operand" channel="inline" format="text/cybol-path" model=".summand_1"/>
@@ -34,20 +54,9 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".sum"/>
         <node name="operand" channel="inline" format="text/cybol-path" model=".summand_2"/>
     </node>
-    <!-- Write knowledge tree into file. -->
-<!--
-    <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".sum"/>
-        <node name="receiver" channel="inline" format="text/plain" model="test_addition_dynamic_model.txt"/>
-    </node>
--->
-    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    </node>
+
+    <!-- Printing -->
+
     <node name="print_result" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
@@ -55,35 +64,13 @@
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".sum"/>
     </node>
+
+    <!-- Shutdown -->
+
+    <node name="close_stdout" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
+    </node>
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
 </node>
-
-<!--
-    This example creates and initialises three integer values dynamically.
-    Afterwards, the two summands are added and the sum is printed on screen.
--->
-
-<!--
-    Copyright (C) 1999-2018. Christian Heller.
-
-    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
-
-    CYBOL is free software: you can redistribute it and/or modify it
-    under the terms of the GNU General Public License as published
-    by the Free Software Foundation, either version 3 of the License,
-    or (at your option) any later version.
-
-    CYBOL is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty
-    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    See the GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
-
-    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
-    CYBOP Developers <cybop-developers@nongnu.org>
-
-    @version CYBOP 0.20.0 2018-06-30
-    @author Christian Heller <christian.heller@cybop.org>
--->
