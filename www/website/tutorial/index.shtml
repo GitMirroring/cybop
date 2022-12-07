@@ -11,15 +11,14 @@
 <section class="container">
     <h2>CYBOP Theory and Ideas</h2>
     <table class="table table-hover table-sm">
-        <tr>
-            <th style="width: 50%;" class="py-3">Deutsch (German)</th>
-            <th class="py-3">English</th>
+        <tr class="table-dark">
+            <th style="width: 50%;" class="p-3">Deutsch (German)</th>
+            <th class="p-3">English</th>
         </tr>
         <tr>
-            <td class="py-3">
-                Die Idee hinter CYBOP<br/>
-                (Baumstruktur, XML und JSON, tabellenorientierter Editor zur Programmierung)<br/>
-                <br/>
+            <td class="p-3">
+                <h5>Die Idee hinter CYBOP</h5>
+                <p>(Baumstruktur, XML und JSON, tabellenorientierter Editor zur Programmierung)</p>
                 <a href="https://www.bitchute.com/video/uZguTAsn082C/">
                     <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
                 </a>
@@ -36,9 +35,9 @@
                     <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
                 </a>
             </td>
-            <td class="py-3">
-                TODO<br/>
-                <br/>
+            <td class="p-3">
+                <h5>TODO</h5>
+                <p></p>
                 <a href="TODO">
                     <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
                 </a>
@@ -57,10 +56,9 @@
             </td>
         </tr>
         <tr>
-            <td class="py-3">
-                Die Bestandteile von CYBOP<br/>
-                (CYBOP-Theorie, universelles Schema, plattformunabhängige CYBOL-Sprache, Zustände und Logik, CYBOI-Interpreter)<br/>
-                <br/>
+            <td class="p-3">
+                <h5>Die Bestandteile von CYBOP</h5>
+                <p>(CYBOP-Theorie, universelles Schema, plattformunabhängige CYBOL-Sprache, Zustände und Logik, CYBOI-Interpreter)</p>
                 <a href="https://www.bitchute.com/video/z7JTrTzjP5TH/">
                     <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
                 </a>
@@ -77,9 +75,9 @@
                     <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
                 </a>
             </td>
-            <td class="py-3">
-                TODO<br/>
-                <br/>
+            <td class="p-3">
+                <h5>TODO</h5>
+                <p></p>
                 <a href="TODO">
                     <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
                 </a>
@@ -98,10 +96,9 @@
             </td>
         </tr>
         <tr>
-            <td class="py-3">
-                Das CYBOP-Schema als Informationsgerüst<br/>
-                (Universelles Schema als Grundgerüst, Metapher DNS-Molekül, Anwendungsdaten und Abläufe, Baum mit Doppelhierarchie)<br/>
-                <br/>
+            <td class="p-3">
+                <h5>Das CYBOP-Schema als Informationsgerüst</h5>
+                <p>(Universelles Schema als Grundgerüst, Metapher DNS-Molekül, Anwendungsdaten und Abläufe, Baum mit Doppelhierarchie)</p>
                 <a href="https://www.bitchute.com/video/mXI15DLJunGQ/">
                     <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
                 </a>
@@ -118,9 +115,9 @@
                     <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
                 </a>
             </td>
-            <td class="py-3">
-                TODO<br/>
-                <br/>
+            <td class="p-3">
+                <h5>TODO</h5>
+                <p></p>
                 <a href="TODO">
                     <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
                 </a>
@@ -139,10 +136,9 @@
             </td>
         </tr>
         <tr>
-            <td class="py-3">
-                Visionäre Programmentwicklung mit CYBOP<br/>
-                (Fachdaten, Benutzungsoberfläche, sternförmige Übersetzung, vereinfachter Entwicklungsprozess)<br/>
-                <br/>
+            <td class="p-3">
+                <h5>Visionäre Programmentwicklung mit CYBOP</h5>
+                <p>(Fachdaten, Benutzungsoberfläche, sternförmige Übersetzung, vereinfachter Entwicklungsprozess)</p>
                 <a href="https://www.bitchute.com/video/vPya4sqgpuy2/">
                     <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
                 </a>
@@ -159,9 +155,9 @@
                     <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
                 </a>
             </td>
-            <td class="py-3">
-                TODO<br/>
-                <br/>
+            <td class="p-3">
+                <h5>TODO</h5>
+                <p></p>
                 <a href="TODO">
                     <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
                 </a>
@@ -180,10 +176,9 @@
             </td>
         </tr>
         <tr>
-            <td class="py-3">
-                Interdisziplinäre Entwurfsprinzipien in CYBOP<br/>
-                (Kybernetik, Bionik, Natur, Wissenschaftsgebiete als Ideenlieferant für die Informatik)<br/>
-                <br/>
+            <td class="p-3">
+                <h5>Interdisziplinäre Entwurfsprinzipien in CYBOP</h5>
+                <p>(Kybernetik, Bionik, Natur, Wissenschaftsgebiete als Ideenlieferant für die Informatik)</p>
                 <a href="https://www.bitchute.com/video/65BhyZVVy7la/">
                     <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
                 </a>
@@ -200,9 +195,9 @@
                     <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
                 </a>
             </td>
-            <td class="py-3">
-                TODO<br/>
-                <br/>
+            <td class="p-3">
+                <h5>TODO</h5>
+                <p></p>
                 <a href="TODO">
                     <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
                 </a>

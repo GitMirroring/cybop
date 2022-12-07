@@ -121,4 +121,15 @@
     </p>
 </section>
 
+<!--
+<section class="container">
+    <h2>History</h2>
+    <p class="mt-4">
+        <a href="/documentation/history/">
+            <span class="badge rounded-pill p-3" style="font-size: 14pt;">View Project History</span>
+        </a>
+    </p>
+</section>
+-->
+
 <!--#include virtual="/bottom.shtml" -->
