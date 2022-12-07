@@ -16,6 +16,7 @@ ___
 
         * Update user interface cybol applications
         * Update internet cybol applications
+        * Update various application cybol applications
 
         Try:
         * Use format="flow/sequence" in cyblib to define stack variables and call operation via path WITHIN sequence (xml-tag-element)
