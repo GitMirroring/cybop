@@ -1,66 +1,90 @@
+<!--
+    This application reads a previously set count value from a text file,
+    then increments it by one and writes the result back into the text file.
+-->
+
 <node>
 
-    <node name="create_app" channel="inline" format="memorise/create" model="">
-        <node name="name" channel="inline" format="text/plain" model="counter"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-    </node>
-    <node name="create_count" channel="inline" format="memorise/create" model="">
-        <node name="name" channel="inline" format="text/plain" model="count"/>
+    <!-- Creation -->
+
+    <node name="create_fileid" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="id"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="whole" channel="inline" format="text/cybol-path" model=".counter"/>
-    </node>
-    <node name="create_stdout" channel="inline" format="memorise/create" model="">
-        <node name="name" channel="inline" format="text/plain" model="stdout"/>
-        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="whole" channel="inline" format="text/cybol-path" model=".counter"/>
-    </node>
-    <node name="create_store" channel="inline" format="memorise/create" model="">
-        <node name="name" channel="inline" format="text/plain" model="store"/>
-        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="whole" channel="inline" format="text/cybol-path" model=".counter"/>
     </node>
 
-    <node name="initialise_count" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".counter.count"/>
-        <node name="source" channel="file" format="number/integer" model="counter/storage/count.txt"/>
+    <!-- Initialisation -->
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="counter/simple/app.cybol"/>
     </node>
+    <node name="initialise_app" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
     <node name="open_stdout" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="device" channel="inline" format="text/plain" model="standard-output"/>
-        <node name="identification" channel="inline" format="text/cybol-path" model=".counter.stdout"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
     </node>
-    <node name="open_store" channel="inline" format="dispatch/open" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="identification" channel="inline" format="text/cybol-path" model=".counter.store"/>
-        <node name="device" channel="inline" format="text/plain" model="counter/storage/count.txt"/>
-        <node name="mode" channel="inline" format="text/plain" model="write"/>
+
+    <node name="initialise_count" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".count"/>
+        <node name="source" channel="file" format="number/integer" model="counter/storage/count.txt"/>
     </node>
+
+    <!-- Incrementation -->
+
+    <node name="increment_count" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".count"/>
+        <node name="operand" channel="inline" format="number/integer" model="3"/>
+    </node>
+
+    <!-- Output -->
 
     <node name="print_count" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".counter.stdout"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".counter.count"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".count"/>
     </node>
-    <node name="increment_count" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model=".counter.count"/>
-        <node name="operand" channel="inline" format="number/integer" model="3"/>
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="counter/storage/count.txt"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
     </node>
     <node name="store_count" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".counter.store"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".counter.count"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".count"/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
+    <!-- Shutdown -->
+
+    <node name="close_stdout" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
+    </node>
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
 
 </node>
-
-<!--
-    This example reads a previously set count value from a text file,
-    increments the count by one and writes the result back into the text file.
--->

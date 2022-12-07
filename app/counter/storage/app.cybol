@@ -1,0 +1,6 @@
+<node>
+
+    <node name="count" channel="inline" format="number/integer" model="0"/>
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+
+</node>

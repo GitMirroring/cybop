@@ -14,9 +14,12 @@
 App
 ___
 
-        * Update counter cybol applications
         * Update user interface cybol applications
         * Update internet cybol applications
+
+        Try:
+        * Use format="flow/sequence" in cyblib to define stack variables and call operation via path WITHIN sequence (xml-tag-element)
+            in e.g. exit or hello or addition
 
 Build
 _____

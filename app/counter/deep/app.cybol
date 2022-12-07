@@ -1,11 +1,10 @@
 <node>
 
     <node name="stdout" channel="inline" format="number/integer" model="-1"/>
-    <node name="test" channel="inline" format="number/integer" model="-1"/>
 
-    <node name="model" channel="file" format="element/part" model="counter/stack_deep/model.cybol"/>
+    <node name="model" channel="file" format="element/part" model="counter/deep/model.cybol"/>
 
-    <node name="loop_1" channel="file" format="element/part" model="counter/stack_deep/loop.cybol">
+    <node name="loop_1" channel="file" format="element/part" model="counter/deep/loop.cybol">
         <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="count" channel="inline" format="number/integer" model="4"/>
         <node name="index" channel="inline" format="number/integer" model="1"/>
@@ -13,7 +12,7 @@
         <node name="logic" channel="inline" format="text/cybol-path" model=".loop_2"/>
     </node>
 
-    <node name="loop_2" channel="file" format="element/part" model="counter/stack_deep/loop.cybol">
+    <node name="loop_2" channel="file" format="element/part" model="counter/deep/loop.cybol">
         <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="count" channel="inline" format="number/integer" model="3"/>
         <node name="index" channel="inline" format="number/integer" model="1"/>
@@ -21,11 +20,12 @@
         <node name="logic" channel="inline" format="text/cybol-path" model=".loop_3"/>
     </node>
 
-    <node name="loop_3" channel="file" format="element/part" model="counter/stack_deep/loop.cybol">
+    <node name="loop_3" channel="file" format="element/part" model="counter/deep/loop.cybol">
         <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="count" channel="inline" format="number/integer" model="2"/>
         <node name="index" channel="inline" format="number/integer" model="1"/>
         <node name="model" channel="inline" format="text/cybol-path" model=".model"/>
+        <!-- This is empty since no further loop is to be executed. -->
         <node name="logic" channel="inline" format="text/cybol-path" model=""/>
     </node>
 

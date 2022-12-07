@@ -1,6 +1,12 @@
 <!--
-    This application is identical to "counter/simple/", but contains
-    a test section to write the runtime knowledge tree into a file.
+    This application uses three nested loops to print numbers onto the screen.
+    It uses local stack variables instead of global heap variables.
+    Its purpose is to test correct usage of the "last in first out" (LIFO) principle.
+    The inner loops use the same variable names as the outer loops and inner ones
+    (put onto the stack as last) have higher priority and cover the outer identical names.
+    Upon leaving the inner loop, its local stack variables get destroyed,
+    so that the values valid for the outer loop are then active again.
+    On re-entering the inner loop, its local variables are written to the stack again.
 -->
 
 <node>
@@ -17,7 +23,7 @@
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/plain" model="counter/test/app.cybol"/>
+        <node name="device" channel="inline" format="text/plain" model="counter/deep/app.cybol"/>
     </node>
     <node name="initialise_app" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -38,30 +44,9 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
     </node>
 
-    <!-- Testing heap (application knowledge tree) -->
-
-    <node name="open_file" channel="inline" format="dispatch/open" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/plain" model="counter/test/test_heap.txt"/>
-        <node name="mode" channel="inline" format="text/plain" model="write"/>
-    </node>
-    <node name="send_knowledge" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="text/cybol-path" model="."/>
-    </node>
-    <node name="close_file" channel="inline" format="dispatch/close" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-    </node>
-
     <!-- Loop -->
 
-    <node name="call_loop" channel="inline" format="text/cybol-path" model=".loop"/>
+    <node name="call_loop" channel="inline" format="text/cybol-path" model=".loop_1"/>
 
     <!-- Shutdown -->
 

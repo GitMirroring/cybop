@@ -1,15 +1,5 @@
 <node>
 
-    <!-- Write stack into file. If all is fine, then the variables of file "logic" should be there. -->
-    <node name="test_stack-pre" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".stack-pre"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="text/cybol-path" model="#"/>
-    </node>
-
     <!-- The break condition has to be GREATER-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
     <node name="compare_loop_count" channel="inline" format="compare/greater" model="">
         <node name="result" channel="inline" format="text/cybol-path" model="#break"/>
