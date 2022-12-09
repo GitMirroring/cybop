@@ -5,14 +5,44 @@
 </section>
 
 <section class="container">
-    <p>
-        This is a source code package (tar.gz tarball),
-        which is meant to be used by developers.
-        The cyboi interpreter currently runs on Linux only.
-    </p>
-    <a href="http://savannah.nongnu.org/files/?group=cybop">
-        <span class="badge rounded-pill p-3" style="font-size: 14pt;">Download CYBOP</span>
-    </a>
+    <div class="row">
+        <div class="col-sm-4">
+            <p>
+                This demonstration package contains the cyboi interpreter
+                pre-compiled for 64-Bit-Linux and some example applications.
+            </p>
+            <p>
+                After unpacking, change into package directory, for example:<br/>
+                cd /home/xy/cybop/demo
+            </p>
+            <p>
+                Execute an application, for example:<br/>
+                ./cyboi hello/cli/run.cybol
+            </p>
+            <a href="https://download.savannah.nongnu.org/releases/cybop/cybop-demo-0.24.0-Linux.zip">
+                <span class="badge rounded-pill p-3" style="font-size: 14pt;">Download Demo</span>
+            </a>
+        </div>
+        <div class="col-sm-4">
+            <p>
+                This is a source code package (tar.gz tarball), which is meant to be used by developers.
+            </p>
+            <p>
+                The cyboi interpreter is currently compilable and runnable on Linux only.
+            </p>
+            <a href="https://download.savannah.nongnu.org/releases/cybop/cybop-0.23.0-Linux.tar.gz">
+                <span class="badge rounded-pill p-3" style="font-size: 14pt;">Download Source Code</span>
+            </a>
+        </div>
+        <div class="col-sm-4">
+            <p>
+                This link leads to the cybop download directory containing all versions and signature files.
+            </p>
+            <a href="http://savannah.nongnu.org/files/?group=cybop">
+                <span class="badge rounded-pill p-3" style="font-size: 14pt;">View Directory</span>
+            </a>
+        </div>
+    </div>
 </section>
 
 <section class="container">
