@@ -1,0 +1,74 @@
+<node>
+
+    <node name="draw_tui" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
+            <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
+            <!-- Cursor positioning has to be false for standard cli output (default) and true for tui. -->
+            <node name="positioning" channel="inline" format="logicvalue/boolean" model="true"/>
+        </node>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".tui.window"/>
+    </node>
+    <node name="place_cursor" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
+            <!-- This is just to place the cursor. Therefore, do NOT clear screen. -->
+            <node name="positioning" channel="inline" format="logicvalue/boolean" model="true"/>
+        </node>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".tui.cursor"/>
+    </node>
+
+    <node name="move_arrow_down" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="move_arrow_down"/>
+    </node>
+    <node name="move_arrow_up" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="move_arrow_up"/>
+    </node>
+    <node name="move_arrow_right" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="move_arrow_right"/>
+    </node>
+    <node name="move_arrow_left" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="move_arrow_left"/>
+    </node>
+
+    <node name="enter_sub_menu" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="enter_sub_menu"/>
+    </node>
+
+    <!-- Fill internal input buffer with received data. -->
+    <node name="sense_input" channel="inline" format="feel/sense" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".stdin"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle"/>
+    </node>
+
+    <node name="handle" channel="file" format="element/part" model="ui/tui/handle.cybol"/>
+
+    <node name="exit_programme" channel="inline" format="live/exit" model=""/>
+
+</node>

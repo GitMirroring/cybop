@@ -1,7 +1,0 @@
-<node>
-
-    <node name="enter" channel="inline" format="text/cybol-path" model=".logic.user_interface.show_main"/>
-    <node name="escape" channel="inline" format="text/cybol-path" model=".logic.user_interface.show_main"/>
-    <node name="o" channel="inline" format="text/cybol-path" model=".logic.user_interface.show_main"/>
-
-</node>

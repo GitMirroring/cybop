@@ -1,9 +1,0 @@
-<node>
-
-    <node name="appinfo" channel="file" format="element/part" model="user_interface/tui_control/appinfo.cybol"/>
-    <node name="logic" channel="file" format="element/part" model="user_interface/tui_control/logic.cybol"/>
-    <node name="settings" channel="file" format="element/part" model="user_interface/tui_control/settings.cybol"/>
-    <node name="var" channel="file" format="element/part" model="user_interface/tui_control/var.cybol"/>
-    <node name="tui" channel="file" format="element/part" model="user_interface/tui_control/tui.cybol"/>
-
-</node>

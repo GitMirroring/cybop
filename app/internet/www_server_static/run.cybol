@@ -1,6 +1,6 @@
 <node>
 
-    <node name="create_file_id" channel="inline" format="memorise/create" model="">
+    <node name="create_fileid" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="id"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>

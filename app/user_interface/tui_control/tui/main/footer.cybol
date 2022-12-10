@@ -1,9 +1,0 @@
-<node>
-
-    <node name="url" channel="inline" format="text/plain" model="http://www.cybop.org/">
-        <node name="super" channel="inline" format="text/cybol-path" model=".settings.menu_footer"/>
-        <node name="position" channel="inline" format="number/integer" model="25,0"/>
-        <node name="size" channel="inline" format="number/integer" model="24,1"/>
-    </node>
-
-</node>
