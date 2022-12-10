@@ -14,13 +14,17 @@
 App
 ___
 
-        * Update user interface cybol applications
+        * Update text user interface cybol applications
+        * Update graphical user interface cybol applications
         * Update internet cybol applications
         * Update various application cybol applications
 
         Try:
         * Use format="flow/sequence" in cyblib to define stack variables and call operation via path WITHIN sequence (xml-tag-element)
             in e.g. exit or hello or addition
+
+        * Check if stdout is closed automatically on exit
+        * Add close operation to cybol application "tui"
 
 Build
 _____
@@ -31,6 +35,9 @@ _____
 
         * Adapt rules of "ClangFormat" and correct reported formatting errors
         * Find out how best to exclude log messages from release build (ifdef macro, build script, other idea)
+
+        * Implement web application with online cyboi vm
+        * Provide example applications
 
 API
 ___
