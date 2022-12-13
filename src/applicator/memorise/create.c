@@ -49,6 +49,10 @@ void apply_create(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply create.");
 
+    //
+    // Declaration
+    //
+
     // The name part.
     void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The format part.
@@ -72,6 +76,10 @@ void apply_create(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* fmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The properties part model item data.
     void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Retrieval
+    //
 
     // Get name part.
     get_part_name((void*) &n, p0, (void*) NAME_CREATE_MEMORY_LOGIC_CYBOL_NAME, (void*) NAME_CREATE_MEMORY_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
@@ -97,6 +105,10 @@ void apply_create(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get properties part model item data.
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    //
+    // Default values
+    //
+
     // The default values.
     int whole_part_item_index = *MODEL_PART_STATE_CYBOI_NAME;
 
@@ -108,6 +120,10 @@ void apply_create(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // is REUSED here, in order to avoid redundant source code.
     //
     apply_modify_index((void*) &whole_part_item_index, pmd);
+
+    //
+    // Functionality
+    //
 
     apply_create_part(w, p2, nmd, nmc, fmd, (void*) &whole_part_item_index);
 }

@@ -57,6 +57,10 @@ void apply_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply loop.");
 
+    //
+    // Declaration
+    //
+
     // The model part.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The break part.
@@ -65,6 +69,10 @@ void apply_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The break part model item data.
     void* bmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Retrieval
+    //
 
     // Get model part.
     get_part_name((void*) &m, p0, (void*) MODEL_LOOP_FLOW_LOGIC_CYBOL_NAME, (void*) MODEL_LOOP_FLOW_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
@@ -76,25 +84,35 @@ void apply_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     // Get break part model item data.
     copy_array_forward((void*) &bmd, bm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    //
+    // Functionality
+    //
+
     // The break flag.
     int br = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    //
     // The direct execution flag.
+    //
     // CAUTION! The flag has to be set to true, because otherwise,
     // each loop cycle places a new signal in signal memory so that
     // these would only be processed with a delay.
     // But this is not desirable, since follow-up signals of this
     // loop may rely on its full execution, including all cycles.
+    //
     int x = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (bmd == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
         // Therefore, in this case, the break flag is set to true already here.
+        //
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
+        //
         copy_integer((void*) &br, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
@@ -105,13 +123,20 @@ void apply_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 
         if (br != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Leave the loop if the break flag is true.
+            //
+            // The break flag is TRUE.
+            //
+
+            // Leave the loop.
             break;
 
         } else {
 
-            // Handle the model as new operation,
-            // as long as the break flag is false (not set).
+            //
+            // The break flag is FALSE (not set).
+            //
+
+            // Handle the model as new operation.
             handle(m, p4, p2, p3, p5, p6, (void*) &x, p7);
         }
     }

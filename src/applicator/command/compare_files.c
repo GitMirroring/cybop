@@ -52,6 +52,10 @@ void apply_compare_files(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply compare files.");
 
+    //
+    // Declaration
+    //
+
     // The path1 part.
     void* pa1 = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The path2 part.
@@ -117,6 +121,10 @@ void apply_compare_files(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The compress whitespace part model item data.
     void* wmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get path1 part.
     get_part_name((void*) &pa1, p0, (void*) PATH_1_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_1_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get path2 part.
@@ -181,6 +189,10 @@ void apply_compare_files(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get compress whitespace model item data.
     copy_array_forward((void*) &wmd, wm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     command_compare_files(pa1md, pa1mc, pa2md, pa2mc, dmd, omd, smd, cmd, umd, amd, lmd, wmd);
 }

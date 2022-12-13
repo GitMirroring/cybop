@@ -57,22 +57,43 @@ void apply_sequence(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sequence.");
 
+    //
+    // Declaration
+    //
+
     // The model part.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Retrieval
+    //
 
     // Get model part.
     get_part_name((void*) &m, p0, (void*) MODEL_SEQUENCE_FLOW_LOGIC_CYBOL_NAME, (void*) MODEL_SEQUENCE_FLOW_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
+    //
+    // Default values
+    //
+
+    //
     // The direct execution flag.
+    //
     // CAUTION! The flag has to be set to true, because otherwise,
     // a new signal would be placed in signal memory and only
     // be processed with a delay.
+    //
     // But this is not desirable here, since the model sequence
     // is expected to be executed directly.
     // Further, follow-up signals may rely on its full execution.
+    //
     // If a model is to be executed as signal, then the
     // cyboi signal sending operation may be used instead.
+    //
     int x = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    //
+    // Functionality
+    //
 
     // Handle model as new operation.
     handle(m, p4, p2, p3, p5, p6, (void*) &x, p7);

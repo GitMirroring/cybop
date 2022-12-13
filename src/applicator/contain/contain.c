@@ -57,6 +57,10 @@ void apply_contain(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply contain.");
 
+    //
+    // Declaration
+    //
+
     // The result part.
     void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The value part.
@@ -84,6 +88,10 @@ void apply_contain(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // The selection part model item data, count.
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* smc = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Retrieval
+    //
 
     // Get result part.
     get_part_name((void*) &r, p0, (void*) RESULT_CONTAINMENT_LOGIC_CYBOL_NAME, (void*) RESULT_CONTAINMENT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
@@ -121,6 +129,10 @@ void apply_contain(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     fwprintf(stdout, L"Debug: apply contain t: %i\n", t);
     fwprintf(stdout, L"Debug: apply contain s: %i\n", s);
 */
+
+    //
+    // Functionality
+    //
 
 //??    contain(rmd, v, lb, rb, p5);
 }

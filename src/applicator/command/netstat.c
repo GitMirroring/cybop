@@ -52,6 +52,10 @@ void apply_netstat(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply netstat.");
 
+    //
+    // Declaration
+    //
+
     // The routing table part.
     void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The interface part.
@@ -133,6 +137,10 @@ void apply_netstat(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The active connections part model item data and count.
     void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get routing table part.
     get_part_name((void*) &r, p0, (void*) ROUTINGTABLE_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) ROUTINGTABLE_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get interface part.
@@ -213,6 +221,10 @@ void apply_netstat(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &omd, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get active connections part model item data and count.
     copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     command_netstat(rmd, imd, gmd, smd, mmd, vmd, nmd, emd, pmd, lmd, amd, omd, tmd);
 }

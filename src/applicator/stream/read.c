@@ -59,6 +59,10 @@ void apply_read(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply read.");
 
+    //
+    // Declaration
+    //
+
     // The channel part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The server part.
@@ -103,6 +107,10 @@ void apply_read(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The asynchronicity part model item data.
     void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get channel part.
     get_part_name((void*) &c, p0, (void*) CHANNEL_READ_STREAMING_LOGIC_CYBOL_NAME, (void*) CHANNEL_READ_STREAMING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get server part.
@@ -146,6 +154,10 @@ void apply_read(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get asynchronicity part model item data.
     copy_array_forward((void*) &amd, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     //
     // Read data from device.

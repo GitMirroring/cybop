@@ -52,6 +52,10 @@ void apply_list_open_files(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply list open files.");
 
+    //
+    // Declaration
+    //
+
     // The list-uid part.
     void* u = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The list-file-size part.
@@ -85,6 +89,10 @@ void apply_list_open_files(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The terse-listing part.
     void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get list-uid part.
     get_part_name((void*) &u, p0, (void*) LIST_UID_LIST_OPEN_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) LIST_UID_LIST_OPEN_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get list-file-size part.
@@ -117,6 +125,10 @@ void apply_list_open_files(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &dmd, dm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get terse-listing part model item.
     copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     command_list_open_files(umd, smd, lmd, dmd, tmd);
 }

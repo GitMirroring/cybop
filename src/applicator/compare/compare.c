@@ -58,6 +58,10 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply compare.");
 
+    //
+    // Declaration
+    //
+
     // The result part.
     void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The left operand part.
@@ -103,6 +107,10 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     void* limd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The right index part model item data.
     void* rimd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Retrieval
+    //
 
     // Get result part.
     get_part_name((void*) &r, p0, (void*) RESULT_COMPARISON_LOGIC_CYBOL_NAME, (void*) RESULT_COMPARISON_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
@@ -150,16 +158,22 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     // Get right index part model item data.
     copy_array_forward((void*) &rimd, rim, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    //
+    // Default values
+    //
+
     // The default values.
     int type = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     int count = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int left_index = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int right_index = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+    //
     // CAUTION! The following values are ONLY copied,
     // if the source value is NOT NULL.
     // This is tested inside the "copy_integer" function.
     // Otherwise, the destination value remains as is.
+    //
 
     // Use the left operand part type data by default.
     copy_integer((void*) &type, lotd);
@@ -173,6 +187,10 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     copy_integer((void*) &left_index, limd);
     // Use the given right index.
     copy_integer((void*) &right_index, rimd);
+
+    //
+    // Functionality
+    //
 
     // Compare left- and right operand type.
     apply_compare_result(rmd, lo, ro, p5, (void*) &type, (void*) &count, (void*) &left_index, (void*) &right_index, rmc, p6, rotd, rtd);

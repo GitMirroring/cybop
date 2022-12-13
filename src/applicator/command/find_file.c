@@ -51,6 +51,10 @@ void apply_find_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply find file.");
 
+    //
+    // Declaration
+    //
+
     // The path part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The name part.
@@ -80,6 +84,10 @@ void apply_find_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The recursvie part model item data.
     void* rmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get path part.
     get_part_name((void*) &p, p0, (void*) PATH_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get name part.
@@ -108,6 +116,10 @@ void apply_find_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get recursive part model item data.
     copy_array_forward((void*) &rmd, rm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     command_find_file(pmd, pmc, nmd, nmc, imd, rmd);
 }

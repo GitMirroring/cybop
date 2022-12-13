@@ -50,6 +50,10 @@ void apply_sort(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sort.");
 
+    //
+    // Declaration
+    //
+
     // The part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The criterion.
@@ -77,6 +81,10 @@ void apply_sort(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // The descending flag model item data.
     void* dmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get part.
     get_part_name((void*) &p, p0, (void*) PART_SORT_LOGIC_CYBOL_NAME, (void*) PART_SORT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get criterion.
@@ -103,6 +111,10 @@ void apply_sort(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     copy_array_forward((void*) &cmc, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get descending flag model item data.
     copy_array_forward((void*) &dmd, dm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     sort(pmd, ptd, pmc, (void*) &cmd, cmc, ctd, p2, p3, p4, dmd, p5);
 }

@@ -51,6 +51,10 @@ void apply_get_index(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply get index.");
 
+    //
+    // Declaration
+    //
+
     // The index part.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The part name part.
@@ -74,6 +78,10 @@ void apply_get_index(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* wmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* wmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get index part.
     get_part_name((void*) &i, p0, (void*) INDEX_GET_INDEX_ACCESS_LOGIC_CYBOL_NAME, (void*) INDEX_GET_INDEX_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get part name part.
@@ -96,6 +104,10 @@ void apply_get_index(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get whole part model item data, count.
     copy_array_forward((void*) &wmd, wm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &wmc, wm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     // Determine index of searched part within whole.
     find_array(imd, wmd, pmd, pmc, wmc, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);

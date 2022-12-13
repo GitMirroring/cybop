@@ -52,6 +52,10 @@ void apply_date(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply date.");
 
+    //
+    // Declaration
+    //
+
     // The new date part.
     void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The display part.
@@ -86,6 +90,10 @@ void apply_date(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The UTC part model item data.
     void* umd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get new date part.
     get_part_name((void*) &n, p0, (void*) DATE_DATE_COMMANDER_LOGIC_CYBOL_NAME, (void*) DATE_DATE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get display part.
@@ -119,6 +127,10 @@ void apply_date(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &rmd, rm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get UTC part model item data.
     copy_array_forward((void*) &umd, um, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     command_date(nmd, nmc, tmd, imd, rmd, umd);
 }

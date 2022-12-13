@@ -51,6 +51,10 @@ void apply_id(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply id.");
 
+    //
+    // Declaration
+    //
+
     // The CONTEXT part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The GROUP part.
@@ -76,6 +80,10 @@ void apply_id(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* nmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* umd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get option part.
     get_part_name((void*) &c, p0, (void*) CONTEXT_ID_COMMANDER_LOGIC_CYBOL_NAME, (void*) CONTEXT_ID_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     get_part_name((void*) &g, p0, (void*) GROUP_ID_COMMANDER_LOGIC_CYBOL_NAME, (void*) GROUP_ID_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
@@ -96,6 +104,10 @@ void apply_id(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &nmd, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &umd, um, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     command_id(cmd, gmd, smd, nmd, umd);
 }

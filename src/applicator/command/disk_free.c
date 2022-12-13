@@ -51,6 +51,10 @@ void apply_disk_free(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply disk free.");
 
+    //
+    // Declaration
+    //
+
     // The all part.
     void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The human part.
@@ -90,6 +94,10 @@ void apply_disk_free(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The type part model item data.
     void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get all part.
     get_part_name((void*) &a, p0, (void*) ALL_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME, (void*) ALL_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get human part.
@@ -128,6 +136,10 @@ void apply_disk_free(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &mmd, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get type part model item data.
     copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     command_disk_free(amd, hmd, kmd, lmd, mmd, tmd);
 }

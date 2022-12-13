@@ -46,6 +46,10 @@ void apply_ifup() {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shows if interface available");
 
+    //
+    // Functionality
+    //
+
     command_ifup();
 }
 

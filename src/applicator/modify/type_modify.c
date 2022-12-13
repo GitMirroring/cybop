@@ -62,7 +62,6 @@
 void apply_modify_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply modify type.");
-
     //?? fwprintf(stdout, L"Debug: Apply modify type. Destination type: %i. Source type: %i.\n", *((int*) p2), *((int*) p15));
 
     // The comparison result.

@@ -52,6 +52,10 @@ void apply_delay(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply delay.");
 
+    //
+    // Declaration
+    //
+
     // The time part.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The time part model item.
@@ -60,6 +64,10 @@ void apply_delay(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* tmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get time part.
     get_part_name((void*) &t, p0, (void*) TIME_DELAY_COMMANDER_LOGIC_CYBOL_NAME, (void*) TIME_DELAY_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get time part model item.
@@ -67,6 +75,10 @@ void apply_delay(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get time part model item data and count.
     copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &tmc, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     command_delay(tmd, tmc);
 }

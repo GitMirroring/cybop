@@ -52,6 +52,10 @@ void apply_move_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply move file.");
 
+    //
+    // Declaration
+    //
+
     // The source part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The destination part.
@@ -87,6 +91,10 @@ void apply_move_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The verbal part model item data.
     void* vmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get source part.
     get_part_name((void*) &s, p0, (void*) SOURCE_MOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) SOURCE_MOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get destination part.
@@ -121,6 +129,10 @@ void apply_move_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get verbal part model item data.
     copy_array_forward((void*) &vmd, vm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     command_move_file(smd, smc, dmd, dmc, fmd, imd, vmd);
 }

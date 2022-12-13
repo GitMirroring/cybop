@@ -52,6 +52,10 @@ void apply_remove_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply remove file.");
 
+    //
+    // Declaration
+    //
+
     // The path part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The force part.
@@ -86,6 +90,10 @@ void apply_remove_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The verbal part model item data.
     void* vmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get path part.
     get_part_name((void*) &p, p0, (void*) PATH_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get force part.
@@ -119,6 +127,10 @@ void apply_remove_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &rmd, rm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get verbal part model item data.
     copy_array_forward((void*) &vmd, vm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     command_remove_file(pmd, pmc, fmd, imd, rmd, vmd);
 }

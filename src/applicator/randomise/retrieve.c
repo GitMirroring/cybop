@@ -52,6 +52,10 @@ void apply_retrieve(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply retrieve.");
 
+    //
+    // Declaration
+    //
+
     // The result part.
     void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The minimum part.
@@ -72,6 +76,10 @@ void apply_retrieve(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* minmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The maximum part model item data.
     void* maxmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Retrieval
+    //
 
     // Get result part.
     get_part_name((void*) &r, p0, (void*) RESULT_RETRIEVE_RANDOMISATION_LOGIC_CYBOL_NAME, (void*) RESULT_RETRIEVE_RANDOMISATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
@@ -94,6 +102,10 @@ void apply_retrieve(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get maximum part model item data.
     copy_array_forward((void*) &maxmd, maxm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    //
+    // Default values
+    //
+
     // The default minimum value is understood inclusive.
     int minimum = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The default maximum value is understood exclusive.
@@ -110,6 +122,10 @@ void apply_retrieve(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_integer((void*) &minimum, minmd);
     // Use the explicit maximum that was given as argument.
     copy_integer((void*) &maximum, maxmd);
+
+    //
+    // Functionality
+    //
 
     // Retrieve current result from system.
     retrieve(rmd, (void*) &minimum, (void*) &maximum);

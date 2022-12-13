@@ -45,6 +45,10 @@ void apply_who_am_i() {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply who am i.");
 
+    //
+    // Functionality
+    //
+
     command_who_am_i();
 }
 

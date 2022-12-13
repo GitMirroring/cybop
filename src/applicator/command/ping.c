@@ -52,6 +52,10 @@ void apply_ping(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply ping.");
 
+    //
+    // Declaration
+    //
+
     // The host part.
     void* h = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The count part.
@@ -76,6 +80,10 @@ void apply_ping(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* imc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get host part.
     get_part_name((void*) &h, p0, (void*) HOST_PING_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) HOST_PING_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get count part.
@@ -99,6 +107,10 @@ void apply_ping(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get interface part model item data and count.
     copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &imc, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     command_ping(hmd, hmc, cmd, cmc, imd, imc);
 }

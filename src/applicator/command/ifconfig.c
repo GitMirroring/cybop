@@ -51,6 +51,10 @@ void apply_ifconfig(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply ifconfig.");
 
+    //
+    // Declaration
+    //
+
     // The path part.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The ALL part.
@@ -78,6 +82,10 @@ void apply_ifconfig(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* dmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* umd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get option part.
     get_part_name((void*) &i, p0, (void*) INTERFACE_IFCONFIG_CONTENT_COMMANDER_LOGIC_CYBOL_NAME, (void*) INTERFACE_IFCONFIG_CONTENT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     get_part_name((void*) &a, p0, (void*) ALL_IFCONFIG_CONTENT_COMMANDER_LOGIC_CYBOL_NAME, (void*) ALL_IFCONFIG_CONTENT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
@@ -100,6 +108,10 @@ void apply_ifconfig(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &dmd, dm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &umd, um, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     command_ifconfig(imd, imc, amd, smd, dmd, umd);
 }

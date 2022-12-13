@@ -62,7 +62,9 @@ void apply_calculate_type(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // The result- and operand type are identical.
+        //
 
         calculate_part(p0, p1, p2, p3, p4, p5, p6);
 

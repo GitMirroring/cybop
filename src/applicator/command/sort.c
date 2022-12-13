@@ -52,6 +52,10 @@ void apply_command_sort(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply command sort.");
 
+    //
+    // Declaration
+    //
+
     // The file part.
     void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The output part.
@@ -76,6 +80,10 @@ void apply_command_sort(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* rmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* rmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get file part.
     get_part_name((void*) &f, p0, (void*) FILE_SORT_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) FILE_SORT_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get output part.
@@ -99,6 +107,10 @@ void apply_command_sort(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get reversed part model item data and count.
     copy_array_forward((void*) &rmd, rm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &rmc, rm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     command_sort(fmd, fmc, omd, omc, rmd, rmc);
 }

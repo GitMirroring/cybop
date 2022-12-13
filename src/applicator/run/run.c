@@ -53,6 +53,10 @@ void apply_run(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply run.");
 
+    //
+    // Declaration
+    //
+
     // The programme part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The programme part model item.
@@ -61,6 +65,10 @@ void apply_run(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get programme part.
     get_part_name((void*) &p, p0, (void*) PROGRAMME_RUN_LOGIC_CYBOL_NAME, (void*) PROGRAMME_RUN_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get programme part model item.
@@ -68,6 +76,10 @@ void apply_run(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get programme part model item data, count.
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pmc, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     // Execute command line in shell.
     execute(pmd, pmc);

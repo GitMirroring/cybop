@@ -52,6 +52,10 @@ void apply_change_directory(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply change directory.");
 
+    //
+    // Declaration
+    //
+
     // The path part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The not follow symbolic link part.
@@ -80,6 +84,10 @@ void apply_change_directory(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The change current drive part model item data.
     void* cdmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get path part.
     get_part_name((void*) &p, p0, (void*) DIRECTORY_CHANGE_DIRECTORY_COMMANDER_LOGIC_CYBOL_NAME, (void*) DIRECTORY_CHANGE_DIRECTORY_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get not follow symbolic link part.
@@ -107,6 +115,10 @@ void apply_change_directory(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &flmd, flm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get change current drive part model item data.
     copy_array_forward((void*) &cdmd, cdm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     command_change_directory(pmd, pmc, nflmd, flmd, cdmd);
 }

@@ -52,7 +52,9 @@ void apply_clear_screen(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply clear screen.");
 
-    //?? TODO
+    //
+    // Functionality
+    //
 
     command_clear_screen();
 }

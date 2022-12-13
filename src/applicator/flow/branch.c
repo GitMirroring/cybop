@@ -57,6 +57,10 @@ void apply_branch(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply branch.");
 
+    //
+    // Declaration
+    //
+
     // The criterion part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The true part.
@@ -69,6 +73,10 @@ void apply_branch(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     // The criterion part model item data.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Retrieval
+    //
 
     // Get criterion part.
     get_part_name((void*) &c, p0, (void*) CRITERION_BRANCH_FLOW_LOGIC_CYBOL_NAME, (void*) CRITERION_BRANCH_FLOW_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
@@ -83,13 +91,21 @@ void apply_branch(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // Get criterion part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    //
+    // Functionality
+    //
+
+    //
     // The direct execution flag.
+    //
     // CAUTION! The flag has to be set to true, because otherwise,
     // a new signal would be placed in signal memory and only
     // be processed with a delay.
+    //
     // But this is not desirable here, since the branch
     // is expected to be executed directly.
     // Further, follow-up signals may rely on its full execution.
+    //
     int x = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

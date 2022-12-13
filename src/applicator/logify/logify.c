@@ -50,6 +50,10 @@ void apply_logify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply logify.");
 
+    //
+    // Declaration
+    //
+
     // The output part.
     void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The input part.
@@ -68,6 +72,10 @@ void apply_logify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // The input part type, model item data.
     void* itd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Retrieval
+    //
 
     // Get output part.
     get_part_name((void*) &o, p0, (void*) OUTPUT_LOGIC_LOGIC_CYBOL_NAME, (void*) OUTPUT_LOGIC_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
@@ -88,6 +96,10 @@ void apply_logify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     copy_array_forward((void*) &itd, it, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    //
+    // Default values
+    //
+
     // The default values.
     int type = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
@@ -98,6 +110,10 @@ void apply_logify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     // Use the output part type data by default.
     copy_integer((void*) &type, otd);
+
+    //
+    // Functionality
+    //
 
     // Compare output- and input type.
     apply_logify_type(omd, imd, p5, (void*) &type, itd);

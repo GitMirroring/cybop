@@ -47,6 +47,10 @@ void apply_time(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply time.");
 
+    //
+    // Declaration
+    //
+
     // The destination time part.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The destination time part model item.
@@ -54,12 +58,20 @@ void apply_time(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The destination time part model item data.
     void* dmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get destination time part.
     get_part_name((void*) &d, p0, (void*) RESULT_CURRENT_TIMING_LOGIC_CYBOL_NAME, (void*) RESULT_CURRENT_TIMING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get destination time part model item.
     copy_array_forward((void*) &dm, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get destination time part model item data.
     copy_array_forward((void*) &dmd, dm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     // Retrieve current time from system.
     time_current(dmd);

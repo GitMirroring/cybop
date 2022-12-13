@@ -52,6 +52,10 @@ void apply_list_directory_contents(void* p0, void* p1, void* p2, void* p3, void*
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply list directory contents.");
 
+    //
+    // Declaration
+    //
+
     // The path part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The all part.
@@ -123,6 +127,10 @@ void apply_list_directory_contents(void* p0, void* p1, void* p2, void* p3, void*
     void* epmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* epmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get path part.
     get_part_name((void*) &p, p0, (void*) PATH_LIST_DIRECTORY_CONTENTS_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_LIST_DIRECTORY_CONTENTS_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get all part.
@@ -193,6 +201,10 @@ void apply_list_directory_contents(void* p0, void* p1, void* p2, void* p3, void*
     // Get export path part model item data and count.
     copy_array_forward((void*) &epmd, epm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &epmc, epm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     command_list_directory_contents(pmd, pmc, amd, aamd, lmd, orpemd, rmd, smd, sbfsmd, sbmdmd, sbemd, epmd, epmc);
 }

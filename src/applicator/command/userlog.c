@@ -52,6 +52,10 @@ void apply_userlog(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply userlog.");
 
+    //
+    // Declaration
+    //
+
     // The noheader part.
     void* h = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The no current part.
@@ -79,6 +83,10 @@ void apply_userlog(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The old part model item data and count.
     void* omd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get noheader part.
     get_part_name((void*) &h, p0, (void*) NOHEADER_USERLOG_COMMANDER_LOGIC_CYBOL_NAME, (void*) NOHEADER_USERLOG_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get nocurrent part.
@@ -105,6 +113,10 @@ void apply_userlog(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get old part model item data and count.
     copy_array_forward((void*) &omd, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     command_userlog(hmd, umd, smd, omd);
 }

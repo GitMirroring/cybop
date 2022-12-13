@@ -52,6 +52,10 @@ void apply_find_command(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply change directory.");
 
+    //
+    // Declaration
+    //
+
     // The command part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The binary part.
@@ -80,6 +84,10 @@ void apply_find_command(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The source part model item data.
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get command part.
     get_part_name((void*) &c, p0, (void*) COMMAND_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME, (void*) COMMAND_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get print differing chars part.
@@ -107,6 +115,10 @@ void apply_find_command(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &mmd, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get silent part model item data.
     copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     command_find_command(cmd, cmc, bmd, mmd, smd);
 }

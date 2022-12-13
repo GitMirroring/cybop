@@ -52,6 +52,10 @@ void apply_cast(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply cast.");
 
+    //
+    // Declaration
+    //
+
     // The destination part.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source part.
@@ -86,6 +90,10 @@ void apply_cast(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     void* dimd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source index part model item data.
     void* simd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Retrieval
+    //
 
     // Get destination part.
     get_part_name((void*) &d, p0, (void*) DESTINATION_CAST_LOGIC_CYBOL_NAME, (void*) DESTINATION_CAST_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
@@ -122,15 +130,21 @@ void apply_cast(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // Get source index part model item data.
     copy_array_forward((void*) &simd, sim, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    //
+    // Default values
+    //
+
     // The default values.
     int count = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int destination_index = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int source_index = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+    //
     // CAUTION! The following values are ONLY copied,
     // if the source value is NOT NULL.
     // This is tested inside the "copy_integer" function.
     // Otherwise, the destination value remains as is.
+    //
 
     // Use the source part model count by default.
     copy_integer((void*) &count, smc);
@@ -142,6 +156,10 @@ void apply_cast(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     copy_integer((void*) &destination_index, dimd);
     // Use the explicit source index that was given as parametre.
     copy_integer((void*) &source_index, simd);
+
+    //
+    // Functionality
+    //
 
     // Cast value by applying operation.
     cast_part(d, s, std, p5, (void*) &count, (void*) &destination_index, (void*) &source_index);

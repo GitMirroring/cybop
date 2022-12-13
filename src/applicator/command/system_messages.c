@@ -52,6 +52,10 @@ void apply_system_messages(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply system messages.");
 
+    //
+    // Declaration
+    //
+
     // The human part.
     void* h = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The ctime part.
@@ -85,6 +89,10 @@ void apply_system_messages(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The userspace part.
     void* umd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get human part.
     get_part_name((void*) &h, p0, (void*) HUMAN_SYSTEM_MESSAGES_COMMANDER_LOGIC_CYBOL_NAME, (void*) HUMAN_SYSTEM_MESSAGES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get ctime part.
@@ -117,6 +125,10 @@ void apply_system_messages(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get userspace part model item.
     copy_array_forward((void*) &umd, um, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     command_system_messages(hmd, cmd, kmd, lmd, umd);
 }

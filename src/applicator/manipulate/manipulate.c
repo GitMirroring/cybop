@@ -50,6 +50,10 @@ void apply_manipulate(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply manipulate.");
 
+    //
+    // Declaration
+    //
+
     // The value part.
     void* v = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The position part.
@@ -78,6 +82,10 @@ void apply_manipulate(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The index part model item data.
     void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Retrieval
+    //
 
     // Get value part.
     get_part_name((void*) &v, p0, (void*) VALUE_MANIPULATION_LOGIC_CYBOL_NAME, (void*) VALUE_MANIPULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
@@ -108,6 +116,10 @@ void apply_manipulate(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // Get index part model item data.
     copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    //
+    // Default values
+    //
+
     // The default values.
     int count = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int index = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -123,6 +135,10 @@ void apply_manipulate(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     copy_integer((void*) &count, cmd);
     // Use the explicit index that was given as parametre.
     copy_integer((void*) &index, imd);
+
+    //
+    // Functionality
+    //
 
     // Manipulate value bitwise by applying operation.
     manipulate_part(v, pmd, p5, vtd, (void*) &count, (void*) &index);

@@ -52,6 +52,10 @@ void apply_diff(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply grep.");
 
+    //
+    // Declaration
+    //
+
     // The first file part.
     void* f1 = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The second file part.
@@ -69,6 +73,10 @@ void apply_diff(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* f2md = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* f2mc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get first file part.
     get_part_name((void*) &f1, p0, (void*) FILE1_DIFF_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) FILE1_DIFF_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get second file part.
@@ -85,6 +93,10 @@ void apply_diff(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get second file part model item data and count.
     copy_array_forward((void*) &f2md, f2m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &f2mc, f2m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     command_diff(f1md, f1mc, f2md, f2mc);
 }

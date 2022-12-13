@@ -59,7 +59,9 @@ void apply_logify_type(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // The output- and input type are identical.
+        //
 
         logify(p0, p1, p2, p3);
 

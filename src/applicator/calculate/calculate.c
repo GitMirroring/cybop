@@ -56,6 +56,10 @@ void apply_calculate(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply calculate.");
 
+    //
+    // Declaration
+    //
+
     // The result part.
     void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The operand part.
@@ -92,6 +96,10 @@ void apply_calculate(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
     void* rimd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The operand index part model item data.
     void* oimd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Retrieval
+    //
 
     // Get result part.
     get_part_name((void*) &r, p0, (void*) RESULT_CALCULATION_LOGIC_CYBOL_NAME, (void*) RESULT_CALCULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
@@ -130,6 +138,10 @@ void apply_calculate(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
     // Get operand index part model item data.
     copy_array_forward((void*) &oimd, oim, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    //
+    // Default values
+    //
+
     // The default values.
     int type = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     int count = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -153,6 +165,10 @@ void apply_calculate(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
     copy_integer((void*) &result_index, rimd);
     // Use the explicit operand index that was given as parametre.
     copy_integer((void*) &operand_index, oimd);
+
+    //
+    // Functionality
+    //
 
     // Compare result- and operand type.
     apply_calculate_type(r, o, p5, (void*) &type, (void*) &count, (void*) &result_index, (void*) &operand_index, otd);

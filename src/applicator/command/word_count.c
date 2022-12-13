@@ -53,6 +53,10 @@ void apply_word_count(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply word count.");
 
+    //
+    // Declaration
+    //
+
     // The path part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The byte part.
@@ -93,6 +97,10 @@ void apply_word_count(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The word part model item data.
     void* wmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get path part.
     get_part_name((void*) &p, p0, (void*) PATH_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get byte part.
@@ -132,6 +140,10 @@ void apply_word_count(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &mmd, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get word part model item data.
     copy_array_forward((void*) &wmd, wm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     command_word_count(pmd, pmc, bmd, cmd, lmd, mmd, wmd);
 }
