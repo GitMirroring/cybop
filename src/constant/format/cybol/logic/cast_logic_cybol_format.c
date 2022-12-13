@@ -41,36 +41,24 @@
 /**
  * The cast/byte logic cybol format.
  *
- * Cast value to type byte.
- *
  * Description:
  *
-Casts a value from one type to another.
+ * Casts a value to type "byte".
  *
  * Examples:
  *
  * <node name="cast_byte" channel="inline" format="cast/byte" model="">
- *     <node name="destination" channel="inline" format="text/cybol-path" model=".part_2"/>
- *     <node name="source" channel="inline" format="number/byte" model="123"/>
- *     <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="source" channel="inline" format="number/float" model="123.45"/>
  * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
- * - destination	The knowledge model to cast to.	true	path/*
- * - source	The knowledge model to cast from.	true	path/* | number/*
- * - type	The source type.	true	path/* | meta/type
- *
- * Expected parametres:
- * - destination (required): the knowledge model to cast to
- * - source (required): the knowledge model to cast from
- * - count (optional; if null, the source part model count will be used instead):
- *   the number of elements to be casted
- * - destination_index (optional; if null, an index of zero will be used instead):
- *   the destination index from which to start casting
- * - source_index (optional; if null, an index of zero will be used instead):
- *   the source index from which to start casting
+ * - destination (required) [text/cybol-path]: The destination value with the desired type to cast to.
+ * - source (required) [text/cybol-path]: The source value to cast from.
+ * - count (optional) [text/cybol-path]: The number of elements to be casted. This is relevant only for arrays with more than one element. If null, the default is the source count.
+ * - destination_index (optional) [text/cybol-path]: The destination index from which to start copying the casted values to. If null, the default is zero.
+ * - source_index (optional) [text/cybol-path]: The source index from which to start reading values to be casted. If null, the default is zero.
  */
 static wchar_t* BYTE_CAST_LOGIC_CYBOL_FORMAT = L"cast/byte";
 static int* BYTE_CAST_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;

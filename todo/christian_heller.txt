@@ -19,6 +19,8 @@ ___
         * Update internet cybol applications
         * Update various application cybol applications
 
+        * Create more video tutorials, upload to portals and update website
+
         Try:
         * Use format="flow/sequence" in cyblib to define stack variables and call operation via path WITHIN sequence (xml-tag-element)
             in e.g. exit or hello or addition
@@ -41,8 +43,6 @@ _____
 
 API
 ___
-
-        * Provide at least one example per category
 
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/calculate_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/logify_logic_cybol_format.c"

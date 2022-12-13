@@ -41,61 +41,73 @@
 /**
  * The compare/equal logic cybol format.
  *
-Compares left and right for equality.
- *
  * Description:
+ *
+ * Compares if left and right operand are equal.
  *
  * Commonly used operator in other programming languages: ==
  *
- * Left and right operand as well as the boolean result are treated as vector,
- * i.e. ONE boolean result value is returned PER EACH operand vector ELEMENT.
+ * Left and right operand as well as the boolean result are treated as vector. That is, one boolean result value is returned per each operand vector element. When comparing single elements, the vectors contain just one single value.
  *
- * When comparing single elements, the vectors contain just one single value.
- *
- * Most operand types may be used. For instance, numbers may be given as vectors,
- * e.g. the integer sequence "1,2,3". If using text operands, e.g. "Hello, World!",
- * then the single characters are compared, one by one.
+ * Numbers may be given as vectors, for example the integer sequence "1,2,3". If using text operands, e.g. "Hello, World!", then the single characters are compared, one by one.
  *
  * Example with many elements:
  *
- * operation: equal
- * left operand: 10,2,3
- * right operand: 1,2,3
- * result vector: 0,1,1 (which corresponds to "false,true,true")
+ * - operation: equal
+ * - left operand: 10,2,3
+ * - right operand: 1,2,3
+ * - result vector: 0,1,1 (which corresponds to "false,true,true")
  *
  * Example with one single element:
  *
- * operation: equal
- * left operand: 33
- * right operand: 3
- * result value: 0 (which corresponds to "false")
+ * - operation: equal
+ * - left operand: 33
+ * - right operand: 3
+ * - result value: 0 (which corresponds to "false")
  *
  * Examples:
  *
- * <node name="compare_equal" channel="inline" format="compare/equal" model="">
- *     <node name="result" channel="inline" format="text/cybol-path" model=".model.result"/>
- *     <node name="left" channel="inline" format="text/cybol-path" model=".model.left"/>
- *     <node name="right" channel="inline" format="text/cybol-path" model=".model.right"/>
- *     <node name="type" channel="inline" format="meta/type" model="number/complex-cartesian"/>
- *     <node name="selection" channel="inline" format="text/plain" model="all"/>
+ * <node name="compare_one" channel="inline" format="compare/equal" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="left" channel="inline" format="number/integer" model="2"/>
+ *     <node name="right" channel="inline" format="number/integer" model="2"/>
+ * </node>
+ *
+ * <node name="compare_many" channel="inline" format="compare/equal" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="left" channel="inline" format="number/integer" model="1,2,3"/>
+ *     <node name="right" channel="inline" format="number/integer" model="2,3,4"/>
+ * </node>
+ *
+ * <node name="compare_absolute_and_path" channel="inline" format="compare/equal" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="left" channel="inline" format="number/integer" model="3"/>
+ *     <node name="right" channel="inline" format="text/cybol-path" model=".right"/>
+ * </node>
+ *
+ * <node name="compare_via_path" channel="inline" format="compare/equal" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="left" channel="inline" format="text/cybol-path" model=".left"/>
+ *     <node name="right" channel="inline" format="text/cybol-path" model=".right"/>
+ * </node>
+ *
+ * <node name="compare_with_index" channel="inline" format="compare/equal" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="left" channel="inline" format="number/integer" model="1,2,3"/>
+ *     <node name="right" channel="inline" format="number/integer" model="2,3,4"/>
+ *     <node name="count" channel="inline" format="number/integer" model="1"/>
+ *     <node name="left_index" channel="inline" format="number/integer" model="1"/>
+ *     <node name="right_index" channel="inline" format="number/integer" model="0"/>
  * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-result	the knowledge model, in which the result is stored (of type boolean)	true	path/* | logicvalue/boolean
-left	the left operand	true	path/* | number/* | text/plain
-right	the right operand	true	path/* | number/* | text/plain
-type	the operand type which is equal for both operands	true	path/* | meta/type
-selection	the area of two strings or number vectors to be compared	true	path/* | meta/type
- *
- * Expected parametres:
- * - result (required): the knowledge model, in which the result is stored (of type boolean)
- * - left (required): the left operand
- * - right (required): the right operand
- * - count (optional): the number of elements to be compared (NOT relevant for lexicographical comparison, where left and right count are used and are allowed to differ)
- * - left index (optional): the left index from where to start the comparison from (NOT relevant for lexicographical comparison)
- * - right index (optional): the right index from where to start the comparison from (NOT relevant for lexicographical comparison)
+ * - result (required) [text/cybol-path]: The boolean value resulting from comparison.
+ * - left (required) [text/cybol-path | number/any | text/plain]: The left operand.
+ * - right (required) [text/cybol-path | number/any | text/plain]: The right operand.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be compared. This is relevant only for arrays with more than one element. If null, the default is the lesser of left and right operand count.
+ * - left_index (optional) [text/cybol-path | number/integer]: The left index from where to start the comparison from. If null, the default is zero.
+ * - right_index (optional) [text/cybol-path | number/integer]: The right index from where to start the comparison from. If null, the default is zero.
  */
 static wchar_t* EQUAL_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/equal";
 static int* EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;

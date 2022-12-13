@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-12-13  Christian Heller  <christian.heller@cybop.org>
+
+        * Update comments in applicator files
+        * Provide at least one example per category for api specification in javadoc comment blocks of directory "constant/format/cybol/logic/"
+
 2022-12-09  Christian Heller  <christian.heller@cybop.org>
 
         * Upload cybol tutorials to various video portals

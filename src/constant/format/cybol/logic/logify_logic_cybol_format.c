@@ -41,38 +41,21 @@
 /**
  * The logify/and logic cybol format.
  *
- * Apply a boolean AND operation.
- *
- * result = x AND y
- *
- * CAUTION! There are several ways to use this operation,
- * with unary or binary operators.
- * This function works like a UNARY operator.
- * The "output" parametre represents the FIRST operand;
- * the "input" parametre the SECOND.
- *
  * Description:
  *
-Applies the boolean logic operation AND.
+ * Applies the boolean logic operation AND.
  *
  * Examples:
  *
  * <node name="operation" channel="inline" format="logify/and" model="">
  *     <node name="output" channel="inline" format="text/cybol-path" model=".app.result"/>
  *     <node name="input" channel="inline" format="text/cybol-path" model=".app.operand"/>
- *     <node name="type" channel="inline" format="meta/type" model="number/byte"/>
  * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-output	the knowledge model in which the output is stored; used as first input operand	true	text/cybol-path
-input	the second input operand	true	text/cybol-path
-type	the type of both operands	true	meta/type
- *
- * Properties:
- * - output (required): the knowledge model in which the output is stored; used as first input operand
- * - input (required): the second input operand
+ * - output (required) [text/cybol-path]: The output resulting from the boolean logic operation. It initially represents the first input operand.
+ * - input (required) [text/cybol-path | logicvalue/boolean]: The second input operand.
  */
 static wchar_t* AND_LOGIFY_LOGIC_CYBOL_FORMAT = L"logify/and";
 static int* AND_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
