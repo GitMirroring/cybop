@@ -55,13 +55,14 @@ void serialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4, voi
  * @param p4 the source properties count
  * @param p5 the sign flag
  * @param p6 the number base
- * @param p7 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
- * @param p8 the decimal separator data
- * @param p9 the decimal separator count
- * @param p10 the decimal places
- * @param p11 the scientific notation flag
+ * @param p7 the prefix flag (some conversions like html numeric references do not want a "0x" prefix and prepend "&#x" themselves instead)
+ * @param p8 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param p9 the decimal separator data
+ * @param p10 the decimal separator count
+ * @param p11 the decimal places
+ * @param p12 the scientific notation flag
  */
-void serialise_cybol_compound(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void serialise_cybol_compound(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol compound.");
 
@@ -89,8 +90,8 @@ void serialise_cybol_compound(void* p0, void* p1, void* p2, void* p3, void* p4, 
     allocate_item((void*) &m, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
     allocate_item((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
-    serialise_cybol_part(m, p1, p2, p5, p6, p7, p8, p9, p10, p11);
-    serialise_cybol_part(p, p3, p4, p5, p6, p7, p8, p9, p10, p11);
+    serialise_cybol_part(m, p1, p2, p5, p6, p7, p8, p9, p10, p11, p12);
+    serialise_cybol_part(p, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
 
     //
     // Get temporary model, properties data, count.
@@ -113,7 +114,7 @@ void serialise_cybol_compound(void* p0, void* p1, void* p2, void* p3, void* p4, 
     int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Serialise temporary model, properties data, count into destination item.
-    serialise_xml_content(p0, md, mc, pd, pc, p5, p6, p7, p8, p9, p10, p11, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+    serialise_xml_content(p0, md, mc, pd, pc, p5, p6, p8, p9, p10, p11, p12, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
 
     // Deallocate temporary model, properties item.
     deallocate_item((void*) &m, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);

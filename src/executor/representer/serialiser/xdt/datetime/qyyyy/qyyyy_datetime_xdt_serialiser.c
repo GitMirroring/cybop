@@ -85,7 +85,7 @@ void serialise_xdt_datetime_qyyyy(void* p0, void* p1, void* p2) {
     serialise_xdt_datetime_qyyyy_quarter((void*) &q, (void*) &m);
 
     // Serialise year.
-    serialise_numeral_integer(yi, (void*) &y, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    serialise_numeral_integer(yi, (void*) &y, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // Get serialised item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -104,7 +104,7 @@ void serialise_xdt_datetime_qyyyy(void* p0, void* p1, void* p2) {
     //
 
     // The quarter.
-    serialise_numeral_integer(p0, (void*) &q, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    serialise_numeral_integer(p0, (void*) &q, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // The year.
     if (yr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

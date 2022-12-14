@@ -41,13 +41,14 @@
  * @param p1 the source number
  * @param p2 the sign flag
  * @param p3 the number base
- * @param p4 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
- * @param p5 the decimal separator data
- * @param p6 the decimal separator count
- * @param p7 the decimal places
- * @param p8 the scientific notation flag
+ * @param p4 the prefix flag (some conversions like html numeric references do not want a "0x" prefix and prepend "&#x" themselves instead)
+ * @param p5 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param p6 the decimal separator data
+ * @param p7 the decimal separator count
+ * @param p8 the decimal places
+ * @param p9 the scientific notation flag
  */
-void serialise_numeral_complex_cartesian(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void serialise_numeral_complex_cartesian(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral complex cartesian.");
     fwprintf(stdout, L"Debug: Serialise numeral complex cartesian. source number p1: %i\n", p1);
@@ -64,14 +65,14 @@ void serialise_numeral_complex_cartesian(void* p0, void* p1, void* p2, void* p3,
     get_complex_element((void*) &i, p1, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
 
     // Serialise real part.
-    serialise_numeral_fraction_decimal(p0, (void*) &r, p2, p3, p4, p5, p6, p7, p8);
+    serialise_numeral_fraction_decimal(p0, (void*) &r, p2, p3, p4, p5, p6, p7, p8, p9);
     //
     // Serialise imaginary part.
     //
     // CAUTION! The sign parametre value has to be set to TRUE in any case
     // in order to SEPARATE the imaginary from the real part.
     //
-    serialise_numeral_fraction_decimal(p0, (void*) &i, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4, p5, p6, p7, p8);
+    serialise_numeral_fraction_decimal(p0, (void*) &i, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4, p5, p6, p7, p8, p9);
 }
 
 /* CARTESIAN_COMPLEX_NUMERAL_SERIALISER_SOURCE */

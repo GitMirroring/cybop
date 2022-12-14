@@ -47,9 +47,12 @@ void serialise_percent_encoding_byte(void* p0, void* p1) {
     //
     // Serialise byte into string of two hexadecimal digits.
     //
-    // CAUTION! Hand over NUMBER BASE 16 as parametre!
+    // CAUTION! Hand over HEXADECIMAL number base as parametre!
     //
-    serialise_numeral_integer((void*) &i, rd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) HEXADECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    // CAUTION! Hand over prefix flag value FALSE, since a prefix "%"
+    // was already prepended above and the "0x" prefix is NOT wanted.
+    //
+    serialise_numeral_integer((void*) &i, rd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) HEXADECIMAL_BASE_NUMERAL_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 }
 
 /* BYTE_PERCENT_ENCODING_SERIALISER_SOURCE */

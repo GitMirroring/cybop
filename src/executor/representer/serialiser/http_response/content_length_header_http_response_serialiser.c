@@ -69,7 +69,7 @@ void serialise_http_response_header_content_length(void* p0, void* p1) {
     allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Serialise integer value into wide character item.
-    serialise_numeral_integer(i, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    serialise_numeral_integer(i, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     //
     // Get wide character item data, count.

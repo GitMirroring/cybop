@@ -163,6 +163,8 @@ ______________
         * Extend uri deserialiser
         * Study "libcurl3" library for URL transfer for new ideas and keywords yet missing in cyboi
 
+        * Uncomment call of function "serialise_percent_encoding_byte" in file "bytes_percent_encoding_serialiser.c"
+        * Complete file "character_percent_encoding_serialiser.c"
         * Call percent encoding serialiser for attributes of all parts in html serialiser, e.g. "href" attribute of an "a" tag
         * Ensure that non-encoded characters are copied as well in character reference deserialiser
         * Ensure that non-encoded characters are copied as well in percent encoding deserialiser

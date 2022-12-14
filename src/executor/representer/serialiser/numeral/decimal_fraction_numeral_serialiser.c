@@ -57,13 +57,14 @@
  * @param p1 the source double value
  * @param p2 the sign flag
  * @param p3 the number base
- * @param p4 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
- * @param p5 the decimal separator data
- * @param p6 the decimal separator count
- * @param p7 the decimal places
- * @param p8 the scientific notation flag
+ * @param p4 the prefix flag (some conversions like html numeric references do not want a "0x" prefix and prepend "&#x" themselves instead)
+ * @param p5 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param p6 the decimal separator data
+ * @param p7 the decimal separator count
+ * @param p8 the decimal places
+ * @param p9 the scientific notation flag
  */
-void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral fraction decimal.");
     //?? fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. source number p1: %i\n", p1);
@@ -104,10 +105,10 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
     // for NULL inside, but the argument handed over is a local variable's
     // pointer reference and thus NOT null, even if the actual value IS null.
     //
-    if ((p5 != *NULL_POINTER_STATE_CYBOI_MODEL) && (p6 != *NULL_POINTER_STATE_CYBOI_MODEL)) {
+    if ((p6 != *NULL_POINTER_STATE_CYBOI_MODEL) && (p7 != *NULL_POINTER_STATE_CYBOI_MODEL)) {
 
-        copy_pointer((void*) &sd, (void*) &p5);
-        copy_integer((void*) &sc, p6);
+        copy_pointer((void*) &sd, (void*) &p6);
+        copy_integer((void*) &sc, p7);
     }
 
     // Initialise temporary floating point number.
@@ -125,7 +126,7 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
     //?? fwprintf(stdout, L"Debug: Serialise numeral fraction decimal. absolute n: %f\n", n);
 
     // Check scientific notation flag.
-    compare_integer_unequal((void*) &r, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, p9, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -230,13 +231,13 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
     // CAUTION! Set sign flag to FALSE, since the SIGN got already appended above.
     // Otherwise, the destination wide character item would receive TWO signs.
     //
-    serialise_numeral_integer(p0, (void*) &pre, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4);
+    serialise_numeral_integer(p0, (void*) &pre, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4, p5);
 
     // Append decimal separator wide character to destination item.
     modify_item(p0, sd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &sc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
     // Serialise post-point value.
-    serialise_numeral_decimals(p0, (void*) &post, p3, p7);
+    serialise_numeral_decimals(p0, (void*) &post, p3, p8);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -244,7 +245,7 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
         modify_item(p0, (void*) SMALL_POWER_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) SMALL_POWER_NUMERAL_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
         // Serialise power exponent value.
-        serialise_numeral_integer(p0, (void*) &p, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4);
+        serialise_numeral_integer(p0, (void*) &p, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4, p5);
     }
 }
 

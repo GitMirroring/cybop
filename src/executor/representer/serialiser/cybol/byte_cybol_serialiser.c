@@ -97,7 +97,7 @@ void serialise_cybol_byte(void* p0, void* p1, void* p2) {
     //
     cast_array(id, p1, (void*) BYTE_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_CAST_LOGIC_CYBOI_FORMAT, ic, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-    serialise_numeral_integer(p0, id, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    serialise_numeral_integer(p0, id, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // Deallocate integer item.
     deallocate_item((void*) &i, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);

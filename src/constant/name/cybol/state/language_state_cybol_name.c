@@ -220,9 +220,11 @@ static int* POSITIONING_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_STAT
 /**
  * The prefix language state cybol name.
  *
- * The flag indicating whether or not to consider the number base prefix.
+ * The flag indicating whether or not to consider the number base prefix
+ * in the numeral deserialiser.
  *
- * Used with numeral deserialiser.
+ * The flag indicating whether or not to prepend a number base prefix
+ * in the numeral serialiser.
  */
 static wchar_t* PREFIX_LANGUAGE_STATE_CYBOL_NAME = L"prefix";
 static int* PREFIX_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -264,6 +266,8 @@ static int* SEPARATOR_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_C
 
 /**
  * The sign language state cybol name.
+ *
+ * The flag indicating whether or not to add a plus sign for positive numbers.
  *
  * Used with numeral serialiser.
  */

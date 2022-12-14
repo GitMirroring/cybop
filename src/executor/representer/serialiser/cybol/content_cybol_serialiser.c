@@ -49,8 +49,8 @@
 // Forward declarations
 //
 
-void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12);
-void serialise_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9);
+void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13);
+void serialise_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10);
 
 /**
  * Serialises the part element content into cybol.
@@ -97,13 +97,14 @@ void serialise_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4, void
  * @param p7 the source properties count
  * @param p8 the sign flag
  * @param p9 the number base
- * @param p10 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
- * @param p11 the decimal separator data
- * @param p12 the decimal separator count
- * @param p13 the decimal places
- * @param p14 the scientific notation flag
+ * @param p10 the prefix flag (some conversions like html numeric references do not want a "0x" prefix and prepend "&#x" themselves instead)
+ * @param p11 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param p12 the decimal separator data
+ * @param p13 the decimal separator count
+ * @param p14 the decimal places
+ * @param p15 the scientific notation flag
  */
-void serialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
+void serialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol content.");
     //?? fwprintf(stdout, L"Debug: Serialise cybol content. source format p3: %i\n", p3);
@@ -199,7 +200,7 @@ void serialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // Overwrite model of destination name, format, model part.
     modify_item(dnm, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
     serialise_cybol_format(dfm, p3);
-    serialise_cybol(dmm, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p8, p9, p10, p11, p12, p13, p14, p3);
+    serialise_cybol(dmm, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p8, p9, p10, p11, p12, p13, p14, p15, p3);
 
     //
     // Overwrite destination part.
@@ -222,7 +223,7 @@ void serialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
     copy_array_forward((void*) &pp, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
     // Append source properties to destination part's model.
-    serialise_cybol_part(pm, p6, p7, p8, p9, p10, p11, p12, p13, p14);
+    serialise_cybol_part(pm, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15);
 
     // Append destination name, format, model part to destination part's properties.
     modify_item(pp, (void*) &dn, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);

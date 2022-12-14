@@ -156,9 +156,12 @@ void serialise_character_reference_html(void* p0, void* p1) {
             //
             // Serialise source character code into wide character sequence.
             //
-            // CAUTION! Hand over NUMBER BASE 16 as parametre!
+            // CAUTION! Hand over HEXADECIMAL number base as parametre!
             //
-            serialise_numeral_integer(p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) HEXADECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+            // CAUTION! Hand over prefix flag value FALSE, since a prefix "&#x"
+            // was already prepended above and the "0x" prefix is NOT wanted.
+            //
+            serialise_numeral_integer(p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) HEXADECIMAL_BASE_NUMERAL_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
             // Append ; end character reference name.
             modify_item(p0, (void*) END_CHARACTER_REFERENCE_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) END_CHARACTER_REFERENCE_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 

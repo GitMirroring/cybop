@@ -60,9 +60,10 @@
  * @param p1 the source integer value
  * @param p2 the sign flag
  * @param p3 the number base
- * @param p4 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param p4 the prefix flag (some conversions like html numeric references do not want a "0x" prefix and prepend "&#x" themselves instead)
+ * @param p5 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
  */
-void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral integer.");
     //?? fwprintf(stdout, L"Debug: Serialise numeral integer. source number p1: %i\n", p1);
@@ -97,6 +98,8 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4)
     int s = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The number base.
     int nb = *DECIMAL_BASE_NUMERAL_MODEL;
+    // The prefix flag comparison result.
+    int p = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The zero flag comparison result.
     int z = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The digit as wide character.
@@ -141,8 +144,13 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4)
     // Initialise number base.
     copy_integer((void*) &nb, p3);
 
-    // Append suitable prefix depending on the given number base.
-    serialise_numeral_prefix(p0, (void*) &nb, p4);
+    compare_integer_unequal((void*) &p, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    if (p != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Append suitable prefix depending on the given number base.
+        serialise_numeral_prefix(p0, (void*) &nb, p5);
+    }
 
     //
     // Assembling

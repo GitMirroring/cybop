@@ -101,8 +101,8 @@ void serialise_ansi_escape_code_position(void* p0, void* p1, void* p2) {
     calculate_integer_add((void*) &cx, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
     // Serialise integer values into wide character items.
-    serialise_numeral_integer(iy, (void*) &cy, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-    serialise_numeral_integer(ix, (void*) &cx, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    serialise_numeral_integer(iy, (void*) &cy, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    serialise_numeral_integer(ix, (void*) &cx, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     //
     // Get y, x wide character items data, count.

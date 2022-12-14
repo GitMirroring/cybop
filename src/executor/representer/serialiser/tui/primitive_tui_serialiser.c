@@ -80,7 +80,7 @@ void serialise_tui_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, v
     allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Serialise primitive data using cybol serialiser.
-    serialise_cybol(i, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
+    serialise_cybol(i, p2, p3, p4, p5, p6, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p8, p9, p10, p11, p12, p13);
 
     //
     // Get wide character item data, count.

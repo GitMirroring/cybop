@@ -42,13 +42,14 @@
  * @param p2 the source model count
  * @param p3 the sign flag
  * @param p4 the number base
- * @param p5 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
- * @param p6 the decimal separator data
- * @param p7 the decimal separator count
- * @param p8 the decimal places
- * @param p9 the scientific notation flag
+ * @param p5 the prefix flag (some conversions like html numeric references do not want a "0x" prefix and prepend "&#x" themselves instead)
+ * @param p6 the classic octal prefix flag (true means 0 as in c/c++; false means modern style 0o as in perl and python)
+ * @param p7 the decimal separator data
+ * @param p8 the decimal separator count
+ * @param p9 the decimal places
+ * @param p10 the scientific notation flag
  */
-void serialise_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void serialise_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol part.");
 
@@ -81,7 +82,7 @@ void serialise_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4, void
             break;
         }
 
-        serialise_cybol_element(p0, p1, (void*) &j, p3, p4, p5, p6, p7, p8, p9);
+        serialise_cybol_element(p0, p1, (void*) &j, p3, p4, p5, p6, p7, p8, p9, p10);
 
         // Increment loop variable.
         j++;

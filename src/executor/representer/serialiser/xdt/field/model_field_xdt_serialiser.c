@@ -143,7 +143,7 @@ void serialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_numeral_fraction_decimal(p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            serialise_numeral_fraction_decimal(p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -153,7 +153,7 @@ void serialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_numeral_integer(p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+            serialise_numeral_integer(p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
         }
     }
 

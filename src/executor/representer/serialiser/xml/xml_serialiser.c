@@ -89,7 +89,7 @@ void serialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Leave processing of other formats to cybol serialiser.
-        serialise_cybol(p0, p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3, p4, p5, p6, p7, p8, p9, p13);
+        serialise_cybol(p0, p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3, p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p5, p6, p7, p8, p9, p13);
     }
 }
 
