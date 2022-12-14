@@ -108,15 +108,20 @@ void apply_retrieve(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // The default minimum value is understood inclusive.
     int minimum = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    //
     // The default maximum value is understood exclusive.
+    //
     // In the GNU C Library, RAND_MAX is 2147483647, which is
     // the largest signed integer representable in 32 bits.
+    //
     int maximum = RAND_MAX;
 
+    //
     // CAUTION! The following values are ONLY copied,
     // if the source value is NOT NULL.
     // This is tested inside the "copy_integer" function.
     // Otherwise, the destination value remains as is.
+    //
 
     // Use the explicit minimum that was given as argument.
     copy_integer((void*) &minimum, minmd);

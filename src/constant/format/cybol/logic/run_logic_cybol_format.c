@@ -41,13 +41,24 @@
 /**
  * The run/run logic cybol format.
  *
- * Run the given programme.
- *
  * Description:
  *
-Runs a local program
+ * Executes a local programme.
  *
  * Examples:
+ *
+ * <node name="start_mc" channel="inline" format="run/run" model="">
+ *     <node name="programme" channel="inline" format="text/plain" model="mc"/>
+ * </node>
+ *
+ * <node name="start_dosemu" channel="inline" format="run/run" model="">
+ *     <node name="programme" channel="inline" format="text/plain" model="xdosemu"/>
+ * </node>
+ *
+ * <!-- Sleep for some time so that the output can be read by the user. -->
+ * <node name="run_shell_command" channel="inline" format="run/run" model="">
+ *     <node name="programme" channel="inline" format="text/plain" model="sleep 1.8"/>
+ * </node>
  *
  * <node name="execute_shell_script" channel="inline" format="run/run" model="">
  *     <node name="programme" channel="file" format="text/plain" model="password_generator/sleep_timer.sh"/>
@@ -55,11 +66,7 @@ Runs a local program
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-programme	The program to be run.	true	path/* | meta/channel
- *
- * Properties:
- * - programme: the programme to be run
+ * - programme (required) [text/cybol-path]: The programme to be executed.
  */
 static wchar_t* RUN_LOGIC_CYBOL_FORMAT = L"run/run";
 static int* RUN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -67,14 +74,11 @@ static int* RUN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_AR
 /**
  * The run/sleep-nano logic cybol format.
  *
- * Suspends execution of the calling thread for nanoseconds.
- * May be lengthened slightly by any system activity
- * or by the time spent processing the call
- * or by the granularity of system timers.
- *
  * Description:
  *
-Puts the executing thread to sleep for at least x nanoseconds (the actual duration may differ depending on the systems load and timer accuracy)
+ * Puts the executing thread to sleep for at least x nanoseconds.
+ *
+ * Caution! The actual duration may differ depending on the system's load and timer accuracy.
  *
  * Examples:
  *
@@ -84,11 +88,7 @@ Puts the executing thread to sleep for at least x nanoseconds (the actual durati
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-duration	The amount of nanoseconds to sleep	true	path/* | meta/channel
- *
- * Properties:
- * - duration: the time to sleep
+ * - duration (required) [text/cybol-path | number/integer]: The time as amount of nanoseconds to sleep.
  */
 static wchar_t* NANO_SLEEP_RUN_LOGIC_CYBOL_FORMAT = L"run/sleep-nano";
 static int* NANO_SLEEP_RUN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -96,28 +96,21 @@ static int* NANO_SLEEP_RUN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
 /**
  * The run/sleep-second logic cybol format.
  *
- * Suspends execution of the calling thread for seconds.
- * May be lengthened slightly by any system activity
- * or by the time spent processing the call
- * or by the granularity of system timers.
- *
  * Description:
  *
-Puts the executing thread to sleep for at least x seconds (the actual duration may differ depending on the systems load and timer accuracy)
+ * Puts the executing thread to sleep for at least x seconds.
+ *
+ * Caution! The actual duration may differ depending on the system's load and timer accuracy.
  *
  * Examples:
  *
  * <node name="sleep" channel="inline" format="run/sleep-second" model="">
- *     <node name="duration" channel="inline" format="text/cybol-path" model=".settings.voltage_sleep"/>
+ *     <node name="duration" channel="inline" format="text/cybol-path" model=".var.sleeptime"/>
  * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-duration	The amount of seconds to sleep	true	path/* | meta/channel
- *
- * Properties:
- * - duration: the time to sleep
+ * - duration (required) [text/cybol-path | number/integer]: The time as amount of seconds to sleep.
  */
 static wchar_t* SECOND_SLEEP_RUN_LOGIC_CYBOL_FORMAT = L"run/sleep-second";
 static int* SECOND_SLEEP_RUN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;

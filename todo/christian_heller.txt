@@ -51,10 +51,7 @@ ___
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/cast_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/access_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/sort_logic_cybol_format.c"
-        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/time_logic_cybol_format.c"
-        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/run_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/manipulate_logic_cybol_format.c"
-        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/randomise_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/contain_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/command_logic_cybol_format.c"
 

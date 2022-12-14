@@ -41,38 +41,31 @@
 /**
  * The access/count logic cybol format.
  *
- * Count parts of a compound part.
+ * Description:
  *
+ * Counts the child nodes of a compound node of type "element/part" or "element/properties".
  *
+ * Examples:
  *
- * Expected parametres:
- * - count (required): the knowledge model in which to store the result
- * - part (required): the part whose elements are to be counted
- * - selection (optional; if null, the element count is returned without any comparison):
- *   the area of the elements' names to be compared;
- *   may be one of: all, prefix, suffix, subsequence
- * - filter (optional; corresponds with "selection" property):
- *   string to compare the elements' names with;
- *   only those parts will be counted whose name matches the filter string
---
-    Description
-
-    Count parts of a compound part.
-    Example
-
-    <node name="count" channel="inline" format="access/count" model="">
-        <node name="count" channel="inline" format="text/cybol-path" model=".count"/>
-        <node name="part" channel="inline" format="text/cybol-path" model=".addition_application"/>
-        <node name="selection" channel="inline" format="text/plain" model="subsequence"/>
-        <node name="filter" channel="inline" format="text/plain" model="summand"/>
-    </node>
-    Properties
-    Name	Description	Required	Format	Model
-    count	The knowledge model in which to store the result.	true	path/*
-    part	The part whose elements to be counted.	true	path/* | number/*
-    selection	The area of the elements names, to be compared. May be one of: all, suffix, prefix, subsequence. If null the element count is compared without comparison.	false	path/* | meta/type
-    filter	String to compare the elements with. Elements will only be counted if matching the filter string.	false	path/* | meta/type
---
+ * <node name="count_lecturers" channel="inline" format="access/count" model="">
+ *     <node name="count" channel="inline" format="text/cybol-path" model=".count"/>
+ *     <node name="part" channel="inline" format="text/cybol-path" model=".domain.lecturers"/>
+ * </node>
+ *
+ * <node name="count_weekdays" channel="inline" format="access/count" model="">
+ *     <node name="count" channel="inline" format="text/cybol-path" model="#column_count"/>
+ *     <node name="part" channel="inline" format="text/cybol-path" model=".domain.weekdays"/>
+ * </node>
+ *
+ * <node name="count_nodes" channel="inline" format="access/count" model="">
+ *     <node name="count" channel="inline" format="text/cybol-path" model="#count"/>
+ *     <node name="part" channel="inline" format="text/cybol-path" model=".db.(#list)"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - count (required) [text/cybol-path]: The number of counted child nodes as result.
+ * - part (required) [text/cybol-path]: The compound node of type "element/part" or "element/properties" whose child nodes are to be counted.
  */
 static wchar_t* COUNT_ACCESS_LOGIC_CYBOL_FORMAT = L"access/count";
 static int* COUNT_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;

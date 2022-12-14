@@ -73,24 +73,19 @@ static int* ARCHIVE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
 /**
  * The command/change-directory logic cybol format.
  *
- * Change the directory.
- *
  * Description:
  *
-Changes the directory.
+ * Changes the current working directory via shell command.
  *
  * Examples:
  *
+ * <node name="change_directory" channel="inline" format="command/change-directory" model="">
+ *     <node name="directory" channel="inline" format="text/plain" model="../src/controller/"/>
+ * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
- *
- * Expected parametres:
- * - path (required): path to the directory
- * - not follow symbolic link (optional): Do not follow symbolic links
- * - follow symbolic link (optional): Follow symbolic links
- * - change current drive (optional): change the current drive in addition to changing folder
+ * - directory (required) [text/cybol-path | text/plain]: The new working directory.
  */
 static wchar_t* CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOL_FORMAT = L"command/change-directory";
 static int* CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;

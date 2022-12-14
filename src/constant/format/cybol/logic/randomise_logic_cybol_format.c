@@ -41,35 +41,42 @@
 /**
  * The randomise/retrieve logic cybol format.
  *
- * Retrieve next pseudo-random number in the series.
- *
  * Description:
  *
-Retrieve next pseudo-random number in the series.
+ * Retrieves the next pseudo-random number in the series.
+ *
+ * Caution! If calling "randomise/retrieve" before a seed has been established with "randomise/sow", the value of 1 is used as default seed inside glibc.
  *
  * Examples:
  *
- * <node name="get_random_number_1" channel="inline" format="randomise/retrieve" model="">
- *     <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_1"/>
+ * <node name="get_next_random_number" channel="inline" format="randomise/retrieve" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".game.board.field_1"/>
  *     <node name="minimum" channel="inline" format="number/integer" model="2"/>
  *     <node name="maximum" channel="inline" format="number/integer" model="14"/>
- *     <node name="seed" channel="inline" format="text/cybol-path" model=".app.var.seed"/>
+ * </node>
+ *
+ * <!--
+ *     Operation calls using the same seed deliver identical pseudo random numbers.
+ *     Ideally, the seed should change with every call.
+ *     Therefore, the current time is determined as seed here.
+ * -->
+ * <node name="get_time" channel="inline" format="time/current" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".seed"/>
+ * </node>
+ * <node name="set_seed" channel="inline" format="randomise/sow" model="">
+ *     <node name="seed" channel="inline" format="text/cybol-path" model=".seed"/>
+ * </node>
+ * <node name="get_random_number" channel="inline" format="randomise/retrieve" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".number"/>
+ *     <node name="minimum" channel="inline" format="number/integer" model="1"/>
+ *     <node name="maximum" channel="inline" format="number/integer" model="9"/>
  * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-result	The path where the retrieved random value is written to.	true	text/cybol-path
-minimum	The lower bound of the to generate value. (inclusive)	true	meta/type
-maximum	The upper bound of the to generate value.	true	meta/type
-seed	The path to the seed used for generating the random value.	true	text/cybol-path
- *
- * Expected parametres:
- * - result (required): the time
- * - minimum (optional; if null, the value of zero will be used instead):
- *   the minimum (inclusive)
- * - maximum (optional; if null, the GNU C Library's RAND_MAX value 2147483647 which is the largest signed integer representable in 32 bits will be used instead):
- *   the maximum (exclusive)
+ * - result (required) [text/cybol-path]: The pseudo-random value delivered by the system.
+ * - minimum (optional) [text/cybol-path | number/integer]: The lower bound (inclusive) of the value to be generated. If null, the default is zero.
+ * - maximum (optional) [text/cybol-path | number/integer]: The upper bound (exclusive) of the value to be generated. If null, the default is RAND_MAX. The GNU C Library's RAND_MAX value 2147483647 is the largest signed integer representable in 32 bits.
  */
 static wchar_t* RETRIEVE_RANDOMISE_LOGIC_CYBOL_FORMAT = L"randomise/retrieve";
 static int* RETRIEVE_RANDOMISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -77,11 +84,9 @@ static int* RETRIEVE_RANDOMISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
 /**
  * The randomise/sow logic cybol format.
  *
- * Sow a seed for a new series of pseudo-random numbers.
- *
  * Description:
  *
-Sow a seed for a new series of pseudo-random numbers.
+ * Sows a seed for a new series of pseudo-random numbers.
  *
  * Examples:
  *
@@ -89,13 +94,26 @@ Sow a seed for a new series of pseudo-random numbers.
  *     <node name="seed" channel="inline" format="text/cybol-path" model=".app.var.seed"/>
  * </node>
  *
+ * <!--
+ *     Operation calls using the same seed deliver identical pseudo random numbers.
+ *     Ideally, the seed should change with every call.
+ *     Therefore, the current time is determined as seed here.
+ * -->
+ * <node name="get_time" channel="inline" format="time/current" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".seed"/>
+ * </node>
+ * <node name="set_seed" channel="inline" format="randomise/sow" model="">
+ *     <node name="seed" channel="inline" format="text/cybol-path" model=".seed"/>
+ * </node>
+ * <node name="get_random_number" channel="inline" format="randomise/retrieve" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".number"/>
+ *     <node name="minimum" channel="inline" format="number/integer" model="1"/>
+ *     <node name="maximum" channel="inline" format="number/integer" model="9"/>
+ * </node>
+ *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-seed	The path where the seed is written to.	true	text/cybol-path
- *
- * Expected parametres:
- * - seed (required): the source seed to be established for a new series of pseudo-random numbers
+ * - seed (required) [text/cybol-path | number/integer]: The source seed to be established for a new series of pseudo-random numbers.
  */
 static wchar_t* SOW_RANDOMISE_LOGIC_CYBOL_FORMAT = L"randomise/sow";
 static int* SOW_RANDOMISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;

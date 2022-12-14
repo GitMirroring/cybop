@@ -41,25 +41,36 @@
 /**
  * The time/current logic cybol format.
  *
- * Retrieve the current time from the system.
- *
  * Description:
  *
-Retrieves the current time from the system.
+ * Retrieves the current system time in nano seconds, divided by 1000.
  *
  * Examples:
  *
- * <node name="retrieveCurrentTime" channel="inline" format="time/current" model="">
- *     <node name="result" channel="inline" format="text/cybol-path" model=".model"/>
+ * <node name="determine_current_time" channel="inline" format="time/current" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".integer_variable"/>
+ * </node>
+ *
+ * <!--
+ *     Operation calls using the same seed deliver identical pseudo random numbers.
+ *     Ideally, the seed should change with every call.
+ *     Therefore, the current time is determined as seed here.
+ * -->
+ * <node name="get_time" channel="inline" format="time/current" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".seed"/>
+ * </node>
+ * <node name="set_seed" channel="inline" format="randomise/sow" model="">
+ *     <node name="seed" channel="inline" format="text/cybol-path" model=".seed"/>
+ * </node>
+ * <node name="get_random_number" channel="inline" format="randomise/retrieve" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".number"/>
+ *     <node name="minimum" channel="inline" format="number/integer" model="1"/>
+ *     <node name="maximum" channel="inline" format="number/integer" model="9"/>
  * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-result	retrieves the current time in nano second divided by 1000 and put it the the model. Model type needs to be integer.	true	path/* | meta/channel
- *
- * Expected parametres:
- * - result (required): the destination time
+ * - result (required) [text/cybol-path]: The node storing the result value.
  */
 static wchar_t* CURRENT_TIME_LOGIC_CYBOL_FORMAT = L"time/current";
 static int* CURRENT_TIME_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;

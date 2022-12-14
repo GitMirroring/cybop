@@ -41,31 +41,23 @@
 /**
  * The sort/bubble logic cybol format.
  *
- * Sort numbers via bubblesort-algorithm.
- *
  * Description:
  *
-Sort numbers via bubble-algorithm.
+ * Sorts numbers via bubblesort algorithm.
  *
  * Examples:
  *
- * <node name="sort" channel="inline" format="sort/bubble" model="">
- *     <node name="output" channel="inline" format="text/cybol-path" model=".result"/>
- *     <node name="input" channel="inline" format="text/cybol-path" model=".unsorted"/>
+ * <node name="sort_by_title" channel="inline" format="sort/bubble" model="">
+ *     <node name="part" channel="inline" format="text/cybol-path" model=".db.(#list)"/>
+ *     <!-- The stack variable #list contains one of ".artist" or ".title" as child nodes of a song. -->
+ *     <node name="criterion" channel="inline" format="text/plain" model=".(#list)"/>
  * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-output	The path where the sort numbers will be written to.	true	path/* | meta/channel
-input	The path where the numbers for the are taken from.	true	path/* | meta/channel
- *
- * Expected parametres:
- * - part (required): the knowledge model to be sorted
- * - criterion (optional): the comparison criterion used for sorting parts
- * - descending (optional; the default is "false"): the sort direction flag;
- *   false = ascending sort order;
- *   true = descending sort order
+ * - part (required) [text/cybol-path]: The part whose child nodes are to be sorted.
+ * - criterion (required) [text/plain]: The element (usually a string) to be used for comparison. It is given as plain text path to a sub element of each of the child parts that are to be sorted. Caution! Do NOT use format text/cybol-path, but text/plain instead.
+ * - descending (optional) [text/cybol-path | logicvalue/boolean]: The descending sort direction flag. If null, the default is false (ascending).
  */
 static wchar_t* BUBBLE_SORT_LOGIC_CYBOL_FORMAT = L"sort/bubble";
 static int* BUBBLE_SORT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;

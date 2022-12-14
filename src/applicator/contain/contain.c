@@ -39,13 +39,6 @@
 /**
  * Compares if the bounded area contains the value.
  *
- * The "selection" parametre is mostly needed for comparing models of type "character".
- * But also numbers may be given as vectors, e.g. the integer sequence "1,2,3".
- * However, this function relies on it, for finding the right comparison function to call.
- * Therefore, that parametre IS REQUIRED.
- *
- * Constraints:
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)

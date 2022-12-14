@@ -124,10 +124,12 @@ void apply_manipulate(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     int count = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int index = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+    //
     // CAUTION! The following values are ONLY copied,
     // if the source value is NOT NULL.
     // This is tested inside the "copy_integer" function.
     // Otherwise, the destination value remains as is.
+    //
 
     // Use the value part model count by default.
     copy_integer((void*) &count, vmc);

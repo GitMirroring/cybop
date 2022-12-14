@@ -41,32 +41,30 @@
 /**
  * The manipulate/check logic cybol format.
  *
- * Manipulates the bit at the given position by applying the given operation to the given value.
- * It corresponds to the "BT" (bit) or "BTST" (bit test) assembler command.
- *
  * Description:
  *
-Gets the bit at the given position.
+ * Gets the bit at the given position.
+ *
+ * This bit manipulation operation corresponds to the "BT" (bit) or "BTST" (bit test) assembler command.
  *
  * Examples:
  *
+ * <node name="get_bit" channel="inline" format="manipulate/check" model="">
+ *     <node name="value" channel="inline" format="text/cybol-path" model=".number"/>
+ *     <node name="position" channel="inline" format="number/integer" model="4"/>
+ * </node>
+ *
+ * <node name="use_stack_variable" channel="inline" format="manipulate/check" model="">
+ *     <node name="value" channel="inline" format="text/cybol-path" model=".number"/>
+ *     <node name="position" channel="inline" format="text/cybol-path" model="#pos"/>
+ * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-value	The knowledge model representing the value.	true	path/*
-position	The bit position within the value.	true	path/* | number/*
-type	The value type.	true	path/* | meta/type
-count	The number of values to be manipulated (if null, the value part model count will be used instead).	false	path/* | number/*
-index	The index from which to start manipulating values (if null, an index of zero will be used instead).	false	path/* | number/*
- *
- * Expected parametres:
- * - value (required): the knowledge model representing the value
- * - position (required): the bit position within the value
- * - count (optional; if null, the value part model count will be used instead):
- *   the number of values to be manipulated
- * - index (optional; if null, an index of zero will be used instead):
- *   the index from which to start manipulating values
+ * - value (required) [text/cybol-path]: The value which is to be manipulated.
+ * - position (required) [text/cybol-path | number/integer]: The bit position within the value.
+ * - count (optional) [text/cybol-path | number/integer]: The number of values to be manipulated. If null, the default is the value count.
+ * - index (optional) [text/cybol-path | number/integer]: The index from which to start manipulating values. If null, the default is zero.
  */
 static wchar_t* CHECK_MANIPULATE_LOGIC_CYBOL_FORMAT = L"manipulate/check";
 static int* CHECK_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;

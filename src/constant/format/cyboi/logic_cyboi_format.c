@@ -323,17 +323,14 @@ static int* UNEQUAL_COMPARE_LOGIC_CYBOI_FORMAT = NUMBER_1505_INTEGER_STATE_CYBOI
 // contain
 //
 
-/** The both contain logic cyboi format. */
-static int* BOTH_CONTAIN_LOGIC_CYBOI_FORMAT = NUMBER_1550_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The any contain logic cyboi format. */
+static int* ANY_CONTAIN_LOGIC_CYBOI_FORMAT = NUMBER_1550_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The left contain logic cyboi format. */
 static int* LEFT_CONTAIN_LOGIC_CYBOI_FORMAT = NUMBER_1551_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The none contain logic cyboi format. */
-static int* NONE_CONTAIN_LOGIC_CYBOI_FORMAT = NUMBER_1552_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The right contain logic cyboi format. */
-static int* RIGHT_CONTAIN_LOGIC_CYBOI_FORMAT = NUMBER_1553_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* RIGHT_CONTAIN_LOGIC_CYBOI_FORMAT = NUMBER_1552_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // convert
