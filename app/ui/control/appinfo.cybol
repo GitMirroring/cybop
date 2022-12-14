@@ -1,0 +1,12 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="Text User Interface (TUI) Application"/>
+    <node name="version" channel="inline" format="text/plain" model="0.24.0"/>
+    <node name="date" channel="inline" format="text/plain" model="2022-12-24"/>
+    <node name="slogan" channel="inline" format="text/plain" model="-- Cybernetics Oriented Programming (CYBOP) --"/>
+    <node name="copyright" channel="inline" format="text/plain" model="Copyright (C) 1999-2022. Christian Heller."/>
+    <node name="contact" channel="inline" format="text/plain" model="http://www.cybop.org/"/>
+    <node name="authors" channel="inline" format="text/plain" model="Christian Heller &#60;christian.heller@cybop.org&#62;"/>
+    <node name="licence" channel="inline" format="text/plain" model="This software is published under the GPL GNU General Public Licence."/>
+
+</node>

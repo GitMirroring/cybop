@@ -1,0 +1,10 @@
+<node>
+
+    <node name="set_navigation_destination" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.navigation"/>
+        <node name="source" channel="inline" format="text/plain" model=":next"/>
+    </node>
+
+    <node name="update_tui" channel="inline" format="text/cybol-path" model=".logic.ui.update"/>
+
+</node>

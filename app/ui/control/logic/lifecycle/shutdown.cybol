@@ -1,0 +1,32 @@
+<node>
+
+    <!-- Closing -->
+
+    <node name="close_stdin" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".var.stdin"/>
+    </node>
+    <node name="close_stdout" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".var.stdout"/>
+    </node>
+
+    <!-- Destruction -->
+
+    <!--
+        CAUTION! Do NOT destroy the whole knowledge tree (heap) here since otherwise,
+        also THIS model is destroyed in memory so that the exit operation
+        below cannot be executed anymore. The rubbish (garbage) collector
+        cares about destruction evaluating references.
+        The exit operation is the last one to be called. It cleans up all memory.
+
+        <node name="destroy_app" channel="inline" format="memorise/destroy" model="">
+            <node name="part" channel="inline" format="text/cybol-path" model="."/>
+        </node>
+    -->
+
+    <!-- Exit -->
+
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
+</node>

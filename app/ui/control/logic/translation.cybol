@@ -1,0 +1,5 @@
+<node>
+
+    <node name="translate_appinfo_to_about" channel="file" format="element/part" model="ui/control/logic/translation/translate_appinfo_to_about.cybol"/>
+
+</node>

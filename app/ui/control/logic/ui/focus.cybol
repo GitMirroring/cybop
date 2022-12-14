@@ -1,0 +1,29 @@
+<node>
+
+    <node name="assemble_current_element_background_1" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.character"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".tui.main.menu:focus"/>
+    </node>
+    <node name="assemble_current_element_background_2" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.character"/>
+        <node name="source" channel="inline" format="text/plain" model=":background"/>
+    </node>
+    <node name="focus_background" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="{.var.character}"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".settings.selection.background"/>
+    </node>
+
+    <node name="assemble_current_element_foreground_1" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.character"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".tui.main.menu:focus"/>
+    </node>
+    <node name="assemble_current_element_foreground_2" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.character"/>
+        <node name="source" channel="inline" format="text/plain" model=":foreground"/>
+    </node>
+    <node name="focus_foreground" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="{.var.character}"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".settings.selection.foreground"/>
+    </node>
+
+</node>

@@ -1,0 +1,87 @@
+<!--
+    This application generates a web page file "wui.html" representing a
+    web user interface (wui) with heading, text, table and colourful formatting.
+-->
+
+<node>
+
+    <!-- Creation -->
+
+    <node name="create_fileid" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="id"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+    <node name="create_wui" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="wui"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+    </node>
+
+    <!-- Initialisation -->
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="ui/wui/wui.cybol"/>
+    </node>
+    <node name="initialise_wui" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui"/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+    <!-- Generation -->
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="ui/wui/wui.html"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
+    </node>
+    <node name="generate_html" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/html">
+            <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
+        </node>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.index"/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+    <!-- Test -->
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="ui/wui/test_wui.txt"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
+    </node>
+    <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui"/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+    <!-- Shutdown -->
+
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
+</node>

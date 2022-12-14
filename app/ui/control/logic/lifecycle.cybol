@@ -1,0 +1,6 @@
+<node>
+
+    <node name="startup" channel="file" format="element/part" model="ui/control/logic/lifecycle/startup.cybol"/>
+    <node name="shutdown" channel="file" format="element/part" model="ui/control/logic/lifecycle/shutdown.cybol"/>
+
+</node>

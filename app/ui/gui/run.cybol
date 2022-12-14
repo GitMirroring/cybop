@@ -1,0 +1,70 @@
+<!--
+    This application paints geometrical rectangles into a graphical window,
+    also called a graphical user interface (gui).
+    Two buttons print a message on terminal and the third exits the programme.
+-->
+
+<node>
+
+    <!-- Creation -->
+
+    <node name="create_fileid" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="id"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+
+    <!-- Initialisation -->
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="ui/gui/app.cybol"/>
+    </node>
+    <node name="initialise_app" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+    <!-- Startup -->
+
+    <node name="open_stdout" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="device" channel="inline" format="text/plain" model="standard-output"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
+    </node>
+    <node name="startup_display" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
+    </node>
+    <node name="open_window" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
+        <!-- Open client window in SERVER mode, so that it gets stored in the display server. -->
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
+    </node>
+
+    <!-- Display -->
+
+    <node name="show_window" channel="inline" format="text/cybol-path" model=".logic.refresh_display"/>
+
+    <!-- Sensing -->
+
+    <node name="enable_server" channel="inline" format="activate/enable" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
+    </node>
+
+    <node name="sense_client_window_data" channel="inline" format="feel/sense" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
+        <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle"/>
+    </node>
+
+</node>

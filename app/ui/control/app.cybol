@@ -1,0 +1,12 @@
+<node>
+
+    <node name="var" channel="file" format="element/part" model="ui/control/var.cybol"/>
+
+    <node name="appinfo" channel="file" format="element/part" model="ui/control/appinfo.cybol"/>
+
+    <node name="tui" channel="file" format="element/part" model="ui/control/tui.cybol"/>
+    <node name="settings" channel="file" format="element/part" model="ui/control/settings.cybol"/>
+
+    <node name="logic" channel="file" format="element/part" model="ui/control/logic.cybol"/>
+
+</node>

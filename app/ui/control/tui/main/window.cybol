@@ -1,0 +1,28 @@
+<node>
+
+    <node name="header" channel="file" format="element/part" model="ui/control/tui/main/header.cybol">
+        <node name="super" channel="inline" format="text/cybol-path" model=".settings.menu_header"/>
+        <node name="position" channel="inline" format="number/integer" model="1,1"/>
+        <node name="size" channel="inline" format="number/integer" model="78,1"/>
+    </node>
+
+    <node name="menu" channel="file" format="element/part" model="ui/control/tui/main/menu.cybol">
+        <node name="super" channel="inline" format="text/cybol-path" model=".settings.menu"/>
+        <node name="position" channel="inline" format="number/integer" model="5,5"/>
+        <node name="size" channel="inline" format="number/integer" model="70,15"/>
+        <!--
+            CAUTION! The format is "text/cybol-path" and NOT "text/plain".
+            Otherwise, parts with a reference path pointing to here
+            will not get processed correctly.
+            A knowledge path is treated like a character array anyway.
+        -->
+        <node name="focus" channel="inline" format="text/cybol-path" model=".tui.main.menu.mc"/>
+    </node>
+
+    <node name="footer" channel="file" format="element/part" model="ui/control/tui/main/footer.cybol">
+        <node name="super" channel="inline" format="text/cybol-path" model=".settings.menu_footer"/>
+        <node name="position" channel="inline" format="number/integer" model="1,22"/>
+        <node name="size" channel="inline" format="number/integer" model="78,1"/>
+    </node>
+
+</node>

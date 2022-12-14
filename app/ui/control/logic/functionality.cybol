@@ -1,0 +1,13 @@
+<node>
+
+    <node name="start_mc" channel="inline" format="run/run" model="">
+        <node name="programme" channel="inline" format="text/plain" model="konsole -e mc"/>
+    </node>
+
+    <node name="start_dosemu" channel="inline" format="run/run" model="">
+        <node name="programme" channel="inline" format="text/plain" model="dosemu"/>
+    </node>
+
+    <node name="change_colour" channel="file" format="element/part" model="ui/control/logic/functionality/change_colour.cybol"/>
+
+</node>

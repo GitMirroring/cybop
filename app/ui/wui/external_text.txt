@@ -1,0 +1,4 @@
+<node name="add" channel="inline" format="calculate/add" model="">
+    <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+    <node name="operand" channel="inline" format="number/integer" model="1,2,3"/>
+</node>

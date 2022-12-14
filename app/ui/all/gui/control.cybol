@@ -1,0 +1,21 @@
+<node>
+
+    <node name="world_button" channel="file" format="element/part" model="ui/all/gui/world_button.cybol">
+        <node name="position" channel="inline" format="number/integer" model="20,0"/>
+        <node name="size" channel="inline" format="number/integer" model="100,40"/>
+        <!-- grey -->
+        <node name="foreground" channel="inline" format="colour/rgb" model="128,128,128"/>
+        <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
+        <node name="button-release" channel="inline" format="text/plain" model=".logic.greet-world"/>
+    </node>
+
+    <node name="cybop_button" channel="file" format="element/part" model="ui/all/gui/cybop_button.cybol">
+        <node name="position" channel="inline" format="number/integer" model="280,0"/>
+        <node name="size" channel="inline" format="number/integer" model="100,40"/>
+        <!-- grey -->
+        <node name="foreground" channel="inline" format="colour/rgb" model="128,128,128"/>
+        <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
+        <node name="button-release" channel="inline" format="text/plain" model=".logic.greet-cybop"/>
+    </node>
+
+</node>

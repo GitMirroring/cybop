@@ -1,0 +1,16 @@
+<node>
+
+    <node name="update" channel="file" format="element/part" model="ui/control/logic/ui/update.cybol"/>
+
+    <node name="focus" channel="file" format="element/part" model="ui/control/logic/ui/focus.cybol"/>
+    <node name="unfocus" channel="file" format="element/part" model="ui/control/logic/ui/unfocus.cybol"/>
+
+    <node name="select_previous" channel="file" format="element/part" model="ui/control/logic/ui/select_previous.cybol"/>
+    <node name="select_next" channel="file" format="element/part" model="ui/control/logic/ui/select_next.cybol"/>
+
+    <node name="enter" channel="file" format="element/part" model="ui/control/logic/ui/enter.cybol"/>
+
+    <node name="show_main" channel="file" format="element/part" model="ui/control/logic/ui/show_main.cybol"/>
+    <node name="show_about" channel="file" format="element/part" model="ui/control/logic/ui/show_about.cybol"/>
+
+</node>

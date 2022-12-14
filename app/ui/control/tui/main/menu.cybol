@@ -1,0 +1,64 @@
+<node>
+
+    <node name="title" channel="inline" format="text/plain" model="Menu">
+        <node name="super" channel="inline" format="text/cybol-path" model=".settings.menu_title"/>
+        <node name="position" channel="inline" format="number/integer" model="30,1"/>
+        <node name="size" channel="inline" format="number/integer" model="4,1"/>
+    </node>
+    <node name="mc" channel="inline" format="text/plain" model="m - Start Midnight Commander (MC)">
+        <node name="super" channel="inline" format="text/cybol-path" model=".settings.menu_item"/>
+        <node name="position" channel="inline" format="number/integer" model="1,3"/>
+        <node name="size" channel="inline" format="number/integer" model="68,1"/>
+        <node name="previous" channel="inline" format="text/plain" model=".tui.main.menu.exit"/>
+        <node name="next" channel="inline" format="text/plain" model=".tui.main.menu.dosemu"/>
+        <node name="button_press_action" channel="inline" format="text/plain" model=".logic.functionality.start_mc"/>
+        <node name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="dosemu" channel="inline" format="text/plain" model="d - Start DOS Emulator (DOSemu)">
+        <node name="super" channel="inline" format="text/cybol-path" model=".settings.menu_item"/>
+        <node name="position" channel="inline" format="number/integer" model="1,4"/>
+        <node name="size" channel="inline" format="number/integer" model="68,1"/>
+        <node name="previous" channel="inline" format="text/plain" model=".tui.main.menu.mc"/>
+        <node name="next" channel="inline" format="text/plain" model=".tui.main.menu.colour"/>
+        <node name="button_press_action" channel="inline" format="text/plain" model=".logic.functionality.start_dosemu"/>
+        <node name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="colour" channel="inline" format="text/plain" model="c - Change Colour">
+        <node name="super" channel="inline" format="text/cybol-path" model=".settings.menu_item"/>
+        <node name="position" channel="inline" format="number/integer" model="1,5"/>
+        <node name="size" channel="inline" format="number/integer" model="60,1"/>
+        <node name="previous" channel="inline" format="text/plain" model=".tui.main.menu.dosemu"/>
+        <node name="next" channel="inline" format="text/plain" model=".tui.main.menu.about"/>
+        <node name="button_press_action" channel="inline" format="text/plain" model=".logic.functionality.change_colour"/>
+        <node name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="about" channel="inline" format="text/plain" model="a - Show About Information">
+        <node name="super" channel="inline" format="text/cybol-path" model=".settings.menu_item"/>
+        <node name="position" channel="inline" format="number/integer" model="1,7"/>
+        <node name="size" channel="inline" format="number/integer" model="60,1"/>
+        <node name="previous" channel="inline" format="text/plain" model=".tui.main.menu.colour"/>
+        <node name="next" channel="inline" format="text/plain" model=".tui.main.menu.exit"/>
+        <node name="button_press_action" channel="inline" format="text/plain" model=".logic.ui.show_about"/>
+        <node name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="exit" channel="inline" format="text/plain" model="e - Exit Programme">
+        <node name="super" channel="inline" format="text/cybol-path" model=".settings.menu_item"/>
+        <node name="position" channel="inline" format="number/integer" model="1,8"/>
+        <node name="size" channel="inline" format="number/integer" model="60,1"/>
+        <node name="previous" channel="inline" format="text/plain" model=".tui.main.menu.about"/>
+        <node name="next" channel="inline" format="text/plain" model=".tui.main.menu.mc"/>
+        <node name="button_press_action" channel="inline" format="text/plain" model=".logic.lifecycle.shutdown"/>
+        <node name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+</node>

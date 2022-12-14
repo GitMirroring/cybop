@@ -1,0 +1,48 @@
+<node>
+
+    <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->
+    <node name="overwrite_path" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.path"/>
+        <node name="source" channel="inline" format="text/plain" model=".wui.actions."/>
+    </node>
+    <node name="append_action" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".wui.request:uri:query.action"/>
+    </node>
+
+    <node name="print_path_label" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Action path:"/>
+    </node>
+    <node name="print_path" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.path"/>
+    </node>
+    <node name="print_action_label" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Action:"/>
+    </node>
+    <node name="print_action" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="{.wui.path}"/>
+    </node>
+
+    <!--
+        CAUTION! Use path REFERENCE here, since the action is just
+        a string pointing to the actual model to be executed.
+    -->
+    <node name="execute_action" channel="inline" format="text/cybol-path" model="{.wui.path}"/>
+
+</node>

@@ -1,0 +1,49 @@
+body {
+
+    margin: 50px;
+    /* Minimum width avoids line feed and display errors in modern browsers. */
+    min-width: 600px;
+    width: 600px;
+}
+
+h1 {
+    color: green;
+    font-size: 18pt;
+}
+
+.box {
+
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 50px;
+    width: 400px;
+    border-color: yellow;
+    border-style: dashed;
+    border-width: 5px;
+    background-color: blue;
+    color: white;
+    font-family: Linux Biolinum O,Liberation Mono,Bitstream Vera Sans Mono,DejaVu Sans Mono,FreeMono;
+    font-size: 32pt;
+    font-weight: bold;
+}
+
+div#control a {
+
+    font-size: 14pt;
+    background-color: yellow;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    color: black;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+div#control a:hover {
+
+    background-color: blue;
+    color: white;
+}

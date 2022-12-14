@@ -1,0 +1,13 @@
+<node>
+
+    <node name="ui" channel="file" format="element/part" model="ui/control/logic/ui.cybol"/>
+    <node name="translation" channel="file" format="element/part" model="ui/control/logic/translation.cybol"/>
+
+    <node name="lifecycle" channel="file" format="element/part" model="ui/control/logic/lifecycle.cybol"/>
+    <node name="functionality" channel="file" format="element/part" model="ui/control/logic/functionality.cybol"/>
+
+    <node name="handle" channel="file" format="element/part" model="ui/control/logic/handle.cybol">
+        <node name="command" channel="inline" format="text/plain" model=""/>
+    </node>
+
+</node>

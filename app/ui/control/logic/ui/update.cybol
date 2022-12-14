@@ -1,0 +1,37 @@
+<node>
+
+    <node name="unfocus_part" channel="inline" format="text/cybol-path" model=".logic.ui.unfocus"/>
+
+    <node name="assemble_next_element_name" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".tui.main.menu:focus"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".var.navigation"/>
+    </node>
+    <!-- Use element name assembled before to get the real element that the name points to. -->
+    <node name="determine_real_element_name" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".tui.main.menu:focus"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="{.tui.main.menu:focus}"/>
+    </node>
+
+    <node name="focus_part" channel="inline" format="text/cybol-path" model=".logic.ui.focus"/>
+
+    <node name="send_tui" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
+            <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
+            <node name="positioning" channel="inline" format="logicvalue/boolean" model="true"/>
+        </node>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".tui.main"/>
+    </node>
+    <node name="set_cursor" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
+            <node name="positioning" channel="inline" format="logicvalue/boolean" model="true"/>
+        </node>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".tui.cursor"/>
+    </node>
+
+</node>

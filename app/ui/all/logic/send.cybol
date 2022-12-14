@@ -1,0 +1,103 @@
+<node>
+
+    <!-- Terminal -->
+
+    <node name="send_tui" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
+            <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
+            <node name="positioning" channel="inline" format="logicvalue/boolean" model="true"/>
+        </node>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".tui.window"/>
+    </node>
+    <node name="send_tui_cursor" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
+            <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
+            <node name="positioning" channel="inline" format="logicvalue/boolean" model="true"/>
+        </node>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".tui.cursor"/>
+    </node>
+
+    <!-- Display -->
+
+    <node name="send_gui" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
+        <!-- This flag is IMPORTANT for finding the correct client entry in the server list. -->
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".window_id"/>
+        <node name="language" channel="inline" format="meta/language" model="message/gui-response"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".gui.window"/>
+    </node>
+
+    <!-- Socket -->
+
+    <node name="reset_webpage" channel="inline" format="modify/empty" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.webpage"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+    <node name="serialise_wui" channel="inline" format="represent/serialise" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.webpage"/>
+        <node name="language" channel="inline" format="meta/language" model="text/html">
+            <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
+        </node>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".wui.index"/>
+    </node>
+
+    <!-- Socket testing -->
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="ui/all/wui/index.html"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
+    </node>
+    <node name="generate_html" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.webpage"/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+    <node name="send_webpage" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <!--
+            For the http response, the following headers are recommended:
+            - Date
+            - Server
+            - Content-Length
+            - Content-Type
+
+            CAUTION! An "encoding" is NOT given when using the language "message/http-response",
+            since it would cause the WHOLE http message to get encoded.
+            But the http header should be ASCII (single-byte characters) only.
+            Likewise, binary attachments such as images should NOT get encoded.
+
+            CAUTION! It does NOT work adding the constraint "encoding" right here.
+            It does properly appear in the knowledge tree, but is NOT recognised in the operation "send".
+            The reason is that the format "text/cybol-path" points to another part ".webpage"
+            whose properties are used INSTEAD of those constraints that might be specified here.
+            In order to verify this, one might use the format "text/plain" testwise,
+            with which the constraints are recognised properly.
+            Therefore, the necessary "encoding" is added at the part ".webpage" DIRECTLY.
+        -->
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.webpage"/>
+    </node>
+
+</node>

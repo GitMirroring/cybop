@@ -1,0 +1,36 @@
+<node>
+
+    <node name="copy_name" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".tui.about.name"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".appinfo.name"/>
+    </node>
+    <node name="copy_version" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".tui.about.version"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".appinfo.version"/>
+    </node>
+    <node name="copy_date" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".tui.about.date"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".appinfo.date"/>
+    </node>
+    <node name="copy_slogan" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".tui.about.slogan"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".appinfo.slogan"/>
+    </node>
+    <node name="copy_copyright" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".tui.about.copyright"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".appinfo.copyright"/>
+    </node>
+    <node name="copy_contact" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".tui.about.contact"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".appinfo.contact"/>
+    </node>
+    <node name="copy_authors" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".tui.about.authors"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".appinfo.authors"/>
+    </node>
+    <node name="copy_licence" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".tui.about.licence"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".appinfo.licence"/>
+    </node>
+
+</node>

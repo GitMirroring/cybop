@@ -1,0 +1,17 @@
+<node>
+
+    <node name="arrow-down" channel="inline" format="text/cybol-path" model=".logic.ui.select_next"/>
+    <node name="arrow-up" channel="inline" format="text/cybol-path" model=".logic.ui.select_previous"/>
+    <node name="arrow-right" channel="inline" format="text/cybol-path" model=".logic.ui.select_next"/>
+    <node name="arrow-left" channel="inline" format="text/cybol-path" model=".logic.ui.select_previous"/>
+
+    <node name="enter" channel="inline" format="text/cybol-path" model=".logic.ui.enter"/>
+    <node name="escape" channel="inline" format="text/cybol-path" model=".logic.lifecycle.shutdown"/>
+
+    <node name="m" channel="inline" format="text/cybol-path" model=".logic.functionality.start_mc"/>
+    <node name="d" channel="inline" format="text/cybol-path" model=".logic.functionality.start_dosemu"/>
+    <node name="c" channel="inline" format="text/cybol-path" model=".logic.functionality.change_colour"/>
+    <node name="a" channel="inline" format="text/cybol-path" model=".logic.ui.show_about"/>
+    <node name="e" channel="inline" format="text/cybol-path" model=".logic.lifecycle.shutdown"/>
+
+</node>

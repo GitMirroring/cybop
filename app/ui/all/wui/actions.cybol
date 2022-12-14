@@ -1,0 +1,10 @@
+<node>
+
+    <node name="send-index" channel="inline" format="text/cybol-path" model=".logic.greet-world"/>
+    <node name="greet-world" channel="inline" format="text/cybol-path" model=".logic.greet-world"/>
+    <node name="greet-cybop" channel="inline" format="text/cybol-path" model=".logic.greet-cybop"/>
+    <!-- This refresh action is temporary to update the wui in a web browser, until one day web sockets with push messages are implemented in cyboi. -->
+    <node name="refresh" channel="inline" format="text/cybol-path" model=".logic.send"/>
+    <node name="exit" channel="inline" format="text/cybol-path" model=".logic.exit"/>
+
+</node>

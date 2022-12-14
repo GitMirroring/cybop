@@ -14,8 +14,6 @@
 App
 ___
 
-        * Update text user interface cybol applications
-        * Update graphical user interface cybol applications
         * Update internet cybol applications
         * Update various application cybol applications
 
@@ -168,6 +166,7 @@ ______________
         * Call percent encoding serialiser for attributes of all parts in html serialiser, e.g. "href" attribute of an "a" tag
         * Ensure that non-encoded characters are copied as well in character reference deserialiser
         * Ensure that non-encoded characters are copied as well in percent encoding deserialiser
+        * Test percent encoding with cybol application "ui/wui/"
 
 Case Mapping
 ____________
