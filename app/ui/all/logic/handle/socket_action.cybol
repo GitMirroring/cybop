@@ -10,6 +10,7 @@
         <node name="source" channel="inline" format="text/cybol-path" model=".wui.request:uri:query.action"/>
     </node>
 
+<!--
     <node name="print_path_label" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
@@ -38,6 +39,7 @@
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model="{.wui.path}"/>
     </node>
+-->
 
     <!--
         CAUTION! Use path REFERENCE here, since the action is just

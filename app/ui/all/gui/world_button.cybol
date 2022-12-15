@@ -1,8 +1,8 @@
 <node>
 
     <node name="label" channel="inline" format="text/plain" model="Greet World">
-        <node name="position" channel="inline" format="number/integer" model="10,10"/>
-        <node name="size" channel="inline" format="number/integer" model="80,20"/>
+        <node name="position" channel="inline" format="number/integer" model="10,12"/>
+        <node name="size" channel="inline" format="number/integer" model="0,0"/>
         <!-- black on yellow -->
         <node name="background" channel="inline" format="colour/rgb" model="255,255,0"/>
         <node name="foreground" channel="inline" format="colour/rgb" model="0,0,0"/>

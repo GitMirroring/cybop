@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-12-15  Christian Heller  <christian.heller@cybop.org>
+
+        * Beautify user interface cybol applications
+
 2022-12-14  Christian Heller  <christian.heller@cybop.org>
 
         * Add prefix flag parametre to numeral serialiser, since some conversions like percent encoding or html numeric character references do not need a "0x" prefix and prepend another one themselves instead

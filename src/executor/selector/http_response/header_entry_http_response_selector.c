@@ -689,9 +689,16 @@ void select_http_response_header_entry(void* p0, void* p1, void* p2, void* p3, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select http response header entry. The http response header entry is unknown.");
-        fwprintf(stdout, L"Warning: Could not select http response header entry. The http response header entry is unknown. name count p2: %i\n", p2);
-        fwprintf(stdout, L"Warning: Could not select http response header entry. The http response header entry is unknown. name count *p2: %i\n", *((int*) p2));
+        //
+        // CAUTION! This message is commented out since sometimes,
+        // additional properties like for example "encoding"
+        // are added, but unknown here.
+        //
+        // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select http response header entry. The http response header entry is unknown.");
+        // fwprintf(stdout, L"Warning: Could not select http response header entry. The http response header entry is unknown. name count p2: %i\n", p2);
+        // fwprintf(stdout, L"Warning: Could not select http response header entry. The http response header entry is unknown. name count *p2: %i\n", *((int*) p2));
+        // fwprintf(stdout, L"Warning: Could not select http response header entry. The http response header entry is unknown. name data p1: %ls\n", (wchar_t*) p1);
+        //
     }
 }
 

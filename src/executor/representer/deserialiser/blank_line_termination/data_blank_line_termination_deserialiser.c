@@ -47,8 +47,8 @@
 void deserialise_blank_line_termination_data(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise blank line termination data.");
-    fwprintf(stdout, L"Debug: Deserialise blank line termination data. p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise blank line termination data. *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise blank line termination data. p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise blank line termination data. *p2: %i\n", *((int*) p2));
 
     // The blank line termination data, count.
     void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;

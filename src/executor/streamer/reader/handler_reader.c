@@ -88,7 +88,7 @@ void read_handler(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         // has closed its connexion.
         //
 
-        fwprintf(stdout, L"\n\n\nDebug: Read handler. close flag *p8: %i\n\n\n", *((int*) p8));
+        //?? fwprintf(stdout, L"\n\n\nDebug: Read handler. close flag *p8: %i\n\n\n", *((int*) p8));
 
         //
         // Set client stub sensing thread exit flag.

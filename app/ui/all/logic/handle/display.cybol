@@ -5,21 +5,6 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".window_id"/>
     </node>
 
-    <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="TEST handle ui gui window_id:"/>
-    </node>
-    <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".window_id"/>
-    </node>
-
     <!--
         CAUTION! If these variables were not reset here, then the last valid
         previous action would be executed again and again, neverendingly.
@@ -46,21 +31,6 @@
         <node name="message" channel="inline" format="text/cybol-path" model=".gui.action"/>
         <!-- Read indirectly from internal buffer into which data have been written by activate/enable. -->
         <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-
-    <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="TEST handle .gui.action"/>
-    </node>
-    <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".gui.action"/>
     </node>
 
     <!--

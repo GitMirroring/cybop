@@ -48,8 +48,8 @@ void enable_bsd_socket(void* p0, void* p1) {
         int* s = (int*) p1;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable bsd socket.");
-        fwprintf(stdout, L"Debug: Enable bsd socket p1: %i\n", p1);
-        fwprintf(stdout, L"Debug: Enable bsd socket *p1: %i\n", *((int*) p1));
+        //?? fwprintf(stdout, L"Debug: Enable bsd socket p1: %i\n", p1);
+        //?? fwprintf(stdout, L"Debug: Enable bsd socket *p1: %i\n", *((int*) p1));
 
         //
         // Initialise error number.
@@ -89,7 +89,7 @@ void enable_bsd_socket(void* p0, void* p1) {
         if (c >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable bsd socket. success");
-            fwprintf(stdout, L"Debug: Enable bsd socket. success. client socket c: %i\n", c);
+            //?? fwprintf(stdout, L"Debug: Enable bsd socket. success. client socket c: %i\n", c);
 
             // Copy client socket to destination.
             copy_integer(p0, (void*) &c);

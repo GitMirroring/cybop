@@ -224,7 +224,7 @@ void enable_xcb_client(void* p0, void* p1) {
 
         } else if (t == XCB_MAPPING_NOTIFY) {
 
-            fwprintf(stdout, L"Debug: Enable xcb client. TODO ?? XCB_MAPPING_NOTIFY t: %i\n", t);
+            //?? fwprintf(stdout, L"Debug: Enable xcb client. TODO ?? XCB_MAPPING_NOTIFY t: %i\n", t);
 
         } else if (t == XCB_MOTION_NOTIFY) {
 

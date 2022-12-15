@@ -45,8 +45,8 @@
 void deserialise_http_request_message_length(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise http request message length.");
-    fwprintf(stdout, L"Debug: Deserialise http request message length. source message count p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise http request message length. source message count *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise http request message length. source message count p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise http request message length. source message count *p2: %i\n", *((int*) p2));
 
     //
     // CAUTION! An http message (request or response) HEADER section
@@ -71,8 +71,8 @@ void deserialise_http_request_message_length(void* p0, void* p1, void* p2) {
     // Determine payload length.
     deserialise_http_request_content_length((void*) &p, p1, p2);
 
-    fwprintf(stdout, L"Debug: Deserialise http request message length. header h: %i\n", h);
-    fwprintf(stdout, L"Debug: Deserialise http request message length. payload p: %i\n", p);
+    //?? fwprintf(stdout, L"Debug: Deserialise http request message length. header h: %i\n", h);
+    //?? fwprintf(stdout, L"Debug: Deserialise http request message length. payload p: %i\n", p);
 
     //
     // Add header- and payload length.

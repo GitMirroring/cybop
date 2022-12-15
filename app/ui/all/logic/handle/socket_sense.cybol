@@ -5,21 +5,6 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".client_socket"/>
     </node>
 
-    <node name="print_accept" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Receive input from client via socket:"/>
-    </node>
-    <node name="print_socket" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".client_socket"/>
-    </node>
-
     <!-- CAUTION! If the request was not reset here, then the last valid previous request would be used again and again, neverendingly. -->
     <node name="reset_request_model" channel="inline" format="modify/empty" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".wui.request"/>
@@ -59,27 +44,6 @@
     <node name="test_action" channel="inline" format="access/indicate-exists" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".wui.action_exists"/>
         <node name="part" channel="inline" format="text/cybol-path" model=".wui.request:uri:query.action"/>
-    </node>
-
-    <!-- Write knowledge tree into file. -->
-
-    <node name="open_treefile" channel="inline" format="dispatch/open" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/plain" model="ui/all/test_http_request.txt"/>
-        <node name="mode" channel="inline" format="text/plain" model="write"/>
-    </node>
-    <node name="send_knowledge" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="text/cybol-path" model="."/>
-    </node>
-    <node name="close_treefile" channel="inline" format="dispatch/close" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
     <node name="evaluate_action" channel="inline" format="flow/branch" model="">

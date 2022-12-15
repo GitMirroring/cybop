@@ -54,6 +54,8 @@
 void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select http request header field.");
+    //?? fwprintf(stdout, L"Debug: Select http request header field. header argument count p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Select http request header field. header argument count *p2: %i\n", *((int*) p2));
 
     //
     // CAUTION! The comparisons below use the ascii character constant "CHARACTER_TEXT_STATE_CYBOI_TYPE"
@@ -555,7 +557,9 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select http request header field. The header http name is unknown.");
-        fwprintf(stdout, L"Warning: Could not select http request header field. The header http name is unknown. count remaining p2: %i\n", p2);
+        //?? fwprintf(stdout, L"Warning: Could not select http request header field. The header http name is unknown. header argument count p2: %i\n", p2);
+        //?? fwprintf(stdout, L"Warning: Could not select http request header field. The header http name is unknown. header argument count *p2: %i\n", *((int*) p2));
+        //?? fwprintf(stdout, L"Warning: Could not select http request header field. The header http name is unknown. header argument data p1: %ls\n", (wchar_t*) p1);
     }
 }
 

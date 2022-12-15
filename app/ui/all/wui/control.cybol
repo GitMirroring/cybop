@@ -15,4 +15,9 @@
         <node name="href" channel="inline" format="text/plain" model="http://localhost:1971/?action=refresh"/>
     </node>
 
+    <node name="exit" channel="inline" format="text/plain" model="Exit">
+        <node name="tag" channel="inline" format="text/plain" model="a"/>
+        <node name="href" channel="inline" format="text/plain" model="http://localhost:1971/?action=exit"/>
+    </node>
+
 </node>

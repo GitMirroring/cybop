@@ -15,7 +15,7 @@
         - Content-Type
     -->
     <node name="webpage" channel="inline" format="text/plain" model="">
-        <node name="server" channel="inline" format="text/plain" model="Presence/2.0 2020-08-26 (CYBOI/0.21.0)"/>
+        <node name="server" channel="inline" format="text/plain" model="CYBOL UI Example/1.0 2022-12-24 (CYBOI/0.24.0)"/>
         <node name="content-type" channel="inline" format="text/plain" model="text/html"/>
         <!--
             CAUTION! The necessary "encoding" is added here DIRECTLY,

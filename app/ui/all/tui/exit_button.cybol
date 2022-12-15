@@ -1,0 +1,8 @@
+<node>
+
+    <node name="label" channel="inline" format="text/plain" model="(E)xit">
+        <node name="position" channel="inline" format="number/integer" model="7,18"/>
+        <node name="size" channel="inline" format="number/integer" model="11,1"/>
+    </node>
+
+</node>
