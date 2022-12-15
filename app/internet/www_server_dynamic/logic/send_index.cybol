@@ -59,6 +59,7 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <!-- The language is NOT "text/html" since the node ".webpage" contains html data and serialisation was done above. -->
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".webpage"/>
     </node>
@@ -93,7 +94,8 @@
             whose properties are used INSTEAD of those constraints that might be specified here.
             In order to verify this, one might use the format "text/plain" testwise,
             with which the constraints are recognised properly.
-            Therefore, the necessary "encoding" is added at the part ".webpage" DIRECTLY.
+            Therefore, the necessary "encoding" is added DIRECTLY
+            at the place where part ".webpage" is defined.
         -->
         <node name="message" channel="inline" format="text/cybol-path" model=".webpage"/>
     </node>
