@@ -103,7 +103,7 @@
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/plain" model="test.txt"/>
+        <node name="device" channel="inline" format="text/plain" model="internet/www_server_static/test_file.txt"/>
         <node name="mode" channel="inline" format="text/plain" model="write"/>
     </node>
     <node name="test_file" channel="inline" format="communicate/send" model="">
