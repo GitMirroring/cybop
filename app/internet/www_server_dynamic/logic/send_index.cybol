@@ -31,10 +31,10 @@
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/plain" model="internet/www_server_dynamic/test_www_server_dynamic_wui.txt"/>
+        <node name="device" channel="inline" format="text/plain" model="internet/www_server_dynamic/test_wui.txt"/>
         <node name="mode" channel="inline" format="text/plain" model="write"/>
     </node>
-    <node name="test_html" channel="inline" format="communicate/send" model="">
+    <node name="send_wui" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -51,7 +51,7 @@
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/plain" model="internet/www_server_dynamic/test_www_server_dynamic_wui.html"/>
+        <node name="device" channel="inline" format="text/plain" model="internet/www_server_dynamic/test_wui.html"/>
         <node name="mode" channel="inline" format="text/plain" model="write"/>
     </node>
     <node name="test_html" channel="inline" format="communicate/send" model="">

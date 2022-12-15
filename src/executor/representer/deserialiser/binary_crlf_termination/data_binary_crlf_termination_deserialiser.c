@@ -47,8 +47,8 @@
 void deserialise_binary_crlf_termination_data(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise binary crlf termination data.");
-    fwprintf(stdout, L"Debug: Deserialise binary crlf termination data. p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise binary crlf termination data. *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise binary crlf termination data. p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise binary crlf termination data. *p2: %i\n", *((int*) p2));
 
     // The binary crlf termination data, count.
     void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;

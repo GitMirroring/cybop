@@ -50,8 +50,8 @@
 void open_socket_connexion(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket connexion.");
-    fwprintf(stdout, L"Debug: Open socket connexion. socket p0: %i\n", p0);
-    fwprintf(stdout, L"Debug: Open socket connexion. socket *p0: %i\n", *((int*) p0));
+    //?? fwprintf(stdout, L"Debug: Open socket connexion. socket p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Open socket connexion. socket *p0: %i\n", *((int*) p0));
 
 #if defined(__linux__) || defined(__unix__)
     open_bsd_socket_connexion(p0, p1, p2);

@@ -46,9 +46,9 @@
 void deserialise_binary_crlf_data(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise binary crlf data.");
-    fwprintf(stdout, L"Debug: Deserialise binary crlf data. p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise binary crlf data. *p2: %i\n", *((int*) p2));
-    fwprintf(stdout, L"Debug: Deserialise binary crlf data. p1: %s\n", (char*) *((void**) p1));
+    //?? fwprintf(stdout, L"Debug: Deserialise binary crlf data. p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise binary crlf data. *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise binary crlf data. p1: %s\n", (char*) *((void**) p1));
 
     // The binary crlf data, count.
     void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -98,8 +98,8 @@ void deserialise_binary_crlf_data(void* p0, void* p1, void* p2) {
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            fwprintf(stdout, L"Debug: Deserialise binary crlf data. bc: %i\n", bc);
-            fwprintf(stdout, L"Debug: Deserialise binary crlf data. bd: %s\n", (char*) bd);
+            //?? fwprintf(stdout, L"Debug: Deserialise binary crlf data. bc: %i\n", bc);
+            //?? fwprintf(stdout, L"Debug: Deserialise binary crlf data. bd: %s\n", (char*) bd);
 
             //
             // Copy source data to destination item.
@@ -110,6 +110,7 @@ void deserialise_binary_crlf_data(void* p0, void* p1, void* p2) {
             //
             modify_item(p0, bd, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &bc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
+/*??
             //?? TEST BEGIN
             void* testd = *NULL_POINTER_STATE_CYBOI_MODEL;
             void* testc = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -119,6 +120,7 @@ void deserialise_binary_crlf_data(void* p0, void* p1, void* p2) {
             fwprintf(stdout, L"Debug: Deserialise binary crlf data. *testc: %i\n", *((int*) testc));
             fwprintf(stdout, L"Debug: Deserialise binary crlf data. testd: %s\n", (char*) testd);
             //?? TEST END
+*/
 
             break;
         }

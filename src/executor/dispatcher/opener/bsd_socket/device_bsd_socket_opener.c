@@ -62,11 +62,11 @@ void open_bsd_socket_device(void* p0, void* p1, void* p2, void* p3) {
                 int* pf = (int*) p1;
 
                 log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open bsd socket device.");
-                fwprintf(stdout, L"Debug: Open bsd socket device p0: %i\n", p0);
-                fwprintf(stdout, L"Debug: Open bsd socket device *p0: %i\n", *((int*) p0));
-                fwprintf(stdout, L"Debug: Open bsd socket device *pf: %i\n", *pf);
-                fwprintf(stdout, L"Debug: Open bsd socket device *st: %i\n", *st);
-                fwprintf(stdout, L"Debug: Open bsd socket device *pr: %i\n", *pr);
+                //?? fwprintf(stdout, L"Debug: Open bsd socket device p0: %i\n", p0);
+                //?? fwprintf(stdout, L"Debug: Open bsd socket device *p0: %i\n", *((int*) p0));
+                //?? fwprintf(stdout, L"Debug: Open bsd socket device *pf: %i\n", *pf);
+                //?? fwprintf(stdout, L"Debug: Open bsd socket device *st: %i\n", *st);
+                //?? fwprintf(stdout, L"Debug: Open bsd socket device *pr: %i\n", *pr);
 
                 //
                 // Initialise error number.
@@ -104,7 +104,7 @@ void open_bsd_socket_device(void* p0, void* p1, void* p2, void* p3) {
                 if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open bsd socket device. Success.");
-                    fwprintf(stdout, L"Debug: Open bsd socket device. Success. r: %i\n", r);
+                    //?? fwprintf(stdout, L"Debug: Open bsd socket device. Success. r: %i\n", r);
 
                     // Configure socket.
                     initialise_bsd_socket((void*) &r);
@@ -122,16 +122,19 @@ void open_bsd_socket_device(void* p0, void* p1, void* p2, void* p3) {
             } else {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket device. The protocol family is null.");
+                fwprintf(stdout, L"Error: Could not open bsd socket device. The protocol family is null. p1: %i\n", p1);
             }
 
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket device. The communication style is null.");
+            fwprintf(stdout, L"Error: Could not open bsd socket device. The communication style is null. p2: %i\n", p2);
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket device. The protocol is null.");
+        fwprintf(stdout, L"Error: Could not open bsd socket device. The protocol is null. p3: %i\n", p3);
     }
 }
 

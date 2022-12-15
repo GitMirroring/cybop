@@ -1,11 +1,23 @@
+<!--
+    This application demonstrates the server side of a socket communication.
+
+    CAUTION! The reserved service ports 0..1023 can sometimes only be
+    used when running the cybol application as "root" user (Administrator).
+
+    The "nmap" tool may be used to find out about active service ports, e.g.:
+    nmap localhost
+-->
+
 <node>
+
+    <!-- Creation -->
 
     <node name="create_fileid" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="id"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>
 
-    <!-- Build up knowledge tree -->
+    <!-- Initialisation -->
 
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -31,7 +43,7 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
     </node>
 
-    <!-- Read data from file -->
+    <!-- Reading -->
 
     <node name="print_read_data" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -56,7 +68,7 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".datafile"/>
     </node>
 
-    <!-- Startup socket -->
+    <!-- Startup -->
 
     <node name="print_message" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -88,7 +100,7 @@
         <node name="timeout" channel="inline" format="number/integer" model="5"/>
     </node>
 
-    <!-- Wait for client requests -->
+    <!-- Waiting -->
 
     <node name="print_message" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -105,13 +117,3 @@
     </node>
 
 </node>
-
-<!--
-    This example demonstrates the server side of a socket communication.
-
-    CAUTION! The reserved service ports 0..1023 can sometimes only be
-    used when running the cybol application as "root" user (Administrator).
-
-    The "nmap" tool may be used to find out about active service ports, e.g.:
-    nmap localhost
--->

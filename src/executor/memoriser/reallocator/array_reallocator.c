@@ -208,6 +208,7 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                     } else {
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate array. The allocated memory area is null.");
+                        fwprintf(stdout, L"Error: Could not reallocate array. The allocated memory area is null. tmp: %i\n", tmp);
                     }
 
                 } else if (m == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
@@ -231,16 +232,19 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
             } else {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate array. The array is null.");
+                fwprintf(stdout, L"Error: Could not reallocate array. The array is null. p0: %i\n", p0);
             }
 
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate array. The count is null.");
+            fwprintf(stdout, L"Error: Could not reallocate array. The count is null. p1: %i\n", p1);
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate array. The size is null.");
+        fwprintf(stdout, L"Error: Could not reallocate array. The size is null. p2: %i\n", p2);
     }
 }
 

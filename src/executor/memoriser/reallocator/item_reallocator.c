@@ -89,8 +89,6 @@ void reallocate_item(void* p0, void* p1, void* p2) {
 
     } else {
 
-        fwprintf(stdout, L"Debug: Could not reallocate item. The data is null. This should NEVER happen. d: %p\n", d);
-
         //
         // Reasons might be:
         // - given size is zero
@@ -98,6 +96,8 @@ void reallocate_item(void* p0, void* p1, void* p2) {
         // - no more system heap memory
         //
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate item. The data is null.");
+        fwprintf(stdout, L"Warning: Could not reallocate item. The data is null. d: %p\n", d);
+        fwprintf(stdout, L"Hint: This should NEVER happen. Is the given size zero or negative? Is the system heap out of memory?\n");
     }
 }
 

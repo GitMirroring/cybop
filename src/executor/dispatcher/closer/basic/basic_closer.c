@@ -82,7 +82,7 @@ void close_basic(void* p0) {
         if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close basic. Success.");
-            // fwprintf(stdout, L"Debug: Close basic. success r: %i\n", r);
+            //?? fwprintf(stdout, L"Debug: Close basic. success r: %i\n", r);
 
         } else {
 

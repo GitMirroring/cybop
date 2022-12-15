@@ -75,8 +75,8 @@
 void startup_socket_lifecycle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket lifecycle.");
-    fwprintf(stdout, L"Debug: Startup socket lifecycle. p0: %i\n", p0);
-    fwprintf(stdout, L"Debug: Startup socket lifecycle. *p0: %i\n", *((int*) p0));
+    //?? fwprintf(stdout, L"Debug: Startup socket lifecycle. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Startup socket lifecycle. *p0: %i\n", *((int*) p0));
 
     // The protocol family (socket namespace).
     int pf = *UNSPEC_PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME;

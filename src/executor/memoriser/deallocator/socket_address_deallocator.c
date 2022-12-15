@@ -53,8 +53,8 @@ void deallocate_socket_address(void* p0, void* p1, void* p2) {
             void** ad = (void**) p0;
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate socket address.");
-            fwprintf(stdout, L"Debug: Deallocate socket address. p2: %i\n", p2);
-            fwprintf(stdout, L"Debug: Deallocate socket address. *p2: %i\n", *((int*) p2));
+            //?? fwprintf(stdout, L"Debug: Deallocate socket address. p2: %i\n", p2);
+            //?? fwprintf(stdout, L"Debug: Deallocate socket address. *p2: %i\n", *((int*) p2));
 
             // The comparison result.
             int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

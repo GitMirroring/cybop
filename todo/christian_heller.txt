@@ -14,7 +14,6 @@
 App
 ___
 
-        * Update internet cybol applications
         * Update various larger cybol applications
 
         * Create more video tutorials, upload to portals and update website

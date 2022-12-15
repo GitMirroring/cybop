@@ -72,9 +72,9 @@ void startup_bsd_socket_listen(void* p0, void* p1) {
 
             if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket listen. Success!");
-                fwprintf(stdout, L"Debug: Startup bsd socket listen. Success! *s: %i\n", *s);
-                fwprintf(stdout, L"Debug: Startup bsd socket listen. Success! *c: %i\n", *c);
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket listen. Success!");
+                //?? fwprintf(stdout, L"Debug: Startup bsd socket listen. Success! *s: %i\n", *s);
+                //?? fwprintf(stdout, L"Debug: Startup bsd socket listen. Success! *c: %i\n", *c);
 
             } else {
 
@@ -86,11 +86,13 @@ void startup_bsd_socket_listen(void* p0, void* p1) {
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket listen. The socket is null.");
+            fwprintf(stdout, L"Error: Could not startup bsd socket listen. The socket is null. p0: %i\n", p0);
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket listen. The connexions is null.");
+        fwprintf(stdout, L"Error: Could not startup bsd socket listen. The connexions is null. p1: %i\n", p1);
     }
 }
 

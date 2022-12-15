@@ -5,6 +5,4 @@
         <node name="document_type" channel="inline" format="text/plain" model="html"/>
     </node>
 
-    <!-- Further html files may follow here ... -->
-
 </node>

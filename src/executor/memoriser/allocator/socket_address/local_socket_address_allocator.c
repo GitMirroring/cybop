@@ -76,6 +76,7 @@ void allocate_socket_address_local(void* p0, void* p1, void* p2, void* p3) {
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate socket address local. The address data is null.");
+        fwprintf(stdout, L"Error: Could not allocate socket address local. The address data is null. p0: %i\n", p0);
     }
 }
 

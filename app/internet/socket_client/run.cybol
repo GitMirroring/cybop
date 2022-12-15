@@ -1,3 +1,11 @@
+<!--
+    This application demonstrates the client side of a socket communication.
+    It sends and receives a: text, unicode data, exit command.
+    Transferring an image was not possible here, since that contains cr+lf on various
+    places but the chosen language protocol "message/binary-crlf" stops transfer
+    when a cr+lf is found.
+-->
+
 <node>
 
     <!-- Build up knowledge tree -->
@@ -60,7 +68,7 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Sending hello request ..."/>
+        <node name="message" channel="inline" format="text/plain" model="Send hello request ..."/>
     </node>
     <node name="send_request" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
@@ -97,7 +105,7 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Sending data request ..."/>
+        <node name="message" channel="inline" format="text/plain" model="Send data request ..."/>
     </node>
     <node name="send_request" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
@@ -138,7 +146,7 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Sending exit request ..."/>
+        <node name="message" channel="inline" format="text/plain" model="Send exit request ..."/>
     </node>
     <node name="send_request_exit" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
@@ -164,16 +172,3 @@
     <node name="exit_programme" channel="inline" format="live/exit" model=""/>
 
 </node>
-
-<!--
-    This example demonstrates the client side of a socket communication.
-    It sends and receives a: text, unicode data, exit command.
-    Transferring an image was not possible here, since that contains cr+lf on various
-    places but the chosen language/protocol stops transfer when a cr+lf is found.
-
-    CAUTION! The reserved service ports 0..1023 can sometimes only be
-    used when running the cybol application as "root" user (administrator).
-
-    The "nmap" tool may be used to find out about active service ports, e.g.:
-    nmap localhost
--->

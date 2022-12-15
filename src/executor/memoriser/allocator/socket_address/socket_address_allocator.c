@@ -174,16 +174,19 @@ void allocate_socket_address(void* p0, void* p1, void* p2, void* p3, void* p4, v
             if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate socket address. The address family is unknown.");
+                fwprintf(stdout, L"Warning: Could not allocate socket address. The address family is unknown. r: %i\n", r);
             }
 
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate socket address. The address data is null.");
+            fwprintf(stdout, L"Error: Could not allocate socket address. The address data is null. p0: %i\n", p0);
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate socket address. The address size is null.");
+        fwprintf(stdout, L"Error: Could not allocate socket address. The address size is null. p1: %i\n", p1);
     }
 }
 

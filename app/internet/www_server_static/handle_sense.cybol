@@ -1,5 +1,7 @@
 <node>
 
+    <!-- Identification -->
+
     <!-- Get client belonging to the handler that was placed into the interrupt pipe. -->
     <node name="get_client_id" channel="inline" format="communicate/identify" model="">
         <node name="identification" channel="inline" format="text/cybol-path" model=".client_socket"/>
@@ -20,6 +22,8 @@
         <node name="message" channel="inline" format="text/cybol-path" model=".client_socket"/>
     </node>
 
+    <!-- Reset -->
+
     <!-- CAUTION! If the request was not reset here, then the last valid previous request would be used again and again, neverendingly. -->
     <node name="reset_request_model" channel="inline" format="modify/empty" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".request"/>
@@ -29,6 +33,8 @@
         <node name="destination" channel="inline" format="text/cybol-path" model=".request"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+
+    <!-- Reception -->
 
     <node name="receive_request" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
@@ -41,6 +47,8 @@
         <!-- Read indirectly from internal buffer into which data have been written by the sensing thread. -->
         <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+
+    <!-- Determination -->
 
     <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->
     <node name="overwrite_path" channel="inline" format="modify/overwrite" model="">
@@ -67,6 +75,8 @@
         <node name="message" channel="inline" format="text/cybol-path" model=".path"/>
     </node>
 
+    <!-- Processing -->
+
     <node name="reset_file_model" channel="inline" format="modify/empty" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".file"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -88,15 +98,15 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
-    <!-- Write data into test file. -->
+    <!-- Testing -->
 
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/plain" model="test_www_server_static_file.txt"/>
+        <node name="device" channel="inline" format="text/plain" model="test.txt"/>
         <node name="mode" channel="inline" format="text/plain" model="write"/>
     </node>
-    <node name="test_data" channel="inline" format="communicate/send" model="">
+    <node name="test_file" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="language" channel="inline" format="meta/language" model="message/binary"/>
@@ -106,6 +116,8 @@
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
+
+    <!-- Sending -->
 
     <node name="send_file" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>

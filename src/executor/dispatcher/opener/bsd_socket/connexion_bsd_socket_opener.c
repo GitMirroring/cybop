@@ -56,8 +56,8 @@ void open_bsd_socket_connexion(void* p0, void* p1, void* p2) {
                 int* s = (int*) p0;
 
                 log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open bsd socket connexion.");
-                fwprintf(stdout, L"Debug: Open bsd socket connexion. s: %i\n", s);
-                fwprintf(stdout, L"Debug: Open bsd socket connexion. *s: %i\n", *s);
+                //?? fwprintf(stdout, L"Debug: Open bsd socket connexion. s: %i\n", s);
+                //?? fwprintf(stdout, L"Debug: Open bsd socket connexion. *s: %i\n", *s);
 
                 // Cast address size to correct type.
                 socklen_t sl = (socklen_t) *as;
@@ -84,7 +84,7 @@ void open_bsd_socket_connexion(void* p0, void* p1, void* p2) {
                 if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open bsd socket connexion. success");
-                    fwprintf(stdout, L"Debug: Open bsd socket connexion. success r: %i\n", r);
+                    //?? fwprintf(stdout, L"Debug: Open bsd socket connexion. success r: %i\n", r);
 
                 } else {
 
@@ -96,16 +96,19 @@ void open_bsd_socket_connexion(void* p0, void* p1, void* p2) {
             } else {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket connexion. The socket is null.");
+                fwprintf(stdout, L"Error: Could not open bsd socket connexion. The socket is null. p0: %i\n", p0);
             }
 
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket connexion. The address data is null.");
+            fwprintf(stdout, L"Error: Could not open bsd socket connexion. The address data is null. p1: %i\n", p1);
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket connexion. The address size is null.");
+        fwprintf(stdout, L"Error: Could not open bsd socket connexion. The address size is null. p2: %i\n", p2);
     }
 }
 

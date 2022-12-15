@@ -1,11 +1,33 @@
+<!--
+    This application demonstrates world wide web (www) server functionality.
+    The server delivers static files to clients.
+    Exit the programme using the key combination <ctrl>+<c>!
+
+    Use a URL like:
+    http://localhost:80/index.html
+
+    Or some other port number for testing, since it does not require root access:
+    http://localhost:1971/index.html
+
+    CAUTION! The reserved service ports 0..1023 can sometimes only be
+    used when running the cybol application as "root" user (Administrator).
+    In such cases, the cyboi interpreter might return an error message like:
+    "TEST: startup bsd socket bind error EACCES: 13"
+
+    The "nmap" tool may be used to find out about active service ports, e.g.:
+    nmap localhost
+-->
+
 <node>
+
+    <!-- Creation -->
 
     <node name="create_fileid" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="id"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>
 
-    <!-- Build up knowledge tree -->
+    <!-- Initialisation -->
 
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -31,7 +53,7 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
     </node>
 
-    <!-- Startup socket -->
+    <!-- Startup -->
 
     <node name="print_message" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -51,7 +73,7 @@
         <node name="timeout" channel="inline" format="number/integer" model="5"/>
     </node>
 
-    <!-- Wait for client requests -->
+    <!-- Waiting -->
 
     <node name="print_message" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -67,21 +89,4 @@
         <node name="handler" channel="inline" format="text/cybol-path" model=".handle_enable"/>
     </node>
 
-<!--
-    This example demonstrates world wide web (www) server functionality.
-    The server just delivers static files to clients. Use a URL like:
-    http://localhost:80/index.html
-
-    Or some other port number for testing, since it does not require root access:
-    http://localhost:1971/index.html
-
-    CAUTION! The programme needs to be shut down using the key combination ctrl+c!
-
-    CAUTION! The reserved service ports 0..1023 can sometimes only be
-    used when running the cybol application as "root" user (Administrator).
-    In such cases, the cyboi interpreter might return an error message like:
-    "TEST: startup bsd socket bind error EACCES: 13"
-
-    The "nmap" tool may be used to find out about active service ports, e.g.:
-    nmap localhost
--->
+</node>

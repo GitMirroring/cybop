@@ -135,6 +135,7 @@ void allocate_socket_address_inet(void* p0, void* p1, void* p2, void* p3, void* 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate socket address inet. The address data is null.");
+        fwprintf(stdout, L"Error: Could not allocate socket address inet. The address data is null. p0: %i\n", p0);
     }
 }
 

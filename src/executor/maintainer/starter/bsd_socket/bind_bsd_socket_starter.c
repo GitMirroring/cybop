@@ -55,7 +55,7 @@ void startup_bsd_socket_bind(void* p0, void* p1, void* p2) {
 
                 int* s = (int*) p0;
 
-                log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket bind.");
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket bind.");
 
                 // The address size casted to the correct type.
                 socklen_t ast = (socklen_t) *as;
@@ -76,7 +76,7 @@ void startup_bsd_socket_bind(void* p0, void* p1, void* p2) {
                 if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket bind. Success!");
-                    fwprintf(stdout, L"Debug: Startup bsd socket bind. r: %i\n", r);
+                    //?? fwprintf(stdout, L"Debug: Startup bsd socket bind. r: %i\n", r);
 
                 } else {
 
@@ -88,16 +88,19 @@ void startup_bsd_socket_bind(void* p0, void* p1, void* p2) {
             } else {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. The socket is null.");
+                fwprintf(stdout, L"Error: Could not startup bsd socket bind. The socket is null. p0: %i\n", p0);
             }
 
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. The address data is null.");
+            fwprintf(stdout, L"Error: Could not startup bsd socket bind. The address data is null. p1: %i\n", p1);
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. The address size is null.");
+        fwprintf(stdout, L"Error: Could not startup bsd socket bind. The address size is null. p2: %i\n", p2);
     }
 }
 
