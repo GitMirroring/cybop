@@ -60,6 +60,8 @@
 void sort_bubble_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort bubble part.");
+    //?? fwprintf(stdout, L"Debug: Sort bubble part. criterion type p6: %i\n", p6);
+    //?? fwprintf(stdout, L"Debug: Sort bubble part. criterion type *p6: %i\n", *((int*) p6));
 
     // The left part.
     void* lp = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -68,17 +70,23 @@ void sort_bubble_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // A comparison criterion EXISTS.
+        //
         // Therefore, determine left- and right part
         // as child elements of the given parts,
         // using the criterion as path.
+        //
 
         sort_bubble_criterion((void*) &lp, (void*) &rp, p1, p2, p4, p5, p6, p7, p8, p9);
 
     } else {
 
+        //
         // A comparison criterion does NOT exist.
+        //
         // Therefore, assign left- and right part themselves.
+        //
 
         copy_pointer((void*) &lp, p1);
         copy_pointer((void*) &rp, p2);
@@ -127,8 +135,16 @@ void sort_bubble_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     } else {
 
-        fwprintf(stdout, L"Error: Could not sort bubble part. The left and right part have different types.");
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sort bubble part. The left and right part have different types.");
+        //
+        // CAUTION! Comment out this log message since in some cases, it is
+        // standard behaviour that a part does not exist so that the sort
+        // criterion (left part or right part or both) cannot be found either.
+        // In such cases, their types naturally differ as well.
+        //
+        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sort bubble part. The left and right part have different types.");
+        // fwprintf(stdout, L"Error: Could not sort bubble part. The left and right part have different types. ltd: %i, rtd: %i\n", ltd, rtd);
+        // fwprintf(stdout, L"Error: Could not sort bubble part. The left and right part have different types. *ltd: %i, *rtd: %i\n", *((int*) ltd), *((int*) rtd));
+        //
     }
 }
 

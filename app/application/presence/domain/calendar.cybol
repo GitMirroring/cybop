@@ -1,8 +1,0 @@
-<node>
-
-    <node name="2015" channel="file" format="element/part" model="application/presence/domain/calendar/2015.cybol"/>
-<!--
-    <node name="2016" channel="file" format="element/part" model="application/presence/domain/calendar/2016.cybol"/>
--->
-
-</node>

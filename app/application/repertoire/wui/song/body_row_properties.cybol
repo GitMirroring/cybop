@@ -1,5 +1,0 @@
-<node>
-
-    <node name="tag" channel="inline" format="text/plain" model="tr"/>
-
-</node>

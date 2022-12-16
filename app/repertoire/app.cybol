@@ -1,0 +1,9 @@
+<node>
+
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+
+    <node name="db" channel="file" format="element/part" model="repertoire/db.cybol"/>
+    <node name="wui" channel="file" format="element/part" model="repertoire/wui.cybol"/>
+    <node name="logic" channel="file" format="element/part" model="repertoire/logic.cybol"/>
+
+</node>

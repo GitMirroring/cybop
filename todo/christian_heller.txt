@@ -14,7 +14,7 @@
 App
 ___
 
-        * Update various larger cybol applications
+        * Update cybol application "presence"
 
         * Create more video tutorials, upload to portals and update website
 

@@ -79,9 +79,17 @@ void apply_modify_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply modify type. The destination type and source type are different.");
-        fwprintf(stdout, L"Error: Could not apply modify type. The destination type and source type are different.\n");
-        fwprintf(stdout, L"Error: Destination type: %i. Source type: %i.\n", *((int*) p2), *((int*) p15));
+        //
+        // CAUTION! Comment out this error message since it may be normal behaviour
+        // that one part does not exist. When applying an identical algorithm to
+        // different data structures, then some child nodes may not exist.
+        // However, in this case it is WANTED behaviour in order to reuse the
+        // algorithm for different tree structures. Therefore, IGNORE this error.
+        //
+        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply modify type. The destination type and source type are different.");
+        // fwprintf(stdout, L"Error: Could not apply modify type. The destination type and source type are different.\n");
+        // fwprintf(stdout, L"Error: Destination type: %i. Source type: %i.\n", *((int*) p2), *((int*) p15));
+        //
     }
 }
 

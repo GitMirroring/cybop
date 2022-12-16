@@ -22,6 +22,8 @@
 
         * Add file "app/recommended_order.txt" with website tutorial processing instructions for easy learning
         * Move cybol application "ui/all/" to directory "starlike/"
+        * Comment out disturbing log messages, for example in files "part_bubble_sorter.c" and "type_modify.c"
+        * Update cybol application "repertoire"
 
 2022-12-15  Christian Heller  <christian.heller@cybop.org>
 

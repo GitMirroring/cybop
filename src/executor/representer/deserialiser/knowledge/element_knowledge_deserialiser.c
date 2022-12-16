@@ -134,8 +134,13 @@ void deserialise_knowledge_element(void* p0, void* p1, void* p2, void* p3, void*
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise knowledge element. The element (child) is null.");
-            fwprintf(stdout, L"Error: Could not deserialise knowledge element. The element (child) is null. element: %i\n", e);
+            //
+            // CAUTION! Do NOT log this error message since in some applications,
+            // nodes do not exist on purpose so that this error may be IGNORED.
+            //
+            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise knowledge element. The element (child) is null.");
+            // fwprintf(stdout, L"Error: Could not deserialise knowledge element. The element (child) is null. element: %i\n", e);
+            //
         }
     }
 }

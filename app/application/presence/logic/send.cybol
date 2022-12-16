@@ -1,7 +1,0 @@
-<node>
-
-    <node name="empty_message" channel="file" format="element/part" model="application/presence/logic/send/empty_message.cybol"/>
-
-    <node name="index" channel="file" format="element/part" model="application/presence/logic/send/index.cybol"/>
-
-</node>

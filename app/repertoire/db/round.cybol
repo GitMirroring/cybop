@@ -1,0 +1,14 @@
+<node>
+
+    <node name="1" channel="file" format="element/part" model="repertoire/db/round/1.cybol"/>
+    <node name="2" channel="file" format="element/part" model="repertoire/db/round/2.cybol"/>
+    <node name="3" channel="file" format="element/part" model="repertoire/db/round/3.cybol"/>
+    <node name="4" channel="file" format="element/part" model="repertoire/db/round/4.cybol"/>
+    <node name="5" channel="file" format="element/part" model="repertoire/db/round/5.cybol"/>
+    <node name="6" channel="file" format="element/part" model="repertoire/db/round/6.cybol"/>
+    <node name="7" channel="file" format="element/part" model="repertoire/db/round/7.cybol"/>
+    <node name="8" channel="file" format="element/part" model="repertoire/db/round/8.cybol"/>
+
+    <node name="Rest" channel="inline" format="element/part" model=""/>
+
+</node>

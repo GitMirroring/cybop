@@ -1,0 +1,18 @@
+<node>
+
+    <node name="songs" channel="file" format="element/part" model="repertoire/logic/translate/song/songs.cybol">
+        <node name="list" channel="inline" format="text/plain" model=""/>
+        <node name="head" channel="inline" format="text/plain" model=""/>
+        <node name="body" channel="inline" format="text/plain" model=""/>
+        <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="count" channel="inline" format="number/integer" model="0"/>
+        <node name="index" channel="inline" format="number/integer" model="0"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.song.song"/>
+        <node name="name" channel="inline" format="text/plain" model="EMPTY"/>
+    </node>
+
+    <node name="song" channel="file" format="element/part" model="repertoire/logic/translate/song/song.cybol"/>
+
+    <node name="sort" channel="file" format="element/part" model="repertoire/logic/translate/song/sort.cybol"/>
+
+</node>

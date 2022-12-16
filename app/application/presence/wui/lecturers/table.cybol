@@ -1,7 +1,0 @@
-<node>
-
-    <node name="heading" channel="file" format="element/part" model="application/presence/wui/lecturers/heading_row.cybol">
-        <node name="tag" channel="inline" format="text/plain" model="tr"/>
-    </node>
-
-</node>

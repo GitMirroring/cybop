@@ -1,0 +1,146 @@
+<node>
+
+    <node name="a_flock_of_seagulls_-_i_ran_so_far_away" channel="file" format="element/part" model="repertoire/db/idea/a_flock_of_seagulls_-_i_ran_so_far_away.cybol"/>
+    <node name="a_flock_of_seagulls_-_the_more_you_live_the_more_you_love" channel="file" format="element/part" model="repertoire/db/idea/a_flock_of_seagulls_-_the_more_you_live_the_more_you_love.cybol"/>
+    <node name="adriano_celentano_-_azzuro" channel="file" format="element/part" model="repertoire/db/idea/adriano_celentano_-_azzuro.cybol"/>
+    <node name="alan_parsons_project_-_don't_answer_me" channel="file" format="element/part" model="repertoire/db/idea/alan_parsons_project_-_don't_answer_me.cybol"/>
+    <node name="andrea_berg_-_du_hast_mich_tausendmal_belogen" channel="file" format="element/part" model="repertoire/db/idea/andrea_berg_-_du_hast_mich_tausendmal_belogen.cybol"/>
+    <node name="asia_-_heat_of_the_moment" channel="file" format="element/part" model="repertoire/db/idea/asia_-_heat_of_the_moment.cybol"/>
+
+    <node name="bad_boys_blue_-_a_world_without_you" channel="file" format="element/part" model="repertoire/db/idea/bad_boys_blue_-_a_world_without_you.cybol"/>
+    <node name="bajm_-_mysli_i_slowa" channel="file" format="element/part" model="repertoire/db/idea/bajm_-_mysli_i_slowa.cybol"/>
+    <node name="barclay_james_harvest_-_life_is_for_living" channel="file" format="element/part" model="repertoire/db/idea/barclay_james_harvest_-_life_is_for_living.cybol"/>
+    <node name="birds_-_mr_tambourine_man" channel="file" format="element/part" model="repertoire/db/idea/birds_-_mr_tambourine_man.cybol"/>
+    <node name="bryan_adams_-_somebody" channel="file" format="element/part" model="repertoire/db/idea/bryan_adams_-_somebody.cybol"/>
+    <node name="bryan_adams_-_summer_of_'69" channel="file" format="element/part" model="repertoire/db/idea/bryan_adams_-_summer_of_'69.cybol"/>
+    <node name="bryan_ferry_and_roxy_music_-_jealous_guy" channel="file" format="element/part" model="repertoire/db/idea/bryan_ferry_and_roxy_music_-_jealous_guy.cybol"/>
+
+    <node name="carpenters_-_top_of_the_world" channel="file" format="element/part" model="repertoire/db/idea/carpenters_-_top_of_the_world.cybol"/>
+    <node name="ccr_-_have_you_ever_seen_the_rain" channel="file" format="element/part" model="repertoire/db/idea/ccr_-_have_you_ever_seen_the_rain.cybol"/>
+    <node name="ccr_-_proud_mary" channel="file" format="element/part" model="repertoire/db/idea/ccr_-_proud_mary.cybol"/>
+    <node name="chris_norman_and_suzi_quatro_-_stumblin'_in" channel="file" format="element/part" model="repertoire/db/idea/chris_norman_and_suzi_quatro_-_stumblin'_in.cybol"/>
+    <node name="chyp_notic_-_i_can't_get_enough" channel="file" format="element/part" model="repertoire/db/idea/chyp_notic_-_i_can't_get_enough.cybol"/>
+    <node name="city_-_am_fenster" channel="file" format="element/part" model="repertoire/db/idea/city_-_am_fenster.cybol"/>
+    <node name="coldplay_-_clocks" channel="file" format="element/part" model="repertoire/db/idea/coldplay_-_clocks.cybol"/>
+    <node name="coldplay_-_speed_of_sound" channel="file" format="element/part" model="repertoire/db/idea/coldplay_-_speed_of_sound.cybol"/>
+    <node name="coldplay_-_talk" channel="file" format="element/part" model="repertoire/db/idea/coldplay_-_talk.cybol"/>
+    <node name="coldplay_-_the_hardest_part" channel="file" format="element/part" model="repertoire/db/idea/coldplay_-_the_hardest_part.cybol"/>
+    <node name="coldplay_-_viva_la_vida" channel="file" format="element/part" model="repertoire/db/idea/coldplay_-_viva_la_vida.cybol"/>
+    <node name="communards_-_disenchanted" channel="file" format="element/part" model="repertoire/db/idea/communards_-_disenchanted.cybol"/>
+    <node name="cure_-_friday_i'm_in_love" channel="file" format="element/part" model="repertoire/db/idea/cure_-_friday_i'm_in_love.cybol"/>
+
+    <node name="daft_punk_-_get_lucky" channel="file" format="element/part" model="repertoire/db/idea/daft_punk_-_get_lucky.cybol"/>
+    <node name="doors_-_love_street" channel="file" format="element/part" model="repertoire/db/idea/doors_-_love_street.cybol"/>
+    <node name="dr_hook_-_when_you're_in_love_with_a_beautiful_woman" channel="file" format="element/part" model="repertoire/db/idea/dr_hook_-_when_you're_in_love_with_a_beautiful_woman.cybol"/>
+
+    <node name="ed_sheeran_-_perfect" channel="file" format="element/part" model="repertoire/db/idea/ed_sheeran_-_perfect.cybol"/>
+    <node name="elo_-_calling_america" channel="file" format="element/part" model="repertoire/db/idea/elo_-_calling_america.cybol"/>
+    <node name="elton_john_and_kiki_dee_-_don't_go_breaking_my_heart" channel="file" format="element/part" model="repertoire/db/idea/elton_john_and_kiki_dee_-_don't_go_breaking_my_heart.cybol"/>
+    <node name="elvis_presley_-_devil_in_disguise" channel="file" format="element/part" model="repertoire/db/idea/elvis_presley_-_devil_in_disguise.cybol"/>
+    <node name="eric_clapton_-_tears_in_heaven" channel="file" format="element/part" model="repertoire/db/idea/eric_clapton_-_tears_in_heaven.cybol"/>
+    <node name="europe_-_the_final_countdown" channel="file" format="element/part" model="repertoire/db/idea/europe_-_the_final_countdown.cybol"/>
+
+    <node name="flippers_-_lotosblume" channel="file" format="element/part" model="repertoire/db/idea/flippers_-_lotosblume.cybol"/>
+    <node name="frank_zander_-_ententanz_(ja_wenn_wir_alle_englein_waeren)" channel="file" format="element/part" model="repertoire/db/idea/frank_zander_-_ententanz_(ja_wenn_wir_alle_englein_waeren).cybol"/>
+    <node name="franz_lang_-_appenzeller_jodler" channel="file" format="element/part" model="repertoire/db/idea/franz_lang_-_appenzeller_jodler.cybol"/>
+
+    <node name="george_baker_selection_-_paloma_blanca" channel="file" format="element/part" model="repertoire/db/idea/george_baker_selection_-_paloma_blanca.cybol"/>
+    <node name="george_mccrae_-_rock_your_baby" channel="file" format="element/part" model="repertoire/db/idea/george_mccrae_-_rock_your_baby.cybol"/>
+    <node name="gitti_und_erika_-_aus_boehmen_kommt_die_musik" channel="file" format="element/part" model="repertoire/db/idea/gitti_und_erika_-_aus_boehmen_kommt_die_musik.cybol"/>
+    <node name="gitti_und_erika_-_solange_die_kapelle_spielt" channel="file" format="element/part" model="repertoire/db/idea/gitti_und_erika_-_solange_die_kapelle_spielt.cybol"/>
+
+    <node name="helene_fischer_-_atemlos_(durch_die_nacht)" channel="file" format="element/part" model="repertoire/db/idea/helene_fischer_-_atemlos_(durch_die_nacht).cybol"/>
+    <node name="herbert_roth_-_probier's_mal_mit_jodeln" channel="file" format="element/part" model="repertoire/db/idea/herbert_roth_-_probier's_mal_mit_jodeln.cybol"/>
+    <node name="herbert_roth_-_rennsteiglied" channel="file" format="element/part" model="repertoire/db/idea/herbert_roth_-_rennsteiglied.cybol"/>
+    <node name="hubert_kah_-_sternenhimmel" channel="file" format="element/part" model="repertoire/db/idea/hubert_kah_-_sternenhimmel.cybol"/>
+
+    <node name="john_travolta_and_olivia_newton-john_-_you're_the_one_that_i_want" channel="file" format="element/part" model="repertoire/db/idea/john_travolta_and_olivia_newton-john_-_you're_the_one_that_i_want.cybol"/>
+    <node name="johnny_nash_-_rock_me_baby" channel="file" format="element/part" model="repertoire/db/idea/johnny_nash_-_rock_me_baby.cybol"/>
+    <node name="jon_and_vangelis_-_i'll_find_my_way_home" channel="file" format="element/part" model="repertoire/db/idea/jon_and_vangelis_-_i'll_find_my_way_home.cybol"/>
+    <node name="joy_-_touch_by_touch" channel="file" format="element/part" model="repertoire/db/idea/joy_-_touch_by_touch.cybol"/>
+    <node name="juergen_hart_-_sing_mei_sachse_sing" channel="file" format="element/part" model="repertoire/db/idea/juergen_hart_-_sing_mei_sachse_sing.cybol"/>
+
+    <node name="karat_-_gewitterregen" channel="file" format="element/part" model="repertoire/db/idea/karat_-_gewitterregen.cybol"/>
+    <node name="killers_-_human" channel="file" format="element/part" model="repertoire/db/idea/killers_-_human.cybol"/>
+
+    <node name="lightening_seeds_-_life_of_riley" channel="file" format="element/part" model="repertoire/db/idea/lightening_seeds_-_life_of_riley.cybol"/>
+    <node name="limahl_-_neverending_story" channel="file" format="element/part" model="repertoire/db/idea/limahl_-_neverending_story.cybol"/>
+    <node name="lobo_-_i'd_love_you_to_want_me" channel="file" format="element/part" model="repertoire/db/idea/lobo_-_i'd_love_you_to_want_me.cybol"/>
+
+    <node name="mamas_and_papas_-_monday_monday" channel="file" format="element/part" model="repertoire/db/idea/mamas_and_papas_-_monday_monday.cybol"/>
+    <node name="men_at_work_-_down_under" channel="file" format="element/part" model="repertoire/db/idea/men_at_work_-_down_under.cybol"/>
+    <node name="michel_delpech_-_pour_un_flirt" channel="file" format="element/part" model="repertoire/db/idea/michel_delpech_-_pour_un_flirt.cybol"/>
+    <node name="mike_and_the_mechanics_-_another_cup_of_coffee" channel="file" format="element/part" model="repertoire/db/idea/mike_and_the_mechanics_-_another_cup_of_coffee.cybol"/>
+
+    <node name="nazareth_-_dream_on" channel="file" format="element/part" model="repertoire/db/idea/nazareth_-_dream_on.cybol"/>
+    <node name="new_order_-_true_faith" channel="file" format="element/part" model="repertoire/db/idea/new_order_-_true_faith.cybol"/>
+    <node name="nico_haak_-_schmidtchen_schleicher" channel="file" format="element/part" model="repertoire/db/idea/nico_haak_-_schmidtchen_schleicher.cybol"/>
+    <node name="nina_und_mike_-_fahrende_musikanten_das_sind_wir" channel="file" format="element/part" model="repertoire/db/idea/nina_und_mike_-_fahrende_musikanten_das_sind_wir.cybol"/>
+    <node name="no_mercy_-_where_do_you_go" channel="file" format="element/part" model="repertoire/db/idea/no_mercy_-_where_do_you_go.cybol"/>
+
+    <node name="omd_-_pandora's_box" channel="file" format="element/part" model="repertoire/db/idea/omd_-_pandora's_box.cybol"/>
+
+    <node name="pet_shop_boys_-_it's_a_sin" channel="file" format="element/part" model="repertoire/db/idea/pet_shop_boys_-_it's_a_sin.cybol"/>
+    <node name="peter_cornelius_-_du_entschuldige_i_kenn'_di" channel="file" format="element/part" model="repertoire/db/idea/peter_cornelius_-_du_entschuldige_i_kenn'_di.cybol"/>
+    <node name="peter_kent_-_it's_a_real_good_feeling" channel="file" format="element/part" model="repertoire/db/idea/peter_kent_-_it's_a_real_good_feeling.cybol"/>
+    <node name="peter_schilling_-_major_tom" channel="file" format="element/part" model="repertoire/db/idea/peter_schilling_-_major_tom.cybol"/>
+    <node name="police_-_message_in_a_bottle" channel="file" format="element/part" model="repertoire/db/idea/police_-_message_in_a_bottle.cybol"/>
+    <node name="puhdys_-_alt_wie_ein_baum" channel="file" format="element/part" model="repertoire/db/idea/puhdys_-_alt_wie_ein_baum.cybol"/>
+    <node name="puhdys_-_hey_wir_wollen_die_eisbaeren_seh'n" channel="file" format="element/part" model="repertoire/db/idea/puhdys_-_hey_wir_wollen_die_eisbaeren_seh'n.cybol"/>
+    <node name="puhdys_-_wenn_traeume_sterben" channel="file" format="element/part" model="repertoire/db/idea/puhdys_-_wenn_traeume_sterben.cybol"/>
+    <node name="pussycat_-_mississippi" channel="file" format="element/part" model="repertoire/db/idea/pussycat_-_mississippi.cybol"/>
+    <node name="pussycat_-_teenage_queenie" channel="file" format="element/part" model="repertoire/db/idea/pussycat_-_teenage_queenie.cybol"/>
+
+    <node name="queen_-_i_want_to_break_free" channel="file" format="element/part" model="repertoire/db/idea/queen_-_i_want_to_break_free.cybol"/>
+
+    <node name="rem_-_the_one_i_love" channel="file" format="element/part" model="repertoire/db/idea/rem_-_the_one_i_love.cybol"/>
+    <node name="ricchi_e_poveri_-_acapulco" channel="file" format="element/part" model="repertoire/db/idea/ricchi_e_poveri_-_acapulco.cybol"/>
+    <node name="ricchi_e_poveri_-_sara_perche_ti_amo" channel="file" format="element/part" model="repertoire/db/idea/ricchi_e_poveri_-_sara_perche_ti_amo.cybol"/>
+    <node name="roger_whittaker_-_albany" channel="file" format="element/part" model="repertoire/db/idea/roger_whittaker_-_albany.cybol"/>
+    <node name="rosenstolz_-_wir_sind_am_leben" channel="file" format="element/part" model="repertoire/db/idea/rosenstolz_-_wir_sind_am_leben.cybol"/>
+
+    <node name="saragossa_band_-_agadou" channel="file" format="element/part" model="repertoire/db/idea/saragossa_band_-_agadou.cybol"/>
+    <node name="scorpions_-_white_dove" channel="file" format="element/part" model="repertoire/db/idea/scorpions_-_white_dove.cybol"/>
+    <node name="secret_service_-_ten_o'clock_postman" channel="file" format="element/part" model="repertoire/db/idea/secret_service_-_ten_o'clock_postman.cybol"/>
+    <node name="shakin'_stevens_-_you_drive_me_crazy" channel="file" format="element/part" model="repertoire/db/idea/shakin'_stevens_-_you_drive_me_crazy.cybol"/>
+    <node name="shorts_-_comment_ca_va" channel="file" format="element/part" model="repertoire/db/idea/shorts_-_comment_ca_va.cybol"/>
+    <node name="silent_circle_-_touch_in_the_night" channel="file" format="element/part" model="repertoire/db/idea/silent_circle_-_touch_in_the_night.cybol"/>
+    <node name="smokie_-_i'll_meet_you_at_midnight" channel="file" format="element/part" model="repertoire/db/idea/smokie_-_i'll_meet_you_at_midnight.cybol"/>
+    <node name="sparks_-_when_do_i_get_to_sing_my_way" channel="file" format="element/part" model="repertoire/db/idea/sparks_-_when_do_i_get_to_sing_my_way.cybol"/>
+    <node name="status_quo_-_rockin'_all_over_the_world" channel="file" format="element/part" model="repertoire/db/idea/status_quo_-_rockin'_all_over_the_world.cybol"/>
+    <node name="stranglers_-_skin_deep" channel="file" format="element/part" model="repertoire/db/idea/stranglers_-_skin_deep.cybol"/>
+
+    <node name="take_that_-_patience" channel="file" format="element/part" model="repertoire/db/idea/take_that_-_patience.cybol"/>
+    <node name="tears_for_fears_-_everybody_wants_to_rule_the_world" channel="file" format="element/part" model="repertoire/db/idea/tears_for_fears_-_everybody_wants_to_rule_the_world.cybol"/>
+    <node name="texas_lightning_-_no_no_never" channel="file" format="element/part" model="repertoire/db/idea/texas_lightning_-_no_no_never.cybol"/>
+    <node name="tina_york_-_wir_lassen_uns_das_singen_nicht_verbieten" channel="file" format="element/part" model="repertoire/db/idea/tina_york_-_wir_lassen_uns_das_singen_nicht_verbieten.cybol"/>
+    <node name="tokens_-_the_lion_sleeps_tonight" channel="file" format="element/part" model="repertoire/db/idea/tokens_-_the_lion_sleeps_tonight.cybol"/>
+    <node name="tom_petty_-_into_the_great_wide_open" channel="file" format="element/part" model="repertoire/db/idea/tom_petty_-_into_the_great_wide_open.cybol"/>
+
+    <node name="u2_-_i_still_haven't_found_what_i'm_looking_for" channel="file" format="element/part" model="repertoire/db/idea/u2_-_i_still_haven't_found_what_i'm_looking_for.cybol"/>
+    <node name="u2_-_pride_(in_the_name_of_love)" channel="file" format="element/part" model="repertoire/db/idea/u2_-_pride_(in_the_name_of_love).cybol"/>
+    <node name="u2_-_sunday_bloody_sunday" channel="file" format="element/part" model="repertoire/db/idea/u2_-_sunday_bloody_sunday.cybol"/>
+    <node name="udo_juergens_-_aber_bitte_mit_sahne" channel="file" format="element/part" model="repertoire/db/idea/udo_juergens_-_aber_bitte_mit_sahne.cybol"/>
+    <node name="ultravox_-_hymn" channel="file" format="element/part" model="repertoire/db/idea/ultravox_-_hymn.cybol"/>
+    <node name="ute_freudenberg_-_jugendliebe" channel="file" format="element/part" model="repertoire/db/idea/ute_freudenberg_-_jugendliebe.cybol"/>
+
+    <node name="volkslied_-_das_lieben_bringt_grosz_freud" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_das_lieben_bringt_grosz_freud.cybol"/>
+    <node name="volkslied_-_die_gedanken_sind_frei" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_die_gedanken_sind_frei.cybol"/>
+    <node name="volkslied_-_es_wollt'_ein_maegdlein_frueh_aufsteh'n" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_es_wollt'_ein_maegdlein_frueh_aufsteh'n.cybol"/>
+    <node name="volkslied_-_es_zogen_auf_sonnigen_wegen" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_es_zogen_auf_sonnigen_wegen.cybol"/>
+    <node name="volkslied_-_heute_wollen_wir_das_raenzlein_schnueren" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_heute_wollen_wir_das_raenzlein_schnueren.cybol"/>
+    <node name="volkslied_-_im_fruehtau_zu_berge" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_im_fruehtau_zu_berge.cybol"/>
+    <node name="volkslied_-_liechtensteiner_polka_(roland_steinel)" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_liechtensteiner_polka_(roland_steinel).cybol"/>
+    <node name="volkslied_-_mein_vater_war_ein_wandersmann" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_mein_vater_war_ein_wandersmann.cybol"/>
+    <node name="volkslied_-_schneewalzer_(herbert_roth)" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_schneewalzer_(herbert_roth).cybol"/>
+    <node name="volkslied_-_wem_gott_will_rechte_gunst_erweisen" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_wem_gott_will_rechte_gunst_erweisen.cybol"/>
+    <node name="volkslied_-_wenn_wir_erklimmen_(bergvagabunden)" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_wenn_wir_erklimmen_(bergvagabunden).cybol"/>
+    <node name="volkslied_-_wir_lieben_die_stuerme_die_brausenden_wogen" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_wir_lieben_die_stuerme_die_brausenden_wogen.cybol"/>
+
+    <node name="wildecker_herzbuben_-_hallo_frau_nachbarin" channel="file" format="element/part" model="repertoire/db/idea/wildecker_herzbuben_-_hallo_frau_nachbarin.cybol"/>
+    <node name="wilki_-_bohema" channel="file" format="element/part" model="repertoire/db/idea/wilki_-_bohema.cybol"/>
+    <node name="wilki_-_urke" channel="file" format="element/part" model="repertoire/db/idea/wilki_-_urke.cybol"/>
+    <node name="wolfgang_ziegler_-_verdammt" channel="file" format="element/part" model="repertoire/db/idea/wolfgang_ziegler_-_verdammt.cybol"/>
+    <node name="wolfsheim_-_the_sparrows_and_the_nightingales" channel="file" format="element/part" model="repertoire/db/idea/wolfsheim_-_the_sparrows_and_the_nightingales.cybol"/>
+
+</node>

@@ -1,8 +1,0 @@
-<node>
-
-    <node name="link" channel="inline" format="text/plain" model="--">
-        <node name="tag" channel="inline" format="text/plain" model="a"/>
-        <node name="href" channel="inline" format="text/plain" model=""/>
-    </node>
-
-</node>
