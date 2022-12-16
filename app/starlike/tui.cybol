@@ -1,6 +1,6 @@
 <node>
 
-    <node name="window" channel="file" format="element/part" model="ui/all/tui/window.cybol">
+    <node name="window" channel="file" format="element/part" model="starlike/tui/window.cybol">
         <node name="position" channel="inline" format="number/integer" model="0,0"/>
         <node name="size" channel="inline" format="number/integer" model="80,25"/>
         <node name="background" channel="inline" format="colour/terminal" model="white"/>
@@ -12,7 +12,7 @@
         <node name="position" channel="inline" format="number/integer" model="0,25"/>
     </node>
 
-    <node name="actions" channel="file" format="element/part" model="ui/all/tui/actions.cybol"/>
+    <node name="actions" channel="file" format="element/part" model="starlike/tui/actions.cybol"/>
 
     <!--
         CAUTION! The path format is "text/cybol-path" and NOT "text/plain".

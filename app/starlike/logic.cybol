@@ -1,0 +1,15 @@
+<node>
+
+    <node name="startup" channel="file" format="element/part" model="starlike/logic/startup.cybol"/>
+
+    <node name="translate" channel="file" format="element/part" model="starlike/logic/translate.cybol"/>
+    <node name="send" channel="file" format="element/part" model="starlike/logic/send.cybol"/>
+
+    <node name="sense" channel="file" format="element/part" model="starlike/logic/sense.cybol"/>
+    <node name="handle" channel="file" format="element/part" model="starlike/logic/handle.cybol"/>
+
+    <node name="greet-world" channel="file" format="element/part" model="starlike/logic/greet-world.cybol"/>
+    <node name="greet-cybop" channel="file" format="element/part" model="starlike/logic/greet-cybop.cybol"/>
+    <node name="exit" channel="inline" format="live/exit" model=""/>
+
+</node>

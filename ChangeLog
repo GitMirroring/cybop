@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-12-16  Christian Heller  <christian.heller@cybop.org>
+
+        * Add file "app/recommended_order.txt" with website tutorial processing instructions for easy learning
+        * Move cybol application "ui/all/" to directory "starlike/"
+
 2022-12-15  Christian Heller  <christian.heller@cybop.org>
 
         * Beautify user interface cybol applications

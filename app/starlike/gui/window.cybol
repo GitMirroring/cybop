@@ -1,6 +1,6 @@
 <node>
 
-    <node name="heading" channel="file" format="element/part" model="ui/all/gui/heading.cybol">
+    <node name="heading" channel="file" format="element/part" model="starlike/gui/heading.cybol">
         <node name="position" channel="inline" format="number/integer" model="20,20"/>
         <node name="size" channel="inline" format="number/integer" model="400,40"/>
         <!-- green -->
@@ -8,7 +8,7 @@
         <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
     </node>
 
-    <node name="box" channel="file" format="element/part" model="ui/all/gui/box.cybol">
+    <node name="box" channel="file" format="element/part" model="starlike/gui/box.cybol">
         <node name="position" channel="inline" format="number/integer" model="20,70"/>
         <node name="size" channel="inline" format="number/integer" model="400,150"/>
         <!-- yellow -->
@@ -18,7 +18,7 @@
         <node name="line-style" channel="inline" format="text/plain" model="on-off-dash"/>
     </node>
 
-    <node name="control" channel="file" format="element/part" model="ui/all/gui/control.cybol">
+    <node name="control" channel="file" format="element/part" model="starlike/gui/control.cybol">
         <node name="position" channel="inline" format="number/integer" model="20,230"/>
         <node name="size" channel="inline" format="number/integer" model="400,60"/>
         <node name="foreground" channel="inline" format="colour/rgb" model="255,255,255"/>

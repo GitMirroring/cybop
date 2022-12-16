@@ -1,0 +1,49 @@
+
+Recommended Order
+=================
+
+For easy learning, it is best to execute the cybol applications in the order
+recommended following. The website tutorials follow this order as well.
+
+exit:
+internal
+external
+signal
+extended
+
+addition:
+simple
+dynamic
+static
+stack
+
+hello:
+cli
+library
+file
+tui
+gui
+
+counter:
+simple
+storage
+stack
+treepath
+test
+deep
+
+ui:
+tui
+control
+gui
+wui
+
+internet:
+socket_server + socket_client
+www_server_static
+www_server_dynamic
+
+starlike
+
+TODO: application
+

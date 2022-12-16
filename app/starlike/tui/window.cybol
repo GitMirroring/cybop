@@ -10,7 +10,7 @@
         <node name="underline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    <node name="box" channel="file" format="element/part" model="ui/all/tui/box.cybol">
+    <node name="box" channel="file" format="element/part" model="starlike/tui/box.cybol">
         <node name="position" channel="inline" format="number/integer" model="5,4"/>
         <node name="size" channel="inline" format="number/integer" model="70,12"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -21,7 +21,7 @@
         <node name="border" channel="inline" format="text/plain" model="ascii"/>
     </node>
 
-    <node name="control" channel="file" format="element/part" model="ui/all/tui/control.cybol">
+    <node name="control" channel="file" format="element/part" model="starlike/tui/control.cybol">
         <node name="position" channel="inline" format="number/integer" model="5,17"/>
         <node name="size" channel="inline" format="number/integer" model="70,6"/>
         <node name="background" channel="inline" format="colour/terminal" model="white"/>

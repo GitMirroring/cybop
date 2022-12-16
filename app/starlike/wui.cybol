@@ -1,6 +1,6 @@
 <node>
 
-    <node name="index" channel="file" format="element/part" model="ui/all/wui/index.cybol">
+    <node name="index" channel="file" format="element/part" model="starlike/wui/index.cybol">
         <node name="tag" channel="inline" format="text/plain" model="html"/>
         <node name="lang" channel="inline" format="text/plain" model="en"/>
         <node name="document_type" channel="inline" format="text/plain" model="html"/>
@@ -26,7 +26,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
     </node>
 
-    <node name="actions" channel="file" format="element/part" model="ui/all/wui/actions.cybol"/>
+    <node name="actions" channel="file" format="element/part" model="starlike/wui/actions.cybol"/>
 
     <node name="request" channel="inline" format="element/part" model=""/>
     <node name="action_exists" channel="inline" format="logicvalue/boolean" model="false"/>

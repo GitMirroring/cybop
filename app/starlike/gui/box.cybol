@@ -1,6 +1,6 @@
 <node>
 
-    <node name="label" channel="file" format="element/part" model="ui/all/gui/box_label.cybol">
+    <node name="label" channel="file" format="element/part" model="starlike/gui/box_label.cybol">
         <node name="position" channel="inline" format="number/integer" model="5,5"/>
         <node name="size" channel="inline" format="number/integer" model="390,140"/>
         <!-- blue -->
