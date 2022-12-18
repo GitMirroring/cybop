@@ -32,6 +32,8 @@ treepath
 test
 deep
 
+scripting
+
 ui:
 tui
 control

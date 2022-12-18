@@ -1,0 +1,9 @@
+<node>
+
+    <node name="mueller" channel="inline" format="text/plain" model="Frau Marita Müller"/>
+    <node name="meier" channel="inline" format="text/plain" model="Herr Otto Meier"/>
+    <node name="schulze" channel="inline" format="text/plain" model="Herr Rolf Schulze"/>
+    <node name="lehmann" channel="inline" format="text/plain" model="Frau Liselotte Lehmann"/>
+    <node name="wunder" channel="inline" format="text/plain" model="Herr Wilhelm Wunder"/>
+
+</node>

@@ -1,0 +1,8 @@
+<node>
+
+    <node name="index" channel="file" format="element/part" model="presence/wui/page/index.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="html"/>
+        <node name="document_type" channel="inline" format="text/plain" model="html"/>
+    </node>
+
+</node>

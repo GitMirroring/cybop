@@ -1,0 +1,80 @@
+<node>
+
+    <!-- Get client belonging to the handler that was placed into the interrupt pipe. -->
+    <node name="get_client_id" channel="inline" format="communicate/identify" model="">
+        <node name="identification" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
+    </node>
+
+    <node name="print_socket_label" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Received client request at socket:"/>
+    </node>
+    <node name="print_socket" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
+    </node>
+
+
+    <!-- TODO: Use stack variable to avoid "empty". Is it possible at all? The handle is called by cyboi ... -->
+
+
+    <!-- CAUTION! If the request was not reset here, then the last valid previous request would be used again and again, neverendingly. -->
+    <node name="reset_request_model" channel="inline" format="modify/empty" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.request"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+    <node name="reset_request_properties" channel="inline" format="modify/empty" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.request"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_query_exists_flag" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.path_exists"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+    <node name="reset_query_exists_flag" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.query_exists"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+    <node name="receive_request" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/http-request"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".var.request"/>
+        <!-- Read indirectly from internal buffer into which data have been written by the sensing thread. -->
+        <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <!-- Write knowledge tree into file. -->
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="presence/test_request.txt"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
+    </node>
+    <node name="TEST_knowledge_tree" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".var.request"/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+    <node name="test_query" channel="inline" format="text/cybol-path" model=".logic.handle.querytest"/>
+
+</node>

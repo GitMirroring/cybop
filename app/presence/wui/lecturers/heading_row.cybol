@@ -1,0 +1,25 @@
+<node>
+
+    <node name="lecturer" channel="inline" format="text/plain" model="Mitarbeiter">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+    <node name="monday" channel="inline" format="text/plain" model="Montag">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+    <node name="tuesday" channel="inline" format="text/plain" model="Dienstag">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+    <node name="wednesday" channel="inline" format="text/plain" model="Mittwoch">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+    <node name="thursday" channel="inline" format="text/plain" model="Donnerstag">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+    <node name="friday" channel="inline" format="text/plain" model="Freitag">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+    <node name="saturday" channel="inline" format="text/plain" model="Samstag">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+
+</node>

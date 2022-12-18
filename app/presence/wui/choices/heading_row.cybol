@@ -1,0 +1,7 @@
+<node>
+
+    <node name="choice" channel="inline" format="text/plain" model="Auswahl">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+
+</node>

@@ -1,0 +1,5 @@
+<node>
+
+    <node name="db" channel="file" format="element/part" model="presence/logic/reset/db.cybol"/>
+
+</node>

@@ -1,0 +1,89 @@
+<node>
+
+    <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.uri_to_db.directory_path"/>
+    <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.uri_to_db.file_path"/>
+
+<!--
+    <node name="TEST_directory_path" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".var.directory"/>
+    </node>
+    <node name="TEST_file_path" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
+    </node>
+-->
+
+    <!-- TEMPORARY WORKAROUND -->
+    <node name="create_folder" channel="inline" format="command/create-folder" model="">
+        <node name="path" channel="inline" format="text/cybol-path" model=".var.directory"/>
+    </node>
+
+<!--
+    <node name="create_directory_and_file" channel="inline" format="communicate/send" model="">
+    TODO: filesystem OR file ??
+        <node name="channel" channel="inline" format="meta/channel" model="filesystem"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="create"/>
+    </node>
+--
+    File d = new File("file/blu/bla/testdir");
+    // Create directory and all of its non-existent parent directories.
+    d.mkdirs();
+    mkdirs {
+
+        getParent
+        boolean a = parent.mkdirs() || parent.exists() // recursive call to "mkdirs"
+        if ((parent != null) && a && mkdir()) // IF not null AND parent created AND this dir created THEN all went fine
+    }
+
+http://stackoverflow.com/questions/2395465/create-a-file-in-linux-using-c
+You need the three-argument form of open() when you specify O_CREAT. When you omit the third argument, open() uses whatever value happens to be on the stack where the third argument was expected; this is seldom a coherent set of permissions.
+The third argument is the permissions on the file - which will be modified by the umask() value.
+int fd2 = open("/tmp/test.svg", O_RDWR | O_CREAT, S_IRUSR | S_IRGRP | S_IROTH);
+Note that you can create a file without write permissions (to anyone else, or any other process) while still being able to write to it from the current process. There is seldom a need to use execute bits on files created from a program - unless you are writing a compiler (and '.svg' files are not normally executables!).
+The S_xxxx flags come from <sys/stat.h> and <fcntl.h> — you can use either header to get the information.
+
+https://stackoverflow.com/questions/22949500/create-file-inside-a-directory-c
+use sprintf() or similar to create the pathFilename string:
+char pathFile[MAX_PATHNAME_LEN];
+sprintf(pathFile, "%s\\my_log.txt", directory );
+then
+int filedescriptor = open(pathFile, O_RDWR | O_APPEND | O_CREAT);
+Note: If you are using linux, change \\ to / and MAX_PATHNAME_LEN to 260 (or whatever linux likes to use for that value.)
+EDIT if you need to check that a directory exists before creating a file there, you can do something like this:
+if (stat("/dir1/my_dir", &st) == -1) {
+    mkdir("/dir1/my_dir", 0700);
+}
+Read more here: stat, mkdir
+-->
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
+    </node>
+    <node name="send_db" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".db"/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+</node>

@@ -1,0 +1,7 @@
+<node>
+
+    <node name="table" channel="file" format="element/part" model="presence/wui/lecturers/table.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="table"/>
+    </node>
+
+</node>

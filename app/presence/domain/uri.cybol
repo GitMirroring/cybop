@@ -1,0 +1,34 @@
+<node>
+
+    <node name="scheme" channel="inline" format="text/plain" model="http"/>
+    <node name="scheme_suffix" channel="inline" format="text/plain" model=":"/>
+    <node name="hostname_prefix" channel="inline" format="text/plain" model="//"/>
+<!--
+    <node name="hostname" channel="inline" format="text/plain" model="localhost"/>
+    <node name="hostname" channel="inline" format="text/plain" model="192.168.178.1"/>
+-->
+    <node name="hostname" channel="file" format="text/plain" model="presence/hostname.txt"/>
+    <node name="port_prefix" channel="inline" format="text/plain" model=":"/>
+<!--
+    <node name="port" channel="inline" format="text/plain" model="80"/>
+-->
+    <!-- Use another port number than 80 for testing, since it does not require root access. -->
+    <node name="port" channel="inline" format="text/plain" model="1971"/>
+    <node name="directory" channel="inline" format="text/plain" model="/"/>
+    <node name="parametre_prefix" channel="inline" format="text/plain" model="?"/>
+
+    <node name="parametre_separator" channel="inline" format="text/plain" model="&"/>
+    <node name="parametre_assignment" channel="inline" format="text/plain" model="="/>
+
+    <node name="parametre_year" channel="inline" format="text/plain" model="year"/>
+    <node name="parametre_week" channel="inline" format="text/plain" model="week"/>
+    <node name="parametre_lecturer" channel="inline" format="text/plain" model="lecturer"/>
+    <node name="parametre_day" channel="inline" format="text/plain" model="day"/>
+    <node name="parametre_choice" channel="inline" format="text/plain" model="choice"/>
+    <node name="parametre_action" channel="inline" format="text/plain" model="action"/>
+
+    <node name="action_navigate_backward" channel="inline" format="text/plain" model="navigate_backward"/>
+    <node name="action_navigate_forward" channel="inline" format="text/plain" model="navigate_forward"/>
+    <node name="action_update" channel="inline" format="text/plain" model="update"/>
+
+</node>

@@ -1,0 +1,67 @@
+<node>
+
+    <!-- The terminal. -->
+
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+
+    <!-- The db model. -->
+
+    <node name="directory" channel="inline" format="text/plain" model=""/>
+    <node name="dbfile" channel="inline" format="text/plain" model=""/>
+    <node name="db" channel="inline" format="element/part" model=""/>
+
+    <!-- The calendar. -->
+
+    <node name="year" channel="inline" format="number/integer" model="2015"/>
+    <node name="week" channel="inline" format="number/integer" model="12"/>
+<!--
+    <node name="day" channel="inline" format="datetime/utc" model="2015-01-01T00:00:00"/>
+-->
+
+    <!--
+        TODO: The year does NOT get serialised yet and therefore HAS TO BE assigned directly here.
+        This might change in the future, when date and time are determined at runtime.
+        In this case, the value assigned here may be left empty then.
+    -->
+    <node name="year_string" channel="inline" format="text/plain" model="2015"/>
+    <node name="week_string" channel="inline" format="text/plain" model=""/>
+
+    <!-- Request-response-cycle. -->
+
+    <node name="request" channel="inline" format="element/part" model=""/>
+    <node name="client_socket" channel="inline" format="number/integer" model="0"/>
+
+    <node name="path_exists" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="query_exists" channel="inline" format="logicvalue/boolean" model="false"/>
+
+    <node name="path" channel="inline" format="text/plain" model=""/>
+    <!--
+        CAUTION! The format is "text/ascii" and NOT "text/plain",
+        since some data, like images for instance, represent binary data.
+    -->
+    <node name="file" channel="inline" format="text/ascii" model=""/>
+
+    <node name="action_path" channel="inline" format="text/cybol-path" model=""/>
+
+    <!--
+        The serialised webpage.
+        For the http response, the following headers are recommended:
+        - Date
+        - Server
+        - Content-Length
+        - Content-Type
+    -->
+
+    <node name="webpage" channel="inline" format="text/plain" model="">
+        <node name="server" channel="inline" format="text/cybol-path" model=".domain.server"/>
+        <node name="content-type" channel="inline" format="text/plain" model="text/html"/>
+        <!--
+            CAUTION! The necessary "encoding" is added here DIRECTLY,
+            since it does NOT work adding it as constraint at the operation "send".
+            The reason is that the format "text/cybol-path" is used there,
+            which points to another (this) part ".webpage" whose properties are used.
+        -->
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+    </node>
+
+</node>

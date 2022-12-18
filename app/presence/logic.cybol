@@ -1,0 +1,17 @@
+<node>
+
+    <!-- Application. -->
+    <node name="startup" channel="file" format="element/part" model="presence/logic/startup.cybol"/>
+    <node name="handle" channel="file" format="element/part" model="presence/logic/handle.cybol"/>
+    <node name="actions" channel="file" format="element/part" model="presence/logic/actions.cybol"/>
+
+    <!-- Data. -->
+    <node name="create" channel="file" format="element/part" model="presence/logic/create.cybol"/>
+    <node name="reset" channel="file" format="element/part" model="presence/logic/reset.cybol"/>
+    <node name="send" channel="file" format="element/part" model="presence/logic/send.cybol"/>
+    <node name="translate" channel="file" format="element/part" model="presence/logic/translate.cybol"/>
+
+    <!-- Date navigation. -->
+    <node name="navigate" channel="file" format="element/part" model="presence/logic/navigate.cybol"/>
+
+</node>

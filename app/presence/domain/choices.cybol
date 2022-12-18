@@ -1,0 +1,22 @@
+<node>
+
+    <node name="teaching" channel="inline" format="text/plain" model="Lehre/Büro">
+        <node name="next" channel="inline" format="text/plain" model="homeoffice"/>
+    </node>
+    <node name="homeoffice" channel="inline" format="text/plain" model="Heimarbeit">
+        <node name="next" channel="inline" format="text/plain" model="businesstrip"/>
+    </node>
+    <node name="businesstrip" channel="inline" format="text/plain" model="Dienstreise">
+        <node name="next" channel="inline" format="text/plain" model="holiday"/>
+    </node>
+    <node name="holiday" channel="inline" format="text/plain" model="Urlaub">
+        <node name="next" channel="inline" format="text/plain" model="illness"/>
+    </node>
+    <node name="illness" channel="inline" format="text/plain" model="Erkrankung">
+        <node name="next" channel="inline" format="text/plain" model="bankholiday"/>
+    </node>
+    <node name="bankholiday" channel="inline" format="text/plain" model="Feiertag">
+        <node name="next" channel="inline" format="text/plain" model="teaching"/>
+    </node>
+
+</node>

@@ -1,0 +1,102 @@
+<node>
+
+
+    <!-- TODO?? Could this call of "modify/empty" be deleted if working with temporary stack variables instead? -->
+
+
+    <!-- CAUTION! If the webpage was not reset here, new text would be added instead of replacing the existing one. -->
+    <!-- CAUTION! Do NOT reset properties since otherwise, they would be lost, e.g. the "encoding" for the http body. -->
+    <node name="reset_webpage" channel="inline" format="modify/empty" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.webpage"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+    <node name="serialise_webpage" channel="inline" format="represent/serialise" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.webpage"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".wui.index"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="language" channel="inline" format="meta/language" model="text/html"/>
+    </node>
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="presence/test_wui.html"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
+    </node>
+    <node name="TEST_WUI" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".var.webpage"/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+    <!-- Send html encapsulated as http-response. -->
+    <node name="send" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <!--
+            For the http response, the following headers are recommended:
+            - Date
+            - Server
+            - Content-Length
+            - Content-Type
+
+            CAUTION! An "encoding" is NOT given when using the language "message/http-response",
+            since it would cause the WHOLE http message to get encoded.
+            But the http header should be ASCII (single-byte characters) only.
+            Likewise, binary attachments such as images should NOT get encoded.
+
+            CAUTION! It does NOT work adding the constraint "encoding" right here.
+            It does properly appear in the knowledge tree, but is NOT recognised in the operation "send".
+            The reason is that the format "text/cybol-path" points to another part ".webpage"
+            whose properties are used INSTEAD of those constraints that might be specified here.
+            In order to verify this, one might use the format "text/plain" testwise,
+            with which the constraints are recognised properly.
+            Therefore, the necessary "encoding" is added at the part ".webpage" DIRECTLY.
+        -->
+        <node name="message" channel="inline" format="text/cybol-path" model=".var.webpage">
+            <node name="Connection" channel="inline" format="text/plain" model="keep-alive"/>
+            <!--
+            <node name="Content-Type" channel="inline" format="text/plain" model="text/html; charset=utf-8"/>
+            -->
+            <!--
+                The client has 300 s == 5 min to make any additional requests before the connection is closed.
+                The client can send up to 1000 more requests.
+            -->
+            <node name="Keep-Alive" channel="inline" format="text/plain" model="timeout=300, max=1000"/>
+        </node>
+    </node>
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="presence/test_http_response.txt"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
+    </node>
+    <node name="test_http_response" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".var.webpage">
+            <node name="Server" channel="inline" format="text/plain" model="CYBOI/0.22.0 (Linux) CYBOL/2.0.0"/>
+            <node name="Connection" channel="inline" format="text/plain" model="close"/>
+            <node name="Content-Type" channel="inline" format="text/plain" model="text/html"/>
+        </node>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+</node>

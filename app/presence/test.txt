@@ -1,0 +1,6 @@
+
+| +-action_path | text/cybol-path | 
+| +-webpage | text/plain | 
+| | :-server | text/cybol-path | .domain.server
+| | :-content-type | text/plain | text/html
+| | :-encoding | meta/encoding | utf-8

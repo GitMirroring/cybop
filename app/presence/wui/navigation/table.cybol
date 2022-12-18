@@ -1,0 +1,7 @@
+<node>
+
+    <node name="row" channel="file" format="element/part" model="presence/wui/navigation/row.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="tr"/>
+    </node>
+
+</node>

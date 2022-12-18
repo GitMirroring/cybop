@@ -1,0 +1,58 @@
+<node>
+
+    <!--
+        Example path:
+        presence/db/2015/11/heller.cybol
+    -->
+
+    <node name="overwrite_application" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.path.application"/>
+    </node>
+
+    <node name="append_database_separator" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.path.separator"/>
+    </node>
+    <node name="append_database" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.path.db"/>
+    </node>
+
+    <node name="append_year_separator" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.path.separator"/>
+    </node>
+    <node name="append_year" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".var.year_string"/>
+    </node>
+
+    <node name="append_week_separator" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.path.separator"/>
+    </node>
+    <node name="append_week" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".var.week_string"/>
+    </node>
+
+    <node name="append_lecturer_separator" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.path.separator"/>
+    </node>
+    <node name="append_lecturer" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#name"/>
+    </node>
+
+    <node name="append_suffix_separator" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.path.suffix_separator"/>
+    </node>
+    <node name="append_file_suffix" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.path.file_suffix"/>
+    </node>
+
+</node>
