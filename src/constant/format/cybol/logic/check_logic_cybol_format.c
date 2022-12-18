@@ -43,13 +43,13 @@
  *
  * Description:
  *
- * Checks lexicographically if left and right parametre are equal.
+ * Checks lexicographically if left and right value are equal.
  *
  * Lexicographical comparison is usually applied to text, but can be used for vectors of other types as well.
  *
  * Even though both operands are vectors, there is always just one boolean result value altogether.
  *
- * Internally, the lexicographical flag is set to true also for deep comparison of compound parts of type "element/part", so that only one result value gets returned.
+ * Internally, the lexicographical flag is set to true also when doing deep comparison of compound parts of type "element/part", so that only one result value gets returned.
  *
  * Examples:
  *
@@ -71,30 +71,29 @@ static int* EQUAL_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
 /**
  * The check/greater logic cybol format.
  *
- * Check lexicographically for greaterness: >
- *
  * Description:
  *
-Compares left and right parametre.
+ * Checks lexicographically if the left value is greater than the right value.
+ *
+ * Lexicographical comparison is usually applied to text, but can be used for vectors of other types as well.
+ *
+ * Even though both operands are vectors, there is always just one boolean result value altogether.
+ *
+ * Internally, the lexicographical flag is set to true also when doing deep comparison of compound parts of type "element/part", so that only one result value gets returned.
  *
  * Examples:
  *
- * <node name="compare_loop_count" channel="inline" format="compare/greater" model="">
- *     <node name="result" channel="inline" format="text/cybol-path" model=".counter.break"/>
- *     <node name="left" channel="inline" format="text/cybol-path" model=".counter.count"/>
- *     <node name="right" channel="inline" format="text/cybol-path" model=".counter.maximum"/>
- *     <node name="type" channel="inline" format="meta/type" model="number/integer"/>
- *     <node name="selection" channel="inline" format="text/plain" model="all"/>
+ * <node name="check_greater" channel="inline" format="check/greater" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="left" channel="inline" format="text/cybol-path" model=".some_string"/>
+ *     <node name="right" channel="inline" format="text/plain" model="Hello"/>
  * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-result    the knowledge model, in which the result is stored (of type boolean)    true    path/* | logicvalue/boolean
-left    the left operand    true    path/* | number/* | text/plain
-right    the right operand    true    path/* | number/* | text/plain
-type    the operand type which is equal for both operands    true    path/* | meta/type
-selection    the area of two strings or number vectors to be compared    true    path/* | meta/type
+ * - result (required) [text/cybol-path]: The boolean value resulting from lexicographical comparison.
+ * - left (required) [text/cybol-path | text/plain]: The left operand.
+ * - right (required) [text/cybol-path | text/plain]: The right operand.
  */
 static wchar_t* GREATER_CHECK_LOGIC_CYBOL_FORMAT = L"check/greater";
 static int* GREATER_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -102,30 +101,29 @@ static int* GREATER_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
 /**
  * The check/greater-or-equal logic cybol format.
  *
- * Check lexicographically for greaterness or equality: >=
- *
  * Description:
  *
-Compares left and right parametre.
+ * Checks lexicographically if the left value is greater than the right value or both are equal.
+ *
+ * Lexicographical comparison is usually applied to text, but can be used for vectors of other types as well.
+ *
+ * Even though both operands are vectors, there is always just one boolean result value altogether.
+ *
+ * Internally, the lexicographical flag is set to true also when doing deep comparison of compound parts of type "element/part", so that only one result value gets returned.
  *
  * Examples:
  *
- * <node name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">
- *     <node name="result" channel="inline" format="text/cybol-path" model=".domain.break"/>
- *     <node name="left" channel="inline" format="text/cybol-path" model=".domain.count"/>
- *     <node name="right" channel="inline" format="text/cybol-path" model=".domain.maximum"/>
- *     <node name="type" channel="inline" format="meta/type" model="number/integer"/>
- *     <node name="selection" channel="inline" format="text/plain" model="all"/>
+ * <node name="check_greater_or_equal" channel="inline" format="check/greater-or-equal" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="left" channel="inline" format="text/cybol-path" model=".some_string"/>
+ *     <node name="right" channel="inline" format="text/plain" model="Hello"/>
  * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-result    the knowledge model, in which the result is stored (of type boolean)    true    path/* | logicvalue/boolean
-left    the left operand    true    path/* | number/* | text/plain
-right    the right operand    true    path/* | number/* | text/plain
-type    the operand type which is equal for both operands    true    path/* | meta/type
-selection    the area of two strings or number vectors to be compared    true    path/* | meta/type
+ * - result (required) [text/cybol-path]: The boolean value resulting from lexicographical comparison.
+ * - left (required) [text/cybol-path | text/plain]: The left operand.
+ * - right (required) [text/cybol-path | text/plain]: The right operand.
  */
 static wchar_t* GREATER_OR_EQUAL_CHECK_LOGIC_CYBOL_FORMAT = L"check/greater-or-equal";
 static int* GREATER_OR_EQUAL_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -133,18 +131,29 @@ static int* GREATER_OR_EQUAL_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
 /**
  * The check/less logic cybol format.
  *
- * Check lexicographically for lessness: <
- *
  * Description:
  *
-Compares left and right parametre.
+ * Checks lexicographically if the left value is less than the right value.
+ *
+ * Lexicographical comparison is usually applied to text, but can be used for vectors of other types as well.
+ *
+ * Even though both operands are vectors, there is always just one boolean result value altogether.
+ *
+ * Internally, the lexicographical flag is set to true also when doing deep comparison of compound parts of type "element/part", so that only one result value gets returned.
  *
  * Examples:
  *
+ * <node name="check_less" channel="inline" format="check/less" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="left" channel="inline" format="text/cybol-path" model=".some_string"/>
+ *     <node name="right" channel="inline" format="text/plain" model="Hello"/>
+ * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
+ * - result (required) [text/cybol-path]: The boolean value resulting from lexicographical comparison.
+ * - left (required) [text/cybol-path | text/plain]: The left operand.
+ * - right (required) [text/cybol-path | text/plain]: The right operand.
  */
 static wchar_t* LESS_CHECK_LOGIC_CYBOL_FORMAT = L"check/less";
 static int* LESS_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -152,18 +161,29 @@ static int* LESS_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
 /**
  * The check/less-or-equal logic cybol format.
  *
- * Check lexicographically for lessness or equality: <=
- *
  * Description:
  *
-Compares left and right parametre.
+ * Checks lexicographically if the left value is less than the right value or both are equal.
+ *
+ * Lexicographical comparison is usually applied to text, but can be used for vectors of other types as well.
+ *
+ * Even though both operands are vectors, there is always just one boolean result value altogether.
+ *
+ * Internally, the lexicographical flag is set to true also when doing deep comparison of compound parts of type "element/part", so that only one result value gets returned.
  *
  * Examples:
  *
+ * <node name="check_less_or_equal" channel="inline" format="check/less-or-equal" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="left" channel="inline" format="text/cybol-path" model=".some_string"/>
+ *     <node name="right" channel="inline" format="text/plain" model="Hello"/>
+ * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
+ * - result (required) [text/cybol-path]: The boolean value resulting from lexicographical comparison.
+ * - left (required) [text/cybol-path | text/plain]: The left operand.
+ * - right (required) [text/cybol-path | text/plain]: The right operand.
  */
 static wchar_t* LESS_OR_EQUAL_CHECK_LOGIC_CYBOL_FORMAT = L"check/less-or-equal";
 static int* LESS_OR_EQUAL_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -171,30 +191,29 @@ static int* LESS_OR_EQUAL_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
 /**
  * The check/unequal logic cybol format.
  *
- * Check lexicographically for unequality: !=
- *
  * Description:
  *
-Compares left and right parametre.
+ * Checks lexicographically if left and right value are unequal.
+ *
+ * Lexicographical comparison is usually applied to text, but can be used for vectors of other types as well.
+ *
+ * Even though both operands are vectors, there is always just one boolean result value altogether.
+ *
+ * Internally, the lexicographical flag is set to true also when doing deep comparison of compound parts of type "element/part", so that only one result value gets returned.
  *
  * Examples:
  *
- * <node name="compare_unequal" channel="inline" format="compare/unequal" model="">
- *     <node name="result" channel="inline" format="text/cybol-path" model=".model.result"/>
- *     <node name="left" channel="inline" format="text/cybol-path" model=".model.left"/>
- *     <node name="right" channel="inline" format="text/cybol-path" model=".model.right"/>
- *     <node name="type" channel="inline" format="meta/type" model="number/complex-cartesian"/>
- *     <node name="selection" channel="inline" format="text/plain" model="all"/>
+ * <node name="check_unequal" channel="inline" format="check/unequal" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="left" channel="inline" format="text/cybol-path" model=".some_string"/>
+ *     <node name="right" channel="inline" format="text/plain" model="Hello"/>
  * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-result    the knowledge model, in which the result is stored (of type boolean)    true    path/* | logicvalue/boolean
-left    the left operand    true    path/* | number/* | text/plain
-right    the right operand    true    path/* | number/* | text/plain
-type    the operand type which is equal for both operands    true    path/* | meta/type
-selection    the area of two strings or number vectors to be compared    true    path/* | meta/type
+ * - result (required) [text/cybol-path]: The boolean value resulting from lexicographical comparison.
+ * - left (required) [text/cybol-path | text/plain]: The left operand.
+ * - right (required) [text/cybol-path | text/plain]: The right operand.
  */
 static wchar_t* UNEQUAL_CHECK_LOGIC_CYBOL_FORMAT = L"check/unequal";
 static int* UNEQUAL_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
