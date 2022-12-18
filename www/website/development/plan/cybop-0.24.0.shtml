@@ -36,7 +36,7 @@
         <li>Add languages "text/cybol+xml" and "text/cybol+json"</li>
         <h3>Language Properties (Constraints):</h3>
         <li>"separator", "grouping" (thousands separator) used in numeral deserialiser</li>
-        <li>"sign", "base", "classicoctal", "grouping", "separator", "decimals", "scientific" used in numeral serialiser</li>
+        <li>"sign", "prefix", "base", "classicoctal", "grouping", "separator", "decimals", "scientific" used in numeral serialiser</li>
         <li>"positioning" used in tui serialiser</li>
         <h3>Applications:</h3>
         <li>Add cybol application "knowledge_tree/creation/"</li>
@@ -45,6 +45,7 @@
         <li>Add cybol application "serialiser/cybol/"</li>
         <li>Make multi-channel "Hello World!" cybol application "ui" work fully and save screenshots of tui, gui, wui</li>
         <li>Move working cybol applications from directory "examples" to new directory "app" for demonstration</li>
+        <li>Rename cybol library to "cyblib"</li>
     </ul>
 </section>
 
@@ -55,6 +56,10 @@
         <li>Update cybol api specification in javadoc comment blocks of files in directory "constant/format/cybol/"</li>
         <li>Update cyboi interpreter c code conventions style guide and upload to website</li>
         <li>Update release instructions</li>
+        <h3>Website:</h3>
+        <li>Make up simplified demo package as zip file containing just readme + cyboi + a few functioning apps</li>
+        <li>Upload tutorials to various video portals</li>
+        <li>Provide tutorials as separate page on website</li>
         <h3>Build Process:</h3>
         <li>Delete unused/obsolete bin and dist folder (Enrico Gallus)</li>
         <li>Remove doxygen completely (Enrico Gallus)</li>

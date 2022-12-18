@@ -18,6 +18,14 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-12-24  Christian Heller  <christian.heller@cybop.org>
+
+        * Release CYBOP 0.24.0
+
+2022-12-17  Christian Heller  <christian.heller@cybop.org>
+
+        * Update cybol application "presence"
+
 2022-12-16  Christian Heller  <christian.heller@cybop.org>
 
         * Add file "app/recommended_order.txt" with website tutorial processing instructions for easy learning
@@ -37,7 +45,7 @@
 
 2022-12-13  Christian Heller  <christian.heller@cybop.org>
 
-        * Update comments in applicator files
+        * Update comments in cyboi applicator files
         * Provide at least one example per category for api specification in javadoc comment blocks of directory "constant/format/cybol/logic/"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/time_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/randomise_logic_cybol_format.c"
@@ -50,6 +58,7 @@
 2022-12-07  Christian Heller  <christian.heller@cybop.org>
 
         * Update counter cybol applications
+        * Provide simplified demo package as zip file containing just readme + cyboi + a few functioning apps
 
 2022-12-06  Christian Heller  <christian.heller@cybop.org>
 

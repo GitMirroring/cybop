@@ -40,7 +40,7 @@ CYBOP 0.24.0, 2022-12-24, Christian Heller  <christian.heller@cybop.org>
             - Add languages "text/cybol+xml" and "text/cybol+json"
             Language Properties (Constraints):
             - "separator", "grouping" (thousands separator) used in numeral deserialiser
-            - "sign", "base", "classicoctal", "grouping", "separator", "decimals", "scientific" used in numeral serialiser
+            - "sign", "prefix", "base", "classicoctal", "grouping", "separator", "decimals", "scientific" used in numeral serialiser
             - "positioning" used in tui serialiser
             Applications:
             - Add cybol application "knowledge_tree/creation/"
@@ -49,11 +49,16 @@ CYBOP 0.24.0, 2022-12-24, Christian Heller  <christian.heller@cybop.org>
             - Add cybol application "serialiser/cybol/"
             - Make multi-channel "Hello World!" cybol application "ui" work fully and save screenshots of tui, gui, wui
             - Move working cybol applications from directory "examples" to new directory "app" for demonstration
+            - Rename cybol library to "cyblib"
         * Project:
             Documentation:
             - Update cybol api specification in javadoc comment blocks of files in directory "constant/format/cybol/"
             - Update cyboi interpreter c code conventions style guide and upload to website
             - Update release instructions
+            Website:
+            - Make up simplified demo package as zip file containing just readme + cyboi + a few functioning apps
+            - Upload tutorials to various video portals
+            - Provide tutorials as separate page on website
             Build Process:
             - Delete unused/obsolete bin and dist folder (Enrico Gallus)
             - Remove doxygen completely (Enrico Gallus)
