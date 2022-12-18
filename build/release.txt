@@ -33,11 +33,12 @@ ___________
 Build
 _____
 
-1 Adjust MANUALLY (for example in texteditor "Kate") copyright year, version, release date and VERSION_IDENTIFICATION_CYBOI_MODEL in directory "src"
+1 Adjust VERSION_IDENTIFICATION_CYBOI_MODEL in directory "src"
+2 Adjust copyright year, version, release date by executing script "build/scripts/adjust_copyright.sh" from within directory "build/"
 DO NOT USE python script running "make copyright", since it renames almost everything and has to be changed to use include and not exclude directories
-2 Generate api by running "make api" which executes the cybol api-generator
-3 Commit to svn MANUALLY
-4 Tag release in svn (see section "5.1 Tagging" in file "INSTALL") MANUALLY
+3 Generate api by running "make api" which executes the cybol api-generator
+4 Commit to svn MANUALLY
+5 Tag release in svn (see section "5.1 Tagging" in file "INSTALL") MANUALLY
 
 Distribution
 ____________
