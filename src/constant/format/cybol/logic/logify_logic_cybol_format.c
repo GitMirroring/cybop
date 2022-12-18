@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.23.0 2022-09-04
+ * @version CYBOP 0.24.0 2022-12-24
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -84,9 +84,9 @@ Applies the boolean logic operation NAND.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-output	the knowledge model in which the output is stored; used as first input operand	true	text/cybol-path
-input	the second input operand	true	text/cybol-path
-type	the type of both operands	true	meta/type
+output    the knowledge model in which the output is stored; used as first input operand    true    text/cybol-path
+input    the second input operand    true    text/cybol-path
+type    the type of both operands    true    meta/type
  *
  * Properties:
  * - output (required): the knowledge model in which the output is stored; used as first input operand
@@ -119,9 +119,9 @@ Applies the boolean logic operation NEG.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-output	the knowledge model in which the output is stored; used as first input operand	true	text/cybol-path
-input	the second input operand	true	text/cybol-path
-type	the type of both operands	true	meta/type
+output    the knowledge model in which the output is stored; used as first input operand    true    text/cybol-path
+input    the second input operand    true    text/cybol-path
+type    the type of both operands    true    meta/type
  *
  * Properties:
  * - output (required): the knowledge model in which the output is stored; used as first input operand
@@ -154,9 +154,9 @@ Applies the boolean logic operation NOR.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-output	the knowledge model in which the output is stored; used as first input operand	true	text/cybol-path
-input	the second input operand	true	text/cybol-path
-type	the type of both operands	true	meta/type
+output    the knowledge model in which the output is stored; used as first input operand    true    text/cybol-path
+input    the second input operand    true    text/cybol-path
+type    the type of both operands    true    meta/type
  *
  * Properties:
  * - output (required): the knowledge model in which the output is stored; used as first input operand
@@ -189,9 +189,9 @@ Applies the boolean logic operation NOT.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-output	the knowledge model in which the output is stored; used as first input operand	true	text/cybol-path
-input	the second input operand	true	text/cybol-path
-type	the type of both operands	true	meta/type
+output    the knowledge model in which the output is stored; used as first input operand    true    text/cybol-path
+input    the second input operand    true    text/cybol-path
+type    the type of both operands    true    meta/type
  *
  * Properties:
  * - output (required): the knowledge model in which the output is stored; used as first input operand
@@ -224,9 +224,9 @@ Applies the boolean logic operation OR.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-output	the knowledge model in which the output is stored; used as first input operand	true	text/cybol-path
-input	the second input operand	true	text/cybol-path
-type	the type of both operands	true	meta/type
+output    the knowledge model in which the output is stored; used as first input operand    true    text/cybol-path
+input    the second input operand    true    text/cybol-path
+type    the type of both operands    true    meta/type
  *
  * Properties:
  * - output (required): the knowledge model in which the output is stored; used as first input operand
@@ -259,9 +259,9 @@ Applies the boolean logic operation XNOR.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-output	the knowledge model in which the output is stored; used as first input operand	true	text/cybol-path
-input	the second input operand	true	text/cybol-path
-type	the type of both operands	true	meta/type
+output    the knowledge model in which the output is stored; used as first input operand    true    text/cybol-path
+input    the second input operand    true    text/cybol-path
+type    the type of both operands    true    meta/type
  *
  * Properties:
  * - output (required): the knowledge model in which the output is stored; used as first input operand
@@ -294,9 +294,9 @@ Applies the boolean logic operation XOR.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-output	the knowledge model in which the output is stored; used as first input operand	true	text/cybol-path
-input	the second input operand	true	text/cybol-path
-type	the type of both operands	true	meta/type
+output    the knowledge model in which the output is stored; used as first input operand    true    text/cybol-path
+input    the second input operand    true    text/cybol-path
+type    the type of both operands    true    meta/type
  *
  * Properties:
  * - output (required): the knowledge model in which the output is stored; used as first input operand

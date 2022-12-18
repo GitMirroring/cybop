@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.23.0 2022-09-04
+ * @version CYBOP 0.24.0 2022-12-24
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -85,9 +85,9 @@ Compare if bounded area contains value.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-result	the knowledge model, in which the result is stored	true	path/* | logicvalue/boolean
-left	the left part	true	path/* | number/* | text/plain
-right	the right part	true	path/* | number/* | text/plain
+result    the knowledge model, in which the result is stored    true    path/* | logicvalue/boolean
+left    the left part    true    path/* | number/* | text/plain
+right    the right part    true    path/* | number/* | text/plain
  */
 static wchar_t* LEFT_CONTAIN_LOGIC_CYBOL_FORMAT = L"contain/left";
 static int* LEFT_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -112,9 +112,9 @@ Compare if bounded area contains value.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-result	the knowledge model, in which the result is stored	true	path/* | logicvalue/boolean
-left	the left part	true	path/* | number/* | text/plain
-right	the right part	true	path/* | number/* | text/plain
+result    the knowledge model, in which the result is stored    true    path/* | logicvalue/boolean
+left    the left part    true    path/* | number/* | text/plain
+right    the right part    true    path/* | number/* | text/plain
  */
 static wchar_t* RIGHT_CONTAIN_LOGIC_CYBOL_FORMAT = L"contain/right";
 static int* RIGHT_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;

@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.23.0 2022-09-04
+ * @version CYBOP 0.24.0 2022-12-24
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -107,8 +107,8 @@ Sort numbers via quicksort-algorithm.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-output	The path where the sort numbers will be written to.	true	path/* | meta/channel
-input	The path where the numbers for the are taken from.	true	path/* | meta/channel
+output    The path where the sort numbers will be written to.    true    path/* | meta/channel
+input    The path where the numbers for the are taken from.    true    path/* | meta/channel
  *
  * Expected parametres:
  * - part (required): the knowledge model to be sorted

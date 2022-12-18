@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.23.0 2022-09-04
+ * @version CYBOP 0.24.0 2022-12-24
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -91,9 +91,9 @@ Example
     <node name="part" channel="inline" format="text/cybol-path" model=".app.node"/>
 </node>
 Properties
-Name	Description	Required	Format	Model
-element	The part's element (format).	true	path/*
-part	The knowledge path to the part.	true	path/* | number/*
+Name    Description    Required    Format    Model
+element    The part's element (format).    true    path/*
+part    The knowledge path to the part.    true    path/* | number/*
 --
  */
 static wchar_t* FORMAT_GET_ACCESS_LOGIC_CYBOL_FORMAT = L"access/get-format";
@@ -117,10 +117,10 @@ Get an index.
 Example
 
 Properties
-Name	Description	Required	Format	Model
-index	???	true	path/*
-part	The knowledge path to the part.	true	path/* | number/*
-whole	???	true	path/* | number/*
+Name    Description    Required    Format    Model
+index    ???    true    path/*
+part    The knowledge path to the part.    true    path/* | number/*
+whole    ???    true    path/* | number/*
 --
  */
 static wchar_t* GET_INDEX_ACCESS_LOGIC_CYBOL_FORMAT = L"access/get-index";
@@ -147,9 +147,9 @@ Example
     <node name="part" channel="inline" format="text/cybol-path" model=".part_1"/>
 </node>
 Properties
-Name	Description	Required	Format	Model
-element	The part's element (name).	true	path/*
-part	The knowledge path to the part.	true	path/* | number/*
+Name    Description    Required    Format    Model
+element    The part's element (name).    true    path/*
+part    The knowledge path to the part.    true    path/* | number/*
 --
  */
 static wchar_t* NAME_GET_ACCESS_LOGIC_CYBOL_FORMAT = L"access/get-name";
@@ -176,9 +176,9 @@ Example
     <node name="part" channel="inline" format="text/cybol-path" model=".part_1"/>
 </node>
 Properties
-Name	Description	Required	Format	Model
-element	The part's element (type).	true	path/*
-part	The knowledge path to the part.	true	path/* | number/*
+Name    Description    Required    Format    Model
+element    The part's element (type).    true    path/*
+part    The knowledge path to the part.    true    path/* | number/*
 --
  */
 static wchar_t* TYPE_GET_ACCESS_LOGIC_CYBOL_FORMAT = L"access/get-type";
@@ -206,9 +206,9 @@ Example
   <node name="part" channel="inline" format="text/cybol-path" model=".app.empty_number"/>
 </node>
 Properties
-Name	Description	Required	Format	Model
-result	The result flag, set to true on successful comparison, left untouched otherwise.	true	path/*
-part	The part.	true	path/* | number/*
+Name    Description    Required    Format    Model
+result    The result flag, set to true on successful comparison, left untouched otherwise.    true    path/*
+part    The part.    true    path/* | number/*
 --
  */
 static wchar_t* EMPTY_INDICATE_ACCESS_LOGIC_CYBOL_FORMAT = L"access/indicate-empty";
@@ -237,9 +237,9 @@ Example
   <node name="part" channel="inline" format="text/cybol-path" model=".app.empty_number"/>
 </node>
 Properties
-Name	Description	Required	Format	Model
-result	The result flag, set to true on successful comparison, left untouched otherwise.	true	path/*
-part	The part.	true	path/* | number/*
+Name    Description    Required    Format    Model
+result    The result flag, set to true on successful comparison, left untouched otherwise.    true    path/*
+part    The part.    true    path/* | number/*
 --
  */
 static wchar_t* EXISTS_INDICATE_ACCESS_LOGIC_CYBOL_FORMAT = L"access/indicate-exists";

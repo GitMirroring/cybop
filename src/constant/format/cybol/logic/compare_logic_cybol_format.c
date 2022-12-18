@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.23.0 2022-09-04
+ * @version CYBOP 0.24.0 2022-12-24
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -134,11 +134,11 @@ Compares left and right parametre.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-result	the knowledge model, in which the result is stored (of type boolean)	true	path/* | logicvalue/boolean
-left	the left operand	true	path/* | number/* | text/plain
-right	the right operand	true	path/* | number/* | text/plain
-type	the operand type which is equal for both operands	true	path/* | meta/type
-selection	the area of two strings or number vectors to be compared	true	path/* | meta/type
+result    the knowledge model, in which the result is stored (of type boolean)    true    path/* | logicvalue/boolean
+left    the left operand    true    path/* | number/* | text/plain
+right    the right operand    true    path/* | number/* | text/plain
+type    the operand type which is equal for both operands    true    path/* | meta/type
+selection    the area of two strings or number vectors to be compared    true    path/* | meta/type
  */
 static wchar_t* GREATER_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/greater";
 static int* GREATER_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -165,11 +165,11 @@ Compares left and right parametre.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-result	the knowledge model, in which the result is stored (of type boolean)	true	path/* | logicvalue/boolean
-left	the left operand	true	path/* | number/* | text/plain
-right	the right operand	true	path/* | number/* | text/plain
-type	the operand type which is equal for both operands	true	path/* | meta/type
-selection	the area of two strings or number vectors to be compared	true	path/* | meta/type
+result    the knowledge model, in which the result is stored (of type boolean)    true    path/* | logicvalue/boolean
+left    the left operand    true    path/* | number/* | text/plain
+right    the right operand    true    path/* | number/* | text/plain
+type    the operand type which is equal for both operands    true    path/* | meta/type
+selection    the area of two strings or number vectors to be compared    true    path/* | meta/type
  */
 static wchar_t* GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/greater-or-equal";
 static int* GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -232,11 +232,11 @@ Compares left and right parametre.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-result	the knowledge model, in which the result is stored (of type boolean)	true	path/* | logicvalue/boolean
-left	the left operand	true	path/* | number/* | text/plain
-right	the right operand	true	path/* | number/* | text/plain
-type	the operand type which is equal for both operands	true	path/* | meta/type
-selection	the area of two strings or number vectors to be compared	true	path/* | meta/type
+result    the knowledge model, in which the result is stored (of type boolean)    true    path/* | logicvalue/boolean
+left    the left operand    true    path/* | number/* | text/plain
+right    the right operand    true    path/* | number/* | text/plain
+type    the operand type which is equal for both operands    true    path/* | meta/type
+selection    the area of two strings or number vectors to be compared    true    path/* | meta/type
  */
 static wchar_t* UNEQUAL_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/unequal";
 static int* UNEQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;

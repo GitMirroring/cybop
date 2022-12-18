@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.23.0 2022-09-04
+ * @version CYBOP 0.24.0 2022-12-24
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -118,9 +118,9 @@ Divides two numbers of the given format
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-result	The quotient resulting from the divison. It initially contains the dividend.	true	path/*
-operand	The divisor for the division.	true	path/* | number/*
-type	The number type. It has to be identical for all parametres.	true	path/* | meta/type
+result    The quotient resulting from the divison. It initially contains the dividend.    true    path/*
+operand    The divisor for the division.    true    path/* | number/*
+type    The number type. It has to be identical for all parametres.    true    path/* | meta/type
  *
  * quotient = dividend / divisor
  */
@@ -189,9 +189,9 @@ Calculate the module of a given value.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-result	The result of the modulo operation.	true	path/*
-operand	The factor for the modulo.	true	path/* | number/*
-type	The number type. It has to be identical for all parametres.	true	path/* | meta/type
+result    The result of the modulo operation.    true    path/*
+operand    The factor for the modulo.    true    path/* | number/*
+type    The number type. It has to be identical for all parametres.    true    path/* | meta/type
  *
  * remainder = dividend % divisor
  */
@@ -218,9 +218,9 @@ Multiplies two numbers of the given format.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-result	The product resulting from the multiplication. It initially contains the first factor.	true	path/*
-operand	The second factor for the multiplication.	true	path/* | number/*
-type	The number type. It has to be identical for all parametres.	true	path/* | meta/type
+result    The product resulting from the multiplication. It initially contains the first factor.    true    path/*
+operand    The second factor for the multiplication.    true    path/* | number/*
+type    The number type. It has to be identical for all parametres.    true    path/* | meta/type
  *
  * product = factor_1 * factor_2
  */
@@ -247,9 +247,9 @@ Negates a given number.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-result	The output resulting from the negation.	true	path/*
-operand	The number which is to negate.	true	path/* | number/*
-type	The number type. It has to be identical for all parametres.	true	path/* | meta/type
+result    The output resulting from the negation.    true    path/*
+operand    The number which is to negate.    true    path/* | number/*
+type    The number type. It has to be identical for all parametres.    true    path/* | meta/type
  *
  * result = - number
  */
@@ -297,9 +297,9 @@ Subtracts two numbers of the given format.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-result	The difference resulting from the subtraction. It initially contains the minuend.	true	path/*
-operand	The subtrahend for the subtraction.	true	path/* | number/*
-type	The number type. It has to be identical for all parametres.	true	path/* | meta/type
+result    The difference resulting from the subtraction. It initially contains the minuend.    true    path/*
+operand    The subtrahend for the subtraction.    true    path/* | number/*
+type    The number type. It has to be identical for all parametres.    true    path/* | meta/type
  *
  * difference = minuend - subtrahend
  */

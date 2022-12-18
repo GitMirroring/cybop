@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.23.0 2022-09-04
+ * @version CYBOP 0.24.0 2022-12-24
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -49,7 +49,7 @@
  * The Tab html character entity reference model.
  *
  * Name: Tab
- * Character: 	
+ * Character:     
  * Unicode code point: U+0009 (9)
  * Description: character tabulation
  */

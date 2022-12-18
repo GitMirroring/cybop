@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.23.0 2022-09-04
+ * @version CYBOP 0.24.0 2022-12-24
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -58,9 +58,9 @@ Archives the given data into a file.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-create	The option for creating an archive.	false	logicvalue/boolean
-update	The option for updating an archive.	false	logicvalue/boolean
-bzip2	The option for using the bzip2 compression algorithm.	false	logicvalue/boolean
+create    The option for creating an archive.    false    logicvalue/boolean
+update    The option for updating an archive.    false    logicvalue/boolean
+bzip2    The option for using the bzip2 compression algorithm.    false    logicvalue/boolean
  *
  * Expected parametres:
  * - create (optional): the option for creating an archive
@@ -316,8 +316,8 @@ Compares two files.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-file1	first file to compare	true	text/plain
-file2	second file to compare	true	text/plain
+file1    first file to compare    true    text/plain
+file2    second file to compare    true    text/plain
  *
  * Expected parametres:
  * - first file (required): first file to compare
@@ -394,10 +394,10 @@ Display the content.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-path	the listing for the given path (the default is the current directory)	false	text/plain
-squeze	???	false	logicvalue/boolean
-number-lines	???	false	logicvalue/boolean
-clear	???	false	logicvalue/boolean
+path    the listing for the given path (the default is the current directory)    false    text/plain
+squeze    ???    false    logicvalue/boolean
+number-lines    ???    false    logicvalue/boolean
+clear    ???    false    logicvalue/boolean
  *
  * Expected parametres:
  * - path (required): path to the file
@@ -427,7 +427,7 @@ Echos the message to standard output.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-message	the message which should be directed to the standard output	false	text/plain
+message    the message which should be directed to the standard output    false    text/plain
  *
  * Expected parametres:
  * - message (optional): the message which should be directed to the standard output
@@ -503,8 +503,8 @@ Searches for pattern in file.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-pattern	the pattern to search for	true	text/plain
-file	the file to search in	true	text/plain
+pattern    the pattern to search for    true    text/plain
+file    the file to search in    true    text/plain
  *
  * Expected parametres:
  * - pattern (required): pattern, to search for
@@ -767,11 +767,11 @@ Moving directories from a path to another.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-source	the path of the directory which sould be moved	true	text/plain
-destination	the path of the directory which sould be moved	true	text/plain
-force	the force option (never ask for permission to move any directories)	false	logicvalue/boolean
-interactive	the interactive option (askes everytime for permission of moving a directory)	false	logicvalue/boolean
-verbal	the verbal option (shows what have been moved)	false	logicvalue/boolean
+source    the path of the directory which sould be moved    true    text/plain
+destination    the path of the directory which sould be moved    true    text/plain
+force    the force option (never ask for permission to move any directories)    false    logicvalue/boolean
+interactive    the interactive option (askes everytime for permission of moving a directory)    false    logicvalue/boolean
+verbal    the verbal option (shows what have been moved)    false    logicvalue/boolean
  *
  * Expected parametres:
  * - source (required): the path of the file or the directory which sould be moved
@@ -827,9 +827,9 @@ Pings a given host.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-host	the host to be pinged	true	text/plain
-count	count of ping packets to send	false	text/plain
-interface	interface to send packets on	false	text/plain
+host    the host to be pinged    true    text/plain
+count    count of ping packets to send    false    text/plain
+interface    interface to send packets on    false    text/plain
  *
  * Expected parametres:
  * - host (required): host, to be pinged
@@ -885,10 +885,10 @@ Moving directories from one path to another..
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-path	the path including wildcards for deleting directories	true	text/plain
-interactive	the interactive option (askes everytime for permission of deleting a directory)	false	logicvalue/boolean
-recursive	the recursvie option (deletes all of its subdirectories)	false	logicvalue/boolean
-verbal	the verbal option (shows what have been moved)	false	logicvalue/boolean
+path    the path including wildcards for deleting directories    true    text/plain
+interactive    the interactive option (askes everytime for permission of deleting a directory)    false    logicvalue/boolean
+recursive    the recursvie option (deletes all of its subdirectories)    false    logicvalue/boolean
+verbal    the verbal option (shows what have been moved)    false    logicvalue/boolean
  *
  * Expected parametres:
  * - path: the path including wildcards for deleting files and directories
@@ -1015,13 +1015,13 @@ Moving files and directories from a path to another..
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-source	the source for archiving	true	text/plain
-destination	the destination where the source is being archived	true	text/plain
-force	the force option for not asking for permission for overwriting files or directories	false	logicvalue/boolean
-gzip	the gunzip option to indicate gunzip compression or extraction	false	logicvalue/boolean
-unpack	the option for unpacking / extraction or else it will pack	false	logicvalue/boolean
-recursive	???	false	logicvalue/boolean
-verbal	shows which files and directories are being copied	false	logicvalue/boolean
+source    the source for archiving    true    text/plain
+destination    the destination where the source is being archived    true    text/plain
+force    the force option for not asking for permission for overwriting files or directories    false    logicvalue/boolean
+gzip    the gunzip option to indicate gunzip compression or extraction    false    logicvalue/boolean
+unpack    the option for unpacking / extraction or else it will pack    false    logicvalue/boolean
+recursive    ???    false    logicvalue/boolean
+verbal    shows which files and directories are being copied    false    logicvalue/boolean
  *
  * Expected parametres:
  * - source (required): the source for archiving
@@ -1185,12 +1185,12 @@ Count different occurences.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-path	path to the file or directory	true	text/plain
-bytes	Outputs the number of bytes	false	logicvalue/boolean
-chars	Outputs the number of chars	false	logicvalue/boolean
-lines	Outputs the number of lines	false	logicvalue/boolean
-max-line-length	Outputs the length of the longest line	false	logicvalue/boolean
-words	Outputs the number of words	false	logicvalue/boolean
+path    path to the file or directory    true    text/plain
+bytes    Outputs the number of bytes    false    logicvalue/boolean
+chars    Outputs the number of chars    false    logicvalue/boolean
+lines    Outputs the number of lines    false    logicvalue/boolean
+max-line-length    Outputs the length of the longest line    false    logicvalue/boolean
+words    Outputs the number of words    false    logicvalue/boolean
  *
  * Expected parametres:
  * - path (required): path to the file or directory

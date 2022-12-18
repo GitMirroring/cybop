@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.23.0 2022-09-04
+ * @version CYBOP 0.24.0 2022-12-24
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -85,11 +85,11 @@ Resets the bit at a given position.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-value	The knowledge model representing the value.	true	path/*
-position	The bit position within the value.	true	path/* | number/*
-type	The value type.	true	path/* | meta/type
-count	The number of values to be manipulated (if null, the value part model count will be used instead).	false	path/* | number/*
-index	The index from which to start manipulating values (if null, an index of zero will be used instead).	false	path/* | number/*
+value    The knowledge model representing the value.    true    path/*
+position    The bit position within the value.    true    path/* | number/*
+type    The value type.    true    path/* | meta/type
+count    The number of values to be manipulated (if null, the value part model count will be used instead).    false    path/* | number/*
+index    The index from which to start manipulating values (if null, an index of zero will be used instead).    false    path/* | number/*
  */
 static wchar_t* CLEAR_MANIPULATE_LOGIC_CYBOL_FORMAT = L"manipulate/clear";
 static int* CLEAR_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -110,11 +110,11 @@ Rotates all bits of a value to the left by position.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-value	The knowledge model representing the value.	true	path/*
-position	The bit position within the value.	true	path/* | number/*
-type	The value type.	true	path/* | meta/type
-count	The number of values to be manipulated (if null, the value part model count will be used instead).	false	path/* | number/*
-index	The index from which to start manipulating values (if null, an index of zero will be used instead).	false	path/* | number/*
+value    The knowledge model representing the value.    true    path/*
+position    The bit position within the value.    true    path/* | number/*
+type    The value type.    true    path/* | meta/type
+count    The number of values to be manipulated (if null, the value part model count will be used instead).    false    path/* | number/*
+index    The index from which to start manipulating values (if null, an index of zero will be used instead).    false    path/* | number/*
  */
 static wchar_t* ROTATE_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT = L"manipulate/rotate-left";
 static int* ROTATE_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -135,11 +135,11 @@ Rotates all bits of a value to the right by position.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-value	The knowledge model representing the value.	true	path/*
-position	The bit position within the value.	true	path/* | number/*
-type	The value type.	true	path/* | meta/type
-count	The number of values to be manipulated (if null, the value part model count will be used instead).	false	path/* | number/*
-index	The index from which to start manipulating values (if null, an index of zero will be used instead).	false	path/* | number/*
+value    The knowledge model representing the value.    true    path/*
+position    The bit position within the value.    true    path/* | number/*
+type    The value type.    true    path/* | meta/type
+count    The number of values to be manipulated (if null, the value part model count will be used instead).    false    path/* | number/*
+index    The index from which to start manipulating values (if null, an index of zero will be used instead).    false    path/* | number/*
  */
 static wchar_t* ROTATE_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT = L"manipulate/rotate-right";
 static int* ROTATE_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -160,11 +160,11 @@ Sets the bit at the given position.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-value	The knowledge model representing the value.	true	path/*
-position	The bit position within the value.	true	path/* | number/*
-type	The value type.	true	path/* | meta/type
-count	The number of values to be manipulated (if null, the value part model count will be used instead).	false	path/* | number/*
-index	The index from which to start manipulating values (if null, an index of zero will be used instead).	false	path/* | number/*
+value    The knowledge model representing the value.    true    path/*
+position    The bit position within the value.    true    path/* | number/*
+type    The value type.    true    path/* | meta/type
+count    The number of values to be manipulated (if null, the value part model count will be used instead).    false    path/* | number/*
+index    The index from which to start manipulating values (if null, an index of zero will be used instead).    false    path/* | number/*
  */
 static wchar_t* SET_MANIPULATE_LOGIC_CYBOL_FORMAT = L"manipulate/set";
 static int* SET_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -185,11 +185,11 @@ Shifts all bits of value to the left by position.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-value	The knowledge model representing the value.	true	path/*
-position	The bit position within the value.	true	path/* | number/*
-type	The value type.	true	path/* | meta/type
-count	The number of values to be manipulated (if null, the value part model count will be used instead).	false	path/* | number/*
-index	The index from which to start manipulating values (if null, an index of zero will be used instead).	false	path/* | number/*
+value    The knowledge model representing the value.    true    path/*
+position    The bit position within the value.    true    path/* | number/*
+type    The value type.    true    path/* | meta/type
+count    The number of values to be manipulated (if null, the value part model count will be used instead).    false    path/* | number/*
+index    The index from which to start manipulating values (if null, an index of zero will be used instead).    false    path/* | number/*
  */
 static wchar_t* SHIFT_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT = L"manipulate/shift-left";
 static int* SHIFT_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -210,11 +210,11 @@ Shifts all bits of value to the right by position.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-value	The knowledge model representing the value.	true	path/*
-position	The bit position within the value.	true	path/* | number/*
-type	The value type.	true	path/* | meta/type
-count	The number of values to be manipulated (if null, the value part model count will be used instead).	false	path/* | number/*
-index	The index from which to start manipulating values (if null, an index of zero will be used instead).	false	path/* | number/*
+value    The knowledge model representing the value.    true    path/*
+position    The bit position within the value.    true    path/* | number/*
+type    The value type.    true    path/* | meta/type
+count    The number of values to be manipulated (if null, the value part model count will be used instead).    false    path/* | number/*
+index    The index from which to start manipulating values (if null, an index of zero will be used instead).    false    path/* | number/*
  */
 static wchar_t* SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT = L"manipulate/shift-right";
 static int* SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -235,11 +235,11 @@ Toggles the bit at the given position.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-value	The knowledge model representing the value.	true	path/*
-position	The bit position within the value.	true	path/* | number/*
-type	The value type.	true	path/* | meta/type
-count	The number of values to be manipulated (if null, the value part model count will be used instead).	false	path/* | number/*
-index	The index from which to start manipulating values (if null, an index of zero will be used instead).	false	path/* | number/*
+value    The knowledge model representing the value.    true    path/*
+position    The bit position within the value.    true    path/* | number/*
+type    The value type.    true    path/* | meta/type
+count    The number of values to be manipulated (if null, the value part model count will be used instead).    false    path/* | number/*
+index    The index from which to start manipulating values (if null, an index of zero will be used instead).    false    path/* | number/*
  */
 static wchar_t* TOGGLE_MANIPULATE_LOGIC_CYBOL_FORMAT = L"manipulate/toggle";
 static int* TOGGLE_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;

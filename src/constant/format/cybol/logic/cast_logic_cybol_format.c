@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.23.0 2022-09-04
+ * @version CYBOP 0.24.0 2022-12-24
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -83,9 +83,9 @@ Casts a value from one type to another.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-destination	The knowledge model to cast to.	true	path/*
-source	The knowledge model to cast from.	true	path/* | number/*
-type	The source type.	true	path/* | meta/type
+destination    The knowledge model to cast to.    true    path/*
+source    The knowledge model to cast from.    true    path/* | number/*
+type    The source type.    true    path/* | meta/type
  *
  * Expected parametres:
  * - destination (required): the knowledge model to cast to
@@ -120,9 +120,9 @@ Casts a value from one type to another.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-destination	The knowledge model to cast to.	true	path/*
-source	The knowledge model to cast from.	true	path/* | number/*
-type	The source type.	true	path/* | meta/type
+destination    The knowledge model to cast to.    true    path/*
+source    The knowledge model to cast from.    true    path/* | number/*
+type    The source type.    true    path/* | meta/type
  *
  * Expected parametres:
  * - destination (required): the knowledge model to cast to
@@ -157,9 +157,9 @@ Casts a value from one type to another.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-destination	The knowledge model to cast to.	true	path/*
-source	The knowledge model to cast from.	true	path/* | number/*
-type	The source type.	true	path/* | meta/type
+destination    The knowledge model to cast to.    true    path/*
+source    The knowledge model to cast from.    true    path/* | number/*
+type    The source type.    true    path/* | meta/type
  *
  * Expected parametres:
  * - destination (required): the knowledge model to cast to
