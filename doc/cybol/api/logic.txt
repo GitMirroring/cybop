@@ -3,6 +3,14 @@ activate/disable
 activate/enable
 calculate/absolute
 calculate/add
+calculate/divide
+calculate/maximum
+calculate/minimum
+calculate/modulo
+calculate/multiply
+calculate/negate
+calculate/reduce
+calculate/subtract
 cast/byte
 check/equal
 command/change-directory

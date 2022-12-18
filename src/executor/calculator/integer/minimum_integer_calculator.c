@@ -33,8 +33,8 @@
 /**
  * Returns the lesser of the two values.
  *
- * @param p0 the minimum, which is the left operand BEFORE the operation
- * @param p1 the right operand
+ * @param p0 the minimum, which is the first operand BEFORE the operation
+ * @param p1 the second operand
  */
 void calculate_integer_minimum(void* p0, void* p1) {
 

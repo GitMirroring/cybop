@@ -14,7 +14,6 @@
 API
 ___
 
-        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/calculate_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/logify_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/check_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/compare_logic_cybol_format.c"

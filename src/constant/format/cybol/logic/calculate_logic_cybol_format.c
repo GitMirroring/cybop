@@ -56,6 +56,9 @@
  *
  * - result (required) [text/cybol-path]: The absolute value of the given number.
  * - operand (required) [text/cybol-path | number/any]: The source number.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the operand count.
+ * - result_index (optional) [text/cybol-path | number/integer]: The result index from which to start calculating. If null, the default is zero.
+ * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from which to start calculating. If null, the default is zero.
  */
 static wchar_t* ABSOLUTE_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/absolute";
 static int* ABSOLUTE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -67,7 +70,9 @@ static int* ABSOLUTE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  *
  * Adds the operand to the result.
  *
- * Caution! Do not use this operation for characters (strings)!
+ * sum = summand + summand
+ *
+ * Caution! Do not use this operation for adding characters (strings)!
  * They may be concatenated by using the "modify/append" operation.
  *
  * Examples:
@@ -101,28 +106,26 @@ static int* ADD_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
 /**
  * The calculate/divide logic cybol format.
  *
- * Divide a number by another.
- *
  * Description:
  *
-Divides two numbers of the given format
+ * Divides the result by the operand.
+ *
+ * quotient = dividend / divisor
  *
  * Examples:
  *
- * <node name="divide" channel="inline" format="calculate/divide" model="">
+ * <node name="divide_by_two" channel="inline" format="calculate/divide" model="">
  *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
- *     <node name="operand" channel="inline" format="number/integer" model="1,2,3"/>
- *     <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+ *     <node name="operand" channel="inline" format="number/integer" model="2"/>
  * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-result    The quotient resulting from the divison. It initially contains the dividend.    true    path/*
-operand    The divisor for the division.    true    path/* | number/*
-type    The number type. It has to be identical for all parametres.    true    path/* | meta/type
- *
- * quotient = dividend / divisor
+ * - result (required) [text/cybol-path]: The quotient resulting from the division. It initially represents the dividend.
+ * - operand (required) [text/cybol-path | number/any]: The divisor.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the operand count.
+ * - result_index (optional) [text/cybol-path | number/integer]: The result index from which to start calculating. If null, the default is zero.
+ * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from which to start calculating. If null, the default is zero.
  */
 static wchar_t* DIVIDE_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/divide";
 static int* DIVIDE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -130,20 +133,24 @@ static int* DIVIDE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
 /**
  * The calculate/maximum logic cybol format.
  *
- * Determine the lesser of two values.
- *
  * Description:
  *
-TODO
+ * Determines the greater of two values.
  *
  * Examples:
  *
+ * <node name="determine_maximum" channel="inline" format="calculate/maximum" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".maximum"/>
+ *     <node name="operand" channel="inline" format="number/integer" model=".value"/>
+ * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
- *
- * maximum = (x > y) ? x : y
+ * - result (required) [text/cybol-path]: The greater of the two given values. It initially represents the first value.
+ * - operand (required) [text/cybol-path | number/any]: The second value.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the operand count.
+ * - result_index (optional) [text/cybol-path | number/integer]: The result index from which to start calculating. If null, the default is zero.
+ * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from which to start calculating. If null, the default is zero.
  */
 static wchar_t* MAXIMUM_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/maximum";
 static int* MAXIMUM_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -151,20 +158,24 @@ static int* MAXIMUM_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
 /**
  * The calculate/minimum logic cybol format.
  *
- * Determine the lesser of two values.
- *
  * Description:
  *
-TODO
+ * Determines the lesser of two values.
  *
  * Examples:
  *
+ * <node name="determine_minimum" channel="inline" format="calculate/minimum" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".minimum"/>
+ *     <node name="operand" channel="inline" format="number/integer" model=".value"/>
+ * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
- *
- * minimum = (x < y) ? x : y
+ * - result (required) [text/cybol-path]: The lesser of the two given values. It initially represents the first value.
+ * - operand (required) [text/cybol-path | number/any]: The second value.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the operand count.
+ * - result_index (optional) [text/cybol-path | number/integer]: The result index from which to start calculating. If null, the default is zero.
+ * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from which to start calculating. If null, the default is zero.
  */
 static wchar_t* MINIMUM_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/minimum";
 static int* MINIMUM_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -172,15 +183,15 @@ static int* MINIMUM_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
 /**
  * The calculate/modulo logic cybol format.
  *
- * Calculate the remainder of an integer division.
- *
  * Description:
  *
-Calculate the module of a given value.
+ * Determines the remainder of the integer division.
+ *
+ * remainder = dividend % divisor
  *
  * Examples:
  *
- * <node name="modulo" channel="inline" format="calculate/modulo" model="">
+ * <node name="determine_minimum" channel="inline" format="calculate/modulo" model="">
  *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
  *     <node name="operand" channel="inline" format="number/integer" model="2"/>
  *     <node name="type" channel="inline" format="meta/type" model="number/integer"/>
@@ -188,12 +199,11 @@ Calculate the module of a given value.
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-result    The result of the modulo operation.    true    path/*
-operand    The factor for the modulo.    true    path/* | number/*
-type    The number type. It has to be identical for all parametres.    true    path/* | meta/type
- *
- * remainder = dividend % divisor
+ * - result (required) [text/cybol-path]: The remainder of the integer division. It initially represents the dividend.
+ * - operand (required) [text/cybol-path | number/any]: The divisor.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the operand count.
+ * - result_index (optional) [text/cybol-path | number/integer]: The result index from which to start calculating. If null, the default is zero.
+ * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from which to start calculating. If null, the default is zero.
  */
 static wchar_t* MODULO_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/modulo";
 static int* MODULO_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -201,28 +211,26 @@ static int* MODULO_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
 /**
  * The calculate/multiply logic cybol format.
  *
- * Multiply two numbers.
- *
  * Description:
  *
-Multiplies two numbers of the given format.
+ * Multiplies the result with the operand.
+ *
+ * product = factor * factor
  *
  * Examples:
  *
  * <node name="multiply" channel="inline" format="calculate/multiply" model="">
  *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
- *     <node name="operand" channel="inline" format="number/integer" model="1,2,3"/>
- *     <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+ *     <node name="operand" channel="inline" format="number/integer" model="3"/>
  * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-result    The product resulting from the multiplication. It initially contains the first factor.    true    path/*
-operand    The second factor for the multiplication.    true    path/* | number/*
-type    The number type. It has to be identical for all parametres.    true    path/* | meta/type
- *
- * product = factor_1 * factor_2
+ * - result (required) [text/cybol-path]: The product resulting from the multiplication. It initially represents the first factor.
+ * - operand (required) [text/cybol-path | number/any]: The second factor.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the operand count.
+ * - result_index (optional) [text/cybol-path | number/integer]: The result index from which to start calculating. If null, the default is zero.
+ * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from which to start calculating. If null, the default is zero.
  */
 static wchar_t* MULTIPLY_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/multiply";
 static int* MULTIPLY_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -230,28 +238,26 @@ static int* MULTIPLY_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
 /**
  * The calculate/negate logic cybol format.
  *
- * Negate a number (altering the sign).
- *
  * Description:
  *
-Negates a given number.
+ * Negates a number by altering its sign.
+ *
+ * result = - operand
  *
  * Examples:
  *
- * <node name="negate" channel="inline" format="calculate/negate" model="">
+ * <node name="negate_number" channel="inline" format="calculate/negate" model="">
  *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
- *     <node name="operand" channel="inline" format="number/integer" model="1,2,3"/>
- *     <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+ *     <node name="operand" channel="inline" format="number/integer" model="-4"/>
  * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-result    The output resulting from the negation.    true    path/*
-operand    The number which is to negate.    true    path/* | number/*
-type    The number type. It has to be identical for all parametres.    true    path/* | meta/type
- *
- * result = - number
+ * - result (required) [text/cybol-path]: The negated number.
+ * - operand (required) [text/cybol-path | number/any]: The number to be negated.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the operand count.
+ * - result_index (optional) [text/cybol-path | number/integer]: The result index from which to start calculating. If null, the default is zero.
+ * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from which to start calculating. If null, the default is zero.
  */
 static wchar_t* NEGATE_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/negate";
 static int* NEGATE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -259,20 +265,24 @@ static int* NEGATE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
 /**
  * The calculate/reduce logic cybol format.
  *
- * Reduce a fraction to the lowest common denominator.
- *
  * Description:
  *
-Not implemented yet.
+ * Reduces a vulgar fraction to the lowest possible denominator.
  *
  * Examples:
  *
+ * <node name="reduce_fraction" channel="inline" format="calculate/reduce" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="operand" channel="inline" format="number/fraction-vulgar" model="4/8"/>
+ * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
- *
- * Example: lowest common denominator of 12 / 4 and 5 / 3 is 12
+ * - result (required) [text/cybol-path]: The reduced vulgar fraction with lowest possible denominator.
+ * - operand (required) [text/cybol-path | number/any]: The vulgar fraction to be reduced.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the operand count.
+ * - result_index (optional) [text/cybol-path | number/integer]: The result index from which to start calculating. If null, the default is zero.
+ * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from which to start calculating. If null, the default is zero.
  */
 static wchar_t* REDUCE_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/reduce";
 static int* REDUCE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -280,28 +290,26 @@ static int* REDUCE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
 /**
  * The calculate/subtract logic cybol format.
  *
- * Subtract a number from another.
- *
  * Description:
  *
-Subtracts two numbers of the given format.
+ * Subtracts the operand from the result.
+ *
+ * difference = minuend - subtrahend
  *
  * Examples:
  *
- * <node name="subtract" channel="inline" format="calculate/subtract" model="">
+ * <node name="subtract_integer" channel="inline" format="calculate/subtract" model="">
  *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
- *     <node name="operand" channel="inline" format="number/integer" model="1,2,3"/>
- *     <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+ *     <node name="operand" channel="inline" format="number/integer" model="5"/>
  * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-result    The difference resulting from the subtraction. It initially contains the minuend.    true    path/*
-operand    The subtrahend for the subtraction.    true    path/* | number/*
-type    The number type. It has to be identical for all parametres.    true    path/* | meta/type
- *
- * difference = minuend - subtrahend
+ * - result (required) [text/cybol-path]: The difference resulting from the subtraction. It initially represents the minuend.
+ * - operand (required) [text/cybol-path | number/any]: The subtrahend.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the operand count.
+ * - result_index (optional) [text/cybol-path | number/integer]: The result index from which to start calculating. If null, the default is zero.
+ * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from which to start calculating. If null, the default is zero.
  */
 static wchar_t* SUBTRACT_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/subtract";
 static int* SUBTRACT_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
