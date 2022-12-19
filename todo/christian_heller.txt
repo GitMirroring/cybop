@@ -11,6 +11,14 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+        in file "array_calculator.c":
+        * Use "calculate_minimum" to find out which source count is lesser and use it as default count
+        * Compare if count given as parametre is less or equal than default count and copy it
+        * Adapt api doc in various files (calculator, comparator, logifier, caster, ...):
+            replace "If null, the default is the operand count."
+            with "If null, the default is the lesser of left and right operand count."
+        * Consider also "array_comparator.c" and "vector_comparator.c" etc.
+
 API
 ___
 

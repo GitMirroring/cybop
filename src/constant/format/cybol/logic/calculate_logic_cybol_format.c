@@ -56,9 +56,9 @@
  *
  * - result (required) [text/cybol-path]: The absolute value of the given number.
  * - operand (required) [text/cybol-path | number/any]: The source number.
- * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the operand count.
- * - result_index (optional) [text/cybol-path | number/integer]: The result index from which to start calculating. If null, the default is zero.
- * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from which to start calculating. If null, the default is zero.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the lesser of left and right operand count.
+ * - result_index (optional) [text/cybol-path | number/integer]: The result index from where to start calculating. If null, the default is zero.
+ * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from where to start calculating. If null, the default is zero.
  */
 static wchar_t* ABSOLUTE_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/absolute";
 static int* ABSOLUTE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -96,9 +96,9 @@ static int* ABSOLUTE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  *
  * - result (required) [text/cybol-path]: The sum resulting from the addition. It initially represents the first summand.
  * - operand (required) [text/cybol-path | number/any]: The second summand.
- * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the operand count.
- * - result_index (optional) [text/cybol-path | number/integer]: The result index from which to start calculating. If null, the default is zero.
- * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from which to start calculating. If null, the default is zero.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the lesser of left and right operand count.
+ * - result_index (optional) [text/cybol-path | number/integer]: The result index from where to start calculating. If null, the default is zero.
+ * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from where to start calculating. If null, the default is zero.
  */
 static wchar_t* ADD_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/add";
 static int* ADD_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -123,9 +123,9 @@ static int* ADD_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  *
  * - result (required) [text/cybol-path]: The quotient resulting from the division. It initially represents the dividend.
  * - operand (required) [text/cybol-path | number/any]: The divisor.
- * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the operand count.
- * - result_index (optional) [text/cybol-path | number/integer]: The result index from which to start calculating. If null, the default is zero.
- * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from which to start calculating. If null, the default is zero.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the lesser of left and right operand count.
+ * - result_index (optional) [text/cybol-path | number/integer]: The result index from where to start calculating. If null, the default is zero.
+ * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from where to start calculating. If null, the default is zero.
  */
 static wchar_t* DIVIDE_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/divide";
 static int* DIVIDE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -148,9 +148,9 @@ static int* DIVIDE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  *
  * - result (required) [text/cybol-path]: The greater of the two given values. It initially represents the first value.
  * - operand (required) [text/cybol-path | number/any]: The second value.
- * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the operand count.
- * - result_index (optional) [text/cybol-path | number/integer]: The result index from which to start calculating. If null, the default is zero.
- * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from which to start calculating. If null, the default is zero.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the lesser of left and right operand count.
+ * - result_index (optional) [text/cybol-path | number/integer]: The result index from where to start calculating. If null, the default is zero.
+ * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from where to start calculating. If null, the default is zero.
  */
 static wchar_t* MAXIMUM_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/maximum";
 static int* MAXIMUM_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -173,9 +173,9 @@ static int* MAXIMUM_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
  *
  * - result (required) [text/cybol-path]: The lesser of the two given values. It initially represents the first value.
  * - operand (required) [text/cybol-path | number/any]: The second value.
- * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the operand count.
- * - result_index (optional) [text/cybol-path | number/integer]: The result index from which to start calculating. If null, the default is zero.
- * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from which to start calculating. If null, the default is zero.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the lesser of left and right operand count.
+ * - result_index (optional) [text/cybol-path | number/integer]: The result index from where to start calculating. If null, the default is zero.
+ * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from where to start calculating. If null, the default is zero.
  */
 static wchar_t* MINIMUM_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/minimum";
 static int* MINIMUM_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -201,9 +201,9 @@ static int* MINIMUM_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
  *
  * - result (required) [text/cybol-path]: The remainder of the integer division. It initially represents the dividend.
  * - operand (required) [text/cybol-path | number/any]: The divisor.
- * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the operand count.
- * - result_index (optional) [text/cybol-path | number/integer]: The result index from which to start calculating. If null, the default is zero.
- * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from which to start calculating. If null, the default is zero.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the lesser of left and right operand count.
+ * - result_index (optional) [text/cybol-path | number/integer]: The result index from where to start calculating. If null, the default is zero.
+ * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from where to start calculating. If null, the default is zero.
  */
 static wchar_t* MODULO_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/modulo";
 static int* MODULO_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -228,9 +228,9 @@ static int* MODULO_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  *
  * - result (required) [text/cybol-path]: The product resulting from the multiplication. It initially represents the first factor.
  * - operand (required) [text/cybol-path | number/any]: The second factor.
- * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the operand count.
- * - result_index (optional) [text/cybol-path | number/integer]: The result index from which to start calculating. If null, the default is zero.
- * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from which to start calculating. If null, the default is zero.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the lesser of left and right operand count.
+ * - result_index (optional) [text/cybol-path | number/integer]: The result index from where to start calculating. If null, the default is zero.
+ * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from where to start calculating. If null, the default is zero.
  */
 static wchar_t* MULTIPLY_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/multiply";
 static int* MULTIPLY_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -255,9 +255,9 @@ static int* MULTIPLY_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  *
  * - result (required) [text/cybol-path]: The negated number.
  * - operand (required) [text/cybol-path | number/any]: The number to be negated.
- * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the operand count.
- * - result_index (optional) [text/cybol-path | number/integer]: The result index from which to start calculating. If null, the default is zero.
- * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from which to start calculating. If null, the default is zero.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the lesser of left and right operand count.
+ * - result_index (optional) [text/cybol-path | number/integer]: The result index from where to start calculating. If null, the default is zero.
+ * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from where to start calculating. If null, the default is zero.
  */
 static wchar_t* NEGATE_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/negate";
 static int* NEGATE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -280,9 +280,9 @@ static int* NEGATE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  *
  * - result (required) [text/cybol-path]: The reduced vulgar fraction with lowest possible denominator.
  * - operand (required) [text/cybol-path | number/any]: The vulgar fraction to be reduced.
- * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the operand count.
- * - result_index (optional) [text/cybol-path | number/integer]: The result index from which to start calculating. If null, the default is zero.
- * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from which to start calculating. If null, the default is zero.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the lesser of left and right operand count.
+ * - result_index (optional) [text/cybol-path | number/integer]: The result index from where to start calculating. If null, the default is zero.
+ * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from where to start calculating. If null, the default is zero.
  */
 static wchar_t* REDUCE_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/reduce";
 static int* REDUCE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -307,9 +307,9 @@ static int* REDUCE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  *
  * - result (required) [text/cybol-path]: The difference resulting from the subtraction. It initially represents the minuend.
  * - operand (required) [text/cybol-path | number/any]: The subtrahend.
- * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the operand count.
- * - result_index (optional) [text/cybol-path | number/integer]: The result index from which to start calculating. If null, the default is zero.
- * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from which to start calculating. If null, the default is zero.
+ * - count (optional) [text/cybol-path | number/integer]: The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the lesser of left and right operand count.
+ * - result_index (optional) [text/cybol-path | number/integer]: The result index from where to start calculating. If null, the default is zero.
+ * - operand_index (optional) [text/cybol-path | number/integer]: The operand index from where to start calculating. If null, the default is zero.
  */
 static wchar_t* SUBTRACT_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/subtract";
 static int* SUBTRACT_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
