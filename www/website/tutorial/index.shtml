@@ -231,6 +231,150 @@
 -->
             </td>
         </tr>
+        <tr>
+            <td class="p-3">
+                <h5>Die Beispiel-Anwendung REPERTOIRE</h5>
+                <p>(XML-Datenbestand, Musiktitel, Generierung HTML-Dateien)</p>
+                <a href="https://www.bitchute.com/video/m1ehadeZ6IMX/">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="https://odysee.com/repertoire:02f2d2b1d17b6414233dfc94c89e3d8fae0b06ec?r=7CvS3EapJUqewPfEPNQ44AwhdiFzeMhu">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="https://rumble.com/v21hhs0-die-beispiel-anwendung-repertoire.html">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="https://youtu.be/-s5vWvLYOL8">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+            <td class="p-3">
+                <h5>TODO</h5>
+<!--
+                <p>(TODO Keywords)</p>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+-->
+            </td>
+        </tr>
+        <tr>
+            <td class="p-3">
+                <h5>Die Beispiel-Anwendungen USER INTERACTION (UI)</h5>
+                <p>(TUI mit Nutzereingabe, Textmenü mit Auswahlbalken, GUI-Fenster mit Knöpfen, WUI als HTML-Seite)</p>
+                <a href="https://www.bitchute.com/video/GeUp6Snz7Cr1/">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="https://odysee.com/@christian.heller:8/ui:dff?r=7CvS3EapJUqewPfEPNQ44AwhdiFzeMhu">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="https://rumble.com/v21h0qe-die-beispiel-anwendungen-user-interface-ui.html">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="https://youtu.be/q9pfoX3Vqxw">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+            <td class="p-3">
+                <h5>TODO</h5>
+<!--
+                <p>(TODO Keywords)</p>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+-->
+            </td>
+        </tr>
+        <tr>
+            <td class="p-3">
+                <h5>Die Beispiel-Anwendungen INTERNET</h5>
+                <p>(Socket, Client/Server, Web-Server, HTTP, statische Dateien, dynamische Web-Inhalte)</p>
+                <a href="https://www.bitchute.com/video/EKAJuqpyEtXJ/">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="https://odysee.com/@christian.heller:8/internet:c?r=7CvS3EapJUqewPfEPNQ44AwhdiFzeMhu">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="https://rumble.com/v21h0tq-die-beispiel-anwendungen-internet.html">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="https://youtu.be/Z2Af63sdn2g">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+            <td class="p-3">
+                <h5>TODO</h5>
+<!--
+                <p>(TODO Keywords)</p>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+-->
+            </td>
+        </tr>
+        <tr>
+            <td class="p-3">
+                <h5>Die Beispiel-Anwendung STARLIKE</h5>
+                <p>(Sternförmige Kommunikation, TUI, GUI, WUI, send/receive)</p>
+                <a href="https://www.bitchute.com/video/7Hblm88K9J92/">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="https://odysee.com/@christian.heller:8/starlike:3?r=7CvS3EapJUqewPfEPNQ44AwhdiFzeMhu">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="https://rumble.com/v21hhvm-die-beispiel-anwendung-starlike.html">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="https://youtu.be/ZGyTPvv3AGs">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+            <td class="p-3">
+                <h5>TODO</h5>
+<!--
+                <p>(TODO Keywords)</p>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+-->
+            </td>
+        </tr>
     </table>
 </section>
 

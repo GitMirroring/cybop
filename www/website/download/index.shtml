@@ -19,7 +19,7 @@
                 Execute an application, for example:<br/>
                 ./cyboi hello/cli/run.cybol
             </p>
-            <a href="https://download.savannah.nongnu.org/releases/cybop/cybop-demo-0.24.0-Linux.zip">
+            <a href="https://download.savannah.nongnu.org/releases/cybop/cybop-demo-0.24.1-Linux.zip">
                 <span class="badge rounded-pill p-3" style="font-size: 14pt;">Download Demo</span>
             </a>
         </div>
