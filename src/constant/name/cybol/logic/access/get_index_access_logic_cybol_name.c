@@ -34,9 +34,9 @@
 static wchar_t* INDEX_GET_INDEX_ACCESS_LOGIC_CYBOL_NAME = L"index";
 static int* INDEX_GET_INDEX_ACCESS_LOGIC_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The part get index access logic cybol name. */
-static wchar_t* PART_GET_INDEX_ACCESS_LOGIC_CYBOL_NAME = L"part";
-static int* PART_GET_INDEX_ACCESS_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The name get index access logic cybol name. */
+static wchar_t* NAME_GET_INDEX_ACCESS_LOGIC_CYBOL_NAME = L"name";
+static int* NAME_GET_INDEX_ACCESS_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The whole get index access logic cybol name. */
 static wchar_t* WHOLE_GET_INDEX_ACCESS_LOGIC_CYBOL_NAME = L"whole";

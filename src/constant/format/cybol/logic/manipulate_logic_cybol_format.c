@@ -47,20 +47,25 @@
  *
  * This bit manipulation operation corresponds to the "BT" (bit) or "BTST" (bit test) assembler command.
  *
+ * NOT IMPLEMENTED YET!
+ *
  * Examples:
  *
  * <node name="get_bit" channel="inline" format="manipulate/check" model="">
- *     <node name="value" channel="inline" format="text/cybol-path" model=".number"/>
+ *     <node name="result" channel="inline" format="text/cybol-path" model="#bit"/>
+ *     <node name="value" channel="inline" format="number/integer" model="71"/>
  *     <node name="position" channel="inline" format="number/integer" model="4"/>
  * </node>
  *
  * <node name="use_stack_variable" channel="inline" format="manipulate/check" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model="#bit"/>
  *     <node name="value" channel="inline" format="text/cybol-path" model=".number"/>
  *     <node name="position" channel="inline" format="text/cybol-path" model="#pos"/>
  * </node>
  *
  * Properties:
  *
+ * - result (required) [text/cybol-path]: The bit at the given position of the value.
  * - value (required) [text/cybol-path]: The value which is to be manipulated.
  * - position (required) [text/cybol-path | number/integer]: The bit position within the value.
  * - count (optional) [text/cybol-path | number/integer]: The number of values to be manipulated. If null, the default is the value count.
@@ -72,24 +77,32 @@ static int* CHECK_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
 /**
  * The manipulate/clear logic cybol format.
  *
- * Manipulates the bit at the given position by applying the given operation to the given value.
- * It corresponds to the "BTR" (bit reset) assembler command.
- *
  * Description:
  *
-Resets the bit at a given position.
+ * Resets the bit at the given position.
+ *
+ * This bit manipulation operation corresponds to the "BTR" (bit reset) assembler command.
+ *
+ * NOT IMPLEMENTED YET!
  *
  * Examples:
  *
+ * <node name="manipulate_bit" channel="inline" format="manipulate/clear" model="">
+ *     <node name="value" channel="inline" format="text/cybol-path" model=".number"/>
+ *     <node name="position" channel="inline" format="number/integer" model="4"/>
+ * </node>
+ *
+ * <node name="use_stack_variable" channel="inline" format="manipulate/clear" model="">
+ *     <node name="value" channel="inline" format="text/cybol-path" model=".number"/>
+ *     <node name="position" channel="inline" format="text/cybol-path" model="#pos"/>
+ * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-value    The knowledge model representing the value.    true    path/*
-position    The bit position within the value.    true    path/* | number/*
-type    The value type.    true    path/* | meta/type
-count    The number of values to be manipulated (if null, the value part model count will be used instead).    false    path/* | number/*
-index    The index from which to start manipulating values (if null, an index of zero will be used instead).    false    path/* | number/*
+ * - value (required) [text/cybol-path]: The value which is to be manipulated.
+ * - position (required) [text/cybol-path | number/integer]: The bit position within the value.
+ * - count (optional) [text/cybol-path | number/integer]: The number of values to be manipulated. If null, the default is the value count.
+ * - index (optional) [text/cybol-path | number/integer]: The index from which to start manipulating values. If null, the default is zero.
  */
 static wchar_t* CLEAR_MANIPULATE_LOGIC_CYBOL_FORMAT = L"manipulate/clear";
 static int* CLEAR_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -97,24 +110,32 @@ static int* CLEAR_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
 /**
  * The manipulate/rotate-left logic cybol format.
  *
- * Manipulates the bit at the given position by applying the given operation to the given value.
- * It corresponds to the "ROL" (rotate left) assembler command.
- *
  * Description:
  *
-Rotates all bits of a value to the left by position.
+ * Rotates all bits of the value to the left by the given position.
+ *
+ * This bit manipulation operation corresponds to the "ROL" (rotate left) assembler command.
+ *
+ * NOT IMPLEMENTED YET!
  *
  * Examples:
  *
+ * <node name="manipulate_bit" channel="inline" format="manipulate/rotate-left" model="">
+ *     <node name="value" channel="inline" format="text/cybol-path" model=".number"/>
+ *     <node name="position" channel="inline" format="number/integer" model="4"/>
+ * </node>
+ *
+ * <node name="use_stack_variable" channel="inline" format="manipulate/rotate-left" model="">
+ *     <node name="value" channel="inline" format="text/cybol-path" model=".number"/>
+ *     <node name="position" channel="inline" format="text/cybol-path" model="#pos"/>
+ * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-value    The knowledge model representing the value.    true    path/*
-position    The bit position within the value.    true    path/* | number/*
-type    The value type.    true    path/* | meta/type
-count    The number of values to be manipulated (if null, the value part model count will be used instead).    false    path/* | number/*
-index    The index from which to start manipulating values (if null, an index of zero will be used instead).    false    path/* | number/*
+ * - value (required) [text/cybol-path]: The value which is to be manipulated.
+ * - position (required) [text/cybol-path | number/integer]: The bit position within the value.
+ * - count (optional) [text/cybol-path | number/integer]: The number of values to be manipulated. If null, the default is the value count.
+ * - index (optional) [text/cybol-path | number/integer]: The index from which to start manipulating values. If null, the default is zero.
  */
 static wchar_t* ROTATE_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT = L"manipulate/rotate-left";
 static int* ROTATE_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -122,24 +143,32 @@ static int* ROTATE_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
 /**
  * The manipulate/rotate-right logic cybol format.
  *
- * Manipulates the bit at the given position by applying the given operation to the given value.
- * It corresponds to the "ROR" (rotate right) assembler command.
- *
  * Description:
  *
-Rotates all bits of a value to the right by position.
+ * Rotates all bits of the value to the right by the given position.
+ *
+ * This bit manipulation operation corresponds to the "ROR" (rotate right) assembler command.
+ *
+ * NOT IMPLEMENTED YET!
  *
  * Examples:
  *
+ * <node name="manipulate_bit" channel="inline" format="manipulate/rotate-right" model="">
+ *     <node name="value" channel="inline" format="text/cybol-path" model=".number"/>
+ *     <node name="position" channel="inline" format="number/integer" model="4"/>
+ * </node>
+ *
+ * <node name="use_stack_variable" channel="inline" format="manipulate/rotate-right" model="">
+ *     <node name="value" channel="inline" format="text/cybol-path" model=".number"/>
+ *     <node name="position" channel="inline" format="text/cybol-path" model="#pos"/>
+ * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-value    The knowledge model representing the value.    true    path/*
-position    The bit position within the value.    true    path/* | number/*
-type    The value type.    true    path/* | meta/type
-count    The number of values to be manipulated (if null, the value part model count will be used instead).    false    path/* | number/*
-index    The index from which to start manipulating values (if null, an index of zero will be used instead).    false    path/* | number/*
+ * - value (required) [text/cybol-path]: The value which is to be manipulated.
+ * - position (required) [text/cybol-path | number/integer]: The bit position within the value.
+ * - count (optional) [text/cybol-path | number/integer]: The number of values to be manipulated. If null, the default is the value count.
+ * - index (optional) [text/cybol-path | number/integer]: The index from which to start manipulating values. If null, the default is zero.
  */
 static wchar_t* ROTATE_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT = L"manipulate/rotate-right";
 static int* ROTATE_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -147,24 +176,32 @@ static int* ROTATE_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER
 /**
  * The manipulate/set logic cybol format.
  *
- * Manipulates the bit at the given position by applying the given operation to the given value.
- * It corresponds to the "BTS" (bit set) assembler command.
- *
  * Description:
  *
-Sets the bit at the given position.
+ * Sets the bit at the given position.
+ *
+ * This bit manipulation operation corresponds to the "BTS" (bit set) assembler command.
+ *
+ * NOT IMPLEMENTED YET!
  *
  * Examples:
  *
+ * <node name="manipulate_bit" channel="inline" format="manipulate/set" model="">
+ *     <node name="value" channel="inline" format="text/cybol-path" model=".number"/>
+ *     <node name="position" channel="inline" format="number/integer" model="4"/>
+ * </node>
+ *
+ * <node name="use_stack_variable" channel="inline" format="manipulate/set" model="">
+ *     <node name="value" channel="inline" format="text/cybol-path" model=".number"/>
+ *     <node name="position" channel="inline" format="text/cybol-path" model="#pos"/>
+ * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-value    The knowledge model representing the value.    true    path/*
-position    The bit position within the value.    true    path/* | number/*
-type    The value type.    true    path/* | meta/type
-count    The number of values to be manipulated (if null, the value part model count will be used instead).    false    path/* | number/*
-index    The index from which to start manipulating values (if null, an index of zero will be used instead).    false    path/* | number/*
+ * - value (required) [text/cybol-path]: The value which is to be manipulated.
+ * - position (required) [text/cybol-path | number/integer]: The bit position within the value.
+ * - count (optional) [text/cybol-path | number/integer]: The number of values to be manipulated. If null, the default is the value count.
+ * - index (optional) [text/cybol-path | number/integer]: The index from which to start manipulating values. If null, the default is zero.
  */
 static wchar_t* SET_MANIPULATE_LOGIC_CYBOL_FORMAT = L"manipulate/set";
 static int* SET_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -172,24 +209,32 @@ static int* SET_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
 /**
  * The manipulate/shift-left logic cybol format.
  *
- * Manipulates the bit at the given position by applying the given operation to the given value.
- * It corresponds to the "SHL" (shift left) assembler command.
- *
  * Description:
  *
-Shifts all bits of value to the left by position.
+ * Shifts all bits of the value to the left by the given position.
+ *
+ * This bit manipulation operation corresponds to the "SHL" (shift left) assembler command.
+ *
+ * NOT IMPLEMENTED YET!
  *
  * Examples:
  *
+ * <node name="manipulate_bit" channel="inline" format="manipulate/shift-left" model="">
+ *     <node name="value" channel="inline" format="text/cybol-path" model=".number"/>
+ *     <node name="position" channel="inline" format="number/integer" model="4"/>
+ * </node>
+ *
+ * <node name="use_stack_variable" channel="inline" format="manipulate/shift-left" model="">
+ *     <node name="value" channel="inline" format="text/cybol-path" model=".number"/>
+ *     <node name="position" channel="inline" format="text/cybol-path" model="#pos"/>
+ * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-value    The knowledge model representing the value.    true    path/*
-position    The bit position within the value.    true    path/* | number/*
-type    The value type.    true    path/* | meta/type
-count    The number of values to be manipulated (if null, the value part model count will be used instead).    false    path/* | number/*
-index    The index from which to start manipulating values (if null, an index of zero will be used instead).    false    path/* | number/*
+ * - value (required) [text/cybol-path]: The value which is to be manipulated.
+ * - position (required) [text/cybol-path | number/integer]: The bit position within the value.
+ * - count (optional) [text/cybol-path | number/integer]: The number of values to be manipulated. If null, the default is the value count.
+ * - index (optional) [text/cybol-path | number/integer]: The index from which to start manipulating values. If null, the default is zero.
  */
 static wchar_t* SHIFT_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT = L"manipulate/shift-left";
 static int* SHIFT_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -197,24 +242,32 @@ static int* SHIFT_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
 /**
  * The manipulate/shift-right logic cybol format.
  *
- * Manipulates the bit at the given position by applying the given operation to the given value.
- * It corresponds to the "SHR" (shift right) assembler command.
- *
  * Description:
  *
-Shifts all bits of value to the right by position.
+ * Shifts all bits of the value to the right by the given position.
+ *
+ * This bit manipulation operation corresponds to the "SHR" (shift right) assembler command.
+ *
+ * NOT IMPLEMENTED YET!
  *
  * Examples:
  *
+ * <node name="manipulate_bit" channel="inline" format="manipulate/shift-right" model="">
+ *     <node name="value" channel="inline" format="text/cybol-path" model=".number"/>
+ *     <node name="position" channel="inline" format="number/integer" model="4"/>
+ * </node>
+ *
+ * <node name="use_stack_variable" channel="inline" format="manipulate/shift-right" model="">
+ *     <node name="value" channel="inline" format="text/cybol-path" model=".number"/>
+ *     <node name="position" channel="inline" format="text/cybol-path" model="#pos"/>
+ * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-value    The knowledge model representing the value.    true    path/*
-position    The bit position within the value.    true    path/* | number/*
-type    The value type.    true    path/* | meta/type
-count    The number of values to be manipulated (if null, the value part model count will be used instead).    false    path/* | number/*
-index    The index from which to start manipulating values (if null, an index of zero will be used instead).    false    path/* | number/*
+ * - value (required) [text/cybol-path]: The value which is to be manipulated.
+ * - position (required) [text/cybol-path | number/integer]: The bit position within the value.
+ * - count (optional) [text/cybol-path | number/integer]: The number of values to be manipulated. If null, the default is the value count.
+ * - index (optional) [text/cybol-path | number/integer]: The index from which to start manipulating values. If null, the default is zero.
  */
 static wchar_t* SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT = L"manipulate/shift-right";
 static int* SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -222,24 +275,32 @@ static int* SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
 /**
  * The manipulate/toggle logic cybol format.
  *
- * Manipulates the bit at the given position by applying the given operation to the given value.
- * It corresponds to the "CHG" (change) assembler command.
- *
  * Description:
  *
-Toggles the bit at the given position.
+ * Toggles the bit at the given position.
+ *
+ * This bit manipulation operation corresponds to the "CHG" (change) assembler command.
+ *
+ * NOT IMPLEMENTED YET!
  *
  * Examples:
  *
+ * <node name="manipulate_bit" channel="inline" format="manipulate/toggle" model="">
+ *     <node name="value" channel="inline" format="text/cybol-path" model=".number"/>
+ *     <node name="position" channel="inline" format="number/integer" model="4"/>
+ * </node>
+ *
+ * <node name="use_stack_variable" channel="inline" format="manipulate/toggle" model="">
+ *     <node name="value" channel="inline" format="text/cybol-path" model=".number"/>
+ *     <node name="position" channel="inline" format="text/cybol-path" model="#pos"/>
+ * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-value    The knowledge model representing the value.    true    path/*
-position    The bit position within the value.    true    path/* | number/*
-type    The value type.    true    path/* | meta/type
-count    The number of values to be manipulated (if null, the value part model count will be used instead).    false    path/* | number/*
-index    The index from which to start manipulating values (if null, an index of zero will be used instead).    false    path/* | number/*
+ * - value (required) [text/cybol-path]: The value which is to be manipulated.
+ * - position (required) [text/cybol-path | number/integer]: The bit position within the value.
+ * - count (optional) [text/cybol-path | number/integer]: The number of values to be manipulated. If null, the default is the value count.
+ * - index (optional) [text/cybol-path | number/integer]: The index from which to start manipulating values. If null, the default is zero.
  */
 static wchar_t* TOGGLE_MANIPULATE_LOGIC_CYBOL_FORMAT = L"manipulate/toggle";
 static int* TOGGLE_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
