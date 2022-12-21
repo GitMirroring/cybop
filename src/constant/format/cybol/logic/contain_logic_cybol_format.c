@@ -43,51 +43,49 @@
  *
  * Description:
  *
- * Compares if the bounded area contains the value.
+ * Checks if the given part contains the value at all, no matter at which position.
  *
- * NOT IMPLEMENTED YET! See Java methods "startsWith" and "endsWith".
+ * NOT IMPLEMENTED YET!
  *
  * Examples:
  *
- * <node>
- *     <node name="description" channel="inline" format="text/plain" model="TODO"/>
- *     <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/TODO/TODO/example.txt"/>
- *     <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/TODO/TODO/properties.cybol"/>
+ * <node name="check_for_string" channel="inline" format="contain/any" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model="#flag"/>
+ *     <node name="part" channel="inline" format="text/cybol-path" model=".gedichte.[#index]"/>
+ *     <node name="value" channel="inline" format="text/plain" model="Stelldichein"/>
  * </node>
  *
  * Properties:
  *
- * - result (required) [text/cybol-path]: The boolean result.
- * - value (required) [text/cybol-path]: The value to be searched.
- * - left (required) [text/cybol-path]: The left bound.
- * - right (required) [text/cybol-path]: The right bound.
+ * - result (required) [text/cybol-path]: The boolean result flag indicating whether or not the part contains the value at all.
+ * - part (required) [text/cybol-path]: The part in which to search.
+ * - value (required) [text/cybol-path | text/plain | number/integer]: The value to search for.
  */
 static wchar_t* ANY_CONTAIN_LOGIC_CYBOL_FORMAT = L"contain/any";
-static int* ANY_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* ANY_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The contain/left logic cybol format.
  *
- * Compare if bounded area contains value.
- *
  * Description:
  *
-Compare if bounded area contains value.
+ * Checks if the part starts with the given value, at the beginning.
+ *
+ * NOT IMPLEMENTED YET!
  *
  * Examples:
  *
-<node>
- *     <node name="description" channel="inline" format="text/plain" model="TODO"/>
- *     <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/TODO/TODO/example.txt"/>
- *     <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/TODO/TODO/properties.cybol"/>
+ * <node name="check_for_string" channel="inline" format="contain/left" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model="#flag"/>
+ *     <node name="part" channel="inline" format="text/cybol-path" model=".gedichte.[#index]"/>
+ *     <node name="value" channel="inline" format="text/plain" model="Vom Eise befreit"/>
  * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-result    the knowledge model, in which the result is stored    true    path/* | logicvalue/boolean
-left    the left part    true    path/* | number/* | text/plain
-right    the right part    true    path/* | number/* | text/plain
+ * - result (required) [text/cybol-path]: The boolean result flag indicating whether or not the part starts with the value.
+ * - part (required) [text/cybol-path]: The part in which to search.
+ * - value (required) [text/cybol-path | text/plain | number/integer]: The value to search for.
  */
 static wchar_t* LEFT_CONTAIN_LOGIC_CYBOL_FORMAT = L"contain/left";
 static int* LEFT_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -95,26 +93,25 @@ static int* LEFT_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
 /**
  * The contain/right logic cybol format.
  *
- * Compare if bounded area contains value.
- *
  * Description:
  *
-Compare if bounded area contains value.
+ * Checks if the part ends with the given value, at the end.
+ *
+ * NOT IMPLEMENTED YET!
  *
  * Examples:
  *
-<node>
- *     <node name="description" channel="inline" format="text/plain" model="TODO"/>
- *     <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/TODO/TODO/example.txt"/>
- *     <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/TODO/TODO/properties.cybol"/>
+ * <node name="check_for_string" channel="inline" format="contain/right" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model="#flag"/>
+ *     <node name="part" channel="inline" format="text/cybol-path" model=".gedichte.[#index]"/>
+ *     <node name="value" channel="inline" format="text/plain" model="Laß du den Himmel, Freund, sorgen wie gestern so heut."/>
  * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-result    the knowledge model, in which the result is stored    true    path/* | logicvalue/boolean
-left    the left part    true    path/* | number/* | text/plain
-right    the right part    true    path/* | number/* | text/plain
+ * - result (required) [text/cybol-path]: The boolean result flag indicating whether or not the part ends with the value.
+ * - part (required) [text/cybol-path]: The part in which to search.
+ * - value (required) [text/cybol-path | text/plain | number/integer]: The value to search for.
  */
 static wchar_t* RIGHT_CONTAIN_LOGIC_CYBOL_FORMAT = L"contain/right";
 static int* RIGHT_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
