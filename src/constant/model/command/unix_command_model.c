@@ -58,9 +58,9 @@ static int* CONFIG_NETWORK_UNIX_COMMAND_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYB
 static wchar_t* COPY_FILE_UNIX_COMMAND_MODEL = L"cp";
 static int* COPY_FILE_UNIX_COMMAND_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The create folder unix command model. */
-static wchar_t* CREATE_FOLDER_UNIX_COMMAND_MODEL = L"mkdir";
-static int* CREATE_FOLDER_UNIX_COMMAND_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The create directory unix command model. */
+static wchar_t* CREATE_DIRECTORY_UNIX_COMMAND_MODEL = L"mkdir";
+static int* CREATE_DIRECTORY_UNIX_COMMAND_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The print date unix command model. */
 static wchar_t* DATE_UNIX_COMMAND_MODEL = L"date";

@@ -28,6 +28,9 @@
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/sort_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/manipulate_logic_cybol_format.c"
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/contain_logic_cybol_format.c"
+        * Rename command "create_folder" into "create_directory"
+        * Prepare cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/command_logic_cybol_format.c"
+        * Generate api and copy to website
 
 2022-12-19  Christian Heller  <christian.heller@cybop.org>
 

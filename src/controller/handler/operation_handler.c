@@ -41,7 +41,7 @@
 #include "../../applicator/command/compare_files.c"
 #include "../../applicator/command/config_network.c"
 #include "../../applicator/command/copy_file.c"
-#include "../../applicator/command/create_folder.c"
+#include "../../applicator/command/create_directory.c"
 #include "../../applicator/command/date.c"
 #include "../../applicator/command/delay.c"
 #include "../../applicator/command/diff.c"
@@ -518,11 +518,11 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p8, (void*) CREATE_FOLDER_COMMAND_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p8, (void*) CREATE_DIRECTORY_COMMAND_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_create_folder(p0, p1, p3, p4, p2);
+            apply_create_directory(p0, p1, p3, p4, p2);
         }
     }
 

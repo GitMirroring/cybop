@@ -23,16 +23,16 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CREATE_FOLDER_SOURCE
-#define CREATE_FOLDER_SOURCE
+#ifndef CREATE_DIRECTORY_SOURCE
+#define CREATE_DIRECTORY_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/logic/commander/create_folder_commander_logic_cybol_name.c"
+#include "../../constant/name/cybol/logic/commander/create_directory_commander_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../executor/commander/create_folder_commander.c"
+#include "../../executor/commander/create_directory_commander.c"
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
@@ -40,7 +40,7 @@
 #endif
 
 /**
- * Creates a directory also called folder in the file system.
+ * Creates a directory (folder) in the file system.
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -48,9 +48,9 @@
  * @param p3 the stack memory item
  * @param p4 the internal memory data
  */
-void apply_create_folder(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void apply_create_directory(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply create folder.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply create directory.");
 
     //
     // Declaration
@@ -71,7 +71,7 @@ void apply_create_folder(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //
 
     // Get path part.
-    get_part_name((void*) &p, p0, (void*) PATH_CREATE_FOLDER_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_CREATE_FOLDER_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &p, p0, (void*) PATH_CREATE_DIRECTORY_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_CREATE_DIRECTORY_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get path part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -84,8 +84,8 @@ void apply_create_folder(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Functionality
     //
 
-    command_create_folder(pmd, pmc);
+    command_create_directory(pmd, pmc);
 }
 
-/* CREATE_FOLDER_SOURCE */
+/* CREATE_DIRECTORY_SOURCE */
 #endif

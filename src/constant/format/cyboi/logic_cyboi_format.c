@@ -179,8 +179,8 @@ static int* CHANGE_PERMISSION_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1307_INTEGER_S
 /** The word count command logic cyboi format. */
 static int* WORD_COUNT_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1308_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The create folder command logic cyboi format. */
-static int* CREATE_FOLDER_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1309_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The create directory command logic cyboi format. */
+static int* CREATE_DIRECTORY_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1309_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The ping command logic cyboi format. */
 static int* PING_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1310_INTEGER_STATE_CYBOI_MODEL_ARRAY;

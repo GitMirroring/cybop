@@ -23,12 +23,12 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CREATE_FOLDER_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE
-#define CREATE_FOLDER_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE
+#ifndef CREATE_DIRECTORY_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE
+#define CREATE_DIRECTORY_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE
 
-#include <stddef.h>
+#include <stddef.h> // wchar_t
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/* CREATE_FOLDER_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE */
+/* CREATE_DIRECTORY_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE */
 #endif
