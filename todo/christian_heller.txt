@@ -11,6 +11,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+        * Use "application/octet-stream" as replacement for "text/ascii"
+            update app examples
+            update api
+
         in file "array_calculator.c":
         * Use "calculate_minimum" to find out which source count is lesser and use it as default count
         * Compare if count given as parametre is less or equal than default count and copy it
@@ -19,19 +23,14 @@
             with "If null, the default is the lesser of left and right operand count."
         * Consider also "array_comparator.c" and "vector_comparator.c" etc.
 
-API
-___
-
-        * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/command_logic_cybol_format.c"
-            CONTINUE with section "disk-free"
-        * Use "application/octet-stream" as replacement for "text/ascii"
-
 App
 ___
 
         * Update shell script cybol applications
-
         * Create more video tutorials, upload to portals and update website
+
+        * Create video tutorial for updating cybol api specification in javadoc comment blocks of files in directory "constant/format/cybol/
+            upload tutorial to section under NEW heading "CYBOI Interpreter Architecture and Development"
 
         Try:
         * Use format="flow/sequence" in cyblib to define stack variables and call operation via path WITHIN sequence (xml-tag-element)

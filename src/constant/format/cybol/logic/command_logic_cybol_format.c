@@ -45,6 +45,8 @@
  *
  * Archives the given files into a packed format via shell command.
  *
+ * TODO: COMPLETE AND VERIFY YET!
+ *
  * Examples:
  *
  * <node name="archive" channel="inline" format="command/archive" model="">
@@ -69,6 +71,8 @@ static int* ARCHIVE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  *
  * Changes the current working directory via shell command.
  *
+ * TODO: COMPLETE AND VERIFY YET!
+ *
  * Examples:
  *
  * <node name="change_directory" channel="inline" format="command/change-directory" model="">
@@ -88,6 +92,8 @@ static int* CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGE
  * Description:
  *
  * Changes the permission of a file or directory via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
  *
@@ -115,6 +121,8 @@ static int* CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_25_INTEG
  *
  * Clears the terminal (console) screen via shell command.
  *
+ * TODO: COMPLETE AND VERIFY YET!
+ *
  * Examples:
  *
  * <node name="clear" channel="inline" format="command/clear" model=""/>
@@ -131,6 +139,8 @@ static int* CLEAR_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  *
  * Compares two files via shell command.
  *
+ * TODO: COMPLETE AND VERIFY YET!
+ *
  * Examples:
  *
  * Properties:
@@ -145,6 +155,8 @@ static int* COMPARE_FILES_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  *
  * Configures the network via shell command.
  *
+ * TODO: COMPLETE AND VERIFY YET!
+ *
  * Examples:
  *
  * Properties:
@@ -158,6 +170,8 @@ static int* CONFIG_NETWORK_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
  * Description:
  *
  * Copies the given file into another via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
  *
@@ -183,6 +197,8 @@ static int* COPY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * Creates a directory (folder) in the file system via shell command.
  *
+ * TODO: COMPLETE AND VERIFY YET!
+ *
  * Examples:
  *
  * Properties:
@@ -198,6 +214,8 @@ static int* CREATE_DIRECTORY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGE
  * Description:
  *
  * Prints out the date or changes it via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
  *
@@ -215,6 +233,8 @@ static int* DATE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * Delays execution for the given number of seconds via shell command.
  *
+ * TODO: COMPLETE AND VERIFY YET!
+ *
  * Examples:
  *
  * Properties:
@@ -230,6 +250,8 @@ static int* DELAY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  * Description:
  *
  * Displays differences between two files via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
  *
@@ -251,34 +273,20 @@ static int* DIFF_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * Description:
  *
- * TODO via shell command.
+ * Displays the free disk space via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Display free disk space.
- *
- * Description:
- *
-TODO
- *
- * Examples:
- *
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
- *
- * Expected parametres:
- * - all (optional): the all option (lists filesystems with a size of 0 blocks)
- * - human(optional): the human option (human-readable output)
- * - kilobytes(optional): the kilobytes option (print sizes in kilobytes)
- * - local (optional): the local option (limit the listing to local filesystems)
- * - megabytes(optional): the megabytes option (print sizes in megabytes)
- * - type(optional): the print type option (print each filesystems type)
+ * - all (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating that files with a size of 0 blocks shall be listed.
+ * - human (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating human-readable output.
+ * - kilobytes (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating size output in kilobytes.
+ * - local (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating that only local filesystems shall be listed.
+ * - megabytes (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating size output in megabytes.
+ * - type (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating output of each filesystem's type.
  */
 static wchar_t* DISK_FREE_COMMAND_LOGIC_CYBOL_FORMAT = L"command/disk-free";
 static int* DISK_FREE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -288,33 +296,19 @@ static int* DISK_FREE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
  *
  * Description:
  *
- * TODO via shell command.
+ * Shows the usage of a directory via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Shows the usage of a directory.
- *
- * Description:
- *
-TODO
- *
- * Examples:
- *
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
- *
- * Expected parametres:
- * - human(optional): the human option (human-readable output)
- * - summarize(optional): the summarize option (prints a summarize)
- * - all(optional): the all option (prints all)
- * - bytes(optional): the bytes option (prints sizes in bytes)
- * - total(optional): the total option (prints total usage)
+ * - human (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating human-readable output.
+ * - summarise (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating that a summary shall be printed.
+ * - all (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating that all shall be printed.
+ * - bytes (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating size output in bytes.
+ * - total (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating that the total usage shall be printed.
  */
 static wchar_t* DISK_USAGE_COMMAND_LOGIC_CYBOL_FORMAT = L"command/disk-usage";
 static int* DISK_USAGE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -324,36 +318,18 @@ static int* DISK_USAGE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  *
  * Description:
  *
- * TODO via shell command.
+ * Displays the content of one or more text files via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Display the content of one or more text files
- *
- * Description:
- *
-Display the content.
- *
- * Examples:
- *
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-path    the listing for the given path (the default is the current directory)    false    text/plain
-squeze    ???    false    logicvalue/boolean
-number-lines    ???    false    logicvalue/boolean
-clear    ???    false    logicvalue/boolean
- *
- * Expected parametres:
- * - path (required): path to the file
- * - clear screen (optional): Clear screen before displaying page
- * - display line numbers (optional): number all output lines
- * - squeeze (optional): Squeeze multiple blank lines into a single line
+ * - path (optional) [text/cybol-path | text/plain]: The file whose content is to be printed.
+ * - clear (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating to clear the screen before display.
+ * - numbers (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating that output lines shall be numbered.
+ * - squeeze (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating that multiple blank lines shall be merged into a single line.
  */
 static wchar_t* DISPLAY_CONTENT_COMMAND_LOGIC_CYBOL_FORMAT = L"command/display-content";
 static int* DISPLAY_CONTENT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -363,34 +339,19 @@ static int* DISPLAY_CONTENT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER
  *
  * Description:
  *
- * TODO via shell command.
+ * Prints the given message to standard output via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
  *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Echo a given message to the standard output.
- *
- * Description:
- *
-Echos the message to standard output.
- *
- * Examples:
- *
- * <node name="echo" channel="inline" format="command/echo" model="">
- *     <node name="message" channel="inline" format="text/plain"
-      model="hello, this is an echo over standard output"/>
+ * <node name="echo_text" channel="inline" format="command/echo" model="">
+ *     <node name="message" channel="inline" format="text/plain" model="Hello World!"/>
  * </node>
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
-message    the message which should be directed to the standard output    false    text/plain
- *
- * Expected parametres:
- * - message (optional): the message which should be directed to the standard output
+ * - message (optional) [text/cybol-path | text/plain]: The message to be sent to standard output.
  */
 static wchar_t* ECHO_COMMAND_LOGIC_CYBOL_FORMAT = L"command/echo";
 static int* ECHO_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -400,31 +361,21 @@ static int* ECHO_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * Description:
  *
- * TODO via shell command.
+ * Locates the command binary, source, or manual page files via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Locates the binary, source, and manual page files for a command.
- *
- * Description:
- *
-TODO
- *
- * Examples:
- *
  *
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
- *
- * Expected parametres:
  * - command (required): command to be processed
+ * - TODO (required | optional) [text/cybol-path]: TODO
  * - binary (optional, Unix): Search only for binaries.
+ * - TODO (required | optional) [text/cybol-path]: TODO
  * - manual (optional, Unix): Search only for manual sections.
+ * - TODO (required | optional) [text/cybol-path]: TODO
  * - source (optional, Unix): Search only for source files.
  */
 static wchar_t* FIND_COMMAND_COMMAND_LOGIC_CYBOL_FORMAT = L"command/find-command";
@@ -435,30 +386,19 @@ static int* FIND_COMMAND_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_ST
  *
  * Description:
  *
- * TODO via shell command.
+ * Finds a file via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Find a file.
- *
- * Description:
- *
-TODO
- *
- * Examples:
- *
  *
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
- *
- * Expected parametres:
  * - path: the path including wildcards for deleting files and directories
+ * - TODO (required | optional) [text/cybol-path]: TODO
  * - insensitive (optional): the insensitive option (ignore upper/lowercase when searching for a file, Unix only)
+ * - TODO (required | optional) [text/cybol-path]: TODO
  * - recursive(optional): the recursive option (recursive search, Windows only)
  */
 static wchar_t* FIND_FILE_COMMAND_LOGIC_CYBOL_FORMAT = L"command/find-file";
@@ -469,35 +409,22 @@ static int* FIND_FILE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
  *
  * Description:
  *
- * TODO via shell command.
+ * Searches for a pattern in the file and prints out those lines matching the pattern via shell command.
  *
- * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Searches for a pattern in the file and prints out those lines matching the pattern.
- *
- * Description:
- *
-Searches for pattern in file.
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
  *
  * <node name="grep" channel="inline" format="command/grep" model="">
  *     <node name="pattern" channel="inline" format="text/plain" model="test"/>
- *     <node name="file" channel="inline" format="text/plain" model="shell_command_grep/grep.txt"/>
+ *     <node name="file" channel="inline" format="text/plain" model="test/grep.txt"/>
  * </node>
  *
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-pattern    the pattern to search for    true    text/plain
-file    the file to search in    true    text/plain
- *
- * Expected parametres:
  * - pattern (required): pattern, to search for
+ * - TODO (required | optional) [text/cybol-path]: TODO
  * - file (required): file, to search in
  */
 static wchar_t* GREP_COMMAND_LOGIC_CYBOL_FORMAT = L"command/grep";
@@ -508,28 +435,15 @@ static int* GREP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * Description:
  *
- * TODO via shell command.
+ * Displays information about a system command via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Display information about a system command.
- *
- * Description:
- *
-TODO
- *
- * Examples:
- *
  *
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
- *
- * Expected parametres:
  * - pattern (required): the command for which information should be displayed
  */
 static wchar_t* HELP_COMMAND_LOGIC_CYBOL_FORMAT = L"command/help";
@@ -540,31 +454,16 @@ static int* HELP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * Description:
  *
- * TODO via shell command.
+ * Displays the name of the host (machine) via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Display the name of the host (machine).
- *
- * Description:
- *
-TODO
- *
- * Examples:
- *
  *
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
- *
- * Expected parametres:
- * - none
- *
- * Options: d, f, i, I, s
+ * - options: d, f, i, I, s
  */
 static wchar_t* HOSTNAME_COMMAND_LOGIC_CYBOL_FORMAT = L"command/hostname";
 static int* HOSTNAME_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -574,26 +473,13 @@ static int* HOSTNAME_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  *
  * Description:
  *
- * TODO via shell command.
+ * Displays the identification (id) of the user or group via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Display id.
- *
- * Description:
- *
-TODO
- *
- * Examples:
- *
  *
  * Properties:
- *
- * - TODO (required | optional) [text/cybol-path]: TODO
  */
 static wchar_t* ID_COMMAND_LOGIC_CYBOL_FORMAT = L"command/id";
 static int* ID_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -603,26 +489,13 @@ static int* ID_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  *
  * Description:
  *
- * TODO via shell command.
+ * Calls ifconfig via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Display ifconfig.
- *
- * Description:
- *
-TODO
- *
- * Examples:
- *
  *
  * Properties:
- *
- * - TODO (required | optional) [text/cybol-path]: TODO
  */
 static wchar_t* IFCONFIG_COMMAND_LOGIC_CYBOL_FORMAT = L"command/ifconfig";
 static int* IFCONFIG_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -632,26 +505,13 @@ static int* IFCONFIG_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  *
  * Description:
  *
- * TODO via shell command.
+ * Shows if the network interface is available, via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Shows if the interface is available.
- *
- * Description:
- *
-TODO
- *
- * Examples:
- *
  *
  * Properties:
- *
- * - TODO (required | optional) [text/cybol-path]: TODO
  */
 static wchar_t* IFUP_COMMAND_LOGIC_CYBOL_FORMAT = L"command/ifup";
 static int* IFUP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -661,28 +521,15 @@ static int* IFUP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * Description:
  *
- * TODO via shell command.
+ * Kills an application or system process via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Kill a process.
- *
- * Description:
- *
-TODO
- *
- * Examples:
- *
  *
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
- *
- * Expected parameters:
  * - pid (required): the number of process to be killed off
  */
 static wchar_t* KILL_COMMAND_LOGIC_CYBOL_FORMAT = L"command/kill";
@@ -693,28 +540,16 @@ static int* KILL_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * Description:
  *
- * TODO via shell command.
+ * Lists the contents of the given directory via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * List contents of the given directory.
- *
- * Description:
- *
-TODO
- *
- * Examples:
- *
  *
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
  *
- * Expected parametres:
  * - path (optional): the listing for the given path (the default is the current directory)
  * - all (optional): the list all option (showing hidden, current . and upper .. directory)
  * - long (optional): the long listing option (showing user rights etc.)
@@ -733,28 +568,16 @@ static int* LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_31
  *
  * Description:
  *
- * TODO via shell command.
+ * Shows open files in operating system via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Shows open files in operating system.
- *
- * Description:
- *
-TODO
- *
- * Examples:
- *
  *
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
  *
- * Expected parametres:
  * - listuid(optional): the list-uid option (list-uid output)
  * - listfilesize(optional): the list-file-size option (prints the file size)
  * - listtasks(optional): the list-tasks option (lists tasks)
@@ -769,28 +592,16 @@ static int* LIST_OPEN_FILES_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER
  *
  * Description:
  *
- * TODO via shell command.
+ * Lists all processes currently running on the computer, via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * List all the processes currently running on the computer.
- *
- * Description:
- *
-TODO
- *
- * Examples:
- *
  *
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
  *
- * Expected parametres:
  * - keyword(optional): the keyword option (list all the keyword options)
  * - verbose(optional): the verbose option (verbose output)
  */
@@ -802,28 +613,16 @@ static int* LIST_TASKS_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  *
  * Description:
  *
- * TODO via shell command.
+ * Shows the usage of Random Access Memory (RAM), via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Shows the usage of the RAM.
- *
- * Description:
- *
-TODO
- *
- * Examples:
- *
  *
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
  *
- * Expected parametres:
  * - human(optional): the human option (human-readable output)
  * - kilobytes(optional): the kilobytes option (print sizes in kilobytes)
  * - megabytes(optional): the megabytes option (print sizes in megabytes)
@@ -838,27 +637,15 @@ static int* MEMORY_FREE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *
  * Description:
  *
- * TODO via shell command.
+ * Moves a file or directory to a destination path, via shell command.
  *
- * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Moves a file or directory to a destination path.
- *
- * Description:
- *
-Moving directories from a path to another.
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
  *
  * <node name="move_file" channel="inline" format="command/move" model="">
- *     <node name="source" channel="inline" format="text/plain"
-      model="./shell_command_move_file/original.txt"/>
- *     <node name="destination" channel="inline" format="text/plain"
-      model="./shell_command_move_file/moved_and_please_do_not_commit_me.txt"/>
+ *     <node name="destination" channel="inline" format="text/plain" model="./shell_command_move_file/moved_and_please_do_not_commit_me.txt"/>
+ *     <node name="source" channel="inline" format="text/plain" model="./shell_command_move_file/original.txt"/>
  *     <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
  *     <node name="interactive" channel="inline" format="logicvalue/boolean" model="true"/>
  *     <node name="verbose" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -867,13 +654,7 @@ Moving directories from a path to another.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-source    the path of the directory which sould be moved    true    text/plain
-destination    the path of the directory which sould be moved    true    text/plain
-force    the force option (never ask for permission to move any directories)    false    logicvalue/boolean
-interactive    the interactive option (askes everytime for permission of moving a directory)    false    logicvalue/boolean
-verbose    the verbose option (shows what have been moved)    false    logicvalue/boolean
  *
- * Expected parametres:
  * - source (required): the path of the file or the directory which sould be moved
  * - destination (required): the new path of the source file or directory
  * - force (optional): the force option (never ask for permission to move any files or directories)
@@ -888,31 +669,17 @@ static int* MOVE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * Description:
  *
- * TODO via shell command.
+ * Displays network information via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Display network information.
- *
- * Description:
- *
-TODO
- *
- * Examples:
- *
  *
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
  *
- * Expected parametres:
- * - none
- *
- * Options: -r, i, g, s, M, v, n, e, p, l, a, o, t
+ * - options: -r, i, g, s, M, v, n, e, p, l, a, o, t
  */
 static wchar_t* NETSTAT_COMMAND_LOGIC_CYBOL_FORMAT = L"command/netstat";
 static int* NETSTAT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -922,24 +689,14 @@ static int* NETSTAT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  *
  * Description:
  *
- * TODO via shell command.
+ * Pings the given host via network, via shell command.
  *
- * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Pings the given host via network.
- *
- * Description:
- *
-Pings a given host.
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
  *
  * <node name="ping" channel="inline" format="command/ping" model="">
- *     <node name="host" channel="inline" format="text/plain" model="www.google.com"/>
+ *     <node name="host" channel="inline" format="text/plain" model="www.cybop.org"/>
  *     <node name="count" channel="inline" format="text/plain" model="5"/>
  *     <node name="interface" channel="inline" format="text/plain" model="eth0"/>
  * </node>
@@ -947,11 +704,7 @@ Pings a given host.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-host    the host to be pinged    true    text/plain
-count    count of ping packets to send    false    text/plain
-interface    interface to send packets on    false    text/plain
  *
- * Expected parametres:
  * - host (required): host, to be pinged
  * - count (optional): count of ping packets to send
  * - interface (optional): interface to send packets on
@@ -964,28 +717,16 @@ static int* PING_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * Description:
  *
- * TODO via shell command.
+ * Prints the path of the current working directory, via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Shows the path of the present working directory.
- *
- * Description:
- *
-TODO
- *
- * Examples:
- *
  *
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
  *
- * Expected parametres:
  * - logical(optional): the logical option (logical output)
  * - physical(optional): the physical option (physical output)
  */
@@ -997,25 +738,14 @@ static int* PWD_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  *
  * Description:
  *
- * TODO via shell command.
+ * Removes a file or directory via shell command.
  *
- * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Removes a file or directory.
- *
- * Description:
- *
-Moving directories from one path to another..
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
  *
  * <node name="remove_file" channel="inline" format="command/remove" model="">
- *     <node name="path" channel="inline" format="text/plain"
-      model="./shell_command_remove_file/do_not_commit_if_this_is_deleted.txt"/>
+ *     <node name="path" channel="inline" format="text/plain" model="./shell_command_remove_file/do_not_commit_if_this_is_deleted.txt"/>
  *     <node name="force" channel="inline" format="logicvalue/boolean" model="true"/>
  *     <node name="interactive" channel="inline" format="logicvalue/boolean" model="true"/>
  *     <node name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -1025,12 +755,7 @@ Moving directories from one path to another..
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-path    the path including wildcards for deleting directories    true    text/plain
-interactive    the interactive option (askes everytime for permission of deleting a directory)    false    logicvalue/boolean
-recursive    the recursvie option (deletes all of its subdirectories)    false    logicvalue/boolean
-verbose    the verbose option (shows what have been moved)    false    logicvalue/boolean
  *
- * Expected parametres:
  * - path: the path including wildcards for deleting files and directories
  * - interactive (optional): the interactive option (askes everytime for permission of deleting a file or directory)
  * - recursive(optional): the recursive option (deletes any files in the current directory and in all of its subdirectories)
@@ -1044,28 +769,16 @@ static int* REMOVE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  *
  * Description:
  *
- * TODO via shell command.
+ * Sorts the lines of a text file, via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Sorts a file.
- *
- * Description:
- *
-TODO
- *
- * Examples:
- *
  *
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
  *
- * Expected parametres:
  * - file (required): file, to be sorted
  * - output (optional): path to output file
  */
@@ -1077,28 +790,16 @@ static int* SORT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * Description:
  *
- * TODO via shell command.
+ * Spellchecks a file via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Spellcheck a file.
- *
- * Description:
- *
-TODO
- *
- * Examples:
- *
  *
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
  *
- * Expected parametres:
  * - path (required): path to the directory
  * - not follow symbolic link (optional): Do not follow symbolic links
  * - follow symbolic link (optional): Follow symbolic links
@@ -1112,28 +813,16 @@ static int* SPELLCHECK_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  *
  * Description:
  *
- * TODO via shell command.
+ * Shows system messages from /var/log via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Shows system messages from /var/log.
- *
- * Description:
- *
-TODO
- *
- * Examples:
- *
  *
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
  *
- * Expected parametres:
  * - human(optional): the human option (human-readable output)
  * - ctime(optional): the time-stamp option (print time in real time)
  * - kernel(optional): the kernel option (shows kernel messages)
@@ -1148,43 +837,25 @@ static int* SYSTEM_MESSAGES_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER
  *
  * Description:
  *
- * TODO via shell command.
+ * Packs or unpacks a directory or file, via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
  *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Packs or unpacks a directory or file.
- *
- * Description:
- *
-Moving files and directories from a path to another..
- *
- * Examples:
- *
-<!-- pack -->
-
-<node name="pack_text_file_with_tape_archiver" channel="inline" format="command/tape-archiver" model="">
- *     <node name="source" channel="inline" format="text/plain"
-      model="./shell_command_tape_archiver_pack/i_should_be_packed_soon.txt"/>
- *     <node name="destination" channel="inline" format="text/plain"
-      model="./shell_command_tape_archiver_pack/i_am_packed_now.tar"/>
+ * <node name="pack_text_file_with_tape_archiver" channel="inline" format="command/tape-archiver" model="">
+ *     <node name="source" channel="inline" format="text/plain" model="./shell_command_tape_archiver_pack/i_should_be_packed_soon.txt"/>
+ *     <node name="destination" channel="inline" format="text/plain" model="./shell_command_tape_archiver_pack/i_am_packed_now.tar"/>
  *     <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
  *     <node name="gzip" channel="inline" format="logicvalue/boolean" model="false"/>
  *     <node name="unpack" channel="inline" format="logicvalue/boolean" model="false"/>
  *     <node name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
  *     <node name="verbose" channel="inline" format="logicvalue/boolean" model="true"/>
-  * </node>
-
-<!-- unpack -->
-
-<node name="unpack_tar_with_text_file" channel="inline" format="command/tape-archiver" model="">
- *     <node name="source" channel="inline" format="text/plain"
-      model="./shell_command_tape_archiver_unpack/package.tar"/>
- *     <node name="destination" channel="inline" format="text/plain"
-      model="./shell_command_tape_archiver_unpack"/>
+ * </node>
+ *
+ * <node name="unpack_tar_with_text_file" channel="inline" format="command/tape-archiver" model="">
+ *     <node name="source" channel="inline" format="text/plain" model="./shell_command_tape_archiver_unpack/package.tar"/>
+ *     <node name="destination" channel="inline" format="text/plain" model="./shell_command_tape_archiver_unpack"/>
  *     <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
  *     <node name="gzip" channel="inline" format="logicvalue/boolean" model="false"/>
  *     <node name="unpack" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -1195,15 +866,7 @@ Moving files and directories from a path to another..
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-source    the source for archiving    true    text/plain
-destination    the destination where the source is being archived    true    text/plain
-force    the force option for not asking for permission for overwriting files or directories    false    logicvalue/boolean
-gzip    the gunzip option to indicate gunzip compression or extraction    false    logicvalue/boolean
-unpack    the option for unpacking / extraction or else it will pack    false    logicvalue/boolean
-recursive    ???    false    logicvalue/boolean
-verbose    shows which files and directories are being copied    false    logicvalue/boolean
  *
- * Expected parametres:
  * - source (required): the source for archiving
  * - destination (required): the destination where the source is being archived
  * - force (optional): the force option for not asking for permission for overwriting files or directories
@@ -1219,26 +882,13 @@ static int* TAPE_ARCHIVER_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  *
  * Description:
  *
- * TODO via shell command.
+ * Displays the linux processes, via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Display top.
- *
- * Description:
- *
-TODO
- *
- * Examples:
- *
  *
  * Properties:
- *
- * - TODO (required | optional) [text/cybol-path]: TODO
  */
 static wchar_t* TOP_COMMAND_LOGIC_CYBOL_FORMAT = L"command/top";
 static int* TOP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -1248,28 +898,16 @@ static int* TOP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  *
  * Description:
  *
- * TODO via shell command.
+ * Changes the timestamp of a file via shell command. May be used to create a new file.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Creates a new file.
- *
- * Description:
- *
-TODO
- *
- * Examples:
- *
  *
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
  *
- * Expected parametres:
  * - path
  * - reference
  * - timestamp
@@ -1282,29 +920,15 @@ static int* TOUCH_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  *
  * Description:
  *
- * TODO via shell command.
+ * Traces and displays the packet route to the given host, via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Traces and displays the packet route to the given host.
- *
- * Description:
- *
-TODO
- *
- * Examples:
- *
  *
  * Properties:
  *
- * - TODO (required | optional) [text/cybol-path]: TODO
- *
- * Expected parametres:
- * - host (required): host, to trace the route to
+ * - host (required) [text/cybol-path | text/plain]: The host to trace the route to.
  */
 static wchar_t* TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT = L"command/traceroute";
 static int* TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -1314,31 +938,17 @@ static int* TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  *
  * Description:
  *
- * TODO via shell command.
+ * Shows the users currently logged in to the machine, via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Shows the users currently logged in to the machine.
- *
- * Description:
- *
-TODO
- *
- * Examples:
- *
  *
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
  *
- * Expected parametres:
- * - none
- *
- * Options: -h, u, s, o
+ * - options: -h, u, s, o
  */
 static wchar_t* USERLOG_COMMAND_LOGIC_CYBOL_FORMAT = L"command/userlog";
 static int* USERLOG_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -1348,26 +958,13 @@ static int* USERLOG_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  *
  * Description:
  *
- * TODO via shell command.
+ * Displays information about the current user, via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Display information about the current user.
- *
- * Description:
- *
-TODO
- *
- * Examples:
- *
  *
  * Properties:
- *
- * - TODO (required | optional) [text/cybol-path]: TODO
  */
 static wchar_t* WHO_COMMAND_LOGIC_CYBOL_FORMAT = L"command/who";
 static int* WHO_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -1377,26 +974,13 @@ static int* WHO_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  *
  * Description:
  *
- * TODO via shell command.
+ * Displays the login name of the current user, via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
- *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Display the login name of the current user.
- *
- * Description:
- *
-TODO
- *
- * Examples:
- *
  *
  * Properties:
- *
- * - TODO (required | optional) [text/cybol-path]: TODO
  */
 static wchar_t* WHO_AM_I_COMMAND_LOGIC_CYBOL_FORMAT = L"command/who-am-i";
 static int* WHO_AM_I_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -1406,25 +990,14 @@ static int* WHO_AM_I_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  *
  * Description:
  *
- * TODO via shell command.
+ * Counts different occurences and outputs the number of rows, words and bytes for every file, via shell command.
+ *
+ * TODO: COMPLETE AND VERIFY YET!
  *
  * Examples:
  *
- * <node name="TODO" channel="inline" format="command/TODO" model="">
- *     <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
- * </node>
- *
- * Outputs the number of rows, words and bytes for every file.
- *
- * Description:
- *
-Count different occurences.
- *
- * Examples:
- *
- * <node name="chmod_file" channel="inline" format="command/word-count" model="">
- *     <node name="path" channel="inline" format="text/plain"
-      model="./shell_command_word_count/example.txt"/>
+ * <node name="count_words" channel="inline" format="command/word-count" model="">
+ *     <node name="path" channel="inline" format="text/plain" model="./shell_command_word_count/example.txt"/>
  *     <node name="bytes" channel="inline" format="logicvalue/boolean" model="false"/>
  *     <node name="chars" channel="inline" format="logicvalue/boolean" model="true"/>
  *     <node name="lines" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -1435,14 +1008,7 @@ Count different occurences.
  * Properties:
  *
  * - TODO (required | optional) [text/cybol-path]: TODO
-path    path to the file or directory    true    text/plain
-bytes    Outputs the number of bytes    false    logicvalue/boolean
-chars    Outputs the number of chars    false    logicvalue/boolean
-lines    Outputs the number of lines    false    logicvalue/boolean
-max-line-length    Outputs the length of the longest line    false    logicvalue/boolean
-words    Outputs the number of words    false    logicvalue/boolean
  *
- * Expected parametres:
  * - path (required): path to the file or directory
  * - bytes (optional): Outputs the number of bytes
  * - chars (optional): Outputs the number of chars

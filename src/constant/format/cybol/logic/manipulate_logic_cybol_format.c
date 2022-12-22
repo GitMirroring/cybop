@@ -47,7 +47,7 @@
  *
  * This bit manipulation operation corresponds to the "BT" (bit) or "BTST" (bit test) assembler command.
  *
- * NOT IMPLEMENTED YET!
+ * TODO: NOT IMPLEMENTED YET!
  *
  * Examples:
  *
@@ -83,7 +83,7 @@ static int* CHECK_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  *
  * This bit manipulation operation corresponds to the "BTR" (bit reset) assembler command.
  *
- * NOT IMPLEMENTED YET!
+ * TODO: NOT IMPLEMENTED YET!
  *
  * Examples:
  *
@@ -116,7 +116,7 @@ static int* CLEAR_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  *
  * This bit manipulation operation corresponds to the "ROL" (rotate left) assembler command.
  *
- * NOT IMPLEMENTED YET!
+ * TODO: NOT IMPLEMENTED YET!
  *
  * Examples:
  *
@@ -149,7 +149,7 @@ static int* ROTATE_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
  *
  * This bit manipulation operation corresponds to the "ROR" (rotate right) assembler command.
  *
- * NOT IMPLEMENTED YET!
+ * TODO: NOT IMPLEMENTED YET!
  *
  * Examples:
  *
@@ -182,7 +182,7 @@ static int* ROTATE_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER
  *
  * This bit manipulation operation corresponds to the "BTS" (bit set) assembler command.
  *
- * NOT IMPLEMENTED YET!
+ * TODO: NOT IMPLEMENTED YET!
  *
  * Examples:
  *
@@ -215,7 +215,7 @@ static int* SET_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  *
  * This bit manipulation operation corresponds to the "SHL" (shift left) assembler command.
  *
- * NOT IMPLEMENTED YET!
+ * TODO: NOT IMPLEMENTED YET!
  *
  * Examples:
  *
@@ -248,7 +248,7 @@ static int* SHIFT_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  *
  * This bit manipulation operation corresponds to the "SHR" (shift right) assembler command.
  *
- * NOT IMPLEMENTED YET!
+ * TODO: NOT IMPLEMENTED YET!
  *
  * Examples:
  *
@@ -281,7 +281,7 @@ static int* SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
  *
  * This bit manipulation operation corresponds to the "CHG" (change) assembler command.
  *
- * NOT IMPLEMENTED YET!
+ * TODO: NOT IMPLEMENTED YET!
  *
  * Examples:
  *

@@ -45,7 +45,7 @@
  *
  * Checks if the given part contains the value at all, no matter at which position.
  *
- * NOT IMPLEMENTED YET!
+ * TODO: NOT IMPLEMENTED YET!
  *
  * Examples:
  *
@@ -71,7 +71,7 @@ static int* ANY_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  *
  * Checks if the part starts with the given value, at the beginning.
  *
- * NOT IMPLEMENTED YET!
+ * TODO: NOT IMPLEMENTED YET!
  *
  * Examples:
  *
@@ -97,7 +97,7 @@ static int* LEFT_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * Checks if the part ends with the given value, at the end.
  *
- * NOT IMPLEMENTED YET!
+ * TODO: NOT IMPLEMENTED YET!
  *
  * Examples:
  *

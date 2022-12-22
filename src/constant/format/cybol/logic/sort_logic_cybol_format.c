@@ -75,7 +75,7 @@ static int* BUBBLE_SORT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  *
  * Sorts numbers via insertion sort algorithm.
  *
- * NOT IMPLEMENTED YET!
+ * TODO: NOT IMPLEMENTED YET!
  *
  * Examples:
  *
@@ -101,7 +101,7 @@ static int* INSERTION_SORT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  *
  * Sorts numbers via quick sort algorithm.
  *
- * NOT IMPLEMENTED YET!
+ * TODO: NOT IMPLEMENTED YET!
  *
  * Examples:
  *
@@ -127,7 +127,7 @@ static int* QUICK_SORT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  *
  * Sorts numbers via selection sort algorithm.
  *
- * NOT IMPLEMENTED YET!
+ * TODO: NOT IMPLEMENTED YET!
  *
  * Examples:
  *

@@ -465,415 +465,146 @@ Internally, the lexicographical flag is set to true also when doing deep compari
     &#x3c;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3e;
     &#x3c;node name=&#x22;left&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.some_string&#x22;/&#x3e;
     &#x3c;node name=&#x22;right&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;Hello&#x22;/&#x3e;
-&#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>result</td><td>true</td><td>text/cybol-path</td><td>The boolean value resulting from lexicographical comparison.</td></tr><tr><td>left</td><td>true</td><td>text/cybol-path | text/plain</td><td>The left operand.</td></tr><tr><td>right</td><td>true</td><td>text/cybol-path | text/plain</td><td>The right operand.</td></tr></table></section></section><section><a name="command-archive"><h2>command/archive</h2></a><section><h3>Description</h3><p class="description">Archives the given files into a packed format via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;archive&#x22; channel=&#x22;inline&#x22; format=&#x22;command/archive&#x22; model=&#x22;&#x22;&#x3e;
+&#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>result</td><td>true</td><td>text/cybol-path</td><td>The boolean value resulting from lexicographical comparison.</td></tr><tr><td>left</td><td>true</td><td>text/cybol-path | text/plain</td><td>The left operand.</td></tr><tr><td>right</td><td>true</td><td>text/cybol-path | text/plain</td><td>The right operand.</td></tr></table></section></section><section><a name="command-archive"><h2>command/archive</h2></a><section><h3>Description</h3><p class="description">Archives the given files into a packed format via shell command.
+
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;archive&#x22; channel=&#x22;inline&#x22; format=&#x22;command/archive&#x22; model=&#x22;&#x22;&#x3e;
     &#x3c;node name=&#x22;create&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3e;
     &#x3c;node name=&#x22;update&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3e;
     &#x3c;node name=&#x22;bzip2&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3e;
-&#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>create</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating the creation of an archive.</td></tr><tr><td>update</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating the updating of an archive.</td></tr><tr><td>bzip2</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating usage of the bzip2 compression algorithm.</td></tr></table></section></section><section><a name="command-change-directory"><h2>command/change-directory</h2></a><section><h3>Description</h3><p class="description">Changes the current working directory via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;change_directory&#x22; channel=&#x22;inline&#x22; format=&#x22;command/change-directory&#x22; model=&#x22;&#x22;&#x3e;
+&#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>create</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating the creation of an archive.</td></tr><tr><td>update</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating the updating of an archive.</td></tr><tr><td>bzip2</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating usage of the bzip2 compression algorithm.</td></tr></table></section></section><section><a name="command-change-directory"><h2>command/change-directory</h2></a><section><h3>Description</h3><p class="description">Changes the current working directory via shell command.
+
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;change_directory&#x22; channel=&#x22;inline&#x22; format=&#x22;command/change-directory&#x22; model=&#x22;&#x22;&#x3e;
     &#x3c;node name=&#x22;directory&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;../src/controller/&#x22;/&#x3e;
-&#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>directory</td><td>true</td><td>text/cybol-path | text/plain</td><td>The new working directory.</td></tr></table></section></section><section><a name="command-change-permission"><h2>command/change-permission</h2></a><section><h3>Description</h3><p class="description">Changes the permission of a file or directory via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
+&#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>directory</td><td>true</td><td>text/cybol-path | text/plain</td><td>The new working directory.</td></tr></table></section></section><section><a name="command-change-permission"><h2>command/change-permission</h2></a><section><h3>Description</h3><p class="description">Changes the permission of a file or directory via shell command.
+
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
     &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>path</td><td>true</td><td>text/cybol-path | text/plain</td><td>The filesystem path to the file or directory.</td></tr><tr><td>user</td><td>true</td><td>text/cybol-path | text/plain</td><td>TODO</td></tr><tr><td>group</td><td>true</td><td>text/cybol-path | text/plain</td><td>TODO</td></tr><tr><td>other</td><td>true</td><td>text/cybol-path | text/plain</td><td>TODO</td></tr><tr><td>recursive</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating recursive processing.</td></tr><tr><td>silent</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating suppression of errors.</td></tr><tr><td>verbose</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating that a diagnostic output is wanted for every file.</td></tr></table></section></section><section><a name="command-clear"><h2>command/clear</h2></a><section><h3>Description</h3><p class="description">Clears the terminal (console) screen via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;clear&#x22; channel=&#x22;inline&#x22; format=&#x22;command/clear&#x22; model=&#x22;&#x22;/&#x3e;</p></section></section><section><a name="command-compare-files"><h2>command/compare-files</h2></a><section><h3>Description</h3><p class="description">Compares two files via shell command.</p></section><section><h3>Examples</h3><p class="example"></p></section></section><section><a name="command-config-network"><h2>command/config-network</h2></a><section><h3>Description</h3><p class="description">Configures the network via shell command.</p></section><section><h3>Examples</h3><p class="example"></p></section></section><section><a name="command-copy"><h2>command/copy</h2></a><section><h3>Description</h3><p class="description">Copies the given file into another via shell command.</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>source</td><td>true</td><td>text/cybol-path | text/plain</td><td>The source file to be copied.</td></tr><tr><td>destination</td><td>true</td><td>text/cybol-path | text/plain</td><td>The destination to copy to.</td></tr><tr><td>force</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating not to ask for permission for overwriting files or directories.</td></tr><tr><td>interactive</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating to ask everytime for permission of overwriting a file or directory.</td></tr><tr><td>preserve_all_attributes</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating that copied files and directories will have the same attributes as the originals.</td></tr><tr><td>preserve_links</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating that links are preserved so that they are not dereferenced while copying.</td></tr><tr><td>recursive</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating that all sub directories should be copied as well.</td></tr><tr><td>update</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating that just more recent data are copied to a destination path.</td></tr><tr><td>verbose</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating that the names of copied files and directories are shown.</td></tr></table></section></section><section><a name="command-create-directory"><h2>command/create-directory</h2></a><section><h3>Description</h3><p class="description">Creates a directory (folder) in the file system via shell command.</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>path</td><td>true</td><td>text/cybol-path</td><td>The filesystem path to the directory to be created.</td></tr></table></section></section><section><a name="command-date"><h2>command/date</h2></a><section><h3>Description</h3><p class="description">Prints out the date or changes it via shell command.</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>new</td><td>false</td><td>text/cybol-path</td><td>The value of the new date.</td></tr></table></section></section><section><a name="command-delay"><h2>command/delay</h2></a><section><h3>Description</h3><p class="description">Delays execution for the given number of seconds via shell command.</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>time</td><td>true</td><td>text/cybol-path | number/integer</td><td>The time in seconds.</td></tr></table></section></section><section><a name="command-diff"><h2>command/diff</h2></a><section><h3>Description</h3><p class="description">Displays differences between two files via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;diff&#x22; channel=&#x22;inline&#x22; format=&#x22;command/diff&#x22; model=&#x22;&#x22;&#x3e;
+&#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>path</td><td>true</td><td>text/cybol-path | text/plain</td><td>The filesystem path to the file or directory.</td></tr><tr><td>user</td><td>true</td><td>text/cybol-path | text/plain</td><td>TODO</td></tr><tr><td>group</td><td>true</td><td>text/cybol-path | text/plain</td><td>TODO</td></tr><tr><td>other</td><td>true</td><td>text/cybol-path | text/plain</td><td>TODO</td></tr><tr><td>recursive</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating recursive processing.</td></tr><tr><td>silent</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating suppression of errors.</td></tr><tr><td>verbose</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating that a diagnostic output is wanted for every file.</td></tr></table></section></section><section><a name="command-clear"><h2>command/clear</h2></a><section><h3>Description</h3><p class="description">Clears the terminal (console) screen via shell command.
+
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;clear&#x22; channel=&#x22;inline&#x22; format=&#x22;command/clear&#x22; model=&#x22;&#x22;/&#x3e;</p></section></section><section><a name="command-compare-files"><h2>command/compare-files</h2></a><section><h3>Description</h3><p class="description">Compares two files via shell command.
+
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section></section><section><a name="command-config-network"><h2>command/config-network</h2></a><section><h3>Description</h3><p class="description">Configures the network via shell command.
+
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section></section><section><a name="command-copy"><h2>command/copy</h2></a><section><h3>Description</h3><p class="description">Copies the given file into another via shell command.
+
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>source</td><td>true</td><td>text/cybol-path | text/plain</td><td>The source file to be copied.</td></tr><tr><td>destination</td><td>true</td><td>text/cybol-path | text/plain</td><td>The destination to copy to.</td></tr><tr><td>force</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating not to ask for permission for overwriting files or directories.</td></tr><tr><td>interactive</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating to ask everytime for permission of overwriting a file or directory.</td></tr><tr><td>preserve_all_attributes</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating that copied files and directories will have the same attributes as the originals.</td></tr><tr><td>preserve_links</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating that links are preserved so that they are not dereferenced while copying.</td></tr><tr><td>recursive</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating that all sub directories should be copied as well.</td></tr><tr><td>update</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating that just more recent data are copied to a destination path.</td></tr><tr><td>verbose</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating that the names of copied files and directories are shown.</td></tr></table></section></section><section><a name="command-create-directory"><h2>command/create-directory</h2></a><section><h3>Description</h3><p class="description">Creates a directory (folder) in the file system via shell command.
+
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>path</td><td>true</td><td>text/cybol-path</td><td>The filesystem path to the directory to be created.</td></tr></table></section></section><section><a name="command-date"><h2>command/date</h2></a><section><h3>Description</h3><p class="description">Prints out the date or changes it via shell command.
+
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>new</td><td>false</td><td>text/cybol-path</td><td>The value of the new date.</td></tr></table></section></section><section><a name="command-delay"><h2>command/delay</h2></a><section><h3>Description</h3><p class="description">Delays execution for the given number of seconds via shell command.
+
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>time</td><td>true</td><td>text/cybol-path | number/integer</td><td>The time in seconds.</td></tr></table></section></section><section><a name="command-diff"><h2>command/diff</h2></a><section><h3>Description</h3><p class="description">Displays differences between two files via shell command.
+
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;diff&#x22; channel=&#x22;inline&#x22; format=&#x22;command/diff&#x22; model=&#x22;&#x22;&#x3e;
     &#x3c;node name=&#x22;first&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;shell_command_diff/diff_1.txt&#x22;/&#x3e;
     &#x3c;node name=&#x22;second&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;shell_command_diff/diff_2.txt&#x22;/&#x3e;
-&#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>first</td><td>true</td><td>text/cybol-path | text/plain</td><td>The first file.</td></tr><tr><td>second</td><td>true</td><td>text/cybol-path | text/plain</td><td>The second file.</td></tr></table></section></section><section><a name="command-disk-free"><h2>command/disk-free</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
+&#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>first</td><td>true</td><td>text/cybol-path | text/plain</td><td>The first file.</td></tr><tr><td>second</td><td>true</td><td>text/cybol-path | text/plain</td><td>The second file.</td></tr></table></section></section><section><a name="command-disk-free"><h2>command/disk-free</h2></a><section><h3>Description</h3><p class="description">Displays the free disk space via shell command.
 
-Display free disk space.
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>all</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating that files with a size of 0 blocks shall be listed.</td></tr><tr><td>human</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating human-readable output.</td></tr><tr><td>kilobytes</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating size output in kilobytes.</td></tr><tr><td>local</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating that only local filesystems shall be listed.</td></tr><tr><td>megabytes</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating size output in megabytes.</td></tr><tr><td>type</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating output of each filesystem&#x27;s type.</td></tr></table></section></section><section><a name="command-disk-usage"><h2>command/disk-usage</h2></a><section><h3>Description</h3><p class="description">Shows the usage of a directory via shell command.
 
-Description:
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>human</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating human-readable output.</td></tr><tr><td>summarise</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating that a summary shall be printed.</td></tr><tr><td>all</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating that all shall be printed.</td></tr><tr><td>bytes</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating size output in bytes.</td></tr><tr><td>total</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating that the total usage shall be printed.</td></tr></table></section></section><section><a name="command-display-content"><h2>command/display-content</h2></a><section><h3>Description</h3><p class="description">Displays the content of one or more text files via shell command.
 
-O
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>path</td><td>false</td><td>text/cybol-path | text/plain</td><td>The file whose content is to be printed.</td></tr><tr><td>clear</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating to clear the screen before display.</td></tr><tr><td>numbers</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating that output lines shall be numbered.</td></tr><tr><td>squeeze</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating that multiple blank lines shall be merged into a single line.</td></tr></table></section></section><section><a name="command-echo"><h2>command/echo</h2></a><section><h3>Description</h3><p class="description">Prints the given message to standard output via shell command.
 
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-disk-usage"><h2>command/disk-usage</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;echo_text&#x22; channel=&#x22;inline&#x22; format=&#x22;command/echo&#x22; model=&#x22;&#x22;&#x3e;
+    &#x3c;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;Hello World!&#x22;/&#x3e;
+&#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>message</td><td>false</td><td>text/cybol-path | text/plain</td><td>The message to be sent to standard output.</td></tr></table></section></section><section><a name="command-find-command"><h2>command/find-command</h2></a><section><h3>Description</h3><p class="description">Locates the command binary, source, or manual page files via shell command.
 
-Shows the usage of a directory.
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>falsefalsefalsefalse</td><td>text/cybol-path</td><td>TODO</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><ERROR_MISSING_TAG_NAME></ERROR_MISSING_TAG_NAME><ERROR_MISSING_TAG_NAME></ERROR_MISSING_TAG_NAME><ERROR_MISSING_TAG_NAME></ERROR_MISSING_TAG_NAME></table></section></section><section><a name="command-find-file"><h2>command/find-file</h2></a><section><h3>Description</h3><p class="description">Finds a file via shell command.
 
-Description:
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>falsefalsefalse</td><td>text/cybol-path</td><td>TODO</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><ERROR_MISSING_TAG_NAME></ERROR_MISSING_TAG_NAME><ERROR_MISSING_TAG_NAME></ERROR_MISSING_TAG_NAME></table></section></section><section><a name="command-grep"><h2>command/grep</h2></a><section><h3>Description</h3><p class="description">Searches for a pattern in the file and prints out those lines matching the pattern via shell command.
 
-O
-
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-display-content"><h2>command/display-content</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
-
-Display the content of one or more text files
-
-Description:
-
-play the content.
-
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-echo"><h2>command/echo</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
-
-Echo a given message to the standard output.
-
-Description:
-
-os the message to standard output.
-
-Examples:
-
-&#x3c;node name=&#x22;echo&#x22; channel=&#x22;inline&#x22; format=&#x22;command/echo&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22;
-   model=&#x22;hello, this is an echo over standard output&#x22;/&#x3e;
-&#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-find-command"><h2>command/find-command</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
-
-Locates the binary, source, and manual page files for a command.
-
-Description:
-
-O
-
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-find-file"><h2>command/find-file</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
-
-Find a file.
-
-Description:
-
-O
-
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-grep"><h2>command/grep</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
-
-Searches for a pattern in the file and prints out those lines matching the pattern.
-
-Description:
-
-rches for pattern in file.
-
-Examples:
-
-&#x3c;node name=&#x22;grep&#x22; channel=&#x22;inline&#x22; format=&#x22;command/grep&#x22; model=&#x22;&#x22;&#x3e;
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;grep&#x22; channel=&#x22;inline&#x22; format=&#x22;command/grep&#x22; model=&#x22;&#x22;&#x3e;
     &#x3c;node name=&#x22;pattern&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;test&#x22;/&#x3e;
-    &#x3c;node name=&#x22;file&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;shell_command_grep/grep.txt&#x22;/&#x3e;
-&#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-help"><h2>command/help</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
+    &#x3c;node name=&#x22;file&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;test/grep.txt&#x22;/&#x3e;
+&#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>falsefalse</td><td>text/cybol-path</td><td>TODO</td><td></td><td></td><td></td><td></td></tr><ERROR_MISSING_TAG_NAME></ERROR_MISSING_TAG_NAME></table></section></section><section><a name="command-help"><h2>command/help</h2></a><section><h3>Description</h3><p class="description">Displays information about a system command via shell command.
 
-Display information about a system command.
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-hostname"><h2>command/hostname</h2></a><section><h3>Description</h3><p class="description">Displays the name of the host (machine) via shell command.
 
-Description:
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-id"><h2>command/id</h2></a><section><h3>Description</h3><p class="description">Displays the identification (id) of the user or group via shell command.
 
-O
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section></section><section><a name="command-ifconfig"><h2>command/ifconfig</h2></a><section><h3>Description</h3><p class="description">Calls ifconfig via shell command.
 
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-hostname"><h2>command/hostname</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section></section><section><a name="command-ifup"><h2>command/ifup</h2></a><section><h3>Description</h3><p class="description">Shows if the network interface is available, via shell command.
 
-Display the name of the host (machine).
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section></section><section><a name="command-kill"><h2>command/kill</h2></a><section><h3>Description</h3><p class="description">Kills an application or system process via shell command.
 
-Description:
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-list-directory-contents"><h2>command/list-directory-contents</h2></a><section><h3>Description</h3><p class="description">Lists the contents of the given directory via shell command.
 
-O
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-list-open-files"><h2>command/list-open-files</h2></a><section><h3>Description</h3><p class="description">Shows open files in operating system via shell command.
 
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-id"><h2>command/id</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-list-tasks"><h2>command/list-tasks</h2></a><section><h3>Description</h3><p class="description">Lists all processes currently running on the computer, via shell command.
 
-Display id.
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-memory-free"><h2>command/memory-free</h2></a><section><h3>Description</h3><p class="description">Shows the usage of Random Access Memory (RAM), via shell command.
 
-Description:
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-move"><h2>command/move</h2></a><section><h3>Description</h3><p class="description">Moves a file or directory to a destination path, via shell command.
 
-O
-
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-ifconfig"><h2>command/ifconfig</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
-
-Display ifconfig.
-
-Description:
-
-O
-
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-ifup"><h2>command/ifup</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
-
-Shows if the interface is available.
-
-Description:
-
-O
-
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-kill"><h2>command/kill</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
-
-Kill a process.
-
-Description:
-
-O
-
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-list-directory-contents"><h2>command/list-directory-contents</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
-
-List contents of the given directory.
-
-Description:
-
-O
-
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-list-open-files"><h2>command/list-open-files</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
-
-Shows open files in operating system.
-
-Description:
-
-O
-
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-list-tasks"><h2>command/list-tasks</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
-
-List all the processes currently running on the computer.
-
-Description:
-
-O
-
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-memory-free"><h2>command/memory-free</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
-
-Shows the usage of the RAM.
-
-Description:
-
-O
-
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-move"><h2>command/move</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
-
-Moves a file or directory to a destination path.
-
-Description:
-
-ing directories from a path to another.
-
-Examples:
-
-&#x3c;node name=&#x22;move_file&#x22; channel=&#x22;inline&#x22; format=&#x22;command/move&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22;
-   model=&#x22;./shell_command_move_file/original.txt&#x22;/&#x3e;
-    &#x3c;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22;
-   model=&#x22;./shell_command_move_file/moved_and_please_do_not_commit_me.txt&#x22;/&#x3e;
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;move_file&#x22; channel=&#x22;inline&#x22; format=&#x22;command/move&#x22; model=&#x22;&#x22;&#x3e;
+    &#x3c;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;./shell_command_move_file/moved_and_please_do_not_commit_me.txt&#x22;/&#x3e;
+    &#x3c;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;./shell_command_move_file/original.txt&#x22;/&#x3e;
     &#x3c;node name=&#x22;force&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3e;
     &#x3c;node name=&#x22;interactive&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3e;
     &#x3c;node name=&#x22;verbose&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3e;
-&#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-netstat"><h2>command/netstat</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
+&#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-netstat"><h2>command/netstat</h2></a><section><h3>Description</h3><p class="description">Displays network information via shell command.
 
-Display network information.
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-ping"><h2>command/ping</h2></a><section><h3>Description</h3><p class="description">Pings the given host via network, via shell command.
 
-Description:
-
-O
-
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-ping"><h2>command/ping</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
-
-Pings the given host via network.
-
-Description:
-
-gs a given host.
-
-Examples:
-
-&#x3c;node name=&#x22;ping&#x22; channel=&#x22;inline&#x22; format=&#x22;command/ping&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;host&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;www.google.com&#x22;/&#x3e;
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;ping&#x22; channel=&#x22;inline&#x22; format=&#x22;command/ping&#x22; model=&#x22;&#x22;&#x3e;
+    &#x3c;node name=&#x22;host&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;www.cybop.org&#x22;/&#x3e;
     &#x3c;node name=&#x22;count&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;5&#x22;/&#x3e;
     &#x3c;node name=&#x22;interface&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;eth0&#x22;/&#x3e;
-&#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-pwd"><h2>command/pwd</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
+&#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-pwd"><h2>command/pwd</h2></a><section><h3>Description</h3><p class="description">Prints the path of the current working directory, via shell command.
 
-Shows the path of the present working directory.
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-remove"><h2>command/remove</h2></a><section><h3>Description</h3><p class="description">Removes a file or directory via shell command.
 
-Description:
-
-O
-
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-remove"><h2>command/remove</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
-
-Removes a file or directory.
-
-Description:
-
-ing directories from one path to another..
-
-Examples:
-
-&#x3c;node name=&#x22;remove_file&#x22; channel=&#x22;inline&#x22; format=&#x22;command/remove&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;path&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22;
-   model=&#x22;./shell_command_remove_file/do_not_commit_if_this_is_deleted.txt&#x22;/&#x3e;
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;remove_file&#x22; channel=&#x22;inline&#x22; format=&#x22;command/remove&#x22; model=&#x22;&#x22;&#x3e;
+    &#x3c;node name=&#x22;path&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;./shell_command_remove_file/do_not_commit_if_this_is_deleted.txt&#x22;/&#x3e;
     &#x3c;node name=&#x22;force&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3e;
     &#x3c;node name=&#x22;interactive&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3e;
     &#x3c;node name=&#x22;recursive&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3e;
     &#x3c;node name=&#x22;verbose&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3e;
-&#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-sort"><h2>command/sort</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
+&#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-sort"><h2>command/sort</h2></a><section><h3>Description</h3><p class="description">Sorts the lines of a text file, via shell command.
 
-Sorts a file.
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-spellcheck"><h2>command/spellcheck</h2></a><section><h3>Description</h3><p class="description">Spellchecks a file via shell command.
 
-Description:
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-system-messages"><h2>command/system-messages</h2></a><section><h3>Description</h3><p class="description">Shows system messages from /var/log via shell command.
 
-O
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-tape-archiver"><h2>command/tape-archiver</h2></a><section><h3>Description</h3><p class="description">Packs or unpacks a directory or file, via shell command.
 
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-spellcheck"><h2>command/spellcheck</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
-
-Spellcheck a file.
-
-Description:
-
-O
-
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-system-messages"><h2>command/system-messages</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
-
-Shows system messages from /var/log.
-
-Description:
-
-O
-
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-tape-archiver"><h2>command/tape-archiver</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
-
-Packs or unpacks a directory or file.
-
-Description:
-
-ing files and directories from a path to another..
-
-Examples:
-
-- pack --&#x3e;
-
-de name=&#x22;pack_text_file_with_tape_archiver&#x22; channel=&#x22;inline&#x22; format=&#x22;command/tape-archiver&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22;
-   model=&#x22;./shell_command_tape_archiver_pack/i_should_be_packed_soon.txt&#x22;/&#x3e;
-    &#x3c;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22;
-   model=&#x22;./shell_command_tape_archiver_pack/i_am_packed_now.tar&#x22;/&#x3e;
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;pack_text_file_with_tape_archiver&#x22; channel=&#x22;inline&#x22; format=&#x22;command/tape-archiver&#x22; model=&#x22;&#x22;&#x3e;
+    &#x3c;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;./shell_command_tape_archiver_pack/i_should_be_packed_soon.txt&#x22;/&#x3e;
+    &#x3c;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;./shell_command_tape_archiver_pack/i_am_packed_now.tar&#x22;/&#x3e;
     &#x3c;node name=&#x22;force&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3e;
     &#x3c;node name=&#x22;gzip&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3e;
     &#x3c;node name=&#x22;unpack&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3e;
     &#x3c;node name=&#x22;recursive&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3e;
     &#x3c;node name=&#x22;verbose&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3e;
- &#x3c;/node&#x3e;
+&#x3c;/node&#x3e;
 
-- unpack --&#x3e;
-
-de name=&#x22;unpack_tar_with_text_file&#x22; channel=&#x22;inline&#x22; format=&#x22;command/tape-archiver&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22;
-   model=&#x22;./shell_command_tape_archiver_unpack/package.tar&#x22;/&#x3e;
-    &#x3c;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22;
-   model=&#x22;./shell_command_tape_archiver_unpack&#x22;/&#x3e;
+&#x3c;node name=&#x22;unpack_tar_with_text_file&#x22; channel=&#x22;inline&#x22; format=&#x22;command/tape-archiver&#x22; model=&#x22;&#x22;&#x3e;
+    &#x3c;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;./shell_command_tape_archiver_unpack/package.tar&#x22;/&#x3e;
+    &#x3c;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;./shell_command_tape_archiver_unpack&#x22;/&#x3e;
     &#x3c;node name=&#x22;force&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3e;
     &#x3c;node name=&#x22;gzip&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3e;
     &#x3c;node name=&#x22;unpack&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3e;
     &#x3c;node name=&#x22;recursive&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3e;
     &#x3c;node name=&#x22;verbose&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3e;
-&#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-top"><h2>command/top</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
+&#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-top"><h2>command/top</h2></a><section><h3>Description</h3><p class="description">Displays the linux processes, via shell command.
 
-Display top.
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section></section><section><a name="command-touch"><h2>command/touch</h2></a><section><h3>Description</h3><p class="description">Changes the timestamp of a file via shell command. May be used to create a new file.
 
-Description:
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-traceroute"><h2>command/traceroute</h2></a><section><h3>Description</h3><p class="description">Traces and displays the packet route to the given host, via shell command.
 
-O
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>host</td><td>true</td><td>text/cybol-path | text/plain</td><td>The host to trace the route to.</td></tr></table></section></section><section><a name="command-userlog"><h2>command/userlog</h2></a><section><h3>Description</h3><p class="description">Shows the users currently logged in to the machine, via shell command.
 
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-touch"><h2>command/touch</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-who"><h2>command/who</h2></a><section><h3>Description</h3><p class="description">Displays information about the current user, via shell command.
 
-Creates a new file.
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section></section><section><a name="command-who-am-i"><h2>command/who-am-i</h2></a><section><h3>Description</h3><p class="description">Displays the login name of the current user, via shell command.
 
-Description:
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example"></p></section></section><section><a name="command-word-count"><h2>command/word-count</h2></a><section><h3>Description</h3><p class="description">Counts different occurences and outputs the number of rows, words and bytes for every file, via shell command.
 
-O
-
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-traceroute"><h2>command/traceroute</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
-
-Traces and displays the packet route to the given host.
-
-Description:
-
-O
-
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-userlog"><h2>command/userlog</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
-
-Shows the users currently logged in to the machine.
-
-Description:
-
-O
-
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-who"><h2>command/who</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
-
-Display information about the current user.
-
-Description:
-
-O
-
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-who-am-i"><h2>command/who-am-i</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
-
-Display the login name of the current user.
-
-Description:
-
-O
-
-Examples:</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>TODO</td><td>false</td><td>text/cybol-path</td><td>TODO</td></tr></table></section></section><section><a name="command-word-count"><h2>command/word-count</h2></a><section><h3>Description</h3><p class="description">TODO via shell command.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;command/TODO&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;TODO&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;&#x22;/&#x3e;
-&#x3c;/node&#x3e;
-
-Outputs the number of rows, words and bytes for every file.
-
-Description:
-
-nt different occurences.
-
-Examples:
-
-&#x3c;node name=&#x22;chmod_file&#x22; channel=&#x22;inline&#x22; format=&#x22;command/word-count&#x22; model=&#x22;&#x22;&#x3e;
-    &#x3c;node name=&#x22;path&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22;
-   model=&#x22;./shell_command_word_count/example.txt&#x22;/&#x3e;
+TODO: COMPLETE AND VERIFY YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;count_words&#x22; channel=&#x22;inline&#x22; format=&#x22;command/word-count&#x22; model=&#x22;&#x22;&#x3e;
+    &#x3c;node name=&#x22;path&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;./shell_command_word_count/example.txt&#x22;/&#x3e;
     &#x3c;node name=&#x22;bytes&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3e;
     &#x3c;node name=&#x22;chars&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3e;
     &#x3c;node name=&#x22;lines&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3e;
@@ -1608,19 +1339,19 @@ Example with one single element:
     &#x3c;node name=&#x22;right_index&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;0&#x22;/&#x3e;
 &#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>result</td><td>true</td><td>text/cybol-path</td><td>The boolean value vector resulting from comparison.</td></tr><tr><td>left</td><td>true</td><td>text/cybol-path | number/any | text/plain | element/part | element/property</td><td>The left operand vector.</td></tr><tr><td>right</td><td>true</td><td>text/cybol-path | number/any | text/plain | element/part | element/property</td><td>The right operand vector.</td></tr><tr><td>count</td><td>false</td><td>text/cybol-path | number/integer</td><td>The number of elements to be compared. This is relevant only for arrays with more than one element. If null, the default is the lesser of left and right operand count.</td></tr><tr><td>left_index</td><td>false</td><td>text/cybol-path | number/integer</td><td>The left index from where to start the comparison from. If null, the default is zero.</td></tr><tr><td>right_index</td><td>false</td><td>text/cybol-path | number/integer</td><td>The right index from where to start the comparison from. If null, the default is zero.</td></tr></table></section></section><section><a name="contain-any"><h2>contain/any</h2></a><section><h3>Description</h3><p class="description">Checks if the given part contains the value at all, no matter at which position.
 
-NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;check_for_string&#x22; channel=&#x22;inline&#x22; format=&#x22;contain/any&#x22; model=&#x22;&#x22;&#x3e;
+TODO: NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;check_for_string&#x22; channel=&#x22;inline&#x22; format=&#x22;contain/any&#x22; model=&#x22;&#x22;&#x3e;
     &#x3c;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#flag&#x22;/&#x3e;
     &#x3c;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.gedichte.[#index]&#x22;/&#x3e;
     &#x3c;node name=&#x22;value&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;Stelldichein&#x22;/&#x3e;
 &#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>result</td><td>true</td><td>text/cybol-path</td><td>The boolean result flag indicating whether or not the part contains the value at all.</td></tr><tr><td>part</td><td>true</td><td>text/cybol-path</td><td>The part in which to search.</td></tr><tr><td>value</td><td>true</td><td>text/cybol-path | text/plain | number/integer</td><td>The value to search for.</td></tr></table></section></section><section><a name="contain-left"><h2>contain/left</h2></a><section><h3>Description</h3><p class="description">Checks if the part starts with the given value, at the beginning.
 
-NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;check_for_string&#x22; channel=&#x22;inline&#x22; format=&#x22;contain/left&#x22; model=&#x22;&#x22;&#x3e;
+TODO: NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;check_for_string&#x22; channel=&#x22;inline&#x22; format=&#x22;contain/left&#x22; model=&#x22;&#x22;&#x3e;
     &#x3c;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#flag&#x22;/&#x3e;
     &#x3c;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.gedichte.[#index]&#x22;/&#x3e;
     &#x3c;node name=&#x22;value&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;Vom Eise befreit&#x22;/&#x3e;
 &#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>result</td><td>true</td><td>text/cybol-path</td><td>The boolean result flag indicating whether or not the part starts with the value.</td></tr><tr><td>part</td><td>true</td><td>text/cybol-path</td><td>The part in which to search.</td></tr><tr><td>value</td><td>true</td><td>text/cybol-path | text/plain | number/integer</td><td>The value to search for.</td></tr></table></section></section><section><a name="contain-right"><h2>contain/right</h2></a><section><h3>Description</h3><p class="description">Checks if the part ends with the given value, at the end.
 
-NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;check_for_string&#x22; channel=&#x22;inline&#x22; format=&#x22;contain/right&#x22; model=&#x22;&#x22;&#x3e;
+TODO: NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;check_for_string&#x22; channel=&#x22;inline&#x22; format=&#x22;contain/right&#x22; model=&#x22;&#x22;&#x3e;
     &#x3c;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#flag&#x22;/&#x3e;
     &#x3c;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.gedichte.[#index]&#x22;/&#x3e;
     &#x3c;node name=&#x22;value&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;La&#xdf; du den Himmel, Freund, sorgen wie gestern so heut.&#x22;/&#x3e;
@@ -1974,7 +1705,7 @@ y = x1 XOR x2</p></section><section><h3>Examples</h3><p class="example">&#x3c;no
 
 This bit manipulation operation corresponds to the &#x22;BT&#x22; (bit) or &#x22;BTST&#x22; (bit test) assembler command.
 
-NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;get_bit&#x22; channel=&#x22;inline&#x22; format=&#x22;manipulate/check&#x22; model=&#x22;&#x22;&#x3e;
+TODO: NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;get_bit&#x22; channel=&#x22;inline&#x22; format=&#x22;manipulate/check&#x22; model=&#x22;&#x22;&#x3e;
     &#x3c;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#bit&#x22;/&#x3e;
     &#x3c;node name=&#x22;value&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;71&#x22;/&#x3e;
     &#x3c;node name=&#x22;position&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;4&#x22;/&#x3e;
@@ -1988,7 +1719,7 @@ NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&
 
 This bit manipulation operation corresponds to the &#x22;BTR&#x22; (bit reset) assembler command.
 
-NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;manipulate_bit&#x22; channel=&#x22;inline&#x22; format=&#x22;manipulate/clear&#x22; model=&#x22;&#x22;&#x3e;
+TODO: NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;manipulate_bit&#x22; channel=&#x22;inline&#x22; format=&#x22;manipulate/clear&#x22; model=&#x22;&#x22;&#x3e;
     &#x3c;node name=&#x22;value&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.number&#x22;/&#x3e;
     &#x3c;node name=&#x22;position&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;4&#x22;/&#x3e;
 &#x3c;/node&#x3e;
@@ -2000,7 +1731,7 @@ NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&
 
 This bit manipulation operation corresponds to the &#x22;ROL&#x22; (rotate left) assembler command.
 
-NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;manipulate_bit&#x22; channel=&#x22;inline&#x22; format=&#x22;manipulate/rotate-left&#x22; model=&#x22;&#x22;&#x3e;
+TODO: NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;manipulate_bit&#x22; channel=&#x22;inline&#x22; format=&#x22;manipulate/rotate-left&#x22; model=&#x22;&#x22;&#x3e;
     &#x3c;node name=&#x22;value&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.number&#x22;/&#x3e;
     &#x3c;node name=&#x22;position&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;4&#x22;/&#x3e;
 &#x3c;/node&#x3e;
@@ -2012,7 +1743,7 @@ NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&
 
 This bit manipulation operation corresponds to the &#x22;ROR&#x22; (rotate right) assembler command.
 
-NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;manipulate_bit&#x22; channel=&#x22;inline&#x22; format=&#x22;manipulate/rotate-right&#x22; model=&#x22;&#x22;&#x3e;
+TODO: NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;manipulate_bit&#x22; channel=&#x22;inline&#x22; format=&#x22;manipulate/rotate-right&#x22; model=&#x22;&#x22;&#x3e;
     &#x3c;node name=&#x22;value&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.number&#x22;/&#x3e;
     &#x3c;node name=&#x22;position&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;4&#x22;/&#x3e;
 &#x3c;/node&#x3e;
@@ -2024,7 +1755,7 @@ NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&
 
 This bit manipulation operation corresponds to the &#x22;BTS&#x22; (bit set) assembler command.
 
-NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;manipulate_bit&#x22; channel=&#x22;inline&#x22; format=&#x22;manipulate/set&#x22; model=&#x22;&#x22;&#x3e;
+TODO: NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;manipulate_bit&#x22; channel=&#x22;inline&#x22; format=&#x22;manipulate/set&#x22; model=&#x22;&#x22;&#x3e;
     &#x3c;node name=&#x22;value&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.number&#x22;/&#x3e;
     &#x3c;node name=&#x22;position&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;4&#x22;/&#x3e;
 &#x3c;/node&#x3e;
@@ -2036,7 +1767,7 @@ NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&
 
 This bit manipulation operation corresponds to the &#x22;SHL&#x22; (shift left) assembler command.
 
-NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;manipulate_bit&#x22; channel=&#x22;inline&#x22; format=&#x22;manipulate/shift-left&#x22; model=&#x22;&#x22;&#x3e;
+TODO: NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;manipulate_bit&#x22; channel=&#x22;inline&#x22; format=&#x22;manipulate/shift-left&#x22; model=&#x22;&#x22;&#x3e;
     &#x3c;node name=&#x22;value&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.number&#x22;/&#x3e;
     &#x3c;node name=&#x22;position&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;4&#x22;/&#x3e;
 &#x3c;/node&#x3e;
@@ -2048,7 +1779,7 @@ NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&
 
 This bit manipulation operation corresponds to the &#x22;SHR&#x22; (shift right) assembler command.
 
-NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;manipulate_bit&#x22; channel=&#x22;inline&#x22; format=&#x22;manipulate/shift-right&#x22; model=&#x22;&#x22;&#x3e;
+TODO: NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;manipulate_bit&#x22; channel=&#x22;inline&#x22; format=&#x22;manipulate/shift-right&#x22; model=&#x22;&#x22;&#x3e;
     &#x3c;node name=&#x22;value&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.number&#x22;/&#x3e;
     &#x3c;node name=&#x22;position&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;4&#x22;/&#x3e;
 &#x3c;/node&#x3e;
@@ -2060,7 +1791,7 @@ NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&
 
 This bit manipulation operation corresponds to the &#x22;CHG&#x22; (change) assembler command.
 
-NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;manipulate_bit&#x22; channel=&#x22;inline&#x22; format=&#x22;manipulate/toggle&#x22; model=&#x22;&#x22;&#x3e;
+TODO: NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;manipulate_bit&#x22; channel=&#x22;inline&#x22; format=&#x22;manipulate/toggle&#x22; model=&#x22;&#x22;&#x3e;
     &#x3c;node name=&#x22;value&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.number&#x22;/&#x3e;
     &#x3c;node name=&#x22;position&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;4&#x22;/&#x3e;
 &#x3c;/node&#x3e;
@@ -2588,19 +2319,19 @@ Caution! The actual duration may differ depending on the system&#x27;s load and 
     &#x3c;node name=&#x22;criterion&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;.(#list)&#x22;/&#x3e;
 &#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>part</td><td>true</td><td>text/cybol-path</td><td>The part whose child nodes are to be sorted.</td></tr><tr><td>criterion</td><td>true</td><td>text/cybol-path | text/plain</td><td>The element (usually a string) to be used for comparison. It is given as plain text path to a sub element of each of the child parts that are to be sorted. Caution! One may use a path of format text/cybol-path to point to a part, but that one finally has to contain a path of format text/plain.</td></tr><tr><td>descending</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The descending sort direction flag. If null, the default is false (ascending).</td></tr></table></section></section><section><a name="sort-insertion"><h2>sort/insertion</h2></a><section><h3>Description</h3><p class="description">Sorts numbers via insertion sort algorithm.
 
-NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;sort_visitors&#x22; channel=&#x22;inline&#x22; format=&#x22;sort/insertion&#x22; model=&#x22;&#x22;&#x3e;
+TODO: NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;sort_visitors&#x22; channel=&#x22;inline&#x22; format=&#x22;sort/insertion&#x22; model=&#x22;&#x22;&#x3e;
     &#x3c;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.domain.visitors&#x22;/&#x3e;
     &#x3c;node name=&#x22;criterion&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;.surname&#x22;/&#x3e;
     &#x3c;node name=&#x22;descending&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3e;
 &#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>part</td><td>true</td><td>text/cybol-path</td><td>The part whose child nodes are to be sorted.</td></tr><tr><td>criterion</td><td>true</td><td>text/cybol-path | text/plain</td><td>The element (usually a string) to be used for comparison. It is given as plain text path to a sub element of each of the child parts that are to be sorted. Caution! One may use a path of format text/cybol-path to point to a part, but that one finally has to contain a path of format text/plain.</td></tr><tr><td>descending</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The descending sort direction flag. If null, the default is false (ascending).</td></tr></table></section></section><section><a name="sort-quick"><h2>sort/quick</h2></a><section><h3>Description</h3><p class="description">Sorts numbers via quick sort algorithm.
 
-NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;sort_visitors&#x22; channel=&#x22;inline&#x22; format=&#x22;sort/quick&#x22; model=&#x22;&#x22;&#x3e;
+TODO: NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;sort_visitors&#x22; channel=&#x22;inline&#x22; format=&#x22;sort/quick&#x22; model=&#x22;&#x22;&#x3e;
     &#x3c;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.domain.visitors&#x22;/&#x3e;
     &#x3c;node name=&#x22;criterion&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;.surname&#x22;/&#x3e;
     &#x3c;node name=&#x22;descending&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3e;
 &#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>part</td><td>true</td><td>text/cybol-path</td><td>The part whose child nodes are to be sorted.</td></tr><tr><td>criterion</td><td>true</td><td>text/cybol-path | text/plain</td><td>The element (usually a string) to be used for comparison. It is given as plain text path to a sub element of each of the child parts that are to be sorted. Caution! One may use a path of format text/cybol-path to point to a part, but that one finally has to contain a path of format text/plain.</td></tr><tr><td>descending</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The descending sort direction flag. If null, the default is false (ascending).</td></tr></table></section></section><section><a name="sort-selection"><h2>sort/selection</h2></a><section><h3>Description</h3><p class="description">Sorts numbers via selection sort algorithm.
 
-NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;sort_visitors&#x22; channel=&#x22;inline&#x22; format=&#x22;sort/selection&#x22; model=&#x22;&#x22;&#x3e;
+TODO: NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;sort_visitors&#x22; channel=&#x22;inline&#x22; format=&#x22;sort/selection&#x22; model=&#x22;&#x22;&#x3e;
     &#x3c;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.domain.visitors&#x22;/&#x3e;
     &#x3c;node name=&#x22;criterion&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;.surname&#x22;/&#x3e;
     &#x3c;node name=&#x22;descending&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3e;
