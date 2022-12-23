@@ -38,28 +38,6 @@
 //
 
 /**
- * The text/ascii text state cybol format.
- *
- * Description:
- *
- * This is pure text data, sometimes called "string" or "character array".
- *
- * Caution! Use it only when single byte characters are required, for example with binary data representing an image.
- * When working with pure text, the format "text/plain" should be used instead, since it uses multibyte characters
- * and allows internationalisation and the usage of unicode.
- *
- * Caution! Do not mix it up with "number/byte" representing numbers in the range 0..255.
- * Numbers in an array are separated by comma; text characters of a string are not.
- *
- * Examples:
- *
- * <node name="image" channel="inline" format="text/ascii" model=""/>
- * <node name="text" channel="file" format="text/ascii" model="path/to/file.txt"/>
- */
-static wchar_t* ASCII_TEXT_STATE_CYBOL_FORMAT = L"text/ascii";
-static int* ASCII_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
  * The text/cybol-path text state cybol format.
  *
  * Description:

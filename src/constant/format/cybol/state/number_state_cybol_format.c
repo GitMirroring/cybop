@@ -48,8 +48,8 @@
  * The standard type used internally is unsigned char with 8 Bits.
  * It has a value range from 0 to 255.
  *
- * Caution! It is not to be mixed up with "text/ascii" representing a text string of characters.
- * Numbers in an array are separated by comma; text characters of a string are not.
+ * Caution! It is not to be mixed up with "application/octet-stream".
+ * Numbers in an array are separated by comma; bytes of a stream are not.
  *
  * Examples:
  *

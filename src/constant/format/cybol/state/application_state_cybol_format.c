@@ -249,6 +249,8 @@ static int* MSWORD_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
 /**
  * The application/octet-stream state cybol format.
  *
+ * Description:
+ *
  * Arbitrary byte stream.
  *
  * This is thought of as the "default" media type used by several operating systems,
@@ -257,9 +259,15 @@ static int* MSWORD_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  *
  * RFC 2046 specifies this as the fallback for unrecognized subtypes of other types.
  *
- * Executable files.
- * Registered.
- * Common file suffixes: bin, exe, com, dll, class
+ * Common file suffixes: bin, exe, com, dll, class, dat
+ *
+ * Caution! Do not mix it up with "number/byte" representing numbers in the range 0..255.
+ * Numbers in an array are separated by comma; bytes of a octet stream are not.
+ *
+ * Examples:
+ *
+ * <node name="image" channel="inline" format="application/octet-stream" model=""/>
+ * <node name="text" channel="file" format="application/octet-stream" model="path/to/file.dat"/>
  */
 static wchar_t* OCTET_STREAM_APPLICATION_STATE_CYBOL_FORMAT = L"application/octet-stream";
 static int* OCTET_STREAM_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;

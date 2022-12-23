@@ -17,7 +17,7 @@
     <node name="write_client" channel="inline" format="stream/write" model="">
         <node name="channel" channel="inline" format="meta/channel" model="pipeline"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="message" channel="inline" format="text/ascii" model="Hello World!"/>
+        <node name="message" channel="inline" format="application/octet-stream" model="Hello World!"/>
     </node>
 
     <node name="close_client" channel="inline" format="dispatch/close" model="">

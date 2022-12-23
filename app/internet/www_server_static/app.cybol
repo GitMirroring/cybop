@@ -7,10 +7,10 @@
 
     <node name="path" channel="inline" format="text/plain" model=""/>
     <!--
-        CAUTION! The format is "text/ascii" and NOT "text/plain",
+        CAUTION! The format is "application/octet-stream" and NOT "text/plain",
         since some data, like images for instance, represent binary data.
     -->
-    <node name="file" channel="inline" format="text/ascii" model=""/>
+    <node name="file" channel="inline" format="application/octet-stream" model=""/>
 
     <node name="handle_enable" channel="file" format="element/part" model="internet/www_server_static/handle_enable.cybol"/>
     <node name="handle_sense" channel="file" format="element/part" model="internet/www_server_static/handle_sense.cybol"/>

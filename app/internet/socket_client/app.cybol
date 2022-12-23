@@ -10,6 +10,6 @@
     -->
     <node name="server_socket" channel="inline" format="number/integer" model="-1"/>
 
-    <node name="response" channel="inline" format="text/ascii" model=""/>
+    <node name="response" channel="inline" format="application/octet-stream" model=""/>
 
 </node>

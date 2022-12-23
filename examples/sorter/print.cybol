@@ -42,7 +42,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <node name="format" channel="inline" format="meta/format" model="text/ascii"/>
+        <node name="format" channel="inline" format="meta/format" model="application/octet-stream"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".ascii"/>
     </node>
 

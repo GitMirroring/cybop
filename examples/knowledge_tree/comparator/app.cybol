@@ -35,8 +35,8 @@
     <!-- text vector (standard comparison) -->
 
     <!-- The last one differs -->
-    <node name="ascii_left_vector" channel="inline" format="text/ascii" model="a4v,e9-/3+*)#'127"/>
-    <node name="ascii_right_vector" channel="inline" format="text/ascii" model="a4v,e9-/3+*)#'123"/>
+    <node name="ascii_left_vector" channel="inline" format="application/octet-stream" model="a4v,e9-/3+*)#'127"/>
+    <node name="ascii_right_vector" channel="inline" format="application/octet-stream" model="a4v,e9-/3+*)#'123"/>
 
     <!-- The first one differs -->
     <node name="wide_left_vector" channel="inline" format="text/plain" model="w1i2d3e4%?⭝|฿Hઊ"/>
@@ -45,8 +45,8 @@
     <!-- text scalar (lexicographical comparison) -->
 
     <!-- The last one differs -->
-    <node name="ascii_left_scalar" channel="inline" format="text/ascii" model="Hello ASCII"/>
-    <node name="ascii_right_scalar" channel="inline" format="text/ascii" model="Hello ASCII"/>
+    <node name="ascii_left_scalar" channel="inline" format="application/octet-stream" model="Hello ASCII"/>
+    <node name="ascii_right_scalar" channel="inline" format="application/octet-stream" model="Hello ASCII"/>
 
     <!-- The first one differs -->
     <node name="wide_left_scalar" channel="inline" format="text/plain" model="Hello WIDE"/>

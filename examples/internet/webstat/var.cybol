@@ -34,7 +34,7 @@
     <node name="visits_total" channel="inline" format="number/integer" model="0"/>
     <node name="request" channel="inline" format="element/part" model=""/>
     <node name="path" channel="inline" format="text/cybol-path" model=""/>
-    <node name="file" channel="inline" format="text/ascii" model=""/>
+    <node name="file" channel="inline" format="application/octet-stream" model=""/>
     <node name="increment" channel="inline" format="logicvalue/boolean" model="false"/>
 
 </node>

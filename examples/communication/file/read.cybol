@@ -6,7 +6,7 @@
     </node>
     <node name="create_data" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="data"/>
-        <node name="format" channel="inline" format="meta/format" model="text/ascii"/>
+        <node name="format" channel="inline" format="meta/format" model="application/octet-stream"/>
     </node>
 
     <node name="open_client" channel="inline" format="dispatch/open" model="">

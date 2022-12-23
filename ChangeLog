@@ -22,6 +22,10 @@
 
         * Release CYBOP 0.24.0
 
+2022-12-23  Christian Heller  <christian.heller@cybop.org>
+
+        * Use mime type format "application/octet-stream" as replacement for "text/ascii"
+
 2022-12-22  Christian Heller  <christian.heller@cybop.org>
 
         * Update cybol api specification in javadoc comment blocks of file "constant/format/cybol/logic/command_logic_cybol_format.c"

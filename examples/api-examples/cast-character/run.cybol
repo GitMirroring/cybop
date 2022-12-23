@@ -6,7 +6,7 @@
     </node>
     <node name="create_part_2" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="part_2"/>
-        <node name="format" channel="inline" format="meta/format" model="text/ascii"/>
+        <node name="format" channel="inline" format="meta/format" model="application/octet-stream"/>
     </node>
 
     <node name="initialise_part_1" channel="inline" format="modify/overwrite" model="">
@@ -15,7 +15,7 @@
     </node>
     <node name="initialise_part_2" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".part_2"/>
-        <node name="source" channel="inline" format="text/ascii" model="6"/>
+        <node name="source" channel="inline" format="application/octet-stream" model="6"/>
     </node>
 
     <node name="cast_character" channel="inline" format="cast/character" model="">
@@ -30,7 +30,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <node name="format" channel="inline" format="meta/format" model="text/ascii"/>
+        <node name="format" channel="inline" format="meta/format" model="application/octet-stream"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".part_2"/>
     </node>
 

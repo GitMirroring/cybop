@@ -1,13 +1,1 @@
 [selected_node] | element/part | 
-:-referer | text/plain | http://localhost:1971/?action=send-index
-:-connection | text/plain | keep-alive
-:-accept-encoding | text/plain | gzip, deflate, br
-:-accept-language | text/plain | de,en-US;q=0.7,en;q=0.3
-:-accept | text/plain | image/avif,image/webp,*/*
-:-user-agent | text/plain | Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
-:-host | text/plain | localhost:1971
-:-protocol | text/plain | HTTP/1.1
-:-uri | text/plain | /footer/logo.png
-| :-scheme | text/plain | http
-| :-path | text/plain | /footer/logo.png
-:-method | text/plain | GET

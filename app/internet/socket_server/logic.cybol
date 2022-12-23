@@ -6,7 +6,7 @@
         <node name="port" channel="inline" format="number/integer" model="1971"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
-        <node name="message" channel="inline" format="text/ascii" model="Hello World!"/>
+        <node name="message" channel="inline" format="application/octet-stream" model="Hello World!"/>
     </node>
 
     <node name="send_data" channel="inline" format="communicate/send" model="">

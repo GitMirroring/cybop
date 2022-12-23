@@ -21,7 +21,7 @@
 -->
 
     <!-- TEMPORARY WORKAROUND -->
-    <node name="create_folder" channel="inline" format="command/create-folder" model="">
+    <node name="create_folder" channel="inline" format="command/create-directory" model="">
         <node name="path" channel="inline" format="text/cybol-path" model=".var.directory"/>
     </node>
 

@@ -23,7 +23,7 @@
     <node name="send_client" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="serial"/>
         <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
-        <node name="message" channel="inline" format="text/ascii" model="c01"/>
+        <node name="message" channel="inline" format="application/octet-stream" model="c01"/>
     </node>
 
     <node name="receive_client" channel="inline" format="communicate/receive" model="">

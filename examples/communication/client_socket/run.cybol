@@ -16,7 +16,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
-        <node name="message" channel="inline" format="text/ascii" model="say-hello"/>
+        <node name="message" channel="inline" format="application/octet-stream" model="say-hello"/>
     </node>
 
     <node name="receive_client" channel="inline" format="communicate/receive" model="">

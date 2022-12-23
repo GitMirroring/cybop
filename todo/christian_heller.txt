@@ -11,10 +11,6 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-        * Use "application/octet-stream" as replacement for "text/ascii"
-            update app examples
-            update api
-
         in file "array_calculator.c":
         * Use "calculate_minimum" to find out which source count is lesser and use it as default count
         * Compare if count given as parametre is less or equal than default count and copy it
@@ -71,7 +67,7 @@ ____
 Build
 _____
 
-        * Test new automated build process with release 0.24.0
+        * Test new automated build process
 
         * Adapt rules of "ClangFormat" and correct reported formatting errors
         * Find out how best to exclude log messages from release build (ifdef macro, build script, other idea)

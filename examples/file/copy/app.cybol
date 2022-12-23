@@ -1,5 +1,5 @@
 <node>
 
-    <node name="image" channel="inline" format="text/ascii" model=""/>
+    <node name="image" channel="inline" format="application/octet-stream" model=""/>
 
 </node>

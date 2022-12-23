@@ -15,7 +15,7 @@
     <node name="write_client" channel="inline" format="stream/write" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="message" channel="inline" format="text/ascii" model="Hello World!"/>
+        <node name="message" channel="inline" format="application/octet-stream" model="Hello World!"/>
         <!-- Optional flag. Default is "false". Write indirectly into internal buffer and then send its content within a thread to the device. -->
         <!-- <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/> -->
         <!-- The handler is optional. -->

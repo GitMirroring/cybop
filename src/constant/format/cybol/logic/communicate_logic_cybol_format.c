@@ -312,7 +312,7 @@ static int* RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
  *     <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
  *     <node name="language" channel="inline" format="meta/language" model="message/tui"/>
- *     <node name="format" channel="inline" format="meta/format" model="text/ascii"/>
+ *     <node name="format" channel="inline" format="meta/format" model="application/octet-stream"/>
  *     <node name="message" channel="inline" format="text/cybol-path" model=".request"/>
  * </node>
  *
@@ -454,7 +454,7 @@ static int* RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *     <node name="port" channel="inline" format="number/integer" model="1971"/>
  *     <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
  *     <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
- *     <node name="message" channel="inline" format="text/ascii" model="Hello World!"/>
+ *     <node name="message" channel="inline" format="application/octet-stream" model="Hello World!"/>
  * </node>
  *
  * <!-- Send text data as http response via socket. -->
@@ -525,7 +525,7 @@ static int* RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *     <node name="channel" channel="inline" format="meta/channel" model="socket"/>
  *     <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
  *     <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
- *     <node name="message" channel="inline" format="text/ascii" model="say-hello"/>
+ *     <node name="message" channel="inline" format="application/octet-stream" model="say-hello"/>
  * </node>
  *
  * Properties:
@@ -537,7 +537,7 @@ static int* RECEIVE_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  * - encoding (optional) [text/cybol-path | meta/encoding]: The encoding, for example utf-8 or utf-32 or ascii.
  * - language (optional) [text/cybol-path | meta/language]: The language used for serialisation, for example model-diagram, html, binary-crlf, http-response, xdt.
  * - format (optional) [text/cybol-path | meta/format]: The format (type) of the message data.
- * - message (required) [text/cybol-path | text/ascii | any]: The data to be sent.
+ * - message (required) [text/cybol-path | application/octet-stream | any]: The data to be sent.
  * - asynchronicity (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating asynchronous writing within a thread. If null, the default is false (synchronous write).
  * - handler (optional) [text/cybol-path]: The callback cybol operation being executed when the thread finished writing data.
  *

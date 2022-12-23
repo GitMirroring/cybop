@@ -108,6 +108,36 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
+    // application
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p14, (void*) OCTET_STREAM_APPLICATION_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // CAUTION! The data are available as wide character strings.
+            // They ALL are deserialised uniformly into various formats.
+            //
+            // So do data with format "application/octet-stream".
+            // Since they are available with type "wchar_t",
+            // they have to get deserialised into "char" here.
+            //
+            // When receiving data over some channel, they are mostly
+            // decoded back into a multibyte character sequence of type "char".
+            // It is true, this double-conversion could be avoided if catching
+            // data with format "application/octet-stream", e.g. in file "file_receiver.c".
+            // But in order to be able to uniformly process all data,
+            // this loss in efficiency is taken.
+            //
+
+            encode(p0, p2, p3, (void*) UTF_8_CYBOI_ENCODING);
+        }
+    }
+
+    //
     // colour
     //
 
@@ -411,32 +441,6 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
     //
     // text
     //
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p14, (void*) ASCII_TEXT_STATE_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //
-            // CAUTION! The data are available as wide character strings.
-            // They ALL are deserialised uniformly into various formats.
-            //
-            // So do data with format "text/ascii".
-            // Since they are available with type "wchar_t",
-            // they have to get deserialised into "char" here.
-            //
-            // When receiving data over some channel, they are mostly
-            // decoded back into a multibyte character sequence of type "char".
-            // It is true, this double-conversion could be avoided if catching
-            // data with format "text/ascii", e.g. in file "file_reader.c".
-            // But in order to be able to uniformly process all data,
-            // this loss in efficiency is taken.
-            //
-
-            encode(p0, p2, p3, (void*) UTF_8_CYBOI_ENCODING);
-        }
-    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

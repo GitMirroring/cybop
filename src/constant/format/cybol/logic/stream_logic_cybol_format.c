@@ -80,14 +80,14 @@ static int* READ_STREAM_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  * <node name="write_to_file" channel="inline" format="stream/write" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
  *     <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
- *     <node name="message" channel="inline" format="text/ascii" model="Hello World!"/>
+ *     <node name="message" channel="inline" format="application/octet-stream" model="Hello World!"/>
  *     <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
  * </node>
  *
  * <node name="write_to_pipeline" channel="inline" format="stream/write" model="">
  *     <node name="channel" channel="inline" format="meta/channel" model="fifo"/>
  *     <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
- *     <node name="message" channel="inline" format="text/ascii" model="Hello World!"/>
+ *     <node name="message" channel="inline" format="application/octet-stream" model="Hello World!"/>
  * </node>
  *
  * Properties:
@@ -96,7 +96,7 @@ static int* READ_STREAM_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  * - server (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating server mode. It means server-side client stub and not standalone client. If null, the default is false (client mode).
  * - port (optional) [text/cybol-path | number/integer]: The service identification. It is relevant only in server mode.
  * - receiver (required) [text/cybol-path]: The device identification, for example a file descriptor. Handing it over as hard-coded integer value does not make sense, since the operating system or server assigns it. Therefore, state a cybol-path.
- * - message (required) [text/cybol-path | text/ascii | any]: The data to be written.
+ * - message (required) [text/cybol-path | application/octet-stream | any]: The data to be written.
  * - asynchronicity (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating asynchronous writing within a thread. If null, the default is false (synchronous write).
  * - handler (optional) [text/cybol-path]: The callback cybol operation being executed when the thread finished writing data.
  */

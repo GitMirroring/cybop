@@ -206,7 +206,7 @@ static int* COPY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  * - path (required) [text/cybol-path]: The filesystem path to the directory to be created.
  */
 static wchar_t* CREATE_DIRECTORY_COMMAND_LOGIC_CYBOL_FORMAT = L"command/create-directory";
-static int* CREATE_DIRECTORY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* CREATE_DIRECTORY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The command/date logic cybol format.
