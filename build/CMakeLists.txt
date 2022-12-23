@@ -26,16 +26,17 @@ set_property(DIRECTORY APPEND PROPERTY ADDITIONAL_MAKE_CLEAN_FILES "${ROOT_DIR}/
 include(cmake/libraries.cmake)
 
 # --- codestyling Configuration --- #
-include(cmake/codestyling.cmake)
+#include(cmake/codestyling.cmake)
 
 # --- api generator --- #
 include(cmake/api.cmake)
 
 # --- tests --- #
-include(cmake/test.cmake)
+#include(cmake/test.cmake)
 
 # --- adjust copyright --- #
-include(cmake/versioning.cmake)
+#include(cmake/versioning.cmake)
 
 # --- CPack Configuration --- #
 include(cmake/packaging.cmake)
+

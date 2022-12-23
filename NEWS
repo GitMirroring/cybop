@@ -38,6 +38,7 @@ CYBOP 0.24.0, 2022-12-24, Christian Heller  <christian.heller@cybop.org>
             - Add property "searchword" for cybol operation "modify/replace"
             - Replace language "message/cli" with "message/tui"
             - Add languages "text/cybol+xml" and "text/cybol+json"
+            - Use mime type format "application/octet-stream" as replacement for "text/ascii"
             Language Properties (Constraints):
             - "separator", "grouping" (thousands separator) used in numeral deserialiser
             - "sign", "prefix", "base", "classicoctal", "grouping", "separator", "decimals", "scientific" used in numeral serialiser

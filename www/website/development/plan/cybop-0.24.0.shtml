@@ -36,6 +36,7 @@
         <li>Add property "searchword" for cybol operation "modify/replace"</li>
         <li>Replace language "message/cli" with "message/tui"</li>
         <li>Add languages "text/cybol+xml" and "text/cybol+json"</li>
+        <li>Use mime type format "application/octet-stream" as replacement for "text/ascii"</li>
     </ul>
     <h3>Language Properties (Constraints):</h3>
     <ul>
