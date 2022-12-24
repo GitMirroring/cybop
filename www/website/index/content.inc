@@ -29,7 +29,7 @@
 
     <div class="row mt-5">
         <div class="col-sm-6 p-5">
-            <h2>Disruptive Innovation</h2>
+            <h2>Genuine Innovation</h2>
             <p>
                 Optimise development effort by cancelling both,
                 the design as well as the implementation phase
