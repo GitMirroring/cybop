@@ -20,23 +20,27 @@ configure_file(cmake_config.h.in ${ROOT_DIR}/src/variable/cmake_config.h)
 # define the binary to be create by make
 add_executable(${BINARY_NAME} ${ROOT_DIR}/src/controller/cyboi.c)
 
-set_property(DIRECTORY APPEND PROPERTY ADDITIONAL_MAKE_CLEAN_FILES "${ROOT_DIR}/build/run")
+add_custom_target(clean-all
+        COMMAND ${CMAKE_MAKE_PROGRAM} clean
+        COMMAND ${CMAKE_COMMAND} -P cmake/clean_all.cmake)
 
 # --- libraries linking --- #
 include(cmake/libraries.cmake)
 
 # --- codestyling Configuration --- #
-#include(cmake/codestyling.cmake)
+include(cmake/codestyling.cmake)
 
 # --- api generator --- #
 include(cmake/api.cmake)
 
 # --- tests --- #
-#include(cmake/test.cmake)
+include(cmake/test.cmake)
 
 # --- adjust copyright --- #
-#include(cmake/versioning.cmake)
+include(cmake/versioning.cmake)
 
 # --- CPack Configuration --- #
 include(cmake/packaging.cmake)
+
+add_custom_target(dev COMMAND ${CMAKE_MAKE_PROGRAM} clean cyboi test analysis formatting api)
 

@@ -1,5 +1,5 @@
 [selected_node] | element/part | 
-+-id | number/integer | 
++-id | number/integer | 5
 +-string_comma | text/plain | a,1,01.07.2022,1 EUR,10 %
 +-string_semicolon | text/plain | a;1;01.07.2022;1 EUR;10 %
 +-string_comma_space | text/plain | a, 1, 01.07.2022, 1 EUR, 10 %

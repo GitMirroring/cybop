@@ -18,6 +18,15 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-12-24  Enrico Gallus  <enrico.gallus@gmail.com>
+
+        * executed python adjustCopyright after adjustments and fixed version number for missed files in release 0.24.0
+        * converted release.txt to markdown and adjusted definition to new cmake workflows
+        * add clean-all cmake target which deletes all files created during cmake process
+        * add dev target which executes all targets described in release.md
+        * fixed incorrect date in 'tools/api-generator/app.cybol'
+        * exceuted dev target and commit changes of files due to execution
+
 2022-12-24  Christian Heller  <christian.heller@cybop.org>
 
         * Release CYBOP 0.24.0

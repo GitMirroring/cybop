@@ -359,7 +359,7 @@ https://stackoverflow.com/questions/35869564/cmake-on-windows
 4.1 Make Targets
 ________________
 
-See file "build/release.txt" for possible make targets and tool usage.
+See file "build/release.md" for possible make targets and tool usage.
 
 4.2 API
 _______
@@ -492,7 +492,7 @@ ___________
 
     scp cybop-0.19.0.tar.gz cybop-0.19.0.tar.gz.sig christian@dl.sv.nongnu.org:/releases/cybop/
 
-See further stepwise instructions in file "dist/release.txt"!
+See further stepwise instructions in file "dist/release.md"!
 
 5.3 Debianising
 _______________
