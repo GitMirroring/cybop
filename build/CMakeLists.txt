@@ -3,7 +3,7 @@
 cmake_minimum_required(VERSION 3.18.4)
 
 # set project name
-project(cybop LANGUAGES C VERSION 0.24.0)
+project(cybop LANGUAGES C VERSION 0.25.0)
 
 set(BINARY_NAME cyboi)
 
