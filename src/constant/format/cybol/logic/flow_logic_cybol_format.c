@@ -68,6 +68,10 @@
  * </node>
  *
  * <!-- Verify existence of given url path. -->
+ * <node name="test_query" channel="inline" format="access/indicate-exists" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".var.query_exists"/>
+ *     <node name="part" channel="inline" format="text/cybol-path" model=".var.request:uri:query"/>
+ * </node>
  * <node name="evaluate_query" channel="inline" format="flow/branch" model="">
  *     <node name="criterion" channel="inline" format="text/cybol-path" model=".var.query_exists"/>
  *     <node name="true" channel="inline" format="text/cybol-path" model=".logic.evaluate_query"/>

@@ -206,6 +206,22 @@ static int* EMPTY_INDICATE_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  *     <node name="part" channel="inline" format="text/cybol-path" model="#number"/>
  * </node>
  *
+ * <!-- Verify existence of given url path. -->
+ * <node name="test_query" channel="inline" format="access/indicate-exists" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".var.query_exists"/>
+ *     <node name="part" channel="inline" format="text/cybol-path" model=".var.request:uri:query"/>
+ * </node>
+ * <node name="evaluate_query" channel="inline" format="flow/branch" model="">
+ *     <node name="criterion" channel="inline" format="text/cybol-path" model=".var.query_exists"/>
+ *     <node name="true" channel="inline" format="text/cybol-path" model=".logic.evaluate_query"/>
+ *     <!--
+ *         CAUTION! Sending a response is important, even if the query was empty or not understood,
+ *         since some browsers request a "/favicon.ico" or other things and if no response was sent,
+ *         the browser would wait forever and block requests from other clients.
+ *     -->
+ *     <node name="false" channel="inline" format="text/cybol-path" model=".logic.send.empty_message"/>
+ * </node>
+ *
  * Properties:
  *
  * - result (required) [text/cybol-path]: The flag being set to true if the part is not null and not empty, or being left untouched otherwise.
