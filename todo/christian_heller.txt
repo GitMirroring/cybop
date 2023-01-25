@@ -19,6 +19,8 @@
             with "If null, the default is the lesser of left and right operand count."
         * Consider also "array_comparator.c" and "vector_comparator.c" etc.
 
+        * Add special static cybol file to api doc html templates to describe general language issues such as stack variable handling
+
 App
 ___
 
