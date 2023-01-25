@@ -43,7 +43,7 @@
  *
  * Description:
  *
- * Counts the child nodes of a compound node of type "element/part" or "element/properties".
+ * Counts the child nodes of a compound node of type "element/part" or "element/property".
  *
  * Examples:
  *
@@ -65,7 +65,7 @@
  * Properties:
  *
  * - count (required) [text/cybol-path]: The number of counted child nodes as result.
- * - part (required) [text/cybol-path]: The compound node of type "element/part" or "element/properties" whose child nodes are to be counted.
+ * - part (required) [text/cybol-path]: The compound node of type "element/part" or "element/property" whose child nodes are to be counted.
  */
 static wchar_t* COUNT_ACCESS_LOGIC_CYBOL_FORMAT = L"access/count";
 static int* COUNT_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;

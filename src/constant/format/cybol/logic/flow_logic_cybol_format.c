@@ -86,6 +86,22 @@
  *     <node name="false" channel="inline" format="text/cybol-path" model=".logic.translate.db_to_wui.cell"/>
  * </node>
  *
+ * <!-- Call operation directly inline (not as cybol-path) and hand over properties as operation parametres. -->
+ * <node name="process_model_as_compound_or_primitive" channel="inline" format="flow/branch" model="">
+ *     <node name="criterion" channel="inline" format="text/cybol-path" model="#compound_flag"/>
+ *     <node name="true" channel="inline" format="communicate/send" model="">
+ *         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+ *         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+ *         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+ *         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+ *         <node name="message" channel="inline" format="text/plain" model="Do nothing, since this is a compound model."/>
+ *     </node>
+ *     <node name="false" channel="inline" format="modify/overwrite" model="">
+ *         <node name="destination" channel="inline" format="text/cybol-path" model=".wui.index.body.content.(#wui_record_name).table.(#wui_field_name).model"/>
+ *         <node name="source" channel="inline" format="text/cybol-path" model="#field_model_text"/>
+ *     </node>
+ * </node>
+ *
  * Properties:
  *
  * - criterion (required) [text/cybol-path | logicvalue/boolean]: The flag defining which of the two models to execute.
