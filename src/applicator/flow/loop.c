@@ -38,7 +38,7 @@
 // Forward declarations
 //
 
-void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
+void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9);
 
 /**
  * Loops the programme flow endlessly, until the break flag is set.
@@ -137,7 +137,7 @@ void apply_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
             //
 
             // Handle the model as new operation.
-            handle(m, p4, p2, p3, p5, p6, (void*) &x, p7);
+            handle(m, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p2, p3, p5, p6, (void*) &x, p7);
         }
     }
 }

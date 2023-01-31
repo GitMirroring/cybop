@@ -42,20 +42,23 @@
 /**
  * Handles the signal.
  *
- * This function identifies the signal type and then calls either:
- * - part (compound) signal handler
- * - operation signal handler
+ * This function identifies the signal type and then calls a suitable handler for either:
+ * - path
+ * - part (compound)
+ * - operation
  *
  * @param p0 the signal part
- * @param p1 the internal memory data
- * @param p2 the knowledge memory part (pointer reference)
- * @param p3 the stack memory item
- * @param p4 the signal memory item
- * @param p5 the internal memory data (pointer reference)
- * @param p6 the direct execution flag
- * @param p7 the shutdown flag
+ * @param p1 the initial value properties data
+ * @param p2 the initial value properties count
+ * @param p3 the internal memory data
+ * @param p4 the knowledge memory part (pointer reference)
+ * @param p5 the stack memory item
+ * @param p6 the signal memory item
+ * @param p7 the internal memory data (pointer reference)
+ * @param p8 the direct execution flag
+ * @param p9 the shutdown flag
  */
-void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle.");
@@ -95,28 +98,13 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        //
-        // CAUTION! Do NOT remove this section with "PART_ELEMENT_STATE_CYBOI_FORMAT"!
-        // It is needed for at least initial startup logic residing in CYBOL
-        // files only, before any logic is created and contained as runtime
-        // knowledge models in the knowledge memory.
-        //
-        compare_integer_equal((void*) &r, fd, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //?? fwprintf(stdout, L"Debug: Handle. part element: %i\n", *((int*) fd));
-
-            // Handle compound part signal.
-            handle_part(md, mc, pd, pc, p1, p2, p3, p4, p5, p6, p7);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
         compare_integer_equal((void*) &r, fd, (void*) CYBOL_PATH_TEXT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // This is a runtime cybol-path pointing to an operation.
+            //
 
             //?? fwprintf(stdout, L"Debug: Handle. cybol path: %i\n", *((int*) fd));
 
@@ -136,14 +124,54 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
             // gets increased and the count remaining decreased to zero,
             // so that knowledge access works only once, but not anymore afterwards.
             //
-            deserialise_knowledge((void*) &part, p2, (void*) &pathd, (void*) &pathc, p2, p3, p1, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+            deserialise_knowledge((void*) &part, p4, (void*) &pathd, (void*) &pathc, p4, p5, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
+            //
             // Handle signal.
-            handle(part, p1, p2, p3, p4, p5, p6, p7);
+            //
+            // The properties (pd, pc) are handed over to become initial values
+            // for the actual properties belonging to the called compound operation.
+            //
+            // A cybol operation called via cybol-path is comparable to a function call
+            // in the C programming language that is handing over arguments in parentheses.
+            //
+            handle(part, pd, pc, p3, p4, p5, p6, p7, p8, p9);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        //
+        // CAUTION! Do NOT remove this section with "PART_ELEMENT_STATE_CYBOI_FORMAT"!
+        // It is needed for at least initial startup logic residing in CYBOL
+        // files only, before any logic is created and contained as runtime
+        // knowledge models in the knowledge memory.
+        //
+        compare_integer_equal((void*) &r, fd, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // This is a compound operation.
+            //
+
+            //?? fwprintf(stdout, L"Debug: Handle. part element: %i\n", *((int*) fd));
+
+            //
+            // Handle compound part signal.
+            //
+            // If initial values (p1, p2) exist (not null), then they have been
+            // received before, via a cybol-path calling this compound operation.
+            //
+            handle_part(md, mc, pd, pc, p1, p2, p3, p4, p5, p6, p7, p8, p9);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        //
+        // This is a primitive operation.
+        //
 
         //
         // CAUTION! This comparison is to improve performance.
@@ -156,7 +184,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
             //?? fwprintf(stdout, L"Debug: Handle. operation: %i\n", *((int*) fd));
 
             // Handle primitive operation signal.
-            handle_operation(pd, pc, p1, p2, p3, p4, p5, p7, fd);
+            handle_operation(pd, pc, p3, p4, p5, p6, p7, p9, fd);
         }
     }
 }

@@ -38,7 +38,7 @@
 // Forward declarations
 //
 
-void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
+void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9);
 
 /**
  * Branches the programme flow, depending on the criterion flag.
@@ -115,12 +115,12 @@ void apply_branch(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // The criterion is true. Handle true model.
-        handle(t, p4, p2, p3, p5, p6, (void*) &x, p7);
+        handle(t, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p2, p3, p5, p6, (void*) &x, p7);
 
     } else {
 
         // The criterion is false. Handle false model.
-        handle(f, p4, p2, p3, p5, p6, (void*) &x, p7);
+        handle(f, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p2, p3, p5, p6, (void*) &x, p7);
     }
 }
 

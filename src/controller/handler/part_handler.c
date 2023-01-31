@@ -26,16 +26,22 @@
 #ifndef PART_HANDLER_SOURCE
 #define PART_HANDLER_SOURCE
 
+#include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../controller/handler/element_part_handler.c"
-#include "../../executor/checker/operation_checker.c"
-#include "../../logger/logger.c"
+#include "../../controller/handler/initialisation_handler.c"
+#include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
+#include "../../executor/copier/array_copier.c"
 #include "../../executor/copier/integer_copier.c"
 #include "../../executor/modifier/item_modifier.c"
+#include "../../logger/logger.c"
 
 /**
  * Handles the part signal.
@@ -44,15 +50,17 @@
  * @param p1 the signal model count
  * @param p2 the signal properties data (local stack variables)
  * @param p3 the signal properties count
- * @param p4 the internal memory data
- * @param p5 the knowledge memory part (pointer reference)
- * @param p6 the stack memory item
- * @param p7 the signal memory item
- * @param p8 the internal memory data (pointer reference)
- * @param p9 the direct execution flag
- * @param p10 the shutdown flag
+ * @param p4 the initial value properties data
+ * @param p5 the initial value properties count
+ * @param p6 the internal memory data
+ * @param p7 the knowledge memory part (pointer reference)
+ * @param p8 the stack memory item
+ * @param p9 the signal memory item
+ * @param p10 the internal memory data (pointer reference)
+ * @param p11 the direct execution flag
+ * @param p12 the shutdown flag
  */
-void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle part.");
 
@@ -77,7 +85,7 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     //
     copy_integer((void*) &pc_old, p3);
     // Determine stack memory item count.
-    copy_array_forward((void*) &mc, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &mc, p8, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     //
     // Copy stack memory item count.
     //
@@ -86,8 +94,21 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     //
     copy_integer((void*) &mc_old, mc);
 
-    // Store variable values on stack memory (push).
-    modify_item(p6, p2, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p3, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    //
+    // Store variable values on stack memory (PUSH).
+    //
+    // CAUTION! Set the deep copying flag to TRUE here so that new variables
+    // are allocated on stack before assigning values.
+    // Otherwise, only the pointers would get copied as shallow copy leading to
+    // incorrect values for following operations and causing severe errors
+    // since then, manipulating a stack variable's value would actually
+    // manipulate the original knowledge tree node property's value.
+    //
+    modify_item(p8, p2, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p3, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    // Assign initial values.
+    //?? TODO: Hand over: (void*) &pc_old -- so that not the whole stack but only the relevant variables are searched through);
+    handle_initialisation(p8, p4, p5, p7, p10);
 
     if (p1 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -96,6 +117,7 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
         // Therefore, in this case, the break flag is set to true already here.
+        //
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
@@ -128,14 +150,14 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
             break;
         }
 
-        handle_part_element(p0, (void*) &j, p4, p5, p6, p7, p8, p9, p10);
+        handle_part_element(p0, (void*) &j, p6, p7, p8, p9, p10, p11, p12);
 
         // Increment loop variable.
         j++;
     }
 
     //
-    // Remove variable values from stack memory (pop).
+    // Remove variable values from stack memory (POP).
     //
     // Solution 1: Read properties again
     //
@@ -166,7 +188,7 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // leading to unpredictable errors in further processing.
     //
     //?? fwprintf(stdout, L"Debug: Handle part. mc_old pre: %i\n", mc_old);
-    modify_item(p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &pc_old, (void*) &mc_old, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
+    modify_item(p8, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &pc_old, (void*) &mc_old, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
     //?? fwprintf(stdout, L"Debug: Handle part. mc_old post: %i\n", mc_old);
 }
 

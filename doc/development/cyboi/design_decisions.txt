@@ -57,6 +57,8 @@ Sensing Threads
 Blocking and Non-blocking Mode
 Sending / Writing Data
 Storing Models in JSON
+Beispiel lexikalisch im Gegensatz zu dynamisch
+Super
 
 MIME Types
 __________
@@ -95,7 +97,8 @@ Usage Matrix:
 |               | e.g. loop index       | e.g. gui window size          |
 -------------------------------------------------------------------------
 
-The dependencies are as follows:
+Following the "tool-material approach", operations work with data.
+Therefore, the dependencies are as follows:
 
 compound logic algorithm, e.g. sorting or workflow
     |
@@ -139,11 +142,11 @@ Is it possible to combine operands of type "integer" and "double" for an arithme
 
 Example:
     <!-- This example cuts off decimal places of the resulting number, since integer is used as type. -->
-    <part name="divide" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/divide" model="">
-        <property name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".result"/>
-        <property name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="2"/>
-        <property name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
-    </part>
+    <node name="divide" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/divide" model="">
+        <node name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".result"/>
+        <node name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="2"/>
+        <node name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
+    </node>
 
 Answer:
 It is NOT possible.
@@ -432,48 +435,48 @@ __________________________________________
 
 TERMINAL:
 
-    <part name="print_terminal_message" channel="inline" format="communicate/send" model="">
-        <property name="message" channel="inline" format="text/plain" model="Waiting for client requests ..."/>
-            <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-            <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-            <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    </part>
+    <node name="print_terminal_message" channel="inline" format="communicate/send" model="">
+        <node name="message" channel="inline" format="text/plain" model="Waiting for client requests ..."/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </node>
 
 HTTP:
 - meta header
 - message
 
-    <part name="send_http_request" channel="inline" format="communicate/send" model="">
-        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
-        <property name="message" channel="inline" format="text/plain" model="sayhello"/>
-        <property name="metadata" channel="inline" format="path/knowledge" model=".app.var.metadata"/>
-        <property name="compression" channel="inline" format="meta/compression" model="application/zip"/>
-        <property name="compression" channel="inline" format="meta/compression" model="application/octet-stream"/> <!-- .arc, .ark, .sue -->
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="language" channel="inline" format="meta/language" model="message/http"/>
-        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
-    </part>
+    <node name="send_http_request" channel="inline" format="communicate/send" model="">
+        <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
+        <node name="message" channel="inline" format="text/plain" model="sayhello"/>
+        <node name="metadata" channel="inline" format="path/knowledge" model=".app.var.metadata"/>
+        <node name="compression" channel="inline" format="meta/compression" model="application/zip"/>
+        <node name="compression" channel="inline" format="meta/compression" model="application/octet-stream"/> <!-- .arc, .ark, .sue -->
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="language" channel="inline" format="meta/language" model="message/http"/>
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+    </node>
 
 FTP:
 - stateful control connection
 - maintains current working directory and other flags
 - each transfer requires a secondary connection (different port) through which the data is transferred
 
-    <part name="send_ftp_command" channel="inline" format="communicate/send" model="">
-        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
-        <property name="message" channel="inline" format="text/plain" model="DELE"/>
-        <property name="language" channel="inline" format="meta/language" model="message/ftp-control"/>
-        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
-    </part>
-    <part name="send_ftp_data" channel="inline" format="communicate/send" model="">
-        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
-        <property name="message" channel="inline" format="text/plain" model="somefile.bla"/>
-        <property name="language" channel="inline" format="meta/language" model="message/ftp-data"/>
-        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
-    </part>
+    <node name="send_ftp_command" channel="inline" format="communicate/send" model="">
+        <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
+        <node name="message" channel="inline" format="text/plain" model="DELE"/>
+        <node name="language" channel="inline" format="meta/language" model="message/ftp-control"/>
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+    </node>
+    <node name="send_ftp_data" channel="inline" format="communicate/send" model="">
+        <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
+        <node name="message" channel="inline" format="text/plain" model="somefile.bla"/>
+        <node name="language" channel="inline" format="meta/language" model="message/ftp-data"/>
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+    </node>
 
 Q: Should the send/receive operations be held simple, without properties for
 serialisation/encoding/compression?
@@ -1397,18 +1400,15 @@ Example:
 
 This is the SOLUTION.
 
-
 Beispiel lexikalisch im Gegensatz zu dynamisch
-==============================================
+______________________________________________
 
-Quelle
-______
+Quelle:
 
 AUSZUG aus dem Wikipedia-Artikel "Variable (Programmierung)":
 https://de.wikipedia.org/wiki/Variable_(Programmierung)#Beispiel_lexikalisch_im_Gegensatz_zu_dynamisch
 
-Inhalt
-______
+Inhalt:
 
 C++ und C verwenden lexikalische (statische) Gültigkeitsbereiche:
 
@@ -1416,32 +1416,39 @@ int x = 0;
 int f() { return x; }
 int g() { int x = 1; return f(); } /* g() => 0 */
 
-Im obigen Programmfragment ergibt g() immer 0 (den Wert der globalen Variablen x, nicht den Wert der lokalen Variablen x in g()). Dies ist so, weil in f() immer nur das globale x sichtbar ist.
+Im obigen Programmfragment ergibt g() immer 0 (den Wert der globalen Variablen x,
+nicht den Wert der lokalen Variablen x in g()). Dies ist so, weil in f() immer nur
+das globale x sichtbar ist.
 
-In Perl können lokale Variablen lexikalisch (statisch) mit dem Schlüsselwort my oder dynamisch mit dem irreführenden Schlüsselwort local deklariert werden.[4] Das folgende Beispiel entspricht dem obigen in C:
+In Perl können lokale Variablen lexikalisch (statisch) mit dem Schlüsselwort my oder
+dynamisch mit dem irreführenden Schlüsselwort local deklariert werden
+Das folgende Beispiel entspricht dem obigen in C:
 
 $x = 0;
 sub f { return $x; }
 sub g { my $x = 1; return f(); }
 print g()."\n";
 
-Dieses Beispiel benutzt my, um $x in g() einen lexikalischen (statischen) Sichtbarkeitsbereich zu geben. Daher wird g() immer 0 ergeben. f() kann g()’s $x nicht sehen, obwohl dies zum Zeitpunkt, zu dem f() aufgerufen wird, noch existiert.
+Dieses Beispiel benutzt my, um $x in g() einen lexikalischen (statischen) Sichtbarkeitsbereich zu geben.
+Daher wird g() immer 0 ergeben. f() kann g()’s $x nicht sehen, obwohl dies zum Zeitpunkt,
+zu dem f() aufgerufen wird, noch existiert.
 
 $x = 0;
 sub f { return $x; }
 sub g { local $x = 1; return f(); }
 print g()."\n";
 
-Dieses Beispiel benutzt local, um $x in g() einen dynamischen Sichtbarkeitsbereich zu geben. Somit kann f() den lokal, in g(), geltenden Wert von $x verwenden und g() liefert den Wert 1.
+Dieses Beispiel benutzt local, um $x in g() einen dynamischen Sichtbarkeitsbereich zu geben.
+Somit kann f() den lokal, in g(), geltenden Wert von $x verwenden und g() liefert den Wert 1.
 
 In der Praxis sollte man in der Regel für Variablen in Perl "my" verwenden.
 
-CYBOP
-_____
+CYBOP:
 
 CYBOL verwendet die DYNAMISCHE Deklaration lokaler Variablen.
+Sie werden als "property" definiert und auf den Stack-Speicher gelegt.
 Wenn eine äußere Funktion Variablen definiert, so sind diese auch für
-aufgerufene Kindfunktionen sichtbar und verwendbar.
+aufgerufene Unter- bzw. Kindfunktionen sichtbar und verwendbar.
 
 Beispiel:
 
@@ -1451,4 +1458,52 @@ Beispiel:
         <node name="count" channel="inline" format="number/integer" model="0"/>
         <node name="model" channel="inline" format="text/cybol-path" model=".logic.create.choices.row"/>
     </node>
+
+Super
+_____
+
+Inheritance (categorisation) is currently (2023-01-30) NOT used in CYBOL.
+The current approach is "prototype programming" based on COMPOSITION.
+Models given in CYBOL files may be created/instantiated/allocated
+as tree node and its property values adapted as needed.
+
+If inheritance becomes necessary anyway one day, then it might be
+implemented similar to the "prototype chain" in ECMA/JavaScript.
+
+Earlier trials in CYBOL used a property node called "super" or "class"
+for this, but not any longer.
+
+Problem 1: Common super model properties
+
+When assigning a "super" property as cybol-path, it may be evaluated
+at runtime and the "super" model and its properties be accessed.
+However, a gui component, for example, needs its VERY OWN properties
+like "position" and "size" which have to get manipulated and changed.
+It therefore does NOT help to access the position and size of
+a super model that is common to many gui components.
+
+A super category might make sense for gui components, for example.
+This has to be figured out still when writing the gui serialiser.
+The models belong to just ONE dimension like: TUI, GUI, WUI with
+common properties, so the upper-most category for a tui model may be one
+that provides ALL essential properties like "shape", "border", "background" etc.
+
+Problem 2: Path overwritten with primitive value
+
+A property might be given as path to a common value, for example a system colour:
+
+    <node name="background" channel="inline" format="text/cybol-path" model=".app.settings.system_background"/>
+
+In such cases, it must NOT be overwritten directly. However, sometimes
+it IS necessary to overwrite a colour value, for example when selecting
+(focussing) a menu item:
+
+    <node name="focus_item" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.tui.item"/>
+        <node name="source" channel="inline" format="knowledge" model=".app.settings.focus-colour"/>
+    </node>
+
+In this case, the cybol-path would be OVERWRITTEN with a terminal colour value.
+Therefore, using a cybol-path is NOT recommended, since each gui component
+should have its very own property values.
 

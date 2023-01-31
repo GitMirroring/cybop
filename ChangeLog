@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-01-31  Christian Heller  <christian.heller@cybop.org>
+
+        * Assign initial value properties to stack variables in files "handler.c" and "part_handler.c"
+        * Add new file "initialisation_handler.c"
+
 2022-12-24  Enrico Gallus  <enrico.gallus@gmail.com>
 
         * executed python adjustCopyright after adjustments and fixed version number for missed files in release 0.24.0

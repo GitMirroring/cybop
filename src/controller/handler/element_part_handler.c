@@ -41,7 +41,7 @@
 // Forward declarations
 //
 
-void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
+void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9);
 
 /**
  * Handles the part signal element.
@@ -77,7 +77,7 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // i.e. by calling the corresponding function.
         //
 
-        handle(s, p2, p3, p4, p5, p6, p7, p8);
+        handle(s, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p3, p4, p5, p6, p7, p8);
 
     } else {
 

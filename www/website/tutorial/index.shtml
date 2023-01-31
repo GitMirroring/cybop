@@ -568,4 +568,14 @@
     </table>
 </section>
 
+<section class="container">
+    <h2>CYBOI Interpreter and Architecture</h2>
+    <table class="table table-hover table-sm">
+        <tr class="table-dark">
+            <th style="width: 50%;" class="p-3">Deutsch (German)</th>
+            <th class="p-3">English</th>
+        </tr>
+    </table>
+</section>
+
 <!--#include virtual="/bottom.shtml" -->
