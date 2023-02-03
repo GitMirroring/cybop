@@ -1,0 +1,141 @@
+<node>
+
+    <!-- Test -->
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="knowledge_tree/stack/test_stack_pre.txt"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
+    </node>
+    <node name="send_knowledge" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#"/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+    <!-- Counting -->
+
+    <node name="test_count_destination" channel="inline" format="access/count" model="">
+        <node name="count" channel="inline" format="text/cybol-path" model="#destination_count"/>
+        <node name="part" channel="inline" format="text/cybol-path" model="#parent"/>
+    </node>
+    <node name="test_count_source" channel="inline" format="access/count" model="">
+        <node name="count" channel="inline" format="text/cybol-path" model="#source_count"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".level_1"/>
+    </node>
+
+    <node name="test_print_count" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#destination_count"/>
+    </node>
+    <node name="test_print_count" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#source_count"/>
+    </node>
+
+    <!-- Stacking -->
+
+    <node name="store_parent" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#parent"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".level_1"/>
+        <node name="source_index" channel="inline" format="number/integer" model="1"/>
+        <node name="count" channel="inline" format="number/integer" model="1"/>
+        <!-- CAUTION! The "true" means shallow copy for now. Delete this later, since "true" should be made the DEFAULT in cyboi. -->
+        <node name="move" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="TEST_INTEGER" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#dest_int"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#src_int"/>
+        <node name="source_index" channel="inline" format="number/integer" model="5"/>
+        <node name="count" channel="inline" format="number/integer" model="1"/>
+        <!-- CAUTION! The "true" means shallow copy for now. Delete this later, since "true" should be made the DEFAULT in cyboi. -->
+        <node name="move" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <!-- Counting -->
+
+    <node name="test_count_destination" channel="inline" format="access/count" model="">
+        <node name="count" channel="inline" format="text/cybol-path" model="#destination_count"/>
+        <node name="part" channel="inline" format="text/cybol-path" model="#parent"/>
+    </node>
+    <node name="test_count_source" channel="inline" format="access/count" model="">
+        <node name="count" channel="inline" format="text/cybol-path" model="#source_count"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".level_1"/>
+    </node>
+
+    <node name="test_print_count" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#destination_count"/>
+    </node>
+    <node name="test_print_count" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#source_count"/>
+    </node>
+
+    <!-- Test -->
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="knowledge_tree/stack/test_stack_post.txt"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
+    </node>
+    <node name="send_knowledge" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#"/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+    <!-- Printing -->
+
+    <node name="print_text" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#text_1"/>
+    </node>
+    <node name="print_text" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#parent.text"/>
+    </node>
+    <node name="print_text" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#text_2"/>
+    </node>
+
+</node>

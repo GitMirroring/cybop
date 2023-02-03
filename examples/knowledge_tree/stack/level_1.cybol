@@ -1,0 +1,6 @@
+<node>
+
+    <node name="text" channel="inline" format="text/plain" model="This is level 1."/>
+    <node name="level_2" channel="file" format="element/part" model="knowledge_tree/stack/level_2.cybol"/>
+
+</node>

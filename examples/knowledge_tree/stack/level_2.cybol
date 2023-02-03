@@ -1,0 +1,5 @@
+<node>
+
+    <node name="text" channel="inline" format="text/plain" model="This is level 2."/>
+
+</node>

@@ -1,0 +1,21 @@
+<node>
+
+    <node name="level_1" channel="file" format="element/part" model="knowledge_tree/stack/level_1.cybol"/>
+
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+
+    <node name="print" channel="file" format="element/part" model="knowledge_tree/stack/print.cybol">
+
+        <node name="destination_count" channel="inline" format="number/integer" model="0"/>
+        <node name="source_count" channel="inline" format="number/integer" model="0"/>
+
+        <node name="text_1" channel="inline" format="text/plain" model="This is text 1."/>
+        <node name="parent" channel="inline" format="element/part" model=""/>
+        <node name="text_2" channel="inline" format="text/plain" model="This is text 2."/>
+
+        <node name="dest_int" channel="inline" format="number/integer" model=""/>
+        <node name="src_int" channel="inline" format="number/integer" model="3,4,5,6,7,8,9"/>
+
+    </node>
+
+</node>

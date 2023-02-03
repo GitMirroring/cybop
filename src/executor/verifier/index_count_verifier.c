@@ -58,6 +58,9 @@ void verify_index_count(void* p0, void* p1, void* p2, void* p3) {
     calculate_integer_add((void*) &c, p2);
     calculate_integer_add((void*) &c, p1);
 
+    //?? TODO DELETE: p0, p2 = 0, p1 = 1 <= p3 = 1
+    //?? TODO DELETE: p0, p2 = 5, p1 = 1 <= p3 = 1
+
     // Compare test count with actual data count.
     compare_integer_less_or_equal((void*) &r, (void*) &c, p3);
 

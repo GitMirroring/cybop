@@ -170,7 +170,7 @@ void serialise_model_diagram_constraints(void* p0, void* p1, void* p2, void* p3,
     int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Serialise model diagram.
-    serialise_model_diagram_content(p0, p1, p2, p3, p4, smd, bmd, cmd, dmd, dmc, pmd, nmd, p10, (void*) &l, (void*) L"[selected_node]", (void*) NUMBER_15_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    serialise_model_diagram_content(p0, p1, p2, p3, p4, smd, bmd, cmd, dmd, dmc, pmd, nmd, p10, (void*) &l, (void*) L"[selected_node]", (void*) NUMBER_15_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 }
 
 /* CONSTRAINTS_MODEL_DIAGRAM_SERIALISER_SOURCE */

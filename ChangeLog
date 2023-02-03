@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-02-03  Christian Heller  <christian.heller@cybop.org>
+
+        * Experiment with stack implementation, in order to store pointer reference
+        * Define static int variable "DEBUG_CYBOP" in file "log_setting.c", to be used for debug log messages in certain parts of code
+
 2023-01-31  Christian Heller  <christian.heller@cybop.org>
 
         * Assign initial value properties to stack variables in files "handler.c" and "part_handler.c"

@@ -59,6 +59,9 @@ void copy(void* p0, void* p1, void* p2, void* p3) {
     // It uses functions causing circular references.
     //
     // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy.");
+    //
+
+    //?? fwprintf(stdout, L"Debug: Copy. p3: %i\n", p3);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -138,11 +141,15 @@ void copy(void* p0, void* p1, void* p2, void* p3) {
                 // Directed Acyclic Graph (DAG) with unidirectional references.
                 //
 
+                //?? fwprintf(stdout, L"Debug: copy shallow pre: %i\n", r);
+
                 //
                 // CAUTION! Both, the destination- as well as the source value
                 // will get interpreted as pointer reference inside.
                 //
                 copy_pointer(p0, p1);
+
+                //?? fwprintf(stdout, L"Debug: copy shallow post: %i\n", r);
 
             } else {
 
@@ -160,7 +167,7 @@ void copy(void* p0, void* p1, void* p2, void* p3) {
                 // It is also used when storing variables on stack memory.
                 //
 
-                //?? fwprintf(stdout, L"Debug: copy deep pre: %i\n", r);
+                fwprintf(stdout, L"Debug: copy deep pre: %i\n", r);
 
                 //
                 // CAUTION! Both, the destination- as well as the source value
@@ -168,7 +175,7 @@ void copy(void* p0, void* p1, void* p2, void* p3) {
                 //
                 copy_part(p0, p1);
 
-                //?? fwprintf(stdout, L"Debug: copy deep post: %i\n", r);
+                fwprintf(stdout, L"Debug: copy deep post: %i\n", r);
             }
         }
     }
@@ -286,6 +293,8 @@ void copy(void* p0, void* p1, void* p2, void* p3) {
         // It uses functions causing circular references.
         // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy. The operand type is unknown.");
         //
+        fwprintf(stdout, L"Warning: Could not copy. The operand type is unknown. p2: %i\n", p2);
+        fwprintf(stdout, L"Warning: Could not copy. The operand type is unknown. *p2: %i\n", *((int*) p2));
     }
 }
 
@@ -306,6 +315,9 @@ void copy_offset(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // It uses functions causing circular references.
     //
     // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy offset.");
+    //
+
+    //?? fwprintf(stdout, L"Debug: Copy offset. p3: %i\n", p3);
 
     //
     // The destination value, source value.

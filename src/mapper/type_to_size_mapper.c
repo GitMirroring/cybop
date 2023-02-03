@@ -89,6 +89,20 @@ void map_type_to_size(void* p0, void* p1) {
             //
             copy_integer(p0, (void*) POINTER_TYPE_SIZE);
 
+/*??
+        } else if (*t == *PROPERTY_ELEMENT_STATE_CYBOI_TYPE) {
+
+            //
+            // CAUTION! This type IS NEEDED, e.g. when DEEP copying a part
+            // or when setting the references of a part
+            // for rubbish (garbage) collection.
+            //
+            // It is actually a pointer array, of which each
+            // pointer references a structure element.
+            //
+            copy_integer(p0, (void*) POINTER_TYPE_SIZE);
+*/
+
         //
         // logicvalue
         //
@@ -202,7 +216,7 @@ void map_type_to_size(void* p0, void* p1) {
             // It uses functions causing circular references.
             //
             // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not map type to size. The type is unknown. This is unproblematic, since the type is set to -1 when not using asynchronous communication with buffer.");
-            // fwprintf(stdout, L"Warning: Could not map type to size. The type is unknown. The type is unknown. This is unproblematic, since the type is set to -1 when not using asynchronous communication with buffer. *t: %i\n", *t);
+            fwprintf(stdout, L"Warning: Could not map type to size. The type is unknown. The type is unknown. This is unproblematic, since the type is set to -1 when not using asynchronous communication with buffer. *t: %i\n", *t);
         }
 
     } else {

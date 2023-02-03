@@ -14,7 +14,15 @@
 Stack
 _____
 
-        CONTINUE:
+        * Find out how to add pointer to destination directly, but NOT as sub node, in cybol application "examples/knowledge_tree/stack/print.cybol", operation "modify/overwrite"
+        * Eliminate or change files in directory "executor/verifier/" and find better solution, since they hinder execution of array functions in some cases
+        * Provide cybol operation "access/get-reference" to retrieve the pointer of a part node
+        * Extend cybol-path syntax so that meta data of a part can be accessed directly, for example: .node.subnode@reference .node.subnode@name .node.subnode@format
+            open question: How to add pointer to destination directly but NOT as sub node (copy just copies all sub nodes)
+        * Delete then superfluous operations "access/get-name", "access/get-format" etc. ??
+        * Reactivate (uncomment) assigning of initial stack values in file "controller/handler/part_handler.c"
+        * Continue resmedicinae application "xdt2html" using recursion for fields
+
         * Assign initial value properties (p1, p2) in files "handler.c" and "part_handler.c", for part (but not for operation)
         * Hand over: (void*) &pc_old -- so that not the whole stack but only the relevant variables are searched through in files "handler.c" and "part_handler.c"
         * TODO: Search stack backwards !
@@ -87,12 +95,6 @@ __________
         * Consider also "array_comparator.c" and "vector_comparator.c" etc.
 
         * Add special static cybol file to api doc html templates to describe general language issues such as stack variable handling
-
-Path
-____
-
-        * Extend cybol-path syntax so that meta data of a part can be accessed directly, e.g.: .node.subnode@name or: .node.subnode@format etc.
-        * Delete then superfluous operations "access/get-name", "access/get-format" etc.
 
 App
 ___
@@ -1252,4 +1254,21 @@ void cast_integer_double(void* p0, void* p1) {
 
 /* DOUBLE_INTEGER_CASTER_SOURCE */
 #endif
+
+Testing
+_______
+
+This is how to use the debug flag which got defined in file "log_setting.c":
+
+void function_x() {
+    DEBUG_CYBOP = 1;
+        function_y();
+    DEBUG_CYBOP = 0;
+}
+
+void function_y() {
+    if (DEBUG_CYBOP == 1) {
+        fwprintf(stdout, L"Debug: This is a log message. value: %i\n", value);
+    }
+}
 

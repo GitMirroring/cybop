@@ -70,5 +70,15 @@ static int* LOG_MESSAGE_SIZE = LOG_MESSAGE_SIZE_ARRAY;
 //?? static FILE* LOG_OUTPUT = LOG_OUTPUT_ARRAY;
 static FILE* LOG_OUTPUT;
 
+/**
+ * The debug flag.
+ *
+ * CAUTION! It does actually NOT belong to the logger.
+ * However, since the logger is included in almost every file,
+ * it is just convenient to define the debug flag here WITHOUT
+ * having to include a separate file into all source code using it.
+ */
+static int DEBUG_CYBOP = 0;
+
 /* LOG_SETTING_SOURCE */
 #endif

@@ -57,12 +57,16 @@ void copy_array_elements_forward(void* p0, void* p1, void* p2, void* p3, void* p
     // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy array elements forward.");
     //
 
+    //?? fwprintf(stdout, L"Debug: Copy array elements forward. p3: %i\n", p3);
+
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (p4 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        //?? fwprintf(stdout, L"Debug: Copy array elements forward. p4: %i\n", p4);
 
         //
         // CAUTION! If the loop count handed over as parametre is NULL,
@@ -105,6 +109,7 @@ void copy_array_elements_forward(void* p0, void* p1, void* p2, void* p3, void* p
 void copy_array_elements_backward(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy array elements backward.");
+    //?? fwprintf(stdout, L"Debug: Copy array elements backward. p3: %i\n", p3);
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -178,6 +183,16 @@ void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy array forward.");
             //
 
+            //?? TEST ONLY. Delete later!
+            if (DEBUG_CYBOP == 1) {
+                fwprintf(stdout, L"Debug: Copy array forward. type p2: %i\n", p2);
+                fwprintf(stdout, L"Debug: Copy array forward. type *p2: %i\n", *((int*) p2));
+                fwprintf(stdout, L"Debug: Copy array forward. count p4: %i\n", p4);
+                fwprintf(stdout, L"Debug: Copy array forward. count *p4: %i\n", *((int*) p4));
+                fwprintf(stdout, L"Debug: Copy array forward. source index p6: %i\n", p6);
+                fwprintf(stdout, L"Debug: Copy array forward. source index *p6: %i\n", *((int*) p6));
+            }
+
             //
             // The destination array, source array.
             // CAUTION! They HAVE TO BE initialised with p0 and p1,
@@ -198,6 +213,8 @@ void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             // It uses functions causing circular references.
             // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy array forward. The destination array is null.");
             //
+
+            fwprintf(stdout, L"Error: Could not copy array forward. The destination array is null. p0: %i\n", p0);
         }
 
     } else {
@@ -207,6 +224,8 @@ void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         // It uses functions causing circular references.
         // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy array forward. The source array is null.");
         //
+
+        //?? fwprintf(stdout, L"Error: Could not copy array forward. The source array is null. p1: %i\n", p1);
     }
 }
 
@@ -237,7 +256,7 @@ void copy_array_backward(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy array backward.");
+            //?? log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy array backward.");
 
             //
             // The destination array, source array.
@@ -256,11 +275,13 @@ void copy_array_backward(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy array backward. The destination array is null.");
+            fwprintf(stdout, L"Error: Could not copy array forward. The destination array is null. p0: %i\n", p0);
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy array backward. The source array is null.");
+        fwprintf(stdout, L"Error: Could not copy array forward. The source array is null. p1: %i\n", p1);
     }
 }
 

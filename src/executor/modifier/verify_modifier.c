@@ -96,6 +96,7 @@ void modify_verify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
         // Therefore, the source count of "five" is used as placeholder
         // instead of the true destination count, so that the verification works.
         //
+        //?? TODO DELETE: p0, p1 = 1, p2 = 0, p3 = 5, p5 = 1, p5 = 1
         verify_double_index_count(p0, p1, p2, p3, p5, p5);
     }
 }

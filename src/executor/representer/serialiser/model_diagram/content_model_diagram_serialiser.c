@@ -63,8 +63,9 @@ void serialise_model_diagram_part(void* p0, void* p1, void* p2, void* p3, void* 
  * @param p14 the source name data
  * @param p15 the source name count
  * @param p16 the properties flag
+ * @param p17 the part pointer reference (for TESTING only)
  */
-void serialise_model_diagram_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16) {
+void serialise_model_diagram_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise model diagram content.");
     //?? fwprintf(stdout, L"Debug: Serialise model diagram content. tree level p13: %i\n", p13);
@@ -74,6 +75,24 @@ void serialise_model_diagram_content(void* p0, void* p1, void* p2, void* p3, voi
     serialise_model_diagram_indentation(p0, p16, p13);
     // Append part name.
     modify_item(p0, p14, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p15, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+/*??
+    if (p17 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        // Append line.
+        serialise_model_diagram_line(p0);
+        //
+        // Append part pointer reference.
+        //
+        // CAUTION! This is only for TESTING and normally commented out.
+        //
+        long tmp = (long) *((void**) p17);
+        int test = (long) *((void**) p17);
+        fwprintf(stdout, L"Debug: Serialise model diagram content. part pointer reference tmp: %ld\n", tmp);
+        serialise_numeral(p0, (void*) &test, p5, p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p7, p8, p9, p10, p11, p12);
+    }
+*/
+
     // Append line.
     serialise_model_diagram_line(p0);
     // Append part format.
