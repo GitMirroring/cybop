@@ -89,7 +89,6 @@ void modify_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // For these cases, the destination count determined above is handed over.
     // Furthermore, DEFAULT VALUES are defined in file "applicator/modify/modify.c".
     //
-    //?? TODO DELETE: r, p4 = 1, p5 = 0, p6 = 5, c = 0, p4 = 1, p11 = overwrite
     modify_verify((void*) &r, p4, p5, p6, c, p4, p11);
 
     //?? TODO TEST: DELETE later!

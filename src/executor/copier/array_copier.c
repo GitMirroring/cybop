@@ -183,16 +183,6 @@ void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy array forward.");
             //
 
-            //?? TEST ONLY. Delete later!
-            if (DEBUG_CYBOP == 1) {
-                fwprintf(stdout, L"Debug: Copy array forward. type p2: %i\n", p2);
-                fwprintf(stdout, L"Debug: Copy array forward. type *p2: %i\n", *((int*) p2));
-                fwprintf(stdout, L"Debug: Copy array forward. count p4: %i\n", p4);
-                fwprintf(stdout, L"Debug: Copy array forward. count *p4: %i\n", *((int*) p4));
-                fwprintf(stdout, L"Debug: Copy array forward. source index p6: %i\n", p6);
-                fwprintf(stdout, L"Debug: Copy array forward. source index *p6: %i\n", *((int*) p6));
-            }
-
             //
             // The destination array, source array.
             // CAUTION! They HAVE TO BE initialised with p0 and p1,

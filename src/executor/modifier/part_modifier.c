@@ -68,26 +68,14 @@ void modify_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Modify part.");
     //?? fwprintf(stdout, L"Debug: Modify part. p3: %i\n", p3);
 
-    if (DEBUG_CYBOP == 1) {
-        fwprintf(stdout, L"Debug: Modify part. p3: %i\n", p3);
-    }
-
     // The destination part item.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination part item.
     copy_array_forward((void*) &i, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p12);
 
-    if (DEBUG_CYBOP == 1) {
-        fwprintf(stdout, L"Debug: Modify part. BEGIN. p3: %i\n", p3);
-    }
-
     // Modify item as element of the part container.
     modify_item(i, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
-
-    if (DEBUG_CYBOP == 1) {
-        fwprintf(stdout, L"Debug: Modify part. END. p3: %i\n", p3);
-    }
 }
 
 /* PART_MODIFIER_SOURCE */

@@ -231,7 +231,21 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     //
     copy_integer((void*) &server, sfmd);
     copy_integer((void*) &port, pmd);
-    modify_item(mode, mmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, mmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    //
+    // Copy file open mode property values only if not null.
+    //
+    // CAUTION! If this comparison was not done here, then the model COUNT integer value
+    // would get overwritten with ZERO inside, leading to errors like the following:
+    //
+    // Warning: Could not open file mode. The open mode is unknown. open mode count p2: -1012090544
+    // Warning: Could not open file mode. The open mode is unknown. open mode count *p2: 0
+    // Warning: Could not open file mode. The open mode is unknown. open mode data p1: read
+    //
+    if ((mmd != *NULL_POINTER_STATE_CYBOI_MODEL) && (mmc != *NULL_POINTER_STATE_CYBOI_MODEL)) {
+
+        modify_item(mode, mmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, mmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+    }
 
     // Get file open mode default item data, count.
     copy_array_forward((void*) &moded, mode, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);

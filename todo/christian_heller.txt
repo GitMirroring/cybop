@@ -14,57 +14,63 @@
 Stack
 _____
 
-        * Find out how to add pointer to destination directly, but NOT as sub node, in cybol application "examples/knowledge_tree/stack/print.cybol", operation "modify/overwrite"
         * Eliminate or change files in directory "executor/verifier/" and find better solution, since they hinder execution of array functions in some cases
-        * Provide cybol operation "access/get-reference" to retrieve the pointer of a part node
-        * Extend cybol-path syntax so that meta data of a part can be accessed directly, for example: .node.subnode@reference .node.subnode@name .node.subnode@format
-            open question: How to add pointer to destination directly but NOT as sub node (copy just copies all sub nodes)
-        * Delete then superfluous operations "access/get-name", "access/get-format" etc. ??
-        * Reactivate (uncomment) assigning of initial stack values in file "controller/handler/part_handler.c"
-        * Continue resmedicinae application "xdt2html" using recursion for fields
+            report ALL errors (uncomment log messages)
+            add separate branch for operation "overwrite" in file "verify_modifier.c"
+        * Delete setting of comparison result r to "true" following function call "modify_verify" in file "item_modifier.c"
 
-        * Assign initial value properties (p1, p2) in files "handler.c" and "part_handler.c", for part (but not for operation)
+        * Reactivate "modify_part(... REMOVE_MODIFY_LOGIC_CYBOI_FORMAT ...)" in file "applicator/modify/deep_modify.c"
+            OR use a workaround
+        * Adapt "move" flag for operation "modify/overwrite" copying values to stack in cybol application "knowledge_tree/stack/"
+
+        ADD AS COMMENT to source code related to stack:
+
+            //
+            // CAUTION! Copying a pointer to stack does no harm, since the original tree node
+            // belongs to the knowledge tree memory and can always be reached and be destroyed.
+            //
+            // However, it is a problem when copying a pointer to another knowledge (heap)
+            // tree node since then, two separate nodes point to the same part which
+            // would mix up the tree structure of a "Directed Acyclic Graph (DAG).
+            //
+            // How to avoid this?
+            //
+            // --> in the original "modify/overwrite" operation, a "move" flag was
+            //     used to indicate shallow or deep copying;
+            //     when deep copying (cloning) a node, then there is no problem
+            //     BUT when shallow copying a node with the "move" flag set to "true",
+            //     the node was removed from its original parent node so that
+            //     the DAG tree structure remained intact (in good order)
+            // --> now for recursion it was necessary to permit SHALLOW copying
+            //     a pointer to a stack variable WITHOUT removing the original node
+            //     from its parent;
+            //     this is ok for the stack but should NOT be possible with the heap
+            // --> OPEN question: How to ensure this?
+            //
+
+        IF STILL NEEDED: initialisation of stack values:
+        * Search stack backwards
         * Hand over: (void*) &pc_old -- so that not the whole stack but only the relevant variables are searched through in files "handler.c" and "part_handler.c"
-        * TODO: Search stack backwards !
 
-        * Implement solution to provide parametre values at runtime for operation called via cybol-path, similar to classical programming languages handing over params in parentheses (param_0, param_1, param_2, ...)
-
+        IF NOT NEEDED ANYMORE: currently unused and commented out anyway
+        ==> Move these reflexions to file "design_decisions.txt"
+        * Remove solution providing parametre values at runtime for operation called via cybol-path, similar to classical programming languages handing over params in parentheses (param_0, param_1, param_2, ...)
             Example:
-
             <node name="create_wui_toc_record" channel="inline" format="text/cybol-path" model=".logic.create.wui_toc_record"/>
                 <node name="param_0" channel="inline" format="text/cybol-path" model="#record_name"/>
                 <node name="param_1" channel="inline" format="text/cybol-path" model=".xdt.[#record_index]"/>
             </node>
-
-        * Distinguish this from handing over parametres to an operation given directly and not as cybol-path
-
-            Example:
-
-            <node name="get_record_name" channel="inline" format="access/get-name" model="">
-                <node name="element" channel="inline" format="text/cybol-path" model="#record_name"/>
-                <node name="part" channel="inline" format="text/cybol-path" model=".xdt.[#record_index]"/>
-            </node>
-
-        * Find solution for how to handle pointers when copying them to a stack variable using "modify/overwrite", for example:
-
-            <node name="get_current_field_at_index" channel="inline" format="modify/overwrite" model="">
-                <node name="destination" channel="inline" format="text/cybol-path" model="#field"/>
-                <node name="source" channel="inline" format="text/cybol-path" model=".xdt.[#record_index].[#field_index]"/>
-            </node>
-
-        * Hints:
-            - copying a pointer to stack does no harm, since the original tree node belongs to the knowledge tree memory and can always be reached and be destroyed
-            - however, it is a problem when copying a pointer to another knowledge tree node (heap) since then, two separate nodes point to the same part which would mix up the DAG tree structure
-                --> how to void this?
-                --> in the original "modify/overwrite" operation, a "move" flag was used to indicate shallow or deep copying;
-                    when deep copying (cloning) a node, then there is no problem
-                    BUT when shallow copying a node with the "move" flag set to "true", the node was removed from its original parent node so that the DAG structure remained intact (in good order)
-                --> now for recursion it was necessary to permit copying a pointer to a stack variable WITHOUT removing the original node from its parent
-                    this is ok for the stack but should NOT be possible with the heap
-                --> how to ensure this?
-
-        * Reactivate "modify_part(... REMOVE_MODIFY_LOGIC_CYBOI_FORMAT ...)" in file "applicator/modify/deep_modify.c"
-            OR use a workaround
+        * Remove assigning of initial value properties to stack variables in files "handler.c" and "part_handler.c"
+            Problem:
+            - initial values have to be given as property to a compound operation that is referenced as cybol-path
+            - in order to hand over a property, it has to be given as primitive value or cybol-path
+            - unfortunately, a cybol-path can only point to a pointer, but not to a primitive value or an encapsulated pointer via index
+            - a cybol-path like ".node.subnode[#index]" does not help, since the knowledge path deserialiser can only return a pointer, NOT a primitive value
+            - also an encapsulated pointer would get lost if not treated as pointer reference
+            Solution (possible in the future, but somewhat complicated):
+            - the only solution would be to let the knowledge path deserialiser return TWO values: the result pointer AND the desired index being extracted from the path with brackets, for example ".node.subnode[#index]"
+            - in this case, the returned pointer represents the node and the returned index can be used locally in the corresponding function to get the desired primitive value or encapsulated pointer
+        * Delete file "initialisation_handler.c", if not needed anymore
 
 xDT
 ___

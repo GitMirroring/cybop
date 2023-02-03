@@ -97,19 +97,25 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     //
     // Store variable values on stack memory (PUSH).
     //
-    // CAUTION! Set the deep copying flag to TRUE here so that new variables
-    // are allocated on stack before assigning values.
-    // Otherwise, only the pointers would get copied as shallow copy leading to
-    // incorrect values for following operations and causing severe errors
-    // since then, manipulating a stack variable's value would actually
-    // manipulate the original knowledge tree node property's value.
+    // CAUTION! Set the deep copying flag to FALSE here, so that pointer
+    // references of the given properties get copied as SHALLOW copy.
+    // The deep copying flag is relevant for format "element/part" only.
+    // It is important to avoid allocating duplicates of the children
+    // of the given properties on stack for at least two reasons:
     //
-    modify_item(p8, p2, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p3, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    // 1 Efficiency would suffer when deep-copying large tree branches
+    // 2 Reference counting of rubbish (garbage) collection (gc) might get mixed up
+    //
+    modify_item(p8, p2, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
+    //
     // Assign initial values.
+    //
     //?? TODO: Hand over: (void*) &pc_old -- so that not the whole stack
-    // but only the relevant variables are searched through);
-    //?? TODO: Search in backward order inside!
+    // but only the relevant variables are searched through.
+    //
+    //?? TODO: Search in BACKWARD order inside!
+    //
     //?? handle_initialisation(p8, p4, p5, p7, p10);
 
     if (p1 == *NULL_POINTER_STATE_CYBOI_MODEL) {

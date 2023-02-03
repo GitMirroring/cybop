@@ -549,7 +549,7 @@ ____________
 
 Three possible options for using local variables on stack have been evaluated:
 
-1 Manual Creation
+1 Manual Creation with Special Operation "memorise/push"
 
     <node name="create_stack_variables" channel="inline" format="memorise/push" model="">
         <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -563,23 +563,7 @@ If forgotten, they might cause memory leaks.
 Also, having to create stack variables manually using a
 cybol operation seems complicated and annoying.
 
-2 Model Properties
-
-    <node name="execute_logic" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="file" format="element/part" model="counter_stack/logic.cybol">
-            <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
-            <node name="index" channel="inline" format="number/integer" model="1"/>
-            <node name="count" channel="inline" format="number/integer" model="10"/>
-            <node name="model" channel="file" format="element/part" model="counter_stack/model.cybol"/>
-        </node>
-    </node>
-
-Problem: The stack variables are not usable.
-They are defined as child nodes of the "model" node ...
-
-TODO?? Perhaps they ARE possible anyway?? Both, solution 2 and 3?
-
-3 Part Properties
+2 Part Properties
 
     <node name="logic" channel="file" format="element/part" model="counter_stack/logic.cybol">
         <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -588,16 +572,22 @@ TODO?? Perhaps they ARE possible anyway?? Both, solution 2 and 3?
         <node name="model" channel="file" format="element/part" model="counter_stack/model.cybol"/>
     </node>
 
-Problem: This solution is only usable for compound logic parts
+This is the current solution. It is only usable for compound logic parts
 that have been defined beforehand in a cybol logic file.
 
-TODO?? Perhaps they ARE possible anyway?? Both, solution 2 and 3?
-
-Usage of solution 3 definition in a part at runtime:
+3 Runtime Initial Values
 
     <node name="execute_logic" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="path/knowledge" model=".app.logic"/>
     </node>
+
+Possibly implemented in the future.
+
+A pointer reference of a knowledge part gets always copied as SHALLOW copy to
+the stack memory. The reference counter of the rubbish (garbage) collection (gc)
+gets incremented when being copied to the stack and decremented again when
+being removed from the stack in file "part_handler.c".
+So, there is NO problem with garbage collection and stack management.
 
 Knowledge Path
 ______________

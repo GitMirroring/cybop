@@ -59,9 +59,7 @@ void verify_double_index_count(void* p0, void* p1, void* p2, void* p3, void* p4,
     int r1 = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     int r2 = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    //?? TODO DELETE: r1, p1 = 1, p2 = 0, p4 = 1
     verify_index_count((void*) &r1, p1, p2, p4);
-    //?? TODO DELETE: r2, p1 = 1, p3 = 5, p5 = 1
     verify_index_count((void*) &r2, p1, p3, p5);
 
     if (DEBUG_CYBOP == 1) {

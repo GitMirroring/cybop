@@ -248,27 +248,6 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // Otherwise, the destination value remains as is.
     //
 
-    fwprintf(stdout, L"Debug: Apply modify. dtd: %i\n", dtd);
-    if (dtd != *NULL_POINTER_STATE_CYBOI_MODEL) {
-        fwprintf(stdout, L"Debug: Apply modify. *dtd: %i\n", *((int*) dtd));
-    }
-    fwprintf(stdout, L"Debug: Apply modify. std: %i\n", std);
-    if (std != *NULL_POINTER_STATE_CYBOI_MODEL) {
-        fwprintf(stdout, L"Debug: Apply modify. *std: %i\n", *((int*) std));
-    }
-    fwprintf(stdout, L"Debug: Apply modify. smc: %i\n", smc);
-    if (smc != *NULL_POINTER_STATE_CYBOI_MODEL) {
-        fwprintf(stdout, L"Debug: Apply modify. *smc: %i\n", *((int*) smc));
-    }
-    fwprintf(stdout, L"Debug: Apply modify. cmd: %i\n", cmd);
-    if (cmd != *NULL_POINTER_STATE_CYBOI_MODEL) {
-        fwprintf(stdout, L"Debug: Apply modify. *cmd: %i\n", *((int*) cmd));
-    }
-    fwprintf(stdout, L"Debug: Apply modify. simd: %i\n", simd);
-    if (simd != *NULL_POINTER_STATE_CYBOI_MODEL) {
-        fwprintf(stdout, L"Debug: Apply modify. *simd: %i\n", *((int*) simd));
-    }
-
     // Use the destination part type data by default.
     copy_integer((void*) &destination_type, dtd);
     // Use the source part model count by default.
@@ -304,19 +283,18 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // Get source array.
     apply_modify_array((void*) &source_array_data, (void*) &source_array_count, (void*) &spd, (void*) &spc, sprmd);
 
-    fwprintf(stdout, L"Debug: Apply modify. destination_type: %i\n", destination_type);
-    fwprintf(stdout, L"Debug: Apply modify. source_type: %i\n", source_type);
-    fwprintf(stdout, L"Debug: Apply modify. count: %i\n", count);
-    fwprintf(stdout, L"Debug: Apply modify. source_index: %i\n", source_index);
-
     //
     // Functionality
     //
 
-DEBUG_CYBOP = 1;
+    //?? TODO: Delete later. Testing only.
+    DEBUG_CYBOP = 1;
+
     // Compare destination- and source type.
     apply_modify_type(d, source_array_data, (void*) &destination_type, mmd, (void*) &count, (void*) &destination_index, (void*) &source_index, (void*) &adjust, rmd, tmd, tmc, p5, (void*) &destination_part_item_index, (void*) &source_part_item_index, s, (void*) &source_type);
-DEBUG_CYBOP = 0;
+
+    //?? TODO: Delete later. Testing only.
+    DEBUG_CYBOP = 0;
 }
 
 /* MODIFY_SOURCE */
