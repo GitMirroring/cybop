@@ -288,13 +288,13 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     //
 
     //?? TODO: Delete later. Testing only.
-    DEBUG_CYBOP = 1;
+    //?? DEBUG_CYBOP = 1;
 
     // Compare destination- and source type.
     apply_modify_type(d, source_array_data, (void*) &destination_type, mmd, (void*) &count, (void*) &destination_index, (void*) &source_index, (void*) &adjust, rmd, tmd, tmc, p5, (void*) &destination_part_item_index, (void*) &source_part_item_index, s, (void*) &source_type);
 
     //?? TODO: Delete later. Testing only.
-    DEBUG_CYBOP = 0;
+    //?? DEBUG_CYBOP = 0;
 }
 
 /* MODIFY_SOURCE */
