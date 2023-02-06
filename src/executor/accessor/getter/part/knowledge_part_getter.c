@@ -59,17 +59,11 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
         void* sfd = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* smc = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The temporary source data position and source count remaining.
-        void* pathd = *NULL_POINTER_STATE_CYBOI_MODEL;
-        int pathc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // Get source part format, model item.
-        // CAUTION! It is necessary to find out about the format and model.
-        // The format may be "path/reference", "path/knowledge", or some other.
-        // The model may contain a knowledge path or reference knowledge path.
         copy_array_forward((void*) &sf, *s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FORMAT_PART_STATE_CYBOI_NAME);
         copy_array_forward((void*) &sm, *s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-        // Get source part format, model data, count.
+        // Get source part format, model item data, count.
         copy_array_forward((void*) &sfd, sf, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         copy_array_forward((void*) &smc, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
@@ -77,61 +71,62 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        compare_integer_equal((void*) &r, sfd, (void*) CYBOL_PATH_TEXT_STATE_CYBOI_FORMAT);
 
-            compare_integer_equal((void*) &r, sfd, (void*) CYBOL_PATH_TEXT_STATE_CYBOI_FORMAT);
-
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                //
-                // Get part as knowledge model.
-                //
-                // CAUTION! The format "path/knowledge" is processed as wchar_t inside.
-                // The "properties" are uninteresting, since a reference name cannot have
-                // constraints. That is, only the model is of interest. It contains the
-                // hierarchical name of the knowledge part to be retrieved.
-                //
-                // Example of a model containing a hierarchical part name:
-                // model=".application.communication.partners.hostname"
-                //
-
-/*??
-                if (smc == *NULL_POINTER_STATE_CYBOI_MODEL) {
-                    fwprintf(stdout, L"Debug: get part knowledge smc: %i\n", smc);
-                } else {
-                    fwprintf(stdout, L"Debug: get part knowledge *smc: %i\n", *((int*) smc));
-                }
-                fwprintf(stdout, L"Debug: get part knowledge smd: %ls\n", (wchar_t*) smd);
-*/
-
-                // Copy source data position.
-                copy_pointer((void*) &pathd, (void*) &smd);
-                // Copy source count remaining.
-                copy_integer((void*) &pathc, smc);
-
-                // Get knowledge part from knowledge memory.
-                // CAUTION! Hand over name as reference!
-                // CAUTION! A COPY of path data and count is forwarded here,
-                // so that the original values do NOT get changed.
-                // This is IMPORTANT since otherwise, the original data position
-                // gets increased and the count remaining decreased to zero,
-                // so that knowledge access works only once, but not anymore afterwards.
-                deserialise_knowledge(p0, p2, (void*) &pathd, (void*) &pathc, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-            }
-        }
-
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // Get source part as DIRECT model (inline literal),
-            // i.e. DO NOT interpret the model as knowledge path.
+            // This IS a cybol PATH.
+            //
+
+/*??
+            //?? TEST only
+            if (smc == *NULL_POINTER_STATE_CYBOI_MODEL) {
+                fwprintf(stdout, L"Debug: get part knowledge smc: %i\n", smc);
+            } else {
+                fwprintf(stdout, L"Debug: get part knowledge *smc: %i\n", *((int*) smc));
+            }
+            fwprintf(stdout, L"Debug: get part knowledge smd: %ls\n", (wchar_t*) smd);
+*/
+
+            // The source data position.
+            void* pathd = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The source count remaining.
+            int pathc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+            // Copy source data position.
+            copy_pointer((void*) &pathd, (void*) &smd);
+            // Copy source count remaining.
+            copy_integer((void*) &pathc, smc);
+
+            //
+            // Get knowledge part from knowledge memory.
+            //
+            // CAUTION! A copy of source count remaining is forwarded here,
+            // so that the original source value does not get changed.
+            //
+            // CAUTION! The source data position does NOT have to be copied,
+            // since the parametre that was handed over is already a copy.
+            // A local copy was made anyway, not to risk parametre falsification.
+            // Its reference is forwarded, as it gets incremented by sub routines inside.
+            //
+            deserialise_knowledge(p0, p2, (void*) &pathd, (void*) &pathc, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+
+        } else {
+
+            //
+            // This is NOT a cybol PATH.
+            //
+
+            //
+            // Get source part as DIRECT model (inline literal).
             //
             // CAUTION! The source part was handed over as parametre,
             // so that it may just be copied here.
             //
-            // CAUTION! The pointer handed over has a size of one
-            // and thus does NOT need to be resized,
-            // i.e. using the "overwrite" function is NOT necessary here.
+            // CAUTION! The destination pointer handed over has a size
+            // of ONE and thus does NOT need to be resized. Therefore,
+            // using the "overwrite" function is NOT necessary here.
             //
 
             // Copy source part pointer reference.
@@ -141,6 +136,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get part knowledge. The source part is null.");
+        fwprintf(stdout, L"Error: Could not get part knowledge. The source part is null. p1: %i\n", p1);
     }
 }
 

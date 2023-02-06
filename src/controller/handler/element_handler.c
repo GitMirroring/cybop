@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENT_PART_HANDLER_SOURCE
-#define ELEMENT_PART_HANDLER_SOURCE
+#ifndef ELEMENT_HANDLER_SOURCE
+#define ELEMENT_HANDLER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -56,9 +56,9 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  * @param p7 the direct execution flag
  * @param p8 the shutdown flag
  */
-void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void handle_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle part element.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle element.");
 
     // The signal part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -101,5 +101,5 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     }
 }
 
-/* ELEMENT_PART_HANDLER_SOURCE */
+/* ELEMENT_HANDLER_SOURCE */
 #endif

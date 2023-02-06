@@ -18,6 +18,13 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-02-06  Christian Heller  <christian.heller@cybop.org>
+
+        * Add new format "element/reference" to store a pointer to a part or property as stack variable
+        * Restructure files for stack memory handling into sub directories "push" and "pop" of directory "controller/handler/"
+        * Allocate new part for each stack variable instead of just copying pointer references
+        * Avoid thereby unwanted manipulation of original property values in knowledge memory (heap)
+
 2023-02-03  Christian Heller  <christian.heller@cybop.org>
 
         * Add cybol application "knowledge_tree/stack/"

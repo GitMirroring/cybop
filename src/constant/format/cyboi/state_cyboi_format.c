@@ -393,6 +393,9 @@ static int* PART_ELEMENT_STATE_CYBOI_FORMAT = NUMBER_300_INTEGER_STATE_CYBOI_MOD
 /** The property element state cyboi format. */
 static int* PROPERTY_ELEMENT_STATE_CYBOI_FORMAT = NUMBER_301_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The reference element state cyboi format. */
+static int* REFERENCE_ELEMENT_STATE_CYBOI_FORMAT = NUMBER_302_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 //
 // example
 //

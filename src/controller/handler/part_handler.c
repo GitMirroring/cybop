@@ -26,7 +26,6 @@
 #ifndef PART_HANDLER_SOURCE
 #define PART_HANDLER_SOURCE
 
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -35,12 +34,12 @@
 #include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../controller/handler/element_part_handler.c"
-#include "../../controller/handler/initialisation_handler.c"
+#include "../../controller/handler/pop/pop_handler.c"
+#include "../../controller/handler/push/push_handler.c"
+#include "../../controller/handler/element_handler.c"
 #include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../executor/copier/array_copier.c"
 #include "../../executor/copier/integer_copier.c"
-#include "../../executor/modifier/item_modifier.c"
 #include "../../logger/logger.c"
 
 /**
@@ -50,8 +49,8 @@
  * @param p1 the signal model count
  * @param p2 the signal properties data (local stack variables)
  * @param p3 the signal properties count
- * @param p4 the initial value properties data
- * @param p5 the initial value properties count
+ * @param p4 the runtime argument properties data
+ * @param p5 the runtime argument properties count
  * @param p6 the internal memory data
  * @param p7 the knowledge memory part (pointer reference)
  * @param p8 the stack memory item
@@ -64,16 +63,24 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle part.");
 
+    //
+    // Declaration
+    //
+
     // The signal properties count old value.
     int pc_old = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The stack memory item count.
     void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The stack memory item count old value.
     int mc_old = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The loop variable.
-    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The loop variable.
+    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    //
+    // Initialisation
+    //
 
     //
     // Copy signal properties count.
@@ -95,28 +102,18 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     copy_integer((void*) &mc_old, mc);
 
     //
-    // Store variable values on stack memory (PUSH).
+    // Pushing
     //
-    // CAUTION! Set the deep copying flag to FALSE here, so that pointer
-    // references of the given properties get copied as SHALLOW copy.
-    // The deep copying flag is relevant for format "element/part" only.
-    // It is important to avoid allocating duplicates of the children
-    // of the given properties on stack for at least two reasons:
-    //
-    // 1 Efficiency would suffer when deep-copying large tree branches
-    // 2 Reference counting of rubbish (garbage) collection (gc) might get mixed up
-    //
-    modify_item(p8, p2, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    // Push (add) local variable parts onto stack memory.
+    handle_push(p8, p2, p3, p7, p9);
+
+    // Push (add) runtime argument parts onto stack memory.
+    //?? handle_push(p8, p4, p5, p7, p9);
 
     //
-    // Assign initial values.
+    // Execution
     //
-    //?? TODO: Hand over: (void*) &pc_old -- so that not the whole stack
-    // but only the relevant variables are searched through.
-    //
-    //?? TODO: Search in BACKWARD order inside!
-    //
-    //?? handle_initialisation(p8, p4, p5, p7, p10);
 
     if (p1 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -158,46 +155,27 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
             break;
         }
 
-        handle_part_element(p0, (void*) &j, p6, p7, p8, p9, p10, p11, p12);
+        handle_element(p0, (void*) &j, p6, p7, p8, p9, p10, p11, p12);
 
         // Increment loop variable.
         j++;
     }
 
     //
-    // Remove variable values from stack memory (POP).
+    // Popping
     //
-    // Solution 1: Read properties again
+
     //
-    // CAUTION! The properties might have been changed within
-    // the logic executed within the "handle" function above.
-    // Therefore, they should NOT be accessed a second time here,
-    // in order to remove temporary values from stack memory,
-    // since the number and type of properties might have changed,
-    // which would otherwise lead to SEVERE MEMORY ERRORS.
+    // CAUTION! Use REVERSE order as compared to push,
+    // which means pop runtime argument parts at FIRST
+    // and local variable parts only after.
     //
-    // Solution 2: Add empty marker element to stack
-    //
-    // - INEFFICIENT since added for each function call
-    // - added even for logic not using temporary values on stack
-    // - consumes additional time and memory
-    //
-    // Solution 3: Remember number of values added
-    //
-    // - seems to be the easiest solution
-    // - the exact same number of values that was added to stack
-    //   (signal properties count) is removed from it again here
-    // - the former (mc_old) stack memory item count is used as index for removal
-    //
-    // Therefore, solution 3 is applied here.
-    //
-    // CAUTION! Set the adjust flag to TRUE since otherwise,
-    // the destination item will hold a wrong "count" number
-    // leading to unpredictable errors in further processing.
-    //
-    //?? fwprintf(stdout, L"Debug: Handle part. mc_old pre: %i\n", mc_old);
-    modify_item(p8, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &pc_old, (void*) &mc_old, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
-    //?? fwprintf(stdout, L"Debug: Handle part. mc_old post: %i\n", mc_old);
+
+    // Pop (remove) runtime argument parts from stack memory.
+    //?? handle_pop(p8, p4, p5, p7, p9);
+
+    // Pop (remove) local variable parts from stack memory.
+    handle_pop(p8, p3);
 }
 
 /* PART_HANDLER_SOURCE */

@@ -50,9 +50,12 @@ void copy_duration(void* p0, void* p1) {
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
     // Allocate source value, start, end.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_array((void*) &v, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
     allocate_array((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
     allocate_array((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
@@ -67,10 +70,13 @@ void copy_duration(void* p0, void* p1) {
     set_duration_element(p0, s, (void*) START_DURATION_STATE_CYBOI_NAME);
     set_duration_element(p0, e, (void*) END_DURATION_STATE_CYBOI_NAME);
 
+    //
     // Deallocate source value, start, end.
+    //
     // CAUTION! The second argument "count" is NULL,
     // since it is only needed for looping elements of type PART,
     // in order to decrement the rubbish (garbage) collection counter.
+    //
     deallocate_array((void*) &v, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
     deallocate_array((void*) &s, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
     deallocate_array((void*) &e, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);

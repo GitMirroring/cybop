@@ -14,6 +14,17 @@
 Stack
 _____
 
+        * Debug garbage collector error in stack handling
+        * Filter out parts with format "element/reference" in file "model_push_handler.c" and copy pointer reference to stack
+
+        * Try accessing #parent in cybol applications
+        * Test standard path like ".xdt.[#record_index]" and "#parent.[0].[#field_index]"
+            if this does NOT work:
+            - write down the arguments as documentation
+            - use an alternative path syntax like ".xdt@[#record_index]" and "#parent.[0]@[#field_index]" to access the INNER element
+
+        * Can the operation "modify/empty" be eliminated when invoking the called operation in the loop in each cycle again and putting its variables on the stack anew ??
+
         * Eliminate or change files in directory "executor/verifier/" and find better solution, since they hinder execution of array functions in some cases
             report ALL errors (uncomment log messages)
             add separate branch for operation "overwrite" in file "verify_modifier.c"
@@ -71,6 +82,8 @@ _____
             - the only solution would be to let the knowledge path deserialiser return TWO values: the result pointer AND the desired index being extracted from the path with brackets, for example ".node.subnode[#index]"
             - in this case, the returned pointer represents the node and the returned index can be used locally in the corresponding function to get the desired primitive value or encapsulated pointer
         * Delete file "initialisation_handler.c", if not needed anymore
+
+        * Rename constant "PART_ELEMENT_STATE_CYBOI_TYPE" into "COMPOUND_ELEMENT_STATE_CYBOI_TYPE" in all source code (it may represent the formats "element/part", "element/property", "element/reference")
 
 xDT
 ___

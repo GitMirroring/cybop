@@ -62,11 +62,9 @@
 
     <node name="print_text" channel="inline" format="text/cybol-path" model=".print"/>
 
-<!--
     <node name="print_text" channel="inline" format="text/cybol-path" model=".print">
-        <node name="text_2" channel="inline" format="text/plain" model="This is MANIPULATED text 2."/>
+        <node name="extra_text" channel="inline" format="text/plain" model="This is EXTRA text handed over as runtime argument."/>
     </node>
--->
 
     <!-- Shutdown -->
 

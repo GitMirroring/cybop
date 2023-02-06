@@ -43,16 +43,33 @@
  *
  * Description:
  *
- * A PART node of the cyboi-internal knowledge tree.
+ * A part node of the cyboi-internal knowledge tree.
  *
- * Each tree node (also called part) has a DOUBLE hierarchy representing:
+ * Each tree node (also called part) has a double hierarchy representing:
  * - model hierarchy: whole-part, container-element, macrocosm-microcosm, child parts
- * - properties hierarchy: metadata, constraints, for example parametres of a function or the size of a graphical window
+ * - properties hierarchy: metadata, constraints, parametres of a function, position and size of a graphical component
  *
  * Examples:
  *
  * <node name="empty_part_to_be_created" channel="inline" format="element/part" model=""/>
  * <node name="part_read_from_file" channel="file" format="element/part" model="path/to/file.cybol"/>
+ *
+ * <node name="initialise_choice_part" channel="inline" format="communicate/receive" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+ *     <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+ *     <node name="format" channel="inline" format="meta/format" model="element/part"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".wui.index.body.choices.table.(#name)"/>
+ * </node>
+ * <node name="initialise_choice_properties" channel="inline" format="communicate/receive" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+ *     <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+ *     <node name="format" channel="inline" format="meta/format" model="element/property"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".wui.index.body.choices.table.(#name)"/>
+ * </node>
  */
 static wchar_t* PART_ELEMENT_STATE_CYBOL_FORMAT = L"element/part";
 static int* PART_ELEMENT_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -62,19 +79,57 @@ static int* PART_ELEMENT_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * Description:
  *
- * A PROPERTY node of the cyboi-internal knowledge tree.
+ * A property node of the cyboi-internal knowledge tree.
  *
- * Each tree node (also called part) has a DOUBLE hierarchy representing:
+ * Each tree node (also called part) has a double hierarchy representing:
  * - model hierarchy: whole-part, container-element, macrocosm-microcosm, child parts
- * - properties hierarchy: metadata, constraints, for example parametres of a function or the size of a graphical window
+ * - properties hierarchy: metadata, constraints, parametres of a function, position and size of a graphical component
  *
  * Examples:
  *
  * <node name="empty_property_to_be_created" channel="inline" format="element/property" model=""/>
  * <node name="property_read_from_file" channel="file" format="element/property" model="path/to/file.cybol"/>
+ *
+ * <node name="initialise_choice_part" channel="inline" format="communicate/receive" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+ *     <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+ *     <node name="format" channel="inline" format="meta/format" model="element/part"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".wui.index.body.choices.table.(#name)"/>
+ * </node>
+ * <node name="initialise_choice_properties" channel="inline" format="communicate/receive" model="">
+ *     <node name="channel" channel="inline" format="meta/channel" model="file"/>
+ *     <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+ *     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+ *     <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+ *     <node name="format" channel="inline" format="meta/format" model="element/property"/>
+ *     <node name="message" channel="inline" format="text/cybol-path" model=".wui.index.body.choices.table.(#name)"/>
+ * </node>
  */
 static wchar_t* PROPERTY_ELEMENT_STATE_CYBOL_FORMAT = L"element/property";
 static int* PROPERTY_ELEMENT_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The element/reference state cybol format.
+ *
+ * Description:
+ *
+ * A reference node of the cyboi-internal knowledge tree.
+ * It represents a pointer to some knowledge tree node and was assigned as shallow copy.
+ *
+ * Examples:
+ *
+ * <node name="print_text" channel="inline" format="text/cybol-path" model=".print">
+ *     <node name="extra_text" channel="inline" format="text/plain" model="This is EXTRA text handed over as runtime argument."/>
+ * </node>
+ *
+ * <node name="field_model" channel="inline" format="text/cybol-path" model=".logic.translate.field">
+ *     <node name="parent" channel="inline" format="element/reference" model="#parent.[#field_index]"/>
+ * </node>
+ */
+static wchar_t* REFERENCE_ELEMENT_STATE_CYBOL_FORMAT = L"element/reference";
+static int* REFERENCE_ELEMENT_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* ELEMENT_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

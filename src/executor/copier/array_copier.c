@@ -54,6 +54,7 @@ void copy_array_elements_forward(void* p0, void* p1, void* p2, void* p3, void* p
     //
     // CAUTION! Do NOT call the logger here.
     // It uses functions causing circular references.
+    //
     // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy array elements forward.");
     //
 
@@ -73,6 +74,7 @@ void copy_array_elements_forward(void* p0, void* p1, void* p2, void* p3, void* p
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
         // Therefore, in this case, the break flag is set to true already here.
+        //
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
@@ -123,6 +125,7 @@ void copy_array_elements_backward(void* p0, void* p1, void* p2, void* p3, void* 
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
         // Therefore, in this case, the break flag is set to true already here.
+        //
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
@@ -180,11 +183,13 @@ void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             //
             // CAUTION! Do NOT call the logger here.
             // It uses functions causing circular references.
+            //
             // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy array forward.");
             //
 
             //
             // The destination array, source array.
+            //
             // CAUTION! They HAVE TO BE initialised with p0 and p1,
             // since an offset is added below.
             //
@@ -201,6 +206,7 @@ void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             //
             // CAUTION! Do NOT call the logger here.
             // It uses functions causing circular references.
+            //
             // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy array forward. The destination array is null.");
             //
 
@@ -212,6 +218,7 @@ void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         //
         // CAUTION! Do NOT call the logger here.
         // It uses functions causing circular references.
+        //
         // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy array forward. The source array is null.");
         //
 

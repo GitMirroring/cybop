@@ -136,13 +136,15 @@ void copy(void* p0, void* p1, void* p2, void* p3) {
                 // Therefore, do NOT offer shallow copying as a property (option)
                 // to cybol container operations like "overwrite" or "insert"!
                 // Take deep copying AS DEFAULT inside.
-                // Otherwise, the knowledge tree might get mixed up,
-                // e.g. with circular references. But it should always be a
+                // Otherwise, the knowledge tree might get mixed up, for example
+                // with circular references. But it should always be a
                 // Directed Acyclic Graph (DAG) with unidirectional references.
                 //
 
                 //?? fwprintf(stdout, L"Debug: copy shallow pre: %i\n", r);
 
+                //
+                // Copy pointer.
                 //
                 // CAUTION! Both, the destination- as well as the source value
                 // will get interpreted as pointer reference inside.
@@ -164,11 +166,11 @@ void copy(void* p0, void* p1, void* p2, void* p3) {
                 //
                 // For copying whole sub trees to another place.
                 //
-                // It is also used when storing variables on stack memory.
-                //
 
                 fwprintf(stdout, L"Debug: copy deep pre: %i\n", r);
 
+                //
+                // Copy part.
                 //
                 // CAUTION! Both, the destination- as well as the source value
                 // will get interpreted as pointer reference inside.
@@ -291,6 +293,7 @@ void copy(void* p0, void* p1, void* p2, void* p3) {
         //
         // CAUTION! Do NOT call the logger here.
         // It uses functions causing circular references.
+        //
         // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy. The operand type is unknown.");
         //
         fwprintf(stdout, L"Warning: Could not copy. The operand type is unknown. p2: %i\n", p2);

@@ -49,25 +49,34 @@ void copy_wide_character(void* p0, void* p1) {
 
             wchar_t* de = (wchar_t*) p0;
 
+            //
             // CAUTION! Do NOT call the logger here.
             // It uses functions causing circular references.
+            //
             // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy wide character.");
+            //
 
             // Assign source- to destination.
             *de = *se;
 
         } else {
 
+            //
             // CAUTION! Do NOT call the logger here.
             // It uses functions causing circular references.
+            //
             // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy wide character. The destination is null.");
+            //
         }
 
     } else {
 
+        //
         // CAUTION! Do NOT call the logger here.
         // It uses functions causing circular references.
+        //
         // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy wide character. The source is null.");
+        //
     }
 }
 
