@@ -21,6 +21,7 @@
 2023-02-07  Christian Heller  <christian.heller@cybop.org>
 
         * Remove manual deallocation of stack variables in file "part_pop_handler.c", since they get deallocated automatically by garbage collection when removing them from stack memory
+        * Activate local variables and runtime arguments in file "part_handler.c"
 
 2023-02-06  Christian Heller  <christian.heller@cybop.org>
 

@@ -47,12 +47,29 @@
 void handle_push(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle push.");
+    fwprintf(stdout, L"Debug: Handle push. p2: %i\n", p2);
+    //
+    // CAUTION! The parts count may be null, since runtime arguments exist only
+    // for compound logic operations called via "text/cybol-path" but NOT for
+    // those being defined and called directly using the format "element/part".
+    //
+    // Therefore, comment out this test log message.
+    //
+    //?? fwprintf(stdout, L"Debug: Handle push. *p2: %i\n", *((int*) p2));
+    //
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+    //
+    // CAUTION! The parts count may be null, since runtime arguments exist only
+    // for compound logic operations called via "text/cybol-path" but NOT for
+    // those being defined and called directly using the format "element/part".
+    //
+    // However, this is NOT a problem, since a null value is just IGNORED here.
+    //
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //

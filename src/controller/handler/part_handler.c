@@ -81,7 +81,7 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     handle_push(p8, p2, p3, p7, p9);
 
     // Push (add) runtime argument parts onto stack memory.
-    //?? handle_push(p8, p4, p5, p7, p9);
+    handle_push(p8, p4, p5, p7, p9);
 
     //
     // Execution
@@ -144,7 +144,7 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     //
 
     // Pop (remove) runtime argument parts from stack memory.
-    //?? handle_pop(p8, p4, p5, p7, p9);
+    handle_pop(p8, p5);
 
     // Pop (remove) local variable parts from stack memory.
     handle_pop(p8, p3);

@@ -51,7 +51,15 @@ void handle_pop(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle pop.");
     fwprintf(stdout, L"Debug: Handle pop. p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Handle pop. *p1: %i\n", *((int*) p1));
+    //
+    // CAUTION! The parts count may be null, since runtime arguments exist only
+    // for compound logic operations called via "text/cybol-path" but NOT for
+    // those being defined and called directly using the format "element/part".
+    //
+    // Therefore, comment out this test log message.
+    //
+    //?? fwprintf(stdout, L"Debug: Handle pop. *p1: %i\n", *((int*) p1));
+    //
 
     //
     // Declaration
@@ -77,7 +85,15 @@ void handle_pop(void* p0, void* p1) {
 
     // Initialise first element index with stack memory count.
     copy_integer((void*) &f, smc);
+    //
     // Subtract parts count from first element index.
+    //
+    // CAUTION! The parts count may be null, since runtime arguments exist only
+    // for compound logic operations called via "text/cybol-path" but NOT for
+    // those being defined and called directly using the format "element/part".
+    //
+    // However, this is NOT a problem, since a null value is just IGNORED here.
+    //
     calculate_integer_subtract((void*) &f, p1);
     // CAUTION! Do NOT subtract one here, since the index is already correct.
 
