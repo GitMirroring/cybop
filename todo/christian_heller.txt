@@ -14,10 +14,6 @@
 Stack
 _____
 
-        * Delete (testwise) "modify/overwrite" assigning stack variable values and test-run without it in cybol application "knowledge_tree/stack/"
-
-        * Filter out parts with format "element/reference" in file "model_push_handler.c" and copy pointer reference to stack
-
         * Try accessing #parent in cybol applications
         * Test standard path like ".xdt.[#record_index]" and "#parent.[0].[#field_index]"
             if this does NOT work:

@@ -43,29 +43,33 @@
  *
  * @param p0 the stack memory item
  * @param p1 the source part (pointer reference)
- * @param p2 the format
- * @param p3 the type
- * @param p4 the knowledge memory part (pointer reference)
- * @param p5 the internal memory data
+ * @param p2 the source name data
+ * @param p3 the source name count
+ * @param p4 the source format
+ * @param p5 the source model data
+ * @param p6 the source model count
+ * @param p7 the knowledge memory part (pointer reference)
+ * @param p8 the internal memory data
  */
-void handle_push_model(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void handle_push_model(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle push model.");
+    fwprintf(stdout, L"Debug: Handle push model. p4: %i\n", p4);
+    fwprintf(stdout, L"Debug: Handle push model. *p4: %i\n", *((int*) p4));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The part.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Check for reference format.
-    compare_integer_equal((void*) &r, p2, (void*) REFERENCE_ELEMENT_STATE_CYBOI_FORMAT);
+    compare_integer_equal((void*) &r, p4, (void*) REFERENCE_ELEMENT_STATE_CYBOI_FORMAT);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
         // The source part is NOT a pointer reference.
         //
-
-        // The part.
-        void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         //
         // Copy part.
@@ -74,51 +78,28 @@ void handle_push_model(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         //
         copy_part((void*) &p, p1);
 
-        //
-        // Store on stack memory (PUSH).
-        //
-        // CAUTION! Set the deep copying flag to FALSE here, so that pointer
-        // references of the given properties get copied as SHALLOW copy.
-        // The deep copying flag is relevant for format "element/part" only.
-        // It is important to avoid allocating duplicates of the children
-        // of the given properties on stack for at least two reasons:
-        //
-        // 1 Efficiency would suffer when deep-copying large tree branches
-        // 2 Reference counting of rubbish (garbage) collection (gc) might get mixed up
-        //
-        modify_item(p0, (void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-
     } else {
 
         //
         // The source part IS a pointer reference.
         //
 
-/*??
-        // The temporary source data position and source count remaining.
-        void* pathd = *NULL_POINTER_STATE_CYBOI_MODEL;
-        int pathc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        fwprintf(stdout, L"Debug: Handle push model. inside reference element p4: %i\n", p4);
 
-        // Copy source data position.
-        copy_pointer((void*) &pathd, (void*) &smd);
-        // Copy source count remaining.
-        copy_integer((void*) &pathc, smc);
+        // The source model data position.
+        void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The source model count remaining.
+        int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The original part.
+        void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        //
-        // Allocate part.
-        //
-        // CAUTION! Due to memory allocation handling, the size MUST NOT
-        // be negative or zero, but have at least a value of ONE.
-        //
-        // CAUTION! Use the cyboi runtime type determined above
-        // (NOT the mime type format)!
-        //
-        //?? allocate_part((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, td);
-
-        //?? See file "standard_cybol_deserialiser.c"
+        // Copy source model data position.
+        copy_pointer((void*) &d, (void*) &p5);
+        // Copy source model count remaining.
+        copy_integer((void*) &c, p6);
 
         //
-        // Get knowledge part from knowledge memory.
+        // Get part from knowledge memory using source model as path.
         //
         // CAUTION! A copy of source count remaining is forwarded here,
         // so that the original source value does not get changed.
@@ -128,28 +109,47 @@ void handle_push_model(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         // A local copy was made anyway, not to risk parametre falsification.
         // Its reference is forwarded, as it gets incremented by sub routines inside.
         //
-        // Get part reference.
-        // via path given as model
-        deserialise_knowledge((void*) &p, p3, (void*) &pathd, (void*) &pathc, p3, p0, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-
-        //?? TODO: Reflect: Allocate new part OR just copy pointer (CAUTION! The original heap value might get changed then, when manipulating a stack variable value)
+        deserialise_knowledge((void*) &o, p7, (void*) &d, (void*) &c, p7, p0, p8, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
         //
-        // Store part reference on stack memory (PUSH).
-        // with given name
+        // Allocate part.
         //
-        // CAUTION! Set the deep copying flag to FALSE here, so that pointer
-        // references of the given properties get copied as SHALLOW copy.
-        // The deep copying flag is relevant for format "element/part" only.
-        // It is important to avoid allocating duplicates of the children
-        // of the given properties on stack for at least two reasons:
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
         //
-        // 1 Efficiency would suffer when deep-copying large tree branches
-        // 2 Reference counting of rubbish (garbage) collection (gc) might get mixed up
+        allocate_part((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+
         //
-        //?? modify_item(p0, (void*) &a, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-*/
+        // Fill part.
+        //
+        // CAUTION! Do NOT forget to assign the format and type.
+        //
+        modify_part(p, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) NAME_PART_STATE_CYBOI_NAME);
+        modify_part(p, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) FORMAT_PART_STATE_CYBOI_NAME);
+        modify_part(p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) TYPE_PART_STATE_CYBOI_NAME);
+        //
+        // CAUTION! Set deep copy flag to FALSE, since only the pointer REFERENCE
+        // is to be copied (shallow copy), but NOT the whole source part tree.
+        //
+        modify_part(p, (void*) &o, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) MODEL_PART_STATE_CYBOI_NAME);
     }
+
+    //
+    // Append part to stack memory item (PUSH).
+    //
+    // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
+    // This is necessary in order to activate rubbish (garbage) collection (gc).
+    //
+    // CAUTION! Set the deep copying flag to FALSE here, so that pointer
+    // references of the given properties get copied as SHALLOW copy.
+    // The deep copying flag is relevant for format "element/part" only.
+    // It is important to avoid allocating duplicates of the children
+    // of the given properties on stack for at least two reasons:
+    //
+    // 1 Efficiency would suffer when deep-copying large tree branches
+    // 2 Reference counting of rubbish (garbage) collection (gc) might get mixed up
+    //
+    modify_item(p0, (void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 }
 
 /* MODEL_PUSH_HANDLER_SOURCE */

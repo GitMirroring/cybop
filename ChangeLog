@@ -22,6 +22,8 @@
 
         * Remove manual deallocation of stack variables in file "part_pop_handler.c", since they get deallocated automatically by garbage collection when removing them from stack memory
         * Activate local variables and runtime arguments in file "part_handler.c"
+        * Implement stack storage of part reference pointer in file "model_push_handler.c"
+        * Replace usage of "modify/overwrite" for assigning stack variable values with runtime argument of new format "element/reference" in cybol application "knowledge_tree/stack/"
 
 2023-02-06  Christian Heller  <christian.heller@cybop.org>
 

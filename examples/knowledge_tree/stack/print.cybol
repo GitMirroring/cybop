@@ -32,6 +32,7 @@
         <node name="move" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
+<!--
     <node name="store_parent" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model="#parent"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".level_1"/>
@@ -40,6 +41,7 @@
         <!-- CAUTION! The "true" means shallow copy for now. Delete this later, since "true" should be made the DEFAULT in cyboi. -->
         <node name="move" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+-->
 
     <!-- Test -->
 
@@ -84,7 +86,7 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/cybol-path" model="#parent.[.stack_pointer_index].text"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#parent.[.stack_pointer_index].[#child_index].text"/>
     </node>
     <node name="print_text" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
