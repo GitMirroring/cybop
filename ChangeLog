@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-02-07  Christian Heller  <christian.heller@cybop.org>
+
+        * Remove manual deallocation of stack variables in file "part_pop_handler.c", since they get deallocated automatically by garbage collection when removing them from stack memory
+
 2023-02-06  Christian Heller  <christian.heller@cybop.org>
 
         * Add new format "element/reference" to store a pointer to a part or property as stack variable

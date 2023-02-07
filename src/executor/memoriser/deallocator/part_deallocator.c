@@ -50,7 +50,6 @@ void deallocate_part(void* p0) {
         void** part = (void**) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate part.");
-
         //?? fwprintf(stdout, L"Debug: Deallocate part. *part: %i\n", *part);
 
         // The references, name, format, type, model, properties.
@@ -148,6 +147,7 @@ void deallocate_part(void* p0) {
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deallocate part. The part is null.");
+        fwprintf(stdout, L"Error: Could not deallocate part. The part is null. p0: %i\n", p0);
     }
 }
 

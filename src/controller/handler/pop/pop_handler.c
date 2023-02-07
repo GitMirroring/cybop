@@ -50,6 +50,8 @@
 void handle_pop(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle pop.");
+    fwprintf(stdout, L"Debug: Handle pop. p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Handle pop. *p1: %i\n", *((int*) p1));
 
     //
     // Declaration
@@ -58,10 +60,10 @@ void handle_pop(void* p0, void* p1) {
     // The stack memory item data, count.
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* smc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The first element index.
+    int f = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The stop index.
-    int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -73,34 +75,20 @@ void handle_pop(void* p0, void* p1) {
     copy_array_forward((void*) &smd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+    // Initialise first element index with stack memory count.
+    copy_integer((void*) &f, smc);
+    // Subtract parts count from first element index.
+    calculate_integer_subtract((void*) &f, p1);
+    // CAUTION! Do NOT subtract one here, since the index is already correct.
+
     // Initialise loop variable with stack memory count.
     copy_integer((void*) &j, smc);
     // Subtract one from loop variable, since this is an INDEX.
     calculate_integer_subtract((void*) &j, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-    // Initialise stop index with loop variable.
-    copy_integer((void*) &s, (void*) &j);
-    // Subtract parts count from stop index.
-    calculate_integer_subtract((void*) &s, p1);
-
     //
     // Iteration
     //
-
-    if (p1 == *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        //
-        // CAUTION! If the loop count handed over as parametre is NULL,
-        // then the break flag will NEVER be set to true, because the loop
-        // variable comparison does (correctly) not consider null values.
-        // Therefore, in this case, the break flag is set to true already here.
-        //
-        // Initialising the break flag with true will NOT work either, since it:
-        // a) will be left untouched if a comparison operand is null;
-        // b) would have to be reset to true in each loop cycle.
-        //
-        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    }
 
     //
     // CAUTION! This loop is running BACKWARDS for more efficiency.
@@ -111,18 +99,20 @@ void handle_pop(void* p0, void* p1) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_less((void*) &b, (void*) &j, (void*) &s);
+        compare_integer_less((void*) &b, (void*) &j, (void*) &f);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
+
+        } else {
+
+            // Pop (remove) part from stack memory.
+            handle_pop_part(p0, smd, (void*) &j);
+
+            // Decrement loop variable.
+            j--;
         }
-
-        // Pop (remove) part from stack memory.
-        handle_pop_part(p0, smd, (void*) &j);
-
-        // Decrement loop variable.
-        j--;
     }
 }
 

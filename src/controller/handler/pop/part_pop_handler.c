@@ -33,7 +33,6 @@
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../controller/handler/pop/model_pop_handler.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/modifier/item_modifier.c"
 #include "../../../logger/logger.c"
@@ -48,6 +47,8 @@
 void handle_pop_part(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle pop part.");
+    fwprintf(stdout, L"Debug: Handle pop part. p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Handle pop part. p2: %i\n", *((int*) p2));
 
     //
     // Declaration
@@ -98,13 +99,6 @@ void handle_pop_part(void* p0, void* p1, void* p2) {
 */
 
     //
-    // Deallocation
-    //
-
-    // Deallocate part.
-    handle_pop_model((void*) &p);
-
-    //
     // Removal
     //
 
@@ -139,9 +133,31 @@ void handle_pop_part(void* p0, void* p1, void* p2) {
     // the destination item will hold a wrong "count" number
     // leading to unpredictable errors in further processing.
     //
-    //?? fwprintf(stdout, L"Debug: Handle pop model. mc_old pre: %i\n", mc_old);
+
+    //?? void* test = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //?? copy_array_forward((void*) &test, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    //?? fwprintf(stdout, L"Debug: Handle pop part. pre test: %i\n", test);
+    //?? fwprintf(stdout, L"Debug: Handle pop part. pre *test: %i\n", *((int*) test));
+
     modify_item(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p2, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
-    //?? fwprintf(stdout, L"Debug: Handle pop model. mc_old post: %i\n", mc_old);
+
+    //?? fwprintf(stdout, L"Debug: Handle pop part. post test: %i\n", test);
+    //?? fwprintf(stdout, L"Debug: Handle pop part. post *test: %i\n", *((int*) test));
+
+    //
+    // Deallocation
+    //
+
+    //
+    // CAUTION! Do NOT deallocate parts manually here.
+    //
+    // When being removed from stack memory above, parts get
+    // deallocated AUTOMATICALLY by rubbish (garbage) collection (gc),
+    // if their reference counter has reached zero.
+    //
+    // Trying to deallocate parts a second time will lead to
+    // memory access errors.
+    //
 }
 
 /* PART_POP_HANDLER_SOURCE */

@@ -14,7 +14,6 @@
 Stack
 _____
 
-        * Debug garbage collector error in stack handling
         * Filter out parts with format "element/reference" in file "model_push_handler.c" and copy pointer reference to stack
 
         * Try accessing #parent in cybol applications

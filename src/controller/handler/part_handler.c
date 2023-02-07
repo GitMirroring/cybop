@@ -47,10 +47,10 @@
  *
  * @param p0 the signal model data (operation)
  * @param p1 the signal model count
- * @param p2 the signal properties data (local stack variables)
- * @param p3 the signal properties count
- * @param p4 the runtime argument properties data
- * @param p5 the runtime argument properties count
+ * @param p2 the signal properties representing local variable data
+ * @param p3 the signal properties representing local variable count
+ * @param p4 the cybol-path properties representing runtime argument data
+ * @param p5 the cybol-path properties representing runtime argument count
  * @param p6 the internal memory data
  * @param p7 the knowledge memory part (pointer reference)
  * @param p8 the stack memory item
@@ -62,44 +62,16 @@
 void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle part.");
+    fwprintf(stdout, L"Debug: Handle part. p12: %i\n", p12);
 
     //
     // Declaration
     //
 
-    // The signal properties count old value.
-    int pc_old = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The stack memory item count.
-    void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The stack memory item count old value.
-    int mc_old = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    //
-    // Initialisation
-    //
-
-    //
-    // Copy signal properties count.
-    //
-    // It is later to be used as count for variable value removal.
-    // Within the "handle" function called below, it may happen
-    // that the properties and their count get changed.
-    // Therefore, the OLD value is saved here.
-    //
-    copy_integer((void*) &pc_old, p3);
-    // Determine stack memory item count.
-    copy_array_forward((void*) &mc, p8, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    //
-    // Copy stack memory item count.
-    //
-    // It is later to be used as index for variable value removal.
-    // Therefore, the OLD value is saved here.
-    //
-    copy_integer((void*) &mc_old, mc);
 
     //
     // Pushing
