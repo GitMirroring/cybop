@@ -34,8 +34,6 @@
 #include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../controller/handler/pop/pop_handler.c"
-#include "../../controller/handler/push/push_handler.c"
 #include "../../controller/handler/element_handler.c"
 #include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../executor/copier/array_copier.c"
@@ -62,7 +60,7 @@
 void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle part.");
-    fwprintf(stdout, L"Debug: Handle part. p12: %i\n", p12);
+    //?? fwprintf(stdout, L"Debug: Handle part. p12: %i\n", p12);
 
     //
     // Declaration
@@ -72,16 +70,6 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    //
-    // Pushing
-    //
-
-    // Push (add) local variable parts onto stack memory.
-    handle_push(p8, p2, p3, p7, p9);
-
-    // Push (add) runtime argument parts onto stack memory.
-    handle_push(p8, p4, p5, p7, p9);
 
     //
     // Execution
@@ -132,22 +120,6 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         // Increment loop variable.
         j++;
     }
-
-    //
-    // Popping
-    //
-
-    //
-    // CAUTION! Use REVERSE order as compared to push,
-    // which means pop runtime argument parts at FIRST
-    // and local variable parts only after.
-    //
-
-    // Pop (remove) runtime argument parts from stack memory.
-    handle_pop(p8, p5);
-
-    // Pop (remove) local variable parts from stack memory.
-    handle_pop(p8, p3);
 }
 
 /* PART_HANDLER_SOURCE */

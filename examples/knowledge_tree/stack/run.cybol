@@ -60,14 +60,7 @@
 
     <!-- Logic -->
 
-    <node name="print_text" channel="inline" format="text/cybol-path" model=".print"/>
-
-    <node name="print_text" channel="inline" format="text/cybol-path" model=".print">
-        <node name="extra_text" channel="inline" format="text/plain" model="This is EXTRA text handed over as runtime argument."/>
-        <node name="parent" channel="inline" format="element/reference" model=".level_1"/>
-        <!-- This may be a loop index, for example. -->
-        <node name="child_index" channel="inline" format="number/integer" model="1"/>
-    </node>
+    <node name="print_text" channel="inline" format="text/cybol-path" model=".subroutine"/>
 
     <!-- Shutdown -->
 

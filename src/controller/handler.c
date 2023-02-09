@@ -37,6 +37,8 @@
 #include "../controller/handler/part_handler.c"
 #include "../executor/checker/operation_checker.c"
 #include "../executor/representer/deserialiser/knowledge/knowledge_deserialiser.c"
+#include "../executor/stacker/popper/popper.c"
+#include "../executor/stacker/pusher/pusher.c"
 #include "../logger/logger.c"
 
 /**
@@ -48,8 +50,8 @@
  * - operation
  *
  * @param p0 the signal part
- * @param p1 the initial value properties data
- * @param p2 the initial value properties count
+ * @param p1 the runtime argument properties data
+ * @param p2 the runtime argument properties count
  * @param p3 the internal memory data
  * @param p4 the knowledge memory part (pointer reference)
  * @param p5 the stack memory item
@@ -93,6 +95,38 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
     copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+/*??
+    //?? TEST only. Delete later!
+    fwprintf(stdout, L"Information: Handle. fd: %i\n", fd);
+    fwprintf(stdout, L"Information: Handle. *fd: %i\n", *((int*) fd));
+    fwprintf(stdout, L"Information: Handle. mc: %i\n", mc);
+    fwprintf(stdout, L"Information: Handle. *mc: %i\n", *((int*) mc));
+    fwprintf(stdout, L"Information: Handle. pc: %i\n", pc);
+    fwprintf(stdout, L"Information: Handle. *pc: %i\n", *((int*) pc));
+
+    //?? TEST only. Delete later!
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        fwprintf(stdout, L"Information: Handle. p2: %i\n", p2);
+        fwprintf(stdout, L"Information: Handle. *p2: %i\n", *((int*) p2));
+        void* testp = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* testpn = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* testpd = *NULL_POINTER_STATE_CYBOI_MODEL;
+        copy_array_forward((void*) &testp, pd, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        copy_array_forward((void*) &testpn, testp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &testpd, testpn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        fwprintf(stdout, L"Information: Handle. testpd: %ls\n", (wchar_t*) testpd);
+        void* test2p = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* test2pn = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* test2pd = *NULL_POINTER_STATE_CYBOI_MODEL;
+        copy_array_forward((void*) &test2p, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        copy_array_forward((void*) &test2pn, test2p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &test2pd, test2pn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        fwprintf(stdout, L"Information: Handle. test2pd: %ls\n", (wchar_t*) test2pd);
+    } else {
+        fwprintf(stdout, L"Information: Handle. p1 + p2 are null: %i\n", p2);
+    }
+*/
+
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -107,6 +141,29 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
             //
 
             //?? fwprintf(stdout, L"Debug: Handle. cybol path: %i\n", *((int*) fd));
+
+            //
+            // CAUTION! There is a DIFFERENCE in how a part containing a cybol path as model is retrieved:
+            //
+            // 1 Leave cybol path as is
+            //
+            // - used in function "copy_array_forward" identifying a tree node by index
+            // - used in function "get_name_array" identifying a tree node by name
+            // - treats cybol path as pure string
+            // - returns the properties of this cybol path part itself
+            //
+            // 2 Resolve cybol path
+            //
+            // - used in functions "get_part_name", "get_part_knowledge", "deserialise_knowledge" identifying a tree node by path
+            // - resolves the cybol path diving deep into the tree hierarchy
+            // - returns the properties of the tree node that the cybol path points to
+            //
+            // Therefore, different functions are used depending on the purpose:
+            //
+            // - copy_array_forward: get part as compound element to be handed over to "handle", done in "handle_element" and "read_signal"
+            // - get_name_array: get part as model to be handed over to "handle", done in sequence/loop/branch
+            // - get_part_name: retrieve the properties belonging to a cybol operation, done in most applicator functions
+            //
 
             // Copy source path data position.
             copy_pointer((void*) &pathd, (void*) &md);
@@ -126,16 +183,22 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
             //
             deserialise_knowledge((void*) &part, p4, (void*) &pathd, (void*) &pathc, p4, p5, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
+            // Push (add) local variable parts onto stack memory.
+            push(p5, pd, pc, p4, p6);
+
             //
             // Handle signal.
             //
-            // The properties (pd, pc) are handed over to become initial values
-            // for the actual properties belonging to the called compound operation.
+            // The properties (pd, pc) represent runtime arguments
+            // for the called compound operation.
             //
             // A cybol operation called via cybol-path is comparable to a function call
             // in the C programming language that is handing over arguments in parentheses.
             //
             handle(part, pd, pc, p3, p4, p5, p6, p7, p8, p9);
+
+            // Pop (remove) runtime argument parts from stack memory.
+            pop(p5, pc);
         }
     }
 
@@ -157,13 +220,19 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
             //?? fwprintf(stdout, L"Debug: Handle. part element: %i\n", *((int*) fd));
 
+            // Push (add) local variable parts onto stack memory.
+            push(p5, pd, pc, p4, p6);
+
             //
             // Handle compound part signal.
             //
-            // If initial values (p1, p2) exist (not null), then they have been
+            // If runtime arguments (p1, p2) exist (not null), then they have been
             // received before, via a cybol-path calling this compound operation.
             //
             handle_part(md, mc, pd, pc, p1, p2, p3, p4, p5, p6, p7, p8, p9);
+
+            // Pop (remove) runtime argument parts from stack memory.
+            pop(p5, pc);
         }
     }
 

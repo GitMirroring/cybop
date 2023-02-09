@@ -60,6 +60,29 @@ void handle_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle element.");
 
+    //
+    // CAUTION! There is a DIFFERENCE in how a part containing a cybol path as model is retrieved:
+    //
+    // 1 Leave cybol path as is
+    //
+    // - used in function "copy_array_forward" identifying a tree node by index
+    // - used in function "get_name_array" identifying a tree node by name
+    // - treats cybol path as pure string
+    // - returns the properties of this cybol path part itself
+    //
+    // 2 Resolve cybol path
+    //
+    // - used in functions "get_part_name", "get_part_knowledge", "deserialise_knowledge" identifying a tree node by path
+    // - resolves the cybol path diving deep into the tree hierarchy
+    // - returns the properties of the tree node that the cybol path points to
+    //
+    // Therefore, different functions are used depending on the purpose:
+    //
+    // - copy_array_forward: get part as compound element to be handed over to "handle", done in "handle_element" and "read_signal"
+    // - get_name_array: get part as model to be handed over to "handle", done in sequence/loop/branch
+    // - get_part_name: retrieve the properties belonging to a cybol operation, done in most applicator functions
+    //
+
     // The signal part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The comparison result.

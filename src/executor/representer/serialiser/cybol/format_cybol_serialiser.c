@@ -2153,7 +2153,7 @@ void serialise_cybol_format(void* p0, void* p1) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol format. The source cyboi format is unknown.");
         fwprintf(stdout, L"Warning: Could not serialise cybol format. The source cyboi format is unknown. cyboi format p1: %i\n", p1);
-        //?? fwprintf(stdout, L"Warning: Could not serialise cybol format. The source cyboi format is unknown. cyboi format *p1: %i\n", *((int*) p1));
+        fwprintf(stdout, L"Warning: Could not serialise cybol format. The source cyboi format is unknown. cyboi format *p1: %i\n", *((int*) p1));
     }
 }
 

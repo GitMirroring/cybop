@@ -32,17 +32,6 @@
         <node name="move" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-<!--
-    <node name="store_parent" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model="#parent"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".level_1"/>
-        <node name="source_index" channel="inline" format="number/integer" model="1"/>
-        <node name="count" channel="inline" format="number/integer" model="1"/>
-        <!-- CAUTION! The "true" means shallow copy for now. Delete this later, since "true" should be made the DEFAULT in cyboi. -->
-        <node name="move" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
--->
-
     <!-- Test -->
 
     <node name="open_file" channel="inline" format="dispatch/open" model="">

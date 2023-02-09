@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef POP_HANDLER_SOURCE
-#define POP_HANDLER_SOURCE
+#ifndef POPPER_SOURCE
+#define POPPER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -34,11 +34,11 @@
 #include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../controller/handler/pop/part_pop_handler.c"
 #include "../../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
+#include "../../../executor/stacker/popper/part_popper.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -47,10 +47,10 @@
  * @param p0 the stack memory item
  * @param p1 the parts count
  */
-void handle_pop(void* p0, void* p1) {
+void pop(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle pop.");
-    fwprintf(stdout, L"Debug: Handle pop. p1: %i\n", p1);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Pop.");
+    //?? fwprintf(stdout, L"Debug: Pop. p1: %i\n", p1);
     //
     // CAUTION! The parts count may be null, since runtime arguments exist only
     // for compound logic operations called via "text/cybol-path" but NOT for
@@ -58,7 +58,7 @@ void handle_pop(void* p0, void* p1) {
     //
     // Therefore, comment out this test log message.
     //
-    //?? fwprintf(stdout, L"Debug: Handle pop. *p1: %i\n", *((int*) p1));
+    //?? fwprintf(stdout, L"Debug: Pop. *p1: %i\n", *((int*) p1));
     //
 
     //
@@ -124,7 +124,7 @@ void handle_pop(void* p0, void* p1) {
         } else {
 
             // Pop (remove) part from stack memory.
-            handle_pop_part(p0, smd, (void*) &j);
+            pop_part(p0, smd, (void*) &j);
 
             // Decrement loop variable.
             j--;
@@ -132,5 +132,5 @@ void handle_pop(void* p0, void* p1) {
     }
 }
 
-/* POP_HANDLER_SOURCE */
+/* POPPER_SOURCE */
 #endif

@@ -26,12 +26,18 @@
 #ifndef BRANCH_SOURCE
 #define BRANCH_SOURCE
 
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/part_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/name/cybol/logic/flow/branch_flow_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
+#include "../../executor/copier/array_copier.c"
 #include "../../logger/logger.c"
 
 //
@@ -70,9 +76,19 @@ void apply_branch(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     // The criterion part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The true part properties item.
+    void* tp = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The false part properties item.
+    void* fp = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The criterion part model item data.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The true part properties item data, count.
+    void* tpd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* tpc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The false part properties item data, count.
+    void* fpd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* fpc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // Retrieval
@@ -87,9 +103,19 @@ void apply_branch(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     // Get criterion part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get true part properties item.
+    copy_array_forward((void*) &tp, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
+    // Get false part properties item.
+    copy_array_forward((void*) &fp, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
     // Get criterion part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get true part properties item data, count.
+    copy_array_forward((void*) &tpd, tp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &tpc, tp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Get false part properties item data, count.
+    copy_array_forward((void*) &fpd, fp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &fpc, fp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     //
     // Functionality
@@ -115,12 +141,12 @@ void apply_branch(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // The criterion is true. Handle true model.
-        handle(t, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p2, p3, p5, p6, (void*) &x, p7);
+        handle(t, tpd, tpc, p4, p2, p3, p5, p6, (void*) &x, p7);
 
     } else {
 
         // The criterion is false. Handle false model.
-        handle(f, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p2, p3, p5, p6, (void*) &x, p7);
+        handle(f, fpd, fpc, p4, p2, p3, p5, p6, (void*) &x, p7);
     }
 }
 

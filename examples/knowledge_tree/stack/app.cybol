@@ -6,19 +6,18 @@
 
     <node name="stack_pointer_index" channel="inline" format="number/integer" model="0"/>
 
+    <node name="subroutine" channel="file" format="element/part" model="knowledge_tree/stack/subroutine.cybol">
+        <node name="TEST" channel="inline" format="text/plain" model="TEST Text"/>
+    </node>
+
     <node name="print" channel="file" format="element/part" model="knowledge_tree/stack/print.cybol">
 
         <node name="destination_integer" channel="inline" format="number/integer" model=""/>
         <node name="source_integer" channel="inline" format="number/integer" model="3,4,5,6,7,8,9"/>
 
         <node name="text_1" channel="inline" format="text/plain" model="This is text 1."/>
-<!--
-        <node name="parent" channel="inline" format="element/part" model=""/>
--->
         <node name="text_2" channel="inline" format="text/plain" model="This is text 2."/>
 
     </node>
-
-    <node name="TEST_REFERENCE" channel="inline" format="element/reference" model=".level_1"/>
 
 </node>

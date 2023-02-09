@@ -23,16 +23,16 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PUSH_HANDLER_SOURCE
-#define PUSH_HANDLER_SOURCE
+#ifndef PUSHER_SOURCE
+#define PUSHER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../controller/handler/push/part_push_handler.c"
 #include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
+#include "../../../executor/stacker/pusher/part_pusher.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -44,10 +44,10 @@
  * @param p3 the knowledge memory part (pointer reference)
  * @param p4 the internal memory data
  */
-void handle_push(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void push(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle push.");
-    fwprintf(stdout, L"Debug: Handle push. p2: %i\n", p2);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Push.");
+    //?? fwprintf(stdout, L"Debug: Push. p2: %i\n", p2);
     //
     // CAUTION! The parts count may be null, since runtime arguments exist only
     // for compound logic operations called via "text/cybol-path" but NOT for
@@ -55,7 +55,7 @@ void handle_push(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //
     // Therefore, comment out this test log message.
     //
-    //?? fwprintf(stdout, L"Debug: Handle push. *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Push. *p2: %i\n", *((int*) p2));
     //
 
     // The break flag.
@@ -95,12 +95,12 @@ void handle_push(void* p0, void* p1, void* p2, void* p3, void* p4) {
         }
 
         // Push (add) part onto stack memory.
-        handle_push_part(p0, p1, (void*) &j, p3, p4);
+        push_part(p0, p1, (void*) &j, p3, p4);
 
         // Increment loop variable.
         j++;
     }
 }
 
-/* PUSH_HANDLER_SOURCE */
+/* PUSHER_SOURCE */
 #endif

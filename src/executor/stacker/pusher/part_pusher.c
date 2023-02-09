@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_PUSH_HANDLER_SOURCE
-#define PART_PUSH_HANDLER_SOURCE
+#ifndef PART_PUSHER_SOURCE
+#define PART_PUSHER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -34,8 +34,8 @@
 #include "../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../controller/handler/push/model_push_handler.c"
 #include "../../../executor/copier/array_copier.c"
+#include "../../../executor/stacker/pusher/model_pusher.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -47,9 +47,9 @@
  * @param p3 the knowledge memory part (pointer reference)
  * @param p4 the internal memory data
  */
-void handle_push_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void push_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle push part.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Push part.");
 
     //
     // Declaration
@@ -94,8 +94,8 @@ void handle_push_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //
 
     // Prepare part model for push onto stack memory.
-    handle_push_model(p0, (void*) &p, pnd, pnc, pfd, pmd, pmc, p3, p4);
+    push_model(p0, (void*) &p, pnd, pnc, pfd, pmd, pmc, p3, p4);
 }
 
-/* PART_PUSH_HANDLER_SOURCE */
+/* PART_PUSHER_SOURCE */
 #endif

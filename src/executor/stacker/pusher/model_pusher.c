@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MODEL_PUSH_HANDLER_SOURCE
-#define MODEL_PUSH_HANDLER_SOURCE
+#ifndef MODEL_PUSHER_SOURCE
+#define MODEL_PUSHER_SOURCE
 
 #include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/format/cyboi/state_cyboi_format.c"
@@ -51,11 +51,11 @@
  * @param p7 the knowledge memory part (pointer reference)
  * @param p8 the internal memory data
  */
-void handle_push_model(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void push_model(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle push model.");
-    fwprintf(stdout, L"Debug: Handle push model. p4: %i\n", p4);
-    fwprintf(stdout, L"Debug: Handle push model. *p4: %i\n", *((int*) p4));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Push model.");
+    //?? fwprintf(stdout, L"Debug: Push model. p4: %i\n", p4);
+    //?? fwprintf(stdout, L"Debug: Push model. *p4: %i\n", *((int*) p4));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -84,7 +84,7 @@ void handle_push_model(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         // The source part IS a pointer reference.
         //
 
-        fwprintf(stdout, L"Debug: Handle push model. inside reference element p4: %i\n", p4);
+        //?? fwprintf(stdout, L"Debug: Push model. pointer reference p4: %i\n", p4);
 
         // The source model data position.
         void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -152,5 +152,5 @@ void handle_push_model(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     modify_item(p0, (void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 }
 
-/* MODEL_PUSH_HANDLER_SOURCE */
+/* MODEL_PUSHER_SOURCE */
 #endif

@@ -26,12 +26,18 @@
 #ifndef SEQUENCE_SOURCE
 #define SEQUENCE_SOURCE
 
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/part_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/name/cybol/logic/flow/sequence_flow_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
+#include "../../executor/copier/array_copier.c"
 #include "../../logger/logger.c"
 
 //
@@ -64,12 +70,26 @@ void apply_sequence(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     // The model part.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    // The model part properties item.
+    void* mp = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // The model part properties item data, count.
+    void* mpd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* mpc = *NULL_POINTER_STATE_CYBOI_MODEL;
+
     //
     // Retrieval
     //
 
     // Get model part.
     get_part_name((void*) &m, p0, (void*) MODEL_SEQUENCE_FLOW_LOGIC_CYBOL_NAME, (void*) MODEL_SEQUENCE_FLOW_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+
+    // Get model part properties item.
+    copy_array_forward((void*) &mp, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
+
+    // Get model part properties item data, count.
+    copy_array_forward((void*) &mpd, mp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &mpc, mp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     //
     // Default values
@@ -96,7 +116,7 @@ void apply_sequence(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     //
 
     // Handle model as new operation.
-    handle(m, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p2, p3, p5, p6, (void*) &x, p7);
+    handle(m, mpd, mpc, p4, p2, p3, p5, p6, (void*) &x, p7);
 }
 
 /* SEQUENCE_SOURCE */
