@@ -45,22 +45,18 @@
  *
  * @param p0 the signal model data (operation)
  * @param p1 the signal model count
- * @param p2 the signal properties representing local variable data
- * @param p3 the signal properties representing local variable count
- * @param p4 the cybol-path properties representing runtime argument data
- * @param p5 the cybol-path properties representing runtime argument count
- * @param p6 the internal memory data
- * @param p7 the knowledge memory part (pointer reference)
- * @param p8 the stack memory item
- * @param p9 the signal memory item
- * @param p10 the internal memory data (pointer reference)
- * @param p11 the direct execution flag
- * @param p12 the shutdown flag
+ * @param p2 the internal memory data
+ * @param p3 the knowledge memory part (pointer reference)
+ * @param p4 the stack memory item
+ * @param p5 the signal memory item
+ * @param p6 the internal memory data (pointer reference)
+ * @param p7 the direct execution flag
+ * @param p8 the shutdown flag
  */
-void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle part.");
-    //?? fwprintf(stdout, L"Debug: Handle part. p12: %i\n", p12);
+    //?? fwprintf(stdout, L"Debug: Handle part. p8: %i\n", p8);
 
     //
     // Declaration
@@ -115,7 +111,7 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
             break;
         }
 
-        handle_element(p0, (void*) &j, p6, p7, p8, p9, p10, p11, p12);
+        handle_element(p0, (void*) &j, p2, p3, p4, p5, p6, p7, p8);
 
         // Increment loop variable.
         j++;

@@ -22,6 +22,8 @@
 
         * Move stack handling from directory "controller/handler/" to "executor/stacker/" with sub directories "pusher" and "popper"
         * Store stack variables in file "handler.c" instead of in "part_handler.c", so that they are considered in path call chains
+        * Remove runtime argument parametres in file "handler.c" and related functions, since they get retrieved in function "handle"
+        * Use function "get_name_array" instead of "get_part_name" (resolving path) in flow applicators that call the handle function, so that runtime argument properties of the path (and not tree node) are considered
 
 2023-02-07  Christian Heller  <christian.heller@cybop.org>
 

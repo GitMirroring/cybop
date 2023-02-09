@@ -44,7 +44,7 @@
 // Forward declarations
 //
 
-void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9);
+void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
  * Executes the given programme flow as sequence.
@@ -70,26 +70,35 @@ void apply_sequence(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     // The model part.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The model part properties item.
-    void* mp = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // The model part properties item data, count.
-    void* mpd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* mpc = *NULL_POINTER_STATE_CYBOI_MODEL;
-
     //
     // Retrieval
     //
 
+    //
+    // CAUTION! There is a DIFFERENCE in how a part containing a cybol path as model is retrieved:
+    //
+    // 1 Leave cybol path as is
+    //
+    // - used in function "copy_array_forward" identifying a tree node by index
+    // - used in function "get_name_array" identifying a tree node by name
+    // - treats cybol path as pure string
+    // - returns the properties of this cybol path part itself
+    //
+    // 2 Resolve cybol path
+    //
+    // - used in functions "get_part_name", "get_part_knowledge", "deserialise_knowledge" identifying a tree node by path
+    // - resolves the cybol path diving deep into the tree hierarchy
+    // - returns the properties of the tree node that the cybol path points to
+    //
+    // Therefore, different functions are used depending on the purpose:
+    //
+    // - copy_array_forward: get part as compound element to be handed over to "handle", done in "handle_element" and "read_signal"
+    // - get_name_array: get part as model to be handed over to "handle", done in sequence/loop/branch
+    // - get_part_name: retrieve the properties belonging to a cybol operation, done in most applicator functions
+    //
+
     // Get model part.
-    get_part_name((void*) &m, p0, (void*) MODEL_SEQUENCE_FLOW_LOGIC_CYBOL_NAME, (void*) MODEL_SEQUENCE_FLOW_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-
-    // Get model part properties item.
-    copy_array_forward((void*) &mp, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
-
-    // Get model part properties item data, count.
-    copy_array_forward((void*) &mpd, mp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &mpc, mp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    get_name_array((void*) &m, p0, (void*) MODEL_SEQUENCE_FLOW_LOGIC_CYBOL_NAME, (void*) MODEL_SEQUENCE_FLOW_LOGIC_CYBOL_NAME_COUNT, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     //
     // Default values
@@ -116,7 +125,7 @@ void apply_sequence(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     //
 
     // Handle model as new operation.
-    handle(m, mpd, mpc, p4, p2, p3, p5, p6, (void*) &x, p7);
+    handle(m, p4, p2, p3, p5, p6, (void*) &x, p7);
 }
 
 /* SEQUENCE_SOURCE */
