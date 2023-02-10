@@ -21,22 +21,22 @@ _______________
 Stack
 _____
 
+        * Reactivate "modify_part(... REMOVE_MODIFY_LOGIC_CYBOI_FORMAT ...)" in file "applicator/modify/deep_modify.c"
+            OR use a workaround
+        * Adapt "move" flag for operation "modify/overwrite" copying values to stack in cybol application "knowledge_tree/stack/"
+
         * Try accessing #parent in cybol applications
         * Test standard path like ".xdt.[#record_index]" and "#parent.[0].[#field_index]"
             if this does NOT work:
             - write down the arguments as documentation
             - use an alternative path syntax like ".xdt@[#record_index]" and "#parent.[0]@[#field_index]" to access the INNER element
 
-        * Can the operation "modify/empty" be eliminated when invoking the called operation in the loop in each cycle again and putting its variables on the stack anew ??
+        * Can the operation "modify/empty" be eliminated in cybol application "knowledge_tree/stack/" when invoking the called operation in the loop in each cycle again and putting its variables on the stack anew ??
 
         * Eliminate or change files in directory "executor/verifier/" and find better solution, since they hinder execution of array functions in some cases
             report ALL errors (uncomment log messages)
             add separate branch for operation "overwrite" in file "verify_modifier.c"
         * Delete setting of comparison result r to "true" following function call "modify_verify" in file "item_modifier.c"
-
-        * Reactivate "modify_part(... REMOVE_MODIFY_LOGIC_CYBOI_FORMAT ...)" in file "applicator/modify/deep_modify.c"
-            OR use a workaround
-        * Adapt "move" flag for operation "modify/overwrite" copying values to stack in cybol application "knowledge_tree/stack/"
 
         ADD AS COMMENT to source code related to stack:
 
