@@ -37,6 +37,7 @@
 #include "../../constant/name/cybol/logic/flow/loop_flow_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
+#include "../../executor/accessor/name_getter/array_name_getter.c"
 #include "../../executor/copier/array_copier.c"
 #include "../../logger/logger.c"
 
@@ -62,7 +63,7 @@ void apply_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply loop.");
-    fwprintf(stdout, L"Information: Apply loop. p7: %i\n", p7);
+    //?? fwprintf(stdout, L"Information: Apply loop. p7: %i\n", p7);
 
     //
     // Declaration
@@ -109,7 +110,7 @@ void apply_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     // Get model part.
     get_name_array((void*) &m, p0, (void*) MODEL_LOOP_FLOW_LOGIC_CYBOL_NAME, (void*) MODEL_LOOP_FLOW_LOGIC_CYBOL_NAME_COUNT, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     // Get break part.
-    get_name_array((void*) &b, p0, (void*) BREAK_LOOP_FLOW_LOGIC_CYBOL_NAME, (void*) BREAK_LOOP_FLOW_LOGIC_CYBOL_NAME_COUNT, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    get_part_name((void*) &b, p0, (void*) BREAK_LOOP_FLOW_LOGIC_CYBOL_NAME, (void*) BREAK_LOOP_FLOW_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get break part model item.
     copy_array_forward((void*) &bm, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -169,12 +170,12 @@ void apply_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
             // The break flag is FALSE (not set).
             //
 
-            fwprintf(stdout, L"Information: Apply loop. before handle: %i\n", br);
+            //?? fwprintf(stdout, L"Information: Apply loop. before handle: %i\n", br);
 
             // Handle the model as new operation.
             handle(m, p4, p2, p3, p5, p6, (void*) &x, p7);
 
-            fwprintf(stdout, L"Information: Apply loop. after handle: %i\n", br);
+            //?? fwprintf(stdout, L"Information: Apply loop. after handle: %i\n", br);
         }
     }
 }

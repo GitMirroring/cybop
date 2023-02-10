@@ -21,8 +21,6 @@ _______________
 Stack
 _____
 
-        * Check if NAME of part reference stored in stack can be renamed WITHOUT changing the name of the original node in the knowledge tree
-
         * Try accessing #parent in cybol applications
         * Test standard path like ".xdt.[#record_index]" and "#parent.[0].[#field_index]"
             if this does NOT work:

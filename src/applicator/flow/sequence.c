@@ -37,6 +37,7 @@
 #include "../../constant/name/cybol/logic/flow/sequence_flow_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
+#include "../../executor/accessor/name_getter/array_name_getter.c"
 #include "../../executor/copier/array_copier.c"
 #include "../../logger/logger.c"
 
