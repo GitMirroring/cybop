@@ -26,17 +26,22 @@
 #ifndef XDT_FIELD_DESCRIPTION_SERIALISER_SOURCE
 #define XDT_FIELD_DESCRIPTION_SERIALISER_SOURCE
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/xdt/field_description_xdt_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Serialises source xdt field identification into xdt field description.
  *
- * @param p0 the destination item
- * @param p1 the source data
+ * @param p0 the destination wide character item
+ * @param p1 the source field identification integer data
  */
 void serialise_xdt_field_description(void* p0, void* p1) {
 
@@ -100038,6 +100043,8 @@ void serialise_xdt_field_description(void* p0, void* p1) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xdt field description. The field identification is not known.");
+        fwprintf(stdout, L"Warning: Could not serialise xdt field description. The field identification is not known. p1: %i\n", p1);
+        fwprintf(stdout, L"Warning: Could not serialise xdt field description. The field identification is not known. *p1: %i\n", *((int*) p1));
 
         // Add warning text by default.
         modify_item(p0, (void*) ID_0_FIELD_DESCRIPTION_XDT_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ID_0_FIELD_DESCRIPTION_XDT_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);

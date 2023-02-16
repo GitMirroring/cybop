@@ -46,7 +46,7 @@
 #include "../../../executor/representer/serialiser/terminal_mode/terminal_mode_serialiser.c"
 //?? #include "../../../executor/representer/serialiser/textline_list/textline_list_serialiser.c"
 #include "../../../executor/representer/serialiser/tui/constraints_tui_serialiser.c"
-//?? #include "../../../executor/representer/serialiser/xdt_field_description/xdt_field_description_serialiser.c"
+#include "../../../executor/representer/serialiser/xdt_field_description/xdt_field_description_serialiser.c"
 #include "../../../executor/representer/serialiser/xdt/xdt_serialiser.c"
 //
 // CAUTION! The xml serialiser is used e.g. in the cybol serialiser.
@@ -350,7 +350,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             // The xDT de-/serialisation should be moved
             // into a library in the future.
             //
-            //?? serialise_xdt_field_description(p0, p8);
+            serialise_xdt_field_description(p0, p1);
         }
     }
 

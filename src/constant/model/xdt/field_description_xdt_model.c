@@ -12229,9 +12229,9 @@ static int* ID_3049_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_
 /** The id 3050 field description xdt model. */
 static wchar_t* ID_3050_FIELD_DESCRIPTION_XDT_MODEL = L"Kürzel / lfd. Nr.";
 static int* ID_3050_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-F
-    /** The id 3051 field description xdt model. */
-    static wchar_t* ID_3051_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
+
+/** The id 3051 field description xdt model. */
+static wchar_t* ID_3051_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_3051_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 3052 field description xdt model. */
@@ -20280,11 +20280,11 @@ static int* ID_5062_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_6_INTEGER_STATE_C
 
 /** The id 5063 field description xdt model. */
 static wchar_t* ID_5063_FIELD_DESCRIPTION_XDT_MODEL = L"Betrag";
-static int* ID_5063_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_6F_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* ID_5063_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5064 field description xdt model. */
 static wchar_t* ID_5064_FIELD_DESCRIPTION_XDT_MODEL = L"Endsumme Privatrechnung";
-static int* ID_5064_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* ID_5064_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5065 field description xdt model. */
 static wchar_t* ID_5065_FIELD_DESCRIPTION_XDT_MODEL = L"Punktwert";
@@ -24836,7 +24836,7 @@ static int* ID_6201_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_41_INTEGER_STATE_
 
 /** The id 6202 field description xdt model. */
 static wchar_t* ID_6202_FIELD_DESCRIPTION_XDT_MODEL = L"Bis-Zeit";
-static int* ID_6202_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_8F_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* ID_6202_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 6203 field description xdt model. */
 static wchar_t* ID_6203_FIELD_DESCRIPTION_XDT_MODEL = L"Dateiformat";
@@ -28452,7 +28452,7 @@ static int* ID_7105_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_
 
 /** The id 7106 field description xdt model. */
 static wchar_t* ID_7106_FIELD_DESCRIPTION_XDT_MODEL = L"PLZ und Wohnort";
-static int* ID_7106_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_15_INTEFGER_STATE_CYBOI_MODEL_ARRAY;
+static int* ID_7106_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 7107 field description xdt model. */
 static wchar_t* ID_7107_FIELD_DESCRIPTION_XDT_MODEL = L"Straße";

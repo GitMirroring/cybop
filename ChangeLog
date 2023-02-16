@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-02-16  Christian Heller  <christian.heller@cybop.org>
+
+        * Reactivate xdt field description serialiser
+
 2023-02-09  Christian Heller  <christian.heller@cybop.org>
 
         * Move stack handling from directory "controller/handler/" to "executor/stacker/" with sub directories "pusher" and "popper"

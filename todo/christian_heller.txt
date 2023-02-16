@@ -11,6 +11,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+Serialisation
+_____________
+
+        * Check if deserialisation of integer number from text works using cybol operation "represent/deserialise"
+
 Signal handling
 _______________
 
