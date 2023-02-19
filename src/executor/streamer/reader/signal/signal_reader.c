@@ -56,8 +56,6 @@ void read_signal(void* p0, void* p1, void* p2, void* p3) {
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The signal part.
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     compare_integer_greater((void*) &r, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
@@ -87,26 +85,22 @@ void read_signal(void* p0, void* p1, void* p2, void* p3) {
         //
 
         //
-        // Get signal part from position index ZERO.
+        // Append source signal memory part (signal or event) at
+        // position index ZERO to destination signal item.
         //
         // CAUTION! The signal memory item's count is checked inside.
         // If it is smaller or equal to the given zero index,
         // then the signal part is NOT changed and remains NULL.
         //
-        copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-        //
-        // Add signal part to destination item.
-        //
-        // CAUTION! Do NOT use overwrite but rather APPENDED instead,
-        // in order to avoid deletion of already existing signals
-        // in the destination.
-        //
         // CAUTION! Use simple POINTER_STATE_CYBOI_TYPE and NOT PART_ELEMENT_STATE_CYBOI_TYPE here.
         // The signal memory just holds references to knowledge memory parts (signals),
-        // but only the knowledge memory may care about rubbish (garbage) collection.
+        // but only the knowledge memory may care about rubbish (garbage) collection (gc).
+        //
+        // CAUTION! Do NOT use overwrite but rather APPEND here, in order to
+        // avoid deletion of already existing signals in the destination.
         //
         // Example:
+        //
         // Assume there are two signals in the signal memory.
         // The second references a logic part that is to be destroyed by the first.
         // If reference counting from rubbish (garbage) collection were used,
@@ -115,11 +109,11 @@ void read_signal(void* p0, void* p1, void* p2, void* p3) {
         //
         // But probably, there is a reason the first signal wants to destroy the
         // second and consequently, the second should not be executed anymore.
-        // After destruction, the second signal just points to null, which is ignored.
-        // Hence, rubbish (garbage) collection would only disturb here
+        // After destruction, the second signal just points to null, which is IGNORED.
+        // Hence, rubbish (garbage) collection (gc) would only disturb here
         // and should be left to the knowledge memory.
         //
-        modify_item(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+        modify_item(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
         // Set eof-or-close flag.
         copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

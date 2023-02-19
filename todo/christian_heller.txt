@@ -11,13 +11,6 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-Signal handling
-_______________
-
-        * Remove local variable "s" and merge two functions "copy_array_forward" and "modify_item" into just "modify_item", with p0 (signal) as destination and p1 (signal memory) as source, in file "signal_reader.c"
-
-        * Rename "signal" into "event" ??
-
 Loop
 ____
 
