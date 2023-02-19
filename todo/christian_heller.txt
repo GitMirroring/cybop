@@ -11,17 +11,43 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-Serialisation
-_____________
-
-        * Check if deserialisation of integer number from text works using cybol operation "represent/deserialise"
-
 Signal handling
 _______________
 
         * Remove local variable "s" and merge two functions "copy_array_forward" and "modify_item" into just "modify_item", with p0 (signal) as destination and p1 (signal memory) as source, in file "signal_reader.c"
 
         * Rename "signal" into "event" ??
+
+Loop
+____
+
+        * Hand over break flag to called loop model being executed by handler
+        * Forward break flag from handler to function "handle_part"
+        * Do TWO "if" checks in each loop cycle: (index > part_count) and (break != FALSE)
+
+        //
+        // CAUTION! Normally, the WHOLE loop model with ALL its operations would be executed
+        // before realising in file "applicator/flow/loop.c" that the break flag is set.
+        // This corresponds to a test-last-loop. It is therefore necessary to check
+        // the break condition once BEFORE calling the loop in cybol source code.
+        //
+        // <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        //     <node name="result" channel="inline" format="text/cybol-path" model="#break"/>
+        //     <node name="left" channel="inline" format="text/cybol-path" model="#index"/>
+        //     <node name="right" channel="inline" format="text/cybol-path" model="#count"/>
+        // </node>
+        //
+        // There are two reasons to check the break flag after EACH operation:
+        //
+        // 1 Avoid additional check of break condition before calling "flow/loop" in cybol
+        // 2 Being able to leave the loop at each step in cybol
+        //
+        // Therefore, the break flag gets handed over to the called loop model
+        // being executed by the handler and forwarded to function "handle_part".
+        // It is there that TWO "if" checks are done in each loop cycle:
+        // 1 (index > part_count)
+        // 2 (break != FALSE)
+        //
 
 Stack
 _____

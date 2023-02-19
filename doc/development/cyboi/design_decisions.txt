@@ -59,6 +59,7 @@ Sending / Writing Data
 Storing Models in JSON
 Beispiel lexikalisch im Gegensatz zu dynamisch
 Super
+Recursion via Stack Variables
 
 MIME Types
 __________
@@ -143,9 +144,8 @@ Is it possible to combine operands of type "integer" and "double" for an arithme
 Example:
     <!-- This example cuts off decimal places of the resulting number, since integer is used as type. -->
     <node name="divide" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/divide" model="">
-        <node name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".result"/>
+        <node name="result" channel="inline" encoding="utf-8" language="text/cybol" format="text/cybol-path" model=".result"/>
         <node name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="2"/>
-        <node name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
     </node>
 
 Answer:
@@ -449,9 +449,9 @@ HTTP:
 - message
 
     <node name="send_http_request" channel="inline" format="communicate/send" model="">
-        <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".app.var.server_socket"/>
         <node name="message" channel="inline" format="text/plain" model="sayhello"/>
-        <node name="metadata" channel="inline" format="path/knowledge" model=".app.var.metadata"/>
+        <node name="metadata" channel="inline" format="text/cybol-path" model=".app.var.metadata"/>
         <node name="compression" channel="inline" format="meta/compression" model="application/zip"/>
         <node name="compression" channel="inline" format="meta/compression" model="application/octet-stream"/> <!-- .arc, .ark, .sue -->
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -466,13 +466,13 @@ FTP:
 - each transfer requires a secondary connection (different port) through which the data is transferred
 
     <node name="send_ftp_command" channel="inline" format="communicate/send" model="">
-        <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".app.var.server_socket"/>
         <node name="message" channel="inline" format="text/plain" model="DELE"/>
         <node name="language" channel="inline" format="meta/language" model="message/ftp-control"/>
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
     </node>
     <node name="send_ftp_data" channel="inline" format="communicate/send" model="">
-        <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".app.var.server_socket"/>
         <node name="message" channel="inline" format="text/plain" model="somefile.bla"/>
         <node name="language" channel="inline" format="meta/language" model="message/ftp-data"/>
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
@@ -551,12 +551,12 @@ Three possible options for using local variables on stack have been evaluated:
 
 1 Manual Creation with Special Operation "memorise/push"
 
-    <node name="create_stack_variables" channel="inline" format="memorise/push" model="">
-        <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="index" channel="inline" format="number/integer" model="1"/>
-        <node name="count" channel="inline" format="number/integer" model="10"/>
-        <node name="model" channel="file" format="element/part" model="counter_stack/model.cybol"/>
-    </node>
+<node name="create_stack_variables" channel="inline" format="memorise/push" model="">
+    <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="index" channel="inline" format="number/integer" model="1"/>
+    <node name="count" channel="inline" format="number/integer" model="10"/>
+    <node name="model" channel="file" format="element/part" model="counter_stack/model.cybol"/>
+</node>
 
 Problem: The variables would have to be destroyed manually as well.
 If forgotten, they might cause memory leaks.
@@ -565,29 +565,25 @@ cybol operation seems complicated and annoying.
 
 2 Part Properties
 
-    <node name="logic" channel="file" format="element/part" model="counter_stack/logic.cybol">
-        <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="index" channel="inline" format="number/integer" model="1"/>
-        <node name="count" channel="inline" format="number/integer" model="10"/>
-        <node name="model" channel="file" format="element/part" model="counter_stack/model.cybol"/>
-    </node>
+<node name="logic" channel="file" format="element/part" model="counter_stack/logic.cybol">
+    <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="index" channel="inline" format="number/integer" model="1"/>
+    <node name="count" channel="inline" format="number/integer" model="10"/>
+    <node name="model" channel="file" format="element/part" model="counter_stack/model.cybol"/>
+</node>
 
 This is the current solution. It is only usable for compound logic parts
-that have been defined beforehand in a cybol logic file.
+that have been defined beforehand in a cybol logic file. It corresponds
+to local variables of a function in classical programming languages.
 
 3 Runtime Initial Values
 
-    <node name="execute_logic" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic"/>
-    </node>
+<node name="execute_logic" channel="inline" format="flow/sequence" model="">
+    <node name="model" channel="inline" format="text/cybol-path" model=".app.logic"/>
+</node>
 
-Possibly implemented in the future.
-
-A pointer reference of a knowledge part gets always copied as SHALLOW copy to
-the stack memory. The reference counter of the rubbish (garbage) collection (gc)
-gets incremented when being copied to the stack and decremented again when
-being removed from the stack in file "part_handler.c".
-So, there is NO problem with garbage collection and stack management.
+Handing over values at runtime. It corresponds to parametre/argument variables
+of a function in classical programming languages.
 
 Knowledge Path
 ______________
@@ -1496,4 +1492,106 @@ it IS necessary to overwrite a colour value, for example when selecting
 In this case, the cybol-path would be OVERWRITTEN with a terminal colour value.
 Therefore, using a cybol-path is NOT recommended, since each gui component
 should have its very own property values.
+
+Recursion via Stack Variables
+_____________________________
+
+When reading a data format with hierarchical elements of whom is not known,
+how deep the hierarchy will be, then RECURSION is definitely necessary.
+
+Even though the final solution in CYBOI is quite easy to use,
+the way finding it was not. It took me two weeks of intensive thinking.
+
+Here are some reflexions on the topic:
+
+1 Format "number/pointer"
+
+- storing pointer directly in CYBOI
+- neither possible nor wanted in CYBOL
+- advantage that direct manipulation of memory is not possible
+- access happens through tree paths only
+- other solution would not be possible, since primitive operations expect simple tree paths as parametre
+--> direct pointer storeage not possible
+
+2 Changing Tree Path
+
+- inefficient since "modify/append" has to be called frequently
+- only one index is available in stack, but does not match for each subnode
+- example: .test.a[x].b[y].c[z]
+- all different indices would have to be stored on stack for each tree level
+- but the number of levels is unpredictable with recursion
+- therefore, tree path manipulation does not suffice
+--> storage of an "element/part" pointer on stack is inevitable
+
+3 Accessing a Part Pointer via Tree Path
+
+- given as property being stored as stack variable
+- using names such as "parent" or "super" or "ref"
+- or via tree path using separator "@"
+--> access via classical tree path without new separator preferred
+
+4 Accessing a Part Pointer via "modify/overwrite"
+
+<node name="record" channel="file" format="element/part" model="xdt2html/logic/translate/record.cybol">
+    <!-- The parent node for recursion of compound fields -->
+    <node name="parent" channel="inline" format="element/part" model=""/>
+</node>
+
+<!-- Stacking -->
+<node name="store_record_as_parent" channel="inline" format="modify/overwrite" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model="#parent"/>
+    <node name="source" channel="inline" format="text/cybol-path" model=".xdt"/>
+    <node name="source_index" channel="inline" format="text/cybol-path" model="#record_index"/>
+    <!-- Copy only one pointer. -->
+    <node name="count" channel="inline" format="number/integer" model="1"/>
+    <!-- CAUTION! The "true" means shallow copy for now. Delete this later, since "true" should be made the DEFAULT in cyboi. -->
+    <node name="move" channel="inline" format="logicvalue/boolean" model="true"/>
+</node>
+
+- somewhat complicated due to necessary call of "modify/overwrite" in sub function
+- works fine for copying the pointer reference to a part
+- however, not usable, since the "parent" stack variable gets overwritten each time
+- after having finished the sub function, the old parent value is not available anymore and lost
+- therefore, following elements in a list can not be processed anymore
+
+5 Introduce new format "element/reference"
+
+<node name="loop_fields" channel="inline" format="text/cybol-path" model=".logic.translate.fields">
+    <node name="parent" channel="inline" format="element/reference" model="#parent.[.stack_pointer_index].[#record_index]"/>
+</node>
+
+- does not work with format "text/cybol-path" since that is treated and stored on stack as string
+- when format "element/reference" is found, then the path gets resolved at runtime in handler
+- references that element via tree path which is to become the new parent node
+- stores internal pointer reference (and not just path) to a part as shallow copy on stack memory
+--> best solution
+
+6 Tree Path Syntax Extension for Stack Variable Access
+
+- example:
+    <node name="parent" channel="inline" format="element/reference" model="#parent.[.stack_pointer_index].[#record_index]"/>
+- the stack variable "parent" stores a pointer as reference to its first child part
+- therefore, an index like [.stack_pointer_index] has to be given, which is set to zero by default
+- this is somewhat tedious and an easier solution desirable
+- perhaps the knowledge tree path syntax could be extended
+- for example by a separator "@" to access the first child automatically
+- example:
+    <node name="parent" channel="inline" format="element/reference" model="#parent@[#record_index]"/>
+- the knowledge path deserialiser would have to be adapted for this
+--> currently not implemented, since it would blow up and complicate the tree path syntax
+
+7 Separate Pointer Pool Memory
+
+- heap for global knowledge tree; stack as buffer for local parametres of compound operations
+- question: introduce a separate reference memory for pointers to parts (objects)?
+- storing all direct pointers in parallel to stack memory
+- complicated and not desirable
+--> better use existing stack memory
+
+8 Hierarchy of Property Values
+
+- in this order: 1 super, 2 local, 3 cybol-path
+- super is not useful for operations
+- local parametres and cybol-path properties can be treated the same
+--> nothing special needed, just use standard properties
 
