@@ -85,7 +85,6 @@
         <li>serialisation/csv/</li>
         <li>serialisation/json/</li>
         <li>serialisation/xml/</li>
-        <li>examples/resmedicinae/ moved here from former project "resmedicinae"</li>
     </ul>
     <h3>Specification:</h3>
     <ul>

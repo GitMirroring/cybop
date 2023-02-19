@@ -855,7 +855,6 @@
 
         * Move directories "api", "schema", "syntax" from "doc/books/cybol/" to "doc/cybol/"
         * Move generation application files from directory "doc/books/cybol/api/" to "tools/api-generator/"
-        * Copy cybol applications from project "resmedicinae" to "examples/resmedicinae/"
         * Make api generator in directory "tools/api-generator/" work again
         * Add minor files for manual and documentation
         * Add directory "executor/modifier/stripper/

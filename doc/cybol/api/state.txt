@@ -5,6 +5,7 @@ colour/rgb
 colour/terminal
 element/part
 element/property
+element/reference
 image/gif
 image/jpeg
 image/png
