@@ -63,8 +63,9 @@
  * @param p5 the internal memory data (pointer reference)
  * @param p6 the direct execution flag
  * @param p7 the shutdown flag
+ * @param p8 the cybol loop break property
  */
-void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle.");
@@ -167,7 +168,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
             // A cybol operation called via cybol-path is comparable to a function call
             // in the C programming language that is handing over arguments in parentheses.
             //
-            handle(part, p1, p2, p3, p4, p5, p6, p7);
+            handle(part, p1, p2, p3, p4, p5, p6, p7, p8);
 
             // Pop (remove) runtime argument parts from stack memory.
             pop(p3, pc);
@@ -196,7 +197,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
             push(p3, pd, pc, p2, p5);
 
             // Handle compound part signal.
-            handle_part(md, mc, p1, p2, p3, p4, p5, p6, p7);
+            handle_part(md, mc, p1, p2, p3, p4, p5, p6, p7, p8);
 
             // Pop (remove) runtime argument parts from stack memory.
             pop(p3, pc);

@@ -32,6 +32,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../controller/handler/element_handler.c"
 #include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
+#include "../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../executor/copier/integer_copier.c"
 #include "../../logger/logger.c"
 
@@ -47,11 +48,13 @@
  * @param p6 the internal memory data (pointer reference)
  * @param p7 the direct execution flag
  * @param p8 the shutdown flag
+ * @param p9 the cybol loop break property
  */
-void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle part.");
-    //?? fwprintf(stdout, L"Debug: Handle part. p8: %i\n", p8);
+    //?? fwprintf(stdout, L"Debug: Handle part. signal model count p1: %i\n", p1);
+    //?? fwprintf(stdout, L"Debug: Handle part. signal model count *p1: %i\n", *((int*) p1));
 
     //
     // Declaration
@@ -99,13 +102,43 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // Check if model count has been reached.
         compare_integer_greater_or_equal((void*) &b, (void*) &j, p1);
+
+        //
+        // Check if cybol loop break property was set.
+        //
+        // CAUTION! Normally, the WHOLE loop model with ALL its operations would be executed
+        // before realising in file "applicator/flow/loop.c" that the break flag is set.
+        // This corresponds to a test-last-loop. It is therefore necessary to check
+        // the break condition once BEFORE calling the loop in cybol source code.
+        //
+        // <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        //     <node name="result" channel="inline" format="text/cybol-path" model="#break"/>
+        //     <node name="left" channel="inline" format="text/cybol-path" model="#index"/>
+        //     <node name="right" channel="inline" format="text/cybol-path" model="#count"/>
+        // </node>
+        //
+        // There are two reasons to check the break flag after EACH operation:
+        //
+        // 1 Avoid additional check of break condition before calling "flow/loop" in cybol
+        // 2 Being able to leave the loop at each step in cybol
+        //
+        // Therefore, the break flag gets handed over to the handler and
+        // forwarded to this file "part_handler.c" where it gets checked.
+        //
+        // CAUTION! If this model is not executed within a loop, then the
+        // cybol loop break property is NULL and just gets IGNORED inside
+        // the comparison function, so that the break flag does NOT get set.
+        //
+        compare_integer_unequal((void*) &b, p9, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }
 
+        // Handle model part.
         handle_element(p0, (void*) &j, p2, p3, p4, p5, p6, p7, p8);
 
         // Increment loop variable.

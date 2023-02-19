@@ -14,33 +14,7 @@
 Loop
 ____
 
-        * Hand over break flag to called loop model being executed by handler
-        * Forward break flag from handler to function "handle_part"
-        * Do TWO "if" checks in each loop cycle: (index > part_count) and (break != FALSE)
-
-        //
-        // CAUTION! Normally, the WHOLE loop model with ALL its operations would be executed
-        // before realising in file "applicator/flow/loop.c" that the break flag is set.
-        // This corresponds to a test-last-loop. It is therefore necessary to check
-        // the break condition once BEFORE calling the loop in cybol source code.
-        //
-        // <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        //     <node name="result" channel="inline" format="text/cybol-path" model="#break"/>
-        //     <node name="left" channel="inline" format="text/cybol-path" model="#index"/>
-        //     <node name="right" channel="inline" format="text/cybol-path" model="#count"/>
-        // </node>
-        //
-        // There are two reasons to check the break flag after EACH operation:
-        //
-        // 1 Avoid additional check of break condition before calling "flow/loop" in cybol
-        // 2 Being able to leave the loop at each step in cybol
-        //
-        // Therefore, the break flag gets handed over to the called loop model
-        // being executed by the handler and forwarded to function "handle_part".
-        // It is there that TWO "if" checks are done in each loop cycle:
-        // 1 (index > part_count)
-        // 2 (break != FALSE)
-        //
+        * Simplify break condition check for operation "flow/loop" in all cybol applications
 
 Stack
 _____
@@ -49,13 +23,7 @@ _____
             OR use a workaround
         * Adapt "move" flag for operation "modify/overwrite" copying values to stack in cybol application "knowledge_tree/stack/"
 
-        * Try accessing #parent in cybol applications
-        * Test standard path like ".xdt.[#record_index]" and "#parent.[0].[#field_index]"
-            if this does NOT work:
-            - write down the arguments as documentation
-            - use an alternative path syntax like ".xdt@[#record_index]" and "#parent.[0]@[#field_index]" to access the INNER element
-
-        * Can the operation "modify/empty" be eliminated in cybol application "knowledge_tree/stack/" when invoking the called operation in the loop in each cycle again and putting its variables on the stack anew ??
+        * Eliminate operation "modify/empty" in various cybol applications since stack variables are managed separately for each operation call now
 
         * Eliminate or change files in directory "executor/verifier/" and find better solution, since they hinder execution of array functions in some cases
             report ALL errors (uncomment log messages)
@@ -86,30 +54,6 @@ _____
             //     this is ok for the stack but should NOT be possible with the heap
             // --> OPEN question: How to ensure this?
             //
-
-        IF STILL NEEDED: initialisation of stack values:
-        * Search stack backwards
-        * Hand over: (void*) &pc_old -- so that not the whole stack but only the relevant variables are searched through in files "handler.c" and "part_handler.c"
-
-        IF NOT NEEDED ANYMORE: currently unused and commented out anyway
-        ==> Move these reflexions to file "design_decisions.txt"
-        * Remove solution providing parametre values at runtime for operation called via cybol-path, similar to classical programming languages handing over params in parentheses (param_0, param_1, param_2, ...)
-            Example:
-            <node name="create_wui_toc_record" channel="inline" format="text/cybol-path" model=".logic.create.wui_toc_record"/>
-                <node name="param_0" channel="inline" format="text/cybol-path" model="#record_name"/>
-                <node name="param_1" channel="inline" format="text/cybol-path" model=".xdt.[#record_index]"/>
-            </node>
-        * Remove assigning of initial value properties to stack variables in files "handler.c" and "part_handler.c"
-            Problem:
-            - initial values have to be given as property to a compound operation that is referenced as cybol-path
-            - in order to hand over a property, it has to be given as primitive value or cybol-path
-            - unfortunately, a cybol-path can only point to a pointer, but not to a primitive value or an encapsulated pointer via index
-            - a cybol-path like ".node.subnode[#index]" does not help, since the knowledge path deserialiser can only return a pointer, NOT a primitive value
-            - also an encapsulated pointer would get lost if not treated as pointer reference
-            Solution (possible in the future, but somewhat complicated):
-            - the only solution would be to let the knowledge path deserialiser return TWO values: the result pointer AND the desired index being extracted from the path with brackets, for example ".node.subnode[#index]"
-            - in this case, the returned pointer represents the node and the returned index can be used locally in the corresponding function to get the desired primitive value or encapsulated pointer
-        * Delete file "initialisation_handler.c", if not needed anymore
 
         * Rename constant "PART_ELEMENT_STATE_CYBOI_TYPE" into "COMPOUND_ELEMENT_STATE_CYBOI_TYPE" in all source code (it may represent the formats "element/part", "element/property", "element/reference")
 

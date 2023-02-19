@@ -45,7 +45,7 @@
 // Forward declarations
 //
 
-void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
+void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
 
 /**
  * Loops the programme flow endlessly, until the break flag is set.
@@ -170,12 +170,12 @@ void apply_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
             // The break flag is FALSE (not set).
             //
 
-            //?? fwprintf(stdout, L"Information: Apply loop. before handle: %i\n", br);
+            //?? fwprintf(stdout, L"Debug: Apply loop. before handle br: %i\n", br);
 
             // Handle the model as new operation.
-            handle(m, p4, p2, p3, p5, p6, (void*) &x, p7);
+            handle(m, p4, p2, p3, p5, p6, (void*) &x, p7, bmd);
 
-            //?? fwprintf(stdout, L"Information: Apply loop. after handle: %i\n", br);
+            //?? fwprintf(stdout, L"Debug: Apply loop. after handle br: %i\n", br);
         }
     }
 }
