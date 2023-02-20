@@ -15,7 +15,7 @@ Stack
 _____
 
         * Reactivate "modify_part(... REMOVE_MODIFY_LOGIC_CYBOI_FORMAT ...)" in file "applicator/modify/deep_modify.c"
-            OR use a workaround
+
         * Adapt "move" flag for operation "modify/overwrite" copying values to stack in cybol application "knowledge_tree/stack/"
 
         * Eliminate operation "modify/empty" in various cybol applications since stack variables are managed separately for each operation call now

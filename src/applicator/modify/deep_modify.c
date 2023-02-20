@@ -74,11 +74,13 @@ void apply_modify_deep(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
         //
         // The "move" flag is NOT set.
+        //
         // Therefore, DEEP copying is used (if applicable to the operation).
         //
 
         //
         // Modify part by applying operation.
+        //
         // CAUTION! Set deep copying flag to TRUE.
         //
         modify_part(p0, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p4, p5, p6, p7, p8, p9, p10, p11, p12);
@@ -87,6 +89,7 @@ void apply_modify_deep(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
         //
         // The "move" flag IS set.
+        //
         // Therefore, SHALLOW copying is used (if applicable to the operation).
         // That is, only pointers/references to child nodes get copied,
         // but not their sub trees (children of children).
@@ -98,6 +101,7 @@ void apply_modify_deep(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
         //
         // Modify part by applying operation.
+        //
         // CAUTION! Set deep copying flag to FALSE.
         //
         modify_part(p0, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p4, p5, p6, p7, p8, p9, p10, p11, p12);
@@ -109,7 +113,7 @@ void apply_modify_deep(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         // the destination item will hold a wrong "count" number
         // leading to unpredictable errors in further processing.
         //
-        //?? modify_part(p14, *NULL_POINTER_STATE_CYBOI_MODEL, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p4, p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT, p13);
+        modify_part(p14, *NULL_POINTER_STATE_CYBOI_MODEL, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p4, p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT, p13);
     }
 }
 
