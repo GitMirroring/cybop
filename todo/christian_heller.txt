@@ -14,10 +14,6 @@
 Stack
 _____
 
-        * Reactivate "modify_part(... REMOVE_MODIFY_LOGIC_CYBOI_FORMAT ...)" in file "applicator/modify/deep_modify.c"
-
-        * Adapt "move" flag for operation "modify/overwrite" copying values to stack in cybol application "knowledge_tree/stack/"
-
         * Eliminate operation "modify/empty" in various cybol applications since stack variables are managed separately for each operation call now
 
         * Eliminate or change files in directory "executor/verifier/" and find better solution, since they hinder execution of array functions in some cases

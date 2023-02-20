@@ -31,6 +31,8 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
+    <!-- Opening -->
+
     <node name="open_stdout" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="device" channel="inline" format="text/plain" model="standard-output"/>

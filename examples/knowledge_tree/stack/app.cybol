@@ -1,10 +1,9 @@
 <node>
 
     <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+    <node name="stack_pointer_index" channel="inline" format="number/integer" model="0"/>
 
     <node name="level_1" channel="file" format="element/part" model="knowledge_tree/stack/level_1.cybol"/>
-
-    <node name="stack_pointer_index" channel="inline" format="number/integer" model="0"/>
 
     <node name="subroutine" channel="file" format="element/part" model="knowledge_tree/stack/subroutine.cybol">
         <node name="TEST" channel="inline" format="text/plain" model="TEST Text"/>
