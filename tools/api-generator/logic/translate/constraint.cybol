@@ -1,5 +1,13 @@
 <node>
 
+    <!-- Comparison -->
+
+    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#constraint_break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="#constraint_index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model="#constraint_count"/>
+    </node>
+
     <!-- Identification -->
 
     <node name="get_constraint_name" channel="inline" format="access/get-name" model="">
@@ -11,17 +19,11 @@
 
     <node name="create_section_constraint" channel="inline" format="text/cybol-path" model=".logic.create.section_constraint"/>
 
-    <!-- Comparison -->
+    <!-- Incrementation -->
 
     <node name="increment_index" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model="#constraint_index"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
-    </node>
-    <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
-    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model="#constraint_break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model="#constraint_index"/>
-        <node name="right" channel="inline" format="text/cybol-path" model="#constraint_count"/>
     </node>
 
 </node>

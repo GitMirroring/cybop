@@ -6,12 +6,6 @@
         <node name="count" channel="inline" format="text/cybol-path" model="#section_count"/>
         <node name="part" channel="inline" format="text/cybol-path" model=".spec.(#topic_name).[#category_index].[#part_index]"/>
     </node>
-    <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
-    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model="#section_break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model="#section_index"/>
-        <node name="right" channel="inline" format="text/cybol-path" model="#section_count"/>
-    </node>
 
     <!-- Translation -->
 

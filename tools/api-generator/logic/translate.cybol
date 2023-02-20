@@ -52,6 +52,8 @@
         <node name="property_count" channel="inline" format="number/integer" model="0"/>
         <node name="property_index" channel="inline" format="number/integer" model="0"/>
         <node name="property_break" channel="inline" format="logicvalue/boolean" model="false"/>
+        <!-- The branching flag. -->
+        <node name="property_exists" channel="inline" format="logicvalue/boolean" model="false"/>
         <!-- The element. -->
         <node name="property_name" channel="inline" format="text/plain" model=""/>
     </node>
@@ -73,10 +75,12 @@
         <node name="constraint_count" channel="inline" format="number/integer" model="0"/>
         <node name="constraint_index" channel="inline" format="number/integer" model="0"/>
         <node name="constraint_break" channel="inline" format="logicvalue/boolean" model="false"/>
+        <!-- The branching flag. -->
+        <node name="constraint_exists" channel="inline" format="logicvalue/boolean" model="false"/>
         <!-- The element. -->
         <node name="constraint_name" channel="inline" format="text/plain" model=""/>
     </node>
 
-    <node name="constraint" channel="file" format="element/part" model="api-generator/logic/translate/constraint.cybol">
+    <node name="constraint" channel="file" format="element/part" model="api-generator/logic/translate/constraint.cybol"/>
 
 </node>

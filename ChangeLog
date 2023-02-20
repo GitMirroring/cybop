@@ -20,7 +20,7 @@
 
 2023-02-20  Christian Heller  <christian.heller@cybop.org>
 
-        * Simplify break condition check for operation "flow/loop" in all cybol applications
+        * Simplify break condition check for operation "flow/loop" in all cybol applications and api generator
 
 2023-02-19  Christian Heller  <christian.heller@cybop.org>
 

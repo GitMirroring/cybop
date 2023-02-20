@@ -1,5 +1,13 @@
 <node>
 
+    <!-- Index comparison -->
+
+    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#category_break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="#category_index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model="#category_count"/>
+    </node>
+
     <!-- Identification -->
 
     <node name="get_name" channel="inline" format="access/get-name" model="">
@@ -12,17 +20,11 @@
     <node name="create_nav_category" channel="inline" format="text/cybol-path" model=".logic.create.nav_category"/>
     <!-- There is NO category headings in the CONTENT section, since it lists only parts. -->
 
-    <!-- Comparison -->
+    <!-- Counting -->
 
     <node name="count_parts" channel="inline" format="access/count" model="">
         <node name="count" channel="inline" format="text/cybol-path" model="#part_count"/>
         <node name="part" channel="inline" format="text/cybol-path" model=".spec.(#topic_name).[#category_index]"/>
-    </node>
-    <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
-    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model="#part_break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model="#part_index"/>
-        <node name="right" channel="inline" format="text/cybol-path" model="#part_count"/>
     </node>
 
     <!-- Translation -->
@@ -32,17 +34,11 @@
         <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.part"/>
     </node>
 
-    <!-- Comparison -->
+    <!-- Incrementation -->
 
     <node name="increment_index" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model="#category_index"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
-    </node>
-    <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
-    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model="#category_break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model="#category_index"/>
-        <node name="right" channel="inline" format="text/cybol-path" model="#category_count"/>
     </node>
 
 </node>

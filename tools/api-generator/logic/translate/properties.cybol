@@ -7,20 +7,19 @@
         <!-- CAUTION! This is different from other such files. Between a part and a property, there is the part's "properties" to be used here. -->
         <node name="part" channel="inline" format="text/cybol-path" model=".spec.(#topic_name).[#category_index].[#part_index].properties"/>
     </node>
-    <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
-    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model="#property_break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model="#property_index"/>
-        <node name="right" channel="inline" format="text/cybol-path" model="#property_count"/>
+
+    <node name="compare_count" channel="inline" format="compare/greater" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#property_exists"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="#property_count"/>
+        <node name="right" channel="inline" format="number/integer" model="0"/>
     </node>
 
     <!-- Creation -->
 
     <!-- CAUTION! Create properties only if at least one property is available. -->
     <node name="create_section_properties" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="text/cybol-path" model="#property_break"/>
-        <!-- CAUTION! Do NOT use "true" here, since the loop break flag is FALSE if properties exist. -->
-        <node name="false" channel="inline" format="text/cybol-path" model=".logic.create.section_properties"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model="#property_exists"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".logic.create.section_properties"/>
     </node>
 
     <!-- Translation -->
