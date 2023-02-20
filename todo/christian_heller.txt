@@ -11,43 +11,6 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-Stack
-_____
-
-        * Eliminate operation "modify/empty" in various cybol applications since stack variables are managed separately for each operation call now
-
-        * Eliminate or change files in directory "executor/verifier/" and find better solution, since they hinder execution of array functions in some cases
-            report ALL errors (uncomment log messages)
-            add separate branch for operation "overwrite" in file "verify_modifier.c"
-        * Delete setting of comparison result r to "true" following function call "modify_verify" in file "item_modifier.c"
-
-        ADD AS COMMENT to source code related to stack:
-
-            //
-            // CAUTION! Copying a pointer to stack does no harm, since the original tree node
-            // belongs to the knowledge tree memory and can always be reached and be destroyed.
-            //
-            // However, it is a problem when copying a pointer to another knowledge (heap)
-            // tree node since then, two separate nodes point to the same part which
-            // would mix up the tree structure of a "Directed Acyclic Graph (DAG).
-            //
-            // How to avoid this?
-            //
-            // --> in the original "modify/overwrite" operation, a "move" flag was
-            //     used to indicate shallow or deep copying;
-            //     when deep copying (cloning) a node, then there is no problem
-            //     BUT when shallow copying a node with the "move" flag set to "true",
-            //     the node was removed from its original parent node so that
-            //     the DAG tree structure remained intact (in good order)
-            // --> now for recursion it was necessary to permit SHALLOW copying
-            //     a pointer to a stack variable WITHOUT removing the original node
-            //     from its parent;
-            //     this is ok for the stack but should NOT be possible with the heap
-            // --> OPEN question: How to ensure this?
-            //
-
-        * Rename constant "PART_ELEMENT_STATE_CYBOI_TYPE" into "COMPOUND_ELEMENT_STATE_CYBOI_TYPE" in all source code (it may represent the formats "element/part", "element/property", "element/reference")
-
 xDT
 ___
 
@@ -64,6 +27,14 @@ ___
         * Move xDT de-/serialisation into a library, since it is very large (4 MiB) and compilation takes much too long
             uncomment include in line 54 and serialise call in line 270 of file "serialiser.c"
             compilation takes > 30 min and reports an error "variable tracking size limit exceeded with -fvar-tracking-assignments", but binary gets created successfully anyway
+
+Verifier
+________
+
+        * Eliminate or change files in directory "executor/verifier/" and find better solution, since they hinder execution of array functions in some cases
+            report ALL errors (uncomment log messages)
+            add separate branch for operation "overwrite" in file "verify_modifier.c"
+        * Delete setting of comparison result r to "true" following function call "modify_verify" in file "item_modifier.c"
 
 Operations
 __________
@@ -250,6 +221,8 @@ ________
 
 General CYBOI
 _____________
+
+        * Rename constant "PART_ELEMENT_STATE_CYBOI_TYPE" into "COMPOUND_ELEMENT_STATE_CYBOI_TYPE" in all source code (it may represent the formats "element/part", "element/property", "element/reference")
 
         * Update cybol beginner's manual in directory "doc/manual/"
 
