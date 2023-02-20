@@ -11,11 +11,6 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-Loop
-____
-
-        * Simplify break condition check for operation "flow/loop" in all cybol applications
-
 Stack
 _____
 

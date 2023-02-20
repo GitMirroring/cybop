@@ -1,5 +1,12 @@
 <node>
 
+    <!-- Loop test. -->
+    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="#index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model="#count"/>
+    </node>
+
     <node name="get_choice_name" channel="inline" format="access/get-name" model="">
         <node name="element" channel="inline" format="text/cybol-path" model="#name"/>
         <node name="part" channel="inline" format="text/cybol-path" model=".domain.choices.[#index]"/>
@@ -56,16 +63,9 @@
         <node name="source" channel="inline" format="text/cybol-path" model="#name"/>
     </node>
 
-    <!-- Loop test. -->
     <node name="increment_index" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model="#index"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
-    </node>
-    <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
-    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model="#break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model="#index"/>
-        <node name="right" channel="inline" format="text/cybol-path" model="#count"/>
     </node>
 
 </node>

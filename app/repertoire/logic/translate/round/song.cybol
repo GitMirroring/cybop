@@ -1,5 +1,13 @@
 <node>
 
+    <!-- Loop test -->
+
+    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#song_break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="#song_index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model="#song_count"/>
+    </node>
+
     <!-- Determine database node name -->
 
     <node name="get_name" channel="inline" format="access/get-name" model="">
@@ -115,17 +123,11 @@
         <node name="source" channel="inline" format="text/cybol-path" model=".db.song.(.db.round.[#round_index].[#song_index]).remark"/>
     </node>
 
-    <!-- Loop test. -->
+    <!-- Incrementation -->
 
     <node name="increment_index" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model="#song_index"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
-    </node>
-    <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
-    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model="#song_break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model="#song_index"/>
-        <node name="right" channel="inline" format="text/cybol-path" model="#song_count"/>
     </node>
 
 </node>

@@ -1,6 +1,6 @@
 <node>
 
-    <node name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">
+    <node name="compare_loop_count" channel="inline" format="compare/greater" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".break"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".index"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".count"/>

@@ -1,5 +1,13 @@
 <node>
 
+    <!-- Loop test -->
+
+    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#round_break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="#round_index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model="#round_count"/>
+    </node>
+
     <!-- Determine round node name -->
 
     <!-- CAUTION! The name is used here instead of the index, since the latter starts from zero. -->
@@ -76,29 +84,16 @@
         <node name="part" channel="inline" format="text/cybol-path" model=".db.round.[#round_index]"/>
     </node>
 
-    <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
-    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model="#song_break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model="#song_index"/>
-        <node name="right" channel="inline" format="text/cybol-path" model="#song_count"/>
-    </node>
-
     <node name="loop_nodes" channel="inline" format="flow/loop" model="">
         <node name="break" channel="inline" format="text/cybol-path" model="#song_break"/>
         <node name="model" channel="inline" format="text/cybol-path" model="#song_model"/>
     </node>
 
-    <!-- Loop test. -->
+    <!-- Incrementation -->
 
     <node name="increment_index" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model="#round_index"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
-    </node>
-    <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
-    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model="#round_break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model="#round_index"/>
-        <node name="right" channel="inline" format="text/cybol-path" model="#round_count"/>
     </node>
 
 </node>

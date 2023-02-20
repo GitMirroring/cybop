@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-02-20  Christian Heller  <christian.heller@cybop.org>
+
+        * Simplify break condition check for operation "flow/loop" in all cybol applications
+
 2023-02-19  Christian Heller  <christian.heller@cybop.org>
 
         * Merge functions "copy_array_forward" and "modify_item" in file "signal_reader.c"

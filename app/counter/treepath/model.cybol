@@ -1,5 +1,11 @@
 <node>
 
+    <node name="compare_loop_count" channel="inline" format="compare/greater" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="#index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model="#count"/>
+    </node>
+
     <node name="print_number" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
@@ -11,13 +17,6 @@
     <node name="increment_loop_count" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model="#index"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
-    </node>
-
-    <!-- CAUTION! The break condition has to be GREATER-tested AFTER having incremented the loop index, since this is a post-test loop. -->
-    <node name="compare_loop_count" channel="inline" format="compare/greater" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model="#break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model="#index"/>
-        <node name="right" channel="inline" format="text/cybol-path" model="#count"/>
     </node>
 
 </node>

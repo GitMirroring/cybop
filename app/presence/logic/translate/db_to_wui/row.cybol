@@ -5,13 +5,6 @@
         <node name="part" channel="inline" format="text/cybol-path" model=".domain.weekdays"/>
     </node>
 
-    <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
-    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model="#column_break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model="#column_index"/>
-        <node name="right" channel="inline" format="text/cybol-path" model="#column_count"/>
-    </node>
-
     <node name="loop_lecturers" channel="inline" format="flow/loop" model="">
         <node name="break" channel="inline" format="text/cybol-path" model="#column_break"/>
         <node name="model" channel="inline" format="text/cybol-path" model="#column_model"/>

@@ -167,7 +167,7 @@ void copy(void* p0, void* p1, void* p2, void* p3) {
                 // For copying whole sub trees to another place.
                 //
 
-                fwprintf(stdout, L"Debug: copy deep pre: %i\n", r);
+                //?? fwprintf(stdout, L"Debug: copy deep pre: %i\n", r);
 
                 //
                 // Copy part.
@@ -177,7 +177,7 @@ void copy(void* p0, void* p1, void* p2, void* p3) {
                 //
                 copy_part(p0, p1);
 
-                fwprintf(stdout, L"Debug: copy deep post: %i\n", r);
+                //?? fwprintf(stdout, L"Debug: copy deep post: %i\n", r);
             }
         }
     }
