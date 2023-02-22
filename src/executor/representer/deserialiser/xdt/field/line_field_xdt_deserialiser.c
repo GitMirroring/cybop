@@ -36,6 +36,7 @@
 #include "../../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../executor/representer/deserialiser/numeral/integer_numeral_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/whitespace/whitespace_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/xdt/field/content_field_xdt_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/xdt/field/identification_field_xdt_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/xdt/field/part_field_xdt_deserialiser.c"
@@ -48,7 +49,7 @@
  * An xdt field consists of the following elements:
  * - size: 3 Byte
  * - identification: 4 Byte
- * - content: variable
+ * - content: variable length
  * - end (carriage return + line feed): 2 Byte
  *
  * content count = size value - 9 Byte (3 + 4 + 2)
@@ -69,13 +70,12 @@ void deserialise_xdt_field_line(void* p0, void* p1, void* p2, void* p3, void* p4
     //
     // The field size.
     //
-    // CAUTION! It seems to be useless, since a field's end
-    // is defined as line feed + carriage return
-    // and may thus be detected and thereby
-    // count the length of the field.
+    // CAUTION! It seems to be useless, since a field's end is defined
+    // as line feed + carriage return and may thus be detected and
+    // the length of the field thereby be counted.
     //
-    // However, it is used below for verifying if
-    // calculated and given field size match.
+    // However, it is used below for VERIFYING if calculated and
+    // given field size match.
     //
     int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The field identification data, count.
@@ -91,6 +91,8 @@ void deserialise_xdt_field_line(void* p0, void* p1, void* p2, void* p3, void* p4
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    // Skip any whitespace characters.
+    deserialise_whitespace(p1, p2);
     // Deserialise size.
     deserialise_xdt_field_size((void*) &s, p1, p2, (void*) SIZE_FIELD_BDT_XDT_NAME_COUNT);
     // Deserialise identification.

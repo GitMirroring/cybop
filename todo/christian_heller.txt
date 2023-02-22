@@ -16,7 +16,6 @@ ___
 
         * Think about implementation of "src/executor/searcher/selector/xdt/bdt/end_compound_field_bdt_xdt_selector.c"
             which possibly requires stack-like variables to be processed hierarchically
-            see file cybop/tmp/cybop_stack.pdf
 
         * Delete (possibly, really ??) all if-else clauses with "text/plain" format, since it is the default, in order to increase xdt deserialiser efficiency
         * Comment testing warning message in file "format_field_xdt_deserialiser.c", in order to deactivate it

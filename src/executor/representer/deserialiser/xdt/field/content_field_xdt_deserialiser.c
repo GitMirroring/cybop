@@ -30,11 +30,10 @@
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../executor/copier/pointer_copier.c"
-#include "../../../../../executor/selector/xdt/field/end_field_xdt_selector.c"
+#include "../../../../../executor/selector/newline/newline_selector.c"
 #include "../../../../../logger/logger.c"
 
 /**
@@ -57,13 +56,16 @@ void deserialise_xdt_field_content(void* p0, void* p1, void* p2, void* p3) {
 
     if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
         // Therefore, in this case, the break flag is set to true already here.
+        //
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
+        //
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
@@ -76,13 +78,7 @@ void deserialise_xdt_field_content(void* p0, void* p1, void* p2, void* p3) {
             break;
         }
 
-        select_xdt_field_end((void*) &b, p2, p3);
-
-        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Increment destination field content count.
-            calculate_integer_add(p1, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-        }
+        select_newline((void*) &b, p2, p3, p1);
     }
 }
 

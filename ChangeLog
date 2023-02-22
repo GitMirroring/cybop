@@ -18,6 +18,14 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-02-22  Christian Heller  <christian.heller@cybop.org>
+
+        * Skip whitespace in file "line_field_xdt_deserialiser.c"
+
+2023-02-21  Christian Heller  <christian.heller@cybop.org>
+
+        * Remove file "end_field_xdt_selector.c" and replace its call with "newline_selector.c" in file "content_field_xdt_deserialiser.c"
+
 2023-02-20  Christian Heller  <christian.heller@cybop.org>
 
         * Simplify break condition check for operation "flow/loop" in all cybol applications and api generator

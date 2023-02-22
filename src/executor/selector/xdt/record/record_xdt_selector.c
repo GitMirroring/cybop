@@ -68,17 +68,23 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // Allocate new record part.
+        //
         // CAUTION! The source part may NOT be reused as record part,
         // since the source's model is of type "character",
-        // while the new record part's type has to be "part" (a compound).
+        // while the new record part's type has to be "part" (compound).
+        //
         deserialise_xdt_record_part(p0, p1, p3);
 
     } else {
 
+        //
         // Append current field part to destination record model item.
+        //
         // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
-        // This is necessary in order to activate rubbish (garbage) collection.
+        // This is necessary in order to activate rubbish (garbage) collection (gc).
+        //
         modify_item(p2, p7, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
     }
 }
