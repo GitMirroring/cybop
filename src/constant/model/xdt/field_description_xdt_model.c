@@ -12448,7 +12448,7 @@ static int* ID_3104_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_19_INTEGER_STATE_
 
 /** The id 3105 field description xdt model. */
 static wchar_t* ID_3105_FIELD_DESCRIPTION_XDT_MODEL = L"Versichertennummer des Patienten";
-static int* ID_3105_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_33_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* ID_3105_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_32_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 3106 field description xdt model. */
 static wchar_t* ID_3106_FIELD_DESCRIPTION_XDT_MODEL = L"Darreichungsform Dauermedikament";

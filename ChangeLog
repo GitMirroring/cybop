@@ -21,6 +21,7 @@
 2023-02-22  Christian Heller  <christian.heller@cybop.org>
 
         * Skip whitespace in file "line_field_xdt_deserialiser.c"
+        * Correct wrong length of constant "ID_3105_FIELD_DESCRIPTION_XDT_MODEL" in file "field_description_xdt_model.c"
 
 2023-02-21  Christian Heller  <christian.heller@cybop.org>
 

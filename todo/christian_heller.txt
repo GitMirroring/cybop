@@ -16,16 +16,14 @@ ___
 
         * Think about implementation of "src/executor/searcher/selector/xdt/bdt/end_compound_field_bdt_xdt_selector.c"
             which possibly requires stack-like variables to be processed hierarchically
-
-        * Delete (possibly, really ??) all if-else clauses with "text/plain" format, since it is the default, in order to increase xdt deserialiser efficiency
-        * Comment testing warning message in file "format_field_xdt_deserialiser.c", in order to deactivate it
-        * Uncomment line 132 in file "array_allocator.c" again as soon as all field constants have been implemented
         * Uncomment tests for -1 in file "part_field_xdt_deserialiser.c", in order to report errors, as soon as all field constants have been implemented
         * Delete superfluous file "record_bdt_xdt_selector.c"
         * Delete superfluous files "record_xdt_name.c", "field_xdt_name.c"
         * Move xDT de-/serialisation into a library, since it is very large (4 MiB) and compilation takes much too long
             uncomment include in line 54 and serialise call in line 270 of file "serialiser.c"
             compilation takes > 30 min and reports an error "variable tracking size limit exceeded with -fvar-tracking-assignments", but binary gets created successfully anyway
+
+        * Delete (possibly, really ??) all if-else clauses with "text/plain" format in file "format_field_xdt_deserialiser.c", since it is the default, in order to increase xdt deserialiser efficiency
 
 Verifier
 ________
