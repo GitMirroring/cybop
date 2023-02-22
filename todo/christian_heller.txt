@@ -14,8 +14,9 @@
 xDT
 ___
 
-        * Think about implementation of "src/executor/searcher/selector/xdt/bdt/end_compound_field_bdt_xdt_selector.c"
-            which possibly requires stack-like variables to be processed hierarchically
+        * Debug error in xdt deserialiser:
+            Error: Could not deserialise numeral number. The detected type 34 (format: 555) and destination type (format p11: 352091932) are not identical.
+
         * Uncomment tests for -1 in file "part_field_xdt_deserialiser.c", in order to report errors, as soon as all field constants have been implemented
         * Delete superfluous file "record_bdt_xdt_selector.c"
         * Delete superfluous files "record_xdt_name.c", "field_xdt_name.c"

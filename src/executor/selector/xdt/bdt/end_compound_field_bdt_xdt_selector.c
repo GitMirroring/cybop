@@ -27,7 +27,6 @@
 #define END_COMPOUND_FIELD_BDT_XDT_SELECTOR_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
@@ -236,11 +235,11 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_9802(p0, p1);
         }
     }
-        
+
     //
     // Record 0010
     //
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_9806_INTEGER_STATE_CYBOI_MODEL);
@@ -330,7 +329,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_252(p0, p1);
         }
     }
-            
+
     //
     // Record adrs
     //
@@ -414,7 +413,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_1299(p0, p1);
         }
     }
-         
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_3050_INTEGER_STATE_CYBOI_MODEL);
@@ -424,7 +423,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_3050(p0, p1);
         }
     }
-                                                   
+
     //
     // Record term
     //
@@ -477,7 +476,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_6201(p0, p1);
         }
     }
-                                                                            
+
     //
     // Record diag
     //
@@ -501,7 +500,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_6000(p0, p1);
         }
     }
-                                                                                
+
     //
     // Record grnk
     //
@@ -535,7 +534,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_5001(p0, p1);
         }
     }
-                                                                                    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_1503_INTEGER_STATE_CYBOI_MODEL);
@@ -545,7 +544,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_1503(p0, p1);
         }
     }
-                                                                                       
+
     //
     // Record hapo
     //
@@ -559,7 +558,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_1600(p0, p1);
         }
     }
-                                                                                       
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_6206_INTEGER_STATE_CYBOI_MODEL);
@@ -569,7 +568,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_6206(p0, p1);
         }
     }
-                                                                                       
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_925_INTEGER_STATE_CYBOI_MODEL);
@@ -579,7 +578,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_925(p0, p1);
         }
     }
-                                                                                       
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_919_INTEGER_STATE_CYBOI_MODEL);
@@ -589,7 +588,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_919(p0, p1);
         }
     }
-                                                                                       
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_6207_INTEGER_STATE_CYBOI_MODEL);
@@ -599,7 +598,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_6207(p0, p1);
         }
     }
-                                                                                           
+
     //
     // Record bbst
     //
@@ -641,7 +640,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_9801(p0, p1);
         }
     }
-                                                                                              
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_3632_INTEGER_STATE_CYBOI_MODEL);
@@ -661,7 +660,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_3528(p0, p1);
         }
     }
-                                                                                              
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_3120_INTEGER_STATE_CYBOI_MODEL);
@@ -671,7 +670,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_3120(p0, p1);
         }
     }
-                                                                                              
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_3602_INTEGER_STATE_CYBOI_MODEL);
@@ -681,7 +680,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_3602(p0, p1);
         }
     }
-                                                                                              
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_3310_INTEGER_STATE_CYBOI_MODEL);
@@ -781,7 +780,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_920(p0, p1);
         }
     }
-                                                                                                  
+
     //
     // Record 6200
     //
@@ -835,7 +834,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_3623(p0, p1);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_6230_INTEGER_STATE_CYBOI_MODEL);
@@ -845,7 +844,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_6230(p0, p1);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_925_INTEGER_STATE_CYBOI_MODEL);
@@ -865,7 +864,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_919(p0, p1);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_3637_INTEGER_STATE_CYBOI_MODEL);
@@ -875,7 +874,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_3637(p0, p1);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_6325_INTEGER_STATE_CYBOI_MODEL);
@@ -885,7 +884,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_6325(p0, p1);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_2803_INTEGER_STATE_CYBOI_MODEL);
@@ -1006,7 +1005,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
         }
     }
 
-        
+
     //
     // Record 0101
     //
@@ -1020,7 +1019,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_8000(p0, p1);
         }
     }
-        
+
     //
     // Record 0102
     //
@@ -1034,7 +1033,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_8000(p0, p1);
         }
     }
-            
+
     //
     // Record 0103
     //
@@ -1078,7 +1077,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_4244(p0, p1);
         }
     }
-            
+
     //
     // Record 0104
     //
@@ -1132,7 +1131,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_3672(p0, p1);
         }
     }
-            
+
     //
     // Record 0109
     //
@@ -1146,7 +1145,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_8000(p0, p1);
         }
     }
-            
+
     //
     // Record sad1
     //
@@ -1160,7 +1159,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_5000(p0, p1);
         }
     }
-        
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_5001_INTEGER_STATE_CYBOI_MODEL);
@@ -1170,7 +1169,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_5001(p0, p1);
         }
     }
-        
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_5012_INTEGER_STATE_CYBOI_MODEL);
@@ -1180,7 +1179,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_5012(p0, p1);
         }
     }
-            
+
     //
     // Record sad2
     //
@@ -1194,7 +1193,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_4218(p0, p1);
         }
     }
-        
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_5000_INTEGER_STATE_CYBOI_MODEL);
@@ -1204,7 +1203,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_5000(p0, p1);
         }
     }
-        
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_5001_INTEGER_STATE_CYBOI_MODEL);
@@ -1214,7 +1213,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_5001(p0, p1);
         }
     }
-        
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_5012_INTEGER_STATE_CYBOI_MODEL);
@@ -1224,7 +1223,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_5012(p0, p1);
         }
     }
-                    
+
     //
     // Record sad3
     //
@@ -1237,7 +1236,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_5000(p0, p1);
         }
     }
-                    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_5001_INTEGER_STATE_CYBOI_MODEL);
@@ -1247,7 +1246,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_5001(p0, p1);
         }
     }
-                    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_5012_INTEGER_STATE_CYBOI_MODEL);
@@ -1257,7 +1256,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_5012(p0, p1);
         }
     }
-                    
+
     //
     // Record gevk
     //
@@ -1358,7 +1357,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
     //
     // Record Obj_Allergien
     //
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_3656_INTEGER_STATE_CYBOI_MODEL);
@@ -1372,7 +1371,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
     //
     // Record Obj_Anhang
     //
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_6302_INTEGER_STATE_CYBOI_MODEL);
@@ -1436,11 +1435,11 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_3700(p0, p1);
         }
     }
-    
+
     //
     // Record Obj_Betriebsstätte
     //
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_203_INTEGER_STATE_CYBOI_MODEL);
@@ -1478,7 +1477,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
     //
     // Record Obj_Diagnose
     //
- 
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_6001_INTEGER_STATE_CYBOI_MODEL);
@@ -1550,7 +1549,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
     //
     // Record Obj_Implantat
     //
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_3465_INTEGER_STATE_CYBOI_MODEL);
@@ -1578,7 +1577,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
     //
     // Record Obj_Laborergebnis
     //
- 
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_8411_INTEGER_STATE_CYBOI_MODEL);
@@ -1612,7 +1611,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
     //
     // Record Obj_Medikationsplan
     //
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_3301_INTEGER_STATE_CYBOI_MODEL);
@@ -1632,7 +1631,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_6208(p0, p1);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_6212_INTEGER_STATE_CYBOI_MODEL);
@@ -1704,7 +1703,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
     //
     // Record Obj_Röntgenpass
     //
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_3501_INTEGER_STATE_CYBOI_MODEL);
@@ -1816,7 +1815,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_3652(p0, p1);
         }
     }
-   
+
     //
     // Record Obj_Dauerdiagnose (GDT)
     //
@@ -1840,7 +1839,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_3673(p0, p1);
         }
     }
-    
+
     //
     // Record Obj_Überweisung (GDT)
     //
@@ -1864,7 +1863,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
             select_xdt_bdt_field_compound_end_4218(p0, p1);
         }
     }
-    
+
     //
     // Record besa
     //
@@ -1947,14 +1946,16 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
         }
     }
 
-
-
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // CAUTION! Do NOT log this case, since it is
-        // normal on the root level of each record,
-        // where fields do not have a parent field.
+        //
+        // CAUTION! Do NOT log this case, since it is normal on the root level
+        // of each record, where fields do NOT have a parent field.
+        //
         // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select xdt bdt field compound end. The parent field name is unknown.");
+        // fwprintf(stdout, L"Warning: Could not select xdt bdt field compound end. The parent field name is unknown. parent field name p2: %i\n", p2);
+        // fwprintf(stdout, L"Warning: Could not select xdt bdt field compound end. The parent field name is unknown. parent field name *p2: %i\n", *((int*) p2));
+        //
     }
 }
 
