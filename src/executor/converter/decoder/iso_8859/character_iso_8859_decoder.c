@@ -44,6 +44,7 @@
 void decode_iso_8859_character(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode iso-8859 character.");
+    //?? fwprintf(stdout, L"Debug: Decode iso-8859 character. p1: %i\n", p1);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -52,17 +53,17 @@ void decode_iso_8859_character(void* p0, void* p1, void* p2) {
     // Characters 0..127 (ascii)
     //
 
-    //?? fwprintf(stdout, L"Debug: decode iso-8859 character: %i\n", r);
-
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! Do NOT use function "compare_integer_less" here.
         // It will not work correctly.
+        //
         compare_character_less((void*) &r, p1, (void*) NUMBER_128_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? fwprintf(stdout, L"Debug: decode iso-8859 character ascii: %i\n", r);
+            //?? fwprintf(stdout, L"Debug: Decode iso-8859 character. ascii: %i\n", r);
 
             decode_ascii(p0, p1);
         }
@@ -74,7 +75,7 @@ void decode_iso_8859_character(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        //?? fwprintf(stdout, L"Debug: decode iso-8859 character iso: %i\n", r);
+        //?? fwprintf(stdout, L"Debug: Decode iso-8859 character. iso: %i\n", r);
 
         decode_iso_8859_extension(p0, p1, p2);
     }

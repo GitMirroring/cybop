@@ -14,17 +14,36 @@
 xDT
 ___
 
-        * Debug error in xdt deserialiser:
-            Error: Could not deserialise numeral number. The detected type 34 (format: 555) and destination type (format p11: 352091932) are not identical.
+        * Add code page 437 as character set of the original ibm pc (personal computer) in file "dos_437_character_code_model.c"
+        * Fill in code page 850 (IBM850) as character set into existing file "dos_850_character_code_model.c"
+        * Determine character set from field "9106" in xdt deserialiser before parsing actual data
 
+        * Tolerate integer values given with format "number/fraction-decimal" and automatically cast them to double
+            test with cybol application "counter/simple/"
+            adapt file "app.cybol" there
+        * Handle case that float is expected but an integer without decimal separator given, in numeral deserialiser
+            bring up error or not in file "number_numeral_deserialiser.c" ??
+        * Debug error in xdt deserialiser:
+            Error: Could not deserialise numeral number. The detected type 34 (format: 555) and destination type (format *p11: 553) are not identical.
+
+        * Adapt flags for numeral conversion as needed in xdt deserialiser
+            Is for example detection of hexadecimal or octal prefix necessary in xdt?
+
+        CHECK:
         * Uncomment tests for -1 in file "part_field_xdt_deserialiser.c", in order to report errors, as soon as all field constants have been implemented
-        * Delete superfluous file "record_bdt_xdt_selector.c"
-        * Delete superfluous files "record_xdt_name.c", "field_xdt_name.c"
-        * Move xDT de-/serialisation into a library, since it is very large (4 MiB) and compilation takes much too long
+
+        * Check proper recognition of german "Umlaut" characters in xdt deserialiser
+
+        * Delete (really ??) all if-else clauses with "text/plain" format in file "format_field_xdt_deserialiser.c", since it is the default, in order to increase xdt deserialiser efficiency
+        * Uncomment warning message in file "format_field_xdt_deserialiser.c"
+        * Add missing field description constants to files "field_xdt_name.c" and "field_description_xdt_model.c"
+
+        * Delete (really ??) superfluous file "record_bdt_xdt_selector.c"
+        * Delete (really ??) superfluous files "record_xdt_name.c", "field_xdt_name.c"
+
+        * Move xDT de-/serialisation into a library, since it is very large (4 MiB) and compilation needs double time (14 s instead of 7 s)
             uncomment include in line 54 and serialise call in line 270 of file "serialiser.c"
             compilation takes > 30 min and reports an error "variable tracking size limit exceeded with -fvar-tracking-assignments", but binary gets created successfully anyway
-
-        * Delete (possibly, really ??) all if-else clauses with "text/plain" format in file "format_field_xdt_deserialiser.c", since it is the default, in order to increase xdt deserialiser efficiency
 
 Verifier
 ________

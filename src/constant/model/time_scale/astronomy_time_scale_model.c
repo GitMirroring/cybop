@@ -29,7 +29,7 @@
 #include "../../../constant/model/cyboi/state/double_state_cyboi_model.c"
 
 /** The epsilon double astronomy time scale model. */
-static double EPSILON_DOUBLE_ASTRONOMY_TIME_SCALE_MODEL_ARRAY[] = {2.2204460492503131E-16};
+static double EPSILON_DOUBLE_ASTRONOMY_TIME_SCALE_MODEL_ARRAY[] = { 2.2204460492503131E-16 };
 static double* EPSILON_DOUBLE_ASTRONOMY_TIME_SCALE_MODEL = EPSILON_DOUBLE_ASTRONOMY_TIME_SCALE_MODEL_ARRAY;
 
 //

@@ -47,55 +47,55 @@
 //
 
 /** The base of natural logarithms double state cyboi model. */
-static double E_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {M_E};
+static double E_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { M_E };
 static double* E_DOUBLE_STATE_CYBOI_MODEL = E_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 /** The logarithm to base 2 of M_E double state cyboi model. */
-static double LOG_2_E_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {M_LOG2E};
+static double LOG_2_E_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { M_LOG2E };
 static double* LOG_2_E_DOUBLE_STATE_CYBOI_MODEL = LOG_2_E_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 /** The logarithm to base 10 of M_E double state cyboi model. */
-static double LOG_10_E_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {M_LOG10E};
+static double LOG_10_E_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { M_LOG10E };
 static double* LOG_10_E_DOUBLE_STATE_CYBOI_MODEL = LOG_10_E_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 /** The natural logarithm of 2 double state cyboi model. */
-static double LN_2_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {M_LN2};
+static double LN_2_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { M_LN2 };
 static double* LN_2_DOUBLE_STATE_CYBOI_MODEL = LN_2_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 /** The natural logarithm of 10 double state cyboi model. */
-static double LN_10_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {M_LN10};
+static double LN_10_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { M_LN10 };
 static double* LN_10_DOUBLE_STATE_CYBOI_MODEL = LN_10_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 /** The ratio of a circle's circumference to its diameter, called "pi" double state cyboi model. */
-static double PI_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {M_PI};
+static double PI_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { M_PI };
 static double* PI_DOUBLE_STATE_CYBOI_MODEL = PI_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 /** The pi divided by 2 double state cyboi model. */
-static double PI_DIVIDED_BY_2_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {M_PI_2};
+static double PI_DIVIDED_BY_2_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { M_PI_2 };
 static double* PI_DIVIDED_BY_2_DOUBLE_STATE_CYBOI_MODEL = PI_DIVIDED_BY_2_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 /** The pi divided by 4 double state cyboi model. */
-static double PI_DIVIDED_BY_4_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {M_PI_4};
+static double PI_DIVIDED_BY_4_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { M_PI_4 };
 static double* PI_DIVIDED_BY_4_DOUBLE_STATE_CYBOI_MODEL = PI_DIVIDED_BY_4_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 /** The reciprocal of pi (1/pi) double state cyboi model. */
-static double RECIPROCAL_OF_PI_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {M_1_PI};
+static double RECIPROCAL_OF_PI_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { M_1_PI };
 static double* RECIPROCAL_OF_PI_DOUBLE_STATE_CYBOI_MODEL = RECIPROCAL_OF_PI_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 /** The two times the reciprocal of pi double state cyboi model. */
-static double TWO_TIMES_THE_RECIPROCAL_OF_PI_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {M_2_PI};
+static double TWO_TIMES_THE_RECIPROCAL_OF_PI_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { M_2_PI };
 static double* TWO_TIMES_THE_RECIPROCAL_OF_PI_DOUBLE_STATE_CYBOI_MODEL = TWO_TIMES_THE_RECIPROCAL_OF_PI_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 /** The two times the reciprocal of the square root of pi double state cyboi model. */
-static double TWO_TIMES_THE_RECIPROCAL_OF_THE_SQUARE_ROOT_OF_PI_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {M_2_SQRTPI};
+static double TWO_TIMES_THE_RECIPROCAL_OF_THE_SQUARE_ROOT_OF_PI_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { M_2_SQRTPI };
 static double* TWO_TIMES_THE_RECIPROCAL_OF_THE_SQUARE_ROOT_OF_PI_DOUBLE_STATE_CYBOI_MODEL = TWO_TIMES_THE_RECIPROCAL_OF_THE_SQUARE_ROOT_OF_PI_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 /** The square root of 2 double state cyboi model. */
-static double SQUARE_ROOT_OF_2_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {M_SQRT2};
+static double SQUARE_ROOT_OF_2_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { M_SQRT2 };
 static double* SQUARE_ROOT_OF_2_DOUBLE_STATE_CYBOI_MODEL = SQUARE_ROOT_OF_2_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 /** The reciprocal of the square root of 2 (also the square root of 1/2) double state cyboi model. */
-static double RECIPROCAL_OF_THE_SQUARE_ROOT_OF_2_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {M_SQRT1_2};
+static double RECIPROCAL_OF_THE_SQUARE_ROOT_OF_2_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { M_SQRT1_2 };
 static double* RECIPROCAL_OF_THE_SQUARE_ROOT_OF_2_DOUBLE_STATE_CYBOI_MODEL = RECIPROCAL_OF_THE_SQUARE_ROOT_OF_2_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 /* MATHEMATICS_STATE_CYBOI_MODEL_CONSTANT_SOURCE */

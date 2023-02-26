@@ -7,4 +7,12 @@
     <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
     <node name="model" channel="file" format="element/part" model="counter/simple/model.cybol"/>
 
+
+
+    <!-- TEST of numbers only -- delete later -->
+
+    <node name="test_1" channel="inline" format="number/fraction-decimal" model="2.2"/>
+    <node name="test_2" channel="inline" format="number/fraction-decimal" model="4"/>
+    <node name="test_3" channel="inline" format="number/fraction-decimal" model="6.4"/>
+
 </node>

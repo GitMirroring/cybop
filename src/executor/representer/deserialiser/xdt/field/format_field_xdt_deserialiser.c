@@ -7780,11 +7780,11 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
 
         if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            fwprintf(stdout, L"Debug: Could not deserialise xdt field format. The field identification is unknown: %i\n", *((int*) p1));
+            //?? fwprintf(stdout, L"Warning: Could not deserialise xdt field format. The field identification is unknown: %i\n", *((int*) p1));
 
         } else {
 
-            fwprintf(stdout, L"Debug: Could not deserialise xdt field format. The field identification is null.\n");
+            fwprintf(stdout, L"Warning: Could not deserialise xdt field format. The field identification is null.\n");
         }
     }
 }

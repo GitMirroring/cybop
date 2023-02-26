@@ -40,7 +40,7 @@
  * carriage return (cr)
  * line feed (lf)
  */
-static unsigned char CRLF_TERMINATION_BINARY_NAME_ARRAY[] = {0x0D, 0x0A};
+static unsigned char CRLF_TERMINATION_BINARY_NAME_ARRAY[] = { 0x0D, 0x0A };
 static unsigned char* CRLF_TERMINATION_BINARY_NAME = CRLF_TERMINATION_BINARY_NAME_ARRAY;
 static int* CRLF_TERMINATION_BINARY_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

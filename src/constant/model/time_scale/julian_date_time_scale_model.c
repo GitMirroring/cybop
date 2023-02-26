@@ -30,19 +30,19 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The julian date (jd) time scale model. */
-static double JULIAN_DATE_TIME_SCALE_MODEL_ARRAY[] = {0.0};
+static double JULIAN_DATE_TIME_SCALE_MODEL_ARRAY[] = { 0.0 };
 static double* JULIAN_DATE_TIME_SCALE_MODEL = JULIAN_DATE_TIME_SCALE_MODEL_ARRAY;
 
 /** The modified julian date (mjd) time scale model. */
-static double MODIFIED_JULIAN_DATE_TIME_SCALE_MODEL_ARRAY[] = {2400000.5};
+static double MODIFIED_JULIAN_DATE_TIME_SCALE_MODEL_ARRAY[] = { 2400000.5 };
 static double* MODIFIED_JULIAN_DATE_TIME_SCALE_MODEL = MODIFIED_JULIAN_DATE_TIME_SCALE_MODEL_ARRAY;
 
 /** The truncated julian date (tjd) time scale model. */
-static double TRUNCATED_JULIAN_DATE_TIME_SCALE_MODEL_ARRAY[] = {2440000.5};
+static double TRUNCATED_JULIAN_DATE_TIME_SCALE_MODEL_ARRAY[] = { 2440000.5 };
 static double* TRUNCATED_JULIAN_DATE_TIME_SCALE_MODEL = TRUNCATED_JULIAN_DATE_TIME_SCALE_MODEL_ARRAY;
 
 /** The day 0 julian date time scale model. */
-static int DAY_0_JULIAN_DATE_TIME_SCALE_MODEL_ARRAY[] = {1721426};
+static int DAY_0_JULIAN_DATE_TIME_SCALE_MODEL_ARRAY[] = { 1721426 };
 static int* DAY_0_JULIAN_DATE_TIME_SCALE_MODEL = DAY_0_JULIAN_DATE_TIME_SCALE_MODEL_ARRAY;
 
 /* JULIAN_DATE_TIME_SCALE_MODEL_SOURCE */

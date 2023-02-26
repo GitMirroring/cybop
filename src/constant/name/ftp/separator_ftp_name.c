@@ -40,7 +40,7 @@
  * carriage return (cr)
  * line feed (lf)
  */
-static unsigned char LINE_END_FTP_NAME_ARRAY[] = {0x0D, 0x0A};
+static unsigned char LINE_END_FTP_NAME_ARRAY[] = { 0x0D, 0x0A };
 static unsigned char* LINE_END_FTP_NAME = LINE_END_FTP_NAME_ARRAY;
 static int* LINE_END_FTP_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

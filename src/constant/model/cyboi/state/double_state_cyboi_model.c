@@ -31,43 +31,43 @@
 //
 
 /** The number 0.0 double state cyboi model. */
-static double NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {0.0};
+static double NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { 0.0 };
 static double* NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL = NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 /** The number 0.1 double state cyboi model. */
-static double NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {0.1};
+static double NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { 0.1 };
 static double* NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL = NUMBER_0_1_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 /** The number 0.2 double state cyboi model. */
-static double NUMBER_0_2_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {0.2};
+static double NUMBER_0_2_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { 0.2 };
 static double* NUMBER_0_2_DOUBLE_STATE_CYBOI_MODEL = NUMBER_0_2_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 /** The number 0.3 double state cyboi model. */
-static double NUMBER_0_3_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {0.3};
+static double NUMBER_0_3_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { 0.3 };
 static double* NUMBER_0_3_DOUBLE_STATE_CYBOI_MODEL = NUMBER_0_3_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 /** The number 0.4 double state cyboi model. */
-static double NUMBER_0_4_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {0.4};
+static double NUMBER_0_4_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { 0.4 };
 static double* NUMBER_0_4_DOUBLE_STATE_CYBOI_MODEL = NUMBER_0_4_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 /** The number 0.5 double state cyboi model. */
-static double NUMBER_0_5_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {0.5};
+static double NUMBER_0_5_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { 0.5 };
 static double* NUMBER_0_5_DOUBLE_STATE_CYBOI_MODEL = NUMBER_0_5_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 /** The number 0.6 double state cyboi model. */
-static double NUMBER_0_6_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {0.6};
+static double NUMBER_0_6_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { 0.6 };
 static double* NUMBER_0_6_DOUBLE_STATE_CYBOI_MODEL = NUMBER_0_6_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 /** The number 0.7 double state cyboi model. */
-static double NUMBER_0_7_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {0.7};
+static double NUMBER_0_7_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { 0.7 };
 static double* NUMBER_0_7_DOUBLE_STATE_CYBOI_MODEL = NUMBER_0_7_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 /** The number 0.8 double state cyboi model. */
-static double NUMBER_0_8_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {0.8};
+static double NUMBER_0_8_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { 0.8 };
 static double* NUMBER_0_8_DOUBLE_STATE_CYBOI_MODEL = NUMBER_0_8_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 /** The number 0.9 double state cyboi model. */
-static double NUMBER_0_9_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {0.9};
+static double NUMBER_0_9_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { 0.9 };
 static double* NUMBER_0_9_DOUBLE_STATE_CYBOI_MODEL = NUMBER_0_9_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 //
@@ -75,7 +75,7 @@ static double* NUMBER_0_9_DOUBLE_STATE_CYBOI_MODEL = NUMBER_0_9_DOUBLE_STATE_CYB
 //
 
 /** The number 1.0 double state cyboi model. */
-static double NUMBER_1_0_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {1.0};
+static double NUMBER_1_0_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { 1.0 };
 static double* NUMBER_1_0_DOUBLE_STATE_CYBOI_MODEL = NUMBER_1_0_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 //
@@ -83,7 +83,7 @@ static double* NUMBER_1_0_DOUBLE_STATE_CYBOI_MODEL = NUMBER_1_0_DOUBLE_STATE_CYB
 //
 
 /** The number 2.0 double state cyboi model. */
-static double NUMBER_2_0_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {2.0};
+static double NUMBER_2_0_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { 2.0 };
 static double* NUMBER_2_0_DOUBLE_STATE_CYBOI_MODEL = NUMBER_2_0_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 //
@@ -91,7 +91,7 @@ static double* NUMBER_2_0_DOUBLE_STATE_CYBOI_MODEL = NUMBER_2_0_DOUBLE_STATE_CYB
 //
 
 /** The number 10.0 double state cyboi model. */
-static double NUMBER_10_0_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = {10.0};
+static double NUMBER_10_0_DOUBLE_STATE_CYBOI_MODEL_ARRAY[] = { 10.0 };
 static double* NUMBER_10_0_DOUBLE_STATE_CYBOI_MODEL = NUMBER_10_0_DOUBLE_STATE_CYBOI_MODEL_ARRAY;
 
 /* DOUBLE_STATE_CYBOI_MODEL_CONSTANT_SOURCE */

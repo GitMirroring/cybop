@@ -33,7 +33,7 @@
  * Otherwise, the system would show the following error, as it expects a constant value:
  * "error: initializer element is not constant"
  */
-static void* NULL_POINTER_STATE_CYBOI_MODEL_ARRAY[] = {(void*) 0};
+static void* NULL_POINTER_STATE_CYBOI_MODEL_ARRAY[] = { (void*) 0 };
 static void** NULL_POINTER_STATE_CYBOI_MODEL = NULL_POINTER_STATE_CYBOI_MODEL_ARRAY;
 
 /* POINTER_STATE_CYBOI_MODEL_CONSTANT_SOURCE */

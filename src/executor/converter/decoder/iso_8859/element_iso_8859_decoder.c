@@ -54,10 +54,13 @@ void decode_iso_8859_element(void* p0, void* p1, void* p2, void* p3) {
     // If the source character at the given index is not known
     // or cannot be converted due to a wrong encoding or an error,
     // the null character will be added to the destination.
+    //
     // But this is going to cause trouble when deserialising the string,
     // since the null character often serves as termination.
+    //
     // Therefore, do NOT use the following initialisation:
     // unsigned char c = *NULL_ASCII_CHARACTER_CODE_MODEL;
+    //
     // Instead, the SPACE character is used by default.
     //
     unsigned char c = *SPACE_ASCII_CHARACTER_CODE_MODEL;
