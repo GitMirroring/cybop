@@ -29,6 +29,7 @@
 #include "../../constant/encoding/cyboi/cyboi_encoding.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../executor/converter/decoder/dos/dos_decoder.c"
 #include "../../executor/converter/decoder/iso_8859/iso_8859_decoder.c"
 #include "../../executor/converter/decoder/utf/utf_16_decoder.c"
 #include "../../executor/converter/decoder/utf/utf_8_decoder.c"
@@ -53,7 +54,31 @@ void decode(void* p0, void* p1, void* p2, void* p3) {
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
-    // iso
+    // dos
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) DOS_437_CYBOI_ENCODING);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            decode_dos(p0, p1, p2, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) DOS_850_CYBOI_ENCODING);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            decode_dos(p0, p1, p2, p3);
+        }
+    }
+
+    //
+    // iso 8859
     //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -77,7 +102,7 @@ void decode(void* p0, void* p1, void* p2, void* p3) {
     }
 
     //
-    // utf
+    // unicode
     //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

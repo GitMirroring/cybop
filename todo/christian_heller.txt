@@ -14,7 +14,6 @@
 xDT
 ___
 
-        * Extend "converter/decoder/" with ibm dos code pages 437 and 850
         * Determine character set from field "9106" in xdt deserialiser before parsing actual data
 
         * Tolerate integer values given with format "number/fraction-decimal" and automatically cast them to double

@@ -23,28 +23,28 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHARACTER_ISO_8859_DECODER_SOURCE
-#define CHARACTER_ISO_8859_DECODER_SOURCE
+#ifndef CHARACTER_DOS_DECODER_SOURCE
+#define CHARACTER_DOS_DECODER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../../../executor/converter/decoder/ascii/ascii_decoder.c"
-#include "../../../../executor/converter/decoder/iso_8859/extension_iso_8859_decoder.c"
+#include "../../../../executor/converter/decoder/dos/extension_dos_decoder.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Decodes the iso-8859 character into a utf-32 wide character.
+ * Decodes the dos character into a utf-32 wide character.
  *
  * @param p0 the destination item
  * @param p1 the source character
  * @param p2 the encoding
  */
-void decode_iso_8859_character(void* p0, void* p1, void* p2) {
+void decode_dos_character(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode iso-8859 character.");
-    //?? fwprintf(stdout, L"Debug: Decode iso-8859 character. p1: %i\n", p1);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode dos character.");
+    //?? fwprintf(stdout, L"Debug: Decode dos character. p1: %i\n", p1);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -65,23 +65,23 @@ void decode_iso_8859_character(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? fwprintf(stdout, L"Debug: Decode iso-8859 character. ascii: %i\n", r);
+            //?? fwprintf(stdout, L"Debug: Decode dos character. ascii: %i\n", r);
 
             decode_ascii(p0, p1);
         }
     }
 
     //
-    // Characters 128..255 (iso-8859)
+    // Characters 128..255 (dos)
     //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        //?? fwprintf(stdout, L"Debug: Decode iso-8859 character. iso: %i\n", r);
+        //?? fwprintf(stdout, L"Debug: Decode dos character. dos: %i\n", r);
 
-        decode_iso_8859_extension(p0, p1, p2);
+        decode_dos_extension(p0, p1, p2);
     }
 }
 
-/* CHARACTER_ISO_8859_DECODER_SOURCE */
+/* CHARACTER_DOS_DECODER_SOURCE */
 #endif

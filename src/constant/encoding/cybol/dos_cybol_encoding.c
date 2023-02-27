@@ -39,11 +39,11 @@
 // This file contains character encoding constants.
 //
 
-/*
- * The dos-850 cybol encoding.
- *
- * Disk Operating System (DOS) Code page 850.
- */
+/* The dos-437 cybol encoding. */
+static wchar_t* DOS_437_CYBOL_ENCODING = L"dos-437";
+static int* DOS_437_CYBOL_ENCODING_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/* The dos-850 cybol encoding. */
 static wchar_t* DOS_850_CYBOL_ENCODING = L"dos-850";
 static int* DOS_850_CYBOL_ENCODING_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

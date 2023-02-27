@@ -22,6 +22,7 @@
 
         * Add code page 437 as character set of the original ibm pc (personal computer) in file "dos_437_character_code_model.c"
         * Fill in code page 850 (IBM850) as character set into existing file "dos_850_character_code_model.c"
+        * Add directory "executor/converter/decoder/dos/" with decoders for ibm dos code pages 437 and 850
 
 2023-02-22  Christian Heller  <christian.heller@cybop.org>
 

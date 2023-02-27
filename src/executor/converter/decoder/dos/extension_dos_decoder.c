@@ -23,65 +23,51 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHARACTER_ISO_8859_DECODER_SOURCE
-#define CHARACTER_ISO_8859_DECODER_SOURCE
+#ifndef EXTENSION_DOS_DECODER_SOURCE
+#define EXTENSION_DOS_DECODER_SOURCE
 
+#include "../../../../constant/encoding/cyboi/cyboi_encoding.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../executor/comparator/integer/less_integer_comparator.c"
-#include "../../../../executor/converter/decoder/ascii/ascii_decoder.c"
-#include "../../../../executor/converter/decoder/iso_8859/extension_iso_8859_decoder.c"
+#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../../executor/converter/decoder/dos/dos_437_decoder.c"
+#include "../../../../executor/converter/decoder/dos/dos_850_decoder.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Decodes the iso-8859 character into a utf-32 wide character.
+ * Decodes the dos extension character data into utf-32 wide character data.
  *
  * @param p0 the destination item
- * @param p1 the source character
+ * @param p1 the source data
  * @param p2 the encoding
  */
-void decode_iso_8859_character(void* p0, void* p1, void* p2) {
+void decode_dos_extension(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode iso-8859 character.");
-    //?? fwprintf(stdout, L"Debug: Decode iso-8859 character. p1: %i\n", p1);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode dos extension.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The range border.
-    unsigned char b = (unsigned char) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    //
-    // Characters 0..127 (ascii)
-    //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Cast range border.
-        b = (unsigned char) *NUMBER_128_INTEGER_STATE_CYBOI_MODEL;
-
-        // CAUTION! Do NOT use function "compare_integer_less" here.
-        compare_character_less((void*) &r, p1, (void*) &b);
+        compare_integer_equal((void*) &r, p2, (void*) DOS_437_CYBOI_ENCODING);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? fwprintf(stdout, L"Debug: Decode iso-8859 character. ascii: %i\n", r);
-
-            decode_ascii(p0, p1);
+            decode_dos_437(p0, p1);
         }
     }
 
-    //
-    // Characters 128..255 (iso-8859)
-    //
-
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        //?? fwprintf(stdout, L"Debug: Decode iso-8859 character. iso: %i\n", r);
+        compare_integer_equal((void*) &r, p2, (void*) DOS_850_CYBOI_ENCODING);
 
-        decode_iso_8859_extension(p0, p1, p2);
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            decode_dos_850(p0, p1);
+        }
     }
 }
 
-/* CHARACTER_ISO_8859_DECODER_SOURCE */
+/* EXTENSION_DOS_DECODER_SOURCE */
 #endif

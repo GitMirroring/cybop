@@ -53,8 +53,18 @@ void serialise_cybol_encoding(void* p0, void* p1) {
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
-    // DOS
+    // dos
     //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) DOS_437_CYBOI_ENCODING);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            modify_item(p0, (void*) DOS_437_CYBOL_ENCODING, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DOS_437_CYBOL_ENCODING_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+        }
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -67,7 +77,7 @@ void serialise_cybol_encoding(void* p0, void* p1) {
     }
 
     //
-    // General
+    // general
     //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -81,7 +91,7 @@ void serialise_cybol_encoding(void* p0, void* p1) {
     }
 
     //
-    // ISO-8859
+    // iso 8859
     //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -245,7 +255,7 @@ void serialise_cybol_encoding(void* p0, void* p1) {
     }
 
     //
-    // Unicode
+    // unicode
     //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -269,7 +279,7 @@ void serialise_cybol_encoding(void* p0, void* p1) {
     }
 
     //
-    // Windows
+    // windows
     //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

@@ -45,9 +45,6 @@ void decode_windows_1252(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode windows 1252.");
 
-    // The comparison results.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
     //
     // CAUTION! The ORDER of comparisons IS IMPORTANT!
     // Do NOT change it easily!
@@ -57,6 +54,16 @@ void decode_windows_1252(void* p0, void* p1) {
     // - Windows
     // - ISO-8859
     //
+    // The windows 1252 character set is based upon iso 8859-1.
+    // It differs only in range 0x80 to 0x9f, where the rarely used
+    // c1 control characters got replaced with printable ones.
+    // Its first 128 characters are identical to ascii.
+    //
+
+    // The comparison results.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The range border.
+    unsigned char b = (unsigned char) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     //
     // Characters 0..127 (ascii)
@@ -64,7 +71,11 @@ void decode_windows_1252(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_less((void*) &r, p1, (void*) NUMBER_128_INTEGER_STATE_CYBOI_MODEL);
+        // Cast range border.
+        b = (unsigned char) *NUMBER_128_INTEGER_STATE_CYBOI_MODEL;
+
+        // CAUTION! Do NOT use function "compare_integer_less" here.
+        compare_character_less((void*) &r, p1, (void*) &b);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -78,7 +89,11 @@ void decode_windows_1252(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_less((void*) &r, p1, (void*) NUMBER_160_INTEGER_STATE_CYBOI_MODEL);
+        // Cast range border.
+        b = (unsigned char) *NUMBER_160_INTEGER_STATE_CYBOI_MODEL;
+
+        // CAUTION! Do NOT use function "compare_integer_less" here.
+        compare_character_less((void*) &r, p1, (void*) &b);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

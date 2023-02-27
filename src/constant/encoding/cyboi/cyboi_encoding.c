@@ -37,14 +37,17 @@
 //
 
 //
-// DOS.
+// dos
 //
+
+/** The dos 437 cyboi encoding. */
+static int* DOS_437_CYBOI_ENCODING = NUMBER_100_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The dos 850 cyboi encoding. */
-static int* DOS_850_CYBOI_ENCODING = NUMBER_100_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* DOS_850_CYBOI_ENCODING = NUMBER_101_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// General.
+// general
 //
 
 /** The ascii cyboi encoding. */
@@ -66,7 +69,7 @@ static int* SHIFT_JIS_CYBOI_ENCODING = NUMBER_204_INTEGER_STATE_CYBOI_MODEL_ARRA
 static int* UNIVERSAL_CYBOI_ENCODING = NUMBER_205_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// ISO 8859.
+// iso 8859
 //
 
 /** The iso-8859-1 cyboi encoding. */
@@ -118,7 +121,7 @@ static int* ISO_8859_15_CYBOI_ENCODING = NUMBER_315_INTEGER_STATE_CYBOI_MODEL_AR
 static int* ISO_8859_16_CYBOI_ENCODING = NUMBER_316_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// Unicode.
+// unicode
 //
 
 /** The cesu-8 cyboi encoding. */
@@ -149,7 +152,7 @@ static int* UTF_EBCDIC_CYBOI_ENCODING = NUMBER_507_INTEGER_STATE_CYBOI_MODEL_ARR
 static int* UTF_SCSU_CYBOI_ENCODING = NUMBER_508_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// Windows.
+// windows
 //
 
 /** The windows 874 cyboi encoding. */

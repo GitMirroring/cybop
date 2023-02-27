@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENT_ISO_8859_DECODER_SOURCE
-#define ELEMENT_ISO_8859_DECODER_SOURCE
+#ifndef ELEMENT_DOS_DECODER_SOURCE
+#define ELEMENT_DOS_DECODER_SOURCE
 
 #include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -32,21 +32,21 @@
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/converter/decoder/iso_8859/character_iso_8859_decoder.c"
+#include "../../../../executor/converter/decoder/dos/character_dos_decoder.c"
 #include "../../../../executor/copier/array_copier.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Decodes the iso-8859 character data element into utf-32 wide character data.
+ * Decodes the dos character data element into utf-32 wide character data.
  *
  * @param p0 the destination item
  * @param p1 the source data
  * @param p2 the source index
  * @param p3 the encoding
  */
-void decode_iso_8859_element(void* p0, void* p1, void* p2, void* p3) {
+void decode_dos_element(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode iso-8859 element.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode dos element.");
 
     //
     // The source character.
@@ -69,12 +69,12 @@ void decode_iso_8859_element(void* p0, void* p1, void* p2, void* p3) {
     // Get source character at given index.
     copy_array_forward((void*) &c, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
-    //?? fwprintf(stdout, L"Debug: decode iso-8859 element c as char: %c\n", c);
-    //?? fwprintf(stdout, L"Debug: decode iso-8859 element c as int: %i\n", c);
+    //?? fwprintf(stdout, L"Debug: decode dos element c as char: %c\n", c);
+    //?? fwprintf(stdout, L"Debug: decode dos element c as int: %i\n", c);
 
     // Decode source character.
-    decode_iso_8859_character(p0, (void*) &c, p3);
+    decode_dos_character(p0, (void*) &c, p3);
 }
 
-/* ELEMENT_ISO_8859_DECODER_SOURCE */
+/* ELEMENT_DOS_DECODER_SOURCE */
 #endif
