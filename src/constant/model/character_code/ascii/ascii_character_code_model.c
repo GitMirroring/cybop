@@ -356,7 +356,7 @@ static unsigned char* COLON_ASCII_CHARACTER_CODE_MODEL = COLON_ASCII_CHARACTER_C
 static unsigned char SEMICOLON_ASCII_CHARACTER_CODE_MODEL_ARRAY[] = { 0x3B };
 static unsigned char* SEMICOLON_ASCII_CHARACTER_CODE_MODEL = SEMICOLON_ASCII_CHARACTER_CODE_MODEL_ARRAY;
 
-/** The less than sign ascii character code model. U+003C */
+/** The less-than sign ascii character code model. U+003C */
 static unsigned char LESS_THAN_SIGN_ASCII_CHARACTER_CODE_MODEL_ARRAY[] = { 0x3C };
 static unsigned char* LESS_THAN_SIGN_ASCII_CHARACTER_CODE_MODEL = LESS_THAN_SIGN_ASCII_CHARACTER_CODE_MODEL_ARRAY;
 
@@ -379,7 +379,7 @@ static unsigned char* LESS_THAN_SIGN_ASCII_CHARACTER_CODE_MODEL = LESS_THAN_SIGN
 static unsigned char EQUALS_SIGN_ASCII_CHARACTER_CODE_MODEL_ARRAY[] = { 0x3D };
 static unsigned char* EQUALS_SIGN_ASCII_CHARACTER_CODE_MODEL = EQUALS_SIGN_ASCII_CHARACTER_CODE_MODEL_ARRAY;
 
-/** The greater than sign ascii character code model. U+003E */
+/** The greater-than sign ascii character code model. U+003E */
 static unsigned char GREATER_THAN_SIGN_ASCII_CHARACTER_CODE_MODEL_ARRAY[] = { 0x3E };
 static unsigned char* GREATER_THAN_SIGN_ASCII_CHARACTER_CODE_MODEL = GREATER_THAN_SIGN_ASCII_CHARACTER_CODE_MODEL_ARRAY;
 

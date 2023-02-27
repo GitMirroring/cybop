@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-02-27  Christian Heller  <christian.heller@cybop.org>
+
+        * Add code page 437 as character set of the original ibm pc (personal computer) in file "dos_437_character_code_model.c"
+        * Fill in code page 850 (IBM850) as character set into existing file "dos_850_character_code_model.c"
+
 2023-02-22  Christian Heller  <christian.heller@cybop.org>
 
         * Skip whitespace in file "line_field_xdt_deserialiser.c"

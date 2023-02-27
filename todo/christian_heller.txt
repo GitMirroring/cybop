@@ -14,8 +14,7 @@
 xDT
 ___
 
-        * Add code page 437 as character set of the original ibm pc (personal computer) in file "dos_437_character_code_model.c"
-        * Fill in code page 850 (IBM850) as character set into existing file "dos_850_character_code_model.c"
+        * Extend "converter/decoder/" with ibm dos code pages 437 and 850
         * Determine character set from field "9106" in xdt deserialiser before parsing actual data
 
         * Tolerate integer values given with format "number/fraction-decimal" and automatically cast them to double
