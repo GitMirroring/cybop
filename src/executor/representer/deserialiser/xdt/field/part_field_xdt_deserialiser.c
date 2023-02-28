@@ -77,11 +77,9 @@ void deserialise_xdt_field_part(void* p0, void* p1, void* p2, void* p3, void* p4
     //
     deserialise_xdt_field_type((void*) &t, (void*) &f);
 
-/*??
     if (f != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
         if (t != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
-*/
 
             //
             // Allocate part.
@@ -119,7 +117,6 @@ void deserialise_xdt_field_part(void* p0, void* p1, void* p2, void* p3, void* p4
             //
             modify_item(p0, (void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
-/*??
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt field part. The field type is invalid.");
@@ -133,7 +130,6 @@ void deserialise_xdt_field_part(void* p0, void* p1, void* p2, void* p3, void* p4
         // CAUTION! An invalid format would lead to an allocation error.
         fwprintf(stdout, L"Could not deserialise xdt field part. The field format is invalid: %i\n", f);
     }
-*/
 }
 
 /* PART_FIELD_XDT_DESERIALISER_SOURCE */

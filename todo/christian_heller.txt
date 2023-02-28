@@ -14,20 +14,6 @@
 xDT
 ___
 
-        * Tolerate integer values given with format "number/fraction-decimal" and automatically cast them to double
-            test with cybol application "counter/simple/"
-            adapt file "app.cybol" there
-        * Handle case that float is expected but an integer without decimal separator given, in numeral deserialiser
-            bring up error or not in file "number_numeral_deserialiser.c" ??
-        * Debug error in xdt deserialiser:
-            Error: Could not deserialise numeral number. The detected type 34 (format: 555) and destination type (format *p11: 553) are not identical.
-
-        * Adapt flags for numeral conversion as needed in xdt deserialiser
-            Is for example detection of hexadecimal or octal prefix necessary in xdt?
-
-        CHECK:
-        * Uncomment tests for -1 in file "part_field_xdt_deserialiser.c", in order to report errors, as soon as all field constants have been implemented
-
         * Delete (really ??) all if-else clauses with "text/plain" format in file "format_field_xdt_deserialiser.c", since it is the default, in order to increase xdt deserialiser efficiency
         * Uncomment warning message in file "format_field_xdt_deserialiser.c"
         * Add missing field description constants to files "field_xdt_name.c" and "field_description_xdt_model.c"
@@ -39,6 +25,11 @@ ___
             uncomment include in line 54 and serialise call in line 270 of file "serialiser.c"
             compilation takes > 30 min and reports an error "variable tracking size limit exceeded with -fvar-tracking-assignments", but binary gets created successfully anyway
             --> ask Enrico Gallus
+
+        * Tolerate integer value even if given with format "number/fraction-decimal" and cast it to "double" in file "number_numeral_deserialiser.c"
+        * Show warning in file "number_numeral_deserialiser.c" if float is expected but an integer without decimal separator given
+        * Solve thereby error in xdt deserialiser:
+            Error: Could not deserialise numeral number. The detected type 34 (format: 555) and destination type (format *p11: 553) are not identical.
 
 Verifier
 ________
