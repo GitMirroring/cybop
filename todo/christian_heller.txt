@@ -14,8 +14,6 @@
 xDT
 ___
 
-        * Determine character set from field "9106" in xdt deserialiser before parsing actual data
-
         * Tolerate integer values given with format "number/fraction-decimal" and automatically cast them to double
             test with cybol application "counter/simple/"
             adapt file "app.cybol" there
@@ -30,8 +28,6 @@ ___
         CHECK:
         * Uncomment tests for -1 in file "part_field_xdt_deserialiser.c", in order to report errors, as soon as all field constants have been implemented
 
-        * Check proper recognition of german "Umlaut" characters in xdt deserialiser
-
         * Delete (really ??) all if-else clauses with "text/plain" format in file "format_field_xdt_deserialiser.c", since it is the default, in order to increase xdt deserialiser efficiency
         * Uncomment warning message in file "format_field_xdt_deserialiser.c"
         * Add missing field description constants to files "field_xdt_name.c" and "field_description_xdt_model.c"
@@ -42,6 +38,7 @@ ___
         * Move xDT de-/serialisation into a library, since it is very large (4 MiB) and compilation needs double time (14 s instead of 7 s)
             uncomment include in line 54 and serialise call in line 270 of file "serialiser.c"
             compilation takes > 30 min and reports an error "variable tracking size limit exceeded with -fvar-tracking-assignments", but binary gets created successfully anyway
+            --> ask Enrico Gallus
 
 Verifier
 ________
