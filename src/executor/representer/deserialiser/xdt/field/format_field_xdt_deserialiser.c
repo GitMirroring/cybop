@@ -7773,17 +7773,17 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt field format. The field identification is unknown.");
-
         // Interpret content as text by default.
         copy_integer(p0, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
 
         if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt field format. The field identification is unknown.");
             //?? fwprintf(stdout, L"Warning: Could not deserialise xdt field format. The field identification is unknown: %i\n", *((int*) p1));
 
         } else {
 
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt field format. The field identification is null.");
             fwprintf(stdout, L"Warning: Could not deserialise xdt field format. The field identification is null.\n");
         }
     }

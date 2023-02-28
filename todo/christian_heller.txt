@@ -14,22 +14,28 @@
 xDT
 ___
 
-        * Delete (really ??) all if-else clauses with "text/plain" format in file "format_field_xdt_deserialiser.c", since it is the default, in order to increase xdt deserialiser efficiency
-        * Uncomment warning message in file "format_field_xdt_deserialiser.c"
-        * Add missing field description constants to files "field_xdt_name.c" and "field_description_xdt_model.c"
-
-        * Delete (really ??) superfluous file "record_bdt_xdt_selector.c"
-        * Delete (really ??) superfluous files "record_xdt_name.c", "field_xdt_name.c"
-
         * Move xDT de-/serialisation into a library, since it is very large (4 MiB) and compilation needs double time (14 s instead of 7 s)
             uncomment include in line 54 and serialise call in line 270 of file "serialiser.c"
             compilation takes > 30 min and reports an error "variable tracking size limit exceeded with -fvar-tracking-assignments", but binary gets created successfully anyway
             --> ask Enrico Gallus
 
+        Only if performance improvements are needed:
+        * Delete all if-else clauses with "text/plain" format in file "format_field_xdt_deserialiser.c", since it is the default, in order to increase xdt deserialiser efficiency
+
         * Tolerate integer value even if given with format "number/fraction-decimal" and cast it to "double" in file "number_numeral_deserialiser.c"
         * Show warning in file "number_numeral_deserialiser.c" if float is expected but an integer without decimal separator given
         * Solve thereby error in xdt deserialiser:
             Error: Could not deserialise numeral number. The detected type 34 (format: 555) and destination type (format *p11: 553) are not identical.
+
+        * Add missing field description constants to files "field_xdt_name.c" and "field_description_xdt_model.c"
+        * Uncomment warning message in file "format_field_xdt_deserialiser.c" as soon as all field descriptions have been implemented
+
+        * Replace integer constants in file "format_field_xdt_deserialiser.c" with those taken from file "field_xdt_name.c"
+
+        * Delete superfluous file "record_bdt_xdt_selector.c" using constants of file "record_xdt_name.c"
+        * Delete superfluous file "record_xdt_name.c"
+
+        * Activate or delete files "hierarchy_field_xdt_deserialiser_FUTURE_BDT_4.c" and "hierarchy_field_xdt_selector_FUTURE_BDT_4.c"
 
 Verifier
 ________
@@ -50,7 +56,7 @@ __________
             with "If null, the default is the lesser of left and right operand count."
         * Consider also "array_comparator.c" and "vector_comparator.c" etc.
 
-        * Add special static cybol file to api doc html templates to describe general language issues such as stack variable handling
+        * Add special static cybol file to api doc html templates to describe general language design issues such as stack variable handling
 
 App
 ___
