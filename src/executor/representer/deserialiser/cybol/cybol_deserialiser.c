@@ -33,7 +33,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/converter/encoder.c"
+#include "../../../../executor/converter/encoder/encoder.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/representer/deserialiser/ansi_escape_code/ansi_escape_code_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/boolean/boolean_deserialiser.c"

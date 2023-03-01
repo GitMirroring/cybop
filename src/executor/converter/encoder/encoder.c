@@ -26,14 +26,15 @@
 #ifndef ENCODER_SOURCE
 #define ENCODER_SOURCE
 
-#include "../../constant/encoding/cyboi/cyboi_encoding.c"
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/converter/encoder/utf/utf_16_encoder.c"
-#include "../../executor/converter/encoder/utf/utf_8_encoder.c"
-#include "../../logger/logger.c"
+#include "../../../constant/encoding/cyboi/cyboi_encoding.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../executor/converter/encoder/base_64/base_64_encoder.c"
+#include "../../../executor/converter/encoder/utf/utf_16_encoder.c"
+#include "../../../executor/converter/encoder/utf/utf_8_encoder.c"
+#include "../../../logger/logger.c"
 
 /**
  * Encodes the source into the destination, according to the given encoding.
@@ -51,6 +52,20 @@ void encode(void* p0, void* p1, void* p2, void* p3) {
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    //
+    // base 64
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) BASE_64_CYBOI_ENCODING);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            encode_base_64(p0, p1, p2);
+        }
+    }
 
     //
     // utf

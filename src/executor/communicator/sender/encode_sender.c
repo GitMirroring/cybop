@@ -32,7 +32,7 @@
 #include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/converter/encoder.c"
+#include "../../../executor/converter/encoder/encoder.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../logger/logger.c"
 

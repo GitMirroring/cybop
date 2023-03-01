@@ -29,6 +29,7 @@
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/encoding/cyboi/cyboi_encoding.c"
 #include "../../../../constant/encoding/cybol/cybol_encoding.c"
+#include "../../../../constant/encoding/cybol/base_cybol_encoding.c"
 #include "../../../../constant/encoding/cybol/dos_cybol_encoding.c"
 #include "../../../../constant/encoding/cybol/iso_8859_cybol_encoding.c"
 #include "../../../../constant/encoding/cybol/unicode_cybol_encoding.c"
@@ -65,6 +66,20 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    //
+    // base
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p1, (void*) BASE_64_CYBOL_ENCODING, p2, (void*) BASE_64_CYBOL_ENCODING_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            modify_item(p0, (void*) BASE_64_CYBOI_ENCODING, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+        }
+    }
 
     //
     // dos

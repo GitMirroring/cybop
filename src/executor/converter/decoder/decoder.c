@@ -26,15 +26,16 @@
 #ifndef DECODER_SOURCE
 #define DECODER_SOURCE
 
-#include "../../constant/encoding/cyboi/cyboi_encoding.c"
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../executor/converter/decoder/dos/dos_decoder.c"
-#include "../../executor/converter/decoder/iso_8859/iso_8859_decoder.c"
-#include "../../executor/converter/decoder/utf/utf_16_decoder.c"
-#include "../../executor/converter/decoder/utf/utf_8_decoder.c"
-#include "../../executor/converter/decoder/windows/windows_decoder.c"
-#include "../../logger/logger.c"
+#include "../../../constant/encoding/cyboi/cyboi_encoding.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/converter/decoder/base_64/base_64_decoder.c"
+#include "../../../executor/converter/decoder/dos/dos_decoder.c"
+#include "../../../executor/converter/decoder/iso_8859/iso_8859_decoder.c"
+#include "../../../executor/converter/decoder/utf/utf_16_decoder.c"
+#include "../../../executor/converter/decoder/utf/utf_8_decoder.c"
+#include "../../../executor/converter/decoder/windows/windows_decoder.c"
+#include "../../../logger/logger.c"
 
 /**
  * Decodes the source into the destination, according to the given encoding.
@@ -52,6 +53,20 @@ void decode(void* p0, void* p1, void* p2, void* p3) {
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    //
+    // base 64
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) BASE_64_CYBOI_ENCODING);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            decode_base_64(p0, p1, p2);
+        }
+    }
 
     //
     // dos

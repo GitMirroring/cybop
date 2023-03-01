@@ -11,6 +11,27 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+Kommunikation im Medizinwesen (KIM)
+___________________________________
+
+        * Add simple mail transfer protocol (smtp) constants in file "TODO.c"
+        * Add post office protocol (pop) constants in file "TODO.c"
+        * Add internet mail access protocol (imap) constants in file "TODO.c"
+        * Add multipurpose internet mail extensions (mime) constants in file "TODO.c"
+        * Add secure mime (s/mime) protocol constants in file "TODO.c"
+
+        * Add smtp serialiser
+        * Add smtp deserialiser
+
+        * Add pop serialiser
+        * Add pop deserialiser
+
+        * Add imap serialiser
+        * Add imap deserialiser
+
+        * Add base64 encoder
+        * Add base64 decoder
+
 xDT
 ___
 

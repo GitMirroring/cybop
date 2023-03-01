@@ -32,7 +32,7 @@
 #include "../../constant/name/cybol/logic/conversion/encode_conversion_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../executor/converter/encoder.c"
+#include "../../executor/converter/encoder/encoder.c"
 #include "../../logger/logger.c"
 
 /**

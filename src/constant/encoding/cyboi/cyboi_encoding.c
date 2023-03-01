@@ -33,8 +33,15 @@
 //
 // CAUTION! These constants have been put into just ONE file,
 // because they have to be assigned a unique identification integer,
-// which is easier to verify having they here altogether.
+// which is easier to verify having them here altogether.
 //
+
+//
+// base
+//
+
+/** The base-64 cyboi encoding. */
+static int* BASE_64_CYBOI_ENCODING = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // dos

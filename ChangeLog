@@ -21,6 +21,7 @@
 2023-03-01  Christian Heller  <christian.heller@cybop.org>
 
         * Add error code constants for german "elektronische Ersatzbescheinigung" (eEB) of "Kommunikation im Medizinwesen" (KIM) infrastructure
+        * Prepare base 64 encoding support
 
 2023-02-27  Christian Heller  <christian.heller@cybop.org>
 
