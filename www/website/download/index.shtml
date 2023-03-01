@@ -30,7 +30,7 @@
             <p>
                 The cyboi interpreter is currently compilable and runnable on Linux only.
             </p>
-            <a href="https://download.savannah.nongnu.org/releases/cybop/cybop-0.24.0-Linux.tar.gz">
+            <a href="https://download.savannah.nongnu.org/releases/cybop/cybop-0.25.0-Linux.tar.gz">
                 <span class="badge rounded-pill p-3" style="font-size: 14pt;">Download Source Code</span>
             </a>
         </div>
