@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-03-01  Christian Heller  <christian.heller@cybop.org>
+
+        * Add error code constants for german "elektronische Ersatzbescheinigung" (eEB) of "Kommunikation im Medizinwesen" (KIM) infrastructure
+
 2023-02-27  Christian Heller  <christian.heller@cybop.org>
 
         * Add code page 437 as character set of the original ibm pc (personal computer) in file "dos_437_character_code_model.c"
