@@ -5,7 +5,7 @@
 
 *Note: The following steps have to be executed MANUALLY*
 
-1. Pull the latest changes for the pythong scripts with `cd build/scripts && git pull`
+1. Pull the latest changes for the python scripts with `cd build/scripts && git pull`
 2. Change project version in `build/CMakeLists.txt` and execute ```make copyright```
 3. Adapt directories and files in file `build/cmake/packaging.cmake`
 4. Analyse source code by running `valgrind`
@@ -27,10 +27,17 @@
 5. Verify style by running ```make formatting``` which calls `ClangFormat` with code changes DISABLED
 6. Generate api by running ```make api``` which executes the cybol api-generator
 
+## Website
+
+1. Create new file for release in www/website/development/plan/
+2. Copy content from NEWS to www/website/development/plan/cybop-x.x.x.html
+3. Update www/website/development/plan/index.html
+4. Upload website changes
+
 ## Release
 
-2. Commit to svn MANUALLY
-3. Tag release in svn (see section "5.1 Tagging" in file "INSTALL") MANUALLY
+1. Commit to svn MANUALLY
+2. Tag release in svn (see section "5.1 Tagging" in file "INSTALL") MANUALLY
 
 ## Distribution
 
@@ -43,10 +50,3 @@ Desirable formats are:
 * deb package (see section "5.3 Debianising" in file "INSTALL")
 * rpm package
 * msi installer for Windows using NSIS tool
-
-## Website
-
-1. Create new file for release in www/website/development/plan/
-2. Copy content from NEWS to www/website/development/plan/cybop-x.x.x.html
-3. Update www/website/development/plan/index.html
-4. Upload website changes

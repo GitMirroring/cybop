@@ -1,6 +1,8 @@
 ascii
+base-64
 big-5
 cesu-8
+dos-437
 dos-850
 ebcdic
 gb

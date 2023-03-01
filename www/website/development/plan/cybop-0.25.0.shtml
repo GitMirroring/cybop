@@ -7,25 +7,43 @@
 <section class="container">
     <h2>CYBOI</h2>
     <ul>
-        <li>TODO</li>
-        <li>Continue gui and layout serialiser</li>
-        <li>Continue win32 console input deserialiser</li>
-        <li>Implement date-time handling and corresponding format de-/serialisers</li>
-        <li>Complete xdt (German medical exchange format) deserialiser</li>
+        <h3>General:</h3>
+        <li>Fix error with missing file open mode property in file "applicator/dispatch/open.c"</li>
+        <li>Define static int variable "DEBUG_CYBOP" in file "log_setting.c", to be used for debug log messages in certain parts of code</li>
+        <li>Check cybol "flow/loop" break property in file "part_handler.c" in order to be able to leave a loop at each step in cybol</li>
+        <h3>Stack Variables:</h3>
+        <li>Add new format "element/reference" to store a pointer to a part or property as stack variable, which is important for recursion</li>
+        <li>Allocate new part for each stack variable instead of just copying pointer references</li>
+        <li>Avoid thereby unwanted manipulation of original property values in knowledge memory (heap)</li>
+        <li>Remove manual deallocation of stack variables in file "part_pop_handler.c", since they get deallocated automatically by garbage collection when removing them from stack memory</li>
+        <li>Move stack handling from directory "controller/handler/" to "executor/stacker/" with sub directories "pusher" and "popper"</li>
+        <li>Store stack variables in file "handler.c" instead of in "part_handler.c", so that they are considered in path call chains</li>
+        <li>Use function "get_name_array" instead of "get_part_name" (resolving path) in flow applicators that call the handle function, so that runtime argument properties of the path (and not tree node) are considered</li>
+        <h3>xDT (German medical exchange format) Deserialiser:</h3>
+        <li>Reactivate xdt field description serialiser</li>
+        <li>Skip whitespace between fields</li>
+        <li>Correct wrong length of some constants</li>
+        <li>Replace usage of file "end_field_xdt_selector.c" with "newline_selector.c"</li>
+        <li>Provide decoder for dos code pages 437 (ibm pc) and 850 (IBM850) as character set</li>
     </ul>
 </section>
 
 <section class="container">
     <h2>CYBOL</h2>
     <ul>
-        <li>TODO</li>
+        <h3>Applications:</h3>
+        <li>Add cybol application "examples/knowledge_tree/stack/"</li>
+        <li>Simplify break condition check for operation "flow/loop" in all cybol applications and api generator</li>
     </ul>
 </section>
 
 <section class="container">
     <h2>Project</h2>
     <ul>
-        <li>TODO</li>
+        <h3>Build Process (Enrico Gallus):</h3>
+        <li>Convert file "release.txt" to markdown format</li>
+        <li>Add clean-all cmake target which deletes all files created during cmake process</li>
+        <li>Add dev target which executes all targets described in file "release.md"</li>
     </ul>
 </section>
 

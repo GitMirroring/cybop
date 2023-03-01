@@ -54,12 +54,12 @@ new_tabulator="    "
 # The old and new copyright.
 #
 old_copyright="Copyright (C) 1999-2022. Christian Heller."
-new_copyright="Copyright (C) 1999-2022. Christian Heller."
+new_copyright="Copyright (C) 1999-2023. Christian Heller."
 #
 # The old and new version.
 #
-old_version="@version CYBOP 0.23.0 2022-09-04"
-new_version="@version CYBOP 0.24.0 2022-12-24"
+old_version="@version CYBOP 0.24.0 2022-12-24"
+new_version="@version CYBOP 0.25.0 2023-03-01"
 
 #
 # Determine files.

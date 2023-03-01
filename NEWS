@@ -1,5 +1,5 @@
 #
-# Copyright (C) 1999-2022. Christian Heller.
+# Copyright (C) 1999-2023. Christian Heller.
 #
 # This file represents a record of user-visible changes to cybop.
 #
@@ -9,9 +9,40 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.24.0 2022-12-24
+# @version CYBOP 0.25.0 2023-03-01
 # @author Christian Heller <christian.heller@cybop.org>
 #
+
+CYBOP 0.25.0, 2023-03-01, Christian Heller  <christian.heller@cybop.org>
+
+        * CYBOI:
+            General:
+            - Fix error with missing file open mode property in file "applicator/dispatch/open.c"
+            - Define static int variable "DEBUG_CYBOP" in file "log_setting.c", to be used for debug log messages in certain parts of code
+            - Check cybol "flow/loop" break property in file "part_handler.c" in order to be able to leave a loop at each step in cybol
+            Stack Variables:
+            - Add new format "element/reference" to store a pointer to a part or property as stack variable, which is important for recursion
+            - Allocate new part for each stack variable instead of just copying pointer references
+            - Avoid thereby unwanted manipulation of original property values in knowledge memory (heap)
+            - Remove manual deallocation of stack variables in file "part_pop_handler.c", since they get deallocated automatically by garbage collection when removing them from stack memory
+            - Move stack handling from directory "controller/handler/" to "executor/stacker/" with sub directories "pusher" and "popper"
+            - Store stack variables in file "handler.c" instead of in "part_handler.c", so that they are considered in path call chains
+            - Use function "get_name_array" instead of "get_part_name" (resolving path) in flow applicators that call the handle function, so that runtime argument properties of the path (and not tree node) are considered
+            xDT Deserialiser:
+            - Reactivate xdt field description serialiser
+            - Skip whitespace between fields
+            - Correct wrong length of some constants
+            - Replace usage of file "end_field_xdt_selector.c" with "newline_selector.c"
+            - Provide decoder for dos code pages 437 (ibm pc) and 850 (IBM850) as character set
+        * CYBOL:
+            Applications:
+            - Add cybol application "examples/knowledge_tree/stack/"
+            - Simplify break condition check for operation "flow/loop" in all cybol applications and api generator
+        * Project:
+            Build Process (Enrico Gallus):
+            - Convert file "release.txt" to markdown format
+            - Add clean-all cmake target which deletes all files created during cmake process
+            - Add dev target which executes all targets described in file "release.md"
 
 CYBOP 0.24.0, 2022-12-24, Christian Heller  <christian.heller@cybop.org>
 
@@ -60,12 +91,12 @@ CYBOP 0.24.0, 2022-12-24, Christian Heller  <christian.heller@cybop.org>
             - Make up simplified demo package as zip file containing just readme + cyboi + a few functioning apps
             - Upload tutorials to various video portals
             - Provide tutorials as separate page on website
-            Build Process:
-            - Delete unused/obsolete bin and dist folder (Enrico Gallus)
-            - Remove doxygen completely (Enrico Gallus)
-            - Rename make targets (Enrico Gallus)
-            - Generate cmake config header file during make process (Enrico Gallus)
-            - Add deb to cpack package list (Enrico Gallus)
+            Build Process (Enrico Gallus):
+            - Delete unused/obsolete bin and dist folder
+            - Remove doxygen completely
+            - Rename make targets
+            - Generate cmake config header file during make process
+            - Add deb to cpack package list
 
 CYBOP 0.23.0, 2022-09-04, Christian Heller  <christian.heller@cybop.org>
 

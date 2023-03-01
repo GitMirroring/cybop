@@ -3,7 +3,7 @@
     <node name="stdout" channel="inline" format="number/integer" model="-1"/>
 
     <node name="title" channel="inline" format="text/plain" model="CYBOL API Specification Version 0.25.0"/>
-    <node name="copyright" channel="inline" format="text/plain" model="Copyright &copy; 1999-2023. CYBOP Developers. Last Update: 2023-01-23"/>
+    <node name="copyright" channel="inline" format="text/plain" model="Copyright &copy; 1999-2023. CYBOP Developers. Last Update: 2023-03-01"/>
     <node name="file" channel="inline" format="text/plain" model="api-generator/index.html"/>
 
     <node name="spec" channel="file" format="element/part" model="api-generator/spec.cybol"/>

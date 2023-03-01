@@ -1,5 +1,5 @@
 #
-# Copyright (C) 1999-2022. Christian Heller.
+# Copyright (C) 1999-2023. Christian Heller.
 #
 # This file records the changes that are made to cybop.
 #
@@ -14,7 +14,7 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.24.0 2022-12-24
+# @version CYBOP 0.25.0 2023-03-01
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
@@ -22,6 +22,7 @@
 
         * Add error code constants for german "elektronische Ersatzbescheinigung" (eEB) of "Kommunikation im Medizinwesen" (KIM) infrastructure
         * Prepare base 64 encoding support
+        * Release CYBOP 0.25.0
 
 2023-02-27  Christian Heller  <christian.heller@cybop.org>
 
@@ -67,7 +68,7 @@
 
 2023-02-06  Christian Heller  <christian.heller@cybop.org>
 
-        * Add new format "element/reference" to store a pointer to a part or property as stack variable
+        * Add new format "element/reference" to store a pointer to a part or property as stack variable, which is important for recursion
         * Restructure files for stack memory handling into sub directories "push" and "pop" of directory "controller/handler/"
         * Allocate new part for each stack variable instead of just copying pointer references
         * Avoid thereby unwanted manipulation of original property values in knowledge memory (heap)
@@ -86,12 +87,9 @@
 
 2022-12-24  Enrico Gallus  <enrico.gallus@gmail.com>
 
-        * executed python adjustCopyright after adjustments and fixed version number for missed files in release 0.24.0
-        * converted release.txt to markdown and adjusted definition to new cmake workflows
-        * add clean-all cmake target which deletes all files created during cmake process
-        * add dev target which executes all targets described in release.md
-        * fixed incorrect date in 'tools/api-generator/app.cybol'
-        * exceuted dev target and commit changes of files due to execution
+        * Convert file "release.txt" to markdown format and adjust definition to new cmake workflows
+        * Add clean-all cmake target which deletes all files created during cmake process
+        * Add dev target which executes all targets described in file "release.md"
 
 2022-12-24  Christian Heller  <christian.heller@cybop.org>
 
@@ -5197,7 +5195,7 @@
 
         * Change year to 2012 in comment block of all source code files, to prepare next release
         * Delete CVS "$" tags in source code since SVN is used now, which does not fill them
-        * Use new line "@version CYBOP 0.24.0 2022-12-24
+        * Use new line "@version CYBOP 0.25.0 2023-03-01
         * Delete outdated and redundant array handling files in directory "logger/"
         * Start fixing constant names in all source code
 
