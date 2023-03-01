@@ -15,10 +15,29 @@ Kommunikation im Medizinwesen (KIM)
 ___________________________________
 
         * Add simple mail transfer protocol (smtp) constants in file "TODO.c"
-        * Add post office protocol (pop) constants in file "TODO.c"
-        * Add internet mail access protocol (imap) constants in file "TODO.c"
+            https://www.rfc-editor.org/rfc/rfc5321.html
+
+        * Add post office protocol (pop) version 3 constants in file "TODO.c"
+            https://www.rfc-editor.org/rfc/rfc1939.html
+
         * Add multipurpose internet mail extensions (mime) constants in file "TODO.c"
-        * Add secure mime (s/mime) protocol constants in file "TODO.c"
+            Part 1: Format of Internet Message Bodies
+            https://www.rfc-editor.org/rfc/rfc2045.html
+            Part 2: Media Types
+            https://www.rfc-editor.org/rfc/rfc2046.html
+            Part 3: Message Header Extensions for Non-ASCII Text
+            https://www.rfc-editor.org/rfc/rfc2047.html
+            Part 5: Conformance Criteria and Examples
+            https://www.rfc-editor.org/rfc/rfc2049.html
+
+        * Add secure/multipurpose internet mail extensions (s/mime) Version 4.0 protocol constants in file "TODO.c"
+            Message Specification:
+            https://www.rfc-editor.org/rfc/rfc8551.html
+            S/MIME Example Keys and Certificates:
+            https://www.rfc-editor.org/rfc/rfc9216.html
+
+        * See standards overview
+            https://www.rfc-editor.org/standards
 
         * Add smtp serialiser
         * Add smtp deserialiser
