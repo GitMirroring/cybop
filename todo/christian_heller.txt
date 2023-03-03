@@ -14,33 +14,21 @@
 Kommunikation im Medizinwesen (KIM)
 ___________________________________
 
-        * Add simple mail transfer protocol (smtp) constants in file "TODO.c"
-            https://www.rfc-editor.org/rfc/rfc5321.html
-
-        * Add post office protocol (pop) version 3 constants in file "TODO.c"
-            https://www.rfc-editor.org/rfc/rfc1939.html
-
-        * Add multipurpose internet mail extensions (mime) constants in file "TODO.c"
-            Part 1: Format of Internet Message Bodies
-            https://www.rfc-editor.org/rfc/rfc2045.html
-            Part 2: Media Types
-            https://www.rfc-editor.org/rfc/rfc2046.html
-            Part 3: Message Header Extensions for Non-ASCII Text
-            https://www.rfc-editor.org/rfc/rfc2047.html
-            Part 5: Conformance Criteria and Examples
-            https://www.rfc-editor.org/rfc/rfc2049.html
-
-        * Add secure/multipurpose internet mail extensions (s/mime) Version 4.0 protocol constants in file "TODO.c"
-            Message Specification:
-            https://www.rfc-editor.org/rfc/rfc8551.html
-            S/MIME Example Keys and Certificates:
-            https://www.rfc-editor.org/rfc/rfc9216.html
-
-        * See standards overview
-            https://www.rfc-editor.org/standards
+        POSSIBLY put all of the following file with constants into a common directory like "internet" or "email" ??
+        * Add simple mail transfer protocol (smtp) name constants in directory "constant/name/smtp/"
+        * Add post office protocol (pop) name constants in directory "constant/name/pop/"
+        * Add internet message access protocol (imap) name constants in directory "constant/name/imap/"
 
         * Add smtp serialiser
+            consider internet message format (imf) only chapter 3.6 syntax in https://www.rfc-editor.org/rfc/rfc5322
+            continue smtp implementation by reading chapters 3 and 4 in https://www.rfc-editor.org/rfc/rfc5321.html
+        * Assure that header fields are no longer than 78 characters, as recommended by the ietf rfc
+        * Assure that lines of characters in the body are limited to 78 characters
+            following the ietf rfc, they MUST be limited to 998 characters, and SHOULD be limited to 78 characters, excluding the CRLF
+
         * Add smtp deserialiser
+        * Ignore "Unstructured Header Field Bodies" in smtp deserialiser
+        * Unfold multiple-line representation of a field body portion of a header field into a single line of characters with unlimited length
 
         * Add pop serialiser
         * Add pop deserialiser
