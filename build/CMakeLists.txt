@@ -43,12 +43,13 @@ string(TIMESTAMP CURRENT_YEAR %Y)
 # set copyright information
 string(CONCAT COPYRIGHT_INFO "Copyright (C) 1999-" ${CURRENT_YEAR} ". Christian Heller.")
 
-# configure file to pass the version number to the source code
+# configure file to pass version number to cyboi source code
 configure_file(cmake_configuration.c.in ${ROOT_DIR}/src/variable/cmake_configuration.c)
 
-SET(ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/.." CACHE PATH "root dir" FORCE)
+# set project root directory
+set(ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/.." CACHE PATH "root dir" FORCE)
 
-# set output directory to controller-subdirectory
+# set output directory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${ROOT_DIR}/src/controller)
 
 # define binary executable to be created by make
@@ -58,23 +59,25 @@ add_custom_target(clean-all
         COMMAND ${CMAKE_MAKE_PROGRAM} clean
         COMMAND ${CMAKE_COMMAND} -P cmake/clean_all.cmake)
 
-# --- libraries linking --- #
+# link libraries
 include(cmake/libraries.cmake)
 
-# --- codestyling Configuration --- #
+# apply codestyling
 # include(cmake/codestyling.cmake)
 
-# --- api generator --- #
+# generate api
 include(cmake/api.cmake)
 
-# --- tests --- #
-include(cmake/test.cmake)
+# run tests
+# include(cmake/test.cmake)
 
-# --- adjust copyright --- #
-include(cmake/versioning.cmake)
+# adjust copyright
+# include(cmake/versioning.cmake)
 
-# --- CPack Configuration --- #
+# pack distributable using cpack
 include(cmake/packaging.cmake)
 
-add_custom_target(dev COMMAND ${CMAKE_MAKE_PROGRAM} clean cyboi test analysis formatting api)
+# add make targets
+# add_custom_target(dev COMMAND ${CMAKE_MAKE_PROGRAM} clean cyboi test analysis formatting api)
+add_custom_target(dev COMMAND ${CMAKE_MAKE_PROGRAM} clean cyboi api)
 
