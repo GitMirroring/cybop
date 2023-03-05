@@ -11,6 +11,51 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+Library
+_______
+
+        //
+        // CAUTION! A function is declared with storage class "extern"
+        // by DEFAULT, even if the keyword "extern" is missing.
+        // The keyword "extern" has NO influence on the source code in
+        // terms of optimisation or the like and thus is NOT necessary.
+        // It is just a HINT to the reader (developer) indicating that
+        // the function is implemented in an external source file.
+        // A comment can be used instead of that keyword as well.
+        //
+
+        AIMS:
+        * Provide some functionality as pre-compiled library for cyboi
+        * Store those libraries in special directory
+        * Link all libraries found in that special directory
+            using either (1) a linker option or (2) a file pattern like * or (3) a shell loop or some other solution for example in cmake
+        * Prefer statically linking libraries into final executable file to dynamic libraries loaded at runtime or plug-in architecture
+
+        STEPS:
+        * Declare functions which might not exist as "extern"
+        * Provide function prototypes either in classic header file to be included or (better) as forward declaration
+            that way, cyboi can be compiled even if not all (only some) libraries with function implementations are available
+        * Test case that a libary was not linked so that the called function does not exist and delivers an error
+
+        * Factor out some cyboi functionality into separate libraries
+        * Try to include and use cyboi as c shared library, for example in a qt application
+        * Create libraries: libcyboixml, libcyboijson, libcyboixdt etc.
+
+            vi test.c # write function (no main)
+            gcc -c test.c # -c just compiles (no link)
+            ar -q libcyboixml.a test.o # -r == if nessasary replace an existing function
+            gcc cyboi.c -lcyboixml -L../lib # -l == library to search WITHOUT prefix "lib" (automatically added inside), -L == directory of the library
+
+        * Apply multi-licensing to cyboi (or a fragment of it called "cyblib"), in order to make it usable by proprietary applications
+            German: Mehrfachlizenzierung
+        * Offer the following licences: LGPL version 3, GPL version 2, GPL version 3
+            similar to "Qt for Open Source Development":
+            https://www.qt.io/download-open-source?hsCtaTracking=e9c17691-91a0-4616-9bc2-1a6a6c318914%7C963686f8-2c68-442a-b17b-3d73ce95b819
+
+        * Provide knowledge memory, stack memory etc. as global variables, so that applications external to cyboi may use them
+            Within cyboi, these memory variables may be forwarded as parametre (argument) as was done up to now.
+            But whne using cyboi as library, these memory variables should additionally be provided as global variables, which is just a few lines of code.
+
 Kommunikation im Medizinwesen (KIM)
 ___________________________________
 
@@ -104,6 +149,8 @@ ___
 
 JSON
 ____
+
+        * Test with files in directory "projekt/cybop_internal/tmp/json-test-files/"
 
         * Refactor file "json_serialiser.c" a little bit so that number vectors are serialised using semicolon as separator and do NOT (as currently done) put them in quotation marks
 

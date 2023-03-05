@@ -31,12 +31,19 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../variable/cmake_config.h"
 
+//
+// The pre-processor macros used below may be found in file "variable/cmake_configuration.c":
+//
+// - PROJECT_VERSION_CMAKE_CONFIGURATION
+// - COPYRIGHT_INFORMATION_CMAKE_CONFIGURATION
+//
+
 /** The name identification cyboi model. */
 static wchar_t* NAME_IDENTIFICATION_CYBOI_MODEL = L"Cybernetics Oriented Interpreter (CYBOI)";
 static int* NAME_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_40_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The version identification cyboi model. */
-static wchar_t* VERSION_IDENTIFICATION_CYBOI_MODEL = PROJECT_VERSION;
+static wchar_t* VERSION_IDENTIFICATION_CYBOI_MODEL = PROJECT_VERSION_CMAKE_CONFIGURATION;
 static int* VERSION_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The slogan identification cyboi model. */
@@ -44,7 +51,7 @@ static wchar_t* SLOGAN_IDENTIFICATION_CYBOI_MODEL = L"The universal knowledge pr
 static int* SLOGAN_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_42_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The copyright identification cyboi model. */
-static wchar_t* COPYRIGHT_IDENTIFICATION_CYBOI_MODEL = COPYRIGHT_INFO;
+static wchar_t* COPYRIGHT_IDENTIFICATION_CYBOI_MODEL = COPYRIGHT_INFORMATION_CMAKE_CONFIGURATION;
 static int* COPYRIGHT_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_42_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The licence identification cyboi model. */

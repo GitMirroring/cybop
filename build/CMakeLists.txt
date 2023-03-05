@@ -1,9 +1,15 @@
-# --- CMake configuration --- #
+#
+# CMake core configuration file
+#
+
 # set minimum required cmake version
 cmake_minimum_required(VERSION 3.18.4)
 
 # set project name
 project(cybop LANGUAGES C VERSION 0.26.0)
+
+# configure file to pass the version number to the source code
+configure_file(cmake_configuration.c.in ${ROOT_DIR}/src/variable/cmake_configuration.c)
 
 set(BINARY_NAME cyboi)
 
@@ -15,9 +21,7 @@ SET(ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/.." CACHE PATH "root dir" FORCE)
 # set output directory to controller-subdirectory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${ROOT_DIR}/src/controller)
 
-configure_file(cmake_config.h.in ${ROOT_DIR}/src/variable/cmake_config.h)
-
-# define the binary to be create by make
+# define binary executable to be created by make
 add_executable(${BINARY_NAME} ${ROOT_DIR}/src/controller/cyboi.c)
 
 add_custom_target(clean-all
@@ -28,7 +32,7 @@ add_custom_target(clean-all
 include(cmake/libraries.cmake)
 
 # --- codestyling Configuration --- #
-include(cmake/codestyling.cmake)
+# include(cmake/codestyling.cmake)
 
 # --- api generator --- #
 include(cmake/api.cmake)

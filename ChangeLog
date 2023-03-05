@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-03-05  Christian Heller  <christian.heller@cybop.org>
+
+        * Rename some and update cmake configuration files
+
 2023-03-03  Christian Heller  <christian.heller@cybop.org>
 
         * Add internet message format (imf) name constants in directory "constant/name/imf/"
