@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-03-06  Christian Heller  <christian.heller@cybop.org>
+
+        * Generate binaries into directories "bin/" for executable and "lib/" for libraries, instead of into "src/controller/"
+        * Prepare files "build/CMakeLists.txt" and "build/cmake/libraries.cmake" for using self-defined shared libraries
+
 2023-03-05  Christian Heller  <christian.heller@cybop.org>
 
         * Rename some and update cmake configuration files

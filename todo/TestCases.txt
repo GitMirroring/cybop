@@ -1,7 +1,0 @@
-exit/simple/run.cybol
-shell_command/list_directory_contents/run.cybol
-helloworld/simple/run.cybol
-mathematics/addition/run.cybol
-counter/simple/run.cybol
-application/project_overview/run.cybol
-application/repertoire/run.cybol

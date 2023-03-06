@@ -14,6 +14,18 @@
 Library
 _______
 
+        CMake:
+        * Eliminate test include and function call in file "cyboi.c"
+        * Add all files of a source directory without having to list them all
+            https://stackoverflow.com/questions/8304190/cmake-with-include-and-source-paths-basic-setup
+            https://stackoverflow.com/questions/3201154/automatically-add-all-files-in-a-folder-to-a-target-using-cmake
+        * Check for new ideas
+            https://iamsorush.com/posts/cpp-cmake-build/
+
+        * Provide xdt functionality as pre-compiled shared library for cyboi
+        * Provide xml functionality as pre-compiled shared library for cyboi
+        * Provide TODO functionality as pre-compiled shared library for cyboi
+
         //
         // CAUTION! A function is declared with storage class "extern"
         // by DEFAULT, even if the keyword "extern" is missing.
@@ -24,12 +36,9 @@ _______
         // A comment can be used instead of that keyword as well.
         //
 
-        AIMS:
-        * Provide some functionality as pre-compiled library for cyboi
-        * Store those libraries in special directory
-        * Link all libraries found in that special directory
+        * Link all libraries found in "lib/" directory automatically
             using either (1) a linker option or (2) a file pattern like * or (3) a shell loop or some other solution for example in cmake
-        * Prefer statically linking libraries into final executable file to dynamic libraries loaded at runtime or plug-in architecture
+            OR: Is it necessary to add each lib manually in "CMakeLists.txt"
 
         STEPS:
         * Declare functions which might not exist as "extern"

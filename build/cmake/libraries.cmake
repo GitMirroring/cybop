@@ -1,7 +1,7 @@
 # set module path for library finds
-SET (CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${PROJECT_SOURCE_DIR}/cmake")
+set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${PROJECT_SOURCE_DIR}/cmake")
 
-# --- link necessary libraries --- #
+# link necessary libraries
 
 #
 # Add support for OpenGL.
@@ -16,20 +16,23 @@ SET (CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${PROJECT_SOURCE_DIR}/cmake")
 # find_package(OpenGL REQUIRED COMPONENTS OpenGL)
 #
 find_package(OpenGL REQUIRED COMPONENTS OpenGL)
-IF ( OPENGL_FOUND )
+
+if(OPENGL_FOUND)
     include_directories(${OpenGL_INCLUDE_DIRS})
     target_link_libraries(${BINARY_NAME} ${OPENGL_LIBRARIES})
-ENDIF ( OPENGL_FOUND)
+endif(OPENGL_FOUND)
 
-FIND_PACKAGE ( Threads REQUIRED )
-target_link_libraries(${BINARY_NAME} ${CMAKE_THREAD_LIBS_INIT}) # link posix thread (pthread) library to cyboi target
+find_package(Threads REQUIRED)
+# link posix thread (pthread) library to cyboi target
+target_link_libraries(${BINARY_NAME} ${CMAKE_THREAD_LIBS_INIT})
 
-# --- link optional libraries --- #
+# link optional libraries
 
 find_package(GLUT)
-IF ( GLUT_FOUND )
+
+if(GLUT_FOUND)
     include_directories(${GLUT_INCLUDE_DIRS})
-    #override _glut_libraries only with entries that exists
+    # overwrite _glut_libraries only with entries that exist
     set(_glut_libraries)
     foreach(_lib ${GLUT_LIBRARIES})
         if(_lib)
@@ -38,22 +41,43 @@ IF ( GLUT_FOUND )
     endforeach()
     set(GLUT_LIBRARIES ${_glut_libraries})
     target_link_libraries(${BINARY_NAME} ${GLUT_LIBRARIES})
-ENDIF ( GLUT_FOUND )
+endif(GLUT_FOUND)
 
+find_package(X11)
 
-FIND_PACKAGE ( X11 )
-IF ( X11_FOUND )
-      INCLUDE_DIRECTORIES ( ${X11_INCLUDE_DIR} )
-      target_link_libraries(${BINARY_NAME} ${X11_LIBRARIES} )
-ENDIF ( X11_FOUND )
+if(X11_FOUND)
+    include_directories(${X11_INCLUDE_DIR})
+    target_link_libraries(${BINARY_NAME} ${X11_LIBRARIES})
+endif(X11_FOUND)
 
-FIND_PACKAGE ( XCB )
-IF ( XCB_FOUND )
-    INCLUDE_DIRECTORIES ( ${XCB_INCLUDE_DIRS} )
-    ADD_DEFINITIONS ( ${XCB_DEFINITIONS} )
-    target_link_libraries(${BINARY_NAME} ${XCB_LIBRARIES} )
-ENDIF ( XCB_FOUND )
+find_package(XCB)
 
-IF (UNIX)
-  TARGET_LINK_LIBRARIES(${BINARY_NAME} m) # link math library to cyboi target
-ENDIF(UNIX)
+if(XCB_FOUND)
+    include_directories(${XCB_INCLUDE_DIRS})
+    add_definitions(${XCB_DEFINITIONS})
+    target_link_libraries(${BINARY_NAME} ${XCB_LIBRARIES})
+endif(XCB_FOUND)
+
+if(UNIX)
+    # link math library to cyboi target
+    target_link_libraries(${BINARY_NAME} m)
+endif(UNIX)
+
+if(XDT_LIBRARY_CMAKE_CONFIGURATION)
+
+    # link libraries to executable
+    #target_link_libraries(${BINARY_NAME} PUBLIC ${EXTRA_LIBS})
+    target_link_libraries(${BINARY_NAME} ${EXTRA_LIBS})
+
+    #
+    # add binary tree to search path for include files
+    #
+    # CAUTION! The "PUBLIC" is important.
+    #
+    target_include_directories(${BINARY_NAME} PUBLIC
+        # "${PROJECT_BINARY_DIR}"
+        "${ROOT_DIR}/src/xdt"
+        #"${ROOT_DIR}/src/${EXTRA_INCLUDES}"
+    )
+
+endif(XDT_LIBRARY_CMAKE_CONFIGURATION)

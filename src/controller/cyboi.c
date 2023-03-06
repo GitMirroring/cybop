@@ -42,6 +42,10 @@
 #include "../variable/log_setting.c"
 #include "../variable/reference_counter.c"
 
+#ifdef XDT_LIBRARY_CMAKE_CONFIGURATION
+    #include "test.c"
+#endif
+
 #ifdef _MSC_VER          // see: http://msdn.microsoft.com/de-de/library/b0084kay.aspx
 
     #if (_MSC_VER < 1800) // Check Visual Studio version, C99 is not supported in versions below VS2013
@@ -229,6 +233,12 @@ int main(int p0, char** p1) {
             // Manage system startup and shutdown using the given cybol knowledge file.
             manage(k);
         }
+
+        #ifdef XDT_LIBRARY_CMAKE_CONFIGURATION
+            test_cmake_library_include();
+        #else
+            fwprintf(stdout, L"Information: The cyboi xdt library ws NOT loaded. %i\n", 24);
+        #endif
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Unglobalise global variables yet.");
 
