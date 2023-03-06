@@ -14,6 +14,13 @@
 Library
 _______
 
+        //
+        // CAUTION! A shared object (.so) library gets loaded when needed
+        // at runtime. This kind of loading happens AUTOMATICALLY.
+        // The necessary machine language instructions got added to the
+        // binary executable by the compiler and linker during translation.
+        //
+
         CMake:
         * Eliminate test include and function call in file "cyboi.c"
         * Add all files of a source directory without having to list them all
