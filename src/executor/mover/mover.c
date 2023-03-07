@@ -26,16 +26,17 @@
 #ifndef MOVER_SOURCE
 #define MOVER_SOURCE
 
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../executor/calculator/integer/multiply_integer_calculator.c"
+#include "../../executor/calculator/integer/negate_integer_calculator.c"
 #include "../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../executor/calculator/pointer/add_pointer_calculator.c"
+#include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../logger/logger.c"
 #include "../../mapper/type_to_size_mapper.c"
-#include "../../variable/type_size/integral_type_size.c"
 
 /**
  * Moves the current parsing position by element count

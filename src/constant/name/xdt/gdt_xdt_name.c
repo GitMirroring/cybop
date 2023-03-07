@@ -26,7 +26,8 @@
 #ifndef GDT_XDT_NAME_CONSTANT_SOURCE
 #define GDT_XDT_NAME_CONSTANT_SOURCE
 
-#include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include <stddef.h> // wchar_t
+
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The send sequence counter gdt xdt name. */

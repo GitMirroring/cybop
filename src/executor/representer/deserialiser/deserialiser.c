@@ -45,8 +45,13 @@
 #include "../../../executor/representer/deserialiser/textline_list/textline_list_deserialiser.c"
 #include "../../../executor/representer/deserialiser/tui/tui_deserialiser.c"
 #include "../../../executor/representer/deserialiser/uri/uri_deserialiser.c"
-#include "../../../executor/representer/deserialiser/xdt/xdt_deserialiser.c"
 #include "../../../executor/representer/deserialiser/xml/xml_deserialiser.c"
+
+//
+// Library
+//
+
+#include "xdt.h"
 
 /**
  * Deserialises the source into the destination, according to the given language.

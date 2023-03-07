@@ -14,63 +14,29 @@
 Library
 _______
 
-        //
-        // CAUTION! A shared object (.so) library gets loaded when needed
-        // at runtime. This kind of loading happens AUTOMATICALLY.
-        // The necessary machine language instructions got added to the
-        // binary executable by the compiler and linker during translation.
-        //
-
-        CMake:
-        * Eliminate test include and function call in file "cyboi.c"
-        * Add all files of a source directory without having to list them all
-            https://stackoverflow.com/questions/8304190/cmake-with-include-and-source-paths-basic-setup
-            https://stackoverflow.com/questions/3201154/automatically-add-all-files-in-a-folder-to-a-target-using-cmake
-        * Check for new ideas
+        * Check for new cmake ideas
             https://iamsorush.com/posts/cpp-cmake-build/
 
-        * Provide xdt functionality as pre-compiled shared library for cyboi
-        * Provide xml functionality as pre-compiled shared library for cyboi
-        * Provide TODO functionality as pre-compiled shared library for cyboi
+        * Add xdt serialiser to xdt shared library
+        * Provide xdt functionality as shared library
+        * Provide json functionality as shared library
+        * Provide xml functionality as shared library
+        * Factor out cyboi functionality into separate libraries, for example: controller, applicator, executor
+        * Leave cyboi executable with just the file "cyboi.c" containing the entry function "main"
 
-        //
-        // CAUTION! A function is declared with storage class "extern"
-        // by DEFAULT, even if the keyword "extern" is missing.
-        // The keyword "extern" has NO influence on the source code in
-        // terms of optimisation or the like and thus is NOT necessary.
-        // It is just a HINT to the reader (developer) indicating that
-        // the function is implemented in an external source file.
-        // A comment can be used instead of that keyword as well.
-        //
+        * Try to include and use a cyboi shared library in a qt application
+        * Provide knowledge memory, stack memory etc. as global variables, so that applications external to cyboi may use them
+            Within cyboi, these memory variables may be forwarded as parametre (argument) as was done up to now.
+            But when using cyboi as library, these memory variables should additionally be provided as global variables, which is just a few lines of code.
 
-        * Link all libraries found in "lib/" directory automatically
-            using either (1) a linker option or (2) a file pattern like * or (3) a shell loop or some other solution for example in cmake
-            OR: Is it necessary to add each lib manually in "CMakeLists.txt"
-
-        STEPS:
-        * Declare functions which might not exist as "extern"
-        * Provide function prototypes either in classic header file to be included or (better) as forward declaration
-            that way, cyboi can be compiled even if not all (only some) libraries with function implementations are available
-        * Test case that a libary was not linked so that the called function does not exist and delivers an error
-
-        * Factor out some cyboi functionality into separate libraries
-        * Try to include and use cyboi as c shared library, for example in a qt application
-        * Create libraries: libcyboixml, libcyboijson, libcyboixdt etc.
-
-            vi test.c # write function (no main)
-            gcc -c test.c # -c just compiles (no link)
-            ar -q libcyboixml.a test.o # -r == if nessasary replace an existing function
-            gcc cyboi.c -lcyboixml -L../lib # -l == library to search WITHOUT prefix "lib" (automatically added inside), -L == directory of the library
+Licencing
+_________
 
         * Apply multi-licensing to cyboi (or a fragment of it called "cyblib"), in order to make it usable by proprietary applications
             German: Mehrfachlizenzierung
         * Offer the following licences: LGPL version 3, GPL version 2, GPL version 3
             similar to "Qt for Open Source Development":
             https://www.qt.io/download-open-source?hsCtaTracking=e9c17691-91a0-4616-9bc2-1a6a6c318914%7C963686f8-2c68-442a-b17b-3d73ce95b819
-
-        * Provide knowledge memory, stack memory etc. as global variables, so that applications external to cyboi may use them
-            Within cyboi, these memory variables may be forwarded as parametre (argument) as was done up to now.
-            But whne using cyboi as library, these memory variables should additionally be provided as global variables, which is just a few lines of code.
 
 Kommunikation im Medizinwesen (KIM)
 ___________________________________
@@ -102,6 +68,9 @@ ___________________________________
 
 xDT
 ___
+
+        * Reactivate (uncomment) call of function "deserialise_xdt_datetime_ddmmyyyy" in file "cybol_deserialiser.c"
+            it was commented out for testing the xdt library
 
         * Move xDT de-/serialisation into a library, since it is very large (4 MiB) and compilation needs double time (14 s instead of 7 s)
             uncomment include in line 54 and serialise call in line 270 of file "serialiser.c"

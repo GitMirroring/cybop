@@ -26,12 +26,11 @@
 #ifndef EQUAL_FRACTION_COMPARATOR_SOURCE
 #define EQUAL_FRACTION_COMPARATOR_SOURCE
 
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/fraction_state_cyboi_name.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../executor/accessor/getter/fraction_getter.c"
 #include "../../../executor/calculator/integer/multiply_integer_calculator.c"
-#include "../../../executor/copier/array_copier.c"
-#include "../../../executor/copier/fraction_copier.c"
+#include "../../../executor/comparator/integer/equal_integer_comparator.c"
 
 /**
  * Compares the left- with the right fraction for equality.

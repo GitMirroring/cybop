@@ -23,19 +23,31 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CMAKE_TEST_SOURCE
-#define CMAKE_TEST_SOURCE
+#ifndef XDT_HEADER
+#define XDT_HEADER
 
-#include <stdio.h> // stdout
-#include <wchar.h> // fwprintf
+//
+// Loading of a shared object (dynamic library)
+//
+// A shared object (.so) library gets loaded when needed
+// at runtime. This kind of loading happens AUTOMATICALLY.
+// The necessary machine language instructions got added to the
+// binary executable by the compiler and linker during translation.
+//
 
-/**
- * Allocates and initialises global variables.
- */
-void test_cmake_library_include() {
+//
+// Keyword "extern"
+//
+// A function is declared with storage class "extern"
+// by DEFAULT, even if the keyword "extern" is missing.
+// The keyword "extern" has NO influence on the source code in
+// terms of optimisation or the like and thus is NOT necessary.
+// It is just a HINT to the reader (developer) indicating that
+// the function is implemented in an EXTERNAL source file.
+// A COMMENT like this one can be used as hint, instead of that keyword.
+//
 
-    fwprintf(stdout, L"Information: The cyboi xdt library was successfully loaded. %i\n", 24);
-}
+void deserialise_xdt(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9);
 
-/* CMAKE_TEST_SOURCE */
+/* XDT_HEADER */
 #endif

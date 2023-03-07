@@ -18,6 +18,14 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-03-07  Christian Heller  <christian.heller@cybop.org>
+
+        * Test case that a linked libary is not available delivering an "error while loading shared libraries: libxdt.so: cannot open shared object file: No such file or directory"
+        * Split file "build/cmake/libraries.cmake" into "internal_libraries.cmake" and "external_libraries.cmake"
+        * Provide function signatures in header file "xdt.h" of directory "include"
+        * List xdt files to be taken into the library in "CMakeLists.txt"
+        * Correct wrong includes appearing during compilation of the xdt library
+
 2023-03-06  Christian Heller  <christian.heller@cybop.org>
 
         * Generate binaries into directories "bin/" for executable and "lib/" for libraries, instead of into "src/controller/"

@@ -24,6 +24,9 @@
 
 #ifndef FIELD_DESCRIPTION_XDT_MODEL_CONSTANT_SOURCE
 #define FIELD_DESCRIPTION_XDT_MODEL_CONSTANT_SOURCE
+
+#include <stddef.h> // wchar_t
+
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The id 0 field description xdt model. */

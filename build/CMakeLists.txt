@@ -25,7 +25,7 @@
 #
 
 #
-# CMake core configuration file
+# cyboi executable
 #
 
 # set minimum required cmake version
@@ -46,11 +46,13 @@ string(CONCAT COPYRIGHT_INFO "Copyright (C) 1999-" ${CURRENT_YEAR} ". Christian 
 # set project root directory
 set(ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/.." CACHE PATH "root dir" FORCE)
 
-# set output directory
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${ROOT_DIR}/src/controller)
+# set cyboi executable cyboi sources
+set(CYBOI_EXECUTABLE_CYBOI_SOURCES ${ROOT_DIR}/src/controller/cyboi.c)
 
-# set sources
-set(SOURCES ${ROOT_DIR}/src/controller/cyboi.c)
+# set xdt library cyboi sources by searching recursively
+set(XDT_LIBRARY_CYBOI_SOURCES
+    ${ROOT_DIR}/src/executor/representer/deserialiser/xdt/xdt_deserialiser.c
+)
 
 #
 # define filesystem paths for output files
@@ -77,7 +79,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${ROOT_DIR}/bin)
 # Reference:
 # https://cmake.org/cmake/help/v3.18/guide/tutorial/index.html
 #
-option(XDT_LIBRARY_CMAKE_CONFIGURATION "Use cyboi xdt library" ON)
+#option(XDT_LIBRARY_CMAKE_CONFIGURATION "Use cyboi xdt library" ON)
 
 #
 # configure file with macros to pass values to cyboi source code
@@ -87,47 +89,46 @@ option(XDT_LIBRARY_CMAKE_CONFIGURATION "Use cyboi xdt library" ON)
 #
 configure_file(cmake_configuration.c.in ${ROOT_DIR}/src/variable/cmake_configuration.c)
 
-# make building and linking the library "xdt" conditional
-if(XDT_LIBRARY_CMAKE_CONFIGURATION)
-
-    #
-    # add xdt library
-    #
-    # CAUTION! The binary output directory HAS TO BE given separately,
-    # since the given source directory is not a subdirectory of "build/".
-    # When specifying an out-of-tree source, cmake requests that a
-    # binary directory be specified explicitly.
-    #
-    #add_subdirectory(${ROOT_DIR}/src/xdt ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
-
-    # collect up any optional libraries to later be linked into the executable
-    list(APPEND EXTRA_LIBS xdt)
-
-    # collect up any optional include files
-    list(APPEND EXTRA_INCLUDES "${ROOT_DIR}/src/xdt")
-
-endif(XDT_LIBRARY_CMAKE_CONFIGURATION)
-
 #
 # add library
+#
+# CAUTION! It would be possible to write a separate "CMakeLists.txt"
+# for each single library. The configuration file for a library
+# (static or shared) resembles that of an application.
+# However, for reasons of better overview and to have everything
+# in just one place it was decided to add all libraries here.
+#
+# CAUTION! It is NOT necessary to list all source files.
+# Instead, just mention the file that keeps the entry function.
+# All other files are added automatically from there via included dependencies.
+#
+# CAUTION! Avoid using "file(GLOB ...)" to add all files of a directory.
+# This feature does not provide attended mastery of the compilation process.
+# Instead, use the copy-paste output of: ls -1 src/*.c
+# (The argument is minus one and NOT letter L.)
+#
+# https://stackoverflow.com/questions/17511496/how-to-create-a-shared-library-with-cmake
 #
 # CAUTION! The prefix "lib" is added automatically by cmake.
 # Therefore, define only "xdt" and NOT "libxdt" as name here
 # since otherwise, the resulting name would be "liblibxdt".
 #
 #add_library(xdt SHARED test.c)
-add_library(xdt SHARED ${ROOT_DIR}/src/xdt/test.c)
+add_library(xdt SHARED ${XDT_LIBRARY_CYBOI_SOURCES})
 
 # define binary executable to be created by make
-add_executable(${BINARY_NAME} ${SOURCES})
+add_executable(${BINARY_NAME} ${CYBOI_EXECUTABLE_CYBOI_SOURCES})
 
 # add make target
 add_custom_target(clean-all
     COMMAND ${CMAKE_MAKE_PROGRAM} clean
     COMMAND ${CMAKE_COMMAND} -P cmake/clean_all.cmake)
 
-# link libraries
-include(cmake/libraries.cmake)
+# link internal libraries
+include(cmake/internal_libraries.cmake)
+
+# link external libraries
+include(cmake/external_libraries.cmake)
 
 # apply codestyling
 # include(cmake/codestyling.cmake)
