@@ -40,7 +40,7 @@
 #include "../../../../executor/activator/enabler/xcb/buffer_xcb_enabler.c"
 #include "../../../../executor/activator/enabler/xcb/client_xcb_enabler.c"
 #include "../../../../executor/activator/enabler/xcb/event_xcb_enabler.c"
-#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/finder/list_finder.c"
 #include "../../../../executor/memoriser/deallocator/array_deallocator.c"

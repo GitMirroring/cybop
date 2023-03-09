@@ -35,7 +35,7 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/caster/array_caster.c"
 #include "../../executor/comparator/integer/less_or_equal_integer_comparator.c"
-#include "../../executor/copier/array_copier.c"
+#include "../../executor/copier/array/forward_array_copier.c"
 #include "../../executor/verifier/double_index_count_verifier.c"
 #include "../../logger/logger.c"
 

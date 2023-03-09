@@ -35,7 +35,7 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)

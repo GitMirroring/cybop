@@ -26,15 +26,17 @@
 #ifndef GLOBALISER_SOURCE
 #define GLOBALISER_SOURCE
 
-#include "../controller/globaliser/log_globaliser.c"
-#include "../controller/globaliser/reference_counter_globaliser.c"
-#include "../controller/globaliser/symbolic_name_globaliser.c"
-#include "../controller/globaliser/type_size_globaliser.c"
+#include "../../controller/globaliser/log_globaliser.c"
+#include "../../controller/globaliser/reference_counter_globaliser.c"
+#include "../../controller/globaliser/symbolic_name_globaliser.c"
+#include "../../controller/globaliser/type_size_globaliser.c"
 
 /**
  * Allocates and initialises global variables.
  */
 void globalise() {
+
+    //?? fwprintf(stdout, L"Debug: Globalise.\n");
 
     //
     // CAUTION! DO NOT use array functionality here!

@@ -28,34 +28,56 @@
 # cyboi executable
 #
 
-# set minimum required cmake version
+# Set minimum required cmake version.
 cmake_minimum_required(VERSION 3.18.4)
 
-# set project name
+# Set project name.
 project(cybop LANGUAGES C VERSION 0.26.0)
 
-# set binary executable name
+# Set binary executable name.
 set(BINARY_NAME cyboi)
 
-# get current year
+# Get current year.
 string(TIMESTAMP CURRENT_YEAR %Y)
 
-# set copyright information
+# Set copyright information.
 string(CONCAT COPYRIGHT_INFO "Copyright (C) 1999-" ${CURRENT_YEAR} ". Christian Heller.")
 
-# set project root directory
+# Set project root directory.
 set(ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/.." CACHE PATH "root dir" FORCE)
 
-# set cyboi executable cyboi sources
-set(CYBOI_EXECUTABLE_CYBOI_SOURCES ${ROOT_DIR}/src/controller/cyboi.c)
-
-# set xdt library cyboi sources by searching recursively
-set(XDT_LIBRARY_CYBOI_SOURCES
-    ${ROOT_DIR}/src/executor/representer/deserialiser/xdt/xdt_deserialiser.c
-)
+# Set cyboi executable cyboi sources.
+set(CYBOI_EXECUTABLE_CYBOI_SOURCES ${ROOT_DIR}/src/cyboi/cyboi.c)
 
 #
-# define filesystem paths for output files
+# Set library cyboi sources.
+#
+# CAUTION! The instruction "add_library" of file "CMakeLists.txt" expects
+# a list of all relevant source files to be added to the library.
+# However, it is important to specify only ONE source file since otherwise,
+# the following error will occur in almost all cases:
+#
+# /usr/bin/ld: CMakeFiles/[library].dir/[file].c.o: in function `[function]':
+# [file].c:(.text+0xe53a): multiple definition of `[function]'; CMakeFiles/[library].dir/[file].c.o:[file].c:(.text+0xf274): first defined here
+#
+# The reason is that each source file added via "add_library" is treated
+# SEPARATELY when it comes to adding its include files. But since cyboi
+# does NOT use header files (*.h) and includes source files (*.c) DIRECTLY
+# instead, the above "multiple definition" error occurs.
+#
+# In order to avoid this, ONE special source file has been created for EACH
+# library, whose sole sense is to SUM UP all relevant source files via include.
+#
+# The reasons for cyboi NOT to use header files are:
+# 1 Effort: There are hundreds of implementation files, one per function.
+# 2 Dependencies: They are straightforward and clear between implementation files.
+# 3 Simplicity: Other languages like java do not use header files either.
+#
+set(CONTROLLER_LIBRARY_CYBOI_SOURCES ${ROOT_DIR}/src/library/controller_library.c)
+set(XDT_LIBRARY_CYBOI_SOURCES ${ROOT_DIR}/src/library/xdt_library.c)
+
+#
+# Define filesystem paths for output files.
 #
 # CMAKE_ARCHIVE_OUTPUT_DIRECTORY: .a .lib .imp
 # CMAKE_LIBRARY_OUTPUT_DIRECTORY: .so .dll .dylib
@@ -67,30 +89,11 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${ROOT_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${ROOT_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${ROOT_DIR}/bin)
 
-#
-# add option as boolean flag
-#
-# This option will be displayed in the cmake-gui and ccmake with a
-# default value of ON that can be changed by the user.
-#
-# This setting will be stored in the cache so that the user does NOT
-# need to set the value each time he runs cmake on a build directory.
-#
-# Reference:
-# https://cmake.org/cmake/help/v3.18/guide/tutorial/index.html
-#
-#option(XDT_LIBRARY_CMAKE_CONFIGURATION "Use cyboi xdt library" ON)
-
-#
-# configure file with macros to pass values to cyboi source code
-#
-# CAUTION! Configure file AFTER having added the option above.
-# Do NOT invert the two.
-#
+# Configure file with macros to pass values to cyboi source code.
 configure_file(cmake_configuration.c.in ${ROOT_DIR}/src/variable/cmake_configuration.c)
 
 #
-# add library
+# Add library.
 #
 # CAUTION! It would be possible to write a separate "CMakeLists.txt"
 # for each single library. The configuration file for a library
@@ -110,41 +113,44 @@ configure_file(cmake_configuration.c.in ${ROOT_DIR}/src/variable/cmake_configura
 # https://stackoverflow.com/questions/17511496/how-to-create-a-shared-library-with-cmake
 #
 # CAUTION! The prefix "lib" is added automatically by cmake.
-# Therefore, define only "xdt" and NOT "libxdt" as name here
-# since otherwise, the resulting name would be "liblibxdt".
 #
-#add_library(xdt SHARED test.c)
+# Example:
+#
+# Define only "xdt" and NOT "libxdt" as name since otherwise,
+# the resulting name would be "liblibxdt".
+#
 add_library(xdt SHARED ${XDT_LIBRARY_CYBOI_SOURCES})
+add_library(controller SHARED ${CONTROLLER_LIBRARY_CYBOI_SOURCES})
 
-# define binary executable to be created by make
+# Add executable to be created by make.
 add_executable(${BINARY_NAME} ${CYBOI_EXECUTABLE_CYBOI_SOURCES})
 
-# add make target
+# Add make target.
 add_custom_target(clean-all
     COMMAND ${CMAKE_MAKE_PROGRAM} clean
     COMMAND ${CMAKE_COMMAND} -P cmake/clean_all.cmake)
 
-# link internal libraries
+# Link internal libraries.
 include(cmake/internal_libraries.cmake)
 
-# link external libraries
+# Link external libraries.
 include(cmake/external_libraries.cmake)
 
-# apply codestyling
+# Apply codestyling.
 # include(cmake/codestyling.cmake)
 
-# generate api
+# Generate api.
 include(cmake/api.cmake)
 
-# run tests
+# Run tests.
 # include(cmake/test.cmake)
 
-# adjust copyright
+# Adjust copyright.
 # include(cmake/versioning.cmake)
 
-# pack distributable using cpack
+# Pack distributable using cpack.
 include(cmake/packaging.cmake)
 
-# add make targets
+# Add make targets.
 # add_custom_target(dev COMMAND ${CMAKE_MAKE_PROGRAM} clean cyboi test analysis formatting api)
 add_custom_target(dev COMMAND ${CMAKE_MAKE_PROGRAM} clean cyboi api)

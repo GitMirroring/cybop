@@ -29,7 +29,7 @@
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../controller/checker/client/all_client_checker.c"
-#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../logger/logger.c"
 
 /**

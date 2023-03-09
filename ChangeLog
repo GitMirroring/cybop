@@ -18,17 +18,35 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-03-09  Christian Heller  <christian.heller@cybop.org>
+
+        * Fix null pointer bug in file "utf_8_decoder.c"
+        * Fix null pointer bug in file "mutex_allocator.c"
+        * Remove keyword "static" before any variables in directory "variable", so that they are valid and usable globally across libraries
+
+2023-03-08  Christian Heller  <christian.heller@cybop.org>
+
+        * Add xdt serialiser to shared library "xdt"
+        * Rename "xdt.h" into "xdt_library.h"
+        * Add directory "library" for special summary source files
+        * Move file "cyboi.c" from directory "controller/" into separate directory "cyboi/" destined only for executable
+        * Move some files of directory "controller/" into sub directories
+        * Split file "array_copier.c" into many situated in sub directory "executor/copier/array/"
+        * Extract file "offset_copier.c" from file "copier.c"
+        * Add shared library "controller"
+
 2023-03-07  Christian Heller  <christian.heller@cybop.org>
 
-        * Test case that a linked libary is not available delivering an "error while loading shared libraries: libxdt.so: cannot open shared object file: No such file or directory"
         * Split file "build/cmake/libraries.cmake" into "internal_libraries.cmake" and "external_libraries.cmake"
+        * Add shared library "xdt"
         * Provide function signatures in header file "xdt.h" of directory "include"
         * List xdt files to be taken into the library in "CMakeLists.txt"
         * Correct wrong includes appearing during compilation of the xdt library
+        * Test case that a linked libary is not available delivering an "error while loading shared libraries: libxdt.so: cannot open shared object file: No such file or directory"
 
 2023-03-06  Christian Heller  <christian.heller@cybop.org>
 
-        * Generate binaries into directories "bin/" for executable and "lib/" for libraries, instead of into "src/controller/"
+        * Generate binaries into directories "bin/" for executable and into "lib/" for libraries, instead of into "src/controller/"
         * Prepare files "build/CMakeLists.txt" and "build/cmake/libraries.cmake" for using self-defined shared libraries
 
 2023-03-05  Christian Heller  <christian.heller@cybop.org>

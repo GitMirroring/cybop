@@ -28,6 +28,8 @@
 
 #include <stddef.h> // wchar_t
 
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+
 //
 // A "Character Set" consists of three parts:
 // - Character Repertoire: characters or symbols, e.g. ISO 8859-1 with 256 characters and Unicode with ~ 1 Mio. characters

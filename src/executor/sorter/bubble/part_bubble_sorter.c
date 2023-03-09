@@ -36,7 +36,7 @@
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../executor/checker/operation_checker.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/sorter/bubble/criterion_bubble_sorter.c"
 #include "../../../logger/logger.c"
 

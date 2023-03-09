@@ -26,12 +26,12 @@
 #ifndef OPTIONALISER_SOURCE
 #define OPTIONALISER_SOURCE
 
-#include "../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../controller/optionaliser/log_file_optionaliser.c"
-#include "../executor/representer/deserialiser/command_line/command_line_deserialiser.c"
-#include "../logger/logger.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../controller/optionaliser/log_file_optionaliser.c"
+#include "../../executor/representer/deserialiser/command_line/command_line_deserialiser.c"
+#include "../../logger/logger.c"
 
 /**
  * Optionalises the given command line argument options.
@@ -46,19 +46,27 @@
  */
 void optionalise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
+    //
     // CAUTION! DO NOT use logging functionality here!
     // The logger will not work before its options are set.
     // Comment out this function call to avoid disturbing messages at system startup!
+    //
     // log_write((void*) stdout, L"Information: Optionalise.\n");
+    //
+    //?? fwprintf(stdout, L"Debug: Optionalise. p2: %i\n", p2);
 
     // The terminated log file name item as multibyte character data.
     void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
     // Allocate terminated log file name item.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     // CAUTION! Do NOT use a wide character array here!
     // The glibc file stream functions below expect standard (multibyte) character arrays.
+    //
     allocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Get command line options, among others the file name data, count.

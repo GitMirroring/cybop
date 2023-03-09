@@ -26,15 +26,13 @@
 #ifndef COPIER_SOURCE
 #define COPIER_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/comparator/integer/unequal_integer_comparator.c"
-#include "../../executor/memoriser/offset_adder.c"
 #include "../../executor/copier/character_copier.c"
 #include "../../executor/copier/complex_copier.c"
 #include "../../executor/copier/datetime_copier.c"
-#include "../../executor/copier/duration_copier.c"
 #include "../../executor/copier/double_copier.c"
 #include "../../executor/copier/duration_copier.c"
 #include "../../executor/copier/fraction_copier.c"
@@ -42,7 +40,6 @@
 #include "../../executor/copier/part_copier.c"
 #include "../../executor/copier/pointer_copier.c"
 #include "../../executor/copier/wide_character_copier.c"
-#include "../../logger/logger.c"
 
 /**
  * Copies the value.
@@ -299,44 +296,6 @@ void copy(void* p0, void* p1, void* p2, void* p3) {
         fwprintf(stdout, L"Warning: Could not copy. The operand type is unknown. p2: %i\n", p2);
         fwprintf(stdout, L"Warning: Could not copy. The operand type is unknown. *p2: %i\n", *((int*) p2));
     }
-}
-
-/**
- * Copies the source- to the destination value
- * using the given index to calculate an offset.
- *
- * @param p0 the destination value
- * @param p1 the source value
- * @param p2 the type
- * @param p3 the deep copying flag
- * @param p4 the index
- */
-void copy_offset(void* p0, void* p1, void* p2, void* p3, void* p4) {
-
-    //
-    // CAUTION! Do NOT call the logger here.
-    // It uses functions causing circular references.
-    //
-    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy offset.");
-    //
-
-    //?? fwprintf(stdout, L"Debug: Copy offset. p3: %i\n", p3);
-
-    //
-    // The destination value, source value.
-    //
-    // CAUTION! They HAVE TO BE initialised with p0 and p1,
-    // since an offset is added below.
-    //
-    void* d = p0;
-    void* s = p1;
-
-    // Add offset to destination value and source value.
-    add_offset((void*) &d, p2, p4);
-    add_offset((void*) &s, p2, p4);
-
-    // Copy source- to destination value.
-    copy(d, s, p2, p3);
 }
 
 /* COPIER_SOURCE */

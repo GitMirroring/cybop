@@ -37,7 +37,7 @@
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/activator/enabler/entry_enabler.c"
 #include "../../../executor/activator/enabler/thread_enabler.c"
-#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../logger/logger.c"
 #include "../../../mapper/channel_to_internal_memory_mapper.c"
 

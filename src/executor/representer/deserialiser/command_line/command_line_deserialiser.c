@@ -91,6 +91,8 @@ void deserialise_command_line(void* p0, void* p1, void* p2, void* p3, void* p4, 
     //
     // log_write((void*) stdout, L"Information: Deserialise command line.\n");
     //
+    //?? fwprintf(stdout, L"Information: Deserialise command line. p6: %i\n", p6);
+    //?? fwprintf(stdout, L"Information: Deserialise command line. *p6: %i\n", *((int*) p6));
 
     //
     // The loop variable.

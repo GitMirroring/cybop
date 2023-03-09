@@ -37,7 +37,7 @@
 #include "../../../../executor/accessor/setter/terminal_mode/terminal_mode_setter.c"
 #include "../../../../executor/configurator/initialiser/serial_port/mode_serial_port_initialiser.c"
 #include "../../../../executor/copier/terminal_mode/terminal_mode_copier.c"
-#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/memoriser/allocator/terminal_mode_allocator.c"
 #include "../../../../executor/memoriser/deallocator/terminal_mode_deallocator.c"
 #include "../../../../logger/logger.c"

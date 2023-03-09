@@ -36,7 +36,7 @@
 #include "../../../../constant/name/cybol/state/language_state_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/copier/array/forward_array_copier.c"
 //
 // CAUTION! Do NOT include the "content_xml_serialiser.c" or another sub module.
 // It is true, the "serialise_xml_content" function can be called from here,

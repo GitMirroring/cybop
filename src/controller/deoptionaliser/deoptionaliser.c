@@ -26,7 +26,7 @@
 #ifndef DEOPTIONALISER_SOURCE
 #define DEOPTIONALISER_SOURCE
 
-#include "../controller/deoptionaliser/log_file_deoptionaliser.c"
+#include "../../controller/deoptionaliser/log_file_deoptionaliser.c"
 
 /**
  * Deoptionalises the given command line argument options.

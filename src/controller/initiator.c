@@ -34,7 +34,7 @@
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../controller/checker.c"
+#include "../controller/checker/checker.c"
 #include "../executor/communicator/receiver/receiver.c"
 #include "../executor/dispatcher/closer/basic/basic_closer.c"
 #include "../executor/dispatcher/opener/file/file_opener.c"

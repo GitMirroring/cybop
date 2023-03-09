@@ -31,10 +31,10 @@
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../constant/type/cyboi/state_cyboi_type.c"
-#include "../executor/modifier/item_modifier.c"
-#include "../executor/copier/array_copier.c"
+#include "../executor/copier/array/forward_array_copier.c"
 #include "../executor/memoriser/allocator/item_allocator.c"
 #include "../executor/memoriser/deallocator/item_deallocator.c"
+#include "../executor/modifier/item_modifier.c"
 #include "../logger/logger.c"
 
 /**
@@ -44,17 +44,23 @@
  */
 void inform(void* p0) {
 
+    //?? fwprintf(stdout, L"Debug: Inform. p0: %i\n", p0);
+
     // The message item.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The message item data.
     void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
     // Allocate message item.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     // CAUTION! Set size to arbitrary big value, so that message does
     // not have to be reallocated for every character below.
     // This lets the programme possibly run faster.
+    //
     allocate_item((void*) &m, (void*) NUMBER_1024_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Append name.
@@ -80,10 +86,13 @@ void inform(void* p0) {
     // Append null termination.
     modify_item(m, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
+    //
     // Get message item data.
+    //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
+    //
     copy_array_forward((void*) &md, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Log message.

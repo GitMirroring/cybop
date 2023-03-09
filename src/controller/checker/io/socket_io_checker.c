@@ -32,7 +32,7 @@
 #include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../../controller/checker/io/accept_io_checker.c"
 #include "../../../controller/checker/io/receive_io_checker.c"
-#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"
 

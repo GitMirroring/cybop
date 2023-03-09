@@ -33,7 +33,7 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 //?? #include "../../executor/container/container.c"
-#include "../../executor/copier/array_copier.c"
+#include "../../executor/copier/array/forward_array_copier.c"
 #include "../../logger/logger.c"
 
 /**

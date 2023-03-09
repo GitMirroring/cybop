@@ -40,7 +40,7 @@
 #include "../../../../executor/calculator/integer/multiply_integer_calculator.c"
 #include "../../../../executor/caster/double/integer_double_caster.c"
 #include "../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
-#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/copier/double_copier.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/wide_character_copier.c"

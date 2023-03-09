@@ -35,7 +35,7 @@
 #include "../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/dispatcher/closer/pipe/pipe_closer.c"
 #include "../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../executor/memoriser/deallocator/input_output_entry_deallocator.c"

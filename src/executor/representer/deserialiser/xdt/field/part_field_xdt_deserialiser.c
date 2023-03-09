@@ -32,7 +32,7 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../executor/copier/array_copier.c"
+#include "../../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../../executor/memoriser/allocator/part_allocator.c"
 #include "../../../../../executor/modifier/item_modifier.c"
 #include "../../../../../executor/modifier/part_modifier.c"

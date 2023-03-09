@@ -64,7 +64,7 @@
  * http://sourceware.org/pthreads-win32/faq.html
  *
  */
-static thrd_t DEFAULT_THREAD_IDENTIFICATION;
+thrd_t DEFAULT_THREAD_IDENTIFICATION;
 
 /* THREAD_IDENTIFICATION_SOURCE */
 #endif

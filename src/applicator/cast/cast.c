@@ -35,7 +35,7 @@
 #include "../../executor/accessor/name_getter/array_name_getter.c"
 #include "../../executor/calculator/integer/minimum_integer_calculator.c"
 #include "../../executor/caster/part_caster.c"
-#include "../../executor/copier/array_copier.c"
+#include "../../executor/copier/array/forward_array_copier.c"
 #include "../../logger/logger.c"
 
 /**

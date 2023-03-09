@@ -37,7 +37,7 @@
 #include "../../../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/representer/serialiser/gui/component_gui_serialiser.c"
 #include "../../../../executor/representer/serialiser/gui/window_gui_serialiser.c"
 #include "../../../../executor/representer/serialiser/layout/layout_serialiser.c"

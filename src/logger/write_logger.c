@@ -26,9 +26,9 @@
 #ifndef WRITE_LOGGER_SOURCE
 #define WRITE_LOGGER_SOURCE
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <wchar.h>
+#include <stddef.h> // wchar_t
+#include <stdio.h> // FILE
+#include <wchar.h> // fputws
 
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 
@@ -58,17 +58,23 @@ void log_write(void* p0, void* p1) {
 
         } else {
 
-            // CAUTION! Do NOT call the logger here.
-            // It cannot log itself.
+            //
+            // CAUTION! Do NOT call the logger here. It cannot log itself.
             // This is commented out, in order to avoid annoying messages.
-            // fputws(L"Error: Could not write terminated log message. The log output stream is null.\n", stdout);
+            //
+            // fputws(L"Error: Could not log write. The log output stream is null.\n", stdout);
+            //
+            fwprintf(stdout, L"Error: Could not log write. The log output stream is null. p0: %i\n", p0);
         }
 
     } else {
 
-        // CAUTION! Do NOT call the logger here.
-        // It cannot log itself.
-        fputws(L"Error: Could not write terminated log message. The log message is null.\n", stdout);
+        //
+        // CAUTION! Do NOT call the logger here. It cannot log itself.
+        //
+        //?? fputws(L"Error: Could not write log. The log message is null.\n", stdout);
+        //
+        fwprintf(stdout, L"Error: Could not log write. The log message is null. p1: %i\n", p1);
     }
 }
 

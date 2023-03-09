@@ -26,6 +26,16 @@
 #ifndef DESERIALISER_SOURCE
 #define DESERIALISER_SOURCE
 
+//
+// Library interface
+//
+
+#include "xdt_library.h"
+
+//
+// Executable interface
+//
+
 #include "../../../constant/language/cyboi/state_cyboi_language.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -46,12 +56,6 @@
 #include "../../../executor/representer/deserialiser/tui/tui_deserialiser.c"
 #include "../../../executor/representer/deserialiser/uri/uri_deserialiser.c"
 #include "../../../executor/representer/deserialiser/xml/xml_deserialiser.c"
-
-//
-// Library
-//
-
-#include "xdt.h"
 
 /**
  * Deserialises the source into the destination, according to the given language.

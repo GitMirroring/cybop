@@ -26,6 +26,9 @@
 #ifndef ORIENTER_SOURCE
 #define ORIENTER_SOURCE
 
+#include <stdio.h> // FILE
+#include <wchar.h> // fwide
+
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 
 /**
@@ -44,27 +47,39 @@ void orient(void* p0, void* p1) {
 
             FILE* s = (FILE*) p0;
 
+            //
             // CAUTION! DO NOT use logging functionality here!
+            //
             // The logger will not work before its options are set.
             // Do NOT show the following error message, as it would only disturb the user!
+            //
             // log_write(stdout, L"Information: Orient stream.\n");
+            //
 
             // Set stream orientation.
             fwide(s, *o);
 
         } else {
 
+            //
             // CAUTION! DO NOT use logging functionality here!
+            //
             // The logger will not work before its options are set.
             // Do NOT show the following error message, as it would only disturb the user!
+            //
             // log_write(stdout, L"Error: Could not orient stream. The stream is null.\n");
+            //
         }
 
     } else {
 
+        //
         // CAUTION! DO NOT use logging functionality here!
+        //
         // The logger will not work before its options are set.
+        //
         // log_write(stdout, L"Error: Could not orient stream. The orientation is null.\n");
+        //
     }
 }
 

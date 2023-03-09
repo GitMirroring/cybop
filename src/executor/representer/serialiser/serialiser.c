@@ -26,6 +26,16 @@
 #ifndef SERIALISER_SOURCE
 #define SERIALISER_SOURCE
 
+//
+// Library interface
+//
+
+#include "xdt_library.h"
+
+//
+// Executable interface
+//
+
 #include "../../../constant/language/cyboi/state_cyboi_language.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -46,8 +56,8 @@
 #include "../../../executor/representer/serialiser/terminal_mode/terminal_mode_serialiser.c"
 //?? #include "../../../executor/representer/serialiser/textline_list/textline_list_serialiser.c"
 #include "../../../executor/representer/serialiser/tui/constraints_tui_serialiser.c"
-#include "../../../executor/representer/serialiser/xdt_field_description/xdt_field_description_serialiser.c"
-#include "../../../executor/representer/serialiser/xdt/xdt_serialiser.c"
+//?? #include "../../../executor/representer/serialiser/xdt_field_description/xdt_field_description_serialiser.c"
+//?? #include "../../../executor/representer/serialiser/xdt/xdt_serialiser.c"
 //
 // CAUTION! The xml serialiser is used e.g. in the cybol serialiser.
 // Therefore, do NOT delete this include, even if the xml serialiser

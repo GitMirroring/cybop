@@ -24,19 +24,26 @@
 #
 
 #
-# xdt library
+# Link libraries.
 #
 
-# the libraries to be linked to the executable
-target_link_libraries(${BINARY_NAME}
+# Link libraries to controller library.
+target_link_libraries(controller
     xdt
 )
 
-#
-# the search path for include files
-#
-# CAUTION! The "PUBLIC" is important.
-#
+# Link libraries to cyboi executable.
+target_link_libraries(${BINARY_NAME}
+    controller
+)
+
+# Define include file search path for controller library.
+target_include_directories(controller PUBLIC
+    "${ROOT_DIR}/include"
+)
+
+# Define include file search path for cyboi executable.
 target_include_directories(${BINARY_NAME} PUBLIC
     "${ROOT_DIR}/include"
 )
+

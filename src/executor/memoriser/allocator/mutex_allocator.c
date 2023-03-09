@@ -59,17 +59,25 @@ void allocate_mutex(void* p0) {
         //
         allocate_array(p0, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
 
-        // Cast mutex to correct type.
-        mtx_t* t = (mtx_t*) *m;
+        if (*m != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // Initialise mutex.
-        int r = mtx_init(t, *PLAIN_MUTEX_TYPE_THREAD_SYMBOLIC_NAME);
+            // Cast mutex to correct type.
+            mtx_t* t = (mtx_t*) *m;
 
-        // Evaluate mutex object creation result.
-        if (r == thrd_error) {
+            // Initialise mutex.
+            int r = mtx_init(t, *PLAIN_MUTEX_TYPE_THREAD_SYMBOLIC_NAME);
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate mutex. The mutex object creation failed.");
-            fwprintf(stdout, L"Error: Could not allocate mutex. The mutex object creation failed. mr: %i\n", r);
+            // Evaluate mutex object creation result.
+            if (r == thrd_error) {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate mutex. The mutex object creation failed.");
+                fwprintf(stdout, L"Error: Could not allocate mutex. The mutex object creation failed. mr: %i\n", r);
+            }
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate mutex. The dereferenced mutex is null.");
+            fwprintf(stdout, L"Error: Could not allocate mutex. The dereferenced mutex is null. *m: %i\n", *m);
         }
 
     } else {

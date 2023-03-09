@@ -37,6 +37,8 @@
  */
 void globalise_log() {
 
+    //?? fwprintf(stdout, L"Debug: Globalise log.\n");
+
     *LOG_LEVEL = *OFF_LEVEL_LOG_CYBOI_MODEL;
 
     //

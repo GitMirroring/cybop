@@ -34,7 +34,7 @@
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/memoriser/allocator/part_allocator.c"
 #include "../../../../../executor/modifier/item_modifier.c"
-#include "../../../../../executor/copier/array_copier.c"
+#include "../../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../../executor/modifier/part_modifier.c"
 #include "../../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
 #include "../../../../../logger/logger.c"

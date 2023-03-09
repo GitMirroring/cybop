@@ -33,7 +33,7 @@
 #include "../../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../../executor/memoriser/reallocator/array_reallocator.c"
-#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/referencer/referencer.c"
 #include "../../../logger/logger.c"
 

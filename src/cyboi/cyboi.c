@@ -26,21 +26,55 @@
 #ifndef CYBOI_SOURCE
 #define CYBOI_SOURCE
 
+//
+// System interface
+//
+
+#include <stdio.h> // stdin, stdout, stderr
+
+//
+// Library interface
+//
+
+#include "controller_library.h"
+
+//
+// Executable interface
+//
+
 #include "../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../constant/model/cyboi/operation_mode/operation_mode_cyboi_model.c"
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../controller/deoptionaliser.c"
-#include "../controller/globaliser.c"
-#include "../controller/helper.c"
-#include "../controller/informant.c"
-#include "../controller/manager.c"
-#include "../controller/optionaliser.c"
-#include "../controller/orienter.c"
-#include "../controller/unglobaliser.c"
+#include "../constant/type/cyboi/state_cyboi_type.c"
+//
+// CAUTION! This file "copier.c" is actually NOT needed but included anyway,
+// since it references file "item_allocator.c" which is needed here.
+//
+#include "../executor/copier/copier.c"
+#include "../executor/copier/integer_copier.c"
+//
+// CAUTION! Do NOT include file "item_allocator.c" to avoid circular references.
+// It gets included via "copier.c" and "part_allocator.c".
+//
+//?? #include "../executor/memoriser/allocator/item_allocator.c"
+//
+#include "../executor/memoriser/deallocator/item_deallocator.c"
 #include "../logger/logger.c"
 #include "../variable/log_setting.c"
-#include "../variable/reference_counter.c"
+
+//
+// Testing functionality
+//
+
+//?? #include "../variable/reference_counter.c"
+
+//
+// Windows specific stuff
+//
+// (possibly OUTDATED and may be deleted once compiling on windows)
+//
 
 #ifdef _MSC_VER          // see: http://msdn.microsoft.com/de-de/library/b0084kay.aspx
 

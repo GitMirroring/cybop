@@ -38,8 +38,8 @@
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
 /** The window class extended display type size. */
-static int WNDCLASSEX_DISPLAY_TYPE_SIZE_ARRAY[1];
-static int* WNDCLASSEX_DISPLAY_TYPE_SIZE = WNDCLASSEX_DISPLAY_TYPE_SIZE_ARRAY;
+int WNDCLASSEX_DISPLAY_TYPE_SIZE_ARRAY[1];
+int* WNDCLASSEX_DISPLAY_TYPE_SIZE = WNDCLASSEX_DISPLAY_TYPE_SIZE_ARRAY;
 #else
 #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif

@@ -34,7 +34,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/state/gui/gui_state_cybol_name.c"
 #include "../../../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/representer/serialiser/xcb/cap_style_xcb_serialiser.c"
 #include "../../../../executor/representer/serialiser/xcb/fill_rule_xcb_serialiser.c"

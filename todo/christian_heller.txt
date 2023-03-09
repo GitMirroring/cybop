@@ -14,15 +14,15 @@
 Library
 _______
 
+        * Debug compilation warnings caused by circular dependencies
+
+        * Add shared library "applicator"
+        * Add shared library "executor"
+        * Add shared library "xml"
+        * Add shared library "json"
+
         * Check for new cmake ideas
             https://iamsorush.com/posts/cpp-cmake-build/
-
-        * Add xdt serialiser to xdt shared library
-        * Provide xdt functionality as shared library
-        * Provide json functionality as shared library
-        * Provide xml functionality as shared library
-        * Factor out cyboi functionality into separate libraries, for example: controller, applicator, executor
-        * Leave cyboi executable with just the file "cyboi.c" containing the entry function "main"
 
         * Try to include and use a cyboi shared library in a qt application
         * Provide knowledge memory, stack memory etc. as global variables, so that applications external to cyboi may use them

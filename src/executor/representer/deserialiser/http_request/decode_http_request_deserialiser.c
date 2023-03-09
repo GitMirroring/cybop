@@ -35,7 +35,7 @@
 #include "../../../../executor/converter/decoder/utf/utf_8_decoder.c"
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/representer/deserialiser/http_request/append_http_request_deserialiser.c"
 #include "../../../../logger/logger.c"
 

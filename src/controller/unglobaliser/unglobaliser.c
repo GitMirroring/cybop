@@ -26,7 +26,7 @@
 #ifndef UNGLOBALISER_SOURCE
 #define UNGLOBALISER_SOURCE
 
-#include "../controller/unglobaliser/log_unglobaliser.c"
+#include "../../controller/unglobaliser/log_unglobaliser.c"
 
 /**
  * Deallocates global variables.

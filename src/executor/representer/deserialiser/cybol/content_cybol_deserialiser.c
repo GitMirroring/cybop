@@ -37,7 +37,7 @@
 #include "../../../../constant/name/cybol/cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/name_getter/array_name_getter.c"
-#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/representer/deserialiser/cybol/node_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/test_cybol_deserialiser.c"
 #include "../../../../logger/logger.c"

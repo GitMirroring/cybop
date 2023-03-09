@@ -36,8 +36,8 @@
 //
 
 /** The log level. */
-static int LOG_LEVEL_ARRAY[1];
-static int* LOG_LEVEL = LOG_LEVEL_ARRAY;
+int LOG_LEVEL_ARRAY[1];
+int* LOG_LEVEL = LOG_LEVEL_ARRAY;
 
 /**
  * The log message.
@@ -56,19 +56,19 @@ static int* LOG_LEVEL = LOG_LEVEL_ARRAY;
  *
  * Therefore, 1015 is used here instead of just 1000.
  */
-static wchar_t LOG_MESSAGE_ARRAY[1015];
-static wchar_t* LOG_MESSAGE = LOG_MESSAGE_ARRAY;
+wchar_t LOG_MESSAGE_ARRAY[1015];
+wchar_t* LOG_MESSAGE = LOG_MESSAGE_ARRAY;
 
-static int LOG_MESSAGE_COUNT_ARRAY[1];
-static int* LOG_MESSAGE_COUNT = LOG_MESSAGE_COUNT_ARRAY;
+int LOG_MESSAGE_COUNT_ARRAY[1];
+int* LOG_MESSAGE_COUNT = LOG_MESSAGE_COUNT_ARRAY;
 
-static int LOG_MESSAGE_SIZE_ARRAY[1];
-static int* LOG_MESSAGE_SIZE = LOG_MESSAGE_SIZE_ARRAY;
+int LOG_MESSAGE_SIZE_ARRAY[1];
+int* LOG_MESSAGE_SIZE = LOG_MESSAGE_SIZE_ARRAY;
 
 /** The log output. */
-//?? static FILE LOG_OUTPUT_ARRAY[1];
-//?? static FILE* LOG_OUTPUT = LOG_OUTPUT_ARRAY;
-static FILE* LOG_OUTPUT;
+//?? FILE LOG_OUTPUT_ARRAY[1];
+//?? FILE* LOG_OUTPUT = LOG_OUTPUT_ARRAY;
+FILE* LOG_OUTPUT;
 
 /**
  * The debug flag.
@@ -78,7 +78,7 @@ static FILE* LOG_OUTPUT;
  * it is just convenient to define the debug flag here WITHOUT
  * having to include a separate file into all source code using it.
  */
-static int DEBUG_CYBOP = 0;
+int DEBUG_CYBOP = 0;
 
 /* LOG_SETTING_SOURCE */
 #endif

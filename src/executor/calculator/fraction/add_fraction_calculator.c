@@ -28,8 +28,13 @@
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/fraction_state_cyboi_name.c"
+#include "../../../executor/accessor/getter/fraction_getter.c"
+#include "../../../executor/accessor/setter/fraction_setter.c"
 #include "../../../executor/calculator/fraction/reduce_fraction_calculator.c"
+#include "../../../executor/calculator/integer/add_integer_calculator.c"
+#include "../../../executor/calculator/integer/multiply_integer_calculator.c"
+#include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"
 
 /**

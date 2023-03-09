@@ -35,7 +35,7 @@
 #include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../logger/logger.c"
@@ -59,6 +59,7 @@ void allocate_item(void* p0, void* p1, void* p2) {
                 void** i = (void**) p0;
 
                 log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate item.");
+                //?? fwprintf(stdout, L"Debug: Allocate item. p2: %i\n", p2);
 
                 // The allocation size.
                 int size = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;

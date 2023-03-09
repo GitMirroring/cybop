@@ -39,7 +39,7 @@
 // CAUTION! Do NOT include this file in order to avoid circular references.
 // Use a forward declaration instead below.
 //
-// #include "../../../executor/copier/array_copier.c"
+// #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
 //

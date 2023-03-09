@@ -232,6 +232,9 @@ void log_message_terminated(void* p0, void* p1) {
             //
             int o = c + *NUMBER_15_INTEGER_STATE_CYBOI_MODEL;
 
+            //?? fwprintf(stdout, L"Debug: Log message terminated. *LOG_MESSAGE_SIZE: %i\n", *LOG_MESSAGE_SIZE);
+            //?? fwprintf(stdout, L"Debug: Log message terminated. c: %i\n", c);
+
             //
             // Test message count.
             //

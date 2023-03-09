@@ -37,7 +37,7 @@
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/memoriser/reallocator/item_reallocator.c"
 #include "../../../../logger/logger.c"
@@ -228,85 +228,85 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
             //
             calculate_integer_add((void*) &nds, p2);
 
-            // The destination item size casted to the correct type.
-            int* dst = (int*) ds;
-
-            if (nds > *dst) {
-
-                //
-                // The new destination size is greater than the old.
-                //
-                // CAUTION! The destination item DOES get reallocated,
-                // since its size is not great enough to store all source data.
-                //
-                // Some buffers such as for terminal ansi escape code input
-                // are filled repeatedly in a loop, so that steady reallocation
-                // would harm performance. This condition is just an optimisation.
-                //
-
-                if (nds > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                    //
-                    // Reallocate destination item.
-                    //
-                    // CAUTION! Due to memory allocation handling, the size MUST NOT
-                    // be negative or zero, but have at least a value of ONE.
-                    //
-                    reallocate_item(p0, (void*) &nds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-                } else {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8. The new destination size is zero or negative.");
-                    fwprintf(stdout, L"Error: Could not decode utf-8. The new destination size is zero or negative. nds: %i\n", nds);
-                }
-            }
-
-            //
-            // Set locale.
-            //
-            // Possible locales are: LANG, LC_CTYPE, ..., LC_ALL
-            // where LANG has the lowest and LC_ALL the highest priority.
-            // That is, if LC_ALL is specified, it overwrites e.g. the LC_CTYPE setting.
-            // If no value "" is given, the default will be used.
-            // Note, that LC_CTYPE suffices for the purpose of character conversion,
-            // since it is the category that applies to classification and conversion
-            // of characters, and to multibyte and wide characters.
-            //
-            // CAUTION! This setting IS NECESSARY for utf-8 character conversion
-            // with restartable multibyte conversion functions like "mbsnrtowcs"
-            // and "wcsnrtombs" to work correctly.
-            // The return value is not used; this is a GLOBAL setting.
-            //
-            char* loc = setlocale(LC_CTYPE, "");
-
-            //
-            // Get destination item data.
-            //
-            // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-            // Inside the structure, arrays may have been reallocated,
-            // with elements pointing to different memory areas now.
-            //
-            copy_array_forward((void*) &dd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-            //
-            // The temporary size_t variable.
-            //
-            // CAUTION! It IS NECESSARY because on 64 Bit machines,
-            // the "size_t" type has a size of 8 Byte,
-            // whereas the "int" type has the usual size of 4 Byte.
-            // When trying to cast between the two, memory errors
-            // will occur and the valgrind memcheck tool report:
-            // "Invalid read of size 8".
-            //
-            // CAUTION! Initialise temporary size_t variable with final int value
-            // JUST BEFORE handing that over to the glibc function requiring it.
-            //
-            // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
-            // because values are casted to int* internally again.
-            //
             if (ds != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                size_t tds = (size_t) *((int*) ds);
+                // The destination item size casted to the correct type.
+                int* dst = (int*) ds;
+
+                if (nds > *dst) {
+
+                    //
+                    // The new destination size is greater than the old.
+                    //
+                    // CAUTION! The destination item DOES get reallocated,
+                    // since its size is not great enough to store all source data.
+                    //
+                    // Some buffers such as for terminal ansi escape code input
+                    // are filled repeatedly in a loop, so that steady reallocation
+                    // would harm performance. This condition is just an optimisation.
+                    //
+
+                    if (nds > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                        //
+                        // Reallocate destination item.
+                        //
+                        // CAUTION! Due to memory allocation handling, the size MUST NOT
+                        // be negative or zero, but have at least a value of ONE.
+                        //
+                        reallocate_item(p0, (void*) &nds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+                    } else {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8. The new destination size is zero or negative.");
+                        fwprintf(stdout, L"Error: Could not decode utf-8. The new destination size is zero or negative. nds: %i\n", nds);
+                    }
+                }
+
+                //
+                // Set locale.
+                //
+                // Possible locales are: LANG, LC_CTYPE, ..., LC_ALL
+                // where LANG has the lowest and LC_ALL the highest priority.
+                // That is, if LC_ALL is specified, it overwrites e.g. the LC_CTYPE setting.
+                // If no value "" is given, the default will be used.
+                // Note, that LC_CTYPE suffices for the purpose of character conversion,
+                // since it is the category that applies to classification and conversion
+                // of characters, and to multibyte and wide characters.
+                //
+                // CAUTION! This setting IS NECESSARY for utf-8 character conversion
+                // with restartable multibyte conversion functions like "mbsnrtowcs"
+                // and "wcsnrtombs" to work correctly.
+                // The return value is not used; this is a GLOBAL setting.
+                //
+                char* loc = setlocale(LC_CTYPE, "");
+
+                //
+                // Get destination item data.
+                //
+                // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+                // Inside the structure, arrays may have been reallocated,
+                // with elements pointing to different memory areas now.
+                //
+                copy_array_forward((void*) &dd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+                //
+                // The temporary size_t variable.
+                //
+                // CAUTION! It IS NECESSARY because on 64 Bit machines,
+                // the "size_t" type has a size of 8 Byte,
+                // whereas the "int" type has the usual size of 4 Byte.
+                // When trying to cast between the two, memory errors
+                // will occur and the valgrind memcheck tool report:
+                // "Invalid read of size 8".
+                //
+                // CAUTION! Initialise temporary size_t variable with final int value
+                // JUST BEFORE handing that over to the glibc function requiring it.
+                //
+                // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
+                // because values are casted to int* internally again.
+                //
+                size_t tds = (size_t) *dst;
                 size_t tsc = (size_t) *sc;
 
                 //
@@ -372,8 +372,8 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8. The destination size is null.");
-                fwprintf(stdout, L"Error: Could not decode utf-8. The destination size is null. ds: %i\n", ds);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8. The destination item size is null.");
+                fwprintf(stdout, L"Error: Could not decode utf-8. The destination item size is null. ds: %i\n", ds);
             }
 
         } else {

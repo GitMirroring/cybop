@@ -36,7 +36,7 @@
 #include "../../../../constant/name/cybol/state/language_state_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/copier/array/forward_array_copier.c"
 //
 // CAUTION! Do NOT include the "content_model_diagram_serialiser.c" module.
 // It is true, the "serialise_model_diagram_part_element_content" function is called from here,

@@ -28,7 +28,13 @@
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/fraction_state_cyboi_name.c"
+#include "../../../executor/accessor/getter/fraction_getter.c"
+#include "../../../executor/accessor/setter/fraction_setter.c"
+#include "../../../executor/calculator/integer/absolute_integer_calculator.c"
+#include "../../../executor/calculator/integer/negate_integer_calculator.c"
+#include "../../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -68,8 +74,10 @@ void calculate_fraction_reduce(void* p0) {
 
         if (rd < j) {
 
+            //
             // CAUTION! Since j is used as divisor for both,
             // numerator and denominator, the smaller is used.
+            //
             j = rd;
         }
 
@@ -77,9 +85,11 @@ void calculate_fraction_reduce(void* p0) {
         int remn = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         int remd = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+        //
         // Search numerator and denominator having a common factor
         // delivering an integral number as result (no remainder).
-        // Start at the largest of both.
+        // Start at the larger one of both.
+        //
         while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             if (j <= *NUMBER_1_INTEGER_STATE_CYBOI_MODEL) {

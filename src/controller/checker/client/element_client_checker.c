@@ -36,7 +36,7 @@
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../controller/checker/client/available_element_client_checker.c"
 #include "../../../controller/checker/client/empty_element_client_checker.c"
-#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/sensor/sensor.c"
 #include "../../../logger/logger.c"
 

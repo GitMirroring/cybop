@@ -106,8 +106,8 @@
  * Typical size [Byte]: 4
  * Typical size [Bit]: 32
  */
-//?? static int FLOAT_REAL_TYPE_SIZE_ARRAY[1];
-//?? static int* FLOAT_REAL_TYPE_SIZE = FLOAT_REAL_TYPE_SIZE_ARRAY;
+//?? int FLOAT_REAL_TYPE_SIZE_ARRAY[1];
+//?? int* FLOAT_REAL_TYPE_SIZE = FLOAT_REAL_TYPE_SIZE_ARRAY;
 
 /**
  * The double real type size.
@@ -119,8 +119,8 @@
  * Typical size [Byte]: 8
  * Typical size [Bit]: 64
  */
-static int DOUBLE_REAL_TYPE_SIZE_ARRAY[1];
-static int* DOUBLE_REAL_TYPE_SIZE = DOUBLE_REAL_TYPE_SIZE_ARRAY;
+int DOUBLE_REAL_TYPE_SIZE_ARRAY[1];
+int* DOUBLE_REAL_TYPE_SIZE = DOUBLE_REAL_TYPE_SIZE_ARRAY;
 
 /**
  * The long double real type size.
@@ -132,8 +132,8 @@ static int* DOUBLE_REAL_TYPE_SIZE = DOUBLE_REAL_TYPE_SIZE_ARRAY;
  * Typical size [Byte]: 8 or 12
  * Typical size [Bit]: 64 or 96
  */
-//?? static int LONG_DOUBLE_REAL_TYPE_SIZE_ARRAY[1];
-//?? static int* LONG_DOUBLE_REAL_TYPE_SIZE = LONG_DOUBLE_REAL_TYPE_SIZE_ARRAY;
+//?? int LONG_DOUBLE_REAL_TYPE_SIZE_ARRAY[1];
+//?? int* LONG_DOUBLE_REAL_TYPE_SIZE = LONG_DOUBLE_REAL_TYPE_SIZE_ARRAY;
 
 /* REAL_TYPE_SIZE_SOURCE */
 #endif

@@ -31,7 +31,7 @@
 #include "../../../../constant/name/cyboi/http/http_cyboi_name.c"
 #include "../../../../executor/accessor/getter/part/index_part_getter.c"
 #include "../../../../executor/representer/serialiser/http_response/encode_header_entry_http_response_serialiser.c"
-#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../logger/logger.c"
 
 /**

@@ -39,7 +39,7 @@
 #include "../../../../constant/name/numeral/thousands_numeral_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/representer/deserialiser/json/value_json_deserialiser.c"
 #include "../../../../logger/logger.c"
