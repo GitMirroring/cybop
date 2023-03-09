@@ -23,6 +23,7 @@
         * Fix null pointer bug in file "utf_8_decoder.c"
         * Fix null pointer bug in file "mutex_allocator.c"
         * Remove keyword "static" before any variables in directory "variable", so that they are valid and usable globally across libraries
+        * Adjust and format forward declarations in order to eliminate compilation warnings caused by circular dependencies
 
 2023-03-08  Christian Heller  <christian.heller@cybop.org>
 

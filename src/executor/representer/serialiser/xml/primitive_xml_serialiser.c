@@ -26,6 +26,10 @@
 #ifndef PRIMITIVE_XML_SERIALISER_SOURCE
 #define PRIMITIVE_XML_SERIALISER_SOURCE
 
+//
+// Executable interface
+//
+
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -34,6 +38,18 @@
 #include "../../../../executor/representer/serialiser/xml/break_xml_serialiser.c"
 #include "../../../../executor/representer/serialiser/xml/indentation_xml_serialiser.c"
 #include "../../../../logger/logger.c"
+
+//
+// Forbidden includes
+//
+// CAUTION! Do NOT include the following files since otherwise,
+// circular references would occur due to module dependencies.
+// Instead, forward declarations are used further below.
+// Therefore, the following includes are to be commented OUT
+// and listed here just for information.
+//
+
+// #include "../../../../executor/representer/serialiser/xml/xml_serialiser.c"
 
 //
 // Forward declarations

@@ -26,11 +26,27 @@
 #ifndef ELEMENT_KNOWLEDGE_DESERIALISER_SOURCE
 #define ELEMENT_KNOWLEDGE_DESERIALISER_SOURCE
 
+//
+// Executable interface
+//
+
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/copier/pointer_copier.c"
 #include "../../../../logger/logger.c"
+
+//
+// Forbidden includes
+//
+// CAUTION! Do NOT include the following files since otherwise,
+// circular references would occur due to module dependencies.
+// Instead, forward declarations are used further below.
+// Therefore, the following includes are to be commented OUT
+// and listed here just for information.
+//
+
+// #include "../../../../executor/representer/deserialiser/knowledge/knowledge_deserialiser.c"
 
 //
 // Forward declarations

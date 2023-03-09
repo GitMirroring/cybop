@@ -26,7 +26,23 @@
 #ifndef OFFSET_COPIER_SOURCE
 #define OFFSET_COPIER_SOURCE
 
+//
+// Executable interface
+//
+
 #include "../../executor/memoriser/offset_adder.c"
+
+//
+// Forbidden includes
+//
+// CAUTION! Do NOT include the following files since otherwise,
+// circular references would occur due to module dependencies.
+// Instead, forward declarations are used further below.
+// Therefore, the following includes are to be commented OUT
+// and listed here just for information.
+//
+
+// #include "../../executor/copier/copier.c"
 
 //
 // Forward declarations

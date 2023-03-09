@@ -26,6 +26,10 @@
 #ifndef HIERARCHY_FIELD_XDT_SELECTOR_SOURCE
 #define HIERARCHY_FIELD_XDT_SELECTOR_SOURCE
 
+//
+// Executable interface
+//
+
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -38,6 +42,18 @@
 #include "../../../executor/representer/deserialiser/xdt/part_record_xdt_deserialiser.c"
 #include "../../../executor/mover/mover.c"
 #include "../../../logger/logger.c"
+
+//
+// Forbidden includes
+//
+// CAUTION! Do NOT include the following files since otherwise,
+// circular references would occur due to module dependencies.
+// Instead, forward declarations are used further below.
+// Therefore, the following includes are to be commented OUT
+// and listed here just for information.
+//
+
+// #include "../../../../executor/representer/deserialiser/xdt/record_xdt_deserialiser.c"
 
 //
 // Forward declarations

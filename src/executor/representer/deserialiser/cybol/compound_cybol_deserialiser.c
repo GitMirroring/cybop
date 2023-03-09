@@ -26,6 +26,10 @@
 #ifndef COMPOUND_CYBOL_DESERIALISER_SOURCE
 #define COMPOUND_CYBOL_DESERIALISER_SOURCE
 
+//
+// Executable interface
+//
+
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -34,6 +38,19 @@
 #include "../../../../executor/converter/encoder/encoder.c"
 #include "../../../../executor/representer/deserialiser/cybol/part_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xml/xml_deserialiser.c"
+
+//
+// Forbidden includes
+//
+// CAUTION! Do NOT include the following files since otherwise,
+// circular references would occur due to module dependencies.
+// Instead, forward declarations are used further below.
+// Therefore, the following includes are to be commented OUT
+// and listed here just for information.
+//
+
+// #include "../../../../executor/representer/deserialiser/cybol/content_cybol_deserialiser.c"
+// #include "../../../../executor/representer/deserialiser/xml/xml_deserialiser.c"
 
 //
 // Forward declarations

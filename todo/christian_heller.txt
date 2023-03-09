@@ -14,8 +14,6 @@
 Library
 _______
 
-        * Debug compilation warnings caused by circular dependencies
-
         * Add shared library "applicator"
         * Add shared library "executor"
         * Add shared library "xml"
@@ -23,6 +21,8 @@ _______
 
         * Check for new cmake ideas
             https://iamsorush.com/posts/cpp-cmake-build/
+
+        * Release CYBOP 0.26.0
 
         * Try to include and use a cyboi shared library in a qt application
         * Provide knowledge memory, stack memory etc. as global variables, so that applications external to cyboi may use them
@@ -69,7 +69,7 @@ ___________________________________
 xDT
 ___
 
-        * Reactivate (uncomment) call of function "deserialise_xdt_datetime_ddmmyyyy" in file "cybol_deserialiser.c"
+        * Reactivate (uncomment) call of function "deserialise_xdt_datetime_ddmmyyyy" in files "cybol_deserialiser.c" and "cybol_serialiser.c"
             it was commented out for testing the xdt library
 
         * Move xDT de-/serialisation into a library, since it is very large (4 MiB) and compilation needs double time (14 s instead of 7 s)

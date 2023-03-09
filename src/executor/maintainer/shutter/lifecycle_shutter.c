@@ -26,6 +26,10 @@
 #ifndef LIFECYCLE_SHUTTER_SOURCE
 #define LIFECYCLE_SHUTTER_SOURCE
 
+//
+// Executable interface
+//
+
 #include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -41,6 +45,18 @@
 #include "../../../executor/memoriser/deallocator/server_entry_deallocator.c"
 #include "../../../executor/modifier/item_modifier.c"
 #include "../../../logger/logger.c"
+
+//
+// Forbidden includes
+//
+// CAUTION! Do NOT include the following files since otherwise,
+// circular references would occur due to module dependencies.
+// Instead, forward declarations are used further below.
+// Therefore, the following includes are to be commented OUT
+// and listed here just for information.
+//
+
+// #include "../../../executor/maintainer/shutter/list_shutter.c"
 
 //
 // Forward declarations

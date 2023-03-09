@@ -26,6 +26,10 @@
 #ifndef CONTENT_MODEL_DIAGRAM_SERIALISER_SOURCE
 #define CONTENT_MODEL_DIAGRAM_SERIALISER_SOURCE
 
+//
+// Executable interface
+//
+
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -35,6 +39,19 @@
 #include "../../../../executor/representer/serialiser/model_diagram/indentation_model_diagram_serialiser.c"
 #include "../../../../executor/representer/serialiser/model_diagram/line_model_diagram_serialiser.c"
 #include "../../../../logger/logger.c"
+
+//
+// Forbidden includes
+//
+// CAUTION! Do NOT include the following files since otherwise,
+// circular references would occur due to module dependencies.
+// Instead, forward declarations are used further below.
+// Therefore, the following includes are to be commented OUT
+// and listed here just for information.
+//
+
+// #include "../../../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
+// #include "../../../../executor/representer/serialiser/model_diagram/part_model_diagram_serialiser.c"
 
 //
 // Forward declarations

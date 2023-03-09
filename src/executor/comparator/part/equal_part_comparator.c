@@ -26,6 +26,10 @@
 #ifndef EQUAL_PART_COMPARATOR_SOURCE
 #define EQUAL_PART_COMPARATOR_SOURCE
 
+//
+// Executable interface
+//
+
 #include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -37,15 +41,21 @@
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/calculator/integer/minimum_integer_calculator.c"
-//
-// CAUTION! Do NOT include the "item_comparator.c" module here,
-// since it would lead to circular references.
-// Instead, "compare_item" is mentioned as forward declaration below.
-// #include "../../../executor/comparator/item_comparator.c"
-//
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"
+
+//
+// Forbidden includes
+//
+// CAUTION! Do NOT include the following files since otherwise,
+// circular references would occur due to module dependencies.
+// Instead, forward declarations are used further below.
+// Therefore, the following includes are to be commented OUT
+// and listed here just for information.
+//
+
+// #include "../../../executor/comparator/item_comparator.c"
 
 //
 // Forward declarations

@@ -26,6 +26,10 @@
 #ifndef ELEMENT_XML_DESERIALISER_SOURCE
 #define ELEMENT_XML_DESERIALISER_SOURCE
 
+//
+// Executable interface
+//
+
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -45,6 +49,18 @@
 #include "../../../../executor/representer/deserialiser/xml/content_check_xml_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xml/tag_name_xml_deserialiser.c"
 #include "../../../../logger/logger.c"
+
+//
+// Forbidden includes
+//
+// CAUTION! Do NOT include the following files since otherwise,
+// circular references would occur due to module dependencies.
+// Instead, forward declarations are used further below.
+// Therefore, the following includes are to be commented OUT
+// and listed here just for information.
+//
+
+// #include "../../../../executor/representer/deserialiser/xml/content_xml_deserialiser.c"
 
 //
 // Forward declarations

@@ -26,21 +26,32 @@
 #ifndef SOURCE_CYBOL_DESERIALISER_SOURCE
 #define SOURCE_CYBOL_DESERIALISER_SOURCE
 
+//
+// Executable interface
+//
+
 #include "../../../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-//
-// CAUTION! Do NOT include file "receiver",
-// since it would cause a circular reference.
-// Mention the function via forward declaration instead (see below).
-// #include "../../../../executor/communicator/receiver/receiver.c"
-//
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/representer/deserialiser/cybol/file_cybol_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 //
-// Forward declaration
+// Forbidden includes
+//
+// CAUTION! Do NOT include the following files since otherwise,
+// circular references would occur due to module dependencies.
+// Instead, forward declarations are used further below.
+// Therefore, the following includes are to be commented OUT
+// and listed here just for information.
+//
+
+// #include "../../../../executor/communicator/receiver/receiver.c"
+// #include "../../../../executor/representer/deserialiser/cybol/cybol_deserialiser.c"
+
+//
+// Forward declarations
 //
 
 //
@@ -55,7 +66,6 @@
 // void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14);
 // void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17);
 //
-
 void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14);
 
 /**

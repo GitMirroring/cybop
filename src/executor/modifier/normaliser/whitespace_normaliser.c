@@ -26,6 +26,10 @@
 #ifndef WHITESPACE_NORMALISER_SOURCE
 #define WHITESPACE_NORMALISER_SOURCE
 
+//
+// Executable interface
+//
+
 #include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -36,9 +40,26 @@
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../executor/modifier/item_modifier.c"
 #include "../../../executor/selector/whitespace/non_whitespace_selector.c"
 #include "../../../logger/logger.c"
+
+//
+// Forbidden includes
+//
+// CAUTION! Do NOT include the following files since otherwise,
+// circular references would occur due to module dependencies.
+// Instead, forward declarations are used further below.
+// Therefore, the following includes are to be commented OUT
+// and listed here just for information.
+//
+
+// #include "../../../executor/modifier/item_modifier.c"
+
+//
+// Forward declarations
+//
+
+void modify_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11);
 
 /**
  * Parses through the whitespace characters of the given source array.

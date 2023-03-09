@@ -26,6 +26,10 @@
 #ifndef ITEM_DEALLOCATOR_SOURCE
 #define ITEM_DEALLOCATOR_SOURCE
 
+//
+// Executable interface
+//
+
 #include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -37,6 +41,18 @@
 #include "../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../logger/logger.c"
 #include "../../../variable/reference_counter.c"
+
+//
+// Forbidden includes
+//
+// CAUTION! Do NOT include the following files since otherwise,
+// circular references would occur due to module dependencies.
+// Instead, forward declarations are used further below.
+// Therefore, the following includes are to be commented OUT
+// and listed here just for information.
+//
+
+// #include "../../../executor/modifier/array_modifier.c"
 
 //
 // Forward declarations

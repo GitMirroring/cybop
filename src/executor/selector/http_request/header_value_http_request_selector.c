@@ -26,6 +26,10 @@
 #ifndef HEADER_VALUE_HTTP_REQUEST_SELECTOR_SOURCE
 #define HEADER_VALUE_HTTP_REQUEST_SELECTOR_SOURCE
 
+//
+// Executable interface
+//
+
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -35,6 +39,18 @@
 #include "../../../executor/mover/mover.c"
 #include "../../../executor/representer/deserialiser/http_request/body_http_request_deserialiser.c"
 #include "../../../logger/logger.c"
+
+//
+// Forbidden includes
+//
+// CAUTION! Do NOT include the following files since otherwise,
+// circular references would occur due to module dependencies.
+// Instead, forward declarations are used further below.
+// Therefore, the following includes are to be commented OUT
+// and listed here just for information.
+//
+
+// #include "../../../../executor/representer/deserialiser/http_request/header_argument_http_request_deserialiser.c"
 
 //
 // Forward declarations

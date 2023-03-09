@@ -26,6 +26,10 @@
 #ifndef FILE_CYBOL_DESERIALISER_SOURCE
 #define FILE_CYBOL_DESERIALISER_SOURCE
 
+//
+// Executable interface
+//
+
 #include "../../../../constant/encoding/cyboi/cyboi_encoding.c"
 #include "../../../../constant/language/cyboi/state_cyboi_language.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -33,18 +37,24 @@
 #include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/file/open_mode_file_model.c"
-//
-// CAUTION! Do NOT include file "receiver",
-// in order to avoid circular references.
-// Use a forward declaration instead (see below).
-// #include "../../../../executor/communicator/receiver/receiver.c"
-//
 #include "../../../../executor/dispatcher/closer/basic/basic_closer.c"
 #include "../../../../executor/dispatcher/opener/file/file_opener.c"
 #include "../../../../logger/logger.c"
 
 //
-// Forward declaration
+// Forbidden includes
+//
+// CAUTION! Do NOT include the following files since otherwise,
+// circular references would occur due to module dependencies.
+// Instead, forward declarations are used further below.
+// Therefore, the following includes are to be commented OUT
+// and listed here just for information.
+//
+
+// #include "../../../../executor/communicator/receiver/receiver.c"
+
+//
+// Forward declarations
 //
 
 void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17);

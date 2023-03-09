@@ -26,6 +26,10 @@
 #ifndef STANDARD_CYBOL_DESERIALISER_SOURCE
 #define STANDARD_CYBOL_DESERIALISER_SOURCE
 
+//
+// Executable interface
+//
+
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/language/cyboi/state_cyboi_language.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -46,13 +50,24 @@
 #include "../../../../executor/representer/deserialiser/cybol/encoding_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/format_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/language_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/part_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/source_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/type_cybol_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 //
-// Forward declaration
+// Forbidden includes
+//
+// CAUTION! Do NOT include the following files since otherwise,
+// circular references would occur due to module dependencies.
+// Instead, forward declarations are used further below.
+// Therefore, the following includes are to be commented OUT
+// and listed here just for information.
+//
+
+// #include "../../../../executor/representer/deserialiser/cybol/part_cybol_deserialiser.c"
+
+//
+// Forward declarations
 //
 
 void deserialise_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12);

@@ -26,19 +26,23 @@
 #ifndef CONTENT_TUI_SERIALISER_SOURCE
 #define CONTENT_TUI_SERIALISER_SOURCE
 
+//
+// Executable interface
+//
+
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
-#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../executor/representer/serialiser/tui/clear_tui_serialiser.c"
 #include "../../../../executor/representer/serialiser/tui/newline_tui_serialiser.c"
 #include "../../../../executor/representer/serialiser/tui/properties_tui_serialiser.c"
@@ -59,6 +63,18 @@
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
+
+//
+// Forbidden includes
+//
+// CAUTION! Do NOT include the following files since otherwise,
+// circular references would occur due to module dependencies.
+// Instead, forward declarations are used further below.
+// Therefore, the following includes are to be commented OUT
+// and listed here just for information.
+//
+
+// #include "../../../../executor/representer/serialiser/tui/tui_serialiser.c"
 
 //
 // Forward declarations

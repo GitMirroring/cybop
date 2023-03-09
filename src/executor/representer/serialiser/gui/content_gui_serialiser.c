@@ -26,6 +26,10 @@
 #ifndef CONTENT_GUI_SERIALISER_SOURCE
 #define CONTENT_GUI_SERIALISER_SOURCE
 
+//
+// Executable interface
+//
+
 #include "../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -38,6 +42,18 @@
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/representer/serialiser/gui/properties_gui_serialiser.c"
 #include "../../../../logger/logger.c"
+
+//
+// Forbidden includes
+//
+// CAUTION! Do NOT include the following files since otherwise,
+// circular references would occur due to module dependencies.
+// Instead, forward declarations are used further below.
+// Therefore, the following includes are to be commented OUT
+// and listed here just for information.
+//
+
+// #include "../../../../executor/representer/serialiser/gui/gui_serialiser.c"
 
 //
 // Forward declarations

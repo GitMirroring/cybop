@@ -26,6 +26,10 @@
 #ifndef PART_COPIER_SOURCE
 #define PART_COPIER_SOURCE
 
+//
+// Executable interface
+//
+
 #include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -40,7 +44,20 @@
 #include "../../logger/logger.c"
 
 //
-// Forward declaration.
+// Forbidden includes
+//
+// CAUTION! Do NOT include the following files since otherwise,
+// circular references would occur due to module dependencies.
+// Instead, forward declarations are used further below.
+// Therefore, the following includes are to be commented OUT
+// and listed here just for information.
+//
+
+// #include "../../executor/copier/array/forward_array_copier.c"
+// #include "../../executor/modifier/part_modifier.c"
+
+//
+// Forward declarations
 //
 
 void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);

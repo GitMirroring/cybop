@@ -26,6 +26,10 @@
 #ifndef ARRAY_JSON_DESERIALISER_SOURCE
 #define ARRAY_JSON_DESERIALISER_SOURCE
 
+//
+// Executable interface
+//
+
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -44,15 +48,20 @@
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/modifier/part_modifier.c"
-//
-// CAUTION! The file below is NOT included, in order to avoid circular
-// references leading to the warning "conflicting types" due to a previous
-// implicit declaration. Therefore, a forward declaration is used instead.
-//
-// #include "../../../../executor/representer/deserialiser/json/value_json_deserialiser.c"
-//
 #include "../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
 #include "../../../../logger/logger.c"
+
+//
+// Forbidden includes
+//
+// CAUTION! Do NOT include the following files since otherwise,
+// circular references would occur due to module dependencies.
+// Instead, forward declarations are used further below.
+// Therefore, the following includes are to be commented OUT
+// and listed here just for information.
+//
+
+// #include "../../../../executor/representer/deserialiser/json/value_json_deserialiser.c"
 
 //
 // Forward declarations
