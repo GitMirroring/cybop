@@ -73,6 +73,7 @@ set(CYBOI_EXECUTABLE_CYBOI_SOURCES ${ROOT_DIR}/src/cyboi/cyboi.c)
 # 2 Dependencies: They are straightforward and clear between implementation files.
 # 3 Simplicity: Other languages like java do not use header files either.
 #
+set(APPLICATOR_LIBRARY_CYBOI_SOURCES ${ROOT_DIR}/src/library/applicator_library.c)
 set(CONTROLLER_LIBRARY_CYBOI_SOURCES ${ROOT_DIR}/src/library/controller_library.c)
 set(XDT_LIBRARY_CYBOI_SOURCES ${ROOT_DIR}/src/library/xdt_library.c)
 
@@ -120,6 +121,7 @@ configure_file(cmake_configuration.c.in ${ROOT_DIR}/src/variable/cmake_configura
 # the resulting name would be "liblibxdt".
 #
 add_library(xdt SHARED ${XDT_LIBRARY_CYBOI_SOURCES})
+add_library(applicator SHARED ${APPLICATOR_LIBRARY_CYBOI_SOURCES})
 add_library(controller SHARED ${CONTROLLER_LIBRARY_CYBOI_SOURCES})
 
 # Add executable to be created by make.

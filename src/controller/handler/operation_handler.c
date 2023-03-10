@@ -26,89 +26,16 @@
 #ifndef OPERATION_HANDLER_SOURCE
 #define OPERATION_HANDLER_SOURCE
 
-#include "../../applicator/access/count.c"
-#include "../../applicator/access/get.c"
-#include "../../applicator/access/get_index.c"
-#include "../../applicator/access/indicate.c"
-#include "../../applicator/activate/disable.c"
-#include "../../applicator/activate/enable.c"
-#include "../../applicator/calculate/calculate.c"
-#include "../../applicator/cast/cast.c"
-#include "../../applicator/command/archive_file.c"
-#include "../../applicator/command/change_directory.c"
-#include "../../applicator/command/change_permission.c"
-#include "../../applicator/command/clear_screen.c"
-#include "../../applicator/command/compare_files.c"
-#include "../../applicator/command/config_network.c"
-#include "../../applicator/command/copy_file.c"
-#include "../../applicator/command/create_directory.c"
-#include "../../applicator/command/date.c"
-#include "../../applicator/command/delay.c"
-#include "../../applicator/command/diff.c"
-#include "../../applicator/command/disk_free.c"
-#include "../../applicator/command/disk_usage.c"
-#include "../../applicator/command/display_content.c"
-#include "../../applicator/command/echo_message.c"
-#include "../../applicator/command/find_command.c"
-#include "../../applicator/command/find_file.c"
-#include "../../applicator/command/grep.c"
-#include "../../applicator/command/help.c"
-#include "../../applicator/command/hostname.c"
-#include "../../applicator/command/id.c"
-#include "../../applicator/command/ifconfig.c"
-#include "../../applicator/command/ifup.c"
-#include "../../applicator/command/kill.c"
-#include "../../applicator/command/list_directory_contents.c"
-#include "../../applicator/command/list_open_files.c"
-#include "../../applicator/command/list_tasks.c"
-#include "../../applicator/command/memory_free.c"
-#include "../../applicator/command/move_file.c"
-#include "../../applicator/command/netstat.c"
-#include "../../applicator/command/ping.c"
-#include "../../applicator/command/present_working_directory.c"
-#include "../../applicator/command/remove_file.c"
-#include "../../applicator/command/sort.c"
-#include "../../applicator/command/spellcheck.c"
-#include "../../applicator/command/system_messages.c"
-#include "../../applicator/command/tape_archiver.c"
-#include "../../applicator/command/top.c"
-#include "../../applicator/command/touch.c"
-#include "../../applicator/command/traceroute.c"
-#include "../../applicator/command/userlog.c"
-#include "../../applicator/command/who.c"
-#include "../../applicator/command/who_am_i.c"
-#include "../../applicator/command/word_count.c"
-#include "../../applicator/communicate/identify.c"
-#include "../../applicator/communicate/receive.c"
-#include "../../applicator/communicate/send.c"
-#include "../../applicator/compare/compare.c"
-#include "../../applicator/contain/contain.c"
-#include "../../applicator/convert/decode.c"
-#include "../../applicator/convert/encode.c"
-#include "../../applicator/dispatch/close.c"
-#include "../../applicator/dispatch/open.c"
-#include "../../applicator/feel/sense.c"
-#include "../../applicator/feel/suspend.c"
-#include "../../applicator/flow/branch.c"
-#include "../../applicator/flow/loop.c"
-#include "../../applicator/flow/sequence.c"
-#include "../../applicator/logify/logify.c"
-#include "../../applicator/maintain/shutdown.c"
-#include "../../applicator/maintain/startup.c"
-#include "../../applicator/manipulate/manipulate.c"
-#include "../../applicator/memorise/create.c"
-#include "../../applicator/memorise/destroy.c"
-#include "../../applicator/modify/modify.c"
-#include "../../applicator/randomise/retrieve.c"
-#include "../../applicator/randomise/sow.c"
-#include "../../applicator/represent/deserialise.c"
-#include "../../applicator/represent/serialise.c"
-#include "../../applicator/run/run.c"
-#include "../../applicator/run/sleep.c"
-#include "../../applicator/sort/sort.c"
-#include "../../applicator/stream/read.c"
-#include "../../applicator/stream/write.c"
-#include "../../applicator/time/time.c"
+//
+// Library interface
+//
+
+#include "applicator_library.h"
+
+//
+// Executable interface
+//
+
 #include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -675,7 +602,6 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_ifup();
         }
     }
-
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

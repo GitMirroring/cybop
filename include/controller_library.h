@@ -47,13 +47,17 @@
 // A COMMENT like this one can be used as hint, instead of that keyword.
 //
 
-void deoptionalise(void* p0);
+//
+// The functions are ordered following the system LIFECYCLE.
+//
+
 void globalise();
+void orient(void* p0, void* p1);
+void optionalise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 void help(void* p0);
 void inform(void* p0);
 void manage(void* p0);
-void optionalise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
-void orient(void* p0, void* p1);
+void deoptionalise(void* p0);
 void unglobalise();
 
 /* CONTROLLER_LIBRARY_HEADER */

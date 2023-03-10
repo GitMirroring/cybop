@@ -14,7 +14,9 @@
 Library
 _______
 
-        * Add shared library "applicator"
+        * Verify correctness of function calls in file "operation_handler.c"
+            for example in section "manipulate" function "calculate" is called instead
+
         * Add shared library "executor"
         * Add shared library "xml"
         * Add shared library "json"
