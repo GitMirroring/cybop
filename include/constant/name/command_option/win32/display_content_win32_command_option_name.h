@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The squeeze win32 command option name. */
 static wchar_t* SQUEEZE_DISPLAY_CONTENT_WIN32_COMMAND_OPTION_NAME = L"/E /S";

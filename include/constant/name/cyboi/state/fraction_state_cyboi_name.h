@@ -26,10 +26,10 @@
 #ifndef FRACTION_STATE_CYBOI_NAME_CONSTANT_HEADER
 #define FRACTION_STATE_CYBOI_NAME_CONSTANT_HEADER
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 //
-// The fraction size is set in file "state_cyboi_model.c"!
+// The fraction size is set in file "state_cyboi_model.h"!
 //
 
 /** The numerator fraction state cyboi name. */

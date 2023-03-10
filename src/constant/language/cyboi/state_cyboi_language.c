@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STATE_CYBOI_LANGUAGE_CONSTANT_SOURCE
-#define STATE_CYBOI_LANGUAGE_CONSTANT_SOURCE
+#ifndef STATE_CYBOI_LANGUAGE_CONSTANT_HEADER
+#define STATE_CYBOI_LANGUAGE_CONSTANT_HEADER
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
@@ -315,5 +315,5 @@ static int* XDT_FIELD_DESCRIPTION_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_416_INTEGER
 /** The x-ms-wmv video state cyboi format. */
 //?? static int* X_MS_WMV_VIDEO_STATE_CYBOI_FORMAT = NUMBER_454_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* STATE_CYBOI_LANGUAGE_CONSTANT_SOURCE */
+/* STATE_CYBOI_LANGUAGE_CONSTANT_HEADER */
 #endif

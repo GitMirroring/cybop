@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The part sort logic cybol name. */
 static wchar_t* PART_SORT_LOGIC_CYBOL_NAME = L"part";

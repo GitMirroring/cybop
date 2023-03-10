@@ -28,7 +28,7 @@
 
 #include <stddef.h> // char
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /**
  * The attribute separator ansi escape code model.

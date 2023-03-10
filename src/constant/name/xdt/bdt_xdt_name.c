@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BDT_XDT_NAME_CONSTANT_SOURCE
-#define BDT_XDT_NAME_CONSTANT_SOURCE
+#ifndef BDT_XDT_NAME_CONSTANT_HEADER
+#define BDT_XDT_NAME_CONSTANT_HEADER
 
 #include <stddef.h> // wchar_t
 
@@ -44,5 +44,5 @@ static wchar_t END_FIELD_BDT_XDT_NAME_ARRAY[] = { 0x000D, 0x000A };
 static wchar_t* END_FIELD_BDT_XDT_NAME = END_FIELD_BDT_XDT_NAME_ARRAY;
 static int* END_FIELD_BDT_XDT_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* BDT_XDT_NAME_CONSTANT_SOURCE */
+/* BDT_XDT_NAME_CONSTANT_HEADER */
 #endif

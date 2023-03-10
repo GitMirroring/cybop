@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The get request http cybol model. */
 static wchar_t* GET_REQUEST_HTTP_CYBOL_MODEL = L"get";

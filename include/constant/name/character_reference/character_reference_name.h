@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The &# decimal numeric begin character reference name. */
 static wchar_t DECIMAL_NUMERIC_BEGIN_CHARACTER_REFERENCE_NAME_ARRAY[] = { L'&', L'#' };

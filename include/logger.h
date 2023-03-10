@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef XDT_LIBRARY_HEADER
-#define XDT_LIBRARY_HEADER
+#ifndef LOGGER_HEADER
+#define LOGGER_HEADER
 
 //
 // Loading of a shared object (dynamic library)
@@ -47,9 +47,7 @@
 // A COMMENT like this one can be used as hint, instead of that keyword.
 //
 
-void deserialise_xdt(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9);
-void serialise_xdt(void* p0, void* p1, void* p2, void* p3, void* p4);
-void serialise_xdt_field_description(void* p0, void* p1);
+//?? void TODO(void* p0, void* p1);
 
-/* XDT_LIBRARY_HEADER */
+/* LOGGER_HEADER */
 #endif

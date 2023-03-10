@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The debug level name log cyboi model. */
 static wchar_t* DEBUG_LEVEL_NAME_LOG_CYBOI_MODEL = L"Debug";

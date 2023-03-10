@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FRACTION_STATE_CYBOI_NAME_CONSTANT_SOURCE
-#define FRACTION_STATE_CYBOI_NAME_CONSTANT_SOURCE
+#ifndef FRACTION_STATE_CYBOI_NAME_CONSTANT_HEADER
+#define FRACTION_STATE_CYBOI_NAME_CONSTANT_HEADER
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
@@ -38,5 +38,5 @@ static int* NUMERATOR_FRACTION_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_M
 /** The denominator fraction state cyboi name. */
 static int* DENOMINATOR_FRACTION_STATE_CYBOI_NAME = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* FRACTION_STATE_CYBOI_NAME_CONSTANT_SOURCE */
+/* FRACTION_STATE_CYBOI_NAME_CONSTANT_HEADER */
 #endif

@@ -27,7 +27,7 @@
 #ifndef PROTOCOL_SERVICE_MODEL_CONSTANT_HEADER
 #define PROTOCOL_SERVICE_MODEL_CONSTANT_HEADER
 
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /**
  * The internet protocol (ip) service model.
@@ -49,7 +49,7 @@ static int* GATEWAY_GATEWAY_PROTOCOL_SERVICE_MODEL = NUMBER_3_INTEGER_STATE_CYBO
 static int* IP_ENCAPSULATED_IN_IP_PROTOCOL_SERVICE_MODEL = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The ST datagram mode (st) service model. */
-static int* ST_DATAGRAM_MODE_PROTOCOL_SERVICE_MODEL = NUMBER_5_INTEGER_MEMORY_ARRAY_MODEL;
+static int* ST_DATAGRAM_MODE_PROTOCOL_SERVICE_MODEL = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The transmission control protocol (tcp) service model. */
 static int* TCP_PROTOCOL_SERVICE_MODEL = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;

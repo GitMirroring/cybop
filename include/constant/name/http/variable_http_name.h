@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The Charset variable http name. */
 static unsigned char* CHARSET_VARIABLE_HTTP_NAME = "Charset";

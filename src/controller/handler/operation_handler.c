@@ -30,7 +30,7 @@
 // Library interface
 //
 
-#include "applicator_library.h"
+#include "applicator.h"
 
 //
 // Executable interface

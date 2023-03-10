@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The arc shape cybol model. */
 static wchar_t* ARC_SHAPE_CYBOL_MODEL = L"arc";

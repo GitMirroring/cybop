@@ -29,8 +29,8 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
-#include "../../../../constant/model/character_code/iso_6429/c1_iso_6429_character_code_model.c"
+#include "../../../../constant/model/character_code/ascii/ascii_character_code_model.h"
+#include "../../../../constant/model/character_code/iso_6429/c1_iso_6429_character_code_model.h"
 
 //
 // A "Character Set" consists of three parts:
@@ -227,8 +227,8 @@ static unsigned char LATIN_CAPITAL_LETTER_G_WITH_BREVE_ISO_8859_3_CHARACTER_CODE
 static unsigned char* LATIN_CAPITAL_LETTER_G_WITH_BREVE_ISO_8859_3_CHARACTER_CODE_MODEL = LATIN_CAPITAL_LETTER_G_WITH_BREVE_ISO_8859_3_CHARACTER_CODE_MODEL_ARRAY;
 
 /** The latin capital letter j with circumflex iso-8859-3 character code model. U+00AC */
-static unsigned char LATIN_CAPITAL_LETTER_J WITH_CIRCUMFLEX_ISO_8859_3_CHARACTER_CODE_MODEL_ARRAY[] = { 0xAC };
-static unsigned char* LATIN_CAPITAL_LETTER_J WITH_CIRCUMFLEX_ISO_8859_3_CHARACTER_CODE_MODEL = LATIN_CAPITAL_LETTER_J WITH_CIRCUMFLEX_ISO_8859_3_CHARACTER_CODE_MODEL_ARRAY;
+static unsigned char LATIN_CAPITAL_LETTER_J_WITH_CIRCUMFLEX_ISO_8859_3_CHARACTER_CODE_MODEL_ARRAY[] = { 0xAC };
+static unsigned char* LATIN_CAPITAL_LETTER_J_WITH_CIRCUMFLEX_ISO_8859_3_CHARACTER_CODE_MODEL = LATIN_CAPITAL_LETTER_J_WITH_CIRCUMFLEX_ISO_8859_3_CHARACTER_CODE_MODEL_ARRAY;
 
 /** The soft hyphen iso-8859-3 character code model. U+00AD */
 static unsigned char SOFT_HYPHEN_ISO_8859_3_CHARACTER_CODE_MODEL_ARRAY[] = { 0xAD };
@@ -263,7 +263,7 @@ static unsigned char MICRO_SIGN_ISO_8859_3_CHARACTER_CODE_MODEL_ARRAY[] = { 0xB5
 static unsigned char* MICRO_SIGN_ISO_8859_3_CHARACTER_CODE_MODEL = MICRO_SIGN_ISO_8859_3_CHARACTER_CODE_MODEL_ARRAY;
 
 /** The latin small letter h with circumflex iso-8859-3 character code model. U+00B6 */
-static unsigned char LATIN_SMALL_LETTER_H_WITH_CIRCUMFLEX_ISO_8859_3_CHARACTER_CODE_MODEL_ARRAY[] = { 00xB6 };
+static unsigned char LATIN_SMALL_LETTER_H_WITH_CIRCUMFLEX_ISO_8859_3_CHARACTER_CODE_MODEL_ARRAY[] = { 0xB6 };
 static unsigned char* LATIN_SMALL_LETTER_H_WITH_CIRCUMFLEX_ISO_8859_3_CHARACTER_CODE_MODEL = LATIN_SMALL_LETTER_H_WITH_CIRCUMFLEX_ISO_8859_3_CHARACTER_CODE_MODEL_ARRAY;
 
 /** The middle dot iso-8859-3 character code model. U+00B7 */

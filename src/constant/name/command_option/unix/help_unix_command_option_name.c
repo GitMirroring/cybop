@@ -23,12 +23,12 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HELP_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE
-#define HELP_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE
+#ifndef HELP_UNIX_COMMAND_OPTION_NAME_CONSTANT_HEADER
+#define HELP_UNIX_COMMAND_OPTION_NAME_CONSTANT_HEADER
 
 #include <stddef.h>
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/* HELP_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE */
+/* HELP_UNIX_COMMAND_OPTION_NAME_CONSTANT_HEADER */
 #endif

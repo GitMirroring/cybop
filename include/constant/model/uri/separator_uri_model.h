@@ -28,8 +28,8 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/character_code/unicode/unicode_character_code_model.h"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 //
 // The following constants were defined in accordance with:

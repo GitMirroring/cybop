@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The command logic cybol name (parameter). */
 static wchar_t* COMMAND_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME = L"command";

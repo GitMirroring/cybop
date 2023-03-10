@@ -28,8 +28,8 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.h"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The separator number state cybol name. */
 static wchar_t* SEPARATOR_NUMBER_STATE_CYBOL_NAME = COMMA_UNICODE_CHARACTER_CODE_MODEL_ARRAY;

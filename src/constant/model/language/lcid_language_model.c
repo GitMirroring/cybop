@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LCID_LANGUAGE_MODEL_CONSTANT_SOURCE
-#define LCID_LANGUAGE_MODEL_CONSTANT_SOURCE
+#ifndef LCID_LANGUAGE_MODEL_CONSTANT_HEADER
+#define LCID_LANGUAGE_MODEL_CONSTANT_HEADER
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
@@ -319,5 +319,5 @@ GERMAN_SWITZERLAND_COUNTRY_STRING = 'German - Switzerland';
 GERMAN_SWITZERLAND_COUNTRY_IDENTIFICATION = 2055;
 */
 
-/* LCID_LANGUAGE_MODEL_CONSTANT_SOURCE */
+/* LCID_LANGUAGE_MODEL_CONSTANT_HEADER */
 #endif

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ERROR_CODE_EEB_MODEL_CONSTANT_SOURCE
-#define ERROR_CODE_EEB_MODEL_CONSTANT_SOURCE
+#ifndef ERROR_CODE_EEB_MODEL_CONSTANT_HEADER
+#define ERROR_CODE_EEB_MODEL_CONSTANT_HEADER
 
 #include <stddef.h>
 
@@ -120,5 +120,5 @@ static int* CONTINUE_311_ERROR_CODE_EEB_MODEL_COUNT = NUMBER_124_INTEGER_STATE_C
 static unsigned char* CONTINUE_313_ERROR_CODE_EEB_MODEL = "313 Die KIM-Nachricht konnte auf Grund eines nicht verfügbaren Schlüssels nicht entschlüsselt werden.";
 static int* CONTINUE_313_ERROR_CODE_EEB_MODEL_COUNT = NUMBER_101_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* ERROR_CODE_EEB_MODEL_CONSTANT_SOURCE */
+/* ERROR_CODE_EEB_MODEL_CONSTANT_HEADER */
 #endif

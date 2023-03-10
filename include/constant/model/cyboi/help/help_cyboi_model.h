@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The arguments help cyboi model. */
 static wchar_t* ARGUMENTS_HELP_CYBOI_MODEL = L"Arguments have to be given!";

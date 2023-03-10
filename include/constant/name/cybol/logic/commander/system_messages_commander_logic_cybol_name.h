@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The human option for the system messages logic in cybol. */
 static wchar_t* HUMAN_SYSTEM_MESSAGES_COMMANDER_LOGIC_CYBOL_NAME = L"human";

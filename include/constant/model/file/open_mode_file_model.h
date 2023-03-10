@@ -28,7 +28,7 @@
 
 #include <stddef.h> // wchar_t
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The read open mode file model. */
 static wchar_t* READ_OPEN_MODE_FILE_MODEL = L"read";

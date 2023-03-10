@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HEADER_HTTP_NAME_CONSTANT_SOURCE
-#define HEADER_HTTP_NAME_CONSTANT_SOURCE
+#ifndef HEADER_HTTP_NAME_CONSTANT_HEADER
+#define HEADER_HTTP_NAME_CONSTANT_HEADER
 
 #include <stddef.h>
 
@@ -38,5 +38,5 @@
 static unsigned char* SET_COOKIE_HEADER_HTTP_NAME = "Set-Cookie";
 static int* SET_COOKIE_HEADER_HTTP_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* HEADER_HTTP_NAME_CONSTANT_SOURCE */
+/* HEADER_HTTP_NAME_CONSTANT_HEADER */
 #endif

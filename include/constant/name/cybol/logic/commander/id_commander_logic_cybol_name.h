@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** print only the security context of the process*/
 static wchar_t* CONTEXT_ID_COMMANDER_LOGIC_CYBOL_NAME = L"context";

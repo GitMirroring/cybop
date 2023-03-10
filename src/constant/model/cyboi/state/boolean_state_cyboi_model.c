@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BOOLEAN_STATE_CYBOI_MODEL_CONSTANT_SOURCE
-#define BOOLEAN_STATE_CYBOI_MODEL_CONSTANT_SOURCE
+#ifndef BOOLEAN_STATE_CYBOI_MODEL_CONSTANT_HEADER
+#define BOOLEAN_STATE_CYBOI_MODEL_CONSTANT_HEADER
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
@@ -34,5 +34,5 @@ static int* FALSE_BOOLEAN_STATE_CYBOI_MODEL = NUMBER_0_INTEGER_STATE_CYBOI_MODEL
 /** The true boolean state cyboi model. */
 static int* TRUE_BOOLEAN_STATE_CYBOI_MODEL = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* BOOLEAN_STATE_CYBOI_MODEL_CONSTANT_SOURCE */
+/* BOOLEAN_STATE_CYBOI_MODEL_CONSTANT_HEADER */
 #endif

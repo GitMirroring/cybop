@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_STATE_CYBOI_NAME_CONSTANT_SOURCE
-#define PART_STATE_CYBOI_NAME_CONSTANT_SOURCE
+#ifndef PART_STATE_CYBOI_NAME_CONSTANT_HEADER
+#define PART_STATE_CYBOI_NAME_CONSTANT_HEADER
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
@@ -50,5 +50,5 @@ static int* MODEL_PART_STATE_CYBOI_NAME = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARR
 /** The properties part state cyboi name. */
 static int* PROPERTIES_PART_STATE_CYBOI_NAME = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* PART_STATE_CYBOI_NAME_CONSTANT_SOURCE */
+/* PART_STATE_CYBOI_NAME_CONSTANT_HEADER */
 #endif

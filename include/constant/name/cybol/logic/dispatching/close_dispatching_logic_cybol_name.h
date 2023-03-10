@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The channel close dispatching logic cybol name. */
 static wchar_t* CHANNEL_CLOSE_DISPATCHING_LOGIC_CYBOL_NAME = L"channel";

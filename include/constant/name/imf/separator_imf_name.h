@@ -28,8 +28,8 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/character_code/ascii/ascii_character_code_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/character_code/ascii/ascii_character_code_model.h"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The name field header separator ("colon" and "space") imf name. */
 static unsigned char NAME_FIELD_HEADER_SEPARATOR_IMF_NAME_ARRAY[] = { 0x3A, 0x20 };

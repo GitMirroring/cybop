@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONTROLLER_LIBRARY_HEADER
-#define CONTROLLER_LIBRARY_HEADER
+#ifndef CONTROLLER_HEADER
+#define CONTROLLER_HEADER
 
 //
 // Loading of a shared object (dynamic library)
@@ -60,5 +60,5 @@ void manage(void* p0);
 void deoptionalise(void* p0);
 void unglobalise();
 
-/* CONTROLLER_LIBRARY_HEADER */
+/* CONTROLLER_HEADER */
 #endif

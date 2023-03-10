@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The directory parameter for the change directory logic in cybol. */
 static wchar_t* DIRECTORY_CHANGE_DIRECTORY_COMMANDER_LOGIC_CYBOL_NAME = L"directory";

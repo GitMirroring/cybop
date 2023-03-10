@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The byte word count unix command option name. */
 static wchar_t* BYTE_WORD_COUNT_UNIX_COMMAND_OPTION_NAME = L"--bytes";

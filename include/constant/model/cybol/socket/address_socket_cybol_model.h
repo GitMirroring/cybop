@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The any address socket cybol model. */
 static wchar_t* ANY_ADDRESS_SOCKET_CYBOL_MODEL = L"any";

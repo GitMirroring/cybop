@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HTML_CHARACTER_ENTITY_REFERENCE_MODEL_CONSTANT_SOURCE
-#define HTML_CHARACTER_ENTITY_REFERENCE_MODEL_CONSTANT_SOURCE
+#ifndef HTML_CHARACTER_ENTITY_REFERENCE_MODEL_CONSTANT_HEADER
+#define HTML_CHARACTER_ENTITY_REFERENCE_MODEL_CONSTANT_HEADER
 
 #include <stddef.h>
 
@@ -49,7 +49,7 @@
  * The Tab html character entity reference model.
  *
  * Name: Tab
- * Character:     
+ * Character:
  * Unicode code point: U+0009 (9)
  * Description: character tabulation
  */
@@ -60,7 +60,7 @@ static int* TAB_CHARACTER_TABULATION_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT
  * The NewLine html character entity reference model.
  *
  * Name: NewLine
- * Character: 
+ * Character:
 
  * Unicode code point: U+000a (10)
  * Description: line feed (lf)
@@ -589,7 +589,7 @@ static int* RCUB_RIGHT_CURLY_BRACKET_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT
  * The NonBreakingSpace html character entity reference model.
  *
  * Name: NonBreakingSpace
- * Character:  
+ * Character:
  * Unicode code point: U+00a0 (160)
  * Description: no-break space
  */
@@ -600,7 +600,7 @@ static int* NONBREAKINGSPACE_NO_BREAK_SPACE_HTML_CHARACTER_ENTITY_REFERENCE_MODE
  * The nbsp html character entity reference model.
  *
  * Name: nbsp
- * Character:  
+ * Character:
  * Unicode code point: U+00a0 (160)
  * Description: no-break space
  */
@@ -5968,7 +5968,7 @@ static int* DZCY_CYRILLIC_SMALL_LETTER_DZHE_HTML_CHARACTER_ENTITY_REFERENCE_MODE
  * The ensp html character entity reference model.
  *
  * Name: ensp
- * Character:  
+ * Character:
  * Unicode code point: U+2002 (8194)
  * Description: en space
  */
@@ -5979,7 +5979,7 @@ static int* ENSP_EN_SPACE_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT = NUMBER_4
  * The emsp html character entity reference model.
  *
  * Name: emsp
- * Character:  
+ * Character:
  * Unicode code point: U+2003 (8195)
  * Description: em space
  */
@@ -5990,7 +5990,7 @@ static int* EMSP_EM_SPACE_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT = NUMBER_4
  * The emsp13 html character entity reference model.
  *
  * Name: emsp13
- * Character:  
+ * Character:
  * Unicode code point: U+2004 (8196)
  * Description: three-per-em space
  */
@@ -6001,7 +6001,7 @@ static int* EMSP13_THREE_PER_EM_SPACE_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUN
  * The emsp14 html character entity reference model.
  *
  * Name: emsp14
- * Character:  
+ * Character:
  * Unicode code point: U+2005 (8197)
  * Description: four-per-em space
  */
@@ -6012,7 +6012,7 @@ static int* EMSP14_FOUR_PER_EM_SPACE_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT
  * The numsp html character entity reference model.
  *
  * Name: numsp
- * Character:  
+ * Character:
  * Unicode code point: U+2007 (8199)
  * Description: figure space
  */
@@ -6023,7 +6023,7 @@ static int* NUMSP_FIGURE_SPACE_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT = NUM
  * The puncsp html character entity reference model.
  *
  * Name: puncsp
- * Character:  
+ * Character:
  * Unicode code point: U+2008 (8200)
  * Description: punctuation space
  */
@@ -6034,7 +6034,7 @@ static int* PUNCSP_PUNCTUATION_SPACE_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT
  * The ThinSpace html character entity reference model.
  *
  * Name: ThinSpace
- * Character:  
+ * Character:
  * Unicode code point: U+2009 (8201)
  * Description: thin space
  */
@@ -6045,7 +6045,7 @@ static int* THINSPACE_THIN_SPACE_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT = N
  * The thinsp html character entity reference model.
  *
  * Name: thinsp
- * Character:  
+ * Character:
  * Unicode code point: U+2009 (8201)
  * Description: thin space
  */
@@ -6056,7 +6056,7 @@ static int* THINSP_THIN_SPACE_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT = NUMB
  * The VeryThinSpace html character entity reference model.
  *
  * Name: VeryThinSpace
- * Character:  
+ * Character:
  * Unicode code point: U+200a (8202)
  * Description: hair space
  */
@@ -6067,7 +6067,7 @@ static int* VERYTHINSPACE_HAIR_SPACE_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT
  * The hairsp html character entity reference model.
  *
  * Name: hairsp
- * Character:  
+ * Character:
  * Unicode code point: U+200a (8202)
  * Description: hair space
  */
@@ -6672,7 +6672,7 @@ static int* QPRIME_QUADRUPLE_PRIME_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT =
  * The MediumSpace html character entity reference model.
  *
  * Name: MediumSpace
- * Character:  
+ * Character:
  * Unicode code point: U+205f (8287)
  * Description: medium mathematical space
  */
@@ -6683,7 +6683,7 @@ static int* MEDIUMSPACE_MEDIUM_MATHEMATICAL_SPACE_HTML_CHARACTER_ENTITY_REFERENC
  * The ThickSpace html character entity reference model.
  *
  * Name: ThickSpace
- * Character:   
+ * Character:
  * Unicode code point: U+205f;U+200a (8287;8202)
  * Description: space of width 5/18 em
  */
@@ -24653,5 +24653,5 @@ static int* FFILIG_LATIN_SMALL_LIGATURE_FFI_HTML_CHARACTER_ENTITY_REFERENCE_MODE
 static wchar_t* FFLLIG_LATIN_SMALL_LIGATURE_FFL_HTML_CHARACTER_ENTITY_REFERENCE_MODEL = L"ffllig";
 static int* FFLLIG_LATIN_SMALL_LIGATURE_FFL_HTML_CHARACTER_ENTITY_REFERENCE_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* HTML_CHARACTER_ENTITY_REFERENCE_MODEL_CONSTANT_SOURCE */
+/* HTML_CHARACTER_ENTITY_REFERENCE_MODEL_CONSTANT_HEADER */
 #endif

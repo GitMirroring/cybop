@@ -26,10 +26,10 @@
 #ifndef DURATION_STATE_CYBOI_NAME_CONSTANT_HEADER
 #define DURATION_STATE_CYBOI_NAME_CONSTANT_HEADER
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 //
-// The duration size is set in file "state_cyboi_model.c"!
+// The duration size is set in file "state_cyboi_model.h"!
 //
 
 /** The value duration state cyboi name. */

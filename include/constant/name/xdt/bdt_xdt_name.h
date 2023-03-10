@@ -28,7 +28,7 @@
 
 #include <stddef.h> // wchar_t
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The size field bdt xdt name. */
 static int* SIZE_FIELD_BDT_XDT_NAME_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;

@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The connect request method http model. Connects via ssl tunnel on proxy server. */
 static unsigned char* CONNECT_REQUEST_METHOD_HTTP_MODEL = "CONNECT";

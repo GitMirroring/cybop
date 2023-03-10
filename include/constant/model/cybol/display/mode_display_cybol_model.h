@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The client mode display cybol model. */
 static wchar_t* CLIENT_MODE_DISPLAY_CYBOL_MODEL = L"client";

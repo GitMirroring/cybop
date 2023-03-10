@@ -22,12 +22,17 @@
 
         * Add shared library "applicator"
         * Prepare shared libraries "constant", "variable", "logger"
+        * Remove outdated and unused mingw and visualstudio from directory "include/"
+        * Add global constants as header files to directory "include/constant/"
+        * Add global variables as header files to directory "include/variable/"
+        * Fix bugs in global constants
+        * Remove suffix "_library" from header files in directory "include/"
 
 2023-03-09  Christian Heller  <christian.heller@cybop.org>
 
         * Fix null pointer bug in file "utf_8_decoder.c"
         * Fix null pointer bug in file "mutex_allocator.c"
-        * Remove keyword "static" before any variables in directory "variable", so that they are valid and usable globally across libraries
+        * Remove keyword "static" before any variables in directory "variable/", so that they are valid and usable globally across libraries
         * Adjust and format forward declarations in order to eliminate compilation warnings caused by circular dependencies
 
 2023-03-08  Christian Heller  <christian.heller@cybop.org>

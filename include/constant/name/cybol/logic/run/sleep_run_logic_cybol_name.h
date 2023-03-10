@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The duration sleep run logic cybol name. */
 static wchar_t* DURATION_SLEEP_RUN_LOGIC_CYBOL_NAME = L"duration";

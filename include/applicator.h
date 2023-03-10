@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef APPLICATOR_LIBRARY_HEADER
-#define APPLICATOR_LIBRARY_HEADER
+#ifndef APPLICATOR_HEADER
+#define APPLICATOR_HEADER
 
 //
 // Loading of a shared object (dynamic library)
@@ -245,5 +245,5 @@ void apply_write(void* p0, void* p1, void* p2, void* p3, void* p4);
 
 void apply_time(void* p0, void* p1, void* p2, void* p3, void* p4);
 
-/* APPLICATOR_LIBRARY_HEADER */
+/* APPLICATOR_HEADER */
 #endif

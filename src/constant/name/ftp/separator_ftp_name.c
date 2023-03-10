@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SEPARATOR_FTP_NAME_CONSTANT_SOURCE
-#define SEPARATOR_FTP_NAME_CONSTANT_SOURCE
+#ifndef SEPARATOR_FTP_NAME_CONSTANT_HEADER
+#define SEPARATOR_FTP_NAME_CONSTANT_HEADER
 
 #include <stddef.h>
 
@@ -44,5 +44,5 @@ static unsigned char LINE_END_FTP_NAME_ARRAY[] = { 0x0D, 0x0A };
 static unsigned char* LINE_END_FTP_NAME = LINE_END_FTP_NAME_ARRAY;
 static int* LINE_END_FTP_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* SEPARATOR_FTP_NAME_CONSTANT_SOURCE */
+/* SEPARATOR_FTP_NAME_CONSTANT_HEADER */
 #endif

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DURATION_STATE_CYBOI_NAME_CONSTANT_SOURCE
-#define DURATION_STATE_CYBOI_NAME_CONSTANT_SOURCE
+#ifndef DURATION_STATE_CYBOI_NAME_CONSTANT_HEADER
+#define DURATION_STATE_CYBOI_NAME_CONSTANT_HEADER
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
@@ -41,5 +41,5 @@ static int* START_DURATION_STATE_CYBOI_NAME = NUMBER_1_INTEGER_STATE_CYBOI_MODEL
 /** The end duration state cyboi name. */
 static int* END_DURATION_STATE_CYBOI_NAME = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* DURATION_STATE_CYBOI_NAME_CONSTANT_SOURCE */
+/* DURATION_STATE_CYBOI_NAME_CONSTANT_HEADER */
 #endif

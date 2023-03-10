@@ -26,7 +26,7 @@
 #ifndef GREGORIAN_CALENDAR_TIME_SCALE_MODEL_SOURCE
 #define GREGORIAN_CALENDAR_TIME_SCALE_MODEL_SOURCE
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The year gregorian calendar time scale model. */
 static int YEAR_GREGORIAN_CALENDAR_TIME_SCALE_MODEL_ARRAY[] = { 1582 };

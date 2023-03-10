@@ -28,7 +28,7 @@
 
 #include <stddef.h> // wchar_t
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The button-press event xcb cybol model. */
 static wchar_t* BUTTON_PRESS_EVENT_XCB_CYBOL_MODEL = L"button-press";

@@ -28,8 +28,8 @@
 
 #include <stddef.h> // wchar_t
 
-#include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/character_code/unicode/unicode_character_code_model.h"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The minus - sign numeral name. */
 static wchar_t* MINUS_SIGN_NUMERAL_NAME = HYPHEN_MINUS_UNICODE_CHARACTER_CODE_MODEL_ARRAY;

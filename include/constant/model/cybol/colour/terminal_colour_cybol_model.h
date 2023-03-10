@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The black terminal colour cybol model. */
 static wchar_t* BLACK_TERMINAL_COLOUR_CYBOL_MODEL = L"black";

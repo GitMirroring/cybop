@@ -28,8 +28,8 @@
 
 #include <stddef.h> // wchar_t
 
-#include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/character_code/unicode/unicode_character_code_model.h"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The slash / fraction numeral name. */
 static wchar_t* SLASH_FRACTION_NUMERAL_NAME = SOLIDUS_UNICODE_CHARACTER_CODE_MODEL_ARRAY;

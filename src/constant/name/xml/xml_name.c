@@ -24,8 +24,8 @@
  * @author Edson Silva <edsonlead@gmail.com>
  */
 
-#ifndef XML_NAME_CONSTANT_SOURCE
-#define XML_NAME_CONSTANT_SOURCE
+#ifndef XML_NAME_CONSTANT_HEADER
+#define XML_NAME_CONSTANT_HEADER
 
 #include <stddef.h> // wchar_t
 
@@ -87,5 +87,5 @@ static int* START_TAG_BEGIN_XML_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_
 static wchar_t* TAG_END_XML_NAME = L">";
 static int* TAG_END_XML_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* XML_NAME_CONSTANT_SOURCE */
+/* XML_NAME_CONSTANT_HEADER */
 #endif

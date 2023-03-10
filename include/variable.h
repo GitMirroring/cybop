@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef VARIABLE_LIBRARY_HEADER
-#define VARIABLE_LIBRARY_HEADER
+#ifndef VARIABLE_HEADER
+#define VARIABLE_HEADER
 
 //
 // Loading of a shared object (dynamic library)
@@ -49,5 +49,5 @@
 
 void TODO(void* p0, void* p1);
 
-/* VARIABLE_LIBRARY_HEADER */
+/* VARIABLE_HEADER */
 #endif

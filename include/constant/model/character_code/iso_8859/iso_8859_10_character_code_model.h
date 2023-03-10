@@ -29,8 +29,8 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
-#include "../../../../constant/model/character_code/iso_6429/c1_iso_6429_character_code_model.c"
+#include "../../../../constant/model/character_code/ascii/ascii_character_code_model.h"
+#include "../../../../constant/model/character_code/iso_6429/c1_iso_6429_character_code_model.h"
 
 //
 // A "Character Set" consists of three parts:
@@ -387,7 +387,7 @@ static unsigned char LATIN_CAPITAL_LETTER_O_WITH_MACRON_ISO_8859_10_CHARACTER_CO
 static unsigned char* LATIN_CAPITAL_LETTER_O_WITH_MACRON_ISO_8859_10_CHARACTER_CODE_MODEL = LATIN_CAPITAL_LETTER_O_WITH_MACRON_ISO_8859_10_CHARACTER_CODE_MODEL_ARRAY;
 
 /** The latin capital letter o with acutee iso-8859-10 character code model. U+00D3 */
-static unsigned char LATIN_CAPITAL_LETTER_O_WITH_ACUTEE_ISO_8859_10_CHARACTER_CODE_MODEL_ARRAY[] = { 0xD3 };
+static unsigned char LATIN_CAPITAL_LETTER_O_WITH_ACUTE_ISO_8859_10_CHARACTER_CODE_MODEL_ARRAY[] = { 0xD3 };
 static unsigned char* LATIN_CAPITAL_LETTER_O_WITH_ACUTE_ISO_8859_10_CHARACTER_CODE_MODEL = LATIN_CAPITAL_LETTER_O_WITH_ACUTE_ISO_8859_10_CHARACTER_CODE_MODEL_ARRAY;
 
 /** The latin capital letter o with circumflex iso-8859-10 character code model. U+00D4 */

@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The print differing chars compare files unix command option name. */
 static wchar_t* PRINT_DIFFERING_CHARS_COMPARE_FILES_UNIX_COMMAND_OPTION_NAME = L"-c";

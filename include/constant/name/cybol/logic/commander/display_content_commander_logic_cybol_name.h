@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The path parameter for the display content logic in cybol. */
 static wchar_t* PATH_DISPLAY_CONTENT_COMMANDER_LOGIC_CYBOL_NAME = L"path";

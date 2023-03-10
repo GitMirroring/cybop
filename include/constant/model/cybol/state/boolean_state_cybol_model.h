@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The false boolean state cybol model. */
 static wchar_t* FALSE_BOOLEAN_STATE_CYBOL_MODEL = L"false";

@@ -28,11 +28,11 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../variable/cmake_configuration.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
+#include "../../../../variable/cmake_configuration.h"
 
 //
-// The pre-processor macros used below may be found in file "variable/cmake_configuration.c":
+// The pre-processor macros used below may be found in file "variable/cmake_configuration.h":
 //
 // - PROJECT_VERSION_CMAKE_CONFIGURATION
 // - COPYRIGHT_INFORMATION_CMAKE_CONFIGURATION

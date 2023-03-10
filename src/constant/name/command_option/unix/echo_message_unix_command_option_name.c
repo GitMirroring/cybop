@@ -23,12 +23,12 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ECHO_MESSAGE_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE
-#define ECHO_MESSAGE_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE
+#ifndef ECHO_MESSAGE_UNIX_COMMAND_OPTION_NAME_CONSTANT_HEADER
+#define ECHO_MESSAGE_UNIX_COMMAND_OPTION_NAME_CONSTANT_HEADER
 
 #include <stddef.h>
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/* ECHO_MESSAGE_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE */
+/* ECHO_MESSAGE_UNIX_COMMAND_OPTION_NAME_CONSTANT_HEADER */
 #endif

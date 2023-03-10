@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LINUX_ERROR_MESSAGE_LOG_CYBOI_MODEL_CONSTANT_SOURCE
-#define LINUX_ERROR_MESSAGE_LOG_CYBOI_MODEL_CONSTANT_SOURCE
+#ifndef LINUX_ERROR_MESSAGE_LOG_CYBOI_MODEL_CONSTANT_HEADER
+#define LINUX_ERROR_MESSAGE_LOG_CYBOI_MODEL_CONSTANT_HEADER
 
 #include <stddef.h> // wchar_t
 
@@ -174,5 +174,5 @@ static wchar_t* ERFKILL_LINUX_ERROR_MESSAGE_LOG_CYBOI_MODEL = L"Operation not po
 /** The EHWPOISON linux error message log cyboi model. */
 static wchar_t* EHWPOISON_LINUX_ERROR_MESSAGE_LOG_CYBOI_MODEL = L"Memory page has hardware error.";
 
-/* LINUX_ERROR_MESSAGE_LOG_CYBOI_MODEL_CONSTANT_SOURCE */
+/* LINUX_ERROR_MESSAGE_LOG_CYBOI_MODEL_CONSTANT_HEADER */
 #endif

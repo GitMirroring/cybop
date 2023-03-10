@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The horizontal stretch layout cybol model. */
 static wchar_t* HORIZONTAL_STRETCH_LAYOUT_CYBOL_MODEL = L"horizontal";

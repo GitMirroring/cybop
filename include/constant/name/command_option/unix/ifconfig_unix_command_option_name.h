@@ -23,12 +23,12 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef IFCONFIG_COMMAND_OPTION_NAME_CONSTANT_HEADER
+#ifndef IFCONFIG_UNIX_COMMAND_OPTION_NAME_CONSTANT_HEADER
 #define IFCONFIG_UNIX_COMMAND_OPTION_NAME_CONSTANT_HEADER
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** Show all interfaces */
 static wchar_t* ALL_IFCONFIG_UNIX_COMMAND_OPTION_NAME = L"-a";
@@ -43,5 +43,5 @@ static int* UP_IFCONFIG_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_
 static wchar_t* DOWN_IFCONFIG_UNIX_COMMAND_OPTION_NAME = L"down";
 static int* DOWN_IFCONFIG_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* IFCONFIG_COMMAND_OPTION_NAME_CONSTANT_HEADER */
+/* IFCONFIG_UNIX_COMMAND_OPTION_NAME_CONSTANT_HEADER */
 #endif

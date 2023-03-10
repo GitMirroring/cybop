@@ -26,7 +26,7 @@
 #ifndef STATE_CYBOI_TYPE_CONSTANT_HEADER
 #define STATE_CYBOI_TYPE_CONSTANT_HEADER
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 //
 // datetime

@@ -30,7 +30,7 @@
 // Library interface
 //
 
-#include "xdt_library.h"
+#include "xdt.h"
 
 //
 // Executable interface

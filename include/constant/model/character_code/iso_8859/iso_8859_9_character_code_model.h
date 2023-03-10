@@ -29,8 +29,8 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
-#include "../../../../constant/model/character_code/iso_6429/c1_iso_6429_character_code_model.c"
+#include "../../../../constant/model/character_code/ascii/ascii_character_code_model.h"
+#include "../../../../constant/model/character_code/iso_6429/c1_iso_6429_character_code_model.h"
 
 //
 // A "Character Set" consists of three parts:
@@ -227,8 +227,8 @@ static unsigned char FEMININE_ORDINAL_INDICATOR_ISO_8859_9_CHARACTER_CODE_MODEL_
 static unsigned char* FEMININE_ORDINAL_INDICATOR_ISO_8859_9_CHARACTER_CODE_MODEL = FEMININE_ORDINAL_INDICATOR_ISO_8859_9_CHARACTER_CODE_MODEL_ARRAY;
 
 /** The left-pointing double angle quotation iso-8859-9 character code model. U+00AB */
-static unsigned char LEFT_POINTING_DOUBLE_ANGLE_QUOTATION MARK_ISO_8859_9_CHARACTER_CODE_MODEL_ARRAY[] = { 0xAB };
-static unsigned char* LEFT_POINTING_DOUBLE_ANGLE_QUOTATION MARK_ISO_8859_9_CHARACTER_CODE_MODEL = LEFT_POINTING_DOUBLE_ANGLE_QUOTATION MARK_ISO_8859_9_CHARACTER_CODE_MODEL_ARRAY;
+static unsigned char LEFT_POINTING_DOUBLE_ANGLE_QUOTATION_MARK_ISO_8859_9_CHARACTER_CODE_MODEL_ARRAY[] = { 0xAB };
+static unsigned char* LEFT_POINTING_DOUBLE_ANGLE_QUOTATION_MARK_ISO_8859_9_CHARACTER_CODE_MODEL = LEFT_POINTING_DOUBLE_ANGLE_QUOTATION_MARK_ISO_8859_9_CHARACTER_CODE_MODEL_ARRAY;
 
 /** The not sign iso-8859-9 character code model. U+00AC */
 static unsigned char NOT_SIGN_ISO_8859_9_CHARACTER_CODE_MODEL_ARRAY[] = { 0xAC };

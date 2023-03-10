@@ -28,7 +28,7 @@
 
 #include <stddef.h> // wchar_t
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The channel disable activation logic cybol name. */
 static wchar_t* CHANNEL_DISABLE_ACTIVATION_LOGIC_CYBOL_NAME = L"channel";

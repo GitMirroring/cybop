@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The absolute layout cybol model. */
 static wchar_t* ABSOLUTE_LAYOUT_CYBOL_MODEL = L"absolute";

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef GDT_XDT_NAME_CONSTANT_SOURCE
-#define GDT_XDT_NAME_CONSTANT_SOURCE
+#ifndef GDT_XDT_NAME_CONSTANT_HEADER
+#define GDT_XDT_NAME_CONSTANT_HEADER
 
 #include <stddef.h> // wchar_t
 
@@ -52,5 +52,5 @@ static wchar_t END_BLOCK_GDT_XDT_NAME_ARRAY[] = { 0x000D };
 static wchar_t* END_BLOCK_GDT_XDT_NAME = END_BLOCK_GDT_XDT_NAME_ARRAY;
 static int* END_BLOCK_GDT_XDT_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* GDT_XDT_NAME_CONSTANT_SOURCE */
+/* GDT_XDT_NAME_CONSTANT_HEADER */
 #endif

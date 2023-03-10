@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PRIMITIVE_STATE_CYBOI_NAME_CONSTANT_SOURCE
-#define PRIMITIVE_STATE_CYBOI_NAME_CONSTANT_SOURCE
+#ifndef PRIMITIVE_STATE_CYBOI_NAME_CONSTANT_HEADER
+#define PRIMITIVE_STATE_CYBOI_NAME_CONSTANT_HEADER
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
@@ -35,5 +35,5 @@
 /** The value primitive state cyboi name. */
 static int* VALUE_PRIMITIVE_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* PRIMITIVE_STATE_CYBOI_NAME_CONSTANT_SOURCE */
+/* PRIMITIVE_STATE_CYBOI_NAME_CONSTANT_HEADER */
 #endif

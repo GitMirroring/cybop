@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The index get index access logic cybol name. */
 static wchar_t* INDEX_GET_INDEX_ACCESS_LOGIC_CYBOL_NAME = L"index";

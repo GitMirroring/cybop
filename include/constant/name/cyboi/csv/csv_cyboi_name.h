@@ -28,7 +28,7 @@
 
 #include <stddef.h> // wchar_t
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The header csv cyboi name. */
 static wchar_t* HEADER_CSV_CYBOI_NAME = L"header";

@@ -28,8 +28,8 @@
 
 #include <stddef.h> // wchar_t
 
-#include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/character_code/unicode/unicode_character_code_model.h"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The separator . decimal numeral name. */
 static wchar_t* SEPARATOR_DECIMAL_NUMERAL_NAME = FULL_STOP_UNICODE_CHARACTER_CODE_MODEL_ARRAY;

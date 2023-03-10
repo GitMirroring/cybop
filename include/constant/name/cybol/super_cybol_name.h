@@ -27,7 +27,7 @@
 #define SUPER_CYBOL_NAME_CONSTANT_HEADER
 
 #include <stddef.h>
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The super cybol name. */
 static wchar_t* SUPER_CYBOL_NAME = L"super";

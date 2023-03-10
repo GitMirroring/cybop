@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The human-readable option for the disk usage logic in cybol. */
 static wchar_t* HUMAN_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME = L"human";

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CSV_CYBOI_NAME_CONSTANT_SOURCE
-#define CSV_CYBOI_NAME_CONSTANT_SOURCE
+#ifndef CSV_CYBOI_NAME_CONSTANT_HEADER
+#define CSV_CYBOI_NAME_CONSTANT_HEADER
 
 #include <stddef.h> // wchar_t
 
@@ -34,5 +34,5 @@
 static wchar_t* HEADER_CSV_CYBOI_NAME = L"header";
 static int* HEADER_CSV_CYBOI_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* CSV_CYBOI_NAME_CONSTANT_SOURCE */
+/* CSV_CYBOI_NAME_CONSTANT_HEADER */
 #endif

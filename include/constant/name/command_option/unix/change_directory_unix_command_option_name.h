@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The Do not follow symbolic links change directory unix command option name. */
 static wchar_t* NOT_FOLLOW_SYMBOLIC_LINKS_CHANGE_DIRECTORY_UNIX_COMMAND_OPTION_NAME = L"-P";

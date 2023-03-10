@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The human disk usage unix command option name. */
 static wchar_t* HUMAN_DISK_USAGE_UNIX_COMMAND_OPTION_NAME = L"-h";

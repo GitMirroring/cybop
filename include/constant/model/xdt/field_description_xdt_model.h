@@ -27,7 +27,7 @@
 
 #include <stddef.h> // wchar_t
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The id 0 field description xdt model. */
 static wchar_t* ID_0_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";

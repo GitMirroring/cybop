@@ -26,10 +26,10 @@
 #ifndef VECTOR_STATE_CYBOI_NAME_CONSTANT_HEADER
 #define VECTOR_STATE_CYBOI_NAME_CONSTANT_HEADER
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 //
-// The vector size is set in file "state_cyboi_model.c"!
+// The vector size is set in file "state_cyboi_model.h"!
 //
 
 /** The dimension 0 vector memory name. In a (spatial) vector, this is the x coordinate. */

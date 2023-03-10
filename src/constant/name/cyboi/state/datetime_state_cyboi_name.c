@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DATETIME_STATE_CYBOI_NAME_CONSTANT_SOURCE
-#define DATETIME_STATE_CYBOI_NAME_CONSTANT_SOURCE
+#ifndef DATETIME_STATE_CYBOI_NAME_CONSTANT_HEADER
+#define DATETIME_STATE_CYBOI_NAME_CONSTANT_HEADER
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
@@ -38,5 +38,5 @@ static int* JULIAN_DAY_DATETIME_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_
 /** The julian second datetime state cyboi name. */
 static int* JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* DATETIME_STATE_CYBOI_NAME_CONSTANT_SOURCE */
+/* DATETIME_STATE_CYBOI_NAME_CONSTANT_HEADER */
 #endif

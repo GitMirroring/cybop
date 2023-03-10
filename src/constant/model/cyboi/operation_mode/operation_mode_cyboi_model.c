@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef OPERATION_MODE_CYBOI_MODEL_CONSTANT_SOURCE
-#define OPERATION_MODE_CYBOI_MODEL_CONSTANT_SOURCE
+#ifndef OPERATION_MODE_CYBOI_MODEL_CONSTANT_HEADER
+#define OPERATION_MODE_CYBOI_MODEL_CONSTANT_HEADER
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
@@ -37,5 +37,5 @@ static int* HELP_OPERATION_MODE_CYBOI_MODEL = NUMBER_1_INTEGER_STATE_CYBOI_MODEL
 /** The knowledge operation mode cyboi model. */
 static int* KNOWLEDGE_OPERATION_MODE_CYBOI_MODEL = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* OPERATION_MODE_CYBOI_MODEL_CONSTANT_SOURCE */
+/* OPERATION_MODE_CYBOI_MODEL_CONSTANT_HEADER */
 #endif

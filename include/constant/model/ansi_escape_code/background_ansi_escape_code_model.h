@@ -28,7 +28,7 @@
 
 #include <stddef.h> // char
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The black background ansi escape code model. */
 static char BLACK_BACKGROUND_ANSI_ESCAPE_CODE_MODEL_ARRAY[] = { 0x34, 0x30 };

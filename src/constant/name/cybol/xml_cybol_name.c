@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef XML_CYBOL_NAME_CONSTANT_SOURCE
-#define XML_CYBOL_NAME_CONSTANT_SOURCE
+#ifndef XML_CYBOL_NAME_CONSTANT_HEADER
+#define XML_CYBOL_NAME_CONSTANT_HEADER
 
 #include <stddef.h> // wchar_t
 
@@ -34,5 +34,5 @@
 static wchar_t* NODE_XML_CYBOL_NAME = L"node";
 static int* NODE_XML_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* XML_CYBOL_NAME_CONSTANT_SOURCE */
+/* XML_CYBOL_NAME_CONSTANT_HEADER */
 #endif

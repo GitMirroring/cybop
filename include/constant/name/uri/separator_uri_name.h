@@ -27,7 +27,7 @@
 #define SEPARATOR_URI_NAME_CONSTANT_HEADER
 
 #include <stddef.h>
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 //
 // Scheme.

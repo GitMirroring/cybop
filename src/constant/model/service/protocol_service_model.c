@@ -24,8 +24,8 @@
  * @author Enrico Gallus <enrico.gallus@googlemail.com>
  */
 
-#ifndef PROTOCOL_SERVICE_MODEL_CONSTANT_SOURCE
-#define PROTOCOL_SERVICE_MODEL_CONSTANT_SOURCE
+#ifndef PROTOCOL_SERVICE_MODEL_CONSTANT_HEADER
+#define PROTOCOL_SERVICE_MODEL_CONSTANT_HEADER
 
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
@@ -156,5 +156,5 @@ static int* WESP_PROTOCOL_SERVICE_MODEL = NUMBER_141_INTEGER_STATE_CYBOI_MODEL_A
 /** The robust header compression protocol service model. */
 static int* ROHC_PROTOCOL_SERVICE_MODEL = NUMBER_142_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* PROTOCOL_SERVICE_MODEL_CONSTANT_SOURCE */
+/* PROTOCOL_SERVICE_MODEL_CONSTANT_HEADER */
 #endif

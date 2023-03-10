@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LOGGER_LIBRARY_HEADER
-#define LOGGER_LIBRARY_HEADER
+#ifndef EXECUTOR_HEADER
+#define EXECUTOR_HEADER
 
 //
 // Loading of a shared object (dynamic library)
@@ -47,7 +47,11 @@
 // A COMMENT like this one can be used as hint, instead of that keyword.
 //
 
-//?? void TODO(void* p0, void* p1);
+//
+// access
+//
 
-/* LOGGER_LIBRARY_HEADER */
+//?? void TODO(void* p0, void* p1, void* p2, void* p3, void* p4);
+
+/* EXECUTOR_HEADER */
 #endif

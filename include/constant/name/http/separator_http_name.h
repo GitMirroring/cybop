@@ -28,8 +28,8 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/character_code/ascii/ascii_character_code_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/character_code/ascii/ascii_character_code_model.h"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 //
 // CAUTION! Use Carriage Return (CR) AND Line Feed (LF) characters to break lines!

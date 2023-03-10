@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The "off" log level option cyboi model. */
 static wchar_t* OFF_LOG_LEVEL_OPTION_CYBOI_MODEL = L"off";

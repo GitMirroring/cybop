@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The datagram style socket cybol model. */
 static wchar_t* DATAGRAM_STYLE_SOCKET_CYBOL_MODEL = L"datagram";

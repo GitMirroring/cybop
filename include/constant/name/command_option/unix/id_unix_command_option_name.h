@@ -23,12 +23,12 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ID_COMMAND_OPTION_NAME_CONSTANT_HEADER
+#ifndef ID_UNIX_COMMAND_OPTION_NAME_CONSTANT_HEADER
 #define ID_UNIX_COMMAND_OPTION_NAME_CONSTANT_HEADER
 
-#include <stddef.h>
+#include <stddef.h> // wchar_t
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The CONTEXT id format unix command option name. */
 static wchar_t* CONTEXT_ID_UNIX_COMMAND_OPTION_NAME = L"-Z";
@@ -49,5 +49,6 @@ static int* NAME_ID_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBO
 /** The USER id format unix command option name. */
 static wchar_t* USER_ID_UNIX_COMMAND_OPTION_NAME = L"-u";
 static int* USER_ID_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-/* ID_COMMAND_OPTION_NAME_CONSTANT_HEADER */
+
+/* ID_UNIX_COMMAND_OPTION_NAME_CONSTANT_HEADER */
 #endif

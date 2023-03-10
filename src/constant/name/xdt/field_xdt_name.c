@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FIELD_XDT_NAME_CONSTANT_SOURCE
-#define FIELD_XDT_NAME_CONSTANT_SOURCE
+#ifndef FIELD_XDT_NAME_CONSTANT_HEADER
+#define FIELD_XDT_NAME_CONSTANT_HEADER
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
@@ -4535,5 +4535,5 @@ static int* SPECIFICATION_IDENTIFICATION_FIELD_XDT_NAME = NUMBER_9900_INTEGER_ST
  */
 static int* SYSTEM_INTERNAL_PARAMETRE_FIELD_XDT_NAME = NUMBER_9901_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* FIELD_XDT_NAME_CONSTANT_SOURCE */
+/* FIELD_XDT_NAME_CONSTANT_HEADER */
 #endif

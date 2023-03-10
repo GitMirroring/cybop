@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The ascii line border cybol model. */
 static wchar_t* ASCII_LINE_BORDER_CYBOL_MODEL = L"ascii";

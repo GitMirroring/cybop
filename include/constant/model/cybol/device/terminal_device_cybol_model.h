@@ -28,7 +28,7 @@
 
 #include <stddef.h> // wchar_t
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The standard_error_output terminal device cybol model. */
 static wchar_t* STANDARD_ERROR_OUTPUT_TERMINAL_DEVICE_CYBOL_MODEL = L"standard-error-output";

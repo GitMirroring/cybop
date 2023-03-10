@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The all option for the disk free logic in cybol. */
 static wchar_t* ALL_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME = L"all";

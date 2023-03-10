@@ -36,7 +36,7 @@
 // Library interface
 //
 
-#include "controller_library.h"
+#include "controller.h"
 
 //
 // Executable interface

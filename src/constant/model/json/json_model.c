@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef JSON_MODEL_CONSTANT_SOURCE
-#define JSON_MODEL_CONSTANT_SOURCE
+#ifndef JSON_MODEL_CONSTANT_HEADER
+#define JSON_MODEL_CONSTANT_HEADER
 
 #include <stddef.h> // wchar_t
 
@@ -42,5 +42,5 @@ static int* NULL_JSON_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 static wchar_t* TRUE_JSON_MODEL = L"true";
 static int* TRUE_JSON_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* JSON_MODEL_CONSTANT_SOURCE */
+/* JSON_MODEL_CONSTANT_HEADER */
 #endif

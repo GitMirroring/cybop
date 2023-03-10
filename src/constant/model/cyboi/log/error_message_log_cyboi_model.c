@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ERROR_MESSAGE_LOG_CYBOI_MODEL_CONSTANT_SOURCE
-#define ERROR_MESSAGE_LOG_CYBOI_MODEL_CONSTANT_SOURCE
+#ifndef ERROR_MESSAGE_LOG_CYBOI_MODEL_CONSTANT_HEADER
+#define ERROR_MESSAGE_LOG_CYBOI_MODEL_CONSTANT_HEADER
 
 #include <stddef.h> // wchar_t
 
@@ -346,5 +346,5 @@ static wchar_t* EOWNERDEAD_ERROR_MESSAGE_LOG_CYBOI_MODEL = L"Owner died.";
 /** The ENOTRECOVERABLE error message log cyboi model. */
 static wchar_t* ENOTRECOVERABLE_ERROR_MESSAGE_LOG_CYBOI_MODEL = L"State not recoverable.";
 
-/* ERROR_MESSAGE_LOG_CYBOI_MODEL_CONSTANT_SOURCE */
+/* ERROR_MESSAGE_LOG_CYBOI_MODEL_CONSTANT_HEADER */
 #endif

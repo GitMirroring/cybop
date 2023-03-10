@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CYBOI_CHANNEL_CONSTANT_SOURCE
-#define CYBOI_CHANNEL_CONSTANT_SOURCE
+#ifndef CYBOI_CHANNEL_CONSTANT_HEADER
+#define CYBOI_CHANNEL_CONSTANT_HEADER
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
@@ -61,5 +61,5 @@ static int* SOCKET_CYBOI_CHANNEL = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 /** The terminal cyboi channel. */
 static int* TERMINAL_CYBOI_CHANNEL = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* CYBOI_CHANNEL_CONSTANT_SOURCE */
+/* CYBOI_CHANNEL_CONSTANT_HEADER */
 #endif

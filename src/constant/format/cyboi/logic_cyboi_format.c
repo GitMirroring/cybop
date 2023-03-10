@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LOGIC_CYBOI_FORMAT_CONSTANT_SOURCE
-#define LOGIC_CYBOI_FORMAT_CONSTANT_SOURCE
+#ifndef LOGIC_CYBOI_FORMAT_CONSTANT_HEADER
+#define LOGIC_CYBOI_FORMAT_CONSTANT_HEADER
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
@@ -573,5 +573,5 @@ static int* WRITE_STREAM_LOGIC_CYBOI_FORMAT = NUMBER_2701_INTEGER_STATE_CYBOI_MO
 /** The current time logic cyboi format. */
 static int* CURRENT_TIME_LOGIC_CYBOI_FORMAT = NUMBER_2800_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* LOGIC_CYBOI_FORMAT_CONSTANT_SOURCE */
+/* LOGIC_CYBOI_FORMAT_CONSTANT_HEADER */
 #endif

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ITEM_STATE_CYBOI_NAME_CONSTANT_SOURCE
-#define ITEM_STATE_CYBOI_NAME_CONSTANT_SOURCE
+#ifndef ITEM_STATE_CYBOI_NAME_CONSTANT_HEADER
+#define ITEM_STATE_CYBOI_NAME_CONSTANT_HEADER
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
@@ -41,5 +41,5 @@ static int* COUNT_ITEM_STATE_CYBOI_NAME = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARR
 /** The size item state cyboi name. */
 static int* SIZE_ITEM_STATE_CYBOI_NAME = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* ITEM_STATE_CYBOI_NAME_CONSTANT_SOURCE */
+/* ITEM_STATE_CYBOI_NAME_CONSTANT_HEADER */
 #endif

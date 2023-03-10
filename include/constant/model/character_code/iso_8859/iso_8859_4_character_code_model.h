@@ -29,8 +29,8 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
-#include "../../../../constant/model/character_code/iso_6429/c1_iso_6429_character_code_model.c"
+#include "../../../../constant/model/character_code/ascii/ascii_character_code_model.h"
+#include "../../../../constant/model/character_code/iso_6429/c1_iso_6429_character_code_model.h"
 
 //
 // A "Character Set" consists of three parts:
@@ -527,7 +527,7 @@ static unsigned char LATIN_SMALL_LETTER_O_WITH_TILDE_ISO_8859_4_CHARACTER_CODE_M
 static unsigned char* LATIN_SMALL_LETTER_O_WITH_TILDE_ISO_8859_4_CHARACTER_CODE_MODEL = LATIN_SMALL_LETTER_O_WITH_TILDE_ISO_8859_4_CHARACTER_CODE_MODEL_ARRAY;
 
 /** The latin small letter o with diaeresis iso-8859-4 character code model. U+00F6 */
-static unsigned char LATIN_SMALL_LETTER_O_WITH_DIAERESIS_ISO_8859_4_CHARACTER_CODE_MODEL_ARRAY[] = { 0xF6;
+static unsigned char LATIN_SMALL_LETTER_O_WITH_DIAERESIS_ISO_8859_4_CHARACTER_CODE_MODEL_ARRAY[] = { 0xF6 };
 static unsigned char* LATIN_SMALL_LETTER_O_WITH_DIAERESIS_ISO_8859_4_CHARACTER_CODE_MODEL = LATIN_SMALL_LETTER_O_WITH_DIAERESIS_ISO_8859_4_CHARACTER_CODE_MODEL_ARRAY;
 
 /** The division sign iso-8859-4 character code model. U+00F7 */

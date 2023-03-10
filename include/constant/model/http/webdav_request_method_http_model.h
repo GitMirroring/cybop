@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The copy webdav request method http model. Copies a resource from one uri to another. */
 static unsigned char* COPY_WEBDAV_REQUEST_METHOD_HTTP_MODEL = "COPY";

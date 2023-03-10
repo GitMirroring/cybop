@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The bzip2 archive file logic cybol name. */
 static wchar_t* BZIP2_ARCHIVE_FILE_LOGIC_CYBOL_NAME = L"bzip2";

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CYBOL_NAME_CONSTANT_SOURCE
-#define CYBOL_NAME_CONSTANT_SOURCE
+#ifndef CYBOL_NAME_CONSTANT_HEADER
+#define CYBOL_NAME_CONSTANT_HEADER
 
 #include <stddef.h> // wchar_t
 
@@ -46,5 +46,5 @@ static int* FORMAT_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 static wchar_t* MODEL_CYBOL_NAME = L"model";
 static int* MODEL_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* CYBOL_NAME_CONSTANT_SOURCE */
+/* CYBOL_NAME_CONSTANT_HEADER */
 #endif

@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The Bcc field header imf name. */
 static unsigned char* BCC_FIELD_HEADER_IMF_NAME = "Bcc";

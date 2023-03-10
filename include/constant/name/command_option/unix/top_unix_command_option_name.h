@@ -23,12 +23,12 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TOP_COMMAND_OPTION_NAME_CONSTANT_HEADER
+#ifndef TOP_UNIX_COMMAND_OPTION_NAME_CONSTANT_HEADER
 #define TOP_UNIX_COMMAND_OPTION_NAME_CONSTANT_HEADER
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The BATCH top format unix command option name. */
 static wchar_t* BATCH_TOP_UNIX_COMMAND_OPTION_NAME = L"-b";
@@ -50,5 +50,5 @@ static int* IDLE_TOP_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYB
 static wchar_t* SECURE_TOP_UNIX_COMMAND_OPTION_NAME = L"-s";
 static int* SECURE_TOP_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* TOP_COMMAND_OPTION_NAME_CONSTANT_HEADER */
+/* TOP_UNIX_COMMAND_OPTION_NAME_CONSTANT_HEADER */
 #endif

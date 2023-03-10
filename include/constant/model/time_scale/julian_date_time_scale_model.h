@@ -26,8 +26,8 @@
 #ifndef JULIAN_DATE_TIME_SCALE_MODEL_SOURCE
 #define JULIAN_DATE_TIME_SCALE_MODEL_SOURCE
 
-#include "../../../constant/model/cyboi/state/double_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/double_state_cyboi_model.h"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The julian date (jd) time scale model. */
 static double JULIAN_DATE_TIME_SCALE_MODEL_ARRAY[] = { 0.0 };

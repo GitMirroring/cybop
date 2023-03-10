@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONSTANT_LIBRARY_HEADER
-#define CONSTANT_LIBRARY_HEADER
+#ifndef CONSTANT_HEADER
+#define CONSTANT_HEADER
 
 //
 // Loading of a shared object (dynamic library)
@@ -266,7 +266,7 @@
 #include "constant/model/numeral/base_numeral_model.h"
 
 #include "constant/model/service/port_service_model.h"
-#include "constant/model/protocol_service_model.h"
+#include "constant/model/service/protocol_service_model.h"
 
 #include "constant/model/terminal/key_code_terminal_model.h"
 
@@ -555,5 +555,5 @@
 
 #include "constant/type/cyboi/state_cyboi_type.h"
 
-/* CONSTANT_LIBRARY_HEADER */
+/* CONSTANT_HEADER */
 #endif

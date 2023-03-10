@@ -28,7 +28,7 @@
 
 #include <stddef.h> // wchar_t
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The button event gui state cybol name. */
 static wchar_t* BUTTON_EVENT_GUI_STATE_CYBOL_NAME = L"button";

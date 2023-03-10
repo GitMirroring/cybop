@@ -26,10 +26,10 @@
 #ifndef SERVER_STATE_CYBOI_NAME_CONSTANT_HEADER
 #define SERVER_STATE_CYBOI_NAME_CONSTANT_HEADER
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 //
-// CAUTION! The server entry size is set in file "state_cyboi_model.c"!
+// CAUTION! The server entry size is set in file "state_cyboi_model.h"!
 //
 
 //

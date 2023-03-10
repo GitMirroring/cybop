@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DOCUMENT_TYPE_HTML_MODEL_CONSTANT_SOURCE
-#define DOCUMENT_TYPE_HTML_MODEL_CONSTANT_SOURCE
+#ifndef DOCUMENT_TYPE_HTML_MODEL_CONSTANT_HEADER
+#define DOCUMENT_TYPE_HTML_MODEL_CONSTANT_HEADER
 
 #include <stddef.h>
 
@@ -43,5 +43,5 @@ static int* HTML_DOCUMENT_TYPE_HTML_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_M
 
 //?? TODO: Possibly add the old html document types (very long lines) here, used up to version HTML 4
 
-/* DOCUMENT_TYPE_HTML_MODEL_CONSTANT_SOURCE */
+/* DOCUMENT_TYPE_HTML_MODEL_CONSTANT_HEADER */
 #endif

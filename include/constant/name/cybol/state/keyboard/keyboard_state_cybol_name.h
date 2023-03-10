@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The arrow-down keyboard state cybol name. */
 static wchar_t* ARROW_DOWN_KEYBOARD_STATE_CYBOL_NAME = L"arrow-down";

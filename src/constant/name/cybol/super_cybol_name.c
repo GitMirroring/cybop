@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SUPER_CYBOL_NAME_CONSTANT_SOURCE
-#define SUPER_CYBOL_NAME_CONSTANT_SOURCE
+#ifndef SUPER_CYBOL_NAME_CONSTANT_HEADER
+#define SUPER_CYBOL_NAME_CONSTANT_HEADER
 
 #include <stddef.h>
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -33,5 +33,5 @@
 static wchar_t* SUPER_CYBOL_NAME = L"super";
 static int* SUPER_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* SUPER_CYBOL_NAME_CONSTANT_SOURCE */
+/* SUPER_CYBOL_NAME_CONSTANT_HEADER */
 #endif

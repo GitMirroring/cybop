@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The client handler state cybol name. */
 static wchar_t* CLIENT_HANDLER_STATE_CYBOL_NAME = L"client";

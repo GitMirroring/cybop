@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The columns grid layout state cybol name. */
 static wchar_t* COLUMNS_GRID_LAYOUT_STATE_CYBOL_NAME = L"columns";

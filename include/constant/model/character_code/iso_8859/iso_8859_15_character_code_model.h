@@ -28,8 +28,8 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
-#include "../../../../constant/model/character_code/iso_6429/c1_iso_6429_character_code_model.c"
+#include "../../../../constant/model/character_code/ascii/ascii_character_code_model.h"
+#include "../../../../constant/model/character_code/iso_6429/c1_iso_6429_character_code_model.h"
 
 //
 // A "Character Set" consists of three parts:

@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The logical option for the present working directory logic in cybol. */
 static wchar_t* LOGICAL_PWD_COMMANDER_LOGIC_CYBOL_NAME = L"logical";

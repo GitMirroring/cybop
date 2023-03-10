@@ -26,7 +26,7 @@
 #ifndef TERMINAL_COLOUR_STATE_CYBOI_MODEL_CONSTANT_HEADER
 #define TERMINAL_COLOUR_STATE_CYBOI_MODEL_CONSTANT_HEADER
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The black terminal colour state cyboi model. */
 static int* BLACK_TERMINAL_COLOUR_STATE_CYBOI_MODEL = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;

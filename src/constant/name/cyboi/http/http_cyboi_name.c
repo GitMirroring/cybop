@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HTTP_NAME_CONSTANT_SOURCE
-#define HTTP_NAME_CONSTANT_SOURCE
+#ifndef HTTP_NAME_CONSTANT_HEADER
+#define HTTP_NAME_CONSTANT_HEADER
 
 #include <stddef.h>
 
@@ -62,5 +62,5 @@ static int* PROTOCOL_HTTP_CYBOI_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_
 static wchar_t* URI_HTTP_CYBOI_NAME = L"uri";
 static int* URI_HTTP_CYBOI_NAME_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* HTTP_NAME_CONSTANT_SOURCE */
+/* HTTP_NAME_CONSTANT_HEADER */
 #endif

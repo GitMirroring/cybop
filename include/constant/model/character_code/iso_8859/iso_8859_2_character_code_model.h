@@ -29,8 +29,8 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
-#include "../../../../constant/model/character_code/iso_6429/c1_iso_6429_character_code_model.c"
+#include "../../../../constant/model/character_code/ascii/ascii_character_code_model.h"
+#include "../../../../constant/model/character_code/iso_6429/c1_iso_6429_character_code_model.h"
 
 //
 // A "Character Set" consists of three parts:
@@ -187,8 +187,8 @@ static unsigned char NO_BREAK_SPACE_ISO_8859_2_CHARACTER_CODE_MODEL_ARRAY[] = { 
 static unsigned char* NO_BREAK_SPACE_ISO_8859_2_CHARACTER_CODE_MODEL = NO_BREAK_SPACE_ISO_8859_2_CHARACTER_CODE_MODEL_ARRAY;
 
 /** The latin capital letter a with ogonek iso-8859-2 character code model. U+00A1 */
-static unsigned char LATIN_CAPITAL_LETTER_A WITH_OGONEK_ISO_8859_2_CHARACTER_CODE_MODEL_ARRAY[] = { 0xA1 };
-static unsigned char* LATIN_CAPITAL_LETTER_A WITH_OGONEK_ISO_8859_2_CHARACTER_CODE_MODEL = LATIN_CAPITAL_LETTER_A WITH_OGONEK_ISO_8859_2_CHARACTER_CODE_MODEL_ARRAY;
+static unsigned char LATIN_CAPITAL_LETTER_A_WITH_OGONEK_ISO_8859_2_CHARACTER_CODE_MODEL_ARRAY[] = { 0xA1 };
+static unsigned char* LATIN_CAPITAL_LETTER_A_WITH_OGONEK_ISO_8859_2_CHARACTER_CODE_MODEL = LATIN_CAPITAL_LETTER_A_WITH_OGONEK_ISO_8859_2_CHARACTER_CODE_MODEL_ARRAY;
 
 /** The breve iso-8859-2 character code model. U+00A2 */
 static unsigned char BREVE_ISO_8859_2_CHARACTER_CODE_MODEL_ARRAY[] = { 0xA2 };

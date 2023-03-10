@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The mode spellcheck unix command option name. */
 static wchar_t* MODE_SPELLCHECK_UNIX_COMMAND_OPTION_NAME = L"-mode=";

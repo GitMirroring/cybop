@@ -29,7 +29,7 @@
 
 #include <stddef.h>
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The path logic cybol name (parameter). */
 static wchar_t* PATH_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME = L"path";

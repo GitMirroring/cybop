@@ -29,8 +29,8 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
-#include "../../../../constant/model/character_code/iso_6429/c1_iso_6429_character_code_model.c"
+#include "../../../../constant/model/character_code/ascii/ascii_character_code_model.h"
+#include "../../../../constant/model/character_code/iso_6429/c1_iso_6429_character_code_model.h"
 
 //
 // A "Character Set" consists of three parts:
@@ -308,7 +308,7 @@ static unsigned char* VULGAR_FRACTION_THREE_QUARTERS_ISO_8859_13_CHARACTER_CODE_
 
 /** The latin small letter ae iso-8859-13 character code model. U+00BF */
 static unsigned char LATIN_SMALL_LETTER_AE_ISO_8859_13_CHARACTER_CODE_MODEL_ARRAY[] = { 0xBF };
-static unsigned char* LATIN_SMALL_LETTER_AE_ISO_8859_13_CHARACTER_CODE_MODEL = LATIN_SMALL_LETTER_AEE_ISO_8859_13_CHARACTER_CODE_MODEL_ARRAY;
+static unsigned char* LATIN_SMALL_LETTER_AE_ISO_8859_13_CHARACTER_CODE_MODEL = LATIN_SMALL_LETTER_AE_ISO_8859_13_CHARACTER_CODE_MODEL_ARRAY;
 
 /** The latin capital letter a with ogonek iso-8859-13 character code model. U+00C0 */
 static unsigned char LATIN_CAPITAL_LETTER_A_WITH_OGONEK_ISO_8859_13_CHARACTER_CODE_MODEL_ARRAY[] = { 0xC0 };

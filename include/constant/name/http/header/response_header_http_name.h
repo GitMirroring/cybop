@@ -27,7 +27,7 @@
 #define RESPONSE_HEADER_HTTP_NAME_CONSTANT_HEADER
 
 #include <stddef.h>
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 //
 // The following constants are taken from the HTTP 1.1 RFC 2616 specification:

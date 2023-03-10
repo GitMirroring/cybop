@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The no resource (asterisk) http request uri name. */
 static wchar_t* NO_RESOURCE_HTTP_REQUEST_URI_NAME = ASTERISK_UNICODE_CHARACTER_CODE_MODEL_ARRAY;

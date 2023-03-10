@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HELP_CYBOI_MODEL_CONSTANT_SOURCE
-#define HELP_CYBOI_MODEL_CONSTANT_SOURCE
+#ifndef HELP_CYBOI_MODEL_CONSTANT_HEADER
+#define HELP_CYBOI_MODEL_CONSTANT_HEADER
 
 #include <stddef.h>
 
@@ -55,5 +55,5 @@ static int* EXAMPLES_HELP_CYBOI_MODEL_COUNT = NUMBER_160_INTEGER_STATE_CYBOI_MOD
 static wchar_t* BUGS_HELP_CYBOI_MODEL = L"Report bugs to <cybop-developers@nongnu.org> or <christian.heller@cybop.org>.";
 static int* BUGS_HELP_CYBOI_MODEL_COUNT = NUMBER_77_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* HELP_CYBOI_MODEL_CONSTANT_SOURCE */
+/* HELP_CYBOI_MODEL_CONSTANT_HEADER */
 #endif

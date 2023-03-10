@@ -23,12 +23,12 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef KILL_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE
-#define KILL_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE
+#ifndef KILL_UNIX_COMMAND_OPTION_NAME_CONSTANT_HEADER
+#define KILL_UNIX_COMMAND_OPTION_NAME_CONSTANT_HEADER
 
 #include <stddef.h>
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/* KILL_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE */
+/* KILL_UNIX_COMMAND_OPTION_NAME_CONSTANT_HEADER */
 #endif

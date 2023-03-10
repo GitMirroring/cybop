@@ -26,7 +26,7 @@
 #ifndef CYBOI_CHANNEL_CONSTANT_HEADER
 #define CYBOI_CHANNEL_CONSTANT_HEADER
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The clock cyboi channel. */
 static int* CLOCK_CYBOI_CHANNEL = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;

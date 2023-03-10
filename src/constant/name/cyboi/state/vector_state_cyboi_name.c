@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef VECTOR_STATE_CYBOI_NAME_CONSTANT_SOURCE
-#define VECTOR_STATE_CYBOI_NAME_CONSTANT_SOURCE
+#ifndef VECTOR_STATE_CYBOI_NAME_CONSTANT_HEADER
+#define VECTOR_STATE_CYBOI_NAME_CONSTANT_HEADER
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
@@ -41,5 +41,5 @@ static int* DIMENSION_1_VECTOR_STATE_CYBOI_NAME = NUMBER_1_INTEGER_STATE_CYBOI_M
 /** The dimension 2 vector memory name. In a (spatial) vector, this is the z coordinate. */
 static int* DIMENSION_2_VECTOR_STATE_CYBOI_NAME = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* VECTOR_STATE_CYBOI_NAME_CONSTANT_SOURCE */
+/* VECTOR_STATE_CYBOI_NAME_CONSTANT_HEADER */
 #endif

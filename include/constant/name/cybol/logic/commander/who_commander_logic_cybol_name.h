@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** All User. */
 static wchar_t* ALL_WHO_COMMANDER_LOGIC_CYBOL_NAME = L"all";

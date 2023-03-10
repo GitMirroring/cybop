@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The 1.0 protocol version http model. */
 static unsigned char* NUMBER_1_0_PROTOCOL_VERSION_HTTP_MODEL = "HTTP/1.0";

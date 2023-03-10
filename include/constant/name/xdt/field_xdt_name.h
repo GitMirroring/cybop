@@ -26,7 +26,7 @@
 #ifndef FIELD_XDT_NAME_CONSTANT_HEADER
 #define FIELD_XDT_NAME_CONSTANT_HEADER
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /**
  * The kbv test number field xdt name.

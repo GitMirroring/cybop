@@ -28,8 +28,8 @@
 
 #include <stddef.h> // wchar_t
 
-#include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/character_code/unicode/unicode_character_code_model.h"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The capital E power numeral name. */
 static wchar_t* CAPITAL_POWER_NUMERAL_NAME = LATIN_CAPITAL_LETTER_E_UNICODE_CHARACTER_CODE_MODEL_ARRAY;

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STATE_CYBOI_MODEL_CONSTANT_SOURCE
-#define STATE_CYBOI_MODEL_CONSTANT_SOURCE
+#ifndef STATE_CYBOI_MODEL_CONSTANT_HEADER
+#define STATE_CYBOI_MODEL_CONSTANT_HEADER
 
 #include "../../../../constant/model/cyboi/state/extra_integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -53,5 +53,5 @@ static int* SERVER_ENTRY_STATE_CYBOI_MODEL_COUNT = NUMBER_100_INTEGER_STATE_CYBO
 /** The vector state cyboi model count. */
 static int* VECTOR_STATE_CYBOI_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* STATE_CYBOI_MODEL_CONSTANT_SOURCE */
+/* STATE_CYBOI_MODEL_CONSTANT_HEADER */
 #endif

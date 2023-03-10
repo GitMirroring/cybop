@@ -28,7 +28,7 @@
 
 #include <stddef.h> // wchar_t
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 //
 // Represent
@@ -118,7 +118,7 @@
  * - minimum (optional) [number/integer]: The minimum number of bytes to be transmitted. Used with serial (port) interface.
  * - medium (optional) [text/cybol-path]: The window to which the mouse button or keyboard key refers. It is needed to search through the hierarchy of gui elements via mouse coordinates, for a suitable action. Used with graphical user interface (gui).
  *
- * CAUTION! When changing these constraints, then copy them 1:1 to file "communicate_logic_cybol_format.c".
+ * CAUTION! When changing these constraints, then copy them 1:1 to file "communicate_logic_cybol_format.h".
  */
 static wchar_t* DESERIALISE_REPRESENT_LOGIC_CYBOL_FORMAT = L"represent/deserialise";
 static int* DESERIALISE_REPRESENT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -197,7 +197,7 @@ static int* DESERIALISE_REPRESENT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  * - fill (optional) [text/plain]: The characters (or digit) to be used to fill free places in a value whose width is greater.
  * - headermodel (optional) [text/cybol-path]: The header data to be written as first line, yet before the actual content. Used with character (comma) separated values (csv). Caution! It should not be mixed up with the header property flag in represent/deserialise or communicate/receive.
  *
- * CAUTION! When changing these constraints, then copy them 1:1 to file "communicate_logic_cybol_format.c".
+ * CAUTION! When changing these constraints, then copy them 1:1 to file "communicate_logic_cybol_format.h".
  */
 static wchar_t* SERIALISE_REPRESENT_LOGIC_CYBOL_FORMAT = L"represent/serialise";
 static int* SERIALISE_REPRESENT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;

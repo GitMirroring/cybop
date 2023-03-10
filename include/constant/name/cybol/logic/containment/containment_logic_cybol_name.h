@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The result containment logic cybol name. */
 static wchar_t* RESULT_CONTAINMENT_LOGIC_CYBOL_NAME = L"result";

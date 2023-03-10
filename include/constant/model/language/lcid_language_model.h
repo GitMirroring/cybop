@@ -26,7 +26,7 @@
 #ifndef LCID_LANGUAGE_MODEL_CONSTANT_HEADER
 #define LCID_LANGUAGE_MODEL_CONSTANT_HEADER
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 //
 // A locale is a set of parametres that defines the user's language, country

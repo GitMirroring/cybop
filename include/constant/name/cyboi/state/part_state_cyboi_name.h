@@ -26,10 +26,10 @@
 #ifndef PART_STATE_CYBOI_NAME_CONSTANT_HEADER
 #define PART_STATE_CYBOI_NAME_CONSTANT_HEADER
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 //
-// The part size is set in file "state_cyboi_model.c"!
+// The part size is set in file "state_cyboi_model.h"!
 //
 
 /** The references part state cyboi name. */

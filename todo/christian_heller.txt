@@ -14,6 +14,16 @@
 Library
 _______
 
+        * Include file "constant.h" into all affected source code files
+        * Remove any include lines referencing the outdated directory "src/constant/"
+        * Delete directory "constant/" which has got replaced by "include/constant.h" referencing directory "include/constant/"
+
+        TRY TO:
+        * Remove keyword "static" before any constants in directory "constant/", since header files should not contain any static variables
+        * Add keyword "const" to definition of variables in directory "constant/"
+        * Treat constant pointers specially:
+            https://stackoverflow.com/questions/12042549/define-constant-variables-in-c-header
+
         * Verify correctness of function calls in file "operation_handler.c"
             for example in section "manipulate" function "calculate" is called instead
 

@@ -23,12 +23,12 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef IFUP_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE
-#define IFUP_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE
+#ifndef IFUP_UNIX_COMMAND_OPTION_NAME_CONSTANT_HEADER
+#define IFUP_UNIX_COMMAND_OPTION_NAME_CONSTANT_HEADER
 
 #include <stddef.h>
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/* IFUP_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE */
+/* IFUP_UNIX_COMMAND_OPTION_NAME_CONSTANT_HEADER */
 #endif

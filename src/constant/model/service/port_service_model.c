@@ -24,8 +24,8 @@
  * @author Enrico Gallus <enrico.gallus@googlemail.com>
  */
 
-#ifndef PORT_SERVICE_MODEL_CONSTANT_SOURCE
-#define PORT_SERVICE_MODEL_CONSTANT_SOURCE
+#ifndef PORT_SERVICE_MODEL_CONSTANT_HEADER
+#define PORT_SERVICE_MODEL_CONSTANT_HEADER
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
@@ -426,5 +426,5 @@ static int* IRCS_PORT_SERVICE_MODEL = NUMBER_994_INTEGER_STATE_CYBOI_MODEL_ARRAY
 /** The pop3 over ssl port service model (identical for tcp and udp). */
 static int* POP3S_PORT_SERVICE_MODEL = NUMBER_995_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* PORT_SERVICE_MODEL_CONSTANT_SOURCE */
+/* PORT_SERVICE_MODEL_CONSTANT_HEADER */
 #endif

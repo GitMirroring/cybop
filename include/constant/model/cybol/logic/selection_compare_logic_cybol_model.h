@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The all selection compare logic cybol model. */
 static wchar_t* ALL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL = L"all";

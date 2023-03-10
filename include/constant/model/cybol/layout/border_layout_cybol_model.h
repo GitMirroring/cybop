@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The centre border layout cybol model. */
 static wchar_t* CENTRE_BORDER_LAYOUT_CYBOL_MODEL = L"centre";

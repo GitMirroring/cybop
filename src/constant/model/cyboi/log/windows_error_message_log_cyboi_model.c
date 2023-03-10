@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WINDOWS_ERROR_MESSAGE_LOG_CYBOI_MODEL_CONSTANT_SOURCE
-#define WINDOWS_ERROR_MESSAGE_LOG_CYBOI_MODEL_CONSTANT_SOURCE
+#ifndef WINDOWS_ERROR_MESSAGE_LOG_CYBOI_MODEL_CONSTANT_HEADER
+#define WINDOWS_ERROR_MESSAGE_LOG_CYBOI_MODEL_CONSTANT_HEADER
 
 #include <stddef.h> // wchar_t
 
@@ -85,5 +85,5 @@ static wchar_t* WSAEWOULDBLOCK_WINDOWS_ERROR_MESSAGE_LOG_CYBOI_MODEL = L"The soc
 /** The WSAEACCES windows error message log cyboi model. */
 static wchar_t* WSAEACCES_WINDOWS_ERROR_MESSAGE_LOG_CYBOI_MODEL = L"An attempt to connect a datagram socket to broadcast address failed because setsockopt option SO_BROADCAST is not enabled.";
 
-/* WINDOWS_ERROR_MESSAGE_LOG_CYBOI_MODEL_CONSTANT_SOURCE */
+/* WINDOWS_ERROR_MESSAGE_LOG_CYBOI_MODEL_CONSTANT_HEADER */
 #endif

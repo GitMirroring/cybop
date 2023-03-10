@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STATE_CYBOI_TYPE_CONSTANT_SOURCE
-#define STATE_CYBOI_TYPE_CONSTANT_SOURCE
+#ifndef STATE_CYBOI_TYPE_CONSTANT_HEADER
+#define STATE_CYBOI_TYPE_CONSTANT_HEADER
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
@@ -151,5 +151,5 @@ static int* IDENTIFICATION_THREAD_STATE_CYBOI_TYPE = NUMBER_90_INTEGER_STATE_CYB
 /** The mutex thread state cyboi type. */
 static int* MUTEX_THREAD_STATE_CYBOI_TYPE = NUMBER_92_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* STATE_CYBOI_TYPE_CONSTANT_SOURCE */
+/* STATE_CYBOI_TYPE_CONSTANT_HEADER */
 #endif

@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** Windows specific option to show full config info*/
 static wchar_t* ALL_CONFIG_NETWORK_COMMANDER_LOGIC_CYBOL_NAME = L"/all";

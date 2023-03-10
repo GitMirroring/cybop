@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
+#include "../../../../constant/model/character_code/ascii/ascii_character_code_model.h"
 
 //
 // Most character encodings, in addition to representing printable characters,

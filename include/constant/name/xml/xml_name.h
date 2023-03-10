@@ -29,7 +29,7 @@
 
 #include <stddef.h> // wchar_t
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The attribute begin xml name. */
 static wchar_t* ATTRIBUTE_BEGIN_XML_NAME = L" ";

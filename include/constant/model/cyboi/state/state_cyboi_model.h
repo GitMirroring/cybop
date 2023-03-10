@@ -26,8 +26,8 @@
 #ifndef STATE_CYBOI_MODEL_CONSTANT_HEADER
 #define STATE_CYBOI_MODEL_CONSTANT_HEADER
 
-#include "../../../../constant/model/cyboi/state/extra_integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/extra_integer_state_cyboi_model.h"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The client entry state cyboi model count. */
 static int* CLIENT_ENTRY_STATE_CYBOI_MODEL_COUNT = NUMBER_100_INTEGER_STATE_CYBOI_MODEL_ARRAY;

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LEVEL_LOG_CYBOI_MODEL_CONSTANT_SOURCE
-#define LEVEL_LOG_CYBOI_MODEL_CONSTANT_SOURCE
+#ifndef LEVEL_LOG_CYBOI_MODEL_CONSTANT_HEADER
+#define LEVEL_LOG_CYBOI_MODEL_CONSTANT_HEADER
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
@@ -43,5 +43,5 @@ static int* INFORMATION_LEVEL_LOG_CYBOI_MODEL = NUMBER_3_INTEGER_STATE_CYBOI_MOD
 /** The debug level log cyboi model. */
 static int* DEBUG_LEVEL_LOG_CYBOI_MODEL = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* LEVEL_LOG_CYBOI_MODEL_CONSTANT_SOURCE */
+/* LEVEL_LOG_CYBOI_MODEL_CONSTANT_HEADER */
 #endif

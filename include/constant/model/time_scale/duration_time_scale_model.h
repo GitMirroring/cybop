@@ -26,7 +26,7 @@
 #ifndef DURATION_TIME_SCALE_MODEL_SOURCE
 #define DURATION_TIME_SCALE_MODEL_SOURCE
 
-#include "../../../constant/model/cyboi/state/double_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/double_state_cyboi_model.h"
 
 //
 // Solar units.

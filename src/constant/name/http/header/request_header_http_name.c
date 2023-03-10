@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef REQUEST_HEADER_HTTP_NAME_CONSTANT_SOURCE
-#define REQUEST_HEADER_HTTP_NAME_CONSTANT_SOURCE
+#ifndef REQUEST_HEADER_HTTP_NAME_CONSTANT_HEADER
+#define REQUEST_HEADER_HTTP_NAME_CONSTANT_HEADER
 
 #include <stddef.h>
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -115,5 +115,5 @@ static int* USER_AGENT_REQUEST_HEADER_HTTP_NAME_COUNT = NUMBER_10_INTEGER_STATE_
 static unsigned char* VARY_REQUEST_HEADER_HTTP_NAME = "Vary";
 static int* VARY_REQUEST_HEADER_HTTP_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* REQUEST_HEADER_HTTP_NAME_CONSTANT_SOURCE */
+/* REQUEST_HEADER_HTTP_NAME_CONSTANT_HEADER */
 #endif

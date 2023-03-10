@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef JSON_CYBOI_NAME_CONSTANT_SOURCE
-#define JSON_CYBOI_NAME_CONSTANT_SOURCE
+#ifndef JSON_CYBOI_NAME_CONSTANT_HEADER
+#define JSON_CYBOI_NAME_CONSTANT_HEADER
 
 #include <stddef.h> // wchar_t
 
@@ -50,5 +50,5 @@
 static wchar_t* ROOT_JSON_CYBOI_NAME = L"root";
 static int* ROOT_JSON_CYBOI_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* JSON_CYBOI_NAME_CONSTANT_SOURCE */
+/* JSON_CYBOI_NAME_CONSTANT_HEADER */
 #endif

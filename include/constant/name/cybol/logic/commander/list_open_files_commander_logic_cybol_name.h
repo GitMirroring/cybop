@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The list uid option for the list open files logic in cybol. */
 static wchar_t* LIST_UID_LIST_OPEN_FILES_COMMANDER_LOGIC_CYBOL_NAME = L"listuid";

@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The bottom-to-top direction layout cybol model. */
 static wchar_t* BOTTOM_TO_TOP_DIRECTION_LAYOUT_CYBOL_MODEL = L"bottom-to-top";

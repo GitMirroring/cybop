@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMPLEX_STATE_CYBOI_NAME_CONSTANT_SOURCE
-#define COMPLEX_STATE_CYBOI_NAME_CONSTANT_SOURCE
+#ifndef COMPLEX_STATE_CYBOI_NAME_CONSTANT_HEADER
+#define COMPLEX_STATE_CYBOI_NAME_CONSTANT_HEADER
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
@@ -38,5 +38,5 @@ static int* REAL_COMPLEX_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_A
 /** The imaginary complex state cyboi name. */
 static int* IMAGINARY_COMPLEX_STATE_CYBOI_NAME = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* COMPLEX_STATE_CYBOI_NAME_CONSTANT_SOURCE */
+/* COMPLEX_STATE_CYBOI_NAME_CONSTANT_HEADER */
 #endif

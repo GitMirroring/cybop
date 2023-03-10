@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The password begin (solidus, solidus) separator authority name. */
 static wchar_t* PASSWORD_BEGIN_SEPARATOR_AUTHORITY_NAME = COLON_UNICODE_CHARACTER_CODE_MODEL_ARRAY;

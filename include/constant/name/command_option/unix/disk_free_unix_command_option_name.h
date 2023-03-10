@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The all disk free unix command option name. */
 static wchar_t* ALL_DISK_FREE_UNIX_COMMAND_OPTION_NAME = L"-a";

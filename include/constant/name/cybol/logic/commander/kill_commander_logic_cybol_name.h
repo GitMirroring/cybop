@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /** The process ID parameter for the kill command in cybol. */
 static wchar_t* PID_KILL_COMMANDER_LOGIC_CYBOL_NAME = L"pid";
