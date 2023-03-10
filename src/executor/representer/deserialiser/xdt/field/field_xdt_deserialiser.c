@@ -26,9 +26,16 @@
 #ifndef FIELD_XDT_DESERIALISER_SOURCE
 #define FIELD_XDT_DESERIALISER_SOURCE
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../executor/copier/pointer_copier.c"
 #include "../../../../../executor/representer/deserialiser/xdt/field/lines_field_xdt_deserialiser.c"

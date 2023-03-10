@@ -29,7 +29,16 @@
 #include <sys/stat.h> // mode_t, S_IRWXU
 #include <fcntl.h> // O_RDONLY
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/dispatcher/opener/basic/basic_opener.c"
 #include "../../../../executor/dispatcher/opener/file/mode_file_opener.c"
 #include "../../../../logger/logger.c"

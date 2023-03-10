@@ -26,11 +26,16 @@
 #ifndef BUFFER_WRITER_SOURCE
 #define BUFFER_WRITER_SOURCE
 
-#include "../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/modifier/item_modifier.c"
 #include "../../../executor/porter/locker.c"
 #include "../../../executor/porter/unlocker.c"

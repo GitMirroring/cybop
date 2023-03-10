@@ -26,8 +26,16 @@
 #ifndef STRIPPER_SOURCE
 #define STRIPPER_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/modifier/stripper/leading_stripper.c"
 #include "../../../executor/modifier/stripper/trailing_stripper.c"
 #include "../../../logger/logger.c"

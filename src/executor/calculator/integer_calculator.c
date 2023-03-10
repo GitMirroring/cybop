@@ -26,10 +26,16 @@
 #ifndef INTEGER_CALCULATOR_SOURCE
 #define INTEGER_CALCULATOR_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../executor/calculator/integer/absolute_integer_calculator.c"
 #include "../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../executor/calculator/integer/divide_integer_calculator.c"

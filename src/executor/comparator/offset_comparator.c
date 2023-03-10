@@ -26,7 +26,16 @@
 #ifndef OFFSET_COMPARATOR_SOURCE
 #define OFFSET_COMPARATOR_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../executor/comparator/comparator.c"
 #include "../../executor/memoriser/offset_adder.c"
 #include "../../logger/logger.c"

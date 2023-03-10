@@ -26,8 +26,6 @@
 #ifndef GREATER_POINTER_COMPARATOR_SOURCE
 #define GREATER_POINTER_COMPARATOR_SOURCE
 
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/copier/integer_copier.c"
 
 /**

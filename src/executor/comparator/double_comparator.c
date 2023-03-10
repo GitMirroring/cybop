@@ -26,9 +26,16 @@
 #ifndef DOUBLE_COMPARATOR_SOURCE
 #define DOUBLE_COMPARATOR_SOURCE
 
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../executor/comparator/double/equal_double_comparator.c"
 #include "../../executor/comparator/double/greater_double_comparator.c"
 #include "../../executor/comparator/double/greater_or_equal_double_comparator.c"

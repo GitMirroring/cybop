@@ -26,9 +26,16 @@
 #ifndef CARTESIAN_COMPLEX_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE
 #define CARTESIAN_COMPLEX_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
-#include "../../../../../constant/name/cyboi/state/complex_state_cyboi_name.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../../executor/accessor/setter/complex_setter.c"
 #include "../../../../../executor/representer/deserialiser/numeral/assembler/decimal_fraction_assembler_numeral_deserialiser.c"
 #include "../../../../../logger/logger.c"

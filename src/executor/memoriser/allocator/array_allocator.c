@@ -29,9 +29,16 @@
 #include <stdlib.h> // malloc
 #include <string.h> // memset
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/calculator/integer/multiply_integer_calculator.c"
 #include "../../../logger/logger.c"
 #include "../../../mapper/type_to_size_mapper.c"

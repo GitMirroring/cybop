@@ -26,14 +26,16 @@
 #ifndef INITIATOR_SOURCE
 #define INITIATOR_SOURCE
 
-#include "../constant/encoding/cyboi/cyboi_encoding.c"
-#include "../constant/format/cyboi/logic_cyboi_format.c"
-#include "../constant/format/cyboi/state_cyboi_format.c"
-#include "../constant/language/cyboi/state_cyboi_language.c"
-#include "../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../controller/checker/checker.c"
 #include "../executor/communicator/receiver/receiver.c"
 #include "../executor/dispatcher/closer/basic/basic_closer.c"

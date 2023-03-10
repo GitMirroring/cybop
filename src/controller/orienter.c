@@ -29,8 +29,6 @@
 #include <stdio.h> // FILE
 #include <wchar.h> // fwide
 
-#include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-
 /**
  * Orients the given stream.
  *

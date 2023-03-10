@@ -26,11 +26,6 @@
 #ifndef ABSOLUTE_URI_HTTP_REQUEST_URI_SELECTOR_SOURCE
 #define ABSOLUTE_URI_HTTP_REQUEST_URI_SELECTOR_SOURCE
 
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/uri/scheme_uri_model.c"
-#include "../../../constant/name/http_request_uri/http_request_uri_name.c"
 #include "../../../executor/representer/deserialiser/uri/http_uri_deserialiser.c"
 #include "../../../executor/mover/mover.c"
 #include "../../../logger/logger.c"

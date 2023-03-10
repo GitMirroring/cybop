@@ -26,11 +26,16 @@
 #ifndef END_CHARACTER_REFERENCE_SELECTOR_SOURCE
 #define END_CHARACTER_REFERENCE_SELECTOR_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/name/character_reference/character_reference_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/detector/detector.c"

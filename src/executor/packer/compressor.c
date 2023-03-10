@@ -26,10 +26,16 @@
 #ifndef COMPRESSOR_SOURCE
 #define COMPRESSOR_SOURCE
 
-#include "../../constant/compression/cyboi/cyboi_compression.c"
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../executor/packer/compressor/gzip/gzip_compressor.c"
 #include "../../logger/logger.c"
 

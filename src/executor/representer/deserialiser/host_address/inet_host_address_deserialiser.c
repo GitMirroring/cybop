@@ -42,13 +42,16 @@
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/cybol/socket/address_socket_cybol_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/converter/encoder/utf/utf_8_encoder.c"
 #include "../../../../executor/copier/array/forward_array_copier.c"

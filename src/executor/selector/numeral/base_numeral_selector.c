@@ -26,11 +26,16 @@
 #ifndef BASE_NUMERAL_SELECTOR_SOURCE
 #define BASE_NUMERAL_SELECTOR_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/numeral/base_numeral_model.c"
-#include "../../../constant/name/numeral/base_numeral_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/detector/detector.c"
 #include "../../../logger/logger.c"

@@ -26,10 +26,16 @@
 #ifndef CHARACTER_CALCULATOR_SOURCE
 #define CHARACTER_CALCULATOR_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../executor/calculator/character/absolute_character_calculator.c"
 #include "../../executor/calculator/character/add_character_calculator.c"
 #include "../../executor/calculator/character/divide_character_calculator.c"

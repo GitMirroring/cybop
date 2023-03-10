@@ -30,8 +30,6 @@
 #include <stdio.h> // FILE
 #include <wchar.h> // fputws
 
-#include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-
 /**
  * Writes a terminated log message to the given output stream.
  *

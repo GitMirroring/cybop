@@ -26,9 +26,16 @@
 #ifndef CLIENT_ENABLER_SOURCE
 #define CLIENT_ENABLER_SOURCE
 
-#include "../../../constant/channel/cyboi/cyboi_channel.c"
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/activator/enabler/display/display_enabler.c"
 #include "../../../executor/activator/enabler/socket/socket_enabler.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"

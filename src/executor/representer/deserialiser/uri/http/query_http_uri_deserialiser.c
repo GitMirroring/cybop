@@ -26,11 +26,6 @@
 #ifndef QUERY_HTTP_URI_DESERIALISER_SOURCE
 #define QUERY_HTTP_URI_DESERIALISER_SOURCE
 
-#include "../../../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../constant/name/cyboi/uri/uri_cyboi_name.c"
 #include "../../../../../executor/modifier/part_modifier.c"
 #include "../../../../../executor/representer/deserialiser/uri/http/parametre_query_http_uri_deserialiser.c"
 #include "../../../../../executor/selector/uri/http/query_http_uri_selector.c"

@@ -28,9 +28,16 @@
 
 #include <stdlib.h>
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/logic/randomisation/retrieve_randomisation_logic_cybol_name.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/randomiser/retriever.c"
 #include "../../logger/logger.c"

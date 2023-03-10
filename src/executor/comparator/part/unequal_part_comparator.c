@@ -26,8 +26,16 @@
 #ifndef UNEQUAL_PART_COMPARATOR_SOURCE
 #define UNEQUAL_PART_COMPARATOR_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/comparator/part/equal_part_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"

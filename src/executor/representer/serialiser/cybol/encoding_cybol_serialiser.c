@@ -26,16 +26,16 @@
 #ifndef ENCODING_CYBOL_SERIALISER_SOURCE
 #define ENCODING_CYBOL_SERIALISER_SOURCE
 
-#include "../../../../constant/encoding/cyboi/cyboi_encoding.c"
-#include "../../../../constant/encoding/cybol/cybol_encoding.c"
-#include "../../../../constant/encoding/cybol/base_cybol_encoding.c"
-#include "../../../../constant/encoding/cybol/dos_cybol_encoding.c"
-#include "../../../../constant/encoding/cybol/iso_8859_cybol_encoding.c"
-#include "../../../../constant/encoding/cybol/unicode_cybol_encoding.c"
-#include "../../../../constant/encoding/cybol/windows_cybol_encoding.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../logger/logger.c"

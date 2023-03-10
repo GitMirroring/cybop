@@ -26,9 +26,16 @@
 #ifndef NUMBER_8411_END_COMPOUND_FIELD_BDT_XDT_SELECTOR_SOURCE
 #define NUMBER_8411_END_COMPOUND_FIELD_BDT_XDT_SELECTOR_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
@@ -182,7 +189,7 @@ void select_xdt_bdt_field_compound_end_8411(void* p0, void* p1) {
 
         compare_integer_equal((void*) &r, p1, (void*) NUMBER_8990_INTEGER_STATE_CYBOI_MODEL);
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // The source field did NOT match any of the

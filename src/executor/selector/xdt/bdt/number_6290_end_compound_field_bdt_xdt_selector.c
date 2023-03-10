@@ -26,9 +26,16 @@
 #ifndef NUMBER_6290_END_COMPOUND_FIELD_BDT_XDT_SELECTOR_SOURCE
 #define NUMBER_6290_END_COMPOUND_FIELD_BDT_XDT_SELECTOR_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../logger/logger.c"

@@ -26,12 +26,16 @@
 #ifndef LIFECYCLE_CLOSER_SOURCE
 #define LIFECYCLE_CLOSER_SOURCE
 
-#include "../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/configurator/finaliser/finaliser.c"
 #include "../../../executor/dispatcher/closer/device_closer.c"
 #include "../../../executor/feeler/suspender/thread_suspender.c"

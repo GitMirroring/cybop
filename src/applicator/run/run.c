@@ -30,12 +30,16 @@
 #include <unistd.h>
 #endif
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+//
+// Library interface
+//
 
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/logic/run/programme_run_logic_cybol_name.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/runner/executor.c"
 #include "../../logger/logger.c"

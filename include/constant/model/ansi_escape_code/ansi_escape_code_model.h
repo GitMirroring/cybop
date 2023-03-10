@@ -28,6 +28,7 @@
 
 #include <stddef.h> // char
 
+#include "../../../constant/model/character_code/ascii/ascii_character_code_model.h"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
 
 /**

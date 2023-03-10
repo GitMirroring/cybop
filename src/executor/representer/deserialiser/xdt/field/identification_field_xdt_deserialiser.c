@@ -26,9 +26,16 @@
 #ifndef IDENTIFICATION_FIELD_XDT_DESERIALISER_SOURCE
 #define IDENTIFICATION_FIELD_XDT_DESERIALISER_SOURCE
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../../executor/copier/pointer_copier.c"

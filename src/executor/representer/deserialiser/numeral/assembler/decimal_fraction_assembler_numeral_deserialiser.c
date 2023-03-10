@@ -26,8 +26,16 @@
 #ifndef DECIMAL_FRACTION_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE
 #define DECIMAL_FRACTION_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../../executor/calculator/double/add_double_calculator.c"
 #include "../../../../../executor/calculator/double/multiply_double_calculator.c"
 #include "../../../../../executor/caster/double/integer_double_caster.c"

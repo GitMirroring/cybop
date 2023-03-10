@@ -26,9 +26,16 @@
 #ifndef AWAKENER_SOURCE
 #define AWAKENER_SOURCE
 
-#include "../../constant/channel/cyboi/cyboi_channel.c"
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../executor/awakener/display_awakener.c"
 #include "../../executor/awakener/serial_port_awakener.c"
 #include "../../executor/awakener/socket_awakener.c"

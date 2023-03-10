@@ -26,10 +26,16 @@
 #ifndef ENCODE_HEADER_ENTRY_HTTP_RESPONSE_SERIALISER_SOURCE
 #define ENCODE_HEADER_ENTRY_HTTP_RESPONSE_SERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/http/http_cyboi_name.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/selector/http_response/header_entry_http_response_selector.c"
 #include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../logger/logger.c"

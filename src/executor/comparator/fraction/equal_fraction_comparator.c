@@ -26,8 +26,6 @@
 #ifndef EQUAL_FRACTION_COMPARATOR_SOURCE
 #define EQUAL_FRACTION_COMPARATOR_SOURCE
 
-#include "../../../constant/name/cyboi/state/fraction_state_cyboi_name.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../executor/accessor/getter/fraction_getter.c"
 #include "../../../executor/calculator/integer/multiply_integer_calculator.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"

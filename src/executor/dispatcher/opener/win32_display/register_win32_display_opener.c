@@ -28,11 +28,16 @@
 
 #include <windows.h>
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/representer/deserialiser/win32_display/callback_message_win32_display_deserialiser.c"
 #include "../../../../logger/logger.c"
 #include "../../../../variable/type_size/display_type_size.c"

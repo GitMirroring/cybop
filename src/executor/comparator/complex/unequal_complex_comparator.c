@@ -26,8 +26,16 @@
 #ifndef UNEQUAL_COMPLEX_COMPARATOR_SOURCE
 #define UNEQUAL_COMPLEX_COMPARATOR_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/double_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/accessor/getter/complex_getter.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"

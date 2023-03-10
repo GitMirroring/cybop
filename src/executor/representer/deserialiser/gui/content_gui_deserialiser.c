@@ -26,11 +26,16 @@
 #ifndef CONTENT_GUI_DESERIALISER_SOURCE
 #define CONTENT_GUI_DESERIALISER_SOURCE
 
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cybol/xcb/event_xcb_cybol_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/representer/deserialiser/gui_action/button_press_gui_action_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/gui_action/button_release_gui_action_deserialiser.c"

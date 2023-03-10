@@ -26,7 +26,16 @@
 #ifndef OFFSET_VALUE_MANIPULATOR_SOURCE
 #define OFFSET_VALUE_MANIPULATOR_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../executor/manipulator/value_manipulator.c"
 #include "../../logger/logger.c"
 

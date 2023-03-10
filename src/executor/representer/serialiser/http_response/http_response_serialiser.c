@@ -26,9 +26,16 @@
 #ifndef HTTP_RESPONSE_SERIALISER_SOURCE
 #define HTTP_RESPONSE_SERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/representer/serialiser/http_response/body_http_response_serialiser.c"
 #include "../../../../executor/representer/serialiser/http_response/header_http_response_serialiser.c"
 #include "../../../../executor/representer/serialiser/http_response/protocol_http_response_serialiser.c"

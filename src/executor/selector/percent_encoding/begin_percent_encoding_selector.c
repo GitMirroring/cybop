@@ -26,12 +26,16 @@
 #ifndef BEGIN_PERCENT_ENCODING_SELECTOR_SOURCE
 #define BEGIN_PERCENT_ENCODING_SELECTOR_SOURCE
 
-#include "../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/name/percent_encoding/percent_encoding_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/representer/deserialiser/percent_encoding/character_percent_encoding_deserialiser.c"
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/mover/mover.c"

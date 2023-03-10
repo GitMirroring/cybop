@@ -26,12 +26,16 @@
 #ifndef BASIC_JD_DATETIME_SERIALISER_SOURCE
 #define BASIC_JD_DATETIME_SERIALISER_SOURCE
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../constant/model/numeral/base_numeral_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../../executor/calculator/double/subtract_double_calculator.c"
 #include "../../../../../executor/representer/serialiser/numeral/decimal_fraction_numeral_serialiser.c"
 #include "../../../../../executor/representer/serialiser/time_scale/julian_date/julian_date_time_scale_serialiser.c"

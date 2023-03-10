@@ -26,15 +26,16 @@
 #ifndef LANGUAGE_CYBOL_SERIALISER_SOURCE
 #define LANGUAGE_CYBOL_SERIALISER_SOURCE
 
-#include "../../../../constant/language/cyboi/state_cyboi_language.c"
-#include "../../../../constant/language/cybol/state/application_state_cybol_language.c"
-#include "../../../../constant/language/cybol/state/chronology_state_cybol_language.c"
-#include "../../../../constant/language/cybol/state/interface_state_cybol_language.c"
-#include "../../../../constant/language/cybol/state/message_state_cybol_language.c"
-#include "../../../../constant/language/cybol/state/number_state_cybol_language.c"
-#include "../../../../constant/language/cybol/state/text_state_cybol_language.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/copier/integer_copier.c"

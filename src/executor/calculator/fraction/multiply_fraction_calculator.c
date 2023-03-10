@@ -26,9 +26,16 @@
 #ifndef MULTIPLY_FRACTION_CALCULATOR_SOURCE
 #define MULTIPLY_FRACTION_CALCULATOR_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/fraction_state_cyboi_name.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/accessor/getter/fraction_getter.c"
 #include "../../../executor/accessor/setter/fraction_setter.c"
 #include "../../../executor/calculator/fraction/reduce_fraction_calculator.c"

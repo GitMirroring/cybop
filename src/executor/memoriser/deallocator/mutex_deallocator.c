@@ -28,10 +28,16 @@
 
 #include <threads.h> // mtx_t, mtx_destroy
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../logger/logger.c"
 

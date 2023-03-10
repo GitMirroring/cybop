@@ -26,8 +26,16 @@
 #ifndef FLAG_WRITER_SOURCE
 #define FLAG_WRITER_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../executor/streamer/writer/entry_writer.c"
 #include "../../../executor/streamer/writer/loop_writer.c"

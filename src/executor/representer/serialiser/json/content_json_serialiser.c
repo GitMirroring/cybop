@@ -30,9 +30,16 @@
 // Executable interface
 //
 
-#include "../../../../constant/channel/cybol/cybol_channel.c"
-#include "../../../../constant/format/cyboi/state_cyboi_format.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/representer/serialiser/json/format_json_serialiser.c"
 #include "../../../../executor/representer/serialiser/json/indentation_json_serialiser.c"
 #include "../../../../executor/representer/serialiser/json/separation_json_serialiser.c"

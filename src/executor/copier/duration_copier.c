@@ -26,9 +26,16 @@
 #ifndef DURATION_COPIER_SOURCE
 #define DURATION_COPIER_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/duration_state_cyboi_name.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../executor/accessor/getter/duration_getter.c"
 #include "../../executor/accessor/setter/duration_setter.c"
 #include "../../executor/memoriser/allocator/array_allocator.c"

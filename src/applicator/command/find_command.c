@@ -26,11 +26,16 @@
 #ifndef FIND_COMMAND_SOURCE
 #define FIND_COMMAND_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/logic/commander/find_command_commander_logic_cybol_name.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/commander/find_command_commander.c"
 #include "../../logger/logger.c"

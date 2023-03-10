@@ -26,13 +26,17 @@
 #ifndef RECORD_BDT_XDT_SELECTOR_SOURCE
 #define RECORD_BDT_XDT_SELECTOR_SOURCE
 
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/xdt/record_xdt_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+#include "xdt.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/accessor/name_getter/array_name_getter.c"
 #include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/modifier/item_modifier.c"

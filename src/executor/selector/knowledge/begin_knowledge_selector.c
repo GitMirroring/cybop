@@ -26,13 +26,16 @@
 #ifndef BEGIN_KNOWLEDGE_SELECTOR_SOURCE
 #define BEGIN_KNOWLEDGE_SELECTOR_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/name/cyboi/knowledge/separator_knowledge_cyboi_name.c"
-#include "../../../constant/name/cyboi/state/part_state_cyboi_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/representer/deserialiser/knowledge/identification_knowledge_deserialiser.c"

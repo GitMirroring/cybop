@@ -26,11 +26,16 @@
 #ifndef NORMALISE_DOUBLE_CALCULATOR_SOURCE
 #define NORMALISE_DOUBLE_CALCULATOR_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/double_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/calculator/double_calculator.c"
 #include "../../../executor/calculator/integer_calculator.c"
 #include "../../../executor/caster/double/integer_double_caster.c"

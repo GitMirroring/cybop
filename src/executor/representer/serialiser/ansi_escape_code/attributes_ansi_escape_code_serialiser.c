@@ -26,12 +26,16 @@
 #ifndef ATTRIBUTES_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 #define ATTRIBUTES_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 
-#include "../../../../constant/model/ansi_escape_code/ansi_escape_code_model.c"
-#include "../../../../constant/model/ansi_escape_code/attribute_ansi_escape_code_model.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
 #include "../../../../executor/representer/serialiser/ansi_escape_code/effect_ansi_escape_code_serialiser.c"

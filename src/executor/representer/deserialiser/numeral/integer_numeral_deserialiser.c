@@ -26,15 +26,16 @@
 #ifndef INTEGER_NUMERAL_DESERIALISER_SOURCE
 #define INTEGER_NUMERAL_DESERIALISER_SOURCE
 
-#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../constant/model/numeral/base_numeral_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../executor/calculator/integer/multiply_integer_calculator.c"
 #include "../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"

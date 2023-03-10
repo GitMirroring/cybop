@@ -26,9 +26,16 @@
 #ifndef LOGIFIER_SOURCE
 #define LOGIFIER_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/logifier/boolean_logifier.c"
 #include "../../executor/logifier/integer_logifier.c"

@@ -29,7 +29,16 @@
 #include <sys/stat.h> // mode_t, S_IRWXU
 #include <fcntl.h> // O_RDWR, O_NOCTTY
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/dispatcher/opener/basic/basic_opener.c"
 #include "../../../../executor/dispatcher/opener/unix_fifo/file_unix_fifo_opener.c"
 #include "../../../../logger/logger.c"

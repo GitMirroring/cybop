@@ -26,9 +26,16 @@
 #ifndef VULGAR_FRACTION_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE
 #define VULGAR_FRACTION_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/name/cyboi/state/fraction_state_cyboi_name.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../../executor/accessor/setter/fraction_setter.c"
 #include "../../../../../executor/representer/deserialiser/numeral/assembler/integer_assembler_numeral_deserialiser.c"
 #include "../../../../../logger/logger.c"

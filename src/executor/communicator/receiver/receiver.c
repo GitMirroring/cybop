@@ -26,10 +26,16 @@
 #ifndef RECEIVER_SOURCE
 #define RECEIVER_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/communicator/receiver/decode_receiver.c"
 #include "../../../executor/communicator/receiver/deserialise_receiver.c"
 //?? #include "../../../executor/communicator/receiver/extract_receiver.c"

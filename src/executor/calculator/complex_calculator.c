@@ -26,9 +26,6 @@
 #ifndef COMPLEX_CALCULATOR_SOURCE
 #define COMPLEX_CALCULATOR_SOURCE
 
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../executor/calculator/complex/add_complex_calculator.c"
 #include "../../executor/calculator/complex/divide_complex_calculator.c"
 #include "../../executor/calculator/complex/multiply_complex_calculator.c"

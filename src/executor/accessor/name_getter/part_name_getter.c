@@ -26,8 +26,6 @@
 #ifndef PART_NAME_GETTER_SOURCE
 #define PART_NAME_GETTER_SOURCE
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/accessor/name_getter/item_name_getter.c"
 #include "../../../logger/logger.c"
 

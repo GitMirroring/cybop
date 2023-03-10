@@ -26,9 +26,6 @@
 #ifndef END_XML_SERIALISER_SOURCE
 #define END_XML_SERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/representer/serialiser/xml/indentation_xml_serialiser.c"
 #include "../../../../logger/logger.c"

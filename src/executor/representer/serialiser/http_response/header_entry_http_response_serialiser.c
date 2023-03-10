@@ -26,9 +26,6 @@
 #ifndef HEADER_ENTRY_HTTP_RESPONSE_SERIALISER_SOURCE
 #define HEADER_ENTRY_HTTP_RESPONSE_SERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/http/http_cyboi_name.c"
 #include "../../../../executor/accessor/getter/part/index_part_getter.c"
 #include "../../../../executor/representer/serialiser/http_response/encode_header_entry_http_response_serialiser.c"
 #include "../../../../executor/copier/array/forward_array_copier.c"

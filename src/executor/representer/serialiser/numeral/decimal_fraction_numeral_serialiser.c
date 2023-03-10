@@ -26,16 +26,16 @@
 #ifndef DECIMAL_FRACTION_NUMERAL_SERIALISER_SOURCE
 #define DECIMAL_FRACTION_NUMERAL_SERIALISER_SOURCE
 
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/numeral/decimal_numeral_name.c"
-#include "../../../../constant/name/numeral/power_numeral_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/calculator/double/absolute_double_calculator.c"
 #include "../../../../executor/calculator/double/scientific_double_calculator.c"
 #include "../../../../executor/calculator/double/subtract_double_calculator.c"

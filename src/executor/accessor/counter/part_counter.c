@@ -26,11 +26,6 @@
 #ifndef PART_COUNTER_SOURCE
 #define PART_COUNTER_SOURCE
 
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
-#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/accessor/counter/item_counter.c"
 #include "../../../logger/logger.c"
 

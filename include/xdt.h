@@ -27,6 +27,24 @@
 #define XDT_HEADER
 
 //
+// model
+//
+
+#include "constant/model/xdt/field_description_xdt_model.h"
+
+//
+// name
+//
+
+#include "constant/name/cyboi/xdt/field_xdt_cyboi_name.h"
+#include "constant/name/cyboi/xdt/record_xdt_cyboi_name.h"
+
+#include "constant/name/xdt/bdt_xdt_name.h"
+#include "constant/name/xdt/field_xdt_name.h"
+#include "constant/name/xdt/gdt_xdt_name.h"
+#include "constant/name/xdt/record_xdt_name.h"
+
+//
 // Loading of a shared object (dynamic library)
 //
 // A shared object (.so) library gets loaded when needed

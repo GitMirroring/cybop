@@ -26,9 +26,16 @@
 #ifndef ADD_ANSI_ESCAPE_CODE_LENGTH_SELECTOR_SOURCE
 #define ADD_ANSI_ESCAPE_CODE_LENGTH_SELECTOR_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../executor/selector/ansi_escape_code_length/command_ansi_escape_code_length_selector.c"

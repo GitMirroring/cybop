@@ -26,14 +26,16 @@
 #ifndef PROPERTIES_TUI_SERIALISER_SOURCE
 #define PROPERTIES_TUI_SERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/vector_state_cyboi_name.c"
-#include "../../../../constant/name/cybol/state/tui/tui_state_cybol_name.c"
-#include "../../../../constant/name/cybol/super_cybol_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../../executor/representer/serialiser/tui/origo_tui_serialiser.c"
 #include "../../../../executor/representer/serialiser/tui/rectangle_tui_serialiser.c"

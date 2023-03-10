@@ -26,10 +26,6 @@
 #ifndef HOSTNAME_AUTHORITY_SELECTOR_SOURCE
 #define HOSTNAME_AUTHORITY_SELECTOR_SOURCE
 
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/name/authority/separator_authority_name.c"
 #include "../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/mover/mover.c"

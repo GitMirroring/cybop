@@ -26,10 +26,6 @@
 #ifndef OVERWRITER_SOURCE
 #define OVERWRITER_SOURCE
 
-#include "../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../executor/calculator/integer/multiply_integer_calculator.c"
 #include "../../../executor/calculator/integer/subtract_integer_calculator.c"

@@ -26,9 +26,6 @@
 #ifndef FRACTION_CALCULATOR_SOURCE
 #define FRACTION_CALCULATOR_SOURCE
 
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../executor/calculator/fraction/add_fraction_calculator.c"
 #include "../../executor/calculator/fraction/divide_fraction_calculator.c"
 #include "../../executor/calculator/fraction/multiply_fraction_calculator.c"

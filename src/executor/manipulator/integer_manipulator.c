@@ -26,10 +26,16 @@
 #ifndef INTEGER_MANIPULATOR_SOURCE
 #define INTEGER_MANIPULATOR_SOURCE
 
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../executor/manipulator/integer/check_integer_manipulator.c"
 #include "../../executor/manipulator/integer/clear_integer_manipulator.c"
 #include "../../executor/manipulator/integer/rotate_left_integer_manipulator.c"

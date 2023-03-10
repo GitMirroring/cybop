@@ -26,8 +26,16 @@
 #ifndef TYPE_TO_SIZE_MAPPER_SOURCE
 #define TYPE_TO_SIZE_MAPPER_SOURCE
 
-#include "../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../executor/copier/integer_copier.c"
 #include "../logger/logger.c"
 #include "../variable/type_size/compound_type_size.c"

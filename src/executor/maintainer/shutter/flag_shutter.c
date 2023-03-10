@@ -26,10 +26,16 @@
 #ifndef FLAG_SHUTTER_SOURCE
 #define FLAG_SHUTTER_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/client_state_cyboi_name.c"
-#include "../../../constant/name/cyboi/state/server_state_cyboi_name.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/dispatcher/closer/lifecycle_closer.c"
 #include "../../../executor/maintainer/shutter/lifecycle_shutter.c"
 #include "../../../logger/logger.c"

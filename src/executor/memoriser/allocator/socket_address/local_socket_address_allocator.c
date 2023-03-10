@@ -26,10 +26,16 @@
 #ifndef LOCAL_SOCKET_ADDRESS_ALLOCATOR_SOURCE
 #define LOCAL_SOCKET_ADDRESS_ALLOCATOR_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/accessor/setter/socket_address/local_socket_address_setter.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/memoriser/allocator/array_allocator.c"

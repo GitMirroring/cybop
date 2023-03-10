@@ -26,11 +26,16 @@
 #ifndef DISK_USAGE_SOURCE
 #define DISK_USAGE_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/logic/commander/disk_usage_commander_logic_cybol_name.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/commander/disk_usage_commander.c"
 #include "../../logger/logger.c"

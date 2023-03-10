@@ -26,11 +26,16 @@
 #ifndef PART_CREATE_SOURCE
 #define PART_CREATE_SOURCE
 
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../executor/modifier/part_modifier.c"
 #include "../../executor/representer/deserialiser/cybol/type_cybol_deserialiser.c"
 #include "../../logger/logger.c"

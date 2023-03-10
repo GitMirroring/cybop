@@ -26,13 +26,16 @@
 #ifndef SOCKET_ENABLER_SOURCE
 #define SOCKET_ENABLER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../constant/name/cyboi/state/server_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/activator/enabler/socket/request_socket_enabler.c"
 #include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../logger/logger.c"

@@ -26,12 +26,17 @@
 #ifndef LINE_FIELD_XDT_DESERIALISER_SOURCE
 #define LINE_FIELD_XDT_DESERIALISER_SOURCE
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../constant/model/numeral/base_numeral_model.c"
-#include "../../../../../constant/name/xdt/bdt_xdt_name.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+#include "xdt.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../../executor/copier/integer_copier.c"

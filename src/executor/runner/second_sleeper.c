@@ -36,9 +36,6 @@
     #define sleep(n) Sleep(1000 * n)
 #endif
 
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-
 /**
  * Suspends execution of the calling thread for (at least)
  * the given number of seconds.

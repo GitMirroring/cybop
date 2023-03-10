@@ -29,8 +29,16 @@
 #include <xcb/xcb.h> // xcb_generic_event_t, XCB_BUTTON_PRESS etc.
 #include <stdint.h> // uint8_t
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/representer/deserialiser/xcb_event/button_press_xcb_event_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xcb_event/button_release_xcb_event_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xcb_event/client_message_xcb_event_deserialiser.c"

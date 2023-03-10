@@ -26,9 +26,16 @@
 #ifndef EXTENSION_ISO_8859_DECODER_SOURCE
 #define EXTENSION_ISO_8859_DECODER_SOURCE
 
-#include "../../../../constant/encoding/cyboi/cyboi_encoding.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/converter/decoder/iso_8859/iso_8859_1_decoder.c"
 #include "../../../../executor/converter/decoder/iso_8859/iso_8859_15_decoder.c"

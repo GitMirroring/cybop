@@ -26,10 +26,16 @@
 #ifndef TYPE_FIELD_XDT_DESERIALISER_SOURCE
 #define TYPE_FIELD_XDT_DESERIALISER_SOURCE
 
-#include "../../../../../constant/format/cyboi/state_cyboi_format.c"
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../logger/logger.c"

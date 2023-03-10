@@ -26,10 +26,16 @@
 #ifndef JULIAN_CALENDAR_TIME_SCALE_DESERIALISER_SOURCE
 #define JULIAN_CALENDAR_TIME_SCALE_DESERIALISER_SOURCE
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/name/cyboi/state/datetime_state_cyboi_name.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../../executor/accessor/setter/datetime_setter.c"
 /*??
 #include "../../../../../executor/representer/deserialiser/time_scale/julian_calendar/julian_day_julian_calendar_time_scale_deserialiser.c"

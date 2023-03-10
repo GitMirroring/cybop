@@ -26,10 +26,16 @@
 #ifndef SPELLCHECK_COMMANDER_SOURCE
 #define SPELLCHECK_COMMANDER_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../executor/memoriser/allocator/item_allocator.c"
 #include "../../executor/runner/executor.c"
 #include "../../logger/logger.c"
@@ -46,9 +52,7 @@
 // at EVERY option, even if that produces some redundant code.
 //
 #ifndef WIN32
-    #include "../../constant/model/command/unix_command_model.c"
-    #include "../../constant/name/command_option/unix/spellcheck_unix_command_option_name.c"
-#endif
+        #endif
 
 #ifndef _MSC_VER
     #include <unistd.h>

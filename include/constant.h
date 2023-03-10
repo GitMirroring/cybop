@@ -27,27 +27,6 @@
 #define CONSTANT_HEADER
 
 //
-// Loading of a shared object (dynamic library)
-//
-// A shared object (.so) library gets loaded when needed
-// at runtime. This kind of loading happens AUTOMATICALLY.
-// The necessary machine language instructions got added to the
-// binary executable by the compiler and linker during translation.
-//
-
-//
-// Keyword "extern"
-//
-// A function is declared with storage class "extern"
-// by DEFAULT, even if the keyword "extern" is missing.
-// The keyword "extern" has NO influence on the source code in
-// terms of optimisation or the like and thus is NOT necessary.
-// It is just a HINT to the reader (developer) indicating that
-// the function is implemented in an EXTERNAL source file.
-// A COMMENT like this one can be used as hint, instead of that keyword.
-//
-
-//
 // channel
 //
 

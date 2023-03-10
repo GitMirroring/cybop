@@ -26,9 +26,16 @@
 #ifndef COMPLEX_COMPARATOR_SOURCE
 #define COMPLEX_COMPARATOR_SOURCE
 
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../executor/comparator/complex/equal_complex_comparator.c"
 #include "../../executor/comparator/complex/unequal_complex_comparator.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"

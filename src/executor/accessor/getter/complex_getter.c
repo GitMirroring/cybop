@@ -26,11 +26,16 @@
 #ifndef COMPLEX_GETTER_SOURCE
 #define COMPLEX_GETTER_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/complex_state_cyboi_name.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/calculator/pointer/add_pointer_calculator.c"
 #include "../../../executor/copier/double_copier.c"
 #include "../../../executor/copier/pointer_copier.c"

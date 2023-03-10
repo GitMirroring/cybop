@@ -26,11 +26,16 @@
 #ifndef CHARACTER_PERCENT_ENCODING_SERIALISER_SOURCE
 #define CHARACTER_PERCENT_ENCODING_SERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/percent_encoding/percent_encoding_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/representer/serialiser/percent_encoding/bytes_percent_encoding_serialiser.c"
 #include "../../../../logger/logger.c"
 

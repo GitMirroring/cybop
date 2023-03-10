@@ -26,11 +26,16 @@
 #ifndef METHOD_HTTP_REQUEST_DESERIALISER_SOURCE
 #define METHOD_HTTP_REQUEST_DESERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/http/http_cyboi_name.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/representer/deserialiser/http_request/decode_http_request_deserialiser.c"
 #include "../../../../executor/selector/http_request/method_http_request_selector.c"
 #include "../../../../logger/logger.c"

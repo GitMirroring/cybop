@@ -26,12 +26,16 @@
 #ifndef HOSTNAME_AUTHORITY_DESERIALISER_SOURCE
 #define HOSTNAME_AUTHORITY_DESERIALISER_SOURCE
 
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/authority/authority_cyboi_name.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/modifier/part_modifier.c"
 #include "../../../../executor/selector/authority/hostname_authority_selector.c"
 #include "../../../../logger/logger.c"

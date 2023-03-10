@@ -26,12 +26,16 @@
 #ifndef BASIC_JD_DATETIME_DESERIALISER_SOURCE
 #define BASIC_JD_DATETIME_DESERIALISER_SOURCE
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../../executor/calculator/double/add_double_calculator.c"
 #include "../../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../../executor/memoriser/deallocator/array_deallocator.c"

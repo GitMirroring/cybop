@@ -26,9 +26,6 @@
 #ifndef REMOVE_FILE_COMMANDER_SOURCE
 #define REMOVE_FILE_COMMANDER_SOURCE
 
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/commander/adapt_unix_to_windows_path_commander.c"
 #include "../../executor/memoriser/allocator/item_allocator.c"
 #include "../../executor/runner/executor.c"
@@ -45,16 +42,10 @@
 // at EVERY option, even if that produces some redundant code.
 //
 #if defined(__linux__) || defined(__unix__)
-    #include "../../constant/model/command/unix_command_model.c"
-    #include "../../constant/name/command_option/unix/remove_file_unix_command_option_name.c"
-#elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../constant/model/command/unix_command_model.c"
-    #include "../../constant/name/command_option/unix/remove_file_unix_command_option_name.c"
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+        #elif defined(__APPLE__) && defined(__MACH__)
+        // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../constant/model/command/win32_command_model.c"
-    #include "../../constant/name/command_option/win32/remove_file_win32_command_option_name.c"
-#else
+        #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 

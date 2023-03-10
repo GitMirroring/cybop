@@ -26,15 +26,16 @@
 #ifndef LANGUAGE_CYBOL_DESERIALISER_SOURCE
 #define LANGUAGE_CYBOL_DESERIALISER_SOURCE
 
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../../constant/language/cyboi/state_cyboi_language.c"
-#include "../../../../constant/language/cybol/state/application_state_cybol_language.c"
-#include "../../../../constant/language/cybol/state/chronology_state_cybol_language.c"
-#include "../../../../constant/language/cybol/state/interface_state_cybol_language.c"
-#include "../../../../constant/language/cybol/state/message_state_cybol_language.c"
-#include "../../../../constant/language/cybol/state/text_state_cybol_language.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"

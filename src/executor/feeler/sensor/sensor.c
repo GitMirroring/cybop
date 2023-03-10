@@ -26,9 +26,16 @@
 #ifndef SENSOR_SOURCE
 #define SENSOR_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../executor/feeler/sensor/entry_sensor.c"
 #include "../../../executor/feeler/sensor/thread_sensor.c"

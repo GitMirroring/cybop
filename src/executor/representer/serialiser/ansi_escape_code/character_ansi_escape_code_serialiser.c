@@ -26,7 +26,16 @@
 #ifndef CHARACTER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 #define CHARACTER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../logger/logger.c"
 
 /**

@@ -26,12 +26,8 @@
 #ifndef NETSTAT_COMMANDER_SOURCE
 #define NETSTAT_COMMANDER_SOURCE
 
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../executor/memoriser/allocator/item_allocator.c"
 #include "../../executor/runner/executor.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-
 //
 // CAUTION! The options of many commands are SIMILAR on various platforms.
 // Therefore, it might suffice to distinguish included files here
@@ -44,12 +40,8 @@
 // at EVERY option, even if that produces some redundant code.
 //
 #if defined(__linux__) || defined(__unix__)
-    #include "../../constant/name/command_option/unix/netstat_unix_command_option_name.c"
-    #include "../../constant/model/command/unix_command_model.c"
-#elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../constant/name/command_option/unix/netstat_unix_command_option_name.c"
-    #include "../../constant/model/command/unix_command_model.c"
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+        #elif defined(__APPLE__) && defined(__MACH__)
+        // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
     // Empty.
 #else

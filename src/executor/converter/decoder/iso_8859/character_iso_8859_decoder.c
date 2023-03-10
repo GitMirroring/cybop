@@ -26,9 +26,16 @@
 #ifndef CHARACTER_ISO_8859_DECODER_SOURCE
 #define CHARACTER_ISO_8859_DECODER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../../../executor/converter/decoder/ascii/ascii_decoder.c"
 #include "../../../../executor/converter/decoder/iso_8859/extension_iso_8859_decoder.c"

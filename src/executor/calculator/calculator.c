@@ -26,9 +26,16 @@
 #ifndef CALCULATOR_SOURCE
 #define CALCULATOR_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../executor/calculator/character_calculator.c"
 #include "../../executor/calculator/complex_calculator.c"
 #include "../../executor/calculator/double_calculator.c"

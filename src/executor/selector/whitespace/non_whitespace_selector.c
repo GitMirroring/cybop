@@ -26,8 +26,16 @@
 #ifndef NON_WHITESPACE_SELECTOR_SOURCE
 #define NON_WHITESPACE_SELECTOR_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/logifier/boolean/not_boolean_logifier.c"
 #include "../../../executor/selector/whitespace/whitespace_selector.c"

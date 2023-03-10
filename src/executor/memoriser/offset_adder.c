@@ -29,8 +29,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/calculator/integer/multiply_integer_calculator.c"
 #include "../../executor/calculator/pointer/add_pointer_calculator.c"
 #include "../../mapper/type_to_size_mapper.c"

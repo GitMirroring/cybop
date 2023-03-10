@@ -27,9 +27,6 @@
 #ifndef DOUBLE_CALCULATOR_SOURCE
 #define DOUBLE_CALCULATOR_SOURCE
 
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../executor/calculator/double/absolute_double_calculator.c"
 #include "../../executor/calculator/double/add_double_calculator.c"
 #include "../../executor/calculator/double/divide_double_calculator.c"

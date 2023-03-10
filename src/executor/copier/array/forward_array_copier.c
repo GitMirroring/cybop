@@ -26,7 +26,6 @@
 #ifndef FORWARD_ARRAY_COPIER_SOURCE
 #define FORWARD_ARRAY_COPIER_SOURCE
 
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/copier/array/forward_elements_array_copier.c"
 #include "../../../executor/memoriser/offset_adder.c"
 

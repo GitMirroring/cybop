@@ -26,9 +26,16 @@
 #ifndef MULTIPLY_COMPLEX_CALCULATOR_SOURCE
 #define MULTIPLY_COMPLEX_CALCULATOR_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/accessor/getter/complex_getter.c"
 #include "../../../executor/accessor/setter/complex_setter.c"
 #include "../../../executor/calculator/double/add_double_calculator.c"

@@ -26,9 +26,6 @@
 #ifndef POINTER_CALCULATOR_SOURCE
 #define POINTER_CALCULATOR_SOURCE
 
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../executor/calculator/pointer/add_pointer_calculator.c"
 #include "../../executor/calculator/pointer/subtract_pointer_calculator.c"
 #include "../../logger/logger.c"

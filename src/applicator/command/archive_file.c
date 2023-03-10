@@ -26,13 +26,16 @@
 #ifndef ARCHIVE_FILE_SOURCE
 #define ARCHIVE_FILE_SOURCE
 
-#include "../../constant/model/command/unix_command_model.c"
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/command_option/unix/archive_unix_command_option_name.c"
-#include "../../constant/name/cybol/logic/commander/archive_file_logic_cybol_name.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/memoriser/allocator/item_allocator.c"
 #include "../../executor/runner/executor.c"

@@ -28,8 +28,16 @@
 
 #include <winsock.h>
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/maintainer/starter/winsock/status_winsock_starter.c"
 #include "../../../../logger/logger.c"
 

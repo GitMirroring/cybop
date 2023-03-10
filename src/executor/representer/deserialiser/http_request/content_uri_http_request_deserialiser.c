@@ -26,13 +26,16 @@
 #ifndef CONTENT_URI_HTTP_REQUEST_DESERIALISER_SOURCE
 #define CONTENT_URI_HTTP_REQUEST_DESERIALISER_SOURCE
 
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../../constant/format/cybol/state/text_state_cybol_format.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/http/http_cyboi_name.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../executor/memoriser/allocator/part_allocator.c"
 #include "../../../../executor/memoriser/deallocator/array_deallocator.c"

@@ -26,9 +26,6 @@
 #ifndef BACKWARD_ELEMENTS_ARRAY_COPIER_SOURCE
 #define BACKWARD_ELEMENTS_ARRAY_COPIER_SOURCE
 
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"

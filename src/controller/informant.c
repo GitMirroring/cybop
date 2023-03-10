@@ -26,11 +26,6 @@
 #ifndef INFORMANT_SOURCE
 #define INFORMANT_SOURCE
 
-#include "../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../constant/model/cyboi/identification/identification_cyboi_model.c"
-#include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../executor/copier/array/forward_array_copier.c"
 #include "../executor/memoriser/allocator/item_allocator.c"
 #include "../executor/memoriser/deallocator/item_deallocator.c"

@@ -30,11 +30,6 @@
 // Executable interface
 //
 
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../../constant/format/cyboi/state_cyboi_format.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cybol/xml_cybol_name.c"
 #include "../../../../executor/converter/encoder/encoder.c"
 #include "../../../../executor/representer/deserialiser/cybol/part_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xml/xml_deserialiser.c"

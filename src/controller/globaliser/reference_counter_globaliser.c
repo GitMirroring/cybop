@@ -26,7 +26,6 @@
 #ifndef REFERENCE_COUNTER_GLOBALISER_SOURCE
 #define REFERENCE_COUNTER_GLOBALISER_SOURCE
 
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../variable/reference_counter.c"
 
 /**

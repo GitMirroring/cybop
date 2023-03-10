@@ -36,18 +36,13 @@
 // Library interface
 //
 
+#include "constant.h"
 #include "controller.h"
 
 //
 // Executable interface
 //
 
-#include "../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../constant/model/cyboi/operation_mode/operation_mode_cyboi_model.c"
-#include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../constant/type/cyboi/state_cyboi_type.c"
 //
 // CAUTION! This file "copier.c" is actually NOT needed but included anyway,
 // since it references file "item_allocator.c" which is needed here.

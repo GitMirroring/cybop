@@ -26,9 +26,15 @@
 #ifndef LEVEL_NAME_LOGGER_SOURCE
 #define LEVEL_NAME_LOGGER_SOURCE
 
-#include "../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../constant/model/cyboi/log/level_name_log_cyboi_model.c"
-#include "../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
 
 //
 // CAUTION! This logger uses some CYBOI functions so that

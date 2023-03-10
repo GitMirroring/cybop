@@ -26,8 +26,16 @@
 #ifndef LOOP_READER_SOURCE
 #define LOOP_READER_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../executor/streamer/reader/message_reader.c"
 #include "../../../logger/logger.c"

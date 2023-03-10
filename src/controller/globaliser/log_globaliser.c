@@ -26,9 +26,16 @@
 #ifndef LOG_GLOBALISER_SOURCE
 #define LOG_GLOBALISER_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../variable/type_size/integral_type_size.c"
 #include "../../variable/log_setting.c"
 

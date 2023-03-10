@@ -26,15 +26,16 @@
 #ifndef BEGIN_VALUE_JSON_SELECTOR_SOURCE
 #define BEGIN_VALUE_JSON_SELECTOR_SOURCE
 
-#include "../../../constant/format/cyboi/state_cyboi_format.c"
-#include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../constant/model/json/json_model.c"
-#include "../../../constant/name/json/json_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/modifier/appender/item/part_item_appender.c"

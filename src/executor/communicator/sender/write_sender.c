@@ -26,8 +26,16 @@
 #ifndef WRITE_SENDER_SOURCE
 #define WRITE_SENDER_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/streamer/writer/writer.c"
 #include "../../../logger/logger.c"
 

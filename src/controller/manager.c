@@ -26,14 +26,16 @@
 #ifndef MANAGER_SOURCE
 #define MANAGER_SOURCE
 
-#include "../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../constant/name/cyboi/state/part_state_cyboi_name.c"
-#include "../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../controller/initiator.c"
 #include "../executor/copier/array/forward_array_copier.c"
 #include "../executor/memoriser/allocator/internal_memory_allocator.c"

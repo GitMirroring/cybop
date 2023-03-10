@@ -26,10 +26,16 @@
 #ifndef CHARACTER_LOGIFIER_SOURCE
 #define CHARACTER_LOGIFIER_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../executor/logifier/character/and_character_logifier.c"
 #include "../../executor/logifier/character/not_character_logifier.c"
 #include "../../executor/logifier/character/or_character_logifier.c"
@@ -55,7 +61,7 @@ void logify_character(void* p0, void* p1, void* p2) {
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //AND
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) AND_LOGIFY_LOGIC_CYBOI_FORMAT);
@@ -91,7 +97,7 @@ void logify_character(void* p0, void* p1, void* p2) {
     }
 
     //NOR
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NOR_LOGIFY_LOGIC_CYBOI_FORMAT);
@@ -107,7 +113,7 @@ void logify_character(void* p0, void* p1, void* p2) {
         compare_integer_equal((void*) &r, p2, (void*) NOT_LOGIFY_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-        
+
             // CAUTION! Only ONE parametre is required.
             logify_character_not(p0);
         }
@@ -126,7 +132,7 @@ void logify_character(void* p0, void* p1, void* p2) {
     }
 
     //XNOR
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) XNOR_LOGIFY_LOGIC_CYBOI_FORMAT);
@@ -138,7 +144,7 @@ void logify_character(void* p0, void* p1, void* p2) {
     }
 
     //XOR
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) XOR_LOGIFY_LOGIC_CYBOI_FORMAT);

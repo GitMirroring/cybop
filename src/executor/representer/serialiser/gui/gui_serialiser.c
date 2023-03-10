@@ -26,12 +26,16 @@
 #ifndef GUI_SERIALISER_SOURCE
 #define GUI_SERIALISER_SOURCE
 
-#include "../../../../constant/format/cyboi/state_cyboi_format.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/converter/decoder/utf/utf_8_decoder.c"
 #include "../../../../executor/copier/array/forward_array_copier.c"

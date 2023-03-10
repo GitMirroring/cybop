@@ -26,11 +26,6 @@
 #ifndef MODE_COMMAND_LINE_SELECTOR_SOURCE
 #define MODE_COMMAND_LINE_SELECTOR_SOURCE
 
-#include "../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../constant/model/cyboi/operation_mode/operation_mode_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/name/cyboi/option/option_cyboi_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/checker/operation_checker.c"
 #include "../../../executor/modifier/item_modifier.c"
 #include "../../../executor/copier/integer_copier.c"

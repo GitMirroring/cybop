@@ -26,8 +26,16 @@
 #ifndef PROCESS_WIN32_CONSOLE_READER_SOURCE
 #define PROCESS_WIN32_CONSOLE_READER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/streamer/reader/win32_console/key_process_win32_console_reader.c"
 #include "../../../../executor/streamer/reader/win32_console/mouse_process_win32_console_reader.c"
 #include "../../../../executor/streamer/reader/win32_console/window_buffer_size_process_win32_console_reader.c"

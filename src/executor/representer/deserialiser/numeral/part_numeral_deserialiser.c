@@ -26,9 +26,16 @@
 #ifndef PART_NUMERAL_DESERIALISER_SOURCE
 #define PART_NUMERAL_DESERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/numeral/base_numeral_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../../executor/representer/deserialiser/numeral/decimals_numeral_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/numeral/power_numeral_deserialiser.c"

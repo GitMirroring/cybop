@@ -26,9 +26,16 @@
 #ifndef DECODER_SOURCE
 #define DECODER_SOURCE
 
-#include "../../../constant/encoding/cyboi/cyboi_encoding.c"
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/converter/decoder/base_64/base_64_decoder.c"
 #include "../../../executor/converter/decoder/dos/dos_decoder.c"
 #include "../../../executor/converter/decoder/iso_8859/iso_8859_decoder.c"

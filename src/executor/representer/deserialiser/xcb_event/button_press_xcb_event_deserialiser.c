@@ -28,12 +28,16 @@
 
 #include <xcb/xcb.h>
 
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/cybol/xcb/event_xcb_cybol_model.c"
-#include "../../../../constant/name/cybol/state/gui/event_gui_state_cybol_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/modifier/appender/item/part_item_appender.c"
 #include "../../../../logger/logger.c"
 

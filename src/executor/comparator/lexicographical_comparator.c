@@ -26,8 +26,16 @@
 #ifndef LEXICOGRAPHICAL_COMPARATOR_SOURCE
 #define LEXICOGRAPHICAL_COMPARATOR_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/comparator/scalar_count_comparator.c"
 #include "../../executor/comparator/vector_count_comparator.c"

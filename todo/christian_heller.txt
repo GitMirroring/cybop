@@ -11,12 +11,20 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+RegEx
+_____
+
+        * Replace sequence "level_log_cyboi_model.c" containing line break:
+            .*level_log_cyboi_model.c"\n+
+        * Replace sequence containing "#include" and "constant/" and line break:
+            #include+.+constant/+.*\n+
+
 Library
 _______
 
-        * Include file "constant.h" into all affected source code files
-        * Remove any include lines referencing the outdated directory "src/constant/"
-        * Delete directory "constant/" which has got replaced by "include/constant.h" referencing directory "include/constant/"
+        * Delete directory "variable/" which has got replaced by "include/variable.h" referencing directory "include/variable/"
+        * Include file "variable.h" in all affected source code files
+        * Remove any include lines referencing the outdated directory "src/variable/"
 
         TRY TO:
         * Remove keyword "static" before any constants in directory "constant/", since header files should not contain any static variables
@@ -27,8 +35,6 @@ _______
         * Verify correctness of function calls in file "operation_handler.c"
             for example in section "manipulate" function "calculate" is called instead
 
-        * Add shared library "constant"
-        * Add shared library "variable"
         * Add shared library "logger"
         * Add shared library "executor"
         * Add shared library "xml"

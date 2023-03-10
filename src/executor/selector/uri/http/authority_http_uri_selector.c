@@ -26,11 +26,6 @@
 #ifndef AUTHORITY_HTTP_URI_SELECTOR_SOURCE
 #define AUTHORITY_HTTP_URI_SELECTOR_SOURCE
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/uri/uri_cyboi_name.c"
-#include "../../../../constant/name/uri/separator_uri_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../executor/detector/detector.c"
 #include "../../../../executor/mover/mover.c"

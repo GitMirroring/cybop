@@ -37,9 +37,7 @@
     // The win32 api does not seem to define symbolic names for baudrates.
     // It does assign standard integer values instead:
     // http://msdn.microsoft.com/en-us/library/system.io.ports.serialport.baudrate%28v=vs.110%29.aspx?cs-save-lang=1&cs-lang=cpp#code-snippet-1
-    #include "../../../constant/model/cyboi/state/extra_integer_state_cyboi_model.c"
-    #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#else
+        #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 

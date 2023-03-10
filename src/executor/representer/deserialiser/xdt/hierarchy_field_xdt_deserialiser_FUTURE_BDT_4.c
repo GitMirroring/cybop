@@ -26,10 +26,17 @@
 #ifndef HIERARCHY_FIELD_XDT_DESERIALISER_SOURCE
 #define HIERARCHY_FIELD_XDT_DESERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/name/xdt/field_xdt_name.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+#include "xdt.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 

@@ -26,10 +26,16 @@
 #ifndef COMMAND_ANSI_ESCAPE_CODE_LENGTH_SELECTOR_SOURCE
 #define COMMAND_ANSI_ESCAPE_CODE_LENGTH_SELECTOR_SOURCE
 
-#include "../../../constant/model/ansi_escape_code/input_ansi_escape_code_model.c"
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/detector/detector.c"
 #include "../../../logger/logger.c"

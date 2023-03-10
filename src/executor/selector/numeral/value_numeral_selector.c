@@ -26,18 +26,16 @@
 #ifndef VALUE_NUMERAL_SELECTOR_SOURCE
 #define VALUE_NUMERAL_SELECTOR_SOURCE
 
-#include "../../../constant/format/cyboi/state_cyboi_format.c"
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/numeral/base_numeral_model.c"
-#include "../../../constant/name/numeral/decimal_numeral_name.c"
-#include "../../../constant/name/numeral/exponent_numeral_name.c"
-#include "../../../constant/name/numeral/fraction_numeral_name.c"
-#include "../../../constant/name/numeral/power_numeral_name.c"
-#include "../../../constant/name/numeral/sign_numeral_name.c"
-#include "../../../constant/name/numeral/thousands_numeral_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"

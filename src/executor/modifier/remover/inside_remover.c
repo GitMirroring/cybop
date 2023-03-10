@@ -26,10 +26,16 @@
 #ifndef INSIDE_REMOVER_SOURCE
 #define INSIDE_REMOVER_SOURCE
 
-#include "../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../../executor/memoriser/reallocator/array_reallocator.c"

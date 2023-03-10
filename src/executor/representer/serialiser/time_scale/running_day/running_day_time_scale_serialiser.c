@@ -26,7 +26,16 @@
 #ifndef RUNNING_DAY_TIME_SCALE_SERIALISER_SOURCE
 #define RUNNING_DAY_TIME_SCALE_SERIALISER_SOURCE
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../../executor/representer/serialiser/time_scale/running_day/day_running_day_time_scale_serialiser.c"
 #include "../../../../../executor/representer/serialiser/time_scale/running_day/month_running_day_time_scale_serialiser.c"
 #include "../../../../../logger/logger.c"

@@ -26,10 +26,16 @@
 #ifndef POSITION_LAYOUT_SERIALISER_SOURCE
 #define POSITION_LAYOUT_SERIALISER_SOURCE
 
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cybol/layout/layout_cybol_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/representer/serialiser/layout/absolute/position_absolute_layout_serialiser.c"
 #include "../../../../executor/representer/serialiser/layout/grid/position_grid_layout_serialiser.c"

@@ -26,9 +26,16 @@
 #ifndef CASTER_SOURCE
 #define CASTER_SOURCE
 
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../executor/caster/character_caster.c"
 #include "../../executor/caster/double_caster.c"
 #include "../../executor/caster/integer_caster.c"

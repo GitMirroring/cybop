@@ -26,11 +26,16 @@
 #ifndef JULIAN_DATE_TIME_SCALE_SERIALISER_SOURCE
 #define JULIAN_DATE_TIME_SCALE_SERIALISER_SOURCE
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/time_scale/duration_time_scale_model.c"
-#include "../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../constant/name/cyboi/state/datetime_state_cyboi_name.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../../executor/accessor/getter/datetime_getter.c"
 #include "../../../../../executor/calculator/double/add_double_calculator.c"
 #include "../../../../../executor/calculator/double/divide_double_calculator.c"

@@ -26,12 +26,16 @@
 #ifndef ELEMENT_LIST_FINDER_SOURCE
 #define ELEMENT_LIST_FINDER_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/copier/array/forward_array_copier.c"
 #include "../../logger/logger.c"

@@ -26,9 +26,16 @@
 #ifndef NEG_INTEGER_LOGIFIER_SOURCE
 #define NEG_INTEGER_LOGIFIER_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"
 
@@ -46,7 +53,7 @@ void logify_integer_neg(void* p0) {
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Logify integer neg.");
 
         *v = (~(*v))+1;
-    
+
     if(*v < 0){
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Value range exceeded");
     }

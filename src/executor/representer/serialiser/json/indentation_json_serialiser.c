@@ -26,8 +26,16 @@
 #ifndef INDENTATION_JSON_SERIALISER_SOURCE
 #define INDENTATION_JSON_SERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../../executor/representer/serialiser/json/level_json_serialiser.c"
 #include "../../../../logger/logger.c"

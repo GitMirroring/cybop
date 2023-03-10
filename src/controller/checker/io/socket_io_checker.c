@@ -26,10 +26,16 @@
 #ifndef SOCKET_IO_CHECKER_SOURCE
 #define SOCKET_IO_CHECKER_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../controller/checker/io/accept_io_checker.c"
 #include "../../../controller/checker/io/receive_io_checker.c"
 #include "../../../executor/copier/array/forward_array_copier.c"

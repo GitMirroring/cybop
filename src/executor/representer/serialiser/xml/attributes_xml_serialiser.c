@@ -26,11 +26,6 @@
 #ifndef ATTRIBUTES_XML_SERIALISER_SOURCE
 #define ATTRIBUTES_XML_SERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/representer/serialiser/xml/attribute_xml_serialiser.c"
 #include "../../../../logger/logger.c"

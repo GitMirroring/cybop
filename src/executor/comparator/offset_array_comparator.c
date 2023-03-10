@@ -26,8 +26,16 @@
 #ifndef OFFSET_ARRAY_COMPARATOR_SOURCE
 #define OFFSET_ARRAY_COMPARATOR_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../executor/comparator/array_comparator.c"
 #include "../../executor/memoriser/offset_adder.c"
 #include "../../logger/logger.c"

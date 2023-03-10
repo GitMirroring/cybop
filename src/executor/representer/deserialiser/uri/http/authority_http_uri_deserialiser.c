@@ -26,12 +26,16 @@
 #ifndef AUTHORITY_HTTP_URI_DESERIALISER_SOURCE
 #define AUTHORITY_HTTP_URI_DESERIALISER_SOURCE
 
-#include "../../../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../constant/name/cyboi/uri/uri_cyboi_name.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../../executor/modifier/part_modifier.c"
 #include "../../../../../executor/representer/deserialiser/http_request/append_http_request_deserialiser.c"
 #include "../../../../../executor/selector/uri/http/authority_http_uri_selector.c"

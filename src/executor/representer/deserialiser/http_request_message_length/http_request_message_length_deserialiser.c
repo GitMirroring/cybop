@@ -26,9 +26,16 @@
 #ifndef HTTP_REQUEST_MESSAGE_LENGTH_DESERIALISER_SOURCE
 #define HTTP_REQUEST_MESSAGE_LENGTH_DESERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/representer/deserialiser/blank_line_termination/blank_line_termination_deserialiser.c"

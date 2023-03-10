@@ -26,9 +26,6 @@
 #ifndef PROTOCOL_HTTP_RESPONSE_SERIALISER_SOURCE
 #define PROTOCOL_HTTP_RESPONSE_SERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/http/protocol_version_http_model.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 

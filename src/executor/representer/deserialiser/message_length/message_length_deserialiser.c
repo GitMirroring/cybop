@@ -26,9 +26,16 @@
 #ifndef MESSAGE_LENGTH_DESERIALISER_SOURCE
 #define MESSAGE_LENGTH_DESERIALISER_SOURCE
 
-#include "../../../../constant/language/cyboi/state_cyboi_language.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/representer/deserialiser/ansi_escape_code_length/ansi_escape_code_length_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/binary_crlf_termination/binary_crlf_termination_deserialiser.c"

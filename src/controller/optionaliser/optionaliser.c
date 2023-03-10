@@ -26,9 +26,16 @@
 #ifndef OPTIONALISER_SOURCE
 #define OPTIONALISER_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../controller/optionaliser/log_file_optionaliser.c"
 #include "../../executor/representer/deserialiser/command_line/command_line_deserialiser.c"
 #include "../../logger/logger.c"

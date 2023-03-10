@@ -26,58 +26,16 @@
 #ifndef FORMAT_CYBOL_SERIALISER_SOURCE
 #define FORMAT_CYBOL_SERIALISER_SOURCE
 
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../../constant/format/cyboi/state_cyboi_format.c"
-#include "../../../../constant/format/cybol/logic/access_logic_cybol_format.c"
-#include "../../../../constant/format/cybol/logic/activate_logic_cybol_format.c"
-#include "../../../../constant/format/cybol/logic/calculate_logic_cybol_format.c"
-#include "../../../../constant/format/cybol/logic/cast_logic_cybol_format.c"
-#include "../../../../constant/format/cybol/logic/check_logic_cybol_format.c"
-#include "../../../../constant/format/cybol/logic/command_logic_cybol_format.c"
-#include "../../../../constant/format/cybol/logic/communicate_logic_cybol_format.c"
-#include "../../../../constant/format/cybol/logic/compare_logic_cybol_format.c"
-#include "../../../../constant/format/cybol/logic/contain_logic_cybol_format.c"
-#include "../../../../constant/format/cybol/logic/convert_logic_cybol_format.c"
-#include "../../../../constant/format/cybol/logic/dispatch_logic_cybol_format.c"
-#include "../../../../constant/format/cybol/logic/flow_logic_cybol_format.c"
-#include "../../../../constant/format/cybol/logic/live_logic_cybol_format.c"
-#include "../../../../constant/format/cybol/logic/logify_logic_cybol_format.c"
-#include "../../../../constant/format/cybol/logic/maintain_logic_cybol_format.c"
-#include "../../../../constant/format/cybol/logic/manipulate_logic_cybol_format.c"
-#include "../../../../constant/format/cybol/logic/memorise_logic_cybol_format.c"
-#include "../../../../constant/format/cybol/logic/modify_logic_cybol_format.c"
-#include "../../../../constant/format/cybol/logic/randomise_logic_cybol_format.c"
-#include "../../../../constant/format/cybol/logic/represent_logic_cybol_format.c"
-#include "../../../../constant/format/cybol/logic/run_logic_cybol_format.c"
-#include "../../../../constant/format/cybol/logic/sort_logic_cybol_format.c"
-#include "../../../../constant/format/cybol/logic/stream_logic_cybol_format.c"
-#include "../../../../constant/format/cybol/logic/time_logic_cybol_format.c"
-#include "../../../../constant/format/cybol/state/application_state_cybol_format.c"
-#include "../../../../constant/format/cybol/state/application_vnd_state_cybol_format.c"
-#include "../../../../constant/format/cybol/state/application_x_state_cybol_format.c"
-#include "../../../../constant/format/cybol/state/audio_state_cybol_format.c"
-#include "../../../../constant/format/cybol/state/bluetooth_state_cybol_format.c"
-#include "../../../../constant/format/cybol/state/colour_state_cybol_format.c"
-#include "../../../../constant/format/cybol/state/datetime_state_cybol_format.c"
-#include "../../../../constant/format/cybol/state/duration_state_cybol_format.c"
-#include "../../../../constant/format/cybol/state/element_state_cybol_format.c"
-#include "../../../../constant/format/cybol/state/example_state_cybol_format.c"
-#include "../../../../constant/format/cybol/state/fonts_state_cybol_format.c"
-#include "../../../../constant/format/cybol/state/image_state_cybol_format.c"
-#include "../../../../constant/format/cybol/state/inode_state_cybol_format.c"
-#include "../../../../constant/format/cybol/state/logicvalue_state_cybol_format.c"
-#include "../../../../constant/format/cybol/state/media_state_cybol_format.c"
-#include "../../../../constant/format/cybol/state/meta_state_cybol_format.c"
-#include "../../../../constant/format/cybol/state/model_state_cybol_format.c"
-#include "../../../../constant/format/cybol/state/multipart_state_cybol_format.c"
-#include "../../../../constant/format/cybol/state/number_state_cybol_format.c"
-#include "../../../../constant/format/cybol/state/print_state_cybol_format.c"
-#include "../../../../constant/format/cybol/state/text_state_cybol_format.c"
-#include "../../../../constant/format/cybol/state/uri_state_cybol_format.c"
-#include "../../../../constant/format/cybol/state/video_state_cybol_format.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../logger/logger.c"

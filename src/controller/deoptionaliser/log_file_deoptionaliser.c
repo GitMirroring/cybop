@@ -28,7 +28,6 @@
 
 #include <stdio.h>
 
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../logger/logger.c"
 
 /**
@@ -57,7 +56,7 @@ void deoptionalise_log_file(void* p0) {
             int e = fclose(*f);
 
             if (e == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-                
+
                 // Reset log file pointer.
                 // CAUTION! Hand over the log file stream AS REFERENCE!
                 // This is necessary, because it is reset to null here.
@@ -65,24 +64,24 @@ void deoptionalise_log_file(void* p0) {
                 // because the null pointer test within the logger would be successful,
                 // even though the LOG_OUTPUT pointer would be invalid.
                 *f = *NULL_POINTER_STATE_CYBOI_MODEL;
-            
+
             } else {
-                
+
                 // An error occured.
 
                 if (e == EOF) {
 
                     fwprintf(stdout, L"Error: Could not deoptionalise log file. The error EOF was detected on closing the file. e: %i\n", e);
-                    
+
                     // CAUTION! DO NOT use logging functionality here!
                     // The logger will not work before its options are set.
                     // Do NOT show the following message, as it would only disturb the user!
                     // log_write((void*) stdout, L"Error: Could not deoptionalise log file. The error EOF was detected on closing the file.\n");
-                
+
                 } else {
-                    
+
                     fwprintf(stdout, L"Error: Could not deoptionalise log file. An unknown error was detected on closing the file. e: %i\n", e);
-                    
+
                     // CAUTION! DO NOT use logging functionality here!
                     // The logger will not work before its options are set.
                     // Do NOT show the following message, as it would only disturb the user!

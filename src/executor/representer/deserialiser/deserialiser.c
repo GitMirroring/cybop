@@ -36,10 +36,16 @@
 // Executable interface
 //
 
-#include "../../../constant/language/cyboi/state_cyboi_language.c"
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/modifier/item_modifier.c"
 #include "../../../executor/representer/deserialiser/authority/authority_deserialiser.c"
 #include "../../../executor/representer/deserialiser/binary_crlf/binary_crlf_deserialiser.c"

@@ -26,8 +26,16 @@
 #ifndef BACKWARD_ARRAY_COPIER_SOURCE
 #define BACKWARD_ARRAY_COPIER_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/copier/array/backward_elements_array_copier.c"
 #include "../../../executor/memoriser/offset_adder.c"
 #include "../../../logger/logger.c"

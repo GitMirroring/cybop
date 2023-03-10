@@ -26,9 +26,6 @@
 #ifndef FORWARD_ELEMENTS_ARRAY_COPIER_SOURCE
 #define FORWARD_ELEMENTS_ARRAY_COPIER_SOURCE
 
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/copier/offset_copier.c"

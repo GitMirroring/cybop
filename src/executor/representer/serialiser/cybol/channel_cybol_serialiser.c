@@ -26,13 +26,16 @@
 #ifndef CHANNEL_CYBOL_SERIALISER_SOURCE
 #define CHANNEL_CYBOL_SERIALISER_SOURCE
 
-#include "../../../../constant/channel/cybol/cybol_channel.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../../constant/format/cyboi/state_cyboi_format.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../logger/logger.c"

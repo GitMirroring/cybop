@@ -26,10 +26,16 @@
 #ifndef PART_HANDLER_SOURCE
 #define PART_HANDLER_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../controller/handler/element_handler.c"
 #include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../executor/comparator/integer/unequal_integer_comparator.c"

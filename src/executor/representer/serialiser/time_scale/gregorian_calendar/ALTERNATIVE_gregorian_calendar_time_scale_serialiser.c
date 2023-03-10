@@ -26,14 +26,16 @@
 #ifndef GREGORIAN_CALENDAR_TIME_SCALE_SERIALISER_SOURCE
 #define GREGORIAN_CALENDAR_TIME_SCALE_SERIALISER_SOURCE
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/model/time_scale/duration_time_scale_model.c"
-#include "../../../../../constant/name/cyboi/state/datetime_state_cyboi_name.c"
-#include "../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../../executor/calculator/double/add_double_calculator.c"
 #include "../../../../../executor/calculator/double/divide_double_calculator.c"
 #include "../../../../../executor/calculator/double/floor_double_calculator.c"

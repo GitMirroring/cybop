@@ -32,15 +32,16 @@
 #include <string.h>
 #include <wchar.h>
 
-#include "../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../constant/model/cyboi/log/level_name_log_cyboi_model.c"
-#include "../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../logger/level_name_logger.c"
 #include "../logger/write_logger.c"
 #include "../mapper/errno_to_message_mapper.c"

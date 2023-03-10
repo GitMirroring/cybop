@@ -26,8 +26,16 @@
 #ifndef FLAG_CSV_DESERIALISER_SOURCE
 #define FLAG_CSV_DESERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../../executor/representer/deserialiser/csv/header_csv_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/csv/index_csv_deserialiser.c"

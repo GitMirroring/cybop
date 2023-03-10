@@ -26,10 +26,16 @@
 #ifndef INTEGER_CONTAINER_SOURCE
 #define INTEGER_CONTAINER_SOURCE
 
-#include "../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/container/basic/integer/both_integer_container.c"
 #include "../../../executor/container/basic/integer/left_integer_container.c"
 #include "../../../executor/container/basic/integer/none_integer_container.c"

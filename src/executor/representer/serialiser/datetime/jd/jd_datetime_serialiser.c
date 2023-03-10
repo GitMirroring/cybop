@@ -26,8 +26,16 @@
 #ifndef JD_DATETIME_SERIALISER_SOURCE
 #define JD_DATETIME_SERIALISER_SOURCE
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/time_scale/julian_date_time_scale_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../../executor/representer/serialiser/datetime/jd/basic_jd_datetime_serialiser.c"
 #include "../../../../../logger/logger.c"
 

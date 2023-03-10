@@ -26,8 +26,16 @@
 #ifndef MESSAGE_READER_SOURCE
 #define MESSAGE_READER_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../executor/streamer/reader/completeness_reader.c"
 #include "../../../executor/streamer/reader/completion_reader.c"
 #include "../../../executor/streamer/reader/fragment_reader.c"

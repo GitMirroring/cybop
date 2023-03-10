@@ -26,11 +26,6 @@
 #ifndef ITEM_INDICATOR_SOURCE
 #define ITEM_INDICATOR_SOURCE
 
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
-#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../logger/logger.c"

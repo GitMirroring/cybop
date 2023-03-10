@@ -48,6 +48,10 @@ target_link_libraries(${BINARY_NAME}
 # Include file search path definition
 #
 
+target_include_directories(cyboi-xdt PUBLIC
+    "${ROOT_DIR}/include"
+)
+
 #target_include_directories(cyboi-executor PUBLIC
 #    "${ROOT_DIR}/include"
 #)

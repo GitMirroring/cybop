@@ -21,12 +21,14 @@
 2023-03-10  Christian Heller  <christian.heller@cybop.org>
 
         * Add shared library "applicator"
-        * Prepare shared libraries "constant", "variable", "logger"
         * Remove outdated and unused mingw and visualstudio from directory "include/"
         * Add global constants as header files to directory "include/constant/"
         * Add global variables as header files to directory "include/variable/"
         * Fix bugs in global constants
         * Remove suffix "_library" from header files in directory "include/"
+        * Delete directory "constant/" which has got replaced by "include/constant.h" referencing directory "include/constant/"
+        * Include file "constant.h" in all affected source code files
+        * Remove any include lines referencing the outdated directory "src/constant/"
 
 2023-03-09  Christian Heller  <christian.heller@cybop.org>
 

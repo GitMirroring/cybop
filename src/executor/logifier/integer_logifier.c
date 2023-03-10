@@ -26,10 +26,16 @@
 #ifndef INTEGER_LOGIFIER_SOURCE
 #define INTEGER_LOGIFIER_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../executor/logifier/integer/and_integer_logifier.c"
 #include "../../executor/logifier/integer/not_integer_logifier.c"
 #include "../../executor/logifier/integer/or_integer_logifier.c"

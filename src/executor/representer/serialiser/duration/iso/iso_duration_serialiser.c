@@ -26,7 +26,16 @@
 #ifndef ISO_DURATION_SERIALISER_SOURCE
 #define ISO_DURATION_SERIALISER_SOURCE
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../../logger/logger.c"
 
 /**

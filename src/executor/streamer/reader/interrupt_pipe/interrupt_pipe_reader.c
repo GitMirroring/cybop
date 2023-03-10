@@ -29,8 +29,16 @@
 #include <stddef.h> // size_t
 #include <unistd.h> // read
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../logger/logger.c"
 #include "../../../../variable/type_size/integral_type_size.c"
 #include "../../../../variable/type_size/pointer_type_size.c"

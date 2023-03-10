@@ -26,9 +26,16 @@
 #ifndef EXTENSION_DOS_DECODER_SOURCE
 #define EXTENSION_DOS_DECODER_SOURCE
 
-#include "../../../../constant/encoding/cyboi/cyboi_encoding.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/converter/decoder/dos/dos_437_decoder.c"
 #include "../../../../executor/converter/decoder/dos/dos_850_decoder.c"

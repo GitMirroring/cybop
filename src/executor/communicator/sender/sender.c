@@ -26,11 +26,16 @@
 #ifndef SENDER_SOURCE
 #define SENDER_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 //?? #include "../../../executor/communicator/sender/compress_sender.c"
 #include "../../../executor/communicator/sender/encode_sender.c"
 #include "../../../executor/communicator/sender/select_sender.c"

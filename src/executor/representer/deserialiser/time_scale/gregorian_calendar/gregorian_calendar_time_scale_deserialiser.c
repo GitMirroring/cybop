@@ -26,10 +26,16 @@
 #ifndef GREGORIAN_CALENDAR_TIME_SCALE_DESERIALISER_SOURCE
 #define GREGORIAN_CALENDAR_TIME_SCALE_DESERIALISER_SOURCE
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/name/cyboi/state/datetime_state_cyboi_name.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+
+//
+// Executable interface
+//
+
 #include "../../../../../executor/accessor/setter/datetime_setter.c"
 //?? #include "../../../../../executor/representer/deserialiser/time_scale/gregorian_calendar/ALTERNATIVE_julian_day_gregorian_calendar_time_scale_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/time_scale/gregorian_calendar/julian_day_gregorian_calendar_time_scale_deserialiser.c"
