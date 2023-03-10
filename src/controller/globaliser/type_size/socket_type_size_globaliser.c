@@ -26,6 +26,10 @@
 #ifndef SOCKET_TYPE_SIZE_GLOBALISER_SOURCE
 #define SOCKET_TYPE_SIZE_GLOBALISER_SOURCE
 
+//
+// System interface
+//
+
 #if defined(__linux__) || defined(__unix__)
     #include <netinet/in.h>
     #include <sys/un.h>
@@ -39,7 +43,11 @@
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
-#include "../../../variable/type_size/socket_type_size.c"
+//
+// Library interface
+//
+
+#include "variable.h"
 
 /**
  * Initialises socket type size global variables.

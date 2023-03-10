@@ -26,6 +26,10 @@
 #ifndef INET_HOST_ADDRESS_DESERIALISER_SOURCE
 #define INET_HOST_ADDRESS_DESERIALISER_SOURCE
 
+//
+// System interface
+//
+
 #include <stdint.h> // uint32_t
 
 #if defined(__linux__) || defined(__unix__)
@@ -47,6 +51,7 @@
 //
 
 #include "constant.h"
+#include "variable.h"
 
 //
 // Executable interface
@@ -59,7 +64,6 @@
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
 
 /**
  * Deserialises inet host address.

@@ -26,6 +26,10 @@
 #ifndef INTERRUPT_PIPE_READER_SOURCE
 #define INTERRUPT_PIPE_READER_SOURCE
 
+//
+// System interface
+//
+
 #include <stddef.h> // size_t
 #include <unistd.h> // read
 
@@ -34,14 +38,13 @@
 //
 
 #include "constant.h"
+#include "variable.h"
 
 //
 // Executable interface
 //
 
 #include "../../../../logger/logger.c"
-#include "../../../../variable/type_size/integral_type_size.c"
-#include "../../../../variable/type_size/pointer_type_size.c"
 
 /**
  * Reads message from interrupt pipe.

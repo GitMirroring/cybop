@@ -31,6 +31,7 @@
 //
 
 #include "constant.h"
+#include "variable.h"
 
 //
 // Executable interface
@@ -45,10 +46,6 @@
 #include "../../../../executor/representer/deserialiser/socket/protocol_socket_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/socket/style_socket_deserialiser.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
-#include "../../../../variable/symbolic_name/protocol_family_socket_symbolic_name.c"
-#include "../../../../variable/symbolic_name/protocol_socket_symbolic_name.c"
-#include "../../../../variable/symbolic_name/style_socket_symbolic_name.c"
 
 /**
  * Connects the given socket to the server given by the address.

@@ -27,27 +27,37 @@
 #define VARIABLE_HEADER
 
 //
-// Loading of a shared object (dynamic library)
-//
-// A shared object (.so) library gets loaded when needed
-// at runtime. This kind of loading happens AUTOMATICALLY.
-// The necessary machine language instructions got added to the
-// binary executable by the compiler and linker during translation.
+// symbolic_name
 //
 
+#include "variable/symbolic_name/address_family_socket_symbolic_name.h"
+#include "variable/symbolic_name/baudrate_serial_symbolic_name.h"
+#include "variable/symbolic_name/mutex_thread_symbolic_name.h"
+#include "variable/symbolic_name/protocol_family_socket_symbolic_name.h"
+#include "variable/symbolic_name/protocol_socket_symbolic_name.h"
+#include "variable/symbolic_name/style_socket_symbolic_name.h"
+
 //
-// Keyword "extern"
-//
-// A function is declared with storage class "extern"
-// by DEFAULT, even if the keyword "extern" is missing.
-// The keyword "extern" has NO influence on the source code in
-// terms of optimisation or the like and thus is NOT necessary.
-// It is just a HINT to the reader (developer) indicating that
-// the function is implemented in an EXTERNAL source file.
-// A COMMENT like this one can be used as hint, instead of that keyword.
+// type_size
 //
 
-void TODO(void* p0, void* p1);
+#include "variable/type_size/compound_type_size.h"
+#include "variable/type_size/display_type_size.h"
+#include "variable/type_size/integral_type_size.h"
+#include "variable/type_size/pointer_type_size.h"
+#include "variable/type_size/real_type_size.h"
+#include "variable/type_size/socket_type_size.h"
+#include "variable/type_size/terminal_type_size.h"
+#include "variable/type_size/thread_type_size.h"
+
+//
+// general
+//
+
+#include "variable/cmake_configuration.h"
+#include "variable/log_setting.h"
+#include "variable/reference_counter.h"
+#include "variable/thread_identification.h"
 
 /* VARIABLE_HEADER */
 #endif

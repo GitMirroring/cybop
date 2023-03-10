@@ -31,6 +31,7 @@
 //
 
 #include "constant.h"
+#include "variable.h"
 
 //
 // Executable interface
@@ -52,7 +53,6 @@
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 #include "../../../../logger/logger.c"
-#include "../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
 
 #if defined(__linux__) || defined(__unix__)
     #include "../../../../executor/memoriser/allocator/socket_address/local_socket_address_allocator.c"

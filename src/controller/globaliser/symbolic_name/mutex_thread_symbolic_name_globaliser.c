@@ -26,9 +26,17 @@
 #ifndef MUTEX_THREAD_SYMBOLIC_NAME_GLOBALISER_SOURCE
 #define MUTEX_THREAD_SYMBOLIC_NAME_GLOBALISER_SOURCE
 
+//
+// System interface
+//
+
 #include <threads.h> // mtx_*
 
-#include "../../../variable/symbolic_name/mutex_thread_symbolic_name.c"
+//
+// Library interface
+//
+
+#include "variable.h"
 
 //
 // The symbolic constants below were taken from file "threads.h".

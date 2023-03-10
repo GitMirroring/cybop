@@ -26,6 +26,10 @@
 #ifndef INET6_SOCKET_ADDRESS_ALLOCATOR_SOURCE
 #define INET6_SOCKET_ADDRESS_ALLOCATOR_SOURCE
 
+//
+// System interface
+//
+
 #include <string.h> // memset
 
 #if defined(__linux__) || defined(__unix__)
@@ -44,6 +48,7 @@
 //
 
 #include "constant.h"
+#include "variable.h"
 
 //
 // Executable interface
@@ -54,7 +59,6 @@
 #include "../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../executor/representer/deserialiser/host_address/inet6_host_address_deserialiser.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/type_size/socket_type_size.c"
 
 /**
  * Allocate inet6 socket address.

@@ -26,6 +26,10 @@
 #ifndef REGISTER_WIN32_DISPLAY_OPENER_SOURCE
 #define REGISTER_WIN32_DISPLAY_OPENER_SOURCE
 
+//
+// System interface
+//
+
 #include <windows.h>
 
 //
@@ -33,6 +37,7 @@
 //
 
 #include "constant.h"
+#include "variable.h"
 
 //
 // Executable interface
@@ -40,7 +45,6 @@
 
 #include "../../../../executor/representer/deserialiser/win32_display/callback_message_win32_display_deserialiser.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/type_size/display_type_size.c"
 
 /**
  * Registers the window class.

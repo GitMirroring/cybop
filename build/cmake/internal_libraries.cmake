@@ -67,4 +67,3 @@ target_include_directories(cyboi-controller PUBLIC
 target_include_directories(${BINARY_NAME} PUBLIC
     "${ROOT_DIR}/include"
 )
-

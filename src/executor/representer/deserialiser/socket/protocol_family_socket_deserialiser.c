@@ -26,6 +26,10 @@
 #ifndef PROTOCOL_FAMILY_SOCKET_DESERIALISER_SOURCE
 #define PROTOCOL_FAMILY_SOCKET_DESERIALISER_SOURCE
 
+//
+// System interface
+//
+
 #if defined(__linux__) || defined(__unix__)
     #include <sys/socket.h>
 #elif defined(__APPLE__) && defined(__MACH__)
@@ -42,6 +46,7 @@
 //
 
 #include "constant.h"
+#include "variable.h"
 
 //
 // Executable interface
@@ -50,8 +55,6 @@
 #include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
-#include "../../../../variable/symbolic_name/protocol_family_socket_symbolic_name.c"
 
 //
 // On the difference between prefix AF_ and PF_:

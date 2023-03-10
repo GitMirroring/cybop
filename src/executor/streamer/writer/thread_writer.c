@@ -26,6 +26,10 @@
 #ifndef THREAD_WRITER_SOURCE
 #define THREAD_WRITER_SOURCE
 
+//
+// System interface
+//
+
 #include <threads.h> // thrd_t
 
 //
@@ -33,6 +37,7 @@
 //
 
 #include "constant.h"
+#include "variable.h"
 
 //
 // Executable interface
@@ -41,7 +46,6 @@
 #include "../../../executor/streamer/writer/function_writer.c"
 #include "../../../executor/threader/spinner.c"
 #include "../../../logger/logger.c"
-#include "../../../variable/thread_identification.c"
 
 /**
  * Prepares the write thread.

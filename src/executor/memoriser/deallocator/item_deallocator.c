@@ -27,14 +27,11 @@
 #define ITEM_DEALLOCATOR_SOURCE
 
 //
-// Executable interface
-//
-
-//
 // Library interface
 //
 
 #include "constant.h"
+#include "variable.h"
 
 //
 // Executable interface
@@ -42,7 +39,6 @@
 
 #include "../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../logger/logger.c"
-#include "../../../variable/reference_counter.c"
 
 //
 // Forbidden includes

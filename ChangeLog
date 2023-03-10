@@ -29,6 +29,9 @@
         * Delete directory "constant/" which has got replaced by "include/constant.h" referencing directory "include/constant/"
         * Include file "constant.h" in all affected source code files
         * Remove any include lines referencing the outdated directory "src/constant/"
+        * Delete directory "variable/" which has got replaced by "include/variable.h" referencing directory "include/variable/"
+        * Include file "variable.h" in all affected source code files
+        * Remove any include lines referencing the outdated directory "src/variable/"
 
 2023-03-09  Christian Heller  <christian.heller@cybop.org>
 

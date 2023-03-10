@@ -26,6 +26,10 @@
 #ifndef MUTEX_ALLOCATOR_SOURCE
 #define MUTEX_ALLOCATOR_SOURCE
 
+//
+// System interface
+//
+
 #include <threads.h> // mtx_t, mtx_init, thrd_error
 
 //
@@ -33,6 +37,7 @@
 //
 
 #include "constant.h"
+#include "variable.h"
 
 //
 // Executable interface
@@ -40,7 +45,6 @@
 
 #include "../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../logger/logger.c"
-#include "../../../variable/symbolic_name/mutex_thread_symbolic_name.c"
 
 /**
  * Allocates the mutex.

@@ -33,13 +33,13 @@
 //
 
 #include "constant.h"
+#include "variable.h"
 
 //
 // Executable interface
 //
 
 #include "../../logger/logger.c"
-#include "../../variable/thread_identification.c"
 
 /**
  * Cuts the thread, that is wait for it to exit.

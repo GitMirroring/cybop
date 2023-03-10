@@ -31,6 +31,7 @@
 //
 
 #include "constant.h"
+#include "variable.h"
 
 //
 // Executable interface
@@ -40,7 +41,6 @@
 #include "../../../executor/copier/datetime_copier.c"
 #include "../../../executor/copier/pointer_copier.c"
 #include "../../../logger/logger.c"
-#include "../../../variable/type_size/compound_type_size.c"
 
 /**
  * Gets the source duration's element at the given index.

@@ -31,6 +31,7 @@
 //
 
 #include "constant.h"
+#include "variable.h"
 
 //
 // Executable interface
@@ -40,7 +41,6 @@
 #include "../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../logger/logger.c"
-#include "../../../variable/reference_counter.c"
 
 /**
  * Deallocates the part.

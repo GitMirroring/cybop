@@ -26,6 +26,10 @@
 #ifndef LIFECYCLE_SOCKET_STARTER_SOURCE
 #define LIFECYCLE_SOCKET_STARTER_SOURCE
 
+//
+// System interface
+//
+
 #if defined(__linux__) || defined(__unix__)
     #include <sys/socket.h>
 #elif defined(__APPLE__) && defined(__MACH__)
@@ -42,6 +46,7 @@
 //
 
 #include "constant.h"
+#include "variable.h"
 
 //
 // Executable interface
@@ -58,10 +63,6 @@
 #include "../../../../executor/representer/deserialiser/socket/protocol_socket_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/socket/style_socket_deserialiser.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
-#include "../../../../variable/symbolic_name/protocol_family_socket_symbolic_name.c"
-#include "../../../../variable/symbolic_name/protocol_socket_symbolic_name.c"
-#include "../../../../variable/symbolic_name/style_socket_symbolic_name.c"
 
 /**
  * Starts up server socket lifecycle.

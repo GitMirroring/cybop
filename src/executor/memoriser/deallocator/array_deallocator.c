@@ -26,6 +26,10 @@
 #ifndef ARRAY_DEALLOCATOR_SOURCE
 #define ARRAY_DEALLOCATOR_SOURCE
 
+//
+// System interface
+//
+
 #include <stdlib.h> // free
 
 //
@@ -33,13 +37,13 @@
 //
 
 #include "constant.h"
+#include "variable.h"
 
 //
 // Executable interface
 //
 
 #include "../../../logger/logger.c"
-#include "../../../variable/reference_counter.c"
 
 /**
  * Deallocates the array.

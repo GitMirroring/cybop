@@ -26,6 +26,10 @@
 #ifndef TERMINAL_TYPE_SIZE_GLOBALISER_SOURCE
 #define TERMINAL_TYPE_SIZE_GLOBALISER_SOURCE
 
+//
+// System interface
+//
+
 #if defined(__linux__) || defined(__unix__)
     #include <termios.h>
 #elif defined(__APPLE__) && defined(__MACH__)
@@ -37,8 +41,11 @@
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
-#include "../../../variable/type_size/integral_type_size.c"
-#include "../../../variable/type_size/terminal_type_size.c"
+//
+// Library interface
+//
+
+#include "variable.h"
 
 /**
  * Initialises terminal type size global variables.

@@ -31,6 +31,7 @@
 //
 
 #include "constant.h"
+#include "variable.h"
 
 //
 // Executable interface
@@ -40,7 +41,6 @@
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../logger/logger.c"
-#include "../../../variable/reference_counter.c"
 
 /**
  * Allocates the item.

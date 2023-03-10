@@ -31,13 +31,7 @@
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../variable/type_size/integral_type_size.c"
-#include "../../variable/log_setting.c"
+#include "variable.h"
 
 /**
  * Initialises log global variables.

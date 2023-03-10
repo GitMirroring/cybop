@@ -26,6 +26,10 @@
 #ifndef LOCAL_SOCKET_ADDRESS_SETTER_SOURCE
 #define LOCAL_SOCKET_ADDRESS_SETTER_SOURCE
 
+//
+// System interface
+//
+
 #if defined(__linux__) || defined(__unix__)
     #include <sys/socket.h>
 #elif defined(__APPLE__) && defined(__MACH__)
@@ -42,6 +46,7 @@
 //
 
 #include "constant.h"
+#include "variable.h"
 
 //
 // Executable interface
@@ -52,7 +57,6 @@
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
 
 /**
  * Sets the local socket address.

@@ -30,7 +30,6 @@
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/mover/mover.c"
 #include "../../../logger/logger.c"
-#include "../../../variable/type_size/integral_type_size.c"
 
 /**
  * Selects the authority password.

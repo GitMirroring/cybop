@@ -22,9 +22,13 @@ _____
 Library
 _______
 
-        * Delete directory "variable/" which has got replaced by "include/variable.h" referencing directory "include/variable/"
-        * Include file "variable.h" in all affected source code files
-        * Remove any include lines referencing the outdated directory "src/variable/"
+        * Add shared library "logger"
+        * Add shared library "executor"
+        * Add shared library "xml"
+        * Add shared library "json"
+
+        * Check for new cmake ideas
+            https://iamsorush.com/posts/cpp-cmake-build/
 
         TRY TO:
         * Remove keyword "static" before any constants in directory "constant/", since header files should not contain any static variables
@@ -34,14 +38,6 @@ _______
 
         * Verify correctness of function calls in file "operation_handler.c"
             for example in section "manipulate" function "calculate" is called instead
-
-        * Add shared library "logger"
-        * Add shared library "executor"
-        * Add shared library "xml"
-        * Add shared library "json"
-
-        * Check for new cmake ideas
-            https://iamsorush.com/posts/cpp-cmake-build/
 
         * Release CYBOP 0.26.0
 

@@ -26,6 +26,10 @@
 #ifndef LOGGER_SOURCE
 #define LOGGER_SOURCE
 
+//
+// System interface
+//
+
 #include <stddef.h> // wchar_t
 #include <stdio.h> // stdout, fwprintf
 #include <stdlib.h>
@@ -37,6 +41,7 @@
 //
 
 #include "constant.h"
+#include "variable.h"
 
 //
 // Executable interface
@@ -45,7 +50,6 @@
 #include "../logger/level_name_logger.c"
 #include "../logger/write_logger.c"
 #include "../mapper/errno_to_message_mapper.c"
-#include "../variable/log_setting.c"
 
 #if defined(__linux__) || defined(__unix__)
     // empty

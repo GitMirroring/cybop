@@ -58,13 +58,16 @@ void sleep_nano(void* p0) {
 
         int* d = (int*) p0;
 
+        //
         // CAUTION! DO NOT log this function call!
         // This function is executed within a thread, but the
         // logging is not guaranteed to be thread-safe and might
         // cause unpredictable programme behaviour.
+        //
         // Also, this function runs in an endless loop and would produce huge log files.
         //
         // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sleep nano.");
+        //
 
         // The duration value must be in the range 0 to 999,999,999 nanoseconds.
         if (*d >= 0) {
@@ -79,14 +82,18 @@ void sleep_nano(void* p0) {
                 // Assign duration in nanoseconds.
                 t.tv_nsec = *d;
 
+                //
                 // Initialise error number.
+                //
                 // It is a global variable/ function and other operations
                 // may have set some value that is not wanted here.
                 //
                 // CAUTION! Initialise the error number BEFORE calling
                 // the function that might cause an error.
+                //
                 copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
+                //
                 // Suspend execution of this thread.
                 //
                 // CAUTION! The POSIX.1-2001 standard declares
@@ -97,11 +104,15 @@ void sleep_nano(void* p0) {
                 // If the second parametre is null, then the
                 // remaining time is just NOT remembered,
                 // which is not needed here anyway.
+                //
                 int e = nanosleep(&t, *NULL_POINTER_STATE_CYBOI_MODEL);
 
+                //
                 // Test error value.
+                //
                 // The return value of the "nanosleep" function is zero
                 // if no error occurred; otherwise, it is minus one.
+                //
                 if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     if (errno == EFAULT) {
@@ -128,37 +139,46 @@ void sleep_nano(void* p0) {
 
             } else {
 
+                //
                 // CAUTION! DO NOT log this function call!
                 // This function is executed within a thread, but the
                 // logging is not guaranteed to be thread-safe and might
                 // cause unpredictable programme behaviour.
+                //
                 // Also, this function runs in an endless loop and would produce huge log files.
                 //
                 // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sleep. The duration is negative.");
+                //
                 fwprintf(stdout, L"Error: Could not sleep nano. The duration is greater than the limit of 1,000,000,000.\n");
             }
 
         } else {
 
+            //
             // CAUTION! DO NOT log this function call!
             // This function is executed within a thread, but the
             // logging is not guaranteed to be thread-safe and might
             // cause unpredictable programme behaviour.
+            //
             // Also, this function runs in an endless loop and would produce huge log files.
             //
             // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sleep. The duration is negative.");
+            //
             fwprintf(stdout, L"Error: Could not sleep nano. The duration is negative.\n");
         }
 
     } else {
 
+        //
         // CAUTION! DO NOT log this function call!
         // This function is executed within a thread, but the
         // logging is not guaranteed to be thread-safe and might
         // cause unpredictable programme behaviour.
+        //
         // Also, this function runs in an endless loop and would produce huge log files.
         //
         // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sleep. The duration is null.");
+        //
         fwprintf(stdout, L"Error: Could not sleep nano. The duration is null.\n");
     }
 }

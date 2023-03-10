@@ -26,6 +26,10 @@
 #ifndef EXCLUSIVE_INTERRUPT_PIPE_WRITER_SOURCE
 #define EXCLUSIVE_INTERRUPT_PIPE_WRITER_SOURCE
 
+//
+// System interface
+//
+
 #include <stddef.h> // size_t
 #include <unistd.h> // write
 
@@ -34,6 +38,7 @@
 //
 
 #include "constant.h"
+#include "variable.h"
 
 //
 // Executable interface
@@ -42,8 +47,6 @@
 #include "../../../../executor/porter/locker.c"
 #include "../../../../executor/porter/unlocker.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/type_size/integral_type_size.c"
-#include "../../../../variable/type_size/pointer_type_size.c"
 
 /**
  * Locks the mutex and writes the handler to the interrupt pipe.

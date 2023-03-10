@@ -26,6 +26,10 @@
 #ifndef SPINNER_SOURCE
 #define SPINNER_SOURCE
 
+//
+// System interface
+//
+
 #include <threads.h> // thrd_start_t, thrd_t, thrd_equal, thrd_create
 
 //
@@ -33,13 +37,13 @@
 //
 
 #include "constant.h"
+#include "variable.h"
 
 //
 // Executable interface
 //
 
 #include "../../logger/logger.c"
-#include "../../variable/thread_identification.c"
 
 /**
  * Spins the thread, that is create it.

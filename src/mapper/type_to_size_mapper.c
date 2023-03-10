@@ -31,6 +31,7 @@
 //
 
 #include "constant.h"
+#include "variable.h"
 
 //
 // Executable interface
@@ -38,13 +39,6 @@
 
 #include "../executor/copier/integer_copier.c"
 #include "../logger/logger.c"
-#include "../variable/type_size/compound_type_size.c"
-#include "../variable/type_size/integral_type_size.c"
-#include "../variable/type_size/pointer_type_size.c"
-#include "../variable/type_size/real_type_size.c"
-#include "../variable/type_size/socket_type_size.c"
-#include "../variable/type_size/terminal_type_size.c"
-#include "../variable/type_size/thread_type_size.c"
 
 /**
  * Maps the data type to a size.

@@ -31,7 +31,6 @@
 #include "../../../executor/mover/mover.c"
 #include "../../../executor/representer/deserialiser/authority/port_authority_deserialiser.c"
 #include "../../../logger/logger.c"
-#include "../../../variable/type_size/integral_type_size.c"
 
 /**
  * Selects the authority hostname.

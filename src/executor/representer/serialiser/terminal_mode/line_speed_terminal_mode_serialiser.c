@@ -31,6 +31,7 @@
 //
 
 #include "constant.h"
+#include "variable.h"
 
 //
 // Executable interface
@@ -38,7 +39,6 @@
 
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/symbolic_name/baudrate_serial_symbolic_name.c"
 
 /**
  * Serialises integer data into terminal mode line speed.

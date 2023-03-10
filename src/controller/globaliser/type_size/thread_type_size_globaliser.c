@@ -26,9 +26,17 @@
 #ifndef THREAD_TYPE_SIZE_GLOBALISER_SOURCE
 #define THREAD_TYPE_SIZE_GLOBALISER_SOURCE
 
+//
+// System interface
+//
+
 #include <threads.h> // thrd_t, mtx_t
 
-#include "../../../variable/type_size/thread_type_size.c"
+//
+// Library interface
+//
+
+#include "variable.h"
 
 /**
  * Initialises thread type size global variables.

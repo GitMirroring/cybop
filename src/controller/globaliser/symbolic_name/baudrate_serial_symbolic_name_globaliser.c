@@ -26,7 +26,9 @@
 #ifndef BAUDRATE_SERIAL_SYMBOLIC_NAME_GLOBALISER_SOURCE
 #define BAUDRATE_SERIAL_SYMBOLIC_NAME_GLOBALISER_SOURCE
 
-#include "../../../variable/symbolic_name/baudrate_serial_symbolic_name.c"
+//
+// System interface
+//
 
 #if defined(__linux__) || defined(__unix__)
     #include <termios.h>
@@ -40,6 +42,12 @@
         #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
+
+//
+// Library interface
+//
+
+#include "variable.h"
 
 //
 // The baudrates below were mostly taken from:

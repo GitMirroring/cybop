@@ -165,7 +165,7 @@ void execute(void* p0, void* p1) {
     //
     // Initialise error number.
     //
-    // It is a global variable/ function and other operations
+    // It is a global variable/function and other operations
     // may have set some value that is not wanted here.
     //
     errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -313,7 +313,7 @@ void execute(void* p0, void* p1) {
         //
         // Initialise error number.
         //
-        // It is a global variable/ function and other operations
+        // It is a global variable/function and other operations
         // may have set some value that is not wanted here.
         //
         errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;

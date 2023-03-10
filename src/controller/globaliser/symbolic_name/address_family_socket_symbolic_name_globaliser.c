@@ -26,6 +26,10 @@
 #ifndef ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_GLOBALISER_SOURCE
 #define ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_GLOBALISER_SOURCE
 
+//
+// System interface
+//
+
 #if defined(__linux__) || defined(__unix__)
     #include <sys/socket.h>
 #elif defined(__APPLE__) && defined(__MACH__)
@@ -37,7 +41,11 @@
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
-#include "../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
+//
+// Library interface
+//
+
+#include "variable.h"
 
 //
 // The C header file "sys/socket.h" does not actually define

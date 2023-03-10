@@ -31,7 +31,7 @@ cybop=".."
 # CAUTION! Do NOT mention this file "adjust_copyright.sh" itself since
 # otherwise, the tabulation character below will get replaced by spaces.
 #
-input="$cybop/src $cybop/todo $cybop/AUTHORS $cybop/ChangeLog $cybop/COPYING $cybop/INSTALL $cybop/NEWS $cybop/README"
+input="$cybop/build $cybop/include $cybop/src $cybop/todo $cybop/AUTHORS $cybop/ChangeLog $cybop/COPYING $cybop/INSTALL $cybop/NEWS $cybop/README"
 #
 # The filter using wild cards which get
 # replaced, what is called "globbing".

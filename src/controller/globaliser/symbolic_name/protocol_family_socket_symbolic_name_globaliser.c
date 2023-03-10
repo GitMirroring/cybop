@@ -26,8 +26,11 @@
 #ifndef PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME_GLOBALISER_SOURCE
 #define PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME_GLOBALISER_SOURCE
 
-#include "../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
-#include "../../../variable/symbolic_name/protocol_family_socket_symbolic_name.c"
+//
+// Library interface
+//
+
+#include "variable.h"
 
 //
 // The C header file "sys/socket.h" does not actually define

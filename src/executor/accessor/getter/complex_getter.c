@@ -31,6 +31,7 @@
 //
 
 #include "constant.h"
+#include "variable.h"
 
 //
 // Executable interface
@@ -40,7 +41,6 @@
 #include "../../../executor/copier/double_copier.c"
 #include "../../../executor/copier/pointer_copier.c"
 #include "../../../logger/logger.c"
-#include "../../../variable/type_size/real_type_size.c"
 
 /**
  * Gets the source complex's element at the given index.

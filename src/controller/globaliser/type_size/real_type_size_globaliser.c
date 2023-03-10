@@ -26,7 +26,11 @@
 #ifndef REAL_TYPE_SIZE_GLOBALISER_SOURCE
 #define REAL_TYPE_SIZE_GLOBALISER_SOURCE
 
-#include "../../../variable/type_size/real_type_size.c"
+//
+// Library interface
+//
+
+#include "variable.h"
 
 /**
  * Initialises real type size global variables.

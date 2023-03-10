@@ -26,6 +26,10 @@
 #ifndef ARRAY_ALLOCATOR_SOURCE
 #define ARRAY_ALLOCATOR_SOURCE
 
+//
+// System interface
+//
+
 #include <stdlib.h> // malloc
 #include <string.h> // memset
 
@@ -34,6 +38,7 @@
 //
 
 #include "constant.h"
+#include "variable.h"
 
 //
 // Executable interface
@@ -42,7 +47,6 @@
 #include "../../../executor/calculator/integer/multiply_integer_calculator.c"
 #include "../../../logger/logger.c"
 #include "../../../mapper/type_to_size_mapper.c"
-#include "../../../variable/reference_counter.c"
 
 /**
  * Allocates the array.

@@ -26,6 +26,10 @@
 #ifndef STYLE_SOCKET_DESERIALISER_SOURCE
 #define STYLE_SOCKET_DESERIALISER_SOURCE
 
+//
+// System interface
+//
+
 #if defined(__linux__) || defined(__unix__)
     #include <sys/socket.h>
 #elif defined(__APPLE__) && defined(__MACH__)
@@ -42,6 +46,7 @@
 //
 
 #include "constant.h"
+#include "variable.h"
 
 //
 // Executable interface
@@ -50,7 +55,6 @@
 #include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/symbolic_name/style_socket_symbolic_name.c"
 
 /**
  * Converts communication style string into integer.

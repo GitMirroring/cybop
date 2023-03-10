@@ -26,7 +26,11 @@
 #ifndef POINTER_TYPE_SIZE_GLOBALISER_SOURCE
 #define POINTER_TYPE_SIZE_GLOBALISER_SOURCE
 
-#include "../../../variable/type_size/pointer_type_size.c"
+//
+// Library interface
+//
+
+#include "variable.h"
 
 /**
  * Initialises pointer type size global variables.

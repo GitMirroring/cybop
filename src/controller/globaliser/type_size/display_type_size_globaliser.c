@@ -26,6 +26,10 @@
 #ifndef DISPLAY_TYPE_SIZE_GLOBALISER_SOURCE
 #define DISPLAY_TYPE_SIZE_GLOBALISER_SOURCE
 
+//
+// System interface
+//
+
 #if defined(__linux__) || defined(__unix__)
 #elif defined(__APPLE__) && defined(__MACH__)
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
@@ -35,7 +39,11 @@
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
-#include "../../../variable/type_size/display_type_size.c"
+//
+// Library interface
+//
+
+#include "variable.h"
 
 /**
  * Initialises display type size global variables.

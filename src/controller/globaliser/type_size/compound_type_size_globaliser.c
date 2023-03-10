@@ -26,10 +26,11 @@
 #ifndef COMPOUND_TYPE_SIZE_GLOBALISER_SOURCE
 #define COMPOUND_TYPE_SIZE_GLOBALISER_SOURCE
 
-#include "../../../variable/type_size/compound_type_size.c"
-#include "../../../variable/type_size/integral_type_size.c"
-#include "../../../variable/type_size/pointer_type_size.c"
-#include "../../../variable/type_size/real_type_size.c"
+//
+// Library interface
+//
+
+#include "variable.h"
 
 /**
  * Initialises compound type size global variables.

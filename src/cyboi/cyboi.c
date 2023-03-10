@@ -38,6 +38,7 @@
 
 #include "constant.h"
 #include "controller.h"
+#include "variable.h"
 
 //
 // Executable interface
@@ -57,13 +58,6 @@
 //
 #include "../executor/memoriser/deallocator/item_deallocator.c"
 #include "../logger/logger.c"
-#include "../variable/log_setting.c"
-
-//
-// Testing functionality
-//
-
-//?? #include "../variable/reference_counter.c"
 
 //
 // Windows specific stuff

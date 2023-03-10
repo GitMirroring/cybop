@@ -26,7 +26,11 @@
 #ifndef REFERENCE_COUNTER_GLOBALISER_SOURCE
 #define REFERENCE_COUNTER_GLOBALISER_SOURCE
 
-#include "../../variable/reference_counter.c"
+//
+// Library interface
+//
+
+#include "variable.h"
 
 /**
  * Initialises reference counter global variables.
