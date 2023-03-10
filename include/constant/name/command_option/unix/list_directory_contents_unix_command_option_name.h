@@ -1,0 +1,66 @@
+/*
+ * Copyright (C) 1999-2023. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.25.0 2023-03-01
+ * @author Christian Heller <christian.heller@cybop.org>
+ */
+
+#ifndef LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME_CONSTANT_HEADER
+#define LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME_CONSTANT_HEADER
+
+#include <stddef.h>
+
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+
+/** The all list directory contents unix command option name. */
+static wchar_t* ALL_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME = L"--all";
+static int* ALL_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The almost-all list directory contents unix command option name. */
+static wchar_t* ALMOST_ALL_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME = L"--almost-all";
+static int* ALMOST_ALL_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The long list directory contents unix command option name. */
+static wchar_t* LONG_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME = L"-l";
+static int* LONG_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The one row per entry list directory contents unix command option name. */
+static wchar_t* ONE_ROW_PER_ENTRY_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME = L"-1";
+static int* ONE_ROW_PER_ENTRY_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The recursive list directory contents unix command option name. */
+static wchar_t* RECURSIVE_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME = L"-R";
+static int* RECURSIVE_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The sort by file size list directory contents unix command option name. */
+static wchar_t* SORT_BY_FILE_SIZE_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME = L"-S";
+static int* SORT_BY_FILE_SIZE_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The sort by modification time list directory contents unix command option name. */
+static wchar_t* SORT_BY_MODIFICATION_TIME_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME = L"-t";
+static int* SORT_BY_MODIFICATION_TIME_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The sort by file extension list directory contents unix command option name. */
+static wchar_t* SORT_BY_FILE_EXTENSION_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME = L"-X";
+static int* SORT_BY_FILE_EXTENSION_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/* LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME_CONSTANT_HEADER */
+#endif
