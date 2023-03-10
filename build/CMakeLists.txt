@@ -46,11 +46,11 @@ string(CONCAT COPYRIGHT_INFO "Copyright (C) 1999-" ${CURRENT_YEAR} ". Christian 
 # Set project root directory.
 set(ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/.." CACHE PATH "root dir" FORCE)
 
-# Set cyboi executable cyboi sources.
-set(CYBOI_EXECUTABLE_CYBOI_SOURCES ${ROOT_DIR}/src/cyboi/cyboi.c)
+# Set cyboi executable sources.
+set(CYBOI_EXECUTABLE_SOURCES ${ROOT_DIR}/src/cyboi/cyboi.c)
 
 #
-# Set library cyboi sources.
+# Set cyboi library sources.
 #
 # CAUTION! The instruction "add_library" of file "CMakeLists.txt" expects
 # a list of all relevant source files to be added to the library.
@@ -73,9 +73,13 @@ set(CYBOI_EXECUTABLE_CYBOI_SOURCES ${ROOT_DIR}/src/cyboi/cyboi.c)
 # 2 Dependencies: They are straightforward and clear between implementation files.
 # 3 Simplicity: Other languages like java do not use header files either.
 #
-set(APPLICATOR_LIBRARY_CYBOI_SOURCES ${ROOT_DIR}/src/library/applicator_library.c)
-set(CONTROLLER_LIBRARY_CYBOI_SOURCES ${ROOT_DIR}/src/library/controller_library.c)
-set(XDT_LIBRARY_CYBOI_SOURCES ${ROOT_DIR}/src/library/xdt_library.c)
+#set(CONSTANT_CYBOI_LIBRARY_SOURCES ${ROOT_DIR}/src/library/constant_library.c)
+#set(VARIABLE_CYBOI_LIBRARY_SOURCES ${ROOT_DIR}/src/library/variable_library.c)
+#set(LOGGER_CYBOI_LIBRARY_SOURCES ${ROOT_DIR}/src/library/logger_library.c)
+set(XDT_CYBOI_LIBRARY_SOURCES ${ROOT_DIR}/src/library/xdt_library.c)
+#set(EXECUTOR_CYBOI_LIBRARY_SOURCES ${ROOT_DIR}/src/library/executor_library.c)
+set(APPLICATOR_CYBOI_LIBRARY_SOURCES ${ROOT_DIR}/src/library/applicator_library.c)
+set(CONTROLLER_CYBOI_LIBRARY_SOURCES ${ROOT_DIR}/src/library/controller_library.c)
 
 #
 # Define filesystem paths for output files.
@@ -120,12 +124,16 @@ configure_file(cmake_configuration.c.in ${ROOT_DIR}/src/variable/cmake_configura
 # Define only "xdt" and NOT "libxdt" as name since otherwise,
 # the resulting name would be "liblibxdt".
 #
-add_library(xdt SHARED ${XDT_LIBRARY_CYBOI_SOURCES})
-add_library(applicator SHARED ${APPLICATOR_LIBRARY_CYBOI_SOURCES})
-add_library(controller SHARED ${CONTROLLER_LIBRARY_CYBOI_SOURCES})
+#add_library(cyboi-constant SHARED ${CONSTANT_CYBOI_LIBRARY_SOURCES})
+#add_library(cyboi-variable SHARED ${VARIABLE_CYBOI_LIBRARY_SOURCES})
+#add_library(cyboi-logger SHARED ${LOGGER_CYBOI_LIBRARY_SOURCES})
+add_library(cyboi-xdt SHARED ${XDT_CYBOI_LIBRARY_SOURCES})
+#add_library(cyboi-executor SHARED ${EXECUTOR_CYBOI_LIBRARY_SOURCES})
+add_library(cyboi-applicator SHARED ${APPLICATOR_CYBOI_LIBRARY_SOURCES})
+add_library(cyboi-controller SHARED ${CONTROLLER_CYBOI_LIBRARY_SOURCES})
 
 # Add executable to be created by make.
-add_executable(${BINARY_NAME} ${CYBOI_EXECUTABLE_CYBOI_SOURCES})
+add_executable(${BINARY_NAME} ${CYBOI_EXECUTABLE_SOURCES})
 
 # Add make target.
 add_custom_target(clean-all

@@ -27,27 +27,44 @@
 # Library linking
 #
 
-target_link_libraries(applicator
-    xdt
+#target_link_libraries(cyboi-xdt
+#    cyboi-constant
+#)
+
+#target_link_libraries(cyboi-executor
+#    cyboi-xdt
+#)
+
+target_link_libraries(cyboi-applicator
+#    cyboi-executor
+    cyboi-xdt
 )
 
-target_link_libraries(controller
-    applicator
+target_link_libraries(cyboi-controller
+    cyboi-applicator
 )
 
 target_link_libraries(${BINARY_NAME}
-    controller
+    cyboi-controller
 )
 
 #
 # Include file search path definition
 #
 
-target_include_directories(applicator PUBLIC
+#target_include_directories(cyboi-xdt PUBLIC
+#    "${ROOT_DIR}/include"
+#)
+
+#target_include_directories(cyboi-executor PUBLIC
+#    "${ROOT_DIR}/include"
+#)
+
+target_include_directories(cyboi-applicator PUBLIC
     "${ROOT_DIR}/include"
 )
 
-target_include_directories(controller PUBLIC
+target_include_directories(cyboi-controller PUBLIC
     "${ROOT_DIR}/include"
 )
 

@@ -21,6 +21,7 @@
 2023-03-10  Christian Heller  <christian.heller@cybop.org>
 
         * Add shared library "applicator"
+        * Prepare shared libraries "constant", "variable", "logger"
 
 2023-03-09  Christian Heller  <christian.heller@cybop.org>
 

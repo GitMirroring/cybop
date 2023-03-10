@@ -17,6 +17,9 @@ _______
         * Verify correctness of function calls in file "operation_handler.c"
             for example in section "manipulate" function "calculate" is called instead
 
+        * Add shared library "constant"
+        * Add shared library "variable"
+        * Add shared library "logger"
         * Add shared library "executor"
         * Add shared library "xml"
         * Add shared library "json"
@@ -26,6 +29,7 @@ _______
 
         * Release CYBOP 0.26.0
 
+        * Provide something like an "initialise_library" function to set up global variables, knowledge memory etc. which are necessary when using for example the xdt library standalone only
         * Try to include and use a cyboi shared library in a qt application
         * Provide knowledge memory, stack memory etc. as global variables, so that applications external to cyboi may use them
             Within cyboi, these memory variables may be forwarded as parametre (argument) as was done up to now.
