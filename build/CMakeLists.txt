@@ -94,7 +94,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${ROOT_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${ROOT_DIR}/bin)
 
 # Configure file with macros to pass values to cyboi source code.
-configure_file(cmake_configuration.c.in ${ROOT_DIR}/src/variable/cmake_configuration.c)
+configure_file(cmake_configuration.h.in ${ROOT_DIR}/include/variable/cmake_configuration.h)
 
 #
 # Add library.
