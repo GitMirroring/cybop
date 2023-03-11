@@ -40,7 +40,7 @@
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/porter/locker.c"
 #include "../../../../executor/porter/unlocker.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Writes source data into inline destination item.

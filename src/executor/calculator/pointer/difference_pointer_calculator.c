@@ -26,7 +26,7 @@
 #ifndef MULTIPLY_POINTER_CALCULATOR_SOURCE
 #define MULTIPLY_POINTER_CALCULATOR_SOURCE
 
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Calculates the difference between two pointers.

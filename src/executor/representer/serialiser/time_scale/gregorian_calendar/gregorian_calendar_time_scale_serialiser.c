@@ -40,7 +40,7 @@
 //?? #include "../../../../../executor/representer/serialiser/time_scale/gregorian_calendar/ALTERNATIVE_julian_day_gregorian_calendar_time_scale_serialiser.c"
 #include "../../../../../executor/representer/serialiser/time_scale/gregorian_calendar/julian_day_gregorian_calendar_time_scale_serialiser.c"
 #include "../../../../../executor/representer/serialiser/time_scale/gregorian_calendar/julian_second_gregorian_calendar_time_scale_serialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the datetime into a gregorian calendar date.

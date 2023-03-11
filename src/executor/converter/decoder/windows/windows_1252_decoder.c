@@ -40,7 +40,7 @@
 #include "../../../../executor/converter/decoder/ascii/ascii_decoder.c"
 #include "../../../../executor/converter/decoder/iso_8859/extension_iso_8859_decoder.c"
 #include "../../../../executor/converter/decoder/windows/special_windows_1252_decoder.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Decodes the windows 1252 character into a utf-32 wide character.

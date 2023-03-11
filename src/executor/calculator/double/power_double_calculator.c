@@ -39,7 +39,7 @@
 // Executable interface
 //
 
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Calculates the value of the base raised to the power of the given value.

@@ -38,7 +38,7 @@
 
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/randomiser/sower.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Sows a seed for a new series of pseudo-random numbers.

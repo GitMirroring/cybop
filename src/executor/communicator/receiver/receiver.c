@@ -44,7 +44,7 @@
 #include "../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../executor/streamer/reader/deallocation_reader.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Receives a message via the given channel.

@@ -45,7 +45,7 @@
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../executor/representer/deserialiser/time_scale/correction/leap_year_correction_time_scale_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/time_scale/correction/month_correction_time_scale_deserialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the source running day into the destination calendar day.

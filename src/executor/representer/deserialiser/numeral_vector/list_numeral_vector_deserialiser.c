@@ -45,7 +45,7 @@
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/representer/deserialiser/cybol/type_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/numeral/numeral_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Iterates through the list items in order to deserialise them into numbers.

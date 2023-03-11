@@ -38,7 +38,7 @@
 
 #include "../../../executor/activator/enabler/loop_enabler.c"
 #include "../../../executor/copier/array/forward_array_copier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Runs the enable function in its own thread.

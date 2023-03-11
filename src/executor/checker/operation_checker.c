@@ -38,7 +38,7 @@
 
 #include "../../executor/checker/array_checker.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Checks two arrays lexicographically.

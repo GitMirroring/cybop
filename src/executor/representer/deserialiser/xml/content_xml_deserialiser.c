@@ -41,7 +41,7 @@
 #include "../../../../executor/copier/pointer_copier.c"
 #include "../../../../executor/representer/deserialiser/xml/string_xml_deserialiser.c"
 #include "../../../../executor/selector/xml/content_xml_selector.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the xml element content.

@@ -37,7 +37,7 @@
 //
 
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Apply bit logic operation and.

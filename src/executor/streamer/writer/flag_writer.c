@@ -40,7 +40,7 @@
 #include "../../../executor/streamer/writer/entry_writer.c"
 #include "../../../executor/streamer/writer/loop_writer.c"
 #include "../../../executor/streamer/writer/thread_writer.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Writes data in synchronous (direct) or asynchronous (indirect) mode.

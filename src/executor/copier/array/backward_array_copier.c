@@ -38,7 +38,7 @@
 
 #include "../../../executor/copier/array/backward_elements_array_copier.c"
 #include "../../../executor/memoriser/offset_adder.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Copies source- into destination array,

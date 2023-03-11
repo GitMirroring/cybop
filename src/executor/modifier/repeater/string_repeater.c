@@ -39,7 +39,7 @@
 #include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/modifier/item_modifier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Repeats the source data string count times.

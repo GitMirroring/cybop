@@ -39,7 +39,7 @@
 #include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/representer/serialiser/model_diagram/content_model_diagram_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the part element into model diagram.

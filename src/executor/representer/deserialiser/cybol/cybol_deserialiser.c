@@ -62,7 +62,7 @@
 #include "../../../../executor/representer/deserialiser/duration/si/si_duration_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/numeral_vector/numeral_vector_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xml/xml_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the source into the destination, according to the given format.

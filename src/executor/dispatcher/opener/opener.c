@@ -42,7 +42,7 @@
 #include "../../../executor/finder/mode_finder.c"
 #include "../../../executor/memoriser/allocator/client_entry_allocator.c"
 #include "../../../executor/modifier/item_modifier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Opens a new client belonging to the given channel.

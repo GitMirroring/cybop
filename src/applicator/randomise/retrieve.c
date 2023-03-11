@@ -40,7 +40,7 @@
 
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/randomiser/retriever.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Retrieves the next pseudo-random number in the series.

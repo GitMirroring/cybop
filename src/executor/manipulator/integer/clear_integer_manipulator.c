@@ -39,7 +39,7 @@
 #include "../../../executor/logifier/integer/and_integer_logifier.c"
 #include "../../../executor/logifier/integer/not_integer_logifier.c"
 #include "../../../executor/manipulator/integer/shift_left_integer_manipulator.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Clears (in other words: resets) the bit at the given position.

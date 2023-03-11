@@ -44,7 +44,7 @@
 #include "../../../executor/memoriser/allocator/mutex_allocator.c"
 #include "../../../executor/memoriser/allocator/part_allocator.c"
 #include "../../../executor/modifier/part_modifier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Allocates the internal memory.

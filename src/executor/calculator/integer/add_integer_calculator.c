@@ -26,7 +26,7 @@
 #ifndef ADD_INTEGER_CALCULATOR_SOURCE
 #define ADD_INTEGER_CALCULATOR_SOURCE
 
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Adds the summand to the sum integer.

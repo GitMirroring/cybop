@@ -38,7 +38,7 @@
 
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Assigns data handed over from cybol application to client entry.

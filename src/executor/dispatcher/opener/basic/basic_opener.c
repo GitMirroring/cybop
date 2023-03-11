@@ -46,7 +46,7 @@
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Opens the device pointed to by the given filename.
@@ -140,7 +140,7 @@ void open_basic(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open basic. An error occured.");
                 fwprintf(stdout, L"Error: Could not open basic. An error occured. %i\n", r);
                 fwprintf(stdout, L"Error: Could not open basic. filename tdt: %s\n", tdt);
-                log_errno((void*) &errno);
+                log_error((void*) &errno);
             }
 
             // Deallocate terminated filename item.

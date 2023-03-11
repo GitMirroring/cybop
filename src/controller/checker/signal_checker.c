@@ -42,7 +42,7 @@
 #include "../../executor/memoriser/allocator/item_allocator.c"
 #include "../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../executor/streamer/reader/signal/signal_reader.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Checks for a signal and if none exists, for interrupts.

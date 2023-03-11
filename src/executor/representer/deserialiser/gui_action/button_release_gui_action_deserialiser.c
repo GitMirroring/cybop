@@ -46,7 +46,7 @@
 #include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // Forbidden includes

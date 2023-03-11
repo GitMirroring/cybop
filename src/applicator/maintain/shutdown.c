@@ -39,7 +39,7 @@
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/copier/array/forward_array_copier.c"
 #include "../../executor/maintainer/shutter/shutter.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Shuts down the service running on the given channel.

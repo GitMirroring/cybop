@@ -40,7 +40,7 @@
 
 #include "../../../../executor/streamer/reader/win32_console/message_win32_console_reader.c"
 #include "../../../../executor/streamer/reader/win32_console/process_win32_console_reader.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Reads data stream via win32 console.

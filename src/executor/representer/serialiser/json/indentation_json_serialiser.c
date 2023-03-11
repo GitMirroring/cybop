@@ -38,7 +38,7 @@
 
 #include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../../executor/representer/serialiser/json/level_json_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Appends the indentation.

@@ -38,7 +38,7 @@
 
 #include "../../../../../executor/comparator/integer/greater_integer_comparator.c"
 #include "../../../../../executor/copier/integer_copier.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the source calendar month into the destination leap year correction.

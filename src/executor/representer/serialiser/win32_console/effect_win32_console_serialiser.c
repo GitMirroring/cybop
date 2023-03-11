@@ -38,7 +38,7 @@
 
 #include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../../executor/representer/serialiser/ansi_escape_code/attribute_ansi_escape_code_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the effect into a win32 console attribute.

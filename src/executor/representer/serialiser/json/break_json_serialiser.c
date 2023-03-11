@@ -38,7 +38,7 @@
 
 #include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Appends two line breaks.

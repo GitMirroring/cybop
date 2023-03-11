@@ -41,7 +41,7 @@
 #include "../../../executor/memoriser/reallocator/array_reallocator.c"
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/referencer/referencer.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Removes the given number of array elements.

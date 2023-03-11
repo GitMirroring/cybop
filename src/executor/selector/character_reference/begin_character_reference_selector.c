@@ -43,7 +43,7 @@
 #include "../../../executor/representer/deserialiser/character_reference/decimal_character_reference_deserialiser.c"
 #include "../../../executor/representer/deserialiser/character_reference/entity_character_reference_deserialiser.c"
 #include "../../../executor/representer/deserialiser/character_reference/hexadecimal_character_reference_deserialiser.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects the character reference begin.

@@ -37,7 +37,7 @@
 //
 
 #include "../../../../../executor/representer/serialiser/datetime/jd/basic_jd_datetime_serialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the datetime into modified julian date (mjd) wide character data.

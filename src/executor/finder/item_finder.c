@@ -39,7 +39,7 @@
 // Executable interface
 //
 
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Finds a part with the searched name in the investigated item.

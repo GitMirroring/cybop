@@ -39,7 +39,7 @@
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
 #include "../../../../executor/representer/deserialiser/textline_list/content_textline_list_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the textline list into separate parts, each representing a textline.

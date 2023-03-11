@@ -27,7 +27,7 @@
 #define ABSOLUTE_URI_HTTP_REQUEST_URI_DESERIALISER_SOURCE
 
 #include "../../../../executor/selector/http_request_uri/absolute_uri_http_request_uri_selector.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the absolute uri http request uri.

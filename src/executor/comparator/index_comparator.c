@@ -38,7 +38,7 @@
 
 #include "../../executor/comparator/offset_array_comparator.c"
 #include "../../executor/verifier/double_index_count_verifier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Tests if the indices plus count are inside the array boundaries.

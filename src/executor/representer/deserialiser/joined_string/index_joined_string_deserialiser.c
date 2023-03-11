@@ -41,7 +41,7 @@
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
 #include "../../../../executor/selector/joined_string/begin_joined_string_selector.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the index.

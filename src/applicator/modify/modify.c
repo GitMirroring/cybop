@@ -42,7 +42,7 @@
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/copier/array/forward_array_copier.c"
 #include "../../executor/modifier/part_modifier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Modifies the destination- with the source part.

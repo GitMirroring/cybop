@@ -43,7 +43,7 @@
 #include "../../../../executor/representer/serialiser/gui/component_gui_serialiser.c"
 #include "../../../../executor/representer/serialiser/gui/window_gui_serialiser.c"
 #include "../../../../executor/representer/serialiser/layout/layout_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the properties into gui.

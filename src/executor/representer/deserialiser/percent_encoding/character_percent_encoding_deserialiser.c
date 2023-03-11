@@ -47,7 +47,7 @@
 #include "../../../../executor/mover/mover.c"
 #include "../../../../executor/representer/deserialiser/numeral/integer_numeral_deserialiser.c"
 #include "../../../../executor/representer/serialiser/ascii/ascii_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the percent-encoded character.

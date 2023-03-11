@@ -39,7 +39,7 @@
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/memoriser/deallocator/array_deallocator.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deallocates any resources that had been allocated by the system, e.g. an event.

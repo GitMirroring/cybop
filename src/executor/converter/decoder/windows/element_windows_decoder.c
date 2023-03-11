@@ -38,7 +38,7 @@
 
 #include "../../../../executor/converter/decoder/windows/character_windows_decoder.c"
 #include "../../../../executor/copier/array/forward_array_copier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Decodes the windows character data element into UTF-32 wide character data.

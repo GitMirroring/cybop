@@ -39,7 +39,7 @@
 #include "../../../../executor/accessor/setter/terminal_mode/terminal_mode_setter.c"
 #include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/memoriser/deallocator/terminal_mode_deallocator.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Finalises the terminal.

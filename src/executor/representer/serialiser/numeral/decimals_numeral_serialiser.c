@@ -49,7 +49,7 @@
 #include "../../../../executor/copier/double_copier.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 #include "../../../../mapper/integer_to_digit_wide_character_mapper.c"
 
 /**

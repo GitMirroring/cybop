@@ -43,7 +43,7 @@
 #include "../../../../executor/representer/serialiser/character_reference/character_reference_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/break_html_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/indentation_html_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // Forbidden includes

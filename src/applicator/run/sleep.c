@@ -42,7 +42,7 @@
 
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/runner/sleeper.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Suspends execution of the calling thread for (at least) the given number of microseconds.

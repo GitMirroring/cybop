@@ -37,7 +37,7 @@
 //
 
 #include "../../../../../executor/representer/deserialiser/xdt/bdt/records_bdt_xdt_deserialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // Here is an extract from the German "Arztpraxis Wiegand" (APW) documentation,

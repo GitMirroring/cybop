@@ -26,7 +26,7 @@
 #ifndef SUBTRACT_INTEGER_CALCULATOR_SOURCE
 #define SUBTRACT_INTEGER_CALCULATOR_SOURCE
 
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Subtracts the subtrahend from the minuend integer.

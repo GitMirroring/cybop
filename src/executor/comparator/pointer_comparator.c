@@ -43,7 +43,7 @@
 #include "../../executor/comparator/pointer/less_or_equal_pointer_comparator.c"
 #include "../../executor/comparator/pointer/less_pointer_comparator.c"
 #include "../../executor/comparator/pointer/unequal_pointer_comparator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Compares the left- with the right pointer.

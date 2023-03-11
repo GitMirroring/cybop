@@ -38,7 +38,7 @@
 
 #include "../../executor/comparator/offset_comparator.c"
 #include "../../executor/memoriser/offset_adder.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Uses the given index to calculate an offset ONLY for the result.

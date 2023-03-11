@@ -64,7 +64,7 @@
 #include "../../../../executor/representer/serialiser/duration/julian/julian_duration_serialiser.c"
 #include "../../../../executor/representer/serialiser/duration/si/si_duration_serialiser.c"
 #include "../../../../executor/representer/serialiser/numeral/numeral_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the source into the destination, according to the given format.

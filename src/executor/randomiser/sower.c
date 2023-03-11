@@ -38,7 +38,7 @@
 // Executable interface
 //
 
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Sows a seed for a new series of pseudo-random numbers.

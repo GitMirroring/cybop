@@ -38,7 +38,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Cleans up the xcb context.

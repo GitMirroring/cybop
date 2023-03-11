@@ -42,7 +42,7 @@
 #include "../../../executor/converter/decoder/utf/utf_16_decoder.c"
 #include "../../../executor/converter/decoder/utf/utf_8_decoder.c"
 #include "../../../executor/converter/decoder/windows/windows_decoder.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Decodes the source into the destination, according to the given encoding.

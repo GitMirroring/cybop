@@ -39,7 +39,7 @@
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/activator/enabler/function_enabler.c"
 #include "../../../executor/threader/spinner.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Prepares the enable thread.

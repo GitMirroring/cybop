@@ -27,7 +27,7 @@
 #define PART_NAME_GETTER_SOURCE
 
 #include "../../../executor/accessor/name_getter/item_name_getter.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Gets the knowledge part by name array, from the given whole part.

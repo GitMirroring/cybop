@@ -26,7 +26,7 @@
 #ifndef UTF_16_ENCODER_SOURCE
 #define UTF_16_ENCODER_SOURCE
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // In computing, UTF-16 (16-bit Unicode Transformation Format) is a variable-

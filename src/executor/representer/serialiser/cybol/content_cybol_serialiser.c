@@ -49,7 +49,7 @@
 #include "../../../../executor/representer/serialiser/cybol/encoding_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/format_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/language_cybol_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // Forbidden includes

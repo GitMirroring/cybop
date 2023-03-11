@@ -40,7 +40,7 @@
 #include "../../../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../../../executor/logifier/boolean/and_boolean_logifier.c"
 #include "../../../../executor/copier/integer_copier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Compares if the bounded area contains the value.

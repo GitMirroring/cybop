@@ -40,7 +40,7 @@
 #include "../../executor/copier/array/forward_array_copier.c"
 #include "../../executor/copier/integer_copier.c"
 #include "../../executor/representer/serialiser/serialiser.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the source- into the destination part.

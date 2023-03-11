@@ -45,7 +45,7 @@
 #include "../../../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../../../executor/modifier/item_modifier.c"
 #include "../../../../../executor/copier/double_copier.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the source julian date (jd) double into the destination datetime.

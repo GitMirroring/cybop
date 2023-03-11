@@ -43,7 +43,7 @@
 #include "../../../../../executor/representer/deserialiser/xdt/field/constraints_field_xdt_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/xdt/field/format_field_xdt_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/xdt/field/type_field_xdt_deserialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises xdt field part.

@@ -39,7 +39,7 @@
 #include "../../../executor/activator/enabler/display/display_enabler.c"
 #include "../../../executor/activator/enabler/socket/socket_enabler.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Determine sender client identification.

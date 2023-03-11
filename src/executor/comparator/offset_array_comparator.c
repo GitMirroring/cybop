@@ -38,7 +38,7 @@
 
 #include "../../executor/comparator/array_comparator.c"
 #include "../../executor/memoriser/offset_adder.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Compares left and right array, starting from the given offset (index).

@@ -28,7 +28,7 @@
 
 #include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/representer/serialiser/xml/attribute_xml_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the xml attributes into xml format.

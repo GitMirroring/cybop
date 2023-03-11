@@ -58,7 +58,7 @@
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../executor/representer/deserialiser/host_address/inet_host_address_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Allocate inet socket address.

@@ -39,7 +39,7 @@
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/modifier/item_modifier.c"
 #include "../../../executor/representer/deserialiser/ansi_escape_code/character_ansi_escape_code_deserialiser.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects the ansi escape code character.

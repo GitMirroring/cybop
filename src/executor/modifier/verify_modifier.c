@@ -39,7 +39,7 @@
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/verifier/double_index_count_verifier.c"
 #include "../../executor/verifier/index_count_verifier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Verifies indices and count values.

@@ -39,7 +39,7 @@
 #include "../../../executor/comparator/pointer/unequal_pointer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/streamer/reader/handler_reader.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Informs the system about completion of the read process.

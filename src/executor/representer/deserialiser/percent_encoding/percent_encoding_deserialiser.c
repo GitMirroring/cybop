@@ -39,7 +39,7 @@
 #include "../../../../executor/representer/deserialiser/percent_encoding/data_percent_encoding_deserialiser.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // Reflexions on character set conversion.

@@ -41,7 +41,7 @@
 #include "../../../../executor/copier/pointer_copier.c"
 #include "../../../../executor/mover/mover.c"
 #include "../../../../executor/representer/serialiser/character_reference/character_character_reference_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises into hexadecimal numeric character reference data.

@@ -27,7 +27,7 @@
 #define DEFAULT_TUI_SERIALISER_SOURCE
 
 #include "../../../../executor/logifier/boolean/and_boolean_logifier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the default character into tui.

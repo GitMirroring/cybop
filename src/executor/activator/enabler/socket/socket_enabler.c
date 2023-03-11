@@ -38,7 +38,7 @@
 
 #include "../../../../executor/activator/enabler/socket/request_socket_enabler.c"
 #include "../../../../executor/copier/array/forward_array_copier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Enables server socket to accept client socket requests.

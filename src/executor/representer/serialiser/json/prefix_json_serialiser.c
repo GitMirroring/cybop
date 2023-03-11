@@ -40,7 +40,7 @@
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/logifier/boolean/and_boolean_logifier.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Appends part prefix to the destination item.

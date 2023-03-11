@@ -37,7 +37,7 @@
 //
 
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the terminal background colour into a win32 console colour.

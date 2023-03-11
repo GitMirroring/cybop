@@ -26,7 +26,7 @@
 #ifndef MULTIPLY_INTEGER_CALCULATOR_SOURCE
 #define MULTIPLY_INTEGER_CALCULATOR_SOURCE
 
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Multiplies the product with the factor integer.

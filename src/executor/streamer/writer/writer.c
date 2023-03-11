@@ -40,7 +40,7 @@
 #include "../../../executor/finder/entry_finder.c"
 #include "../../../executor/streamer/writer/buffer_writer.c"
 #include "../../../executor/streamer/writer/flag_writer.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 #include "../../../mapper/channel_to_type_mapper.c"
 
 /**

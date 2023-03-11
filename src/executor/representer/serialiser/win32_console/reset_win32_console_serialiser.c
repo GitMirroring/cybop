@@ -38,7 +38,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Resets the terminal to the original attributes handed over as parametre.
@@ -85,7 +85,7 @@ void serialise_win32_console_reset(void* p0, void* p1) {
                 DWORD e = GetLastError();
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console reset. The text attributes could not be set.");
-                log_windows_system_error((void*) &e);
+                log_error((void*) &e);
             }
 
         } else {

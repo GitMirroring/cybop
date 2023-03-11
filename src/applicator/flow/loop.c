@@ -39,7 +39,7 @@
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/accessor/name_getter/array_name_getter.c"
 #include "../../executor/copier/array/forward_array_copier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 //
 // Forward declarations

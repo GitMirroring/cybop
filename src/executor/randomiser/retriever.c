@@ -40,7 +40,7 @@
 //
 
 #include "../../executor/randomiser/maximum_retriever.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Retrieves next pseudo-random number in the series.

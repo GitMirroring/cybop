@@ -41,7 +41,7 @@
 #include "../../../executor/copier/double_copier.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/copier/pointer_copier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Sets the destination datetime's element at the given index.

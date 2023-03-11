@@ -38,7 +38,7 @@
 // Executable interface
 //
 
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Unlocks the mutex if one is given, otherwise does nothing.

@@ -41,7 +41,7 @@
 #include "../../../executor/calculator/integer/absolute_integer_calculator.c"
 #include "../../../executor/calculator/integer/negate_integer_calculator.c"
 #include "../../../executor/comparator/integer/less_integer_comparator.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Reduces the fraction.

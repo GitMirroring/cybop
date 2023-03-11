@@ -38,7 +38,7 @@
 
 #include "../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../executor/representer/serialiser/layout/element_part_layout_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises part layout properties into graphical user interface (gui) coordinates.

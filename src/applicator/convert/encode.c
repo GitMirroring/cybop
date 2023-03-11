@@ -38,7 +38,7 @@
 
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/converter/encoder/encoder.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Encodes the source- into the destination part.

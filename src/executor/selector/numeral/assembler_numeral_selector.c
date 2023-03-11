@@ -42,7 +42,7 @@
 #include "../../../executor/representer/deserialiser/numeral/assembler/integer_assembler_numeral_deserialiser.c"
 #include "../../../executor/representer/deserialiser/numeral/assembler/polar_complex_assembler_numeral_deserialiser.c"
 #include "../../../executor/representer/deserialiser/numeral/assembler/vulgar_fraction_assembler_numeral_deserialiser.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Assembles the number from the given values.

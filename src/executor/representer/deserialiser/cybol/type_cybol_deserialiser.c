@@ -38,7 +38,7 @@
 
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the cyboi format into a cyboi runtime type.

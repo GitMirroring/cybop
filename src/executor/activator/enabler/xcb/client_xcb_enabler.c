@@ -39,7 +39,7 @@
 //
 
 #include "../../../../executor/copier/integer_copier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Gets client window identification from event.

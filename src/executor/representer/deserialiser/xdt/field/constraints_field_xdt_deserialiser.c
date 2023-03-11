@@ -40,7 +40,7 @@
 #include "../../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../executor/representer/deserialiser/xdt/field/model_field_xdt_deserialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Retrieves language properties (constraints) necessary for deserialisation.

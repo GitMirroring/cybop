@@ -37,7 +37,7 @@
 //
 
 #include "../../../executor/streamer/writer/writer.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Writes source to destination.

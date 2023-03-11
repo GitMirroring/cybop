@@ -38,7 +38,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // Win32 console applications are often mistaken for MS-DOS applications,
@@ -156,7 +156,7 @@ void serialise_win32_console_character(void* p0, void* p1, void* p2) {
                     DWORD e = GetLastError();
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console character. A windows system error occured.");
-                    log_windows_system_error((void*) &e);
+                    log_error((void*) &e);
                 }
 
             } else {

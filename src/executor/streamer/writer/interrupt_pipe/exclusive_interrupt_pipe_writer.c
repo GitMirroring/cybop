@@ -46,7 +46,7 @@
 
 #include "../../../../executor/porter/locker.c"
 #include "../../../../executor/porter/unlocker.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Locks the mutex and writes the handler to the interrupt pipe.

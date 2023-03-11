@@ -39,7 +39,7 @@
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/maintainer/starter/display/display_starter.c"
 #include "../../../executor/maintainer/starter/socket/socket_starter.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Startup service on the given channel.

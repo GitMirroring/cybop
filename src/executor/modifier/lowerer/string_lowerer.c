@@ -41,7 +41,7 @@
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/modifier/lowerer/letter_lowerer.c"
 #include "../../../executor/modifier/item_modifier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Loops through the source data string.

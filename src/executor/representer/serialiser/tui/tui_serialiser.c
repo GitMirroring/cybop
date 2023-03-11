@@ -39,7 +39,7 @@
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/representer/serialiser/tui/part_tui_serialiser.c"
 #include "../../../../executor/representer/serialiser/tui/primitive_tui_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises a part into text user interface (tui).

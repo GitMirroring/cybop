@@ -36,7 +36,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 #if defined(__linux__) || defined(__unix__)
     #include "../../../../executor/dispatcher/closer/basic/basic_closer.c"

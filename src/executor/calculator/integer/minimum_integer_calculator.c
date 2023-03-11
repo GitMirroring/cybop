@@ -36,7 +36,7 @@
 // Executable interface
 //
 
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Returns the lesser of the two values.

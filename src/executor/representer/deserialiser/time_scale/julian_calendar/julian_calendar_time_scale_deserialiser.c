@@ -42,7 +42,7 @@
 #include "../../../../../executor/representer/deserialiser/time_scale/julian_calendar/julian_second_julian_calendar_time_scale_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/time_scale/julian_calendar/normalise_julian_calendar_time_scale_deserialiser.c"
 */
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the source julian calendar date into the destination datetime.

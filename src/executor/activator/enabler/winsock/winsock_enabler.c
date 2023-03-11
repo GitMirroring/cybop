@@ -38,7 +38,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Accepts a client request on the given winsock.
@@ -96,7 +96,7 @@ void enable_winsock(void* p0, void* p1) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable winsock. An error occured.");
                 fwprintf(stdout, L"Error: Could not enable winsock. An error occured. %i\n", r);
-                log_errno((void*) &e);
+                log_error((void*) &e);
             }
 
         } else {

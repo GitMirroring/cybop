@@ -40,7 +40,7 @@
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/sorter/bubble/criterion_bubble_sorter.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /*
  * Compares the given operands of a part.

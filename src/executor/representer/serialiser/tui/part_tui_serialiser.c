@@ -37,7 +37,7 @@
 //
 
 #include "../../../../executor/representer/serialiser/tui/element_tui_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the part into tui.

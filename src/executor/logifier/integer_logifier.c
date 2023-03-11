@@ -44,7 +44,7 @@
 #include "../../executor/logifier/integer/nand_integer_logifier.c"
 #include "../../executor/logifier/integer/xor_integer_logifier.c"
 #include "../../executor/logifier/integer/neg_integer_logifier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Connects the given values following the given integer bitwise logic operation.

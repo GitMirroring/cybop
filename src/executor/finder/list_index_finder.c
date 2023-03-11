@@ -40,7 +40,7 @@
 #include "../../executor/copier/array/forward_array_copier.c"
 #include "../../executor/copier/integer_copier.c"
 #include "../../executor/finder/element_list_finder.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Finds the index of the entry with the given element index within the list.

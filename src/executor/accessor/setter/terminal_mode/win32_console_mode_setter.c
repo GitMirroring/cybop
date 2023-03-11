@@ -38,7 +38,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Sets the win32 console mode into the device pointed to by the file descriptor.
@@ -70,7 +70,7 @@ void set_win32_console_mode(void* p0, void* p1) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set win32 console mode. The SetConsoleMode function failed.");
                 fwprintf(stdout, L"Error: Could not set win32 console mode. The SetConsoleMode function failed. b: %i\n", b);
-                log_errno((void*) &e);
+                log_error((void*) &e);
             }
 
         } else {

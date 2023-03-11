@@ -40,7 +40,7 @@
 #include "../../executor/accessor/setter/duration_setter.c"
 #include "../../executor/memoriser/allocator/array_allocator.c"
 #include "../../executor/memoriser/deallocator/array_deallocator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Copies the duration.

@@ -42,7 +42,7 @@
 #include "../../../executor/manipulator/integer/clear_integer_manipulator.c"
 #include "../../../executor/manipulator/integer/set_integer_manipulator.c"
 #include "../../../executor/manipulator/integer/shift_right_integer_manipulator.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 #include "../../../mapper/type_to_size_mapper.c"
 
 /**

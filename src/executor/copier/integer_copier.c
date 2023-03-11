@@ -36,7 +36,7 @@
 // Executable interface
 //
 
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Copies the integer.

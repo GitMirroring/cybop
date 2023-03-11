@@ -38,7 +38,7 @@
 
 #include "../../../../../executor/representer/deserialiser/uri/http/name_parametre_query_http_uri_deserialiser.c"
 #include "../../../../../executor/selector/uri/http/parametre_query_http_uri_selector.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the http uri query parametre.

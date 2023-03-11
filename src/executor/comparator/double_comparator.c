@@ -43,7 +43,7 @@
 #include "../../executor/comparator/double/less_or_equal_double_comparator.c"
 #include "../../executor/comparator/double/unequal_double_comparator.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Compares the left- with the right double.

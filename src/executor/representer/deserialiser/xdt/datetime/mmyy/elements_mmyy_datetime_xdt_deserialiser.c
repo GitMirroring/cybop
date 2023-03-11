@@ -37,7 +37,7 @@
 //
 
 #include "../../../../../../executor/representer/deserialiser/numeral/integer_numeral_deserialiser.c"
-#include "../../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the source mmyy elements wide character data into the destination datetime item.

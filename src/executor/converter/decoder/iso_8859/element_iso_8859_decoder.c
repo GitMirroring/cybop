@@ -38,7 +38,7 @@
 
 #include "../../../../executor/converter/decoder/iso_8859/character_iso_8859_decoder.c"
 #include "../../../../executor/copier/array/forward_array_copier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Decodes the iso-8859 character data element into utf-32 wide character data.

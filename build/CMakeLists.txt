@@ -73,8 +73,7 @@ set(CYBOI_EXECUTABLE_SOURCES ${ROOT_DIR}/src/cyboi/cyboi.c)
 # 2 Dependencies: They are straightforward and clear between implementation files.
 # 3 Simplicity: Other languages like java do not use header files either.
 #
-#set(VARIABLE_CYBOI_LIBRARY_SOURCES ${ROOT_DIR}/src/library/variable_library.c)
-#set(LOGGER_CYBOI_LIBRARY_SOURCES ${ROOT_DIR}/src/library/logger_library.c)
+set(LOGGER_CYBOI_LIBRARY_SOURCES ${ROOT_DIR}/src/library/logger_library.c)
 set(XDT_CYBOI_LIBRARY_SOURCES ${ROOT_DIR}/src/library/xdt_library.c)
 #set(EXECUTOR_CYBOI_LIBRARY_SOURCES ${ROOT_DIR}/src/library/executor_library.c)
 set(APPLICATOR_CYBOI_LIBRARY_SOURCES ${ROOT_DIR}/src/library/applicator_library.c)
@@ -123,8 +122,7 @@ configure_file(cmake_configuration.h.in ${ROOT_DIR}/include/variable/cmake_confi
 # Define only "xdt" and NOT "libxdt" as name since otherwise,
 # the resulting name would be "liblibxdt".
 #
-#add_library(cyboi-variable SHARED ${VARIABLE_CYBOI_LIBRARY_SOURCES})
-#add_library(cyboi-logger SHARED ${LOGGER_CYBOI_LIBRARY_SOURCES})
+add_library(cyboi-logger SHARED ${LOGGER_CYBOI_LIBRARY_SOURCES})
 add_library(cyboi-xdt SHARED ${XDT_CYBOI_LIBRARY_SOURCES})
 #add_library(cyboi-executor SHARED ${EXECUTOR_CYBOI_LIBRARY_SOURCES})
 add_library(cyboi-applicator SHARED ${APPLICATOR_CYBOI_LIBRARY_SOURCES})

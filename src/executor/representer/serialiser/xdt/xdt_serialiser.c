@@ -37,7 +37,7 @@
 //
 
 #include "../../../../executor/representer/serialiser/xdt/field/model_field_xdt_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // The "x DatenTransfer" (xDT) is the German version of

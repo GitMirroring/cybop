@@ -39,7 +39,7 @@
 #include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../../executor/representer/deserialiser/cybol/part_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/standard_cybol_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises a cybol tree node.

@@ -40,7 +40,7 @@
 #include "../../../executor/calculator/pointer/add_pointer_calculator.c"
 #include "../../../executor/copier/datetime_copier.c"
 #include "../../../executor/copier/pointer_copier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Sets the destination duration's element at the given index.

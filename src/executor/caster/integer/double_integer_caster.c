@@ -36,7 +36,7 @@
 // Executable interface
 //
 
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Casts the source of type double to the destination of type integer.

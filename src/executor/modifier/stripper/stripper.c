@@ -38,7 +38,7 @@
 
 #include "../../../executor/modifier/stripper/leading_stripper.c"
 #include "../../../executor/modifier/stripper/trailing_stripper.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Removes leading and trailing whitespaces from the string.

@@ -38,7 +38,7 @@
 
 #include "../../../executor/logifier/integer/and_integer_logifier.c"
 #include "../../../executor/manipulator/integer/shift_left_integer_manipulator.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Checks (in other words: gets) the bit at the given position.

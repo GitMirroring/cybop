@@ -36,7 +36,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the win32 console button key character data into a command.

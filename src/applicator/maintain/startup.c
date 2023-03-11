@@ -39,7 +39,7 @@
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/copier/array/forward_array_copier.c"
 #include "../../executor/maintainer/starter/starter.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Starts up a service on the given channel.

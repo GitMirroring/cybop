@@ -39,7 +39,7 @@
 // Executable interface
 //
 
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Cuts the thread, that is wait for it to exit.

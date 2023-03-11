@@ -39,7 +39,7 @@
 #include "../../executor/copier/integer_copier.c"
 #include "../../executor/logifier/boolean/and_boolean_logifier.c"
 #include "../../executor/verifier/index_count_verifier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Verifies that the sum of the given index and count is within the data array.

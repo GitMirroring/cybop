@@ -36,7 +36,7 @@
 // Executable interface
 //
 
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Divides the quotient by the divisor.

@@ -40,7 +40,7 @@
 #include "../../../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../../../executor/modifier/item_modifier.c"
 #include "../../../../../executor/representer/deserialiser/time_scale/gregorian_calendar/gregorian_calendar_time_scale_deserialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the source utc date wide character data into the destination datetime item.

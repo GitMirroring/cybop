@@ -39,7 +39,7 @@
 #include "../../executor/copier/array/forward_array_copier.c"
 #include "../../executor/modifier/array_modifier.c"
 #include "../../executor/modifier/verify_modifier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Modifies the destination item with the source array.

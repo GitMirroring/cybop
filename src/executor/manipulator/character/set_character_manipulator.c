@@ -38,7 +38,7 @@
 
 #include "../../../executor/logifier/character/or_character_logifier.c"
 #include "../../../executor/manipulator/character/shift_left_character_manipulator.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Sets the bit at the given position.

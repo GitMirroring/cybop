@@ -38,7 +38,7 @@
 
 #include "../../../executor/checker/operation_checker.c"
 #include "../../../executor/representer/deserialiser/http_request/decode_http_request_deserialiser.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects the http request header field.

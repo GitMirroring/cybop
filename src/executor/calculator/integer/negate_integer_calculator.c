@@ -26,7 +26,7 @@
 #ifndef NEGATE_INTEGER_CALCULATOR_SOURCE
 #define NEGATE_INTEGER_CALCULATOR_SOURCE
 
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Negates the source (i.e. changes its sign) and stores the result in destination.

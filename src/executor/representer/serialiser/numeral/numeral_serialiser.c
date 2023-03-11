@@ -42,7 +42,7 @@
 #include "../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
 #include "../../../../executor/representer/serialiser/numeral/polar_complex_numeral_serialiser.c"
 #include "../../../../executor/representer/serialiser/numeral/vulgar_fraction_numeral_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the source number into a wide character numeral sequence.

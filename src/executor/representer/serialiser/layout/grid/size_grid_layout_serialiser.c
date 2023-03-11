@@ -44,7 +44,7 @@
 #include "../../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../executor/representer/serialiser/layout/part_layout_serialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises grid layout size.

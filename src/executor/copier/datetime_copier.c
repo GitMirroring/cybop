@@ -38,7 +38,7 @@
 
 #include "../../executor/accessor/getter/datetime_getter.c"
 #include "../../executor/accessor/setter/datetime_setter.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Copies the datetime.

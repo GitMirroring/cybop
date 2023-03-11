@@ -44,7 +44,7 @@
 #include "../../../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
 #include "../../../../../../executor/representer/serialiser/time_scale/gregorian_calendar/gregorian_calendar_time_scale_serialiser.c"
 #include "../../../../../../executor/representer/serialiser/xdt/datetime/qyyyy/quarter_qyyyy_datetime_xdt_serialiser.c"
-#include "../../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the source datetime into the destination qyyyy wide character data.

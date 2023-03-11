@@ -41,7 +41,7 @@
 #include "../../../executor/streamer/writer/display/display_writer.c"
 #include "../../../executor/streamer/writer/inline/inline_writer.c"
 #include "../../../executor/streamer/writer/signal/signal_writer.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 #if defined(__linux__) || defined(__unix__)
     #include "../../../executor/streamer/writer/basic/basic_writer.c"

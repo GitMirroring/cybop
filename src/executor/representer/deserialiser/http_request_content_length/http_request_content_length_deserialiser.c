@@ -39,7 +39,7 @@
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
 #include "../../../../executor/representer/deserialiser/http_request_content_length/header_http_request_content_length_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the http request content length.

@@ -37,7 +37,7 @@
 //
 
 #include "../../../executor/modifier/overwriter/overwriter.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Fills the array.

@@ -45,7 +45,7 @@
 #include "../../executor/comparator/integer_comparator.c"
 #include "../../executor/comparator/pointer_comparator.c"
 #include "../../executor/comparator/wide_character_comparator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 //
 // Models of type "complex" or "fraction" are not

@@ -63,7 +63,7 @@
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises inet host address.

@@ -39,7 +39,7 @@
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../../executor/modifier/remover/inside_remover.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Removes the given number of elements from the array, starting from the index.

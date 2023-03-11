@@ -39,7 +39,7 @@
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
 #include "../../../../executor/representer/deserialiser/numeral_vector/item_numeral_vector_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the source numeral vector into elements of the destination number item.

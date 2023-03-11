@@ -39,7 +39,7 @@
 #include "../../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../executor/representer/deserialiser/xdt/record/field_record_xdt_deserialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the xdt record fields.

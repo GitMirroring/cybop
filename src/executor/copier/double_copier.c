@@ -28,7 +28,7 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Copies the double.

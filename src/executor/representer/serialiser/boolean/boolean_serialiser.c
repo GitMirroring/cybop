@@ -38,7 +38,7 @@
 
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the source boolean value into the destination wide character sequence.

@@ -41,7 +41,7 @@
 #include "../../executor/copier/integer_copier.c"
 #include "../../executor/copier/pointer_copier.c"
 #include "../../executor/finder/element_list_finder.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Finds the entry with the given element index within the list.

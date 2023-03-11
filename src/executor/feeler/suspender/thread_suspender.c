@@ -39,7 +39,7 @@
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/threader/cutter.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Sets the thread exit flag and sends an awaken message.

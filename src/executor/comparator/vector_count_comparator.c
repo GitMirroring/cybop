@@ -38,7 +38,7 @@
 
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/comparator/index_comparator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Tests if the result count is equal to the count.

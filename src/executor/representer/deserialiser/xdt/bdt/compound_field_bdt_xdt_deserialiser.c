@@ -45,7 +45,7 @@
 #include "../../../../../executor/modifier/item_modifier.c"
 #include "../../../../../executor/modifier/part_modifier.c"
 #include "../../../../../executor/representer/deserialiser/xdt/bdt/fields_bdt_xdt_deserialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // Forbidden includes

@@ -48,7 +48,8 @@
 //
 
 //
-// The functions are ordered following the system LIFECYCLE.
+// CAUTION! The order may be arbitrary or alphabetically,
+// but for better overview, it follows the system LIFECYCLE.
 //
 
 void globalise();

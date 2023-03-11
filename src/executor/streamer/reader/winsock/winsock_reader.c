@@ -38,7 +38,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Reads data via winsock and stores them in the given destination array.
@@ -187,7 +187,7 @@ void read_winsock(void* p0, void* p1, void* p2, void* p3, void* p4) {
                         // Cast int to DWORD (unsigned int 32-Bit).
                         DWORD dw = (DWORD) e;
 
-                        log_windows_system_error((void*) &dw);
+                        log_error((void*) &dw);
                     }
 
                 } else {

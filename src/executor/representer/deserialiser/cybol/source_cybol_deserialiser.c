@@ -42,7 +42,7 @@
 
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/representer/deserialiser/cybol/file_cybol_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // Forbidden includes

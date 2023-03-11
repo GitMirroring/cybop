@@ -39,7 +39,7 @@
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/selector/ansi_escape_code/character_ansi_escape_code_selector.c"
 #include "../../../executor/selector/ansi_escape_code/command_ansi_escape_code_selector.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects the ansi escape code begin.

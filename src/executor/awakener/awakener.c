@@ -41,7 +41,7 @@
 #include "../../executor/awakener/socket_awakener.c"
 #include "../../executor/awakener/terminal_awakener.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Let the system send an input to itself over the channel

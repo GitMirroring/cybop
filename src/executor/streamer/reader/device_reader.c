@@ -38,7 +38,7 @@
 
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/streamer/reader/loop_reader.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Reads data directly from device (synchronous mode).

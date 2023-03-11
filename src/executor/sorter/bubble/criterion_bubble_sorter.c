@@ -41,7 +41,7 @@
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/copier/pointer_copier.c"
 #include "../../../executor/representer/deserialiser/knowledge/knowledge_deserialiser.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /*
  * Determines the left- and right part using the given comparison criterion.

@@ -28,7 +28,7 @@
 
 #include "../../executor/calculator/pointer/add_pointer_calculator.c"
 #include "../../executor/calculator/pointer/subtract_pointer_calculator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Calculates the pointer using the given operation.

@@ -38,7 +38,7 @@
 
 #include "../../../executor/converter/encoder/encoder.c"
 #include "../../../executor/copier/array/forward_array_copier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Encodes source into destination.

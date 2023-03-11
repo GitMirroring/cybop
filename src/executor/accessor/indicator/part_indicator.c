@@ -27,7 +27,7 @@
 #define PART_INDICATOR_SOURCE
 
 #include "../../../executor/accessor/indicator/item_indicator.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Indicates the fill level of the part.

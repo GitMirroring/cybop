@@ -39,7 +39,7 @@
 #include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../../executor/representer/serialiser/tui/origo_tui_serialiser.c"
 #include "../../../../executor/representer/serialiser/tui/rectangle_tui_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 #if defined(__linux__) || defined(__unix__)
     #include "../../../../executor/representer/serialiser/ansi_escape_code/attributes_ansi_escape_code_serialiser.c"

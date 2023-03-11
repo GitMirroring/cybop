@@ -40,7 +40,7 @@
 
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/registrar/opener/win32_display/register_win32_display_opener.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Opens up a win32 display window.

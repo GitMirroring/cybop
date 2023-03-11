@@ -40,7 +40,7 @@
 #include "../../../../executor/accessor/setter/socket_address/local_socket_address_setter.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/memoriser/allocator/array_allocator.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Allocate local socket address.

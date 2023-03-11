@@ -38,7 +38,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Stores the original attributes, that is the console's state.
@@ -88,7 +88,7 @@ void serialise_win32_console_state(void* p0, void* p1) {
                 DWORD e = GetLastError();
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console state. The console screen buffer info could not be retrieved.");
-                log_windows_system_error((void*) &e);
+                log_error((void*) &e);
             }
 
         } else {

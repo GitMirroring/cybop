@@ -29,7 +29,7 @@
 #include "../../../../executor/modifier/part_modifier.c"
 #include "../../../../executor/selector/uri/scheme_uri_selector.c"
 #include "../../../../executor/selector/uri/uri_selector.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the uri scheme.

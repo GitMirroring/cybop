@@ -38,7 +38,7 @@
 
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/logifier/logifier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Compares the type of output- and input.

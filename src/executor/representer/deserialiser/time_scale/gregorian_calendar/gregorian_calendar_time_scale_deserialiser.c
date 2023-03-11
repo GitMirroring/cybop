@@ -41,7 +41,7 @@
 #include "../../../../../executor/representer/deserialiser/time_scale/gregorian_calendar/julian_day_gregorian_calendar_time_scale_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/time_scale/gregorian_calendar/julian_second_gregorian_calendar_time_scale_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/time_scale/gregorian_calendar/normalise_gregorian_calendar_time_scale_deserialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the source gregorian calendar date into the destination datetime.

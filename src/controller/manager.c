@@ -40,7 +40,7 @@
 #include "../executor/copier/array/forward_array_copier.c"
 #include "../executor/memoriser/allocator/internal_memory_allocator.c"
 #include "../executor/memoriser/deallocator/internal_memory_deallocator.c"
-#include "../logger/logger.c"
+#include "logger.h"
 
 /**
  * Manages the system.

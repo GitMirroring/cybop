@@ -167,12 +167,6 @@
 
 #include "constant/model/cyboi/identification/identification_cyboi_model.h"
 
-#include "constant/model/cyboi/log/error_message_log_cyboi_model.h"
-#include "constant/model/cyboi/log/level_log_cyboi_model.h"
-#include "constant/model/cyboi/log/level_name_log_cyboi_model.h"
-#include "constant/model/cyboi/log/linux_error_message_log_cyboi_model.h"
-#include "constant/model/cyboi/log/windows_error_message_log_cyboi_model.h"
-
 #include "constant/model/cyboi/operation_mode/operation_mode_cyboi_model.h"
 
 #include "constant/model/cyboi/option/log_level_option_cyboi_model.h"

@@ -39,7 +39,7 @@
 //
 
 #include "../../../../executor/modifier/appender/item/part_item_appender.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the key press xcb event.

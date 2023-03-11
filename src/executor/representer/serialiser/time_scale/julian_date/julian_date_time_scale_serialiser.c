@@ -41,7 +41,7 @@
 #include "../../../../../executor/calculator/double/divide_double_calculator.c"
 #include "../../../../../executor/caster/double/integer_double_caster.c"
 #include "../../../../../executor/copier/double_copier.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the source datetime into the destination julian date (jd) double.

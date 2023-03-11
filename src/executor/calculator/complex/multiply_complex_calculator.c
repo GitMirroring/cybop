@@ -41,7 +41,7 @@
 #include "../../../executor/calculator/double/add_double_calculator.c"
 #include "../../../executor/calculator/double/multiply_double_calculator.c"
 #include "../../../executor/calculator/double/subtract_double_calculator.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Adds the source fraction to the destination fraction.

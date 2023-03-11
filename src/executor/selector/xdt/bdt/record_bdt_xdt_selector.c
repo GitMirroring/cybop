@@ -42,7 +42,7 @@
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/representer/deserialiser/cybol/integer/primitive_value_integer_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xdt/record/part_record_xdt_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects an xdt record by filtering the record name.

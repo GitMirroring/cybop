@@ -41,7 +41,7 @@
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/mover/mover.c"
 #include "../../../executor/selector/whitespace/whitespace_selector.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects the json number end.

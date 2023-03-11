@@ -30,7 +30,7 @@
 #include "../../executor/calculator/complex/divide_complex_calculator.c"
 #include "../../executor/calculator/complex/multiply_complex_calculator.c"
 #include "../../executor/calculator/complex/subtract_complex_calculator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Calculates the complex number using the given operation.

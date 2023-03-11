@@ -39,7 +39,7 @@
 #include "../../../executor/finder/entry_finder.c"
 #include "../../../executor/modifier/item_modifier.c"
 #include "../../../executor/streamer/reader/flag_reader.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 #include "../../../mapper/channel_to_type_mapper.c"
 
 /**

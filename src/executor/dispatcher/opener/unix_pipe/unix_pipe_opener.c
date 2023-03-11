@@ -39,7 +39,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Opens up a unix pipeline (pipe), also called "anonymous pipe".
@@ -81,7 +81,7 @@ void open_unix_pipe(void* p0) {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open unix pipe. An error occured.");
             fwprintf(stdout, L"Error: Could not open unix pipe. An error occured. %i\n", r);
-            log_errno((void*) &errno);
+            log_error((void*) &errno);
         }
 
     } else {

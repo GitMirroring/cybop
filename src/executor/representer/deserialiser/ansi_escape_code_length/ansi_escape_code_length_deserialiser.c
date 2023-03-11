@@ -39,7 +39,7 @@
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
 #include "../../../../executor/selector/ansi_escape_code_length/ansi_escape_code_length_selector.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the ansi escape code length.

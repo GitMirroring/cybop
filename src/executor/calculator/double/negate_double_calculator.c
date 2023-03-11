@@ -37,7 +37,7 @@
 // Executable interface
 //
 
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Negates the source (i.e. changes its sign) and stores the result in destination.

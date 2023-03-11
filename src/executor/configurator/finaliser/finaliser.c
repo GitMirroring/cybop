@@ -39,7 +39,7 @@
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/configurator/finaliser/serial_port/serial_port_finaliser.c"
 #include "../../../executor/configurator/finaliser/terminal/terminal_finaliser.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Finalises the device belonging to the given channel.

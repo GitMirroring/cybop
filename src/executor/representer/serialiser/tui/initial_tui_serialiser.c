@@ -44,7 +44,7 @@
 // Therefore, the "tui_serialiser.c" module is included here.
 //
 #include "../../../../executor/representer/serialiser/tui/tui_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Initialises the tui serialiser.

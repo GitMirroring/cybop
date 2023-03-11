@@ -45,7 +45,7 @@
 #include "../../../../executor/representer/deserialiser/socket/protocol_family_socket_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/socket/protocol_socket_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/socket/style_socket_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Connects the given socket to the server given by the address.

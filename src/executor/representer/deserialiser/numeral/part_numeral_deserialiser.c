@@ -43,7 +43,7 @@
 #include "../../../../executor/representer/deserialiser/whitespace/whitespace_deserialiser.c"
 #include "../../../../executor/selector/numeral/base_numeral_selector.c"
 #include "../../../../executor/selector/numeral/sign_numeral_selector.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the first or second part numeral.

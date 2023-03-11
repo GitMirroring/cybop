@@ -42,7 +42,7 @@
 #include "../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../executor/memoriser/allocator/mutex_allocator.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Allocates the server entry.

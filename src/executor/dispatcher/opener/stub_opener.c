@@ -41,7 +41,7 @@
 #include "../../../executor/modifier/item_modifier.c"
 #include "../../../executor/porter/locker.c"
 #include "../../../executor/porter/unlocker.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Opens a client either as standalone device or from request buffer, depending on the given server flag.

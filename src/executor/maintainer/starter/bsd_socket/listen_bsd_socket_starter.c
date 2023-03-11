@@ -39,7 +39,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Enable socket to accept connexions, thus making it a server socket.
@@ -87,7 +87,7 @@ void startup_bsd_socket_listen(void* p0, void* p1) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket listen. An error occured.");
                 fwprintf(stdout, L"Error: Could not startup bsd socket listen. An error occured. %i\n", r);
-                log_errno((void*) &errno);
+                log_error((void*) &errno);
             }
 
         } else {

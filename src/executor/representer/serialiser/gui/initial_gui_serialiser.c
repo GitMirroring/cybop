@@ -45,7 +45,7 @@
 // Therefore, the "gui_serialiser.c" module is included here.
 //
 #include "../../../../executor/representer/serialiser/gui/gui_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Initialises the gui serialiser.

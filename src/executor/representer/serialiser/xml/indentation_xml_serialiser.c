@@ -27,7 +27,7 @@
 #define INDENTATION_XML_SERIALISER_SOURCE
 
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the xml indentation into xml format.

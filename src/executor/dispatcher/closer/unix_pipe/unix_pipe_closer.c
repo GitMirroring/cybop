@@ -38,7 +38,7 @@
 
 #include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/dispatcher/closer/pipe/pipe_closer.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Closes down a unix pipeline (pipe), also called "anonymous pipe".

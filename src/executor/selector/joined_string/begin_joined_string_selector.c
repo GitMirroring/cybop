@@ -39,7 +39,7 @@
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/representer/deserialiser/joined_string/value_joined_string_deserialiser.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Forks deserialisation between a branch WITH and WITHOUT given quotation character.

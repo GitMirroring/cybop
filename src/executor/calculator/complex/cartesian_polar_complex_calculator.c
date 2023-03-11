@@ -38,7 +38,7 @@
 // Executable interface
 //
 
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Transforms a complex number from cartesian into polar coordinates.

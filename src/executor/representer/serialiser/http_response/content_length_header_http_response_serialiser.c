@@ -42,7 +42,7 @@
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/representer/deserialiser/ascii/ascii_deserialiser.c"
 #include "../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the http response header content length.

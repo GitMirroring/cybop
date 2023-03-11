@@ -42,7 +42,7 @@
 
 #include "../../../../executor/dispatcher/closer/basic/basic_closer.c"
 #include "../../../../executor/dispatcher/opener/file/file_opener.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // Forbidden includes

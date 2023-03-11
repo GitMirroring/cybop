@@ -40,7 +40,7 @@
 
 #include "../executor/copier/pointer_copier.c"
 // CAUTION! Do NOT include this file due to circular dependencies.
-// #include "../logger/logger.c"
+// #include "logger.h"
 
 //
 // Forward declarations

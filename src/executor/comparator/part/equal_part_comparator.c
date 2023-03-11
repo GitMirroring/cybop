@@ -43,7 +43,7 @@
 #include "../../../executor/calculator/integer/minimum_integer_calculator.c"
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 //
 // Forbidden includes

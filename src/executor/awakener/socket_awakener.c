@@ -39,7 +39,7 @@
 // Executable interface
 //
 
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Let the system send an input to itself over socket.

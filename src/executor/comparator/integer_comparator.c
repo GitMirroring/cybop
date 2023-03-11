@@ -42,7 +42,7 @@
 #include "../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../executor/comparator/integer/unequal_integer_comparator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Compares the left- with the right integer.

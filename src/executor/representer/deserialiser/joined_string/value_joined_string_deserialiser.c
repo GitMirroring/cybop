@@ -43,7 +43,7 @@
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/modifier/part_modifier.c"
 #include "../../../../executor/selector/joined_string/end_joined_string_selector.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the joined string value and appends it

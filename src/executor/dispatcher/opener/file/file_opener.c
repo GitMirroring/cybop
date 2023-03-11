@@ -41,7 +41,7 @@
 
 #include "../../../../executor/dispatcher/opener/basic/basic_opener.c"
 #include "../../../../executor/dispatcher/opener/file/mode_file_opener.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Opens the file with the given filename.

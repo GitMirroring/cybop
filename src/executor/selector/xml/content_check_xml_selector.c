@@ -39,7 +39,7 @@
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/mover/mover.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Checks if this element contains a child element, which would make it a compound node.

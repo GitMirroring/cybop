@@ -41,7 +41,7 @@
 #include "../../executor/calculator/integer/minimum_integer_calculator.c"
 #include "../../executor/caster/part_caster.c"
 #include "../../executor/copier/array/forward_array_copier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Casts a value from one type to another.

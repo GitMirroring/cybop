@@ -27,7 +27,7 @@
 #define AUTHORITY_FORM_HTTP_REQUEST_URI_DESERIALISER_SOURCE
 
 #include "../../../../executor/selector/http_request_uri/authority_form_http_request_uri_selector.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the authority form http request uri.

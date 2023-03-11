@@ -38,7 +38,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the position into win32 console function calls.
@@ -88,7 +88,7 @@ void serialise_win32_console_position(void* p0, void* p1, void* p2) {
             DWORD e = GetLastError();
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console position. A windows system error occured.");
-            log_windows_system_error((void*) &e);
+            log_error((void*) &e);
         }
 
     } else {

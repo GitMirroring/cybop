@@ -40,7 +40,7 @@
 
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Checks open client for available data.

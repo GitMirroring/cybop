@@ -44,7 +44,7 @@
 #include "../../../executor/representer/deserialiser/json/number_json_deserialiser.c"
 #include "../../../executor/representer/deserialiser/json/object_json_deserialiser.c"
 #include "../../../executor/selector/json/type_string_json_selector.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects the json value begin.

@@ -38,7 +38,7 @@
 
 #include "../../../executor/feeler/suspender/thread_suspender.c"
 #include "../../../executor/finder/entry_finder.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Suspends the data input sensing on the given channel.

@@ -38,7 +38,7 @@
 //
 
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises integer data into terminal mode line speed.

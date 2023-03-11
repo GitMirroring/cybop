@@ -38,7 +38,7 @@
 
 #include "../../../executor/logifier/integer/xor_integer_logifier.c"
 #include "../../../executor/manipulator/integer/shift_left_integer_manipulator.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Toggles the bit at the given position.

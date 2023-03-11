@@ -39,7 +39,7 @@
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/copier/pointer_copier.c"
 #include "../../../executor/modifier/normaliser/string_normaliser.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Copies the source to a local data position and count remaining.

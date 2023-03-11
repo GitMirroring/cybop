@@ -40,7 +40,7 @@
 #include "../../../controller/checker/io/receive_io_checker.c"
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Senses socket channel for new data.

@@ -26,6 +26,10 @@
 #ifndef BSD_SOCKET_ENABLER_SOURCE
 #define BSD_SOCKET_ENABLER_SOURCE
 
+//
+// System interface
+//
+
 #include <sys/socket.h> // accept
 #include <errno.h> // errno
 
@@ -34,13 +38,13 @@
 //
 
 #include "constant.h"
+#include "logger.h"
 
 //
 // Executable interface
 //
 
 #include "../../../../executor/copier/integer_copier.c"
-#include "../../../../logger/logger.c"
 
 /**
  * Accepts client request on the given bsd socket.
@@ -105,7 +109,7 @@ void enable_bsd_socket(void* p0, void* p1) {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable bsd socket. An error occured.");
             fwprintf(stdout, L"Error: Could not enable bsd socket. An error occured. c: %i\n", c);
-            log_errno((void*) &errno);
+            log_error((void*) &errno);
         }
 
     } else {

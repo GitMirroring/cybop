@@ -62,7 +62,7 @@
 #include "../../../../executor/representer/deserialiser/socket/protocol_family_socket_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/socket/protocol_socket_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/socket/style_socket_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Starts up server socket lifecycle.

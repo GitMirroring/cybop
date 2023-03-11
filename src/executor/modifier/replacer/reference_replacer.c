@@ -39,7 +39,7 @@
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/copier/pointer_copier.c"
 #include "../../../executor/modifier/replacer/string_replacer.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Makes the source data position a pointer reference.

@@ -39,7 +39,7 @@
 #include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the cybol format mime type into cyboi-internal format (integer).

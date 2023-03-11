@@ -40,7 +40,7 @@
 #include "../../../executor/finder/entry_finder.c"
 #include "../../../executor/finder/list_index_finder.c"
 #include "../../../executor/finder/mode_finder.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Closes the client with the given identification on the given channel.

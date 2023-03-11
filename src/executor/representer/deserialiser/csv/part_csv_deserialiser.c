@@ -41,7 +41,7 @@
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/modifier/part_modifier.c"
 #include "../../../../executor/representer/deserialiser/csv/record_csv_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Allocates a part for the csv record.

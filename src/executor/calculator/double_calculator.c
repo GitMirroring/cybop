@@ -33,7 +33,7 @@
 #include "../../executor/calculator/double/multiply_double_calculator.c"
 #include "../../executor/calculator/double/negate_double_calculator.c"
 #include "../../executor/calculator/double/subtract_double_calculator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Calculates the double using the given operation.

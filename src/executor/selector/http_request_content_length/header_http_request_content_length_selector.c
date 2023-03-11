@@ -41,7 +41,7 @@
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/mover/mover.c"
 #include "../../../executor/representer/deserialiser/http_request_content_length/value_http_request_content_length_deserialiser.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects the http request content length header.

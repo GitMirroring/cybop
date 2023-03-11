@@ -40,7 +40,7 @@
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/representer/deserialiser/blank_line_termination/blank_line_termination_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/http_request_content_length/http_request_content_length_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the http request message length.

@@ -38,7 +38,7 @@
 
 #include "../executor/comparator/wide_character/equal_wide_character_comparator.c"
 #include "../executor/copier/integer_copier.c"
-#include "../logger/logger.c"
+#include "logger.h"
 
 /**
  * Maps the unicode digit wide character to an integer value.

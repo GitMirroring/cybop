@@ -37,7 +37,7 @@
 //
 
 #include "../../../executor/memoriser/allocator/array_allocator.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 //
 // Unix terminal mode:

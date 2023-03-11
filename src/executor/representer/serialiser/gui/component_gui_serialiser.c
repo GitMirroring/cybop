@@ -42,7 +42,7 @@
 #include "../../../../executor/representer/serialiser/gui/context_gui_serialiser.c"
 #include "../../../../executor/representer/serialiser/gui/shape_gui_serialiser.c"
 #include "../../../../executor/representer/serialiser/gui/text_gui_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the gui component.

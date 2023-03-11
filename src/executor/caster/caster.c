@@ -41,7 +41,7 @@
 #include "../../executor/caster/integer_caster.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/memoriser/offset_adder.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Casts the source data into the destination data,

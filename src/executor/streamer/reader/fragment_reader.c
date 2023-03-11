@@ -39,7 +39,7 @@
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/streamer/reader/inline/inline_reader.c"
 #include "../../../executor/streamer/reader/signal/signal_reader.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 #if defined(__linux__) || defined(__unix__)
     #include "../../../executor/streamer/reader/basic/basic_reader.c"

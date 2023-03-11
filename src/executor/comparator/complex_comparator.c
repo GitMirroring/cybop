@@ -39,7 +39,7 @@
 #include "../../executor/comparator/complex/equal_complex_comparator.c"
 #include "../../executor/comparator/complex/unequal_complex_comparator.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Compares the left- with the right complex.

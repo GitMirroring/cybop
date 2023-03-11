@@ -39,7 +39,7 @@
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/copier/pointer_copier.c"
 #include "../../../executor/representer/serialiser/serialiser.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises source into destination.

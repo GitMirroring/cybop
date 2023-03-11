@@ -37,7 +37,7 @@
 //
 
 #include "../../../../executor/representer/deserialiser/ascii/ascii_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the wide character into an ansi escape code.

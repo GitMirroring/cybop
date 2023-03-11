@@ -39,7 +39,7 @@
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/accessor/name_getter/array_name_getter.c"
 #include "../../executor/manipulator/part_manipulator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Manipulates the bit at the given position by applying the given operation to the given value.

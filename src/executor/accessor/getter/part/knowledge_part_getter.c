@@ -38,7 +38,7 @@
 
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/representer/deserialiser/knowledge/knowledge_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Gets the knowledge part by knowledge path.

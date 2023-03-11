@@ -39,7 +39,7 @@
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/maintainer/shutter/display/display_shutter.c"
 #include "../../../executor/maintainer/shutter/socket/socket_shutter.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Shutdown service on the given channel.

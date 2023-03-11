@@ -39,7 +39,7 @@
 #include "../../../../executor/streamer/reader/win32_console/key_process_win32_console_reader.c"
 #include "../../../../executor/streamer/reader/win32_console/mouse_process_win32_console_reader.c"
 #include "../../../../executor/streamer/reader/win32_console/window_buffer_size_process_win32_console_reader.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Processes a win32 console message.

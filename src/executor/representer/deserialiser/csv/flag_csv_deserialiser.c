@@ -39,7 +39,7 @@
 #include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../../executor/representer/deserialiser/csv/header_csv_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/csv/index_csv_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Checks whether or not the csv content has a header.

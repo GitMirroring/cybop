@@ -46,7 +46,7 @@
 #include "../../../../executor/representer/deserialiser/numeral/integer_numeral_deserialiser.c"
 #include "../../../../executor/selector/numeral/sign_numeral_selector.c"
 #include "../../../../executor/selector/numeral/value_numeral_selector.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the power of the given number base.

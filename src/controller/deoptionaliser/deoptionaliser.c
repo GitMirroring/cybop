@@ -26,6 +26,16 @@
 #ifndef DEOPTIONALISER_SOURCE
 #define DEOPTIONALISER_SOURCE
 
+//
+// Library interface
+//
+
+#include "logger.h"
+
+//
+// Executable interface
+//
+
 #include "../../controller/deoptionaliser/log_file_deoptionaliser.c"
 
 /**

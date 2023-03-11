@@ -39,7 +39,7 @@
 //
 
 #include "../../../../executor/representer/serialiser/xcb/properties_context_xcb_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the xcb context.

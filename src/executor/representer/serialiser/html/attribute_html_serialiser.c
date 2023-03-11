@@ -40,7 +40,7 @@
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/representer/serialiser/html/attribute_html_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the html attribute into html format.

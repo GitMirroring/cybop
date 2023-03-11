@@ -42,7 +42,7 @@
 #include "../../../../executor/representer/serialiser/ansi_escape_code/background_ansi_escape_code_serialiser.c"
 #include "../../../../executor/representer/serialiser/ansi_escape_code/colour_ansi_escape_code_serialiser.c"
 #include "../../../../executor/representer/serialiser/ansi_escape_code/foreground_ansi_escape_code_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the attributes into an ansi escape code.

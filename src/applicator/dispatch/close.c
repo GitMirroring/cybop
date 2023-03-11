@@ -40,7 +40,7 @@
 #include "../../executor/copier/array/forward_array_copier.c"
 #include "../../executor/copier/integer_copier.c"
 #include "../../executor/dispatcher/closer/closer.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Closes down the client on the given channel.

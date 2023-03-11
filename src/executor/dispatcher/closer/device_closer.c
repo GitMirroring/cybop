@@ -40,7 +40,7 @@
 #include "../../../executor/dispatcher/closer/basic/basic_closer.c"
 #include "../../../executor/dispatcher/closer/display/display_closer.c"
 #include "../../../executor/dispatcher/closer/socket/socket_closer.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Closes the device with the given client identification and belonging to the given channel.

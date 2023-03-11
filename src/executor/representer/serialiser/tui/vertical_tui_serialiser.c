@@ -36,7 +36,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Determines the vertical position of the given y coordinate.

@@ -41,7 +41,7 @@
 #include "../../../../../executor/calculator/double/multiply_double_calculator.c"
 #include "../../../../../executor/caster/double/integer_double_caster.c"
 #include "../../../../../executor/copier/double_copier.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the hour/minute/second into a julian second.

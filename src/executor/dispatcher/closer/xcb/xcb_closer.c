@@ -40,7 +40,7 @@
 
 #include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/memoriser/deallocator/array_deallocator.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Closes down the window with the given identification.

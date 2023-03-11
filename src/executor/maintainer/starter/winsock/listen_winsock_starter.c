@@ -38,7 +38,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Enable socket to accept connections, thus making it a server socket.
@@ -86,7 +86,7 @@ void startup_winsock_listen(void* p0, void* p1) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock connexion. An error occured.");
                 fwprintf(stdout, L"Error: Could not open winsock connexion. An error occured. %i\n", r);
-                log_errno((void*) &e);
+                log_error((void*) &e);
             }
 
         } else {

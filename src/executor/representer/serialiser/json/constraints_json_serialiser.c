@@ -49,7 +49,7 @@
 // Therefore, the "json_serialiser.c" module is included here.
 //
 #include "../../../../executor/representer/serialiser/json/json_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Retrieves language properties (constraints) necessary for serialisation.

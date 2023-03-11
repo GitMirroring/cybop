@@ -36,7 +36,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the character into an ansi escape code.

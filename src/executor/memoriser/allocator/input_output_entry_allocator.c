@@ -39,7 +39,7 @@
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Allocates the input output entry.

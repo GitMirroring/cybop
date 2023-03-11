@@ -41,7 +41,7 @@
 
 #include "../../../../executor/configurator/initialiser/bsd_socket/bsd_socket_initialiser.c"
 #include "../../../../executor/copier/integer_copier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Open bsd socket device.
@@ -123,7 +123,7 @@ void open_bsd_socket_device(void* p0, void* p1, void* p2, void* p3) {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket device. An error occured.");
                     fwprintf(stdout, L"Error: Could not open bsd socket device. An error occured. %i\n", r);
-                    log_errno((void*) &errno);
+                    log_error((void*) &errno);
                 }
 
             } else {

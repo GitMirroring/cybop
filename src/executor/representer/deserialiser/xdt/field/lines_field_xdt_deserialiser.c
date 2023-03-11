@@ -39,7 +39,7 @@
 #include "../../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../executor/representer/deserialiser/xdt/field/line_field_xdt_deserialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises xdt field lines.

@@ -43,7 +43,7 @@
 #include "../../../executor/dispatcher/opener/serial_port/serial_port_opener.c"
 #include "../../../executor/dispatcher/opener/socket/socket_opener.c"
 #include "../../../executor/dispatcher/opener/terminal/terminal_opener.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Opens the device belonging to the given channel.

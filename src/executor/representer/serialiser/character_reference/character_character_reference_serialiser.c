@@ -39,7 +39,7 @@
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/representer/serialiser/character_reference/html_character_reference_serialiser.c"
 #include "../../../../executor/representer/serialiser/character_reference/xml_character_reference_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises a character into a hexadecimal numeric character reference.

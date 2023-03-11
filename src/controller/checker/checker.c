@@ -38,7 +38,7 @@
 
 #include "../../controller/checker/signal_checker.c"
 #include "../../executor/copier/array/forward_array_copier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Checks the signal memory for signals.

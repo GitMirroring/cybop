@@ -39,7 +39,7 @@
 #include "../../../../executor/representer/deserialiser/http_request/method_http_request_deserialiser.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // An http server request delivers message data in text format (like MIME 1.0),

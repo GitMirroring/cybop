@@ -31,7 +31,7 @@
 #include <unistd.h> // chown
 
 #include "../../executor/converter/encoder/utf/utf_8_encoder.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Optionalises the log file option.

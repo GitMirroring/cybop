@@ -46,7 +46,7 @@
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/porter/locker.c"
 #include "../../../../executor/porter/unlocker.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Writes data.
@@ -230,7 +230,7 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write basic. An error occured.");
             fwprintf(stdout, L"Error: Could not write basic. An error occured. Possibly, the buffer is null. n: %i\n", n);
-            log_errno((void*) &errno);
+            log_error((void*) &errno);
             fwprintf(stdout, L"Hint: Does the file path exist?\n");
             fwprintf(stdout, L"Hint: Did you OPEN the device, for example standard terminal or file?\n");
             fwprintf(stdout, L"Hint: Did you forget to specify the cybol \"mode\" property with value \"write\" when opening the file?\n");

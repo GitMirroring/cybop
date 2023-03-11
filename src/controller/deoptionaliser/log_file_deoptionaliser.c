@@ -26,9 +26,19 @@
 #ifndef LOG_FILE_DEOPTIONALISER_SOURCE
 #define LOG_FILE_DEOPTIONALISER_SOURCE
 
-#include <stdio.h>
+//
+// System interface
+//
 
-#include "../../logger/logger.c"
+#include <stdio.h> // FILE, fclose, EOF
+#include <wchar.h> // fwprintf
+
+//
+// Library interface
+//
+
+#include "constant.h"
+#include "logger.h"
 
 /**
  * Deoptionalises the log file option.
@@ -41,15 +51,20 @@ void deoptionalise_log_file(void* p0) {
 
         FILE** f = (FILE**) p0;
 
+        //
         // CAUTION! DO NOT use logging functionality here!
         // The logger will not work before its options are set.
         // Comment out this function call to avoid disturbing messages at system startup!
+        //
         // log_write((void*) stdout, L"Debug: Deoptionalise log file.\n");
+        //
 
+        //
         // CAUTION! This test is necessary! Do NOT delete it!
         // Checking the file stream argument above is not sufficient,
         // since a segmentation fault will occur here,
         // if no log file is given as command line argument at system startup.
+        //
         if (((void*) *f) != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             // Close log file.
@@ -57,51 +72,67 @@ void deoptionalise_log_file(void* p0) {
 
             if (e == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
+                //
                 // Reset log file pointer.
+                //
                 // CAUTION! Hand over the log file stream AS REFERENCE!
                 // This is necessary, because it is reset to null here.
                 // If this was not done, subsequent logger calls would cause segmentation faults,
                 // because the null pointer test within the logger would be successful,
                 // even though the LOG_OUTPUT pointer would be invalid.
+                //
                 *f = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             } else {
 
+                //
                 // An error occured.
+                //
 
                 if (e == EOF) {
 
                     fwprintf(stdout, L"Error: Could not deoptionalise log file. The error EOF was detected on closing the file. e: %i\n", e);
 
+                    //
                     // CAUTION! DO NOT use logging functionality here!
                     // The logger will not work before its options are set.
                     // Do NOT show the following message, as it would only disturb the user!
+                    //
                     // log_write((void*) stdout, L"Error: Could not deoptionalise log file. The error EOF was detected on closing the file.\n");
+                    //
 
                 } else {
 
                     fwprintf(stdout, L"Error: Could not deoptionalise log file. An unknown error was detected on closing the file. e: %i\n", e);
 
+                    //
                     // CAUTION! DO NOT use logging functionality here!
                     // The logger will not work before its options are set.
                     // Do NOT show the following message, as it would only disturb the user!
+                    //
                     // log_write((void*) stdout, L"Error: Could not deoptionalise log file. An unknown error was detected on closing the file.\n");
+                    //
                 }
             }
 
         } else {
 
+            //
             // CAUTION! DO NOT use logging functionality here!
             // The logger will not work before its options are set.
             // Do NOT show the following message, as it would only disturb the user!
+            //
             // log_write((void*) stdout, L"Warning: Could not deoptionalise log file. No log file was given at system startup.\n");
+            //
         }
 
     } else {
 
+        //
         // CAUTION! DO NOT use logging functionality here!
         // The logger will not work before its options are set.
         // Do NOT show the following message, as it would only disturb the user!
+        //
         log_write((void*) stdout, L"Error: Could not deoptionalise log file. The file descriptor is null.\n");
     }
 }

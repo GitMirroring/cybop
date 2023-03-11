@@ -39,7 +39,7 @@
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/streamer/reader/length_reader.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Checks if the message is complete, with prefix or suffix

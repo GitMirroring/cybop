@@ -39,7 +39,7 @@
 #include "../../../../executor/representer/serialiser/xml/break_xml_serialiser.c"
 #include "../../../../executor/representer/serialiser/xml/end_xml_serialiser.c"
 #include "../../../../executor/representer/serialiser/xml/indentation_xml_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the empty part element into xml.

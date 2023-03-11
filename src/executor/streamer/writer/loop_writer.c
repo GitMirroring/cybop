@@ -38,7 +38,7 @@
 
 #include "../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../executor/streamer/writer/message_writer.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Writes data via an endless loop.

@@ -44,7 +44,7 @@
 #include "../../../../executor/representer/serialiser/html/filled_html_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/indentation_html_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/void_html_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the part element content into html.

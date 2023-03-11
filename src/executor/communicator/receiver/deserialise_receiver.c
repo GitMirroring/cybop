@@ -37,7 +37,7 @@
 //
 
 #include "../../../executor/representer/deserialiser/deserialiser.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialise source into destination.

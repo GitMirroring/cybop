@@ -47,7 +47,7 @@
 // Therefore, the "xml_serialiser.c" module is included here.
 //
 #include "../../../../executor/representer/serialiser/xml/xml_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Retrieves language properties (constraints) necessary for serialisation.

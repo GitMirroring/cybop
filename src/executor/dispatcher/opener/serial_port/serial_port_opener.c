@@ -40,7 +40,7 @@
 //
 
 #include "../../../../executor/dispatcher/opener/basic/basic_opener.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Opens the serial port with the given filename.

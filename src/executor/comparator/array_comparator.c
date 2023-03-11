@@ -39,7 +39,7 @@
 #include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../executor/comparator/vector_comparator.c"
 #include "../../executor/copier/integer_copier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Compares count elements of the left- and right array.

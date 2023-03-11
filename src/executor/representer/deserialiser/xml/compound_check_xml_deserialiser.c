@@ -40,7 +40,7 @@
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
 #include "../../../../executor/selector/xml/compound_check_xml_selector.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Checks if this is going to be a compound node.

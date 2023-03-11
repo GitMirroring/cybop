@@ -38,7 +38,7 @@
 
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/modifier/item_modifier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Retrieves next part.

@@ -43,7 +43,7 @@
 #include "../../../executor/mover/mover.c"
 #include "../../../executor/selector/digit/decimal_digit_selector.c"
 #include "../../../executor/selector/digit/hexadecimal_digit_selector.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects the numeral value end.

@@ -38,7 +38,7 @@
 
 #include "../../../controller/checker/client/all_client_checker.c"
 #include "../../../executor/copier/array/forward_array_copier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Checks list of already open clients for new available data.

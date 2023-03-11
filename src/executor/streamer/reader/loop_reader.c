@@ -38,7 +38,7 @@
 
 #include "../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../executor/streamer/reader/message_reader.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Reads data via an endless loop.

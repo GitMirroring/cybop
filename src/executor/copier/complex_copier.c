@@ -38,7 +38,7 @@
 
 #include "../../executor/accessor/getter/complex_getter.c"
 #include "../../executor/accessor/setter/complex_setter.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Copies the complex.

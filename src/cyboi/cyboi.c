@@ -57,7 +57,7 @@
 //?? #include "../executor/memoriser/allocator/item_allocator.c"
 //
 #include "../executor/memoriser/deallocator/item_deallocator.c"
-#include "../logger/logger.c"
+#include "logger.h"
 
 //
 // Windows specific stuff

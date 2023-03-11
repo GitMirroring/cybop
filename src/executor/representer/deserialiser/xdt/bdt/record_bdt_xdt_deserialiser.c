@@ -39,7 +39,7 @@
 #include "../../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../../executor/modifier/part_modifier.c"
 #include "../../../../../executor/representer/deserialiser/xdt/bdt/fields_bdt_xdt_deserialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the xdt bdt record.

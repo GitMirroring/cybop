@@ -37,7 +37,7 @@
 //
 
 #include "../../executor/manipulator/item_manipulator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Manipulates the part bit at the given position.

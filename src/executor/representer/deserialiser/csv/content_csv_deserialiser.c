@@ -39,7 +39,7 @@
 #include "../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/representer/deserialiser/csv/source_csv_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the csv content.

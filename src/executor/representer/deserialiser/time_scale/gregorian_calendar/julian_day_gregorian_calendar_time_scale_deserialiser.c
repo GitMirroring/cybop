@@ -43,7 +43,7 @@
 #include "../../../../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../executor/representer/deserialiser/time_scale/running_day/running_day_time_scale_deserialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the source year/month/day into the destination julian day.

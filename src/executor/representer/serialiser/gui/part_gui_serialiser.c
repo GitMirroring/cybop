@@ -39,7 +39,7 @@
 #include "../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/representer/serialiser/gui/element_gui_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the part into gui.

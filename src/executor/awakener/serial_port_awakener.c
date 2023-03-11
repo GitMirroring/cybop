@@ -39,7 +39,7 @@
 // Executable interface
 //
 
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Let the system send an input to itself over serial port.
@@ -86,7 +86,7 @@ void awake_serial_port(void* p0) {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not awake serial port. An error occured.");
         fwprintf(stdout, L"Error: Could not awake serial port. An error occured. %i\n", r);
-        log_errno((void*) &errno);
+        log_error((void*) &errno);
     }
 }
 

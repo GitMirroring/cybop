@@ -46,7 +46,7 @@
 #include "../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/modifier/item_modifier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects the command line option.

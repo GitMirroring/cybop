@@ -39,7 +39,7 @@
 #include "../../../../executor/caster/array_caster.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises byte numbers (unsigned char) into wide character data.

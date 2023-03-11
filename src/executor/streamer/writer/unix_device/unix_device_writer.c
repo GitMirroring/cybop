@@ -39,7 +39,7 @@
 // Executable interface
 //
 
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Sends a command to the unix device given by the file descriptor.
@@ -124,7 +124,7 @@ void write_unix_device(void* p0, void* p1, void* p2) {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write unix device. An error occured.");
                     fwprintf(stdout, L"Error: Could not write unix device. An error occured. %i\n", r);
-                    log_errno((void*) &errno);
+                    log_error((void*) &errno);
                 }
 
             } else {

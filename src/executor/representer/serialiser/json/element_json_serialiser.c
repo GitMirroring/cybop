@@ -39,7 +39,7 @@
 #include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/representer/serialiser/json/content_json_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the part element into json.

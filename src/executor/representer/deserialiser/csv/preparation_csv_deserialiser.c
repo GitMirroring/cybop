@@ -41,7 +41,7 @@
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/representer/deserialiser/csv/content_csv_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Prepares variables necessary for deserialisation.

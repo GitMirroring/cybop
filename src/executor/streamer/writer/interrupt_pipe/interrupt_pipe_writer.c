@@ -37,7 +37,7 @@
 //
 
 #include "../../../../executor/streamer/writer/interrupt_pipe/exclusive_interrupt_pipe_writer.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Writes handler and client identification to the interrupt pipe.

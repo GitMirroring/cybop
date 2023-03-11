@@ -31,6 +31,7 @@
 //
 
 #include "constant.h"
+#include "logger.h"
 #include "variable.h"
 
 /**

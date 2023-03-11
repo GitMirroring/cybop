@@ -44,7 +44,7 @@
 //
 
 #include "../../../../executor/representer/deserialiser/command_line/argument_command_line_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the command line.

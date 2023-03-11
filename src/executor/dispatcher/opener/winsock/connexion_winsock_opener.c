@@ -38,7 +38,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Connects the windows socket to the server given by the address.
@@ -92,7 +92,7 @@ void open_winsock_connexion(void* p0, void* p1, void* p2) {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock connexion. An error occured.");
                     fwprintf(stdout, L"Error: Could not open winsock connexion. An error occured. %i\n", r);
-                    log_errno((void*) &e);
+                    log_error((void*) &e);
                 }
 
             } else {

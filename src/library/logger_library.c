@@ -51,7 +51,9 @@
 // 3 Simplicity: Other languages like java do not use header files either.
 //
 
-//?? #include "../executor/representer/deserialiser/xdt/xdt_deserialiser.c"
+#include "../logger/error_logger.c"
+#include "../logger/terminated_message_logger.c"
+#include "../logger/write_logger.c"
 
 /* LOGGER_LIBRARY_SOURCE */
 #endif

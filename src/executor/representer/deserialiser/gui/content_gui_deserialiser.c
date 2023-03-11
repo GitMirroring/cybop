@@ -46,7 +46,7 @@
 #include "../../../../executor/representer/deserialiser/gui_action/key_release_gui_action_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/gui_action/leave_notify_gui_action_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/gui_action/motion_notify_gui_action_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the gui content into an action.

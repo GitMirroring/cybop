@@ -28,7 +28,7 @@
 
 #include "../../../../executor/memoriser/reallocator/array_reallocator.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the model diagram indentation branch.

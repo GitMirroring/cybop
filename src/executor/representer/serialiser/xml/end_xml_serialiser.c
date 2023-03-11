@@ -28,7 +28,7 @@
 
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/representer/serialiser/xml/indentation_xml_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the xml end tag into xml format.

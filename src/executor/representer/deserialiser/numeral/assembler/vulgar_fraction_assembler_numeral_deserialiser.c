@@ -38,7 +38,7 @@
 
 #include "../../../../../executor/accessor/setter/fraction_setter.c"
 #include "../../../../../executor/representer/deserialiser/numeral/assembler/integer_assembler_numeral_deserialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Assembles the vulgar fraction from the given values.

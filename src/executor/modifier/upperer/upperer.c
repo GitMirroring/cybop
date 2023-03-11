@@ -38,7 +38,7 @@
 
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/modifier/upperer/item_upperer.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Converts the source string into upper case letters.

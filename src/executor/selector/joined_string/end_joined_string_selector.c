@@ -39,7 +39,7 @@
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/selector/joined_string/quotation_end_joined_string_selector.c"
 #include "../../../executor/selector/joined_string/value_end_joined_string_selector.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Forks deserialisation between a branch WITH and WITHOUT given quotation character.

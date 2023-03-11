@@ -38,7 +38,7 @@
 
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/commander/tape_archiver_commander.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 #if defined(__linux__) || defined(__unix__)
     #elif defined(__APPLE__) && defined(__MACH__)

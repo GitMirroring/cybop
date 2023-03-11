@@ -31,6 +31,7 @@
 //
 
 #include "constant.h"
+#include "logger.h"
 
 //
 // Executable interface
@@ -41,7 +42,6 @@
 #include "../../../../executor/representer/deserialiser/xdt/field/field_xdt_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xdt/record/record_xdt_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xdt/standard_xdt_deserialiser.c"
-#include "../../../../logger/logger.c"
 
 /**
  * Deserialises xdt data.

@@ -37,7 +37,7 @@
 //
 
 #include "../../../../../executor/representer/deserialiser/datetime/jd/basic_jd_datetime_deserialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the julian date (jd) wide character data into a datetime model.

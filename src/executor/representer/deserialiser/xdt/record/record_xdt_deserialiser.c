@@ -37,7 +37,7 @@
 //
 
 #include "../../../../../executor/representer/deserialiser/xdt/record/fields_record_xdt_deserialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises xdt record.

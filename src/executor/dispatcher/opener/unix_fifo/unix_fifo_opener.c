@@ -41,7 +41,7 @@
 
 #include "../../../../executor/dispatcher/opener/basic/basic_opener.c"
 #include "../../../../executor/dispatcher/opener/unix_fifo/file_unix_fifo_opener.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Makes a unix first-in-first-out (fifo), also called "named pipeline" (named pipe).

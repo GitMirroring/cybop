@@ -39,7 +39,7 @@
 #include "../../executor/checker/operation_checker.c"
 #include "../../executor/copier/integer_copier.c"
 #include "../../executor/detector/moving_detector.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Moves the current position and remaining count, depending on the move flag.

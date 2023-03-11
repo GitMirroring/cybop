@@ -30,7 +30,7 @@
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/mover/mover.c"
 #include "../../../executor/representer/deserialiser/http_request/header_value_http_request_deserialiser.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects the http request header argument.

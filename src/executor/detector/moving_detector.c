@@ -38,7 +38,7 @@
 
 #include "../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../executor/mover/mover.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Moves the current position and remaining count, depending on the move flag.

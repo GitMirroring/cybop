@@ -14,7 +14,6 @@
 Library
 _______
 
-        * Add shared library "logger"
         * Add shared library "executor"
         * Add shared library "xml"
         * Add shared library "json"

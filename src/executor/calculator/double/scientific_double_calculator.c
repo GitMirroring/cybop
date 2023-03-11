@@ -38,7 +38,7 @@
 
 #include "../../../executor/calculator/double/normalise_double_calculator.c"
 #include "../../../executor/comparator/double/equal_double_comparator.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Converts the floating point number into scientific notation.

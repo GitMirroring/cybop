@@ -37,7 +37,7 @@
 //
 
 #include "../../../../executor/representer/serialiser/cybol/element_cybol_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the part into cybol.

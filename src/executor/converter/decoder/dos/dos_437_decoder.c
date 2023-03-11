@@ -38,7 +38,7 @@
 
 #include "../../../../executor/comparator/character/equal_character_comparator.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Decodes the dos 437 character into a utf-32 wide character.

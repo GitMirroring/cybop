@@ -38,7 +38,7 @@
 
 #include "../../executor/caster/item_caster.c"
 #include "../../executor/copier/array/forward_array_copier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Casts elements of the source- into the destination part.

@@ -28,7 +28,7 @@
 
 #include "../../../../../executor/modifier/part_modifier.c"
 #include "../../../../../executor/selector/uri/http/name_parametre_query_http_uri_selector.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the http uri query parametre name.

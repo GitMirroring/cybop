@@ -41,7 +41,7 @@
 #include "../../../executor/copier/array/backward_array_copier.c"
 #include "../../../executor/memoriser/reallocator/array_reallocator.c"
 #include "../../../executor/referencer/referencer.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Inserts the source- INSIDE the destination array.

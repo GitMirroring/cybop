@@ -40,7 +40,7 @@
 #include "../../../../executor/calculator/complex/cartesian_polar_complex_calculator.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/representer/serialiser/numeral/decimal_fraction_numeral_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the vulgar fraction into a wide character sequence.

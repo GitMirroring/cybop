@@ -44,7 +44,7 @@
 #include "../../executor/logifier/character/nand_character_logifier.c"
 #include "../../executor/logifier/character/xor_character_logifier.c"
 #include "../../executor/logifier/character/neg_character_logifier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Connects the given values following the given character bitwise logic operation.

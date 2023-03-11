@@ -38,7 +38,7 @@
 
 #include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Checks if the buffer count is greater or equal to the expected message length.

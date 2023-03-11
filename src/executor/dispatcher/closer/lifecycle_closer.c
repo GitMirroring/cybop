@@ -41,7 +41,7 @@
 #include "../../../executor/feeler/suspender/thread_suspender.c"
 #include "../../../executor/memoriser/deallocator/client_entry_deallocator.c"
 #include "../../../executor/modifier/item_modifier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Executes the client close lifecycle.

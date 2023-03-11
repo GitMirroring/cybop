@@ -42,7 +42,7 @@
 #include "../../../executor/comparator/integer/greater_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/modifier/item_modifier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Checks input output for new client requests.

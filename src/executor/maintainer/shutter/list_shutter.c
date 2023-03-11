@@ -41,7 +41,7 @@
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/maintainer/shutter/flag_shutter.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Shuts down or closes all list entries.

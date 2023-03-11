@@ -27,6 +27,16 @@
 #define LOGGER_HEADER
 
 //
+// model
+//
+
+#include "constant/model/cyboi/log/error_message_log_cyboi_model.h"
+#include "constant/model/cyboi/log/level_log_cyboi_model.h"
+#include "constant/model/cyboi/log/level_name_log_cyboi_model.h"
+#include "constant/model/cyboi/log/linux_error_message_log_cyboi_model.h"
+#include "constant/model/cyboi/log/windows_error_message_log_cyboi_model.h"
+
+//
 // Loading of a shared object (dynamic library)
 //
 // A shared object (.so) library gets loaded when needed
@@ -47,7 +57,9 @@
 // A COMMENT like this one can be used as hint, instead of that keyword.
 //
 
-//?? void TODO(void* p0, void* p1);
+void log_error(void* p0);
+void log_message_terminated(void* p0, void* p1);
+void log_write(void* p0, void* p1);
 
 /* LOGGER_HEADER */
 #endif

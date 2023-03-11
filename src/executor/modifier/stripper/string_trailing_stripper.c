@@ -44,7 +44,7 @@
 #include "../../../executor/modifier/array_modifier.c"
 #include "../../../executor/mover/mover.c"
 #include "../../../executor/selector/whitespace/non_whitespace_selector.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Searches for a non-whitespace character from the END of the given array.

@@ -29,7 +29,7 @@
 #include "../../../../executor/representer/deserialiser/authority/hostname_authority_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/authority/username_authority_deserialiser.c"
 #include "../../../../executor/selector/authority/userinfo_authority_selector.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the authority userinfo.

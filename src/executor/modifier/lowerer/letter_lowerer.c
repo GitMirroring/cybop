@@ -36,7 +36,7 @@
 // Executable interface
 //
 
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Converts the character into a lower case letter.

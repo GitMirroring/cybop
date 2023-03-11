@@ -41,7 +41,7 @@
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/stacker/popper/part_popper.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Pops (removes) parts from stack memory.

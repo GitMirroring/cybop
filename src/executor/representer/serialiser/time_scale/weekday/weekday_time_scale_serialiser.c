@@ -40,7 +40,7 @@
 #include "../../../../../executor/calculator/integer/modulo_integer_calculator.c"
 #include "../../../../../executor/caster/integer/double_integer_caster.c"
 #include "../../../../../executor/representer/serialiser/time_scale/julian_date/julian_date_time_scale_serialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the source julian date into the destination weekday.

@@ -37,7 +37,7 @@
 //
 
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Compares the left- with the right integer for equality.

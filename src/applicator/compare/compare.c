@@ -40,7 +40,7 @@
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/calculator/integer/minimum_integer_calculator.c"
 #include "../../executor/copier/array/forward_array_copier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Compares left and right operand.

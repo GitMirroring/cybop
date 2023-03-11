@@ -39,7 +39,7 @@
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/activator/enabler/enabler.c"
 #include "../../executor/copier/array/forward_array_copier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Enables the service on the given channel.

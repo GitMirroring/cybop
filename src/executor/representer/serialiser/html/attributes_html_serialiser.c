@@ -38,7 +38,7 @@
 
 #include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/representer/serialiser/html/attribute_html_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the html attributes into html format.

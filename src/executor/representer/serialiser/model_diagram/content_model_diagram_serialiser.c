@@ -44,7 +44,7 @@
 #include "../../../../executor/representer/serialiser/cybol/format_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/model_diagram/indentation_model_diagram_serialiser.c"
 #include "../../../../executor/representer/serialiser/model_diagram/line_model_diagram_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // Forbidden includes

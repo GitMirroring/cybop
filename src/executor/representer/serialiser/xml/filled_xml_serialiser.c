@@ -44,7 +44,7 @@
 #include "../../../../executor/representer/serialiser/xml/end_xml_serialiser.c"
 #include "../../../../executor/representer/serialiser/xml/indentation_xml_serialiser.c"
 #include "../../../../executor/representer/serialiser/xml/primitive_xml_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // Forbidden includes

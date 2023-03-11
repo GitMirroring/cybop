@@ -40,7 +40,7 @@
 #include "../../../executor/modifier/item_modifier.c"
 #include "../../../executor/mover/mover.c"
 #include "../../../executor/selector/whitespace/whitespace_selector.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Searches for a whitespace character.

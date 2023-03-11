@@ -46,7 +46,7 @@
 #include "../../../../../executor/representer/deserialiser/xdt/field/identification_field_xdt_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/xdt/field/part_field_xdt_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/xdt/field/size_field_xdt_deserialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises xdt field line.

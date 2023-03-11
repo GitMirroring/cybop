@@ -28,7 +28,7 @@
 
 #include "../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../executor/copier/array/forward_array_copier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Indicates the fill level of the item.

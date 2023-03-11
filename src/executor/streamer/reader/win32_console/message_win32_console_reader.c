@@ -38,7 +38,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Reads a win32 console message.
@@ -107,7 +107,7 @@ void read_win32_console_message(void* p0, void* p1, void* p2, void* p3) {
                         DWORD e = GetLastError();
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read win32 console message. The read console input failed.");
-                        log_windows_system_error((void*) &e);
+                        log_error((void*) &e);
                     }
 
                 } else {

@@ -44,7 +44,7 @@
 #include "../../executor/manipulator/character/shift_left_character_manipulator.c"
 #include "../../executor/manipulator/character/shift_right_character_manipulator.c"
 #include "../../executor/manipulator/character/toggle_character_manipulator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Manipulates the character value bit at the given position.

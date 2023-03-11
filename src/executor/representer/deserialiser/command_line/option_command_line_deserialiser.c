@@ -45,7 +45,7 @@
 
 #include "../../../../executor/selector/command_line/mode_command_line_selector.c"
 #include "../../../../executor/selector/command_line/option_command_line_selector.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the command line option.

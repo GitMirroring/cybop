@@ -27,7 +27,7 @@
 #define ELEMENTS_ARRAY_REFERENCER_SOURCE
 
 #include "../../executor/referencer/part_referencer.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Increments or decrements the array elements' reference count.

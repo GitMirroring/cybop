@@ -37,7 +37,7 @@
 //
 
 #include "../../../../executor/representer/serialiser/percent_encoding/data_percent_encoding_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // A URI is composed from a limited set of characters consisting of

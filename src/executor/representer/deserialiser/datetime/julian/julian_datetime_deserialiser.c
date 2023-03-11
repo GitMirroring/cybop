@@ -36,7 +36,7 @@
 // Executable interface
 //
 
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the julian date wide character data into a datetime model.

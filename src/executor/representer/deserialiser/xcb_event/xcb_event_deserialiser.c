@@ -49,7 +49,7 @@
 #include "../../../../executor/representer/deserialiser/xcb_event/key_release_xcb_event_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xcb_event/leave_notify_xcb_event_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xcb_event/motion_notify_xcb_event_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the given xcb event.

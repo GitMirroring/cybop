@@ -37,7 +37,7 @@
 //
 
 #include "../../../executor/selector/knowledge/end_knowledge_selector.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects the knowledge end with the move depending on the given flag.

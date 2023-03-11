@@ -39,7 +39,7 @@
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/modifier/item_modifier.c"
 #include "../../../executor/mover/mover.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Replaces the searchterm sequence with the replacement sequence.

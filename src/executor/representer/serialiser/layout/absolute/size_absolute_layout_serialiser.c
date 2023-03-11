@@ -37,7 +37,7 @@
 //
 
 #include "../../../../../executor/representer/serialiser/layout/part_layout_serialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises absolute layout size.

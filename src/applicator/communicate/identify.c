@@ -39,7 +39,7 @@
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/copier/array/forward_array_copier.c"
 #include "../../executor/copier/integer_copier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Identifies the device or client that has placed a request (handler) into the interrupt pipe.

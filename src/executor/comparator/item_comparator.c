@@ -38,7 +38,7 @@
 
 #include "../../executor/comparator/lexicographical_comparator.c"
 #include "../../executor/copier/array/forward_array_copier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Compares left- with right item.

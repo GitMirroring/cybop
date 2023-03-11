@@ -39,7 +39,7 @@
 //
 
 #include "../../../../executor/copier/array/forward_array_copier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Updates the win32 display window.

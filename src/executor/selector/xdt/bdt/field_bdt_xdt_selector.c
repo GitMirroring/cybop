@@ -39,7 +39,7 @@
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/representer/deserialiser/xdt/bdt/compound_field_bdt_xdt_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects a compound xdt bdt field by filtering its name (number).

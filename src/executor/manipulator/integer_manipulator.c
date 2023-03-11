@@ -44,7 +44,7 @@
 #include "../../executor/manipulator/integer/shift_left_integer_manipulator.c"
 #include "../../executor/manipulator/integer/shift_right_integer_manipulator.c"
 #include "../../executor/manipulator/integer/toggle_integer_manipulator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Manipulates the integer value bit at the given position.

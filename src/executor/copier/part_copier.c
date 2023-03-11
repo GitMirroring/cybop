@@ -41,7 +41,7 @@
 //
 
 #include "../../executor/memoriser/allocator/part_allocator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 //
 // Forbidden includes

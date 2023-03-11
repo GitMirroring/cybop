@@ -48,7 +48,7 @@
 #include "../../../executor/maintainer/shutter/service_shutter.c"
 #include "../../../executor/memoriser/deallocator/server_entry_deallocator.c"
 #include "../../../executor/modifier/item_modifier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 //
 // Forbidden includes

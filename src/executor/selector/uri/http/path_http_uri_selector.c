@@ -31,7 +31,7 @@
 #include "../../../../executor/mover/mover.c"
 #include "../../../../executor/representer/deserialiser/uri/http/fragment_http_uri_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/uri/http/query_http_uri_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects the http uri path.

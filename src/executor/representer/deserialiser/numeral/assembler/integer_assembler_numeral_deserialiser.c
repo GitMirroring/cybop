@@ -38,7 +38,7 @@
 
 #include "../../../../../executor/calculator/integer/multiply_integer_calculator.c"
 #include "../../../../../executor/copier/integer_copier.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Assembles the integer from the given values.

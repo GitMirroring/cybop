@@ -40,7 +40,7 @@
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/mover/mover.c"
 #include "../../../executor/representer/deserialiser/xml/content_check_xml_deserialiser.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Checks if this is an empty element or one that has content.

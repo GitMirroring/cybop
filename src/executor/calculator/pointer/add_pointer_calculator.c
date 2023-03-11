@@ -26,7 +26,7 @@
 #ifndef ADD_POINTER_CALCULATOR_SOURCE
 #define ADD_POINTER_CALCULATOR_SOURCE
 
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Adds the summand to the sum pointer.

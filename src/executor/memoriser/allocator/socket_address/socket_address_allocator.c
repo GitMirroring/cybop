@@ -52,7 +52,7 @@
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 #if defined(__linux__) || defined(__unix__)
     #include "../../../../executor/memoriser/allocator/socket_address/local_socket_address_allocator.c"

@@ -38,7 +38,7 @@
 
 #include "../../../../../../executor/representer/deserialiser/numeral/integer_numeral_deserialiser.c"
 #include "../../../../../../executor/representer/deserialiser/xdt/datetime/qyyyy/quarter_qyyyy_datetime_xdt_deserialiser.c"
-#include "../../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the source qyyyy elements wide character data into the destination datetime item.

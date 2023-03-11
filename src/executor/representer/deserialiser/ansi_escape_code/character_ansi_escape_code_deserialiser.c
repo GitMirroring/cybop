@@ -37,7 +37,7 @@
 //
 
 #include "../../../../executor/representer/serialiser/ascii/ascii_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the ansi escape code character data into a command.

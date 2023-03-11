@@ -45,7 +45,7 @@
 #include "../../executor/calculator/integer/multiply_integer_calculator.c"
 #include "../../executor/calculator/integer/negate_integer_calculator.c"
 #include "../../executor/calculator/integer/subtract_integer_calculator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Calculates the integer using the given operation.

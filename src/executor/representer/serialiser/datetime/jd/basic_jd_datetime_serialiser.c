@@ -39,7 +39,7 @@
 #include "../../../../../executor/calculator/double/subtract_double_calculator.c"
 #include "../../../../../executor/representer/serialiser/numeral/decimal_fraction_numeral_serialiser.c"
 #include "../../../../../executor/representer/serialiser/time_scale/julian_date/julian_date_time_scale_serialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the source datetime into destination jd/mjd/tjd wide character data.

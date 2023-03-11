@@ -40,7 +40,7 @@
 
 #include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/copier/integer_copier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the source data into the destination xcb integer constant.

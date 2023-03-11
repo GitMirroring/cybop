@@ -168,7 +168,7 @@
 #include "../../../../executor/selector/xdt/bdt/number_9802_end_compound_field_bdt_xdt_selector.c"
 #include "../../../../executor/selector/xdt/bdt/number_9806_end_compound_field_bdt_xdt_selector.c"
 #include "../../../../executor/selector/xdt/bdt/number_9900_end_compound_field_bdt_xdt_selector.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Checks if the source field is permitted to be a child of parent.

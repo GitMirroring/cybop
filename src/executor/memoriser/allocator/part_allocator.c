@@ -39,7 +39,7 @@
 
 #include "../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 //
 // Forbidden includes

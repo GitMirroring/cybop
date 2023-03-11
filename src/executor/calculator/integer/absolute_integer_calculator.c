@@ -28,7 +28,7 @@
 
 #include <stdlib.h>
 
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Determines the absolute value of the source and stores it in destination.

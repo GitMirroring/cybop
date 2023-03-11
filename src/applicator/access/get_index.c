@@ -38,7 +38,7 @@
 
 #include "../../executor/copier/array/forward_array_copier.c"
 #include "../../executor/finder/array_finder.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Gets the index of the part within the whole.

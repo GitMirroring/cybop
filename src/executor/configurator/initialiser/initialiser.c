@@ -39,7 +39,7 @@
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/configurator/initialiser/serial_port/serial_port_initialiser.c"
 #include "../../../executor/configurator/initialiser/terminal/terminal_initialiser.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Initialises the device belonging to the given channel.

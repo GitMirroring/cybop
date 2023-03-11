@@ -48,7 +48,7 @@
 #include "../../../../executor/representer/deserialiser/xml/compound_check_xml_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xml/content_check_xml_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xml/tag_name_xml_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // Forbidden includes

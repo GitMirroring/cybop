@@ -41,7 +41,7 @@
 #include "../../../../executor/representer/serialiser/win32_console/background_win32_console_serialiser.c"
 #include "../../../../executor/representer/serialiser/win32_console/effect_win32_console_serialiser.c"
 #include "../../../../executor/representer/serialiser/win32_console/foreground_win32_console_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the attributes into win32 console function calls.
@@ -148,7 +148,7 @@ void serialise_win32_console_attributes(void* p0, void* p1, void* p2, void* p3, 
                 DWORD e = GetLastError();
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console attributes. The text attributes could not be set.");
-                log_windows_system_error((void*) &e);
+                log_error((void*) &e);
             }
 
         } else {
@@ -157,7 +157,7 @@ void serialise_win32_console_attributes(void* p0, void* p1, void* p2, void* p3, 
             DWORD e = GetLastError();
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console attributes. The console screen buffer info could not be retrieved.");
-            log_windows_system_error((void*) &e);
+            log_error((void*) &e);
         }
 
     } else {

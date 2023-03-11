@@ -38,7 +38,7 @@
 
 #include "../../../../executor/representer/serialiser/tui/row_tui_serialiser.c"
 #include "../../../../executor/representer/serialiser/tui/vertical_tui_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the rows into tui.

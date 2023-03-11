@@ -39,7 +39,7 @@
 #include "../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/modifier/replacer/sequence_replacer.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Parses through the source data string.

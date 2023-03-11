@@ -45,7 +45,7 @@
 
 #include "../../../executor/streamer/writer/function_writer.c"
 #include "../../../executor/threader/spinner.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Prepares the write thread.

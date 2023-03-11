@@ -40,7 +40,7 @@
 #include "../../../executor/maintainer/shutter/list_shutter.c"
 #include "../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deallocates the input output entry.

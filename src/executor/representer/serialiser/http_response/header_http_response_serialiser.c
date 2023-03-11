@@ -38,7 +38,7 @@
 
 #include "../../../../executor/representer/serialiser/http_response/content_length_header_http_response_serialiser.c"
 #include "../../../../executor/representer/serialiser/http_response/header_entry_http_response_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the http response header.

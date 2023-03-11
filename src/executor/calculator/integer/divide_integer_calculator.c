@@ -26,7 +26,7 @@
 #ifndef DIVIDE_INTEGER_CALCULATOR_SOURCE
 #define DIVIDE_INTEGER_CALCULATOR_SOURCE
 
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Divides the quotient by the divisor integer.

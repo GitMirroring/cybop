@@ -40,7 +40,7 @@
 #include "../../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../../executor/copier/integer_copier.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Detects whether or not the source year is a leap year and sets the destination flag accordingly.

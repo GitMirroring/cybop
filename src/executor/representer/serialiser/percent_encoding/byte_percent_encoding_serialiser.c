@@ -37,7 +37,7 @@
 //
 
 #include "../../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises multibyte character sequence into percent-encoded bytes.

@@ -38,7 +38,7 @@
 
 #include "../../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
 #include "../../../../../executor/representer/serialiser/time_scale/gregorian_calendar/gregorian_calendar_time_scale_serialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the datetime into utc date wide character data.

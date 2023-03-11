@@ -39,7 +39,7 @@
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/memoriser/allocator/item_allocator.c"
 #include "../../executor/runner/executor.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 #ifndef _MSC_VER
     #include <unistd.h>

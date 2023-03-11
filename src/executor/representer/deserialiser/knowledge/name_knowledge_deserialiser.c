@@ -41,7 +41,7 @@
 #include "../../../../executor/copier/pointer_copier.c"
 #include "../../../../executor/selector/knowledge/identification_knowledge_selector.c"
 #include "../../../../executor/selector/knowledge/move_knowledge_selector.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Gets a knowledge name.

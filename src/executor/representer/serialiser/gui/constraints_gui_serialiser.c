@@ -40,7 +40,7 @@
 #include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/representer/serialiser/gui/initial_gui_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Retrieves language properties (constraints) necessary for serialisation.

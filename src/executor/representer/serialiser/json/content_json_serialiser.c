@@ -44,7 +44,7 @@
 #include "../../../../executor/representer/serialiser/json/indentation_json_serialiser.c"
 #include "../../../../executor/representer/serialiser/json/separation_json_serialiser.c"
 #include "../../../../executor/representer/serialiser/json/string_json_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // Forbidden includes

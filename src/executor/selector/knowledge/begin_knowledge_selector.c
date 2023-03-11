@@ -42,7 +42,7 @@
 #include "../../../executor/representer/deserialiser/knowledge/name_knowledge_deserialiser.c"
 #include "../../../executor/representer/deserialiser/knowledge/part_knowledge_deserialiser.c"
 #include "../../../executor/representer/deserialiser/knowledge/reference_knowledge_deserialiser.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects the knowledge begin.

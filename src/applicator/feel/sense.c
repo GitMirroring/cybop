@@ -40,7 +40,7 @@
 #include "../../executor/copier/array/forward_array_copier.c"
 #include "../../executor/copier/integer_copier.c"
 #include "../../executor/feeler/sensor/sensor.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Senses data input within a thread on the client with the given identification.

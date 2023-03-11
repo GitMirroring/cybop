@@ -41,7 +41,7 @@
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/representer/serialiser/cybol/cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/tui/wide_character_tui_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises a primitive data type value into text user interface (tui).

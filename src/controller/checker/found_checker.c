@@ -38,7 +38,7 @@
 
 #include "../../controller/handler/handler.c"
 #include "../../executor/modifier/item_modifier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Handles a found signal.

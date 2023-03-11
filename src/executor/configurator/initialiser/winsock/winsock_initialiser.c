@@ -38,7 +38,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Initialises the winsock.
@@ -93,7 +93,7 @@ void initialise_winsock() {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise winsock. An error occured.");
         fwprintf(stdout, L"Error: Could not initialise winsock. An error occured. %i\n", r);
-        log_errno((void*) &e);
+        log_error((void*) &e);
     }
 }
 

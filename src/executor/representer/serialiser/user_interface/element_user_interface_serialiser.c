@@ -26,7 +26,7 @@
 #ifndef ELEMENT_USER_INTERFACE_SERIALISER_SOURCE
 #define ELEMENT_USER_INTERFACE_SERIALISER_SOURCE
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the user interface element.

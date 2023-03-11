@@ -38,7 +38,7 @@
 
 #include "../../../../../executor/representer/serialiser/time_scale/running_day/day_running_day_time_scale_serialiser.c"
 #include "../../../../../executor/representer/serialiser/time_scale/running_day/month_running_day_time_scale_serialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the source running day into the destination calendar month and day.

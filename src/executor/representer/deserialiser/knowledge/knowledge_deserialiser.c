@@ -38,7 +38,7 @@
 
 #include "../../../../executor/comparator/integer/greater_integer_comparator.c"
 #include "../../../../executor/selector/knowledge/root_knowledge_selector.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises a knowledge path retrieving the specified part.

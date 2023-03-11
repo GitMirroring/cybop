@@ -48,7 +48,7 @@
 #include "../../../../executor/representer/deserialiser/uri/http/authority_http_uri_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/uri/http/path_http_uri_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/uri/scheme_uri_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // The generic URI syntax consists of a hierarchical sequence of components:

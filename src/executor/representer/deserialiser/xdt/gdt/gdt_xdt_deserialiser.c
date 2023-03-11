@@ -39,7 +39,7 @@
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../executor/copier/pointer_copier.c"
 //?? #include "../../../../../executor/representer/deserialiser/xdt/bdt/xx_bdt_xdt_deserialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises xdt gdt data.

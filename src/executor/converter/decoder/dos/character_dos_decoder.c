@@ -39,7 +39,7 @@
 #include "../../../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../../../executor/converter/decoder/ascii/ascii_decoder.c"
 #include "../../../../executor/converter/decoder/dos/extension_dos_decoder.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Decodes the dos character into a utf-32 wide character.

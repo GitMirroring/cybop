@@ -38,7 +38,7 @@
 
 #include "../../executor/accessor/getter/fraction_getter.c"
 #include "../../executor/accessor/setter/fraction_setter.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Copies the fraction.

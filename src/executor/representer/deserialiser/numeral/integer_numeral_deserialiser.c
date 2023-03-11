@@ -41,7 +41,7 @@
 #include "../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/copier/integer_copier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 #include "../../../../mapper/digit_wide_character_to_integer_mapper.c"
 
 /**

@@ -40,7 +40,7 @@
 #include "../../../../executor/representer/deserialiser/numeral/part_numeral_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/numeral/verification_numeral_deserialiser.c"
 #include "../../../../executor/selector/numeral/assembler_numeral_selector.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the number value.

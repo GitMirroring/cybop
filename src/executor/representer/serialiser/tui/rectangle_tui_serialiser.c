@@ -28,7 +28,7 @@
 
 #include "../../../../executor/representer/serialiser/tui/border_tui_serialiser.c"
 #include "../../../../executor/representer/serialiser/tui/rows_tui_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the rectangle into tui.

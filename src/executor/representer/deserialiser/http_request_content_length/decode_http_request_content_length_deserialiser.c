@@ -41,7 +41,7 @@
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/representer/deserialiser/numeral/integer_numeral_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Converts the given characters to wide characters.

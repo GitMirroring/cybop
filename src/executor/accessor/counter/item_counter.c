@@ -27,7 +27,7 @@
 #define ITEM_COUNTER_SOURCE
 
 #include "../../../executor/accessor/counter/array_counter.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Counts certain elements of the given item.

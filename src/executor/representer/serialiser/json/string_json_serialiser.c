@@ -38,7 +38,7 @@
 
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/representer/serialiser/cybol/cybol_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the source string into the destination in json format.

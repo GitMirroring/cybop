@@ -37,7 +37,7 @@
 //
 
 #include "../../../../executor/representer/serialiser/terminal_mode/line_speed_terminal_mode_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises data into terminal mode.

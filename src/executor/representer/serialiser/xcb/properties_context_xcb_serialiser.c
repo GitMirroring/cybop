@@ -46,7 +46,7 @@
 #include "../../../../executor/representer/serialiser/xcb/fill_style_xcb_serialiser.c"
 #include "../../../../executor/representer/serialiser/xcb/join_style_xcb_serialiser.c"
 #include "../../../../executor/representer/serialiser/xcb/line_style_xcb_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the xcb context properties.

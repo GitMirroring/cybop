@@ -36,7 +36,7 @@
 // Executable interface
 //
 
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the iso duration wide character data into a duration model.

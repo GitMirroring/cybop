@@ -41,7 +41,7 @@
 #include "../../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Copies the source array to a destination item array.

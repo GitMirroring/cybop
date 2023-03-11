@@ -38,7 +38,7 @@
 
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/modifier/part_modifier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Determines the correct deep copying flag, depending on the given "move" flag.

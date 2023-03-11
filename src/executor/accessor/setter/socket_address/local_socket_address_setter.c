@@ -56,7 +56,7 @@
 #include "../../../../executor/converter/encoder/utf/utf_8_encoder.c"
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Sets the local socket address.

@@ -37,7 +37,7 @@
 //
 
 #include "../../../../executor/representer/serialiser/xml/element_xml_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the part into xml.

@@ -38,7 +38,7 @@
 
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/converter/decoder/windows/windows_1252_decoder.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Decodes the windows character into a utf-32 wide character.

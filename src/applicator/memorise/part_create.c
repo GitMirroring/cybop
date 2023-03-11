@@ -38,7 +38,7 @@
 
 #include "../../executor/modifier/part_modifier.c"
 #include "../../executor/representer/deserialiser/cybol/type_cybol_deserialiser.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Creates a part.

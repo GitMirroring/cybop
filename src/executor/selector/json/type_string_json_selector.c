@@ -39,7 +39,7 @@
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/representer/deserialiser/json/member_json_deserialiser.c"
 #include "../../../executor/representer/deserialiser/json/string_json_deserialiser.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects the object member or primitive string depending on the given flag.

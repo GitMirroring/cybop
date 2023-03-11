@@ -50,7 +50,7 @@
 #include "../../executor/modifier/stripper/stripper.c"
 #include "../../executor/modifier/stripper/trailing_stripper.c"
 #include "../../executor/modifier/upperer/upperer.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Modifies the destination array using the given operation.

@@ -38,7 +38,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Clears the terminal screen using win32 console function calls.
@@ -102,7 +102,7 @@ void serialise_win32_console_clear(void* p0) {
                             DWORD e = GetLastError();
 
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console clear. The cursor could not be positioned.");
-                            log_windows_system_error((void*) &e);
+                            log_error((void*) &e);
                         }
 
                     } else {
@@ -111,7 +111,7 @@ void serialise_win32_console_clear(void* p0) {
                         DWORD e = GetLastError();
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console clear. The console attributes could not be set.");
-                        log_windows_system_error((void*) &e);
+                        log_error((void*) &e);
                     }
 
                 } else {
@@ -120,7 +120,7 @@ void serialise_win32_console_clear(void* p0) {
                     DWORD e = GetLastError();
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console clear. The text attributes could not be retrieved.");
-                    log_windows_system_error((void*) &e);
+                    log_error((void*) &e);
                 }
 
             } else {
@@ -129,7 +129,7 @@ void serialise_win32_console_clear(void* p0) {
                 DWORD e = GetLastError();
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console clear. The console could not be filled with characters.");
-                log_windows_system_error((void*) &e);
+                log_error((void*) &e);
             }
 
         } else {
@@ -138,7 +138,7 @@ void serialise_win32_console_clear(void* p0) {
             DWORD e = GetLastError();
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console clear. The console screen buffer info could not be retrieved.");
-            log_windows_system_error((void*) &e);
+            log_error((void*) &e);
         }
 
     } else {

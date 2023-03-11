@@ -38,7 +38,7 @@
 
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/timer/current_timer.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Retrieves the current time from the system.

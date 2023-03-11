@@ -38,7 +38,7 @@
 
 #include "../../../../executor/representer/deserialiser/character_reference/html_character_reference_deserialiser.c"
 #include "../../../../executor/selector/character_reference/end_character_reference_selector.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the entity character reference.

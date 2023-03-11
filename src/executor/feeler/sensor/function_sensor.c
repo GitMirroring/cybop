@@ -38,7 +38,7 @@
 
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/feeler/sensor/loop_sensor.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Runs the sense function in its own thread.

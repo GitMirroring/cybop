@@ -41,7 +41,7 @@
 #include "../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../executor/modifier/stripper/string_trailing_stripper.c"
 #include "../../../executor/modifier/item_modifier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Allocates a temporary string item.

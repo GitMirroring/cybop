@@ -32,21 +32,28 @@
 #)
 
 target_link_libraries(cyboi-applicator
+    cyboi-logger
 #    cyboi-executor
     cyboi-xdt
 )
 
 target_link_libraries(cyboi-controller
+    cyboi-logger
     cyboi-applicator
 )
 
 target_link_libraries(${BINARY_NAME}
+    cyboi-logger
     cyboi-controller
 )
 
 #
 # Include file search path definition
 #
+
+target_include_directories(cyboi-logger PUBLIC
+    "${ROOT_DIR}/include"
+)
 
 target_include_directories(cyboi-xdt PUBLIC
     "${ROOT_DIR}/include"

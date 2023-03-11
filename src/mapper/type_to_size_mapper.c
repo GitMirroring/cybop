@@ -27,10 +27,17 @@
 #define TYPE_TO_SIZE_MAPPER_SOURCE
 
 //
+// System interface
+//
+
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
 #include "constant.h"
+#include "logger.h"
 #include "variable.h"
 
 //
@@ -38,7 +45,6 @@
 //
 
 #include "../executor/copier/integer_copier.c"
-#include "../logger/logger.c"
 
 /**
  * Maps the data type to a size.

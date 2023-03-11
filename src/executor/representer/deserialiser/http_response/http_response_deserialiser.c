@@ -26,7 +26,7 @@
 #ifndef HTTP_RESPONSE_DESERIALISER_SOURCE
 #define HTTP_RESPONSE_DESERIALISER_SOURCE
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // Many Web servers supply incorrect Content-Type headers with their

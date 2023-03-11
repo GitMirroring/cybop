@@ -38,7 +38,7 @@
 
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/representer/serialiser/html/indentation_html_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the html end tag into html format.

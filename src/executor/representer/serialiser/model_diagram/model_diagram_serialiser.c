@@ -39,7 +39,7 @@
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/representer/serialiser/cybol/cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/model_diagram/part_model_diagram_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the source into the destination, according to the given format.

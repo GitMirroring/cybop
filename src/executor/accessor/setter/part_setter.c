@@ -38,7 +38,7 @@
 
 #include "../../../executor/accessor/setter/item_setter.c"
 #include "../../../executor/copier/array/forward_array_copier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Copies the source array to a destination part item data array.

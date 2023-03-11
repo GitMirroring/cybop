@@ -38,7 +38,7 @@
 
 #include "../../executor/manipulator/character_manipulator.c"
 #include "../../executor/manipulator/integer_manipulator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Manipulates the bit at the given position.

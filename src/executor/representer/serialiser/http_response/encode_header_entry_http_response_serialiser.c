@@ -38,7 +38,7 @@
 
 #include "../../../../executor/selector/http_response/header_entry_http_response_selector.c"
 #include "../../../../executor/copier/array/forward_array_copier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the http response header entry encode.

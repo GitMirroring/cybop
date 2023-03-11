@@ -40,7 +40,7 @@
 #include "../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../executor/copier/array/forward_array_copier.c"
 #include "../../executor/verifier/double_index_count_verifier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Calculates result- with operand item.

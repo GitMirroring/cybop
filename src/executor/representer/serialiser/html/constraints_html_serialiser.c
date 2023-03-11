@@ -48,7 +48,7 @@
 // Therefore, the "html_serialiser.c" module is included here.
 //
 #include "../../../../executor/representer/serialiser/html/html_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Retrieves language properties (constraints) necessary for serialisation.

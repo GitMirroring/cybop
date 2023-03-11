@@ -49,7 +49,7 @@
 // Executable interface
 //
 
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Retrieves the current time from the system.

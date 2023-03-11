@@ -27,7 +27,7 @@
 #define FRAGMENT_HTTP_URI_SELECTOR_SOURCE
 
 #include "../../../../executor/mover/mover.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects the http uri fragment.

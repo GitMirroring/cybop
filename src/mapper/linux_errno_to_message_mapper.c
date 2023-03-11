@@ -26,27 +26,25 @@
 #ifndef LINUX_ERRNO_TO_MESSAGE_MAPPER_SOURCE
 #define LINUX_ERRNO_TO_MESSAGE_MAPPER_SOURCE
 
+//
+// System interface
+//
+
 #include <errno.h> // ERESTART, ECHRNG etc.
+#include <wchar.h> // fwprintf
 
 //
 // Library interface
 //
 
 #include "constant.h"
+#include "logger.h"
 
 //
 // Executable interface
 //
 
 #include "../executor/copier/pointer_copier.c"
-// CAUTION! Do NOT include this file due to circular dependencies.
-// #include "../logger/logger.c"
-
-//
-// Forward declarations
-//
-
-void log_message_terminated(void* p0, void* p1);
 
 /**
  * Maps the linux errno value to an error message.

@@ -39,7 +39,7 @@
 //?? #include "../../../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../executor/copier/array/forward_array_copier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 #if defined(__linux__) || defined(__unix__)
     #include "../../../../executor/representer/serialiser/xcb/window_xcb_serialiser.c"

@@ -20,7 +20,10 @@
 
 2023-03-11  Christian Heller  <christian.heller@cybop.org>
 
-        * Rename "cmake_configuration.c.in" into "cmake_configuration.h.in" in directory "build/" and in file "CMakeLists.txt"
+        * Change suffix of file "cmake_configuration.c.in" into "cmake_configuration.h.in" in directory "build/" and in file "CMakeLists.txt"
+        * Split file "logger.c" into many files, one per function
+        * Rename calls of function "log_windows_system_error" into "log_error"
+        * Add shared library "logger"
 
 2023-03-10  Christian Heller  <christian.heller@cybop.org>
 

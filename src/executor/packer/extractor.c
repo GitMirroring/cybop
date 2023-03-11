@@ -37,7 +37,7 @@
 //
 
 #include "../../executor/packer/extractor/gzip/gzip_extractor.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Extracts the source into the destination, according to the given compression.

@@ -39,7 +39,7 @@
 #include "../../../executor/activator/enabler/entry_enabler.c"
 #include "../../../executor/activator/enabler/thread_enabler.c"
 #include "../../../executor/copier/array/forward_array_copier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 #include "../../../mapper/channel_to_internal_memory_mapper.c"
 
 /**

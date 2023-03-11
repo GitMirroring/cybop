@@ -38,7 +38,7 @@
 //
 
 #include "../../../../executor/copier/integer_copier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the xdt field hierarchy.

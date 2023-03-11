@@ -29,7 +29,7 @@
 #include "../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/mover/mover.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects the uri scheme.

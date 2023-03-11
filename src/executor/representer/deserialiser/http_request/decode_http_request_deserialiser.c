@@ -41,7 +41,7 @@
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/representer/deserialiser/http_request/append_http_request_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Converts the given characters to wide characters,

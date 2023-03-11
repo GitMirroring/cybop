@@ -44,7 +44,7 @@
 #include "../../../../executor/detector/detector.c"
 #include "../../../../executor/mover/mover.c"
 #include "../../../../executor/representer/deserialiser/uri/http/fragment_http_uri_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // Forbidden includes

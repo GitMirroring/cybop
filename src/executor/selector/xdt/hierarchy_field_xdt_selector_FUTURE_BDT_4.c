@@ -47,7 +47,7 @@
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/representer/deserialiser/xdt/part_record_xdt_deserialiser.c"
 #include "../../../executor/mover/mover.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 //
 // Forbidden includes

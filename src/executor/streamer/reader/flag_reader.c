@@ -39,7 +39,7 @@
 #include "../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../executor/streamer/reader/buffer_reader.c"
 #include "../../../executor/streamer/reader/device_reader.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Reads data via the given channel into the destination.

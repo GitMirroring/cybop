@@ -44,7 +44,7 @@
 #include "../executor/memoriser/deallocator/part_deallocator.c"
 #include "../executor/modifier/item_modifier.c"
 #include "../executor/modifier/part_modifier.c"
-#include "../logger/logger.c"
+#include "logger.h"
 
 /**
  * Initialises the system with a startup signal.

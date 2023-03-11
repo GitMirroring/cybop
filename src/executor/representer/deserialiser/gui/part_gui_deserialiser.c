@@ -38,7 +38,7 @@
 
 #include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/representer/deserialiser/gui/content_gui_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the gui part element into an action.

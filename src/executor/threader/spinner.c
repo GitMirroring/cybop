@@ -43,7 +43,7 @@
 // Executable interface
 //
 
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Spins the thread, that is create it.

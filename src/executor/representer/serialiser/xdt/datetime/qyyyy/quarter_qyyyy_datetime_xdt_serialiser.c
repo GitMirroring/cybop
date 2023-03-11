@@ -42,7 +42,7 @@
 #include "../../../../../../executor/modifier/item_modifier.c"
 #include "../../../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../../../executor/representer/serialiser/time_scale/gregorian_calendar/gregorian_calendar_time_scale_serialiser.c"
-#include "../../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the source month into the destination quarter.

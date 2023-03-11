@@ -38,7 +38,7 @@
 
 #include "../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../executor/representer/deserialiser/cybol/element_cybol_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the array containing part elements.

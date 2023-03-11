@@ -42,7 +42,7 @@
 #include "../../../executor/calculator/integer/multiply_integer_calculator.c"
 #include "../../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Subtracts the source fraction from the destination fraction.

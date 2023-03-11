@@ -38,7 +38,7 @@
 
 #include "../../../../executor/converter/decoder/dos/character_dos_decoder.c"
 #include "../../../../executor/copier/array/forward_array_copier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Decodes the dos character data element into utf-32 wide character data.

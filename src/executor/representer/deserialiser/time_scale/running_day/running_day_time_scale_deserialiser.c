@@ -43,7 +43,7 @@
 #include "../../../../../executor/representer/deserialiser/time_scale/correction/detection_leap_year_correction_time_scale_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/time_scale/correction/leap_year_correction_time_scale_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/time_scale/correction/month_correction_time_scale_deserialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the source calendar month and day into the destination running day.

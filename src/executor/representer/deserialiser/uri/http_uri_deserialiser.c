@@ -27,7 +27,7 @@
 #define HTTP_URI_DESERIALISER_SOURCE
 
 #include "../../../../executor/representer/deserialiser/uri/http/authority_http_uri_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the http uri into a part model and -properties.

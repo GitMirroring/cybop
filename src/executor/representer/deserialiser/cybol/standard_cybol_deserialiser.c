@@ -51,7 +51,7 @@
 #include "../../../../executor/representer/deserialiser/cybol/language_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/source_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/type_cybol_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // Forbidden includes

@@ -40,7 +40,7 @@
 #include "../../../executor/accessor/name_getter/part_name_getter.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/copier/pointer_copier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Get destination part with the given name from source whole part

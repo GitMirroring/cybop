@@ -38,7 +38,7 @@
 
 #include "../../../../executor/accessor/getter/complex_getter.c"
 #include "../../../../executor/representer/serialiser/numeral/decimal_fraction_numeral_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the cartesian complex into a wide character sequence.

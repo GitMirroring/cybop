@@ -27,7 +27,7 @@
 #define STATUS_CODE_HTTP_RESPONSE_SERIALISER_SOURCE
 
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the http response status code.

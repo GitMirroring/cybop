@@ -38,7 +38,7 @@
 
 #include "../../../executor/accessor/getter/complex_getter.c"
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Compares the left- with the right complex for unequality.

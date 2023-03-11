@@ -44,7 +44,7 @@
 //
 
 #include "../../../executor/memoriser/allocator/array_allocator.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Allocates the mutex.

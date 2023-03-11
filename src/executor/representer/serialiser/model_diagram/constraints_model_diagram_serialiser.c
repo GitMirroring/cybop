@@ -47,7 +47,7 @@
 // Therefore, the "model_diagram_serialiser.c" module is included here.
 //
 #include "../../../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Retrieves language properties (constraints) necessary for serialisation.

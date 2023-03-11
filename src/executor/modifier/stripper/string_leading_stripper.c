@@ -41,7 +41,7 @@
 #include "../../../executor/copier/pointer_copier.c"
 #include "../../../executor/modifier/array_modifier.c"
 #include "../../../executor/selector/whitespace/non_whitespace_selector.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Searches for a non-whitespace character from the BEGINNING of the given array.

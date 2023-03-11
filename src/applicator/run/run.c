@@ -42,7 +42,7 @@
 
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/runner/executor.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Runs a programme.

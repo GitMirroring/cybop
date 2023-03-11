@@ -41,7 +41,7 @@
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/representer/deserialiser/csv/properties_csv_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/textline_list/textline_list_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the character separated value (csv) wide character sequence into separate parts.

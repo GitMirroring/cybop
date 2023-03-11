@@ -39,7 +39,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Gets the unix terminal mode from the device pointed to by the file descriptor.
@@ -77,7 +77,7 @@ void get_terminal_mode_unix(void* p0, void* p1) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get terminal mode unix. An error occured.");
                 fwprintf(stdout, L"Error: Could not get terminal mode unix. An error occured. r: %i\n", r);
-                log_errno((void*) &errno);
+                log_error((void*) &errno);
             }
 
         } else {

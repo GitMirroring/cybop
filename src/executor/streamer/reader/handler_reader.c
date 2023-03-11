@@ -39,7 +39,7 @@
 #include "../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/streamer/writer/interrupt_pipe/interrupt_pipe_writer.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Writes a suitable handler into the interrupt pipe.

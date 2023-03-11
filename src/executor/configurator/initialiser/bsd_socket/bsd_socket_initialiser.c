@@ -40,7 +40,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Initialises the bsd socket device.
@@ -98,7 +98,7 @@ void initialise_bsd_socket(void* p0) {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise bsd socket. An error occured.");
             fwprintf(stdout, L"Error: Could not initialise bsd socket. An error occured. %i\n", r);
-            log_errno((void*) &errno);
+            log_error((void*) &errno);
         }
 
         //
@@ -128,7 +128,7 @@ void initialise_bsd_socket(void* p0) {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise bsd socket. An error occured.");
             fwprintf(stdout, L"Error: Could not initialise bsd socket. An error occured. %i\n", r);
-            log_errno((void*) &errno);
+            log_error((void*) &errno);
         }
 
         //

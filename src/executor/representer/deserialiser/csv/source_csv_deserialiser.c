@@ -38,7 +38,7 @@
 
 #include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/representer/deserialiser/csv/flag_csv_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Determines the model of the source part at the given index.

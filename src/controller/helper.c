@@ -30,7 +30,7 @@
 #include "../executor/memoriser/allocator/item_allocator.c"
 #include "../executor/memoriser/deallocator/item_deallocator.c"
 #include "../executor/modifier/item_modifier.c"
-#include "../logger/write_logger.c"
+#include "logger.h"
 
 /**
  * Writes cyboi help message to given output stream.

@@ -39,7 +39,7 @@
 #include "../../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../../executor/calculator/integer/divide_integer_calculator.c"
 #include "../../../../../executor/copier/integer_copier.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the source calendar month and day into the destination running day.

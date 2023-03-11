@@ -45,7 +45,7 @@
 #include "../../../../../executor/representer/deserialiser/xdt/duration/ddmmyyyyddmmyyyy/ddmmyyyyddmmyyyy_duration_xdt_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/xdt/duration/hhmmhhmm/hhmmhhmm_duration_xdt_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/xdt/duration/yyyy/yyyy_duration_xdt_deserialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the xdt field model.

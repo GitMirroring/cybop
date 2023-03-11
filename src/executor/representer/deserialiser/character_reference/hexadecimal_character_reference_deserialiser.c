@@ -42,7 +42,7 @@
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/representer/deserialiser/numeral/integer_numeral_deserialiser.c"
 #include "../../../../executor/selector/character_reference/end_character_reference_selector.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the hexadecimal numeric character reference.

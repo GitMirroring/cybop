@@ -38,7 +38,7 @@
 
 #include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the standard- or control wide character into a

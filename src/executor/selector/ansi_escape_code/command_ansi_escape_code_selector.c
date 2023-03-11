@@ -39,7 +39,7 @@
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/modifier/item_modifier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects ansi escape code command and deserialises it into a cyboi-internal keyboard constant.

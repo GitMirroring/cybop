@@ -37,7 +37,7 @@
 //
 
 #include "../../../../../../executor/representer/deserialiser/xdt/datetime/mmyy/elements_mmyy_datetime_xdt_deserialiser.c"
-#include "../../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the mmyy date wide character data into a datetime.

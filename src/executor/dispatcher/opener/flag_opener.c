@@ -42,7 +42,7 @@
 #include "../../../executor/dispatcher/opener/device_opener.c"
 #include "../../../executor/dispatcher/opener/stub_opener.c"
 #include "../../../executor/logifier/boolean/and_boolean_logifier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Opens a client either as standalone device or from request buffer, depending on the given server flag.

@@ -39,7 +39,7 @@
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/comparator/comparator.c"
 #include "../../../executor/sorter/bubble/part_bubble_sorter.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /*
  * Distinguishes operands between part and primitive type.

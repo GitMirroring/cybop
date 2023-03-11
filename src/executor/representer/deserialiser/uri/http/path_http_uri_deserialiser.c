@@ -28,7 +28,7 @@
 
 #include "../../../../../executor/modifier/part_modifier.c"
 #include "../../../../../executor/selector/uri/http/path_http_uri_selector.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the http uri path.

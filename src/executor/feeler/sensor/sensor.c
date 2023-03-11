@@ -40,7 +40,7 @@
 #include "../../../executor/feeler/sensor/entry_sensor.c"
 #include "../../../executor/feeler/sensor/thread_sensor.c"
 #include "../../../executor/finder/entry_finder.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 #include "../../../mapper/channel_to_type_mapper.c"
 
 /**

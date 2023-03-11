@@ -51,7 +51,7 @@
 #include "../../../../../executor/copier/double_copier.c"
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../executor/representer/serialiser/time_scale/julian_date/julian_date_time_scale_serialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the datetime into a gregorian calendar date.

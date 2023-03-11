@@ -40,7 +40,7 @@
 #include "../../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../../executor/copier/pointer_copier.c"
 #include "../../../../../executor/mover/mover.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises xdt field identification.

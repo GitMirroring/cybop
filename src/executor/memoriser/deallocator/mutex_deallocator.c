@@ -39,7 +39,7 @@
 //
 
 #include "../../../executor/memoriser/deallocator/array_deallocator.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deallocates the mutex.

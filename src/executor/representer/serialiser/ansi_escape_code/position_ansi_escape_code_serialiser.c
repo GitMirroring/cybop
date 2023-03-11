@@ -45,7 +45,7 @@
 #include "../../../../executor/representer/deserialiser/ascii/ascii_deserialiser.c"
 #include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
 #include "../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the position into an ansi escape code.

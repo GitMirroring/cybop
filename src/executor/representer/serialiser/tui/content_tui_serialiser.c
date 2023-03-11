@@ -48,7 +48,7 @@
 #include "../../../../executor/representer/serialiser/tui/clear_tui_serialiser.c"
 #include "../../../../executor/representer/serialiser/tui/newline_tui_serialiser.c"
 #include "../../../../executor/representer/serialiser/tui/properties_tui_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 #if defined(__linux__) || defined(__unix__)
     #include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"

@@ -37,7 +37,7 @@
 //
 
 #include "../../../../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises absolute layout position.

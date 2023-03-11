@@ -39,7 +39,7 @@
 //
 
 #include "../../../executor/calculator/integer/multiply_integer_calculator.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 #include "../../../mapper/type_to_size_mapper.c"
 
 /**

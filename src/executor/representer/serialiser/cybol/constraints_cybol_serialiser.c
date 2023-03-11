@@ -39,7 +39,7 @@
 #include "../../../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/representer/serialiser/cybol/cybol_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Retrieves language properties (constraints) necessary for serialisation.

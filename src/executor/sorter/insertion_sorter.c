@@ -36,7 +36,7 @@
 // Executable interface
 //
 
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /*
  * Sorts the given data using the insertion algorithm.

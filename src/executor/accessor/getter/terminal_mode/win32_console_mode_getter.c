@@ -38,7 +38,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Gets the win32 console mode from the device pointed to by the file descriptor.
@@ -70,7 +70,7 @@ void get_console_mode_win32(void* p0, void* p1) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get console mode win32. The GetConsoleMode function failed.");
                 fwprintf(stdout, L"Error: Could not get console mode win32. The GetConsoleMode function failed. b: %i\n", b);
-                log_errno((void*) &e);
+                log_error((void*) &e);
             }
 
         } else {

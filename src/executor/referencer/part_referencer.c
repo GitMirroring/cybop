@@ -30,7 +30,7 @@
 #include "../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../executor/copier/array/forward_array_copier.c"
 #include "../../executor/memoriser/deallocator/part_deallocator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Increments or decrements the part's reference count.

@@ -39,7 +39,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Binds the address to the bsd socket.
@@ -89,7 +89,7 @@ void startup_bsd_socket_bind(void* p0, void* p1, void* p2) {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. An error occured.");
                     fwprintf(stdout, L"Error: Could not startup bsd socket bind. An error occured. %i\n", r);
-                    log_errno((void*) &errno);
+                    log_error((void*) &errno);
                 }
 
             } else {

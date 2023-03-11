@@ -28,7 +28,7 @@
 
 #include "../../../executor/checker/operation_checker.c"
 #include "../../../executor/representer/deserialiser/uri/http_uri_deserialiser.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects uri.

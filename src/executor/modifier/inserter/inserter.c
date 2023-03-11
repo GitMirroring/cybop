@@ -40,7 +40,7 @@
 #include "../../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../../executor/modifier/inserter/inside_inserter.c"
 #include "../../../executor/modifier/overwriter/overwriter.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Inserts the source- into the destination array, starting from the index.

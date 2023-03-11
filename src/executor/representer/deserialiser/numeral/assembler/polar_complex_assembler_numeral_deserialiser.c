@@ -39,7 +39,7 @@
 #include "../../../../../executor/accessor/setter/complex_setter.c"
 #include "../../../../../executor/calculator/complex/polar_cartesian_complex_calculator.c"
 #include "../../../../../executor/representer/deserialiser/numeral/assembler/decimal_fraction_assembler_numeral_deserialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Assembles the polar complex from the given values.

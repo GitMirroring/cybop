@@ -39,7 +39,7 @@
 #include "../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../executor/copier/array/forward_array_copier.c"
 #include "../../executor/finder/list_finder.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Gets client list from suitable entry.

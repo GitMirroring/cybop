@@ -39,7 +39,7 @@
 // Executable interface
 //
 
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Round the source downwards to the nearest integer and

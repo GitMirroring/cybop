@@ -41,7 +41,7 @@
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/representer/deserialiser/joined_string/preparation_joined_string_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/numeral_vector/list_numeral_vector_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Allocates a temporary part element item.

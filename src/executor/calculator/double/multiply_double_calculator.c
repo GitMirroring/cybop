@@ -37,7 +37,7 @@
 // Executable interface
 //
 
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Multiplies the product with the factor double.

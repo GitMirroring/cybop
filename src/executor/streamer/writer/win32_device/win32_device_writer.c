@@ -40,7 +40,7 @@
 //
 
 #include "../../executor/copier/integer_copier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Sends a command to the win32 device given by the file descriptor.
@@ -110,7 +110,7 @@ void write_win32_device(void* p0, void* p1, void* p2) {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open basic. An error occured.");
                     fwprintf(stdout, L"Error: Could not open basic. An error occured. %i\n", r);
-                    log_errno((void*) &errno);
+                    log_error((void*) &errno);
                 }
 
             } else {

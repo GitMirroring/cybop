@@ -45,7 +45,7 @@
 #include "../../executor/representer/deserialiser/knowledge/knowledge_deserialiser.c"
 #include "../../executor/stacker/popper/popper.c"
 #include "../../executor/stacker/pusher/pusher.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Handles the signal.

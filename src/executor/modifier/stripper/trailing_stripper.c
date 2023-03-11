@@ -38,7 +38,7 @@
 
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/modifier/stripper/item_trailing_stripper.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Removes trailing whitespaces from the string.

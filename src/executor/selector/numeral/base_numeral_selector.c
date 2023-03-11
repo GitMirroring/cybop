@@ -38,7 +38,7 @@
 
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/detector/detector.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects the numeral base by prefix.

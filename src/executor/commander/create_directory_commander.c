@@ -39,7 +39,7 @@
 #include "../../executor/commander/adapt_unix_to_windows_path_commander.c"
 #include "../../executor/memoriser/allocator/item_allocator.c"
 #include "../../executor/runner/executor.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 //
 // CAUTION! The options of many commands are SIMILAR on various platforms.

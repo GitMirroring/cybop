@@ -45,7 +45,7 @@
 
 #include "../../../../executor/converter/decoder/utf/utf_8_decoder.c"
 #include "../../../../executor/representer/deserialiser/command_line/option_command_line_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the command line argument given as wide character data.

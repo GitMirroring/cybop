@@ -31,7 +31,7 @@
 #include "../../executor/calculator/fraction/multiply_fraction_calculator.c"
 #include "../../executor/calculator/fraction/reduce_fraction_calculator.c"
 #include "../../executor/calculator/fraction/subtract_fraction_calculator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Calculates the fraction using the given operation.

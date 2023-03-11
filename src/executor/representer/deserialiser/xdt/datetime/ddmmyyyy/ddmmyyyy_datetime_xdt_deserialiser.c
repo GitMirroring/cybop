@@ -38,7 +38,7 @@
 
 #include "../../../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../../../executor/representer/deserialiser/xdt/datetime/ddmmyyyy/elements_ddmmyyyy_datetime_xdt_deserialiser.c"
-#include "../../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the ddmmyyyy wide character data into a datetime.

@@ -43,7 +43,7 @@
 #include "../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../executor/memoriser/deallocator/mutex_deallocator.c"
 #include "../../../executor/memoriser/deallocator/part_deallocator.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deallocates the internal memory.

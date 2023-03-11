@@ -40,7 +40,7 @@
 #include "../../executor/copier/integer_copier.c"
 #include "../../executor/modifier/item_modifier.c"
 #include "../../executor/streamer/reader/interrupt_pipe/interrupt_pipe_reader.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Handles the situation that no signal is available in the signal memory

@@ -37,7 +37,7 @@
 //
 
 #include "../../../../executor/representer/serialiser/html/element_html_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the part into html.

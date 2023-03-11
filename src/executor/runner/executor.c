@@ -40,7 +40,7 @@
 //
 
 #include "../../executor/converter/encoder/utf/utf_8_encoder.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 #if defined(__linux__) || defined(__unix__)
     #include <sys/wait.h>

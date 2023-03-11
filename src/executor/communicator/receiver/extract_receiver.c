@@ -39,7 +39,7 @@
 //?? #include "../../../executor/packer/extractor.c"
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/copier/pointer_copier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Extracts source into destination.

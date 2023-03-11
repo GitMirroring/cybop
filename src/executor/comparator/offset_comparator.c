@@ -38,7 +38,7 @@
 
 #include "../../executor/comparator/comparator.c"
 #include "../../executor/memoriser/offset_adder.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Uses the given index to calculate an offset for left- and right operand.

@@ -54,7 +54,7 @@
 
 #include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/copier/integer_copier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // On the difference between prefix AF_ and PF_:

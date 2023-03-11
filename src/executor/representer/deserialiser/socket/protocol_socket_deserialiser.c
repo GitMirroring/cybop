@@ -49,7 +49,7 @@
 
 #include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/copier/integer_copier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Converts protocol string into integer.

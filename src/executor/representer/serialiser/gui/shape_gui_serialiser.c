@@ -38,7 +38,7 @@
 
 //?? #include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/representer/serialiser/gui/shape/rectangle_shape_gui_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the shape into gui.

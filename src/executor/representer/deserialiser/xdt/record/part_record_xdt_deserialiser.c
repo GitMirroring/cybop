@@ -41,7 +41,7 @@
 #include "../../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../../executor/modifier/part_modifier.c"
 #include "../../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the xdt record by allocating a part.

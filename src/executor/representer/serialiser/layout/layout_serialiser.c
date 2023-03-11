@@ -44,7 +44,7 @@
 #include "../../../../executor/representer/serialiser/layout/flow/size_flow_layout_serialiser.c"
 */
 #include "../../../../executor/representer/serialiser/layout/grid/size_grid_layout_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises layout properties into graphical user interface (gui) coordinates.

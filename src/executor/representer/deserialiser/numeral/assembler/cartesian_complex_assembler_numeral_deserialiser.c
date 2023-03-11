@@ -38,7 +38,7 @@
 
 #include "../../../../../executor/accessor/setter/complex_setter.c"
 #include "../../../../../executor/representer/deserialiser/numeral/assembler/decimal_fraction_assembler_numeral_deserialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Assembles the cartesian complex from the given values.

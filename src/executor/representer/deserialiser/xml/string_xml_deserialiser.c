@@ -42,7 +42,7 @@
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/representer/deserialiser/character_reference/character_reference_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xml/normalisation_xml_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Normalises the xml element content depending on the given flag.

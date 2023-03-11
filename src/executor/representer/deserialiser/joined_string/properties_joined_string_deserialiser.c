@@ -39,7 +39,7 @@
 #include "../../../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/representer/deserialiser/joined_string/preparation_joined_string_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Prepares variables necessary for deserialisation.

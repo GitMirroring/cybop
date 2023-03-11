@@ -38,7 +38,7 @@
 
 #include "../../../../executor/representer/deserialiser/http_request/decode_http_request_deserialiser.c"
 #include "../../../../executor/selector/http_request/method_http_request_selector.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the http request method.

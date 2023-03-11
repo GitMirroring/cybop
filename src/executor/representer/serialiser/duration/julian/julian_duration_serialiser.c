@@ -36,7 +36,7 @@
 // Executable interface
 //
 
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the source duration into a julian duration.

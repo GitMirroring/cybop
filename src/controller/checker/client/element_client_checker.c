@@ -42,7 +42,7 @@
 #include "../../../controller/checker/client/empty_element_client_checker.c"
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/sensor/sensor.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Checks open client for available data.

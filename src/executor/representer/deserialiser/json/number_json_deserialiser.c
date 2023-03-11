@@ -42,7 +42,7 @@
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/representer/deserialiser/numeral/numeral_deserialiser.c"
 #include "../../../../executor/selector/json/end_number_json_selector.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the json number.

@@ -38,7 +38,7 @@
 
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/commander/compare_files_commander.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 #ifndef _MSC_VER
     #include <unistd.h>

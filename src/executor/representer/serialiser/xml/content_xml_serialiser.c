@@ -43,7 +43,7 @@
 #include "../../../../executor/representer/serialiser/xml/end_xml_serialiser.c"
 #include "../../../../executor/representer/serialiser/xml/filled_xml_serialiser.c"
 #include "../../../../executor/representer/serialiser/xml/indentation_xml_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the part element content into xml.

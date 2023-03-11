@@ -39,7 +39,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Sets the unix terminal mode into the device pointed to by the file descriptor.
@@ -91,7 +91,7 @@ void set_unix_terminal_mode(void* p0, void* p1) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set unix terminal mode. An error occured.");
                 fwprintf(stdout, L"Error: Could not set unix terminal mode. An error occured. r: %i\n", r);
-                log_errno((void*) &errno);
+                log_error((void*) &errno);
             }
 
         } else {

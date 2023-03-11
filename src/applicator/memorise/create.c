@@ -39,7 +39,7 @@
 //
 
 #include "../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Creates an empty part consisting of name and type only.

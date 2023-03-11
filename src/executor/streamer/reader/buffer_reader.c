@@ -39,7 +39,7 @@
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/streamer/reader/completeness_reader.c"
 #include "../../../executor/streamer/reader/storage_reader.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 #include "../../../mapper/channel_to_type_mapper.c"
 
 /**

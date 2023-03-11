@@ -40,7 +40,7 @@
 #include "../../../executor/accessor/setter/fraction_setter.c"
 #include "../../../executor/calculator/fraction/reduce_fraction_calculator.c"
 #include "../../../executor/calculator/integer/multiply_integer_calculator.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Multiplies the destination fraction with the source fraction.

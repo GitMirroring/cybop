@@ -43,7 +43,7 @@
 #include "../../executor/comparator/wide_character/less_or_equal_wide_character_comparator.c"
 #include "../../executor/comparator/wide_character/less_wide_character_comparator.c"
 #include "../../executor/comparator/wide_character/unequal_wide_character_comparator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Compares the left- with the right wide character.

@@ -42,7 +42,7 @@
 #include "../../executor/calculator/character/multiply_character_calculator.c"
 #include "../../executor/calculator/character/negate_character_calculator.c"
 #include "../../executor/calculator/character/subtract_character_calculator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Calculates the character using the given operation.

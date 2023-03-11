@@ -42,7 +42,7 @@
 #include "../../../executor/comparator/double_comparator.c"
 #include "../../../executor/copier/double_copier.c"
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Normalises the floating point number into scientific notation.

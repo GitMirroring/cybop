@@ -37,7 +37,7 @@
 //
 
 #include "../../../../executor/representer/serialiser/percent_encoding/character_percent_encoding_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises into percent-encoded character data.

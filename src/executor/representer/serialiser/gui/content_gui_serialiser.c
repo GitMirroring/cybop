@@ -45,7 +45,7 @@
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/representer/serialiser/gui/properties_gui_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // Forbidden includes

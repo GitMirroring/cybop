@@ -39,7 +39,7 @@
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/comparator/part/equal_part_comparator.c"
 #include "../../executor/comparator/part/unequal_part_comparator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Compares the left- with the right part.

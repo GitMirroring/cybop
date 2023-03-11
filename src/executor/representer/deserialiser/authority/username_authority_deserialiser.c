@@ -28,7 +28,7 @@
 
 #include "../../../../executor/modifier/part_modifier.c"
 #include "../../../../executor/selector/authority/username_authority_selector.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the authority username.

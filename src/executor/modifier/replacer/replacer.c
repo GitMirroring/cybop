@@ -38,7 +38,7 @@
 
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/modifier/replacer/item_replacer.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Replaces the searchterm sequence with the source data used as replacement sequence.

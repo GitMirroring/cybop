@@ -38,7 +38,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Closes the winsock socket.
@@ -82,7 +82,7 @@ void close_winsock(void* p0) {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close winsock. An error occured.");
             fwprintf(stdout, L"Error: Could not close winsock. An error occured. %i\n", r);
-            log_errno((void*) &e);
+            log_error((void*) &e);
         }
 
     } else {

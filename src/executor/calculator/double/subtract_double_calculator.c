@@ -37,7 +37,7 @@
 // Executable interface
 //
 
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Subtracts the subtrahend from the minuend double.

@@ -39,7 +39,7 @@
 #include "../../../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/representer/serialiser/layout/position_layout_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises part element layout properties into graphical user interface (gui) coordinates.

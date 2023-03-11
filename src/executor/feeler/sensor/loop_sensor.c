@@ -38,7 +38,7 @@
 
 #include "../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../executor/streamer/reader/reader.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Senses input data via endless loop.

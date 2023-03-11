@@ -38,7 +38,7 @@
 
 #include "../../executor/manipulator/array_manipulator.c"
 #include "../../executor/verifier/double_index_count_verifier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Manipulates the item bit at the given position.

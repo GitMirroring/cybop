@@ -42,7 +42,7 @@
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/maintainer/shutter/socket/close_socket_shutter.c"
 #include "../../../executor/modifier/remover/remover.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Checks timeout of open but inactive client

@@ -39,7 +39,7 @@
 #include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/representer/serialiser/layout/absolute/position_absolute_layout_serialiser.c"
 #include "../../../../executor/representer/serialiser/layout/grid/position_grid_layout_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises layout position.

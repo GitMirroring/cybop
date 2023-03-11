@@ -38,7 +38,7 @@
 
 #include "../../../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Appends a comma if this is NOT the last element.

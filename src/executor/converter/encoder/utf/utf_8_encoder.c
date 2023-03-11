@@ -43,7 +43,7 @@
 #include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/memoriser/reallocator/item_reallocator.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 #if defined(__linux__) || defined(__unix__)
     #include <locale.h> // setlocale
@@ -372,7 +372,7 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. An error occured.");
                     fwprintf(stdout, L"Error: Could not encode utf-8. An error occured. n: %i\n", n);
-                    log_errno((void*) &errno);
+                    log_error((void*) &errno);
                 }
 
             } else {

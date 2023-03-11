@@ -37,7 +37,7 @@
 //
 
 #include "../../executor/packer/compressor/gzip/gzip_compressor.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Compress the source into the destination, according to the given compression.

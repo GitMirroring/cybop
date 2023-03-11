@@ -38,7 +38,7 @@
 
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/modifier/stripper/item_leading_stripper.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Removes leading whitespaces from the string.

@@ -30,7 +30,7 @@
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/modifier/part_modifier.c"
 #include "../../../../executor/selector/authority/port_authority_selector.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the authority port.

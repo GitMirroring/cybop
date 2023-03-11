@@ -40,7 +40,7 @@
 #include "../../../executor/container/basic/integer/left_integer_container.c"
 #include "../../../executor/container/basic/integer/none_integer_container.c"
 #include "../../../executor/container/basic/integer/right_integer_container.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Compares if the bounded area contains the value.

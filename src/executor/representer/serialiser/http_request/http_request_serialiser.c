@@ -26,7 +26,7 @@
 #ifndef HTTP_REQUEST_SERIALISER_SOURCE
 #define HTTP_REQUEST_SERIALISER_SOURCE
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // Since http is a stateless protocol, it does not provide a possibility to

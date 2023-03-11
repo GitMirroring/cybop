@@ -38,7 +38,7 @@
 
 #include "../../executor/caster/double/integer_double_caster.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Casts the source into the double destination according to the given source type.

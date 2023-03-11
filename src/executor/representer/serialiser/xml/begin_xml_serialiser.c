@@ -41,7 +41,7 @@
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/representer/serialiser/xml/attributes_xml_serialiser.c"
 #include "../../../../executor/representer/serialiser/xml/indentation_xml_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the xml begin tag into xml format.

@@ -39,7 +39,7 @@
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/logifier/boolean/not_boolean_logifier.c"
 #include "../../../executor/selector/whitespace/whitespace_selector.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Detects a non-whitespace character.

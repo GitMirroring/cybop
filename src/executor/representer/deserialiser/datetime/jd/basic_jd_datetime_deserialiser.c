@@ -42,7 +42,7 @@
 #include "../../../../../executor/modifier/item_modifier.c"
 #include "../../../../../executor/representer/deserialiser/numeral/numeral_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/time_scale/julian_date/julian_date_time_scale_deserialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the source jd/mjd/tjd wide character data into the destination datetime item.

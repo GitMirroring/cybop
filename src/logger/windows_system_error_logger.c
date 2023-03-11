@@ -26,11 +26,21 @@
 #ifndef WINDOWS_SYSTEM_ERROR_LOGGER_SOURCE
 #define WINDOWS_SYSTEM_ERROR_LOGGER_SOURCE
 
+//
+// System interface
+//
+
 #include <windows.h>
 
 #ifndef _MSC_VER
     #include <unistd.h>
 #endif
+
+//
+// Library interface
+//
+
+#include "constant.h"
 
 /**
  * Logs a windows system error.

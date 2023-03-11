@@ -38,7 +38,7 @@
 
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises an xml character into a hexadecimal numeric character reference.

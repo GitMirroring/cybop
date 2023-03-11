@@ -39,7 +39,7 @@
 //
 
 #include "../../../../executor/representer/deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the win32 event message.

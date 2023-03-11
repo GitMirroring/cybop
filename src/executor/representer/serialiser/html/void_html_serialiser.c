@@ -38,7 +38,7 @@
 
 #include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/copier/integer_copier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Determines whether or not this element is allowed to be void.

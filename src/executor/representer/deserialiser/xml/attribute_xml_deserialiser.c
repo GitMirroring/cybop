@@ -46,7 +46,7 @@
 #include "../../../../executor/representer/deserialiser/xml/attribute_value_xml_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xml/string_xml_deserialiser.c"
 #include "../../../../executor/selector/xml/attribute_begin_or_tag_end_xml_selector.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the xml attribute.

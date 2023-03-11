@@ -39,7 +39,7 @@
 #include "../../../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../../../executor/converter/decoder/ascii/ascii_decoder.c"
 #include "../../../../executor/converter/decoder/iso_8859/extension_iso_8859_decoder.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Decodes the iso-8859 character into a utf-32 wide character.

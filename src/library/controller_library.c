@@ -51,14 +51,19 @@
 // 3 Simplicity: Other languages like java do not use header files either.
 //
 
-#include "../controller/deoptionaliser/deoptionaliser.c"
+//
+// CAUTION! The order may be arbitrary or alphabetically,
+// but for better overview, it follows the system LIFECYCLE.
+//
+
 #include "../controller/globaliser/globaliser.c"
+#include "../controller/orienter.c"
 #include "../controller/optionaliser/optionaliser.c"
-#include "../controller/unglobaliser/unglobaliser.c"
 #include "../controller/helper.c"
 #include "../controller/informant.c"
 #include "../controller/manager.c"
-#include "../controller/orienter.c"
+#include "../controller/deoptionaliser/deoptionaliser.c"
+#include "../controller/unglobaliser/unglobaliser.c"
 
 /* CONTROLLER_LIBRARY_SOURCE */
 #endif

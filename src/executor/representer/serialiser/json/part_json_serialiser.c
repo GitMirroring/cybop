@@ -45,7 +45,7 @@
 #include "../../../../executor/representer/serialiser/json/element_json_serialiser.c"
 #include "../../../../executor/representer/serialiser/json/prefix_json_serialiser.c"
 #include "../../../../executor/representer/serialiser/json/suffix_json_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the part into json.

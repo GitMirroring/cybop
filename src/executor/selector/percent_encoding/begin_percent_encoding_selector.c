@@ -39,7 +39,7 @@
 #include "../../../executor/representer/deserialiser/percent_encoding/character_percent_encoding_deserialiser.c"
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/mover/mover.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects the percent-encoded character's begin.

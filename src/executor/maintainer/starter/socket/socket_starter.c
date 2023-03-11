@@ -39,7 +39,7 @@
 #include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/maintainer/starter/socket/lifecycle_socket_starter.c"
 #include "../../../../executor/memoriser/allocator/array_allocator.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Starts up server socket.

@@ -41,7 +41,7 @@
 //
 
 #include "../../../../executor/copier/pointer_copier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // Forbidden includes

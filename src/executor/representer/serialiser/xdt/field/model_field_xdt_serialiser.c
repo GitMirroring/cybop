@@ -46,7 +46,7 @@
 #include "../../../../../executor/representer/serialiser/xdt/duration/ddmmyyyyddmmyyyy/ddmmyyyyddmmyyyy_duration_xdt_serialiser.c"
 #include "../../../../../executor/representer/serialiser/xdt/duration/hhmmhhmm/hhmmhhmm_duration_xdt_serialiser.c"
 #include "../../../../../executor/representer/serialiser/xdt/duration/yyyy/yyyy_duration_xdt_serialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises into an xdt field model.

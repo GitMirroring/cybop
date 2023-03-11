@@ -40,7 +40,7 @@
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/representer/deserialiser/numeral/integer_numeral_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xdt/record/part_record_xdt_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects an xdt record by filtering out the record begin field.

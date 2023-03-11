@@ -41,7 +41,7 @@
 #include "../../../../executor/representer/deserialiser/binary_crlf_termination/binary_crlf_termination_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/ftp_line_end/ftp_line_end_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/http_request_message_length/http_request_message_length_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the message and searches for either:

@@ -39,7 +39,7 @@
 //
 
 #include "../../../../executor/maintainer/starter/winsock/status_winsock_starter.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Open a windows socket.
@@ -106,7 +106,7 @@ void open_winsock_device(void* p0, void* p1, void* p2, void* p3) {
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock device. An error occured.");
                         fwprintf(stdout, L"Error: Could not open winsock device. An error occured. %i\n", r);
-                        log_errno((void*) &e);
+                        log_error((void*) &e);
                     }
 
                 } else {

@@ -37,7 +37,7 @@
 //
 
 #include "../../executor/manipulator/value_manipulator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Manipulates the bit at the given position.

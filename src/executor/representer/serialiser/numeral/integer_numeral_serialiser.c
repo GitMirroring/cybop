@@ -48,7 +48,7 @@
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/representer/serialiser/numeral/prefix_numeral_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 #include "../../../../mapper/integer_to_digit_wide_character_mapper.c"
 
 /**

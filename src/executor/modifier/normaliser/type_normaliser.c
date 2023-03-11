@@ -38,7 +38,7 @@
 
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/modifier/normaliser/item_normaliser.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Checks if the data type is string.

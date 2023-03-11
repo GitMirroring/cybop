@@ -41,7 +41,7 @@
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/modifier/item_modifier.c"
 #include "../../../executor/mover/mover.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects the joined string value end by searching for the given delimiter sequence.

@@ -38,7 +38,7 @@
 
 #include "../../../executor/comparator/part/equal_part_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Compares the left- with the right part for unequality.

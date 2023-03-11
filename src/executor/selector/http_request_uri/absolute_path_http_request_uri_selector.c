@@ -28,7 +28,7 @@
 
 #include "../../../executor/representer/deserialiser/uri/http_uri_deserialiser.c"
 #include "../../../executor/mover/mover.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects absolute path http request uri.

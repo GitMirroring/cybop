@@ -40,7 +40,7 @@
 #include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../executor/copier/integer_copier.c"
 #include "../../executor/memoriser/offset_adder.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Casts count elements of the source- to the destination array.

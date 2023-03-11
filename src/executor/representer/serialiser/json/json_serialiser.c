@@ -39,7 +39,7 @@
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/representer/serialiser/json/part_json_serialiser.c"
 #include "../../../../executor/representer/serialiser/json/string_json_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the source cyboi knowledge tree into the destination json format.

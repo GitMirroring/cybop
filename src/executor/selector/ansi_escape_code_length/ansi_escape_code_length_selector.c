@@ -40,7 +40,7 @@
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/selector/ansi_escape_code_length/add_ansi_escape_code_length_selector.c"
 #include "../../../executor/selector/ansi_escape_code_length/character_ansi_escape_code_length_selector.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects the ansi escape code length begin.

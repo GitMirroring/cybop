@@ -44,7 +44,7 @@
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Creates a unix fifo special file in the filesystem.
@@ -123,7 +123,7 @@ void open_unix_fifo_file(void* p0, void* p1, void* p2) {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open unix fifo file. An error occured.");
             fwprintf(stdout, L"Error: Could not open unix fifo file. An error occured. %i\n", r);
-            log_errno((void*) &errno);
+            log_error((void*) &errno);
         }
 
         // Deallocate terminated file name item.

@@ -38,7 +38,7 @@
 
 #include "../../executor/caster/integer/character_integer_caster.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Casts the source into the integer destination according to the given source type.

@@ -40,7 +40,7 @@
 #include "../../../executor/converter/encoder/base_64/base_64_encoder.c"
 #include "../../../executor/converter/encoder/utf/utf_16_encoder.c"
 #include "../../../executor/converter/encoder/utf/utf_8_encoder.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Encodes the source into the destination, according to the given encoding.

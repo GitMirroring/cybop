@@ -40,7 +40,7 @@
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/representer/deserialiser/message_length/message_length_deserialiser.c"
 #include "../../../executor/streamer/reader/count_reader.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 //
 // Message Boundaries:

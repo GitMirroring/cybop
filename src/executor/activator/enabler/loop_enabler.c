@@ -38,7 +38,7 @@
 
 #include "../../../executor/activator/enabler/request_enabler.c"
 #include "../../../executor/comparator/integer/unequal_integer_comparator.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Enables client requests or events via endless loop.

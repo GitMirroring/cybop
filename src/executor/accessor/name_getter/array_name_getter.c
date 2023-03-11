@@ -37,7 +37,7 @@
 //
 
 #include "../../../executor/finder/array_finder.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Gets the knowledge part by name, from the given whole array.

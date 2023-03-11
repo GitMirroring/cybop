@@ -44,7 +44,7 @@
 //
 
 #include "../../../../executor/representer/deserialiser/win32_display/callback_message_win32_display_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Registers the window class.
@@ -94,7 +94,7 @@ void open_win32_display_register(void* p0, void* p1) {
                 DWORD e = GetLastError();
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open win32 display register. The window class registration failed.");
-                log_windows_system_error((void*) &e);
+                log_error((void*) &e);
 
                 MessageBox(*NULL_POINTER_STATE_CYBOI_MODEL, "Window Registration Failed!", "Error!", MB_ICONEXCLAMATION | MB_OK);
             }

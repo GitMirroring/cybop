@@ -30,7 +30,7 @@
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/mover/mover.c"
 #include "../../../executor/representer/deserialiser/authority/port_authority_deserialiser.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects the authority hostname.

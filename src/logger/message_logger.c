@@ -23,44 +23,32 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LOGGER_SOURCE
-#define LOGGER_SOURCE
-
-//
-// System interface
-//
-
-#include <stddef.h> // wchar_t
-#include <stdio.h> // stdout, fwprintf
-#include <stdlib.h>
-#include <string.h>
-#include <wchar.h>
+#ifndef MESSAGE_LOGGER_SOURCE
+#define MESSAGE_LOGGER_SOURCE
 
 //
 // Library interface
 //
 
 #include "constant.h"
-#include "variable.h"
+#include "variable.h" // LOG_MESSAGE
 
 //
 // Executable interface
 //
 
-#include "../logger/level_name_logger.c"
-#include "../logger/write_logger.c"
-#include "../mapper/errno_to_message_mapper.c"
+#include "level_name_logger.c"
+#include "write_logger.c"
 
-#if defined(__linux__) || defined(__unix__)
-    // empty
-#elif defined(__APPLE__) && defined(__MACH__)
-    // empty
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../logger/windows_system_error_logger.c"
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
+//
+// Forward declarations
+//
+
+void calculate_integer_add(void* p0, void* p1);
+void compare_integer_less_or_equal(void* p0, void* p1, void* p2);
+void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void copy_integer(void* p0, void* p1);
+void copy_pointer(void* p0, void* p1);
 
 //
 // CAUTION! This logger uses some CYBOI functions so that
@@ -103,17 +91,6 @@
 // Just one more argument to use the global variable "LOG_MESSAGE".
 //
 
-//
-// Forward declarations
-//
-
-void calculate_integer_add(void* p0, void* p1);
-void compare_integer_equal(void* p0, void* p1, void* p2);
-void compare_integer_less_or_equal(void* p0, void* p1, void* p2);
-void copy_integer(void* p0, void* p1);
-void copy_pointer(void* p0, void* p1);
-void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
-
 /**
  * Logs the given message.
  *
@@ -121,7 +98,7 @@ void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
  * is already used somewhere, probably by the glibc library.
  * If using it, the gcc compiler prints an error like the following:
  *
- * ../controller/../controller/manager/../../logger/logger.c:122: error: conflicting types for 'log'
+ * ../logger/logger.c:122: error: conflicting types for 'log'
  *
  * @param p0 the log level
  * @param p1 the log message
@@ -136,7 +113,9 @@ void log_message(void* p0, void* p1, void* p2) {
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Log message since the log level matches.
+        //
+        // The log level matches.
+        //
 
         // The log level name.
         void* ln = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -204,127 +183,5 @@ void log_message(void* p0, void* p1, void* p2) {
     }
 }
 
-/**
- * Logs a null character-terminated message.
- *
- * @param p0 the log level
- * @param p1 the log message as null terminated string
- */
-void log_message_terminated(void* p0, void* p1) {
-
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        wchar_t* m = (wchar_t*) p1;
-
-        // The message count.
-        int c = wcslen(m);
-
-        if (c > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-            //
-            // Calculate overall count.
-            //
-            // Some characters are added by default [Byte]:
-            // 11 (the longest log level name is "information")
-            //  1 (colon)
-            //  1 (space)
-            // xx (the actual message)
-            //  1 line feed
-            //  1 null termination
-            // __
-            // 15
-            // ==
-            //
-            int o = c + *NUMBER_15_INTEGER_STATE_CYBOI_MODEL;
-
-            //?? fwprintf(stdout, L"Debug: Log message terminated. *LOG_MESSAGE_SIZE: %i\n", *LOG_MESSAGE_SIZE);
-            //?? fwprintf(stdout, L"Debug: Log message terminated. c: %i\n", c);
-
-            //
-            // Test message count.
-            //
-            // CAUTION! This is important, since the destination
-            // log message count is fixed and limited in size.
-            //
-            if (o > *LOG_MESSAGE_SIZE) {
-
-                // CAUTION! Do NOT call the logger here.
-                // It cannot log itself.
-                fputws(L"Warning: Could not log message terminated. The message count gets limited to 1000 - 15.\n", stdout);
-
-                // Limit message count.
-                c = *LOG_MESSAGE_SIZE - *NUMBER_15_INTEGER_STATE_CYBOI_MODEL;
-            }
-
-            log_message(p0, p1, (void*) &c);
-
-        } else if (c == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-            // CAUTION! Do NOT call the logger here.
-            // It cannot log itself.
-            fputws(L"Warning: Could not log message terminated. The message count is zero.\n", stdout);
-
-        } else {
-
-            // CAUTION! Do NOT call the logger here.
-            // It cannot log itself.
-            fputws(L"Error: Could not log message terminated. The message count is negative.\n", stdout);
-        }
-
-    } else {
-
-        // CAUTION! Do NOT call the logger here.
-        // It cannot log itself.
-        fputws(L"Error: Could not log message terminated. The log message as null terminated string is null.\n", stdout);
-    }
-}
-
-/**
- * Logs the error.
- *
- * @param p0 the errno value
- */
-void log_errno(void* p0) {
-
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        int* e = (int*) p0;
-
-        // The message.
-        void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-        // Map errno value to message string.
-        map_errno_to_message((void*) &m, p0);
-
-        // Write message to log file.
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, m);
-
-        // Cast message to correct type.
-        wchar_t* mt = (wchar_t*) m;
-
-        // Print message.
-        fwprintf(stdout, mt);
-        // Print space.
-        fwprintf(stdout, L" ");
-        // Print errno.
-        fwprintf(stdout, L"Errno: %i\n", *e);
-
-#if defined(__linux__) || defined(__unix__)
-        // empty
-#elif defined(__APPLE__) && defined(__MACH__)
-        // empty
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-        log_windows_system_error(p0);
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
-
-    } else {
-
-        fwprintf(stdout, L"Error: Could not log errno. The errno value is null. p0: %i\n", p0);
-    }
-}
-
-/* LOGGER_SOURCE */
+/* MESSAGE_LOGGER_SOURCE */
 #endif

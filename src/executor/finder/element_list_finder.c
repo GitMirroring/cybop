@@ -38,7 +38,7 @@
 
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/copier/array/forward_array_copier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Compares entry element at the given element index with comparison data.

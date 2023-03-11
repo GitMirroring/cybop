@@ -39,7 +39,7 @@
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../executor/copier/pointer_copier.c"
 #include "../../../../../executor/representer/deserialiser/xdt/field/lines_field_xdt_deserialiser.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 //
 // The "x DatenTransfer" (xDT) is the German version of

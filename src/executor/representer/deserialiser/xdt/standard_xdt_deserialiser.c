@@ -31,6 +31,7 @@
 //
 
 #include "constant.h"
+#include "logger.h"
 
 //
 // Executable interface
@@ -39,7 +40,7 @@
 #include "../../../../executor/representer/deserialiser/xdt/bdt/bdt_xdt_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xdt/gdt/gdt_xdt_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xdt/ldt/ldt_xdt_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises xdt standard data.

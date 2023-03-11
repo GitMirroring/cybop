@@ -39,7 +39,7 @@
 #include "../../../../executor/representer/serialiser/html/break_html_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/end_html_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/indentation_html_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the empty part element into html.

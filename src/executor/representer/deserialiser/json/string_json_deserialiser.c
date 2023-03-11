@@ -44,7 +44,7 @@
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/modifier/part_modifier.c"
 #include "../../../../executor/selector/json/end_string_json_selector.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the json string.

@@ -39,7 +39,7 @@
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/memoriser/reallocator/array_reallocator.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Reallocates the item.

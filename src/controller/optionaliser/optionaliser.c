@@ -38,7 +38,7 @@
 
 #include "../../controller/optionaliser/log_file_optionaliser.c"
 #include "../../executor/representer/deserialiser/command_line/command_line_deserialiser.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Optionalises the given command line argument options.

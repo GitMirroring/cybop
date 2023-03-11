@@ -45,7 +45,7 @@
 #include "../../../executor/representer/deserialiser/xml/definition_xml_deserialiser.c"
 #include "../../../executor/representer/deserialiser/xml/element_xml_deserialiser.c"
 #include "../../../executor/representer/deserialiser/xml/end_tag_xml_deserialiser.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects the xml element content.

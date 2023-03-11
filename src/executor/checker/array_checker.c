@@ -41,7 +41,7 @@
 #include "../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../executor/comparator/offset_comparator.c"
 #include "../../executor/copier/integer_copier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Checks two arrays lexicographically.

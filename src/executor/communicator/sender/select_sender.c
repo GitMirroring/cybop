@@ -38,7 +38,7 @@
 
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/copier/pointer_copier.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects a suitable source buffer and stores it in the destination.

@@ -41,7 +41,7 @@
 #include "../../../executor/porter/locker.c"
 #include "../../../executor/porter/unlocker.c"
 #include "../../../executor/streamer/writer/interrupt_pipe/interrupt_pipe_writer.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Send request client identification to interrupt pipe.

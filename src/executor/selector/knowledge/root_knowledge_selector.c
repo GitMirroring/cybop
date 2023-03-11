@@ -39,7 +39,7 @@
 #include "../../../executor/checker/operation_checker.c"
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/selector/knowledge/begin_knowledge_selector.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects the knowledge memory root node.

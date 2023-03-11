@@ -28,7 +28,7 @@
 
 #include "../../../executor/representer/serialiser/model_diagram_serialiser.c"
 #include "../../../executor/mover/mover.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Loops the given source code.

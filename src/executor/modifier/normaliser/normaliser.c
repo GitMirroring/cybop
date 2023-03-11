@@ -38,7 +38,7 @@
 
 #include "../../../executor/modifier/normaliser/type_normaliser.c"
 #include "../../../executor/modifier/stripper/stripper.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Normalises the string.

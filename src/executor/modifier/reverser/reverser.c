@@ -38,7 +38,7 @@
 
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/modifier/reverser/item_reverser.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Reverses the source string and writes it the other way around into the destination.

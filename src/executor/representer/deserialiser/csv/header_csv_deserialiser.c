@@ -41,7 +41,7 @@
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/representer/deserialiser/csv/index_csv_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/csv/part_csv_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Checks whether or not this is the FIRST record (row).

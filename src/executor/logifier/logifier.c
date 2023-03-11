@@ -40,7 +40,7 @@
 #include "../../executor/logifier/boolean_logifier.c"
 #include "../../executor/logifier/integer_logifier.c"
 #include "../../executor/logifier/character_logifier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Applies boolean logic to the given result and operand.

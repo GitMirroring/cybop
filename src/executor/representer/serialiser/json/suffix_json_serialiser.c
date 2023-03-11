@@ -40,7 +40,7 @@
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/logifier/boolean/and_boolean_logifier.c"
 #include "../../../../executor/representer/serialiser/json/indentation_json_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Appends part suffix to the destination item.

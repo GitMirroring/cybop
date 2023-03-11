@@ -38,7 +38,7 @@
 
 #include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the cybol encoding into a cyboi encoding.

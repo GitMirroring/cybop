@@ -42,7 +42,7 @@
 #include "../../../executor/manipulator/character/clear_character_manipulator.c"
 #include "../../../executor/manipulator/character/set_character_manipulator.c"
 #include "../../../executor/manipulator/character/shift_left_character_manipulator.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 #include "../../../mapper/type_to_size_mapper.c"
 
 /**

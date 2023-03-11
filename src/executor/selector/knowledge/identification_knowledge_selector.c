@@ -39,7 +39,7 @@
 #include "../../../executor/accessor/getter/part_getter.c"
 #include "../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../executor/selector/knowledge/memory_knowledge_selector.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Selects the knowledge identification (name or index).

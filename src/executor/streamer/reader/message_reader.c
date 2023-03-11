@@ -39,7 +39,7 @@
 #include "../../../executor/streamer/reader/completeness_reader.c"
 #include "../../../executor/streamer/reader/completion_reader.c"
 #include "../../../executor/streamer/reader/fragment_reader.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Reads a message in certain steps.

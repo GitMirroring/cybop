@@ -38,7 +38,7 @@
 
 #include "../../../executor/dispatcher/closer/lifecycle_closer.c"
 #include "../../../executor/maintainer/shutter/lifecycle_shutter.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Executes client close lifecycle OR service shutdown lifecycle, depending on the given identification name.

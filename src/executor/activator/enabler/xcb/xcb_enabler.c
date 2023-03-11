@@ -44,7 +44,7 @@
 #include "../../../../executor/finder/list_finder.c"
 #include "../../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../../executor/streamer/writer/interrupt_pipe/interrupt_pipe_writer.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Enables x window system event delivery via xcb.

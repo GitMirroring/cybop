@@ -38,7 +38,7 @@
 
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/memoriser/deallocator/part_deallocator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Destroys a part and removes it from the knowledge model.

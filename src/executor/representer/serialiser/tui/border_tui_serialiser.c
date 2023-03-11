@@ -37,7 +37,7 @@
 //
 
 #include "../../../../executor/copier/wide_character_copier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Determines the border characters depending on the given border model.

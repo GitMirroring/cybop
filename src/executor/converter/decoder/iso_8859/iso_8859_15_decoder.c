@@ -38,7 +38,7 @@
 
 #include "../../../../executor/comparator/character/equal_character_comparator.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Decodes the iso-8859-15 character data into utf-32 wide character data.

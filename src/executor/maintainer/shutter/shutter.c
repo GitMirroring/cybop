@@ -40,7 +40,7 @@
 #include "../../../executor/finder/list_finder.c"
 #include "../../../executor/finder/list_index_finder.c"
 #include "../../../executor/maintainer/shutter/lifecycle_shutter.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 #include "../../../mapper/channel_to_internal_memory_mapper.c"
 
 /**

@@ -40,7 +40,7 @@
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/sorter/bubble/operation_bubble_sorter.c"
 #include "../../../executor/sorter/bubble/type_bubble_sorter.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /*
  * Swap the given values depending on comparison.

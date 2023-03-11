@@ -39,7 +39,7 @@
 #include "../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../executor/copier/integer_copier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Verifies that the sum of the given index and count is within the data array.

@@ -40,7 +40,7 @@
 #include "../../../../executor/copier/array/forward_array_copier.c"
 #include "../../../../executor/representer/deserialiser/cybol/node_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/test_cybol_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the cybol part element content.

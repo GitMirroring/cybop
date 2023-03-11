@@ -38,7 +38,7 @@
 
 #include "../../executor/calculator/part_calculator.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Compares the type of result- and operand node.

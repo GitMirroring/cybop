@@ -26,6 +26,10 @@
 #ifndef WRITE_LOGGER_SOURCE
 #define WRITE_LOGGER_SOURCE
 
+//
+// System interface
+//
+
 #include <stddef.h> // wchar_t
 #include <stdio.h> // FILE
 #include <wchar.h> // fputws

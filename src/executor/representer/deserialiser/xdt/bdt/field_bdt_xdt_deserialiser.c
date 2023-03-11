@@ -40,7 +40,7 @@
 #include "../../../../../executor/representer/deserialiser/numeral/integer_numeral_deserialiser.c"
 #include "../../../../../executor/selector/xdt/bdt/end_compound_field_bdt_xdt_selector.c"
 #include "../../../../../executor/selector/xdt/bdt/field_bdt_xdt_selector.c"
-#include "../../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises the xdt bdt field.

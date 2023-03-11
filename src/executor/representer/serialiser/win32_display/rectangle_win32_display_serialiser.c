@@ -38,7 +38,7 @@
 // Executable interface
 //
 
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Serialises the rectangle into win32 display.
@@ -102,7 +102,7 @@ void serialise_win32_display_rectangle(void* p0, void* p1, void* p2, void* p3, v
                             DWORD e = GetLastError();
 
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 display rectangle. A windows system error occured.");
-                            log_windows_system_error((void*) &e);
+                            log_error((void*) &e);
                         }
 
                     } else {

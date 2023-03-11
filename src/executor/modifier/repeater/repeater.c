@@ -38,7 +38,7 @@
 
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/modifier/repeater/item_repeater.c"
-#include "../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Writes a destination string whose value is the concatenation

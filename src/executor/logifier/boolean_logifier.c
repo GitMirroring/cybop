@@ -43,7 +43,7 @@
 #include "../../executor/logifier/boolean/xnor_boolean_logifier.c"
 #include "../../executor/logifier/boolean/nand_boolean_logifier.c"
 #include "../../executor/logifier/boolean/xor_boolean_logifier.c"
-#include "../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Connects the given values following the given boolean logic operation.

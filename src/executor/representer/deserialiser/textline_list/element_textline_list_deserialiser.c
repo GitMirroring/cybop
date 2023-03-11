@@ -43,7 +43,7 @@
 #include "../../../../executor/logifier/boolean/or_boolean_logifier.c"
 #include "../../../../executor/representer/deserialiser/textline_list/index_textline_list_deserialiser.c"
 #include "../../../../executor/selector/newline/newline_selector.c"
-#include "../../../../logger/logger.c"
+#include "logger.h"
 
 /**
  * Deserialises a single textline.
