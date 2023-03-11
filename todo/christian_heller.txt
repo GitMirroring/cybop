@@ -11,14 +11,6 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-RegEx
-_____
-
-        * Replace sequence "level_log_cyboi_model.c" containing line break:
-            .*level_log_cyboi_model.c"\n+
-        * Replace sequence containing "#include" and "constant/" and line break:
-            #include+.+constant/+.*\n+
-
 Library
 _______
 
