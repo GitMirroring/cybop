@@ -27,20 +27,18 @@
 #ifndef RETRIEVER_SOURCE
 #define RETRIEVER_SOURCE
 
-#include <stdlib.h>
-
 //
 // Library interface
 //
 
 #include "constant.h"
+#include "logger.h"
 
 //
 // Executable interface
 //
 
 #include "../../executor/randomiser/maximum_retriever.c"
-#include "logger.h"
 
 /**
  * Retrieves next pseudo-random number in the series.

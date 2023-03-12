@@ -31,18 +31,8 @@
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../executor/commander/list_directory_contents_commander.c"
+#include "executor.h"
 #include "logger.h"
-
-#ifndef _MSC_VER
-    #include <unistd.h>
-#endif
 
 /**
  * Lists the directory contents.

@@ -26,20 +26,19 @@
 #ifndef RESULT_COMPARE_SOURCE
 #define RESULT_COMPARE_SOURCE
 
-#include "../../applicator/compare/type_compare.c"
 //
 // Library interface
 //
 
 #include "constant.h"
+#include "executor.h"
+#include "logger.h"
 
 //
 // Executable interface
 //
 
-#include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/comparator/part_comparator.c"
-#include "logger.h"
+#include "../../applicator/compare/type_compare.c"
 
 /**
  * Tests if the result type is "boolean".

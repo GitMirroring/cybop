@@ -44,11 +44,6 @@
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
 #include "logger.h"
 
 /**

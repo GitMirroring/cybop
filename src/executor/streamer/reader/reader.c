@@ -31,6 +31,7 @@
 //
 
 #include "constant.h"
+#include "logger.h"
 
 //
 // Executable interface
@@ -39,7 +40,6 @@
 #include "../../../executor/finder/entry_finder.c"
 #include "../../../executor/modifier/item_modifier.c"
 #include "../../../executor/streamer/reader/flag_reader.c"
-#include "logger.h"
 #include "../../../mapper/channel_to_type_mapper.c"
 
 /**

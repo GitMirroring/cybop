@@ -26,21 +26,19 @@
 #ifndef COMPARE_SOURCE
 #define COMPARE_SOURCE
 
-#include "../../applicator/compare/result_compare.c"
 //
 // Library interface
 //
 
 #include "constant.h"
+#include "executor.h"
+#include "logger.h"
 
 //
 // Executable interface
 //
 
-#include "../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../executor/calculator/integer/minimum_integer_calculator.c"
-#include "../../executor/copier/array/forward_array_copier.c"
-#include "logger.h"
+#include "../../applicator/compare/result_compare.c"
 
 /**
  * Compares left and right operand.

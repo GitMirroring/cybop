@@ -31,6 +31,7 @@
 //
 
 #include "constant.h"
+#include "logger.h"
 
 //
 // Executable interface
@@ -43,7 +44,6 @@
 #include "../../../executor/communicator/sender/write_sender.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../executor/memoriser/deallocator/item_deallocator.c"
-#include "logger.h"
 
 /**
  * Sends the source via the given channel.

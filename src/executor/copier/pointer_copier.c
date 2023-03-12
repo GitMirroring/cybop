@@ -26,19 +26,11 @@
 #ifndef POINTER_COPIER_SOURCE
 #define POINTER_COPIER_SOURCE
 
-#include <stdlib.h>
-#include <string.h>
-
 //
 // Library interface
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
 #include "logger.h"
 
 /**

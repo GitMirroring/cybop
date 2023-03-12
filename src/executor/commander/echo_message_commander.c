@@ -31,6 +31,7 @@
 //
 
 #include "constant.h"
+#include "logger.h"
 
 //
 // Executable interface
@@ -38,7 +39,6 @@
 
 #include "../../executor/memoriser/allocator/item_allocator.c"
 #include "../../executor/runner/executor.c"
-#include "logger.h"
 
 //
 // CAUTION! The options of many commands are SIMILAR on various platforms.

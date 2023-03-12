@@ -26,13 +26,13 @@
 #ifndef COPY_FILE_SOURCE
 #define COPY_FILE_SOURCE
 
-#include "../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../executor/commander/copy_file_commander.c"
-#include "logger.h"
+//
+// Library interface
+//
 
-#ifndef _MSC_VER
-    #include <unistd.h>
-#endif
+#include "constant.h"
+#include "executor.h"
+#include "logger.h"
 
 /**
  * Copies the file resource to a destination.

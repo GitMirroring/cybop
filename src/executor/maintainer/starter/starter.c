@@ -31,6 +31,7 @@
 //
 
 #include "constant.h"
+#include "logger.h"
 
 //
 // Executable interface
@@ -42,7 +43,6 @@
 #include "../../../executor/maintainer/starter/service_starter.c"
 #include "../../../executor/memoriser/allocator/server_entry_allocator.c"
 #include "../../../executor/modifier/item_modifier.c"
-#include "logger.h"
 #include "../../../mapper/channel_to_internal_memory_mapper.c"
 
 /**

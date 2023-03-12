@@ -26,18 +26,17 @@
 #ifndef SOWER_SOURCE
 #define SOWER_SOURCE
 
-#include <stdlib.h>
+//
+// System interface
+//
+
+#include <stdlib.h> // srand
 
 //
 // Library interface
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
 #include "logger.h"
 
 /**

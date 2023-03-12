@@ -31,6 +31,7 @@
 //
 
 #include "constant.h"
+#include "logger.h"
 
 //
 // Executable interface
@@ -40,7 +41,6 @@
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/modifier/part_modifier.c"
-#include "logger.h"
 
 /**
  * Gets the source part element given by the source part element type

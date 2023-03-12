@@ -31,6 +31,7 @@
 //
 
 #include "constant.h"
+#include "logger.h"
 
 //
 // Executable interface
@@ -44,7 +45,6 @@
 #include "../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../executor/streamer/reader/deallocation_reader.c"
-#include "logger.h"
 
 /**
  * Receives a message via the given channel.

@@ -26,22 +26,19 @@
 #ifndef CALCULATE_SOURCE
 #define CALCULATE_SOURCE
 
-#include "../../applicator/calculate/type_calculate.c"
 //
 // Library interface
 //
 
 #include "constant.h"
+#include "executor.h"
+#include "logger.h"
 
 //
 // Executable interface
 //
 
-#include "../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../executor/accessor/name_getter/array_name_getter.c"
-#include "../../executor/calculator/integer/minimum_integer_calculator.c"
-#include "../../executor/copier/array/forward_array_copier.c"
-#include "logger.h"
+#include "../../applicator/calculate/type_calculate.c"
 
 /**
  * Calculates a result by applying the given operation to the given operands.

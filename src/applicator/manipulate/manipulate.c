@@ -31,14 +31,7 @@
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../executor/accessor/name_getter/array_name_getter.c"
-#include "../../executor/manipulator/part_manipulator.c"
+#include "executor.h"
 #include "logger.h"
 
 /**

@@ -31,26 +31,8 @@
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../executor/commander/tape_archiver_commander.c"
+#include "executor.h"
 #include "logger.h"
-
-#if defined(__linux__) || defined(__unix__)
-    #elif defined(__APPLE__) && defined(__MACH__)
-    // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-    #else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
-
-#ifndef _MSC_VER
-    #include <unistd.h>
-#endif
 
 /**
  * Packs or unpacks a directory or file.

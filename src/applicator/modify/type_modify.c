@@ -26,19 +26,19 @@
 #ifndef TYPE_MODIFY_SOURCE
 #define TYPE_MODIFY_SOURCE
 
-#include "../../applicator/modify/deep_modify.c"
 //
 // Library interface
 //
 
 #include "constant.h"
+#include "executor.h"
+#include "logger.h"
 
 //
 // Executable interface
 //
 
-#include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "logger.h"
+#include "../../applicator/modify/deep_modify.c"
 
 /**
  * Compares the type of destination- and source node.

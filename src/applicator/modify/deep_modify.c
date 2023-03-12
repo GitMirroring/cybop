@@ -31,13 +31,7 @@
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/modifier/part_modifier.c"
+#include "executor.h"
 #include "logger.h"
 
 /**

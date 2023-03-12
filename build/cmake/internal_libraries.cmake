@@ -27,14 +27,18 @@
 # Library linking
 #
 
-#target_link_libraries(cyboi-executor
-#    cyboi-xdt
-#)
+target_link_libraries(cyboi-xdt
+    cyboi-logger
+)
+
+target_link_libraries(cyboi-executor
+    cyboi-logger
+    cyboi-xdt
+)
 
 target_link_libraries(cyboi-applicator
     cyboi-logger
-#    cyboi-executor
-    cyboi-xdt
+    cyboi-executor
 )
 
 target_link_libraries(cyboi-controller
@@ -59,9 +63,9 @@ target_include_directories(cyboi-xdt PUBLIC
     "${ROOT_DIR}/include"
 )
 
-#target_include_directories(cyboi-executor PUBLIC
-#    "${ROOT_DIR}/include"
-#)
+target_include_directories(cyboi-executor PUBLIC
+    "${ROOT_DIR}/include"
+)
 
 target_include_directories(cyboi-applicator PUBLIC
     "${ROOT_DIR}/include"

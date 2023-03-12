@@ -31,19 +31,8 @@
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../executor/memoriser/allocator/item_allocator.c"
-#include "../../executor/runner/executor.c"
+#include "executor.h"
 #include "logger.h"
-
-#ifndef _MSC_VER
-    #include <unistd.h>
-#endif
 
 /**
  * Archives the given data into a file.

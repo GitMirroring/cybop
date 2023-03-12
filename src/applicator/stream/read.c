@@ -31,15 +31,7 @@
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../executor/copier/array/forward_array_copier.c"
-#include "../../executor/streamer/reader/deallocation_reader.c"
-#include "../../executor/streamer/reader/reader.c"
+#include "executor.h"
 #include "logger.h"
 
 /**

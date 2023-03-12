@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-03-12  Christian Heller  <christian.heller@cybop.org>
+
+        * Add shared library "executor"
+
 2023-03-11  Christian Heller  <christian.heller@cybop.org>
 
         * Change suffix of file "cmake_configuration.c.in" into "cmake_configuration.h.in" in directory "build/" and in file "CMakeLists.txt"

@@ -31,6 +31,7 @@
 //
 
 #include "constant.h"
+#include "logger.h"
 #include "variable.h"
 
 //
@@ -40,7 +41,6 @@
 #include "../../../executor/copier/array/forward_array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/memoriser/allocator/array_allocator.c"
-#include "logger.h"
 
 /**
  * Allocates the item.

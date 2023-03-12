@@ -26,22 +26,12 @@
 #ifndef RUN_SOURCE
 #define RUN_SOURCE
 
-#ifndef _MSC_VER
-#include <unistd.h>
-#endif
-
 //
 // Library interface
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../executor/runner/executor.c"
+#include "executor.h"
 #include "logger.h"
 
 /**

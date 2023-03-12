@@ -31,18 +31,8 @@
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../executor/commander/word_count_commander.c"
+#include "executor.h"
 #include "logger.h"
-
-#ifndef _MSC_VER
-    #include <unistd.h>
-#endif
 
 /**
  * Print byte, word, and line counts, count the number of bytes,

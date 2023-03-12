@@ -31,6 +31,7 @@
 //
 
 #include "constant.h"
+#include "logger.h"
 
 //
 // Executable interface
@@ -43,7 +44,6 @@
 #include "../../executor/sorter/quick/quick_sorter.c"
 #include "../../executor/sorter/selection/selection_sorter.c"
 */
-#include "logger.h"
 
 /*
  * Sorts the data array using the given algorithm (operation type).

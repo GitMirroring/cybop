@@ -26,23 +26,21 @@
 #ifndef MODIFY_SOURCE
 #define MODIFY_SOURCE
 
-#include "../../applicator/modify/array_modify.c"
-#include "../../applicator/modify/index_modify.c"
-#include "../../applicator/modify/type_modify.c"
 //
 // Library interface
 //
 
 #include "constant.h"
+#include "executor.h"
+#include "logger.h"
 
 //
 // Executable interface
 //
 
-#include "../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../executor/copier/array/forward_array_copier.c"
-#include "../../executor/modifier/part_modifier.c"
-#include "logger.h"
+#include "../../applicator/modify/array_modify.c"
+#include "../../applicator/modify/index_modify.c"
+#include "../../applicator/modify/type_modify.c"
 
 /**
  * Modifies the destination- with the source part.

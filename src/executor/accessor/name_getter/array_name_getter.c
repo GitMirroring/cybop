@@ -31,13 +31,13 @@
 //
 
 #include "constant.h"
+#include "logger.h"
 
 //
 // Executable interface
 //
 
 #include "../../../executor/finder/array_finder.c"
-#include "logger.h"
 
 /**
  * Gets the knowledge part by name, from the given whole array.

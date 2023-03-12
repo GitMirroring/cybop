@@ -31,18 +31,7 @@
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../executor/copier/array/forward_array_copier.c"
-#include "../../executor/copier/integer_copier.c"
-#include "../../executor/dispatcher/opener/opener.c"
-#include "../../executor/memoriser/allocator/item_allocator.c"
-#include "../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../executor/modifier/item_modifier.c"
+#include "executor.h"
 #include "logger.h"
 
 /**

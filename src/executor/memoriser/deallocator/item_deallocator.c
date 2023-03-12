@@ -31,6 +31,7 @@
 //
 
 #include "constant.h"
+#include "logger.h"
 #include "variable.h"
 
 //
@@ -38,7 +39,6 @@
 //
 
 #include "../../../executor/memoriser/deallocator/array_deallocator.c"
-#include "logger.h"
 
 //
 // Forbidden includes

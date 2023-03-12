@@ -26,20 +26,18 @@
 #ifndef RETRIEVE_SOURCE
 #define RETRIEVE_SOURCE
 
-#include <stdlib.h>
+//
+// System interface
+//
+
+#include <stdlib.h> // RAND_MAX
 
 //
 // Library interface
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../executor/randomiser/retriever.c"
+#include "executor.h"
 #include "logger.h"
 
 /**

@@ -31,13 +31,7 @@
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../executor/randomiser/sower.c"
+#include "executor.h"
 #include "logger.h"
 
 /**

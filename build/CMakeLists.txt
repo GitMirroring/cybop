@@ -75,7 +75,7 @@ set(CYBOI_EXECUTABLE_SOURCES ${ROOT_DIR}/src/cyboi/cyboi.c)
 #
 set(LOGGER_CYBOI_LIBRARY_SOURCES ${ROOT_DIR}/src/library/logger_library.c)
 set(XDT_CYBOI_LIBRARY_SOURCES ${ROOT_DIR}/src/library/xdt_library.c)
-#set(EXECUTOR_CYBOI_LIBRARY_SOURCES ${ROOT_DIR}/src/library/executor_library.c)
+set(EXECUTOR_CYBOI_LIBRARY_SOURCES ${ROOT_DIR}/src/library/executor_library.c)
 set(APPLICATOR_CYBOI_LIBRARY_SOURCES ${ROOT_DIR}/src/library/applicator_library.c)
 set(CONTROLLER_CYBOI_LIBRARY_SOURCES ${ROOT_DIR}/src/library/controller_library.c)
 
@@ -124,7 +124,7 @@ configure_file(cmake_configuration.h.in ${ROOT_DIR}/include/variable/cmake_confi
 #
 add_library(cyboi-logger SHARED ${LOGGER_CYBOI_LIBRARY_SOURCES})
 add_library(cyboi-xdt SHARED ${XDT_CYBOI_LIBRARY_SOURCES})
-#add_library(cyboi-executor SHARED ${EXECUTOR_CYBOI_LIBRARY_SOURCES})
+add_library(cyboi-executor SHARED ${EXECUTOR_CYBOI_LIBRARY_SOURCES})
 add_library(cyboi-applicator SHARED ${APPLICATOR_CYBOI_LIBRARY_SOURCES})
 add_library(cyboi-controller SHARED ${CONTROLLER_CYBOI_LIBRARY_SOURCES})
 

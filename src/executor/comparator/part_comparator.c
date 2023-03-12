@@ -31,6 +31,7 @@
 //
 
 #include "constant.h"
+#include "logger.h"
 
 //
 // Executable interface
@@ -38,7 +39,6 @@
 
 #include "../../executor/comparator/item_comparator.c"
 #include "../../executor/copier/array/forward_array_copier.c"
-#include "logger.h"
 
 /**
  * Compares the left- with the right part.

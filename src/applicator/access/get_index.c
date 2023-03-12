@@ -31,13 +31,7 @@
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../executor/copier/array/forward_array_copier.c"
-#include "../../executor/finder/array_finder.c"
+#include "executor.h"
 #include "logger.h"
 
 /**

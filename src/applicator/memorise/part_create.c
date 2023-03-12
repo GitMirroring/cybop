@@ -31,13 +31,7 @@
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../executor/modifier/part_modifier.c"
-#include "../../executor/representer/deserialiser/cybol/type_cybol_deserialiser.c"
+#include "executor.h"
 #include "logger.h"
 
 /**

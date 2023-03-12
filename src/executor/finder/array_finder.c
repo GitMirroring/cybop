@@ -31,6 +31,7 @@
 //
 
 #include "constant.h"
+#include "logger.h"
 
 //
 // Executable interface
@@ -39,7 +40,6 @@
 #include "../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../executor/finder/fifo_array_finder.c"
 #include "../../executor/finder/lifo_array_finder.c"
-#include "logger.h"
 
 /**
  * Finds a part with the given name in the investigated array.

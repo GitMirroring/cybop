@@ -31,13 +31,13 @@
 //
 
 #include "constant.h"
+#include "logger.h"
 
 //
 // Executable interface
 //
 
 #include "../../executor/manipulator/item_manipulator.c"
-#include "logger.h"
 
 /**
  * Manipulates the part bit at the given position.

@@ -26,13 +26,13 @@
 #ifndef TOP_SOURCE
 #define TOP_SOURCE
 
-#include "../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../executor/commander/top_commander.c"
-#include "logger.h"
+//
+// Library interface
+//
 
-#ifndef _MSC_VER
-    #include <unistd.h>
-#endif
+#include "constant.h"
+#include "executor.h"
+#include "logger.h"
 
 /**
  * Display top.

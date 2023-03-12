@@ -31,6 +31,7 @@
 //
 
 #include "constant.h"
+#include "logger.h"
 
 //
 // Executable interface
@@ -40,7 +41,6 @@
 #include "../../../executor/feeler/sensor/entry_sensor.c"
 #include "../../../executor/feeler/sensor/thread_sensor.c"
 #include "../../../executor/finder/entry_finder.c"
-#include "logger.h"
 #include "../../../mapper/channel_to_type_mapper.c"
 
 /**

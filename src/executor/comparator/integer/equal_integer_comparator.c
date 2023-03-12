@@ -31,13 +31,13 @@
 //
 
 #include "constant.h"
+#include "logger.h"
 
 //
 // Executable interface
 //
 
 #include "../../../executor/copier/integer_copier.c"
-#include "logger.h"
 
 /**
  * Compares the left- with the right integer for equality.

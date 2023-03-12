@@ -26,13 +26,13 @@
 #ifndef LIST_TASKS_SOURCE
 #define LIST_TASKS_SOURCE
 
-#include "../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../executor/commander/list_tasks_commander.c"
-#include "logger.h"
+//
+// Library interface
+//
 
-#ifndef _MSC_VER
-    #include <unistd.h>
-#endif
+#include "constant.h"
+#include "executor.h"
+#include "logger.h"
 
 /**
  * Listing all the processes (tasks) currently running.

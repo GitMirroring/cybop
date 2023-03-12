@@ -28,6 +28,7 @@
 
 #include "../../executor/memoriser/allocator/item_allocator.c"
 #include "../../executor/runner/executor.c"
+
 //
 // CAUTION! The options of many commands are SIMILAR on various platforms.
 // Therefore, it might suffice to distinguish included files here
@@ -53,15 +54,14 @@
 #endif
 
 /**
-* Shows the system messages.
-*
-*
-* @param hmd the human model data
-* @param cmd the ctime model data
-* @param kmd the kernel model data
-* @param lmd the color model data
-* @param umd the userspace model data
-*/
+ * Shows the system messages.
+ *
+ * @param hmd the human model data
+ * @param cmd the ctime model data
+ * @param kmd the kernel model data
+ * @param lmd the color model data
+ * @param umd the userspace model data
+ */
 void command_system_messages(void* hmd, void* cmd, void* kmd, void* lmd, void* umd) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command system-messages.");

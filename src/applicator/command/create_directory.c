@@ -31,18 +31,8 @@
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../executor/commander/create_directory_commander.c"
+#include "executor.h"
 #include "logger.h"
-
-#ifndef _MSC_VER
-    #include <unistd.h>
-#endif
 
 /**
  * Creates a directory (folder) in the file system.

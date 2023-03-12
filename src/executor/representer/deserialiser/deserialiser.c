@@ -30,17 +30,8 @@
 // Library interface
 //
 
-#include "xdt.h"
-
-//
-// Executable interface
-//
-
-//
-// Library interface
-//
-
 #include "constant.h"
+#include "xdt.h"
 
 //
 // Executable interface

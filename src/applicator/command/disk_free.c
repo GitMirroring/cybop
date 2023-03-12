@@ -26,13 +26,13 @@
 #ifndef DISK_FREE_SOURCE
 #define DISK_FREE_SOURCE
 
-#include "../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../executor/commander/disk_free_commander.c"
-#include "logger.h"
+//
+// Library interface
+//
 
-#ifndef _MSC_VER
-    #include <unistd.h>
-#endif
+#include "constant.h"
+#include "executor.h"
+#include "logger.h"
 
 /**
  * Display free disk space.

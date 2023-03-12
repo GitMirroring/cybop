@@ -31,6 +31,7 @@
 //
 
 #include "constant.h"
+#include "logger.h"
 
 //
 // Executable interface
@@ -38,7 +39,6 @@
 
 #include "../../executor/calculator/item_calculator.c"
 #include "../../executor/copier/array/forward_array_copier.c"
-#include "logger.h"
 
 /**
  * Calculates the elements of the result- with those of the operand part.

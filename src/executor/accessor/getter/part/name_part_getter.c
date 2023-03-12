@@ -31,6 +31,7 @@
 //
 
 #include "constant.h"
+#include "logger.h"
 
 //
 // Executable interface
@@ -38,7 +39,6 @@
 
 #include "../../../../executor/accessor/getter/part/knowledge_part_getter.c"
 #include "../../../../executor/accessor/name_getter/array_name_getter.c"
-#include "logger.h"
 
 /**
  * Gets the part with the given name from the whole.

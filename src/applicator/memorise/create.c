@@ -26,20 +26,20 @@
 #ifndef CREATE_SOURCE
 #define CREATE_SOURCE
 
-#include "../../applicator/memorise/part_create.c"
-#include "../../applicator/modify/index_modify.c"
 //
 // Library interface
 //
 
 #include "constant.h"
+#include "executor.h"
+#include "logger.h"
 
 //
 // Executable interface
 //
 
-#include "../../executor/accessor/getter/part/name_part_getter.c"
-#include "logger.h"
+#include "../../applicator/memorise/part_create.c"
+#include "../../applicator/modify/index_modify.c"
 
 /**
  * Creates an empty part consisting of name and type only.

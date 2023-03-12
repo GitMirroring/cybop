@@ -28,6 +28,7 @@
 
 #include "../../executor/memoriser/allocator/item_allocator.c"
 #include "../../executor/runner/executor.c"
+
 //
 // CAUTION! The options of many commands are SIMILAR on various platforms.
 // Therefore, it might suffice to distinguish included files here
@@ -52,12 +53,11 @@
 #endif
 
 /**
-* Traces the packet route to a given host.
-*
-* @param hmd the host model data
-* @param hmc the host model count
-*
-*/
+ * Traces the packet route to a given host.
+ *
+ * @param hmd the host model data
+ * @param hmc the host model count
+ */
 void command_traceroute(void* hmd, void* hmc) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command traceroute.");

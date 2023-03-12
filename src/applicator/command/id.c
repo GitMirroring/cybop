@@ -26,13 +26,13 @@
 #ifndef ID_SOURCE
 #define ID_SOURCE
 
-#include "../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../executor/commander/id_commander.c"
-#include "logger.h"
+//
+// Library interface
+//
 
-#ifndef _MSC_VER
-    #include <unistd.h>
-#endif
+#include "constant.h"
+#include "executor.h"
+#include "logger.h"
 
 /**
  * Display id.

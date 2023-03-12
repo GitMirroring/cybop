@@ -27,17 +27,18 @@
 #define TYPE_CALCULATE_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../executor/calculator/part_calculator.c"
-#include "../../executor/comparator/integer/equal_integer_comparator.c"
+#include "executor.h"
 #include "logger.h"
 
 /**
