@@ -1,0 +1,15 @@
+
+Regular Expressions (RegEx) with grep
+=====================================
+
+Search all text lines (functions) starting with sequence "void "
+in files of directory "representer/":
+
+    grep -rh 'representer/' -e '^void '
+
+Meaning:
+
+    -r recursive
+    -h do not print the filename
+    -e search pattern or regular expression
+

@@ -60,6 +60,7 @@ Storing Models in JSON
 Beispiel lexikalisch im Gegensatz zu dynamisch
 Super
 Recursion via Stack Variables
+Header Files
 
 MIME Types
 __________
@@ -1594,4 +1595,40 @@ Here are some reflexions on the topic:
 - super is not useful for operations
 - local parametres and cybol-path properties can be treated the same
 --> nothing special needed, just use standard properties
+
+Header Files
+____________
+
+In early versions when consisting of just one executable file without usage
+of libraries, cyboi did NOT use header files, for the following reasons:
+
+1 Effort: There are hundreds of implementation files, one per function.
+2 Dependencies: They are straightforward and clear between implementation files.
+3 Simplicity: Other languages like java do not use header files either.
+
+Meanwhile, header files declaring function signatures ARE USED in cyboi,
+since working with libraries makes it necessary, for two reasons:
+
+- including source files would blow up binary library file size
+- libraries would include each other's source code
+  which is against the idea of a library
+
+On the way of this development towards using libraries and header files,
+it became necessary to SUM UP all relevant source files via include.
+
+The instruction "add_library" of file "CMakeLists.txt" expects a list
+of all relevant source files to be added to the library.
+However, it is important to specify only ONE source file since otherwise,
+the following error will occur in almost all cases:
+
+/usr/bin/ld: CMakeFiles/[library].dir/[file].c.o: in function `[function]':
+[file].c:(.text+0xe53a): multiple definition of `[function]'; CMakeFiles/[library].dir/[file].c.o:[file].c:(.text+0xf274): first defined here
+
+The reason is that each source file added via "add_library" is treated
+SEPARATELY when it comes to adding its include files. But since cyboi did,
+in the past, NOT use header files (*.h) and included source files (*.c)
+DIRECTLY instead, the above "multiple definition" error occured.
+
+In order to avoid this, ONE special source file has been created for EACH
+library, whose sole sense is to SUM UP all relevant source files via include.
 
