@@ -17,10 +17,10 @@
                         <a href="/">Home</a>
                     </li>
                     <li class="pt-1">
-                        <a href="/download/">Download</a>
+                        <a href="/documentation/">Documentation</a>
                     </li>
                     <li class="pt-1">
-                        <a href="/documentation/">Documentation</a>
+                        <a href="/download/">Download</a>
                     </li>
                     <li class="pt-1">
                         <a href="/tutorial/">Tutorial</a>

@@ -40,10 +40,10 @@
                 -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="/download/" class="nav-link" style="padding-left: 40px; padding-right: 40px;">Download</a>
+                        <a href="/documentation/" class="nav-link" style="padding-left: 40px; padding-right: 40px;">Documentation</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/documentation/" class="nav-link" style="padding-left: 40px; padding-right: 40px;">Documentation</a>
+                        <a href="/download/" class="nav-link" style="padding-left: 40px; padding-right: 40px;">Download</a>
                     </li>
                     <li class="nav-item">
                         <a href="/tutorial/" class="nav-link" style="padding-left: 40px; padding-right: 40px;">Tutorial</a>
