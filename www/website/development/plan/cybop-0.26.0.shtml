@@ -8,9 +8,6 @@
     <h2>CYBOI</h2>
     <ul>
         <li>TODO</li>
-        <li>Continue gui and layout serialiser</li>
-        <li>Continue win32 console input deserialiser</li>
-        <li>Implement date-time handling and corresponding format de-/serialisers</li>
     </ul>
 </section>
 
