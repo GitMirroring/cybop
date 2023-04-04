@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -31,15 +31,8 @@
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../controller/checker/io/accept_io_checker.c"
-#include "../../../controller/checker/io/receive_io_checker.c"
-#include "../../../executor/copier/array/forward_array_copier.c"
-#include "../../../executor/copier/integer_copier.c"
+#include "controller.h"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

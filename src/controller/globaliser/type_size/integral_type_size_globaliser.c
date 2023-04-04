@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -73,16 +73,16 @@ void globalise_type_size_integral() {
     // whereas an "int" has the usual size of 4 Byte.
     //
 
-//??    *SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = sizeof (signed char);
+    //?? *SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = sizeof (signed char);
     *UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = sizeof (unsigned char);
     *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (signed short int);
-//??    *UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (unsigned short int);
+    //?? *UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (unsigned short int);
     *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (signed int);
-//??    *UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (unsigned int);
-//??    *SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (signed long int);
-//??    *UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (unsigned long int);
+    //?? *UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (unsigned int);
+    //?? *SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (signed long int);
+    //?? *UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (unsigned long int);
     *SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (signed long long int);
-//??    *UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (unsigned long long int);
+    //?? *UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (unsigned long long int);
     *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE = sizeof (wchar_t);
 
 #if defined(__linux__) || defined(__unix__)

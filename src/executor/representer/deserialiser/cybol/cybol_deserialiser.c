@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,42 +27,22 @@
 #define CYBOL_DESERIALISER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/converter/encoder/encoder.c"
-#include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../executor/representer/deserialiser/ansi_escape_code/ansi_escape_code_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/boolean/boolean_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/colour/terminal_colour_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/byte_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/channel_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/compound_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/format_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/language_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/type_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/datetime/gregorian/gregorian_datetime_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/datetime/jd/jd_datetime_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/datetime/jd/mjd_datetime_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/datetime/jd/tjd_datetime_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/datetime/julian/julian_datetime_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/datetime/posix/posix_datetime_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/datetime/tai/tai_datetime_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/datetime/ti/ti_datetime_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/datetime/utc/utc_datetime_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/duration/iso/iso_duration_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/duration/jd/jd_duration_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/duration/julian/julian_duration_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/duration/si/si_duration_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/numeral_vector/numeral_vector_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/xml/xml_deserialiser.c"
+#include "knowledge.h"
 #include "logger.h"
+#include "tui.h"
 
 /**
  * Deserialises the source into the destination, according to the given format.

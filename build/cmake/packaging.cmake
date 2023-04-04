@@ -27,16 +27,16 @@ SET(CPACK_PACKAGE_VERSION "${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSIO
 INSTALL(DIRECTORY ${ROOT_DIR}/build/cmake/ DESTINATION build/cmake)
 INSTALL(DIRECTORY ${ROOT_DIR}/build/icon/ DESTINATION build/icon)
 INSTALL(FILES ${ROOT_DIR}/build/manpage/cyboi.1.gz DESTINATION build/manpage)
-INSTALL(FILES ${ROOT_DIR}/build/.clang-format DESTINATION build)
-INSTALL(FILES ${ROOT_DIR}/build/cmake_config.h.in DESTINATION build)
+INSTALL(FILES ${ROOT_DIR}/build/cmake_configuration.h.in DESTINATION build)
 INSTALL(FILES ${ROOT_DIR}/build/CMakeLists.txt DESTINATION build)
+INSTALL(DIRECTORY ${ROOT_DIR}/include/ DESTINATION include)
 INSTALL(DIRECTORY ${ROOT_DIR}/src/ DESTINATION src)
 
 # The cybol component.
-INSTALL(FILES ${ROOT_DIR}/build/manpage/cybol.5.gz DESTINATION build/manpage)
-INSTALL(DIRECTORY ${ROOT_DIR}/tools/api-generator/ DESTINATION tools/api-generator)
-#INSTALL(DIRECTORY ${ROOT_DIR}/doc/cybol/ DESTINATION doc/cybol)
 INSTALL(DIRECTORY ${ROOT_DIR}/app/ DESTINATION app)
+INSTALL(FILES ${ROOT_DIR}/build/manpage/cybol.5.gz DESTINATION build/manpage)
+#INSTALL(DIRECTORY ${ROOT_DIR}/doc/cybol/ DESTINATION doc/cybol)
+INSTALL(DIRECTORY ${ROOT_DIR}/tools/api-generator/ DESTINATION tools/api-generator)
 
 # The cybop component.
 INSTALL(FILES ${ROOT_DIR}/build/manpage/cybop.7.gz DESTINATION build/manpage)
@@ -63,6 +63,5 @@ endif()
 set(CPACK_GENERATOR ${GENERATORS})
 SET(CPACK_PACKAGE_DIRECTORY ${ROOT_DIR}/dist)
 
-# Load global setting file.
+# Load global settings file.
 include(CPack)
-

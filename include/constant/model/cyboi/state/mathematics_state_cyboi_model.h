@@ -19,18 +19,18 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef MATHEMATICS_STATE_CYBOI_MODEL_CONSTANT_HEADER
 #define MATHEMATICS_STATE_CYBOI_MODEL_CONSTANT_HEADER
 
-#ifdef _MSC_VER
-#define _USE_MATH_DEFINES
-#endif
+//
+// System interface
+//
 
-#include <math.h>
+#include <math.h> // M_E, M_PI
 
 //
 // The header math.h defines several useful mathematical constants.

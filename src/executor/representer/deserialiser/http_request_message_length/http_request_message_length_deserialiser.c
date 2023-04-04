@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,19 +27,20 @@
 #define HTTP_REQUEST_MESSAGE_LENGTH_DESERIALISER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/representer/deserialiser/blank_line_termination/blank_line_termination_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/http_request_content_length/http_request_content_length_deserialiser.c"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

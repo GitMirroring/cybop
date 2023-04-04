@@ -19,26 +19,27 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef TERMINAL_AWAKENER_SOURCE
 #define TERMINAL_AWAKENER_SOURCE
 
+//
+// System interface
+//
+
 #include <sys/ioctl.h> // ioctl
 #include <errno.h> // errno
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
 
 //
 // Library interface
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
 #include "logger.h"
 
 /**
@@ -48,56 +49,65 @@
  */
 void awake_terminal(void* p0) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Awake terminal.");
-    fwprintf(stdout, L"Debug: Awake terminal. p0: %i\n", p0);
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    //
-    // Initialise error number.
-    //
-    // It is a global variable and other operations
-    // may have set some value that is not wanted here.
-    //
-    // CAUTION! Initialise the error number BEFORE calling
-    // the function that might cause an error.
-    //
-    errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        int* f = (int*) p0;
 
-    //
-    // Write (push back) character to terminal input buffer,
-    // so that it can be detected by the sensing thread function.
-    //
-    // The TIOCSTI command is known to at least Linux and BSD.
-    // The characters handed over are limited to 4096 on Linux.
-    //
-    // Example:
-    // char* text = "text";
-    // ioctl(STDIN_FILENO, TIOCSTI, text);
-    //
-    // CAUTION! Calling the function "write" does NOT work here.
-    // It writes the characters to the terminal screen,
-    // no matter if sent to STDIN_FILENO or STDOUT_FILENO.
-    // But it is NOT recognised by the sensing thread.
-    //
-    int r = ioctl(p0, TIOCSTI, LINE_FEED_ASCII_CHARACTER_CODE_MODEL);
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Awake terminal.");
+        fwprintf(stdout, L"Debug: Awake terminal. p0: %i\n", p0);
 
-    //
-    // The meaning of the returned value depends upon the command used.
-    //
-    // Linux:
-    // - success: zero or non-negative value
-    // - error: -1 and errno set appropriately
-    // - special case: sometimes used as output parameter
-    //
-    if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        //
+        // Initialise error number.
+        //
+        // It is a global variable and other operations
+        // may have set some value that is not wanted here.
+        //
+        // CAUTION! Initialise the error number BEFORE calling
+        // the function that might cause an error.
+        //
+        errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Awake terminal. Success.");
-        fwprintf(stdout, L"Debug: Awake terminal. Success. r: %i\n", r);
+        //
+        // Write (push back) character to terminal input buffer,
+        // so that it can be detected by the sensing thread function.
+        //
+        // The TIOCSTI command is known to at least Linux and BSD.
+        // The characters handed over are limited to 4096 on Linux.
+        //
+        // Example:
+        // char* text = "text";
+        // ioctl(STDIN_FILENO, TIOCSTI, text);
+        //
+        // CAUTION! Calling the function "write" does NOT work here.
+        // It writes the characters to the terminal screen,
+        // no matter if sent to STDIN_FILENO or STDOUT_FILENO.
+        // But it is NOT recognised by the sensing thread.
+        //
+        int r = ioctl(*f, TIOCSTI, LINE_FEED_ASCII_CHARACTER_CODE_MODEL);
+
+        //
+        // The meaning of the returned value depends upon the command used.
+        //
+        // Linux:
+        // - success: zero or non-negative value
+        // - error: -1 and errno set appropriately
+        // - special case: sometimes used as output parameter
+        //
+        if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Awake terminal. Success.");
+            fwprintf(stdout, L"Debug: Awake terminal. Success. r: %i\n", r);
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not awake terminal. An error occured.");
+            fwprintf(stdout, L"Error: Could not awake terminal. An error occured. %i\n", r);
+            log_error((void*) &errno);
+        }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not awake terminal. An error occured.");
-        fwprintf(stdout, L"Error: Could not awake terminal. An error occured. %i\n", r);
-        log_error((void*) &errno);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not awake terminal. The device file descriptor is null.");
     }
 }
 

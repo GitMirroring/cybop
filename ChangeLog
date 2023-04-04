@@ -14,13 +14,56 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.25.0 2023-03-01
+# @version CYBOP 0.26.0 2023-04-04
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-2023-03-12  Christian Heller  <christian.heller@cybop.org>
+2023-04-04  Christian Heller  <christian.heller@cybop.org>
 
-        * Add shared library "executor"
+        * Fix compilation bugs caused by missing includes
+        * Fix linker bugs caused by missing library entries in cmake files
+        * Integrate external libraries
+        * Release CYBOP 0.26.0
+
+2023-04-02  Christian Heller  <christian.heller@cybop.org>
+
+        * Fix compilation bugs caused by missing includes
+        * Fix linker bugs caused by missing library entries in cmake files
+
+2023-03-30  Christian Heller  <christian.heller@cybop.org>
+
+        * Move chosen constants out of "constant.h" into suitable library-specific header files
+        * Add shared library "email"
+        * Replace relative include paths with short header file name in directory "include/constant/"
+        * Add comment sections to include statements in header files of directory "include/constant/"
+
+2023-03-29  Christian Heller  <christian.heller@cybop.org>
+
+        * Add uml package diagram "library_dependencies" to developer documentation
+
+2023-03-26  Christian Heller  <christian.heller@cybop.org>
+
+        * Adjust cmake files in directory "build/cmake/"
+
+2023-03-25  Christian Heller  <christian.heller@cybop.org>
+
+        * Adapt all source code in directory "src/" to new header file includes
+
+2023-03-17  Christian Heller  <christian.heller@cybop.org>
+
+        * Adjust source code file includes in directory "library/"
+        * Adjust header files in directory "include/"
+
+2023-03-14  Christian Heller  <christian.heller@cybop.org>
+
+        * Add file "mapper.h" to directory "include/" and make corresponding changes to cmake files
+
+2023-03-13  Christian Heller  <christian.heller@cybop.org>
+
+        * Delete temporary directory "src/windows/" and move its content to "doc/development/win32_visual_studio_migration/sleep_and_gui/"
+        * Split file "integer_state_cyboi_model.h" into smaller ones, so that many libraries get a smaller size
+        * Add various shared libraries for sub directories of "executor/"
+        * Add various shared libraries for sub directories of "executor/representer/"
 
 2023-03-11  Christian Heller  <christian.heller@cybop.org>
 
@@ -5261,7 +5304,7 @@
 
         * Change year to 2012 in comment block of all source code files, to prepare next release
         * Delete CVS "$" tags in source code since SVN is used now, which does not fill them
-        * Use new line "@version CYBOP 0.25.0 2023-03-01
+        * Use new line "@version CYBOP 0.26.0 2023-04-04
         * Delete outdated and redundant array handling files in directory "logger/"
         * Start fixing constant names in all source code
 

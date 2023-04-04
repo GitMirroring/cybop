@@ -19,33 +19,30 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef BASIC_OPENER_SOURCE
 #define BASIC_OPENER_SOURCE
 
+//
+// System interface
+//
+
 #include <sys/stat.h> // mode_t
 #include <errno.h> // errno
 #include <fcntl.h> // open
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
 
 //
 // Library interface
 //
 
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/converter/encoder/utf/utf_8_encoder.c"
-#include "../../../../executor/copier/array/forward_array_copier.c"
-#include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/memoriser/allocator/item_allocator.c"
-#include "../../../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../../../executor/modifier/item_modifier.c"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

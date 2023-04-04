@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,53 +27,20 @@
 #define SOURCE_CYBOL_DESERIALISER_SOURCE
 
 //
-// Executable interface
+// System interface
 //
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
 
 //
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../../executor/representer/deserialiser/cybol/file_cybol_deserialiser.c"
 #include "logger.h"
-
-//
-// Forbidden includes
-//
-// CAUTION! Do NOT include the following files since otherwise,
-// circular references would occur due to module dependencies.
-// Instead, forward declarations are used further below.
-// Therefore, the following includes are to be commented OUT
-// and listed here just for information.
-//
-
-// #include "../../../../executor/communicator/receiver/receiver.c"
-// #include "../../../../executor/representer/deserialiser/cybol/cybol_deserialiser.c"
-
-//
-// Forward declarations
-//
-
-//
-// CAUTION! Either of the following two functions may be called here:
-// "deserialise_cybol" OR "receive_data".
-// However, "deserialise_cybol" is used since it is the shorter path
-// and reading from a file is NOT necessary with INLINE channel.
-// Further, language properties constraints like decimal separator
-// can be handed over DIRECTLY while via "receive_data", they would
-// have to be retrieved once again.
-//
-// void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14);
-// void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17);
-//
-void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14);
 
 /**
  * Deserialises a cybol source.

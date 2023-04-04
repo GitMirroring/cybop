@@ -19,21 +19,18 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef TYPE_SIZE_GLOBALISER_SOURCE
 #define TYPE_SIZE_GLOBALISER_SOURCE
 
-#include "../../controller/globaliser/type_size/compound_type_size_globaliser.c"
-#include "../../controller/globaliser/type_size/display_type_size_globaliser.c"
-#include "../../controller/globaliser/type_size/integral_type_size_globaliser.c"
-#include "../../controller/globaliser/type_size/pointer_type_size_globaliser.c"
-#include "../../controller/globaliser/type_size/real_type_size_globaliser.c"
-#include "../../controller/globaliser/type_size/socket_type_size_globaliser.c"
-#include "../../controller/globaliser/type_size/terminal_type_size_globaliser.c"
-#include "../../controller/globaliser/type_size/thread_type_size_globaliser.c"
+//
+// Library interface
+//
+
+#include "controller.h"
 
 /**
  * Initialises symbolic name (pre-processor-defined) global variables.

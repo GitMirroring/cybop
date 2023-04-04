@@ -19,17 +19,24 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef ISO_8859_15_CHARACTER_CODE_MODEL_CONSTANT_HEADER
 #define ISO_8859_15_CHARACTER_CODE_MODEL_CONSTANT_HEADER
 
-#include <stddef.h>
+//
+// System interface
+//
 
-#include "../../../../constant/model/character_code/ascii/ascii_character_code_model.h"
-#include "../../../../constant/model/character_code/iso_6429/c1_iso_6429_character_code_model.h"
+#include <stddef.h> // wchar_t
+
+//
+// Library interface
+//
+
+#include "constant.h"
 
 //
 // A "Character Set" consists of three parts:

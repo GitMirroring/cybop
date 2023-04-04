@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,24 +27,21 @@
 #define BEGIN_VALUE_JSON_SELECTOR_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../executor/copier/integer_copier.c"
-#include "../../../executor/detector/detector.c"
-#include "../../../executor/modifier/appender/item/part_item_appender.c"
-#include "../../../executor/mover/mover.c"
-#include "../../../executor/representer/deserialiser/json/array_json_deserialiser.c"
-#include "../../../executor/representer/deserialiser/json/number_json_deserialiser.c"
-#include "../../../executor/representer/deserialiser/json/object_json_deserialiser.c"
-#include "../../../executor/selector/json/type_string_json_selector.c"
+#include "knowledge.h"
 #include "logger.h"
+#include "text.h"
 
 /**
  * Selects the json value begin.

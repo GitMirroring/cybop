@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,19 +27,19 @@
 #define EMPTY_CHECKER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../executor/copier/array/forward_array_copier.c"
-#include "../../executor/copier/integer_copier.c"
-#include "../../executor/modifier/item_modifier.c"
-#include "../../executor/streamer/reader/interrupt_pipe/interrupt_pipe_reader.c"
+#include "knowledge.h"
 #include "logger.h"
 
 /**
@@ -99,6 +99,7 @@ void check_empty(void* p0, void* p1, void* p2) {
     // but only the knowledge memory may care about rubbish (garbage) collection.
     //
     // Example:
+    //
     // Assume there are two signals in the signal memory.
     // The second references a logic part that is to be destroyed by the first.
     // If reference counting from rubbish (garbage) collection were used,

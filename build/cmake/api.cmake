@@ -10,7 +10,7 @@ add_custom_command(TARGET api
         WORKING_DIRECTORY ${ROOT_DIR}/build/scripts)
 
 add_custom_command(TARGET api
-        COMMAND ../src/controller/cyboi api-generator/run.cybol
+        COMMAND ${ROOT_DIR}/bin/cyboi api-generator/run.cybol
         WORKING_DIRECTORY ${ROOT_DIR}/tools)
 
 add_custom_command(TARGET api

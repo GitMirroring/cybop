@@ -19,16 +19,24 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef FOREGROUND_ANSI_ESCAPE_CODE_MODEL_CONSTANT_HEADER
 #define FOREGROUND_ANSI_ESCAPE_CODE_MODEL_CONSTANT_HEADER
 
-#include <stddef.h> // char
+//
+// System interface
+//
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
+#include <stddef.h> // wchar_t
+
+//
+// Library interface
+//
+
+#include "constant.h"
 
 /** The black foreground ansi escape code model. */
 static char BLACK_FOREGROUND_ANSI_ESCAPE_CODE_MODEL_ARRAY[] = { 0x33, 0x30 };

@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,28 +27,20 @@
 #define CONSTRAINTS_JSON_SERIALISER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../../../executor/copier/array/forward_array_copier.c"
-#include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/representer/serialiser/json/break_json_serialiser.c"
-//
-// CAUTION! Do NOT include the "part_json_serialiser.c" module.
-// It is true, the "serialise_json_part" function is called from here,
-// but the module dependency hierarchy slightly differs and just goes top-down
-// by module granularity and NOT by call hierarchy.
-//
-// Therefore, the "json_serialiser.c" module is included here.
-//
-#include "../../../../executor/representer/serialiser/json/json_serialiser.c"
+#include "cybol.h"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

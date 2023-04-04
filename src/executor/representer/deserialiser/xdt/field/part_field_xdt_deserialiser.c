@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,23 +27,21 @@
 #define PART_FIELD_XDT_DESERIALISER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../../executor/copier/array/forward_array_copier.c"
-#include "../../../../../executor/memoriser/allocator/part_allocator.c"
-#include "../../../../../executor/modifier/item_modifier.c"
-#include "../../../../../executor/modifier/part_modifier.c"
-#include "../../../../../executor/representer/deserialiser/xdt/field/constraints_field_xdt_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/xdt/field/format_field_xdt_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/xdt/field/type_field_xdt_deserialiser.c"
+#include "knowledge.h"
 #include "logger.h"
+#include "xdt.h"
 
 /**
  * Deserialises xdt field part.

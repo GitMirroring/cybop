@@ -19,27 +19,27 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef XCB_SHUTTER_SOURCE
 #define XCB_SHUTTER_SOURCE
 
+//
+// System interface
+//
+
 #include <xcb/xcb.h> // xcb_disconnect, xcb_connection_t, xcb_gcontext_t etc.
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
 
 //
 // Library interface
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/copier/array/forward_array_copier.c"
-#include "../../../../executor/memoriser/deallocator/array_deallocator.c"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

@@ -19,17 +19,25 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef IDENTIFICATION_CYBOI_MODEL_CONSTANT_HEADER
 #define IDENTIFICATION_CYBOI_MODEL_CONSTANT_HEADER
 
-#include <stddef.h>
+//
+// System interface
+//
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
-#include "../../../../variable/cmake_configuration.h"
+#include <stddef.h> // wchar_t
+
+//
+// Library interface
+//
+
+#include "constant.h"
+#include "variable.h"
 
 //
 // The pre-processor macros used below may be found in file "variable/cmake_configuration.h":

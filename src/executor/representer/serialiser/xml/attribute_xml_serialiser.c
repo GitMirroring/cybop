@@ -19,17 +19,21 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef ATTRIBUTE_XML_SERIALISER_SOURCE
 #define ATTRIBUTE_XML_SERIALISER_SOURCE
 
-#include "../../../../executor/checker/operation_checker.c"
-#include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../executor/copier/array/forward_array_copier.c"
-#include "../../../../executor/representer/serialiser/xml/attribute_xml_serialiser.c"
+//
+// Library interface
+//
+
+#include "arithmetic.h"
+#include "constant.h"
+#include "cybol.h"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

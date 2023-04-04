@@ -19,33 +19,28 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef OPTION_COMMAND_LINE_SELECTOR_SOURCE
 #define OPTION_COMMAND_LINE_SELECTOR_SOURCE
 
+//
+// System interface
+//
+
 #include <stdio.h>
 #include <wchar.h>
-
-#ifdef WIN32
-    #include <windows.h>
-#endif
 
 //
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../../executor/detector/detector.c"
-#include "../../../executor/modifier/item_modifier.c"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

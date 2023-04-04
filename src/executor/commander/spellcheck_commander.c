@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -30,33 +30,12 @@
 // Library interface
 //
 
+#include "arithmetic.h"
 #include "constant.h"
+#include "knowledge.h"
 #include "logger.h"
-
-//
-// Executable interface
-//
-
-#include "../../executor/memoriser/allocator/item_allocator.c"
-#include "../../executor/runner/executor.c"
-
-//
-// CAUTION! The options of many commands are SIMILAR on various platforms.
-// Therefore, it might suffice to distinguish included files here
-// and use IDENTICAL CONSTANTS whose values are determined
-// by the include they stem from.
-//
-// However, there ARE commands on some platforms that do NOT
-// exist on another. The same is true for command options.
-// Therefore, it makes sense to distinguish between platforms
-// at EVERY option, even if that produces some redundant code.
-//
-#ifndef WIN32
-        #endif
-
-#ifndef _MSC_VER
-    #include <unistd.h>
-#endif
+#include "shell.h"
+#include "system.h"
 
 /**
  * Checks the spelling.

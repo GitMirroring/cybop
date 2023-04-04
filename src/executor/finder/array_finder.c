@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -30,16 +30,10 @@
 // Library interface
 //
 
+#include "algorithm.h"
+#include "arithmetic.h"
 #include "constant.h"
 #include "logger.h"
-
-//
-// Executable interface
-//
-
-#include "../../executor/comparator/integer/unequal_integer_comparator.c"
-#include "../../executor/finder/fifo_array_finder.c"
-#include "../../executor/finder/lifo_array_finder.c"
 
 /**
  * Finds a part with the given name in the investigated array.
@@ -62,13 +56,17 @@ void find_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // The lifo flag IS set.
+        //
 
         find_array_lifo(p0, p1, p2, p3, p4);
 
     } else {
 
+        //
         // The lifo flag is NOT set.
+        //
 
         find_array_fifo(p0, p1, p2, p3, p4);
     }

@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,28 +27,22 @@
 #define DECIMAL_FRACTION_NUMERAL_SERIALISER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/calculator/double/absolute_double_calculator.c"
-#include "../../../../executor/calculator/double/scientific_double_calculator.c"
-#include "../../../../executor/calculator/double/subtract_double_calculator.c"
-#include "../../../../executor/calculator/integer/absolute_integer_calculator.c"
-#include "../../../../executor/caster/double/integer_double_caster.c"
-#include "../../../../executor/caster/integer/double_integer_caster.c"
-#include "../../../../executor/comparator/double/less_double_comparator.c"
-#include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
-#include "../../../../executor/copier/double_copier.c"
-#include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../executor/representer/serialiser/numeral/decimals_numeral_serialiser.c"
-#include "../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
+#include "knowledge.h"
 #include "logger.h"
+#include "type.h"
 
 /**
  * Serialises the decimal fraction into a wide character sequence.

@@ -19,43 +19,46 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef ERRNO_TO_MESSAGE_MAPPER_SOURCE
 #define ERRNO_TO_MESSAGE_MAPPER_SOURCE
 
+//
+// System interface
+//
+
 #include <errno.h> // EPERM, ENOENT etc.
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
 
 //
 // Library interface
 //
 
+#include "arithmetic.h"
 #include "constant.h"
+#include "knowledge.h"
+#include "mapper.h"
 
 //
-// Executable interface
+// Forbidden interface
 //
 
-#include "../executor/comparator/integer/equal_integer_comparator.c"
-#include "../executor/copier/pointer_copier.c"
-// CAUTION! Do NOT include this file due to circular dependencies.
+//
+// CAUTION! Do NOT include the "content_gui_serialiser.c" module.
+// It is true, the "serialise_gui_content" function is called from here,
+// but the module dependency hierarchy slightly differs and just goes top-down
+// by module granularity and NOT by call hierarchy.
+// Therefore, the "gui_serialiser.c" module is included here.
+//
+
 // #include "logger.h"
 
-#if defined(__linux__) || defined(__unix__)
-    #include "../mapper/linux_errno_to_message_mapper.c"
-#elif defined(__APPLE__) && defined(__MACH__)
-//??    #include "../mapper/linux_errno_to_message_mapper.c"
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../mapper/windows_errno_to_message_mapper.c"
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
-
 //
-// Forward declarations
+// Forward declaration
 //
 
 void log_message_terminated(void* p0, void* p1);

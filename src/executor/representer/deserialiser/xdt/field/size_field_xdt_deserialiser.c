@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,19 +27,21 @@
 #define SIZE_FIELD_XDT_DESERIALISER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
-#include "../../../../../executor/mover/mover.c"
-#include "../../../../../executor/representer/deserialiser/numeral/integer_numeral_deserialiser.c"
 #include "logger.h"
+#include "type.h"
 
 /**
  * Deserialises xdt field size.

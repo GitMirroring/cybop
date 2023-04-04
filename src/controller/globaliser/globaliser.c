@@ -19,17 +19,25 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef GLOBALISER_SOURCE
 #define GLOBALISER_SOURCE
 
-#include "../../controller/globaliser/log_globaliser.c"
-#include "../../controller/globaliser/reference_counter_globaliser.c"
-#include "../../controller/globaliser/symbolic_name_globaliser.c"
-#include "../../controller/globaliser/type_size_globaliser.c"
+//
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
+// Library interface
+//
+
+#include "controller.h"
 
 /**
  * Allocates and initialises global variables.

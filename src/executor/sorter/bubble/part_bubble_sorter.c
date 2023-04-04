@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * Christian Heller <christian.heller@cybop.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,19 +27,20 @@
 #define PART_BUBBLE_SORTER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "algorithm.h"
+#include "arithmetic.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../executor/checker/operation_checker.c"
-#include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/copier/array/forward_array_copier.c"
-#include "../../../executor/sorter/bubble/criterion_bubble_sorter.c"
+#include "knowledge.h"
 #include "logger.h"
 
 /*

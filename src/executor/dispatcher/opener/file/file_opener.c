@@ -19,28 +19,28 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef FILE_OPENER_SOURCE
 #define FILE_OPENER_SOURCE
 
+//
+// System interface
+//
+
 #include <sys/stat.h> // mode_t, S_IRWXU
 #include <fcntl.h> // O_RDONLY
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
 
 //
 // Library interface
 //
 
+#include "client.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/dispatcher/opener/basic/basic_opener.c"
-#include "../../../../executor/dispatcher/opener/file/mode_file_opener.c"
 #include "logger.h"
 
 /**

@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,31 +27,23 @@
 #define LIFECYCLE_SHUTTER_SOURCE
 
 //
-// Executable interface
+// System interface
 //
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
 
 //
 // Library interface
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../executor/activator/disabler/disabler.c"
-// CAUTION! Do NOT include the "list_shutter.c" module here,
-// since it would lead to circular references.
-// Instead, "shutdown_list" is mentioned as forward declaration below.
-// #include "../../../executor/maintainer/shutter/list_shutter.c"
-#include "../../../executor/maintainer/shutter/service_shutter.c"
-#include "../../../executor/memoriser/deallocator/server_entry_deallocator.c"
-#include "../../../executor/modifier/item_modifier.c"
+#include "knowledge.h"
 #include "logger.h"
+#include "server.h"
 
 //
-// Forbidden includes
+// Forbidden interface
 //
 // CAUTION! Do NOT include the following files since otherwise,
 // circular references would occur due to module dependencies.
@@ -63,7 +55,7 @@
 // #include "../../../executor/maintainer/shutter/list_shutter.c"
 
 //
-// Forward declarations
+// Forward declaration
 //
 
 void shutdown_list(void* p0, void* p1, void* p2, void* p3, void* p4);

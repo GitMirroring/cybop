@@ -14,11 +14,11 @@
 Library
 _______
 
-        * Add shared library "xml"
-        * Add shared library "json"
-
-        * Check for new cmake ideas
-            https://iamsorush.com/posts/cpp-cmake-build/
+        * Try to include and use a cyboi shared library in a qt application
+        * Provide something like an "initialise_library" function to set up global variables, knowledge memory etc. which are necessary when using for example the xdt library standalone only
+        * Provide knowledge memory, stack memory etc. as global variables, so that applications external to cyboi may use them
+            Within cyboi, these memory variables may be forwarded as parametre (argument) as was done up to now.
+            But when using cyboi as library, these memory variables should additionally be provided as global variables, which is just a few lines of code.
 
         TRY TO:
         * Remove keyword "static" before any constants in directory "constant/", since header files should not contain any static variables
@@ -29,13 +29,14 @@ _______
         * Verify correctness of function calls in file "operation_handler.c"
             for example in section "manipulate" function "calculate" is called instead
 
-        * Release CYBOP 0.26.0
+IDE
+___
 
-        * Provide something like an "initialise_library" function to set up global variables, knowledge memory etc. which are necessary when using for example the xdt library standalone only
-        * Try to include and use a cyboi shared library in a qt application
-        * Provide knowledge memory, stack memory etc. as global variables, so that applications external to cyboi may use them
-            Within cyboi, these memory variables may be forwarded as parametre (argument) as was done up to now.
-            But when using cyboi as library, these memory variables should additionally be provided as global variables, which is just a few lines of code.
+        * Create qt c++ application as cybol ide (tree on the left, tabs on the right with table/text/cybol-xml/json
+        * Migrate cybop svn to git
+
+        * Check for new cmake ideas
+            https://iamsorush.com/posts/cpp-cmake-build/
 
 Licencing
 _________
@@ -1185,6 +1186,23 @@ _________
             http://www.noxeos.com/2011/07/29/c-const-static-keywords/
         * Check possible simplification of constants definition using:
             int* var = (int[]) { 6 };
+
+CYBOL
+_____
+
+        * Implement cybol operations "progress/start", "progress/stop", "progress/advance" to set wait cursor at beginning of handle or advance a progress bar
+
+Packaging
+_________
+
+        * Provide Debian package
+        * Provide RPM packages
+        * Provide Windows setup assistant
+
+Project
+_______
+
+        * Become official gnu project
 
 CYBOP
 _____

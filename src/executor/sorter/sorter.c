@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * Christian Heller <christian.heller@cybop.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -30,20 +30,14 @@
 // Library interface
 //
 
+#include "algorithm.h"
+#include "arithmetic.h"
 #include "constant.h"
 #include "logger.h"
 
-//
-// Executable interface
-//
-
-#include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/sorter/bubble/bubble_sorter.c"
-/*??
-#include "../../executor/sorter/insertion/insertion_sorter.c"
-#include "../../executor/sorter/quick/quick_sorter.c"
-#include "../../executor/sorter/selection/selection_sorter.c"
-*/
+//?? #include "../../executor/sorter/insertion/insertion_sorter.c"
+//?? #include "../../executor/sorter/quick/quick_sorter.c"
+//?? #include "../../executor/sorter/selection/selection_sorter.c"
 
 /*
  * Sorts the data array using the given algorithm (operation type).

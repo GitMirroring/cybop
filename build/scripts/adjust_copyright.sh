@@ -10,7 +10,7 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.24.0 2022-12-24
+# @version CYBOP 0.26.0 2023-04-04
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
@@ -25,6 +25,7 @@
 # scripts/adjust_copyright.sh
 #
 cybop=".."
+
 #
 # The input directories and files.
 #
@@ -32,12 +33,14 @@ cybop=".."
 # otherwise, the tabulation character below will get replaced by spaces.
 #
 input="$cybop/build $cybop/include $cybop/src $cybop/todo $cybop/AUTHORS $cybop/ChangeLog $cybop/COPYING $cybop/INSTALL $cybop/NEWS $cybop/README"
+
 #
 # The filter using wild cards which get
 # replaced, what is called "globbing".
 # It is NOT using strict regular expressions.
 #
 c_filter="*.c"
+h_filter="*.h"
 cybol_filter="*.cybol"
 authors_filter=AUTHORS
 changelog_filter=ChangeLog
@@ -45,21 +48,24 @@ copying_filter=COPYING
 install_filter=INSTALL
 news_filter=NEWS
 readme_filter=README
+
 #
 # The old and new tabulator string.
 #
 old_tabulator="	"
 new_tabulator="    "
+
 #
 # The old and new copyright.
 #
-old_copyright="Copyright (C) 1999-2022. Christian Heller."
+old_copyright="Copyright (C) 1999-2023. Christian Heller."
 new_copyright="Copyright (C) 1999-2023. Christian Heller."
+
 #
 # The old and new version.
 #
-old_version="@version CYBOP 0.24.0 2022-12-24"
-new_version="@version CYBOP 0.25.0 2023-03-01"
+old_version="@version CYBOP 0.25.0 2023-03-01"
+new_version="@version CYBOP 0.26.0 2023-04-04"
 
 #
 # Determine files.
@@ -67,7 +73,7 @@ new_version="@version CYBOP 0.25.0 2023-03-01"
 # CAUTION! The files without suffix HAVE TO BE mentioned
 # here since otherwise, they will not be processed.
 #
-files=$(find $input -type f -name "$c_filter" -or -name "$cybol_filter" -or -name "$authors_filter" -or -name "$changelog_filter" -or -name "$copying_filter" -or -name "$install_filter" -or -name "$news_filter" -or -name "$readme_filter")
+files=$(find $input -type f -name "$c_filter" -or -name "$h_filter" -or -name "$cybol_filter" -or -name "$authors_filter" -or -name "$changelog_filter" -or -name "$copying_filter" -or -name "$install_filter" -or -name "$news_filter" -or -name "$readme_filter")
 
 #
 # Loop through files.

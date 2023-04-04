@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,22 +27,23 @@
 #define STRING_XML_DESERIALISER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../../executor/copier/array/forward_array_copier.c"
-#include "../../../../executor/memoriser/allocator/item_allocator.c"
-#include "../../../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../../../executor/representer/deserialiser/character_reference/character_reference_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/xml/normalisation_xml_deserialiser.c"
+#include "knowledge.h"
 #include "logger.h"
+#include "wui.h"
+#include "xml.h"
 
 /**
  * Normalises the xml element content depending on the given flag.

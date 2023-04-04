@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,32 +27,36 @@
 #define DESERIALISER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "communication.h"
 #include "constant.h"
+#include "knowledge.h"
+#include "logger.h"
+
+//
+// Representer interface
+//
+
+#include "binary.h"
+#include "cybol.h"
+#include "gui.h"
+#include "json.h"
+#include "text.h"
+#include "tui.h"
+#include "web.h"
+#include "wui.h"
 #include "xdt.h"
-
-//
-// Executable interface
-//
-
-#include "../../../executor/modifier/item_modifier.c"
-#include "../../../executor/representer/deserialiser/authority/authority_deserialiser.c"
-#include "../../../executor/representer/deserialiser/binary_crlf/binary_crlf_deserialiser.c"
-#include "../../../executor/representer/deserialiser/csv/csv_deserialiser.c"
-#include "../../../executor/representer/deserialiser/cybol/constraints_cybol_deserialiser.c"
-#include "../../../executor/representer/deserialiser/gui_event/gui_event_deserialiser.c"
-#include "../../../executor/representer/deserialiser/gui/constraints_gui_deserialiser.c"
-#include "../../../executor/representer/deserialiser/html/html_deserialiser.c"
-#include "../../../executor/representer/deserialiser/http_request/http_request_deserialiser.c"
-#include "../../../executor/representer/deserialiser/http_response/http_response_deserialiser.c"
-#include "../../../executor/representer/deserialiser/joined_string/joined_string_deserialiser.c"
-#include "../../../executor/representer/deserialiser/json/json_deserialiser.c"
-#include "../../../executor/representer/deserialiser/textline_list/textline_list_deserialiser.c"
-#include "../../../executor/representer/deserialiser/tui/tui_deserialiser.c"
-#include "../../../executor/representer/deserialiser/uri/uri_deserialiser.c"
-#include "../../../executor/representer/deserialiser/xml/xml_deserialiser.c"
+#include "xml.h"
 
 /**
  * Deserialises the source into the destination, according to the given language.

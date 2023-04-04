@@ -19,14 +19,21 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef ABSOLUTE_URI_HTTP_REQUEST_URI_DESERIALISER_SOURCE
 #define ABSOLUTE_URI_HTTP_REQUEST_URI_DESERIALISER_SOURCE
 
-#include "../../../../executor/selector/http_request_uri/absolute_uri_http_request_uri_selector.c"
+//
+// Library interface
+//
+
+#include "arithmetic.h"
+#include "communication.h"
+#include "constant.h"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

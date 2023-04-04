@@ -19,16 +19,20 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef UNEQUAL_FRACTION_COMPARATOR_SOURCE
 #define UNEQUAL_FRACTION_COMPARATOR_SOURCE
 
-#include "../../../executor/accessor/getter/fraction_getter.c"
-#include "../../../executor/calculator/integer/multiply_integer_calculator.c"
-#include "../../../executor/comparator/integer/unequal_integer_comparator.c"
+//
+// Library interface
+//
+
+#include "arithmetic.h"
+#include "constant.h"
+#include "knowledge.h"
 
 /**
  * Compares the left- with the right double for unequality.

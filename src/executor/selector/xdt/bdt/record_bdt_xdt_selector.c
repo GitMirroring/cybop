@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -30,18 +30,10 @@
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "communication.h"
 #include "constant.h"
-#include "xdt.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/accessor/name_getter/array_name_getter.c"
-#include "../../../../executor/checker/operation_checker.c"
-#include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../executor/representer/deserialiser/cybol/integer/primitive_value_integer_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/xdt/record/part_record_xdt_deserialiser.c"
+#include "knowledge.h"
 #include "logger.h"
 
 /**
@@ -146,7 +138,8 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 //??            deserialise_xdt_bdt_record_medical_practice();
-            deserialise_xdt_bdt_record();
+            //?? deserialise_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3);
+            //?? deserialise_xdt_bdt_record();
         }
     }
 

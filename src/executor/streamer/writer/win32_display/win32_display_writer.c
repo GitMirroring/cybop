@@ -19,12 +19,16 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef WIN32_DISPLAY_WRITER_SOURCE
 #define WIN32_DISPLAY_WRITER_SOURCE
+
+//
+// System interface
+//
 
 #include <windowsx.h>
 
@@ -33,12 +37,7 @@
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/copier/array/forward_array_copier.c"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

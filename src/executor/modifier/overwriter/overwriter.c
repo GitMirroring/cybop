@@ -19,26 +19,39 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef OVERWRITER_SOURCE
 #define OVERWRITER_SOURCE
 
-#include "../../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../../executor/calculator/integer/multiply_integer_calculator.c"
-#include "../../../executor/calculator/integer/subtract_integer_calculator.c"
-#include "../../../executor/comparator/integer/greater_integer_comparator.c"
-#include "../../../executor/comparator/integer/unequal_integer_comparator.c"
-#include "../../../executor/copier/array/forward_array_copier.c"
-#include "../../../executor/copier/integer_copier.c"
-#include "../../../executor/memoriser/reallocator/array_reallocator.c"
-#include "../../../executor/referencer/referencer.c"
 //
-// CAUTION! Do NOT include the logger here.
-// It uses functions causing circular references.
+// System interface
 //
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
+// Library interface
+//
+
+#include "arithmetic.h"
+#include "constant.h"
+#include "knowledge.h"
+
+//
+// Forbidden interface
+//
+// CAUTION! Do NOT include the following files since otherwise,
+// circular references would occur due to module dependencies.
+// Instead, forward declarations are used further below.
+// Therefore, the following includes are to be commented OUT
+// and listed here just for information.
+//
+
+// #include "logger.h"
 
 /**
  * Overwrites the destination- with the source array,

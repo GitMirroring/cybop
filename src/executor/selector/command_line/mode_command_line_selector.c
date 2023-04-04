@@ -19,17 +19,22 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef MODE_COMMAND_LINE_SELECTOR_SOURCE
 #define MODE_COMMAND_LINE_SELECTOR_SOURCE
 
-#include "../../../executor/checker/operation_checker.c"
-#include "../../../executor/modifier/item_modifier.c"
-#include "../../../executor/copier/integer_copier.c"
-#include "../../../executor/selector/command_line/log_level_command_line_selector.c"
+//
+// Library interface
+//
+
+#include "arithmetic.h"
+#include "communication.h"
+#include "constant.h"
+#include "cyboi.h"
+#include "knowledge.h"
 
 /**
  * Selects the cyboi operation mode.

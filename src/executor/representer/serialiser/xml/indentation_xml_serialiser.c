@@ -19,15 +19,21 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef INDENTATION_XML_SERIALISER_SOURCE
 #define INDENTATION_XML_SERIALISER_SOURCE
 
-#include "../../../../executor/modifier/item_modifier.c"
-#include "logger.h"
+//
+// Library interface
+//
+
+#include "arithmetic.h"
+#include "communication.h"
+#include "constant.h"
+#include "knowledge.h"
 
 /**
  * Serialises the xml indentation into xml format.

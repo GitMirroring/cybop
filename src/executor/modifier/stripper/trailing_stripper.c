@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,17 +27,19 @@
 #define TRAILING_STRIPPER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "arithmetic.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/modifier/stripper/item_trailing_stripper.c"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,21 +27,22 @@
 #define HEADER_CSV_DESERIALISER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/calculator/integer/subtract_integer_calculator.c"
-#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/representer/deserialiser/csv/index_csv_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/csv/part_csv_deserialiser.c"
+#include "knowledge.h"
 #include "logger.h"
+#include "text.h"
 
 /**
  * Checks whether or not this is the FIRST record (row).

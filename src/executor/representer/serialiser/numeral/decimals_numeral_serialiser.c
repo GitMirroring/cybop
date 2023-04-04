@@ -19,38 +19,30 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef DECIMALS_NUMERAL_SERIALISER_SOURCE
 #define DECIMALS_NUMERAL_SERIALISER_SOURCE
 
+//
+// System interface
+//
+
 #include <math.h> // round
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
 
 //
 // Library interface
 //
 
+#include "arithmetic.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/calculator/double/divide_double_calculator.c"
-#include "../../../../executor/calculator/double/multiply_double_calculator.c"
-#include "../../../../executor/calculator/double/power_double_calculator.c"
-#include "../../../../executor/calculator/double/subtract_double_calculator.c"
-#include "../../../../executor/caster/double/integer_double_caster.c"
-#include "../../../../executor/caster/integer/double_integer_caster.c"
-#include "../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
-#include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
-#include "../../../../executor/copier/double_copier.c"
-#include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/modifier/item_modifier.c"
+#include "knowledge.h"
 #include "logger.h"
-#include "../../../../mapper/integer_to_digit_wide_character_mapper.c"
+#include "mapper.h"
 
 /**
  * Serialises the numeral post point value.

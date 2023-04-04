@@ -19,16 +19,24 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME_CONSTANT_HEADER
 #define COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME_CONSTANT_HEADER
 
-#include <stddef.h>
+//
+// System interface
+//
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
+#include <stddef.h> // wchar_t
+
+//
+// Library interface
+//
+
+#include "constant.h"
 
 /** The path_1 parameter for the compare files logic in cybol. */
 static wchar_t* PATH_1_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME = L"path1";

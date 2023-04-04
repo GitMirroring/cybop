@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -30,21 +30,9 @@
 // Library interface
 //
 
+#include "arithmetic.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../../executor/accessor/setter/datetime_setter.c"
-#include "../../../../../executor/calculator/double/floor_double_calculator.c"
-#include "../../../../../executor/calculator/double/multiply_double_calculator.c"
-#include "../../../../../executor/calculator/double/subtract_double_calculator.c"
-#include "../../../../../executor/caster/integer/double_integer_caster.c"
-#include "../../../../../executor/memoriser/allocator/array_allocator.c"
-#include "../../../../../executor/memoriser/deallocator/array_deallocator.c"
-#include "../../../../../executor/modifier/item_modifier.c"
-#include "../../../../../executor/copier/double_copier.c"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

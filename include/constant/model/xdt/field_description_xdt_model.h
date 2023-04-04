@@ -18,16 +18,24 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef FIELD_DESCRIPTION_XDT_MODEL_CONSTANT_HEADER
 #define FIELD_DESCRIPTION_XDT_MODEL_CONSTANT_HEADER
 
+//
+// System interface
+//
+
 #include <stddef.h> // wchar_t
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
+//
+// Library interface
+//
+
+#include "constant.h"
 
 /** The id 0 field description xdt model. */
 static wchar_t* ID_0_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";

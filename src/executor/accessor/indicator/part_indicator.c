@@ -19,16 +19,20 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef PART_INDICATOR_SOURCE
 #define PART_INDICATOR_SOURCE
 
-#include "logger.h"
+//
+// Library interface
+//
 
-#include "../../../executor/accessor/indicator/item_indicator.c"
+#include "constant.h"
+#include "knowledge.h"
+#include "logger.h"
 
 /**
  * Indicates the fill level of the part.

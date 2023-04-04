@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * Christian Heller <christian.heller@cybop.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -30,15 +30,9 @@
 // Library interface
 //
 
+#include "algorithm.h"
+#include "arithmetic.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/comparator/comparator.c"
-#include "../../../executor/sorter/bubble/part_bubble_sorter.c"
 #include "logger.h"
 
 /*

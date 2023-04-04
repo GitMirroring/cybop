@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -30,19 +30,14 @@
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../executor/comparator/integer/unequal_integer_comparator.c"
-#include "../../executor/copier/array/forward_array_copier.c"
-#include "../../executor/streamer/writer/signal/signal_writer.c"
+#include "knowledge.h"
 #include "logger.h"
 
 //
-// Forward declarations
+// Forward declaration
 //
 
 void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);

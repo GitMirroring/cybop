@@ -19,27 +19,28 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef TERMINAL_OPENER_SOURCE
 #define TERMINAL_OPENER_SOURCE
 
+//
+// System interface
+//
+
 #include <unistd.h> // STDIN_FILENO, STDOUT_FILENO, STDERR_FILENO
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
 
 //
 // Library interface
 //
 
+#include "arithmetic.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/checker/operation_checker.c"
-#include "../../../../executor/copier/integer_copier.c"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -30,16 +30,8 @@
 // Library interface
 //
 
+#include "algorithm.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../executor/container/basic/integer/both_integer_container.c"
-#include "../../../executor/container/basic/integer/left_integer_container.c"
-#include "../../../executor/container/basic/integer/none_integer_container.c"
-#include "../../../executor/container/basic/integer/right_integer_container.c"
 #include "logger.h"
 
 /**
@@ -59,6 +51,7 @@ void contain_integer(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Contain integer.");
 
+/*??
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -106,6 +99,7 @@ void contain_integer(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not contain integer. The operation type is unknown.");
         }
+*/
 
     } else {
 

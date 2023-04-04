@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -30,15 +30,12 @@
 // Library interface
 //
 
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../../../executor/representer/deserialiser/numeral/integer_numeral_deserialiser.c"
-#include "../../../../../../executor/representer/deserialiser/xdt/datetime/qyyyy/quarter_qyyyy_datetime_xdt_deserialiser.c"
+#include "knowledge.h"
 #include "logger.h"
+#include "type.h"
+#include "xdt.h"
 
 /**
  * Deserialises the source qyyyy elements wide character data into the destination datetime item.

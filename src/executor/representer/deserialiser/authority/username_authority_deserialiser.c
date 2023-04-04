@@ -19,15 +19,21 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef USERNAME_AUTHORITY_DESERIALISER_SOURCE
 #define USERNAME_AUTHORITY_DESERIALISER_SOURCE
 
-#include "../../../../executor/modifier/part_modifier.c"
-#include "../../../../executor/selector/authority/username_authority_selector.c"
+//
+// Library interface
+//
+
+#include "arithmetic.h"
+#include "communication.h"
+#include "constant.h"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

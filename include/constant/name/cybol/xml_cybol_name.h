@@ -19,16 +19,24 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef XML_CYBOL_NAME_CONSTANT_HEADER
 #define XML_CYBOL_NAME_CONSTANT_HEADER
 
+//
+// System interface
+//
+
 #include <stddef.h> // wchar_t
 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
+//
+// Library interface
+//
+
+#include "constant.h"
 
 /** The node xml cybol name. */
 static wchar_t* NODE_XML_CYBOL_NAME = L"node";

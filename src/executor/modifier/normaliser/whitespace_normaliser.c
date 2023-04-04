@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,26 +27,25 @@
 #define WHITESPACE_NORMALISER_SOURCE
 
 //
-// Executable interface
+// System interface
 //
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
 
 //
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
-#include "../../../executor/copier/integer_copier.c"
-#include "../../../executor/selector/whitespace/non_whitespace_selector.c"
+#include "knowledge.h"
 #include "logger.h"
+#include "text.h"
 
 //
-// Forbidden includes
+// Forbidden interface
 //
 // CAUTION! Do NOT include the following files since otherwise,
 // circular references would occur due to module dependencies.
@@ -58,7 +57,7 @@
 // #include "../../../executor/modifier/item_modifier.c"
 
 //
-// Forward declarations
+// Forward declaration
 //
 
 void modify_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11);

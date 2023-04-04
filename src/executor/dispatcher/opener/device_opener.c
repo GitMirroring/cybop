@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,22 +27,19 @@
 #define DEVICE_OPENER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "client.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/dispatcher/opener/display/display_opener.c"
-#include "../../../executor/dispatcher/opener/fifo/fifo_opener.c"
-#include "../../../executor/dispatcher/opener/file/file_opener.c"
-#include "../../../executor/dispatcher/opener/serial_port/serial_port_opener.c"
-#include "../../../executor/dispatcher/opener/socket/socket_opener.c"
-#include "../../../executor/dispatcher/opener/terminal/terminal_opener.c"
 #include "logger.h"
 
 /**

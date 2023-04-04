@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,47 +27,24 @@
 #define CONTENT_TUI_SERIALISER_SOURCE
 
 //
-// Executable interface
+// System interface
 //
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
 
 //
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../../../executor/calculator/integer/subtract_integer_calculator.c"
-#include "../../../../executor/copier/array/forward_array_copier.c"
-#include "../../../../executor/memoriser/allocator/item_allocator.c"
-#include "../../../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../../../executor/representer/serialiser/tui/clear_tui_serialiser.c"
-#include "../../../../executor/representer/serialiser/tui/newline_tui_serialiser.c"
-#include "../../../../executor/representer/serialiser/tui/properties_tui_serialiser.c"
+#include "knowledge.h"
 #include "logger.h"
 
-#if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
-    #include "../../../../executor/representer/serialiser/ansi_escape_code/reset_ansi_escape_code_serialiser.c"
-#elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
-    #include "../../../../executor/representer/serialiser/ansi_escape_code/reset_ansi_escape_code_serialiser.c"
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-    #include <windows.h>
-    #include "../../../../executor/representer/serialiser/win32_console/character_win32_console_serialiser.c"
-    #include "../../../../executor/representer/serialiser/win32_console/reset_win32_console_serialiser.c"
-    #include "../../../../executor/representer/serialiser/win32_console/state_win32_console_serialiser.c"
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
-
 //
-// Forbidden includes
+// Forbidden interface
 //
 // CAUTION! Do NOT include the following files since otherwise,
 // circular references would occur due to module dependencies.
@@ -79,7 +56,7 @@
 // #include "../../../../executor/representer/serialiser/tui/tui_serialiser.c"
 
 //
-// Forward declarations
+// Forward declaration
 //
 
 void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21);

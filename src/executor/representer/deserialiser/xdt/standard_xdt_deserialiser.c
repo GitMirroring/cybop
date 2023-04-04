@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -30,17 +30,11 @@
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "communication.h"
 #include "constant.h"
 #include "logger.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/representer/deserialiser/xdt/bdt/bdt_xdt_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/xdt/gdt/gdt_xdt_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/xdt/ldt/ldt_xdt_deserialiser.c"
-#include "logger.h"
+#include "xdt.h"
 
 /**
  * Deserialises xdt standard data.

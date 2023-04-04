@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -30,20 +30,10 @@
 // Library interface
 //
 
+#include "arithmetic.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../executor/calculator/integer/multiply_integer_calculator.c"
-#include "../../executor/calculator/integer/negate_integer_calculator.c"
-#include "../../executor/calculator/integer/subtract_integer_calculator.c"
-#include "../../executor/calculator/pointer/add_pointer_calculator.c"
-#include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "logger.h"
-#include "../../mapper/type_to_size_mapper.c"
+#include "mapper.h"
 
 /**
  * Moves the current parsing position by element count

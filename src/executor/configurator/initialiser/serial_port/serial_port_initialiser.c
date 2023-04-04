@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,22 +27,19 @@
 #define SERIAL_PORT_INITIALISER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "client.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/accessor/getter/terminal_mode/terminal_mode_getter.c"
-#include "../../../../executor/accessor/setter/terminal_mode/terminal_mode_setter.c"
-#include "../../../../executor/configurator/initialiser/serial_port/mode_serial_port_initialiser.c"
-#include "../../../../executor/copier/terminal_mode/terminal_mode_copier.c"
-#include "../../../../executor/copier/array/forward_array_copier.c"
-#include "../../../../executor/memoriser/allocator/terminal_mode_allocator.c"
-#include "../../../../executor/memoriser/deallocator/terminal_mode_deallocator.c"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

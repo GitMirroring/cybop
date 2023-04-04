@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,22 +27,19 @@
 #define DECODER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "communication.h"
 #include "constant.h"
 #include "logger.h"
-
-//
-// Executable interface
-//
-
-#include "../../../executor/converter/decoder/base_64/base_64_decoder.c"
-#include "../../../executor/converter/decoder/dos/dos_decoder.c"
-#include "../../../executor/converter/decoder/iso_8859/iso_8859_decoder.c"
-#include "../../../executor/converter/decoder/utf/utf_16_decoder.c"
-#include "../../../executor/converter/decoder/utf/utf_8_decoder.c"
-#include "../../../executor/converter/decoder/windows/windows_decoder.c"
 
 /**
  * Decodes the source into the destination, according to the given encoding.

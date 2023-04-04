@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  * @author Franziska Wehner>
  */
@@ -27,9 +27,17 @@
 #ifndef APPLICATION_STATE_CYBOL_FORMAT_CONSTANT_HEADER
 #define APPLICATION_STATE_CYBOL_FORMAT_CONSTANT_HEADER
 
+//
+// System interface
+//
+
 #include <stddef.h> // wchar_t
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
+//
+// Library interface
+//
+
+#include "constant.h"
 
 //
 // Application (multi-purpose)

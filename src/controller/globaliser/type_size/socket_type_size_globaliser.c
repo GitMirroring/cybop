@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -90,11 +90,13 @@ void globalise_type_size_socket() {
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
     *IPV4_HOST_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct in_addr);
-//??    *IPV6_HOST_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct in6_addr);
+    //?? *IPV6_HOST_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct in6_addr);
     *IPV4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct sockaddr_in);
-//??    *IPV6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct sockaddr_in6);
+    //?? *IPV6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct sockaddr_in6);
+    //
     // CAUTION! The local unix domain socket AF_LOCAL or AF_UNIX
     // with ID 1 does NOT exist in windows operating system.
+    //
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif

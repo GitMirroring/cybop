@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,24 +27,22 @@
 #define XCB_ENABLER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "algorithm.h"
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/activator/enabler/xcb/buffer_xcb_enabler.c"
-#include "../../../../executor/activator/enabler/xcb/client_xcb_enabler.c"
-#include "../../../../executor/activator/enabler/xcb/event_xcb_enabler.c"
-#include "../../../../executor/copier/array/forward_array_copier.c"
-#include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/finder/list_finder.c"
-#include "../../../../executor/memoriser/deallocator/array_deallocator.c"
-#include "../../../../executor/streamer/writer/interrupt_pipe/interrupt_pipe_writer.c"
+#include "knowledge.h"
 #include "logger.h"
+#include "server.h"
 
 /**
  * Enables x window system event delivery via xcb.

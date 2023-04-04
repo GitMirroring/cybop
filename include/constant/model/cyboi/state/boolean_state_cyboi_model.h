@@ -19,14 +19,18 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef BOOLEAN_STATE_CYBOI_MODEL_CONSTANT_HEADER
 #define BOOLEAN_STATE_CYBOI_MODEL_CONSTANT_HEADER
 
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
+//
+// Library interface
+//
+
+#include "constant.h"
 
 /** The false boolean state cyboi model. */
 static int* FALSE_BOOLEAN_STATE_CYBOI_MODEL = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;

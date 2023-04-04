@@ -6,6 +6,7 @@
 *Note: The following steps have to be executed MANUALLY*
 
 1. Pull the latest changes for the python scripts with `cd build/scripts && git pull`
+# TEMPORARY: Execute shell script "build/scripts/adjust_copyright.sh" until one day python script does only change wanted directories (include not exclude approach)
 2. Change project version in `build/CMakeLists.txt` and execute ```make copyright```
 3. Adapt directories and files in file `build/cmake/packaging.cmake`
 4. Analyse source code by running `valgrind`

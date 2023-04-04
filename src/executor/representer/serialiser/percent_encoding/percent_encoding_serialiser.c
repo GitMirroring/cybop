@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -30,14 +30,11 @@
 // Library interface
 //
 
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/representer/serialiser/percent_encoding/data_percent_encoding_serialiser.c"
+#include "knowledge.h"
 #include "logger.h"
+#include "wui.h"
 
 //
 // A URI is composed from a limited set of characters consisting of
@@ -140,12 +137,15 @@ void serialise_percent_encoding(void* p0, void* p1, void* p2) {
     // Copy source count remaining.
     copy_integer((void*) &c, p2);
 
+    //
     // CAUTION! A copy of source count remaining is forwarded here,
     // so that the original source value does not get changed.
+    //
     // CAUTION! The source data position does NOT have to be copied,
     // since the parametre that was handed over is already a copy.
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
+    //
     serialise_percent_encoding_data(p0, (void*) &d, (void*) &c);
 }
 

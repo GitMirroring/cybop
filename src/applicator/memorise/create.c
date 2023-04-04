@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -30,16 +30,11 @@
 // Library interface
 //
 
+#include "applicator.h"
 #include "constant.h"
-#include "executor.h"
+#include "cybol.h"
+#include "knowledge.h"
 #include "logger.h"
-
-//
-// Executable interface
-//
-
-#include "../../applicator/memorise/part_create.c"
-#include "../../applicator/modify/index_modify.c"
 
 /**
  * Creates an empty part consisting of name and type only.

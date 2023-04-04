@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -30,23 +30,12 @@
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../../../executor/modifier/item_modifier.c"
-#include "../../../../../executor/representer/serialiser/numeral/decimal_fraction_numeral_serialiser.c"
-#include "../../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
-#include "../../../../../executor/representer/serialiser/xdt/datetime/ddmmyyyy/ddmmyyyy_datetime_xdt_serialiser.c"
-#include "../../../../../executor/representer/serialiser/xdt/datetime/mmyy/mmyy_datetime_xdt_serialiser.c"
-#include "../../../../../executor/representer/serialiser/xdt/datetime/qyyyy/qyyyy_datetime_xdt_serialiser.c"
-#include "../../../../../executor/representer/serialiser/xdt/duration/ddmmyyyyddmmyyyy/ddmmyyyyddmmyyyy_duration_xdt_serialiser.c"
-#include "../../../../../executor/representer/serialiser/xdt/duration/hhmmhhmm/hhmmhhmm_duration_xdt_serialiser.c"
-#include "../../../../../executor/representer/serialiser/xdt/duration/yyyy/yyyy_duration_xdt_serialiser.c"
+#include "knowledge.h"
 #include "logger.h"
+#include "type.h"
 
 /**
  * Serialises into an xdt field model.

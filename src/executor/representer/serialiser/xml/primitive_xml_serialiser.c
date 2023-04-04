@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,41 +27,13 @@
 #define PRIMITIVE_XML_SERIALISER_SOURCE
 
 //
-// Executable interface
-//
-
-//
 // Library interface
 //
 
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/representer/serialiser/character_reference/character_reference_serialiser.c"
-#include "../../../../executor/representer/serialiser/xml/break_xml_serialiser.c"
-#include "../../../../executor/representer/serialiser/xml/indentation_xml_serialiser.c"
+#include "knowledge.h"
 #include "logger.h"
-
-//
-// Forbidden includes
-//
-// CAUTION! Do NOT include the following files since otherwise,
-// circular references would occur due to module dependencies.
-// Instead, forward declarations are used further below.
-// Therefore, the following includes are to be commented OUT
-// and listed here just for information.
-//
-
-// #include "../../../../executor/representer/serialiser/xml/xml_serialiser.c"
-
-//
-// Forward declarations
-//
-
-void serialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13);
 
 /**
  * Serialises the primitive filled part element into xml.

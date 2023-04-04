@@ -19,43 +19,41 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef UTF_8_DECODER_SOURCE
 #define UTF_8_DECODER_SOURCE
 
+//
+// System interface
+//
+
 #include <errno.h> // errno
-
-//
-// Library interface
-//
-
-#include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../../../executor/copier/array/forward_array_copier.c"
-#include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/memoriser/reallocator/item_reallocator.c"
-#include "logger.h"
+#include <stdio.h> // stdout
 
 #if defined(__linux__) || defined(__unix__)
     #include <locale.h> // setlocale
-    #include <wchar.h> // wcsnrtombs
+    #include <wchar.h> // wcsnrtombs, fwprintf
 #elif defined(__APPLE__) && defined(__MACH__)
     #include <locale.h> // setlocale
-    #include <wchar.h> // wcsnrtombs
+    #include <wchar.h> // wcsnrtombs, fwprintf
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
     #include <windows.h>
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
+
+//
+// Library interface
+//
+
+#include "arithmetic.h"
+#include "constant.h"
+#include "knowledge.h"
+#include "logger.h"
 
 //
 // Reflexions on character set conversion.

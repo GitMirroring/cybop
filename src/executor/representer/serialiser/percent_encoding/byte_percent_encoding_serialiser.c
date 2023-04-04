@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -30,13 +30,8 @@
 // Library interface
 //
 
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
 #include "logger.h"
 
 /**
@@ -57,7 +52,8 @@ void serialise_percent_encoding_byte(void* p0, void* p1) {
     // CAUTION! Hand over prefix flag value FALSE, since a prefix "%"
     // was already prepended above and the "0x" prefix is NOT wanted.
     //
-    serialise_numeral_integer((void*) &i, rd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) HEXADECIMAL_BASE_NUMERAL_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    //?? TODO:
+    //?? serialise_numeral_integer((void*) &i, rd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) HEXADECIMAL_BASE_NUMERAL_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 }
 
 /* BYTE_PERCENT_ENCODING_SERIALISER_SOURCE */

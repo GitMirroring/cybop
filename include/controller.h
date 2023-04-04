@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -48,18 +48,114 @@
 //
 
 //
-// CAUTION! The order may be arbitrary or alphabetically,
-// but for better overview, it follows the system LIFECYCLE.
+// CAUTION! The sort order of the following sections is NOT alphabetically.
+// For better overview, it follows the system LIFECYCLE.
+//
+
+//
+// globaliser
 //
 
 void globalise();
+
+void globalise_log();
+
+void globalise_reference_counter();
+
+void globalise_symbolic_name();
+void globalise_symbolic_name_serial_baudrate();
+void globalise_symbolic_name_socket_address_family();
+void globalise_symbolic_name_socket_protocol();
+void globalise_symbolic_name_socket_protocol_family();
+void globalise_symbolic_name_socket_style();
+void globalise_symbolic_name_thread_mutex();
+
+void globalise_type_size();
+void globalise_type_size_compound();
+void globalise_type_size_display();
+void globalise_type_size_integral();
+void globalise_type_size_pointer();
+void globalise_type_size_real();
+void globalise_type_size_socket();
+void globalise_type_size_terminal();
+void globalise_type_size_thread();
+
+//
+// orienter
+//
+
 void orient(void* p0, void* p1);
+
+//
+// optionaliser
+//
+
 void optionalise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void optionalise_log_file(void* p0, void* p1);
+
+//
+// helper
+//
+
 void help(void* p0);
+
+//
+// informer
+//
+
 void inform(void* p0);
+
+//
+// manager
+//
+
 void manage(void* p0);
+
+//
+// initiator
+//
+
+void initiate(void* p0, void* p1, void* p2, void* p3);
+
+//
+// checker
+//
+
+void check(void* p0, void* p1);
+void check_client_all(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
+void check_client_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10);
+void check_client_element_available(void* p0, void* p1, void* p2, void* p3, void* p4);
+void check_client_element_empty(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10);
+void check_client_list(void* p0, void* p1, void* p2, void* p3, void* p4);
+void check_empty(void* p0, void* p1, void* p2);
+void check_found(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
+void check_io_accept(void* p0, void* p1, void* p2, void* p3);
+void check_io_receive(void* p0, void* p1, void* p2, void* p3, void* p4);
+void check_io_socket(void* p0, void* p1, void* p2);
+void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+
+//
+// handler
+//
+
+void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
+void handle_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
+void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
+void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9);
+
+//
+// deoptionaliser
+//
+
 void deoptionalise(void* p0);
+void deoptionalise_log_file(void* p0);
+
+//
+// unglobaliser
+//
+
 void unglobalise();
+void unglobalise_log();
 
 /* CONTROLLER_HEADER */
 #endif

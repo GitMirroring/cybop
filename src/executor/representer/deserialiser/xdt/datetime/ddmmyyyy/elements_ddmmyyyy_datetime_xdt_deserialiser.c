@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -30,19 +30,11 @@
 // Library interface
 //
 
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../../../executor/memoriser/allocator/array_allocator.c"
-#include "../../../../../../executor/memoriser/deallocator/array_deallocator.c"
-#include "../../../../../../executor/modifier/item_modifier.c"
-#include "../../../../../../executor/mover/mover.c"
-#include "../../../../../../executor/representer/deserialiser/numeral/integer_numeral_deserialiser.c"
-#include "../../../../../../executor/representer/deserialiser/time_scale/gregorian_calendar/gregorian_calendar_time_scale_deserialiser.c"
+#include "knowledge.h"
 #include "logger.h"
+#include "type.h"
 
 /**
  * Deserialises the source ddmmyyyy elements wide character data into the destination datetime item.

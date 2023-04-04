@@ -19,22 +19,26 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef SECOND_SLEEPER_SOURCE
 #define SECOND_SLEEPER_SOURCE
 
-#include <errno.h>
-#include <time.h>
-#ifndef _MSC_VER
-#include <unistd.h>
-#endif
-#ifdef _WIN32
-    #include <windows.h>
-    #define sleep(n) Sleep(1000 * n)
-#endif
+//
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <unistd.h> // sleep
+#include <wchar.h> // fwprintf
+
+//
+// Library interface
+//
+
+#include "constant.h"
 
 /**
  * Suspends execution of the calling thread for (at least)

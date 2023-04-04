@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -30,24 +30,9 @@
 // Library interface
 //
 
+#include "client.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
 #include "logger.h"
-
-#if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/configurator/initialiser/unix_serial_port/unix_serial_port_initialiser.c"
-#elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../executor/configurator/initialiser/unix_serial_port/unix_serial_port_initialiser.c"
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../../executor/configurator/initialiser/win32_serial_port/win32_serial_port_initialiser.c"
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
 
 /**
  * Initialises the serial port mode.

@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Falk Müller <falk89@web.de>
  * @author Christian Heller <christian.heller@cybop.org>
  */
@@ -27,12 +27,12 @@
 #ifndef DOUBLE_CALCULATOR_SOURCE
 #define DOUBLE_CALCULATOR_SOURCE
 
-#include "../../executor/calculator/double/absolute_double_calculator.c"
-#include "../../executor/calculator/double/add_double_calculator.c"
-#include "../../executor/calculator/double/divide_double_calculator.c"
-#include "../../executor/calculator/double/multiply_double_calculator.c"
-#include "../../executor/calculator/double/negate_double_calculator.c"
-#include "../../executor/calculator/double/subtract_double_calculator.c"
+//
+// Library interface
+//
+
+#include "arithmetic.h"
+#include "constant.h"
 #include "logger.h"
 
 /**

@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -31,6 +31,8 @@
 //
 
 #include <stdio.h> // stdin, stdout, stderr
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
 
 //
 // Library interface
@@ -38,47 +40,9 @@
 
 #include "constant.h"
 #include "controller.h"
-#include "variable.h"
-
-//
-// Executable interface
-//
-
-//
-// CAUTION! This file "copier.c" is actually NOT needed but included anyway,
-// since it references file "item_allocator.c" which is needed here.
-//
-#include "../executor/copier/copier.c"
-#include "../executor/copier/integer_copier.c"
-//
-// CAUTION! Do NOT include file "item_allocator.c" to avoid circular references.
-// It gets included via "copier.c" and "part_allocator.c".
-//
-//?? #include "../executor/memoriser/allocator/item_allocator.c"
-//
-#include "../executor/memoriser/deallocator/item_deallocator.c"
+#include "knowledge.h"
 #include "logger.h"
-
-//
-// Windows specific stuff
-//
-// (possibly OUTDATED and may be deleted once compiling on windows)
-//
-
-#ifdef _MSC_VER          // see: http://msdn.microsoft.com/de-de/library/b0084kay.aspx
-
-    #if (_MSC_VER < 1800) // Check Visual Studio version, C99 is not supported in versions below VS2013
-        #error Visual Studio 2013 or higher is required for successful build of this application
-    #endif
-
-//??    #define PTW32_STATIC_LIB //use pthread.lib built with static linking see http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html
-    //#define WIN32_LEAN_AND_MEAN // avoids compiler errors in VS related to duplicate definitions from includes in windows.h and winsock2.h, see http://www.gamedev.net/topic/127476-define-win32_lean_and_mean/
-    //#define _TM_DEFINED // avoids redeclaration of time_t in glibc time.h
-    //#define _TIMESPEC_DEFINED; // avoids redeclaration of timespec in pthread.h
-    #define _CRT_NONSTDC_NO_DEPRECATE // avoids errors related to deprecated CRT functions see http://msdn.microsoft.com/de-de/library/ms235384(v=vs.90).aspx
-    #define _CRT_SECURE_NO_WARNINGS // allows use of unsecure functions see http://msdn.microsoft.com/de-de/library/8ef0s5kh.aspx
-    #define _USE_MATH_DEFINES
-#endif
+#include "variable.h"
 
 /**
  * The main entry function.
@@ -99,15 +63,6 @@
  * @return the return value (0 for normal shutdown; 1 for error)
  */
 int main(int p0, char** p1) {
-
-/*??
-#ifdef _MSC_VER
-    #ifdef PTW32_STATIC_LIB
-        pthread_win32_process_attach_np(); // see README.NONPORTABLE in pthread source directory
-        pthread_win32_thread_attach_np(); // Currently a no-op
-    #endif
-#endif
-*/
 
     //
     // One note about dynamic memory allocation:
@@ -285,21 +240,6 @@ int main(int p0, char** p1) {
 
         log_write(stdout, L"Error: Could not execute cyboi. The command line argument vector is null.\n");
     }
-
-/*??
-#ifdef _MSC_VER
-    #ifdef PTW32_STATIC_LIB
-        pthread_win32_process_detach_np();
-        pthread_win32_thread_detach_np();
-    #endif
-#endif
-*/
-
-/*??
-#ifdef _DEBUG
-    getchar();
-#endif
-*/
 
     return r;
 }

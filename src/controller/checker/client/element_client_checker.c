@@ -19,12 +19,16 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef ELEMENT_CLIENT_CHECKER_SOURCE
 #define ELEMENT_CLIENT_CHECKER_SOURCE
+
+//
+// System interface
+//
 
 #include <time.h> // time_t, time()
 
@@ -32,16 +36,10 @@
 // Library interface
 //
 
+#include "client.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../controller/checker/client/available_element_client_checker.c"
-#include "../../../controller/checker/client/empty_element_client_checker.c"
-#include "../../../executor/copier/array/forward_array_copier.c"
-#include "../../../executor/sensor/sensor.c"
+#include "controller.h"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

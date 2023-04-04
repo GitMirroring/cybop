@@ -19,34 +19,32 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef BASIC_WRITER_SOURCE
 #define BASIC_WRITER_SOURCE
 
+//
+// System interface
+//
+
 #include <errno.h> // errno
 #include <stddef.h> // size_t
+#include <stdio.h> // stdout
 #include <unistd.h> // write
+#include <wchar.h> // fwprintf
 
 //
 // Library interface
 //
 
+#include "arithmetic.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
-#include "../../../../executor/copier/array/forward_array_copier.c"
-#include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../executor/porter/locker.c"
-#include "../../../../executor/porter/unlocker.c"
+#include "knowledge.h"
 #include "logger.h"
+#include "system.h"
 
 /**
  * Writes data.

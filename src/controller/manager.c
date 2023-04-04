@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,19 +27,19 @@
 #define MANAGER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../controller/initiator.c"
-#include "../executor/copier/array/forward_array_copier.c"
-#include "../executor/memoriser/allocator/internal_memory_allocator.c"
-#include "../executor/memoriser/deallocator/internal_memory_deallocator.c"
+#include "controller.h"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

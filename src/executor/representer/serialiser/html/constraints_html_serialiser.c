@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,27 +27,19 @@
 #define CONSTRAINTS_HTML_SERIALISER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../../../executor/copier/array/forward_array_copier.c"
-#include "../../../../executor/copier/integer_copier.c"
-//
-// CAUTION! Do NOT include the "content_element_part_html_serialiser.c" module.
-// It is true, the "serialise_html_part_element_content" function is called from here,
-// but the module dependency hierarchy slightly differs and just goes top-down
-// by module granularity and NOT by call hierarchy.
-//
-// Therefore, the "html_serialiser.c" module is included here.
-//
-#include "../../../../executor/representer/serialiser/html/html_serialiser.c"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

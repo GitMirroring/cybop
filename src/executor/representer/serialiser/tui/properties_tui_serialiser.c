@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,30 +27,21 @@
 #define PROPERTIES_TUI_SERIALISER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
-#include "../../../../executor/representer/serialiser/tui/origo_tui_serialiser.c"
-#include "../../../../executor/representer/serialiser/tui/rectangle_tui_serialiser.c"
+#include "knowledge.h"
 #include "logger.h"
-
-#if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/representer/serialiser/ansi_escape_code/attributes_ansi_escape_code_serialiser.c"
-#elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../executor/representer/serialiser/ansi_escape_code/attributes_ansi_escape_code_serialiser.c"
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../../executor/representer/serialiser/win32_console/attributes_win32_console_serialiser.c"
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
 
 /**
  * Serialises the properties into tui.

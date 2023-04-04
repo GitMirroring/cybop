@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -33,8 +33,10 @@
 #include <stdint.h> // uint32_t
 
 #if defined(__linux__) || defined(__unix__)
+    #include <arpa/inet.h>
     #include <netinet/in.h>
 #elif defined(__APPLE__) && defined(__MACH__)
+    #include <arpa/inet.h>
     #include <netinet/in.h>
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
@@ -47,20 +49,13 @@
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "communication.h"
 #include "constant.h"
-#include "variable.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/checker/operation_checker.c"
-#include "../../../../executor/converter/encoder/utf/utf_8_encoder.c"
-#include "../../../../executor/copier/array/forward_array_copier.c"
-#include "../../../../executor/memoriser/allocator/item_allocator.c"
-#include "../../../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../../../executor/modifier/item_modifier.c"
+#include "knowledge.h"
 #include "logger.h"
+#include "variable.h"
+#include "web.h"
 
 /**
  * Deserialises inet6 host address.

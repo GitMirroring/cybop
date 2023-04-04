@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -30,20 +30,8 @@
 // Library interface
 //
 
+#include "arithmetic.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../executor/manipulator/character/check_character_manipulator.c"
-#include "../../executor/manipulator/character/clear_character_manipulator.c"
-#include "../../executor/manipulator/character/rotate_left_character_manipulator.c"
-#include "../../executor/manipulator/character/rotate_right_character_manipulator.c"
-#include "../../executor/manipulator/character/set_character_manipulator.c"
-#include "../../executor/manipulator/character/shift_left_character_manipulator.c"
-#include "../../executor/manipulator/character/shift_right_character_manipulator.c"
-#include "../../executor/manipulator/character/toggle_character_manipulator.c"
 #include "logger.h"
 
 /**

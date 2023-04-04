@@ -19,14 +19,20 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef DEFAULT_TUI_SERIALISER_SOURCE
 #define DEFAULT_TUI_SERIALISER_SOURCE
 
-#include "../../../../executor/logifier/boolean/and_boolean_logifier.c"
+//
+// Library interface
+//
+
+#include "arithmetic.h"
+#include "constant.h"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * Christian Heller <christian.heller@cybop.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -28,12 +28,6 @@
 
 //
 // Library interface
-//
-
-#include "constant.h"
-
-//
-// Executable interface
 //
 
 #include "logger.h"

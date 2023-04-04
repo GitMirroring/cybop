@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -30,21 +30,8 @@
 // Library interface
 //
 
+#include "arithmetic.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/comparator/character_comparator.c"
-#include "../../executor/comparator/complex_comparator.c"
-#include "../../executor/comparator/double_comparator.c"
-#include "../../executor/comparator/element_part_comparator.c"
-#include "../../executor/comparator/fraction_comparator.c"
-#include "../../executor/comparator/integer_comparator.c"
-#include "../../executor/comparator/pointer_comparator.c"
-#include "../../executor/comparator/wide_character_comparator.c"
 #include "logger.h"
 
 //

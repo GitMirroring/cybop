@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -30,15 +30,9 @@
 // Library interface
 //
 
+#include "arithmetic.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../executor/copier/integer_copier.c"
+#include "knowledge.h"
 #include "logger.h"
 
 /**
@@ -47,7 +41,7 @@
  * @param p0 the destination item (network service)
  * @param p1 the source data (port)
  */
-void deserialise_network_service(void* p0, void* p1) {
+void serialise_network_service(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise network service.");
 
@@ -127,6 +121,8 @@ void deserialise_network_service(void* p0, void* p1) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise network service. The given port number is unknown.");
+        fwprintf(stdout, L"Warning: Could not serialise network service. The given port number is unknown. source data (port) p1: %i\n", p1);
+        fwprintf(stdout, L"Warning: Could not serialise network service. The given port number is unknown. source data (port) *p1: %i\n", *((int*) p1));
     }
 }
 

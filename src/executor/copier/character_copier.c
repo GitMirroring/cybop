@@ -19,16 +19,25 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef CHARACTER_COPIER_SOURCE
 #define CHARACTER_COPIER_SOURCE
 
+//
+// System interface
+//
+
 #include <stdlib.h>
 #include <string.h>
 
+//
+// Library interface
+//
+
+#include "constant.h"
 #include "logger.h"
 
 /**

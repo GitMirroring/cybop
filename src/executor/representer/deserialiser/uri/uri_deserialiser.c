@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,27 +27,19 @@
 #define URI_DESERIALISER_SOURCE
 
 //
-// Executable interface
+// System interface
 //
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
 
 //
 // Library interface
 //
 
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/representer/deserialiser/http_request/append_http_request_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/http_request_uri/absolute_path_http_request_uri_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/http_request_uri/absolute_uri_http_request_uri_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/http_request_uri/authority_form_http_request_uri_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/http_request_uri/no_resource_http_request_uri_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/uri/http/authority_http_uri_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/uri/http/path_http_uri_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/uri/scheme_uri_deserialiser.c"
+#include "knowledge.h"
 #include "logger.h"
 
 //

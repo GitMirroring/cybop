@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,23 +27,18 @@
 #define INITIAL_TUI_SERIALISER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-//
-// CAUTION! Do NOT include the "content_element_part_tui_serialiser.c" module.
-// It is true, the "serialise_tui_part_element_content" function is called from here,
-// but the module dependency hierarchy slightly differs and just goes top-down
-// by module granularity and NOT by call hierarchy.
-// Therefore, the "tui_serialiser.c" module is included here.
-//
-#include "../../../../executor/representer/serialiser/tui/tui_serialiser.c"
 #include "logger.h"
 
 /**

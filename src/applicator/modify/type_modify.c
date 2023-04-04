@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,18 +27,20 @@
 #define TYPE_MODIFY_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "applicator.h"
+#include "arithmetic.h"
 #include "constant.h"
-#include "executor.h"
 #include "logger.h"
-
-//
-// Executable interface
-//
-
-#include "../../applicator/modify/deep_modify.c"
 
 /**
  * Compares the type of destination- and source node.

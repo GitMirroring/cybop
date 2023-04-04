@@ -19,13 +19,19 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef DEVICE_WINSOCK_OPENER_SOURCE
 #define DEVICE_WINSOCK_OPENER_SOURCE
 
+//
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
 #include <winsock.h>
 
 //
@@ -33,12 +39,6 @@
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/maintainer/starter/winsock/status_winsock_starter.c"
 #include "logger.h"
 
 /**

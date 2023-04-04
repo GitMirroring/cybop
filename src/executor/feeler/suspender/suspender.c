@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,18 +27,20 @@
 #define SUSPENDER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "algorithm.h"
+#include "client.h"
 #include "constant.h"
 #include "logger.h"
-
-//
-// Executable interface
-//
-
-#include "../../../executor/feeler/suspender/thread_suspender.c"
-#include "../../../executor/finder/entry_finder.c"
 
 /**
  * Suspends the data input sensing on the given channel.

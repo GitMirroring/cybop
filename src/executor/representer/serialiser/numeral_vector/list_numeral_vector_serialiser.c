@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,28 +27,26 @@
 #define LIST_NUMERAL_VECTOR_SERIALISER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
-#include "../../../../executor/copier/array/forward_array_copier.c"
-#include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/memoriser/allocator/array_allocator.c"
-#include "../../../../executor/memoriser/allocator/item_allocator.c"
-#include "../../../../executor/memoriser/deallocator/array_deallocator.c"
-#include "../../../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../../../executor/representer/deserialiser/cybol/type_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/numeral/numeral_deserialiser.c"
+#include "cybol.h"
+#include "knowledge.h"
 #include "logger.h"
+#include "type.h"
 
 /**
- * Iterates through the list items in order to deserialise them into numbers.
+ * Iterates through the list items in order to serialise them into strings.
  *
  * @param p0 the destination number item
  * @param p1 the source part element data
@@ -60,11 +58,11 @@
  * @param p7 the consider number base prefix flag (true means CONSIDER prefixes; false means IGNORE them)
  * @param p8 the destination number item format
  */
-void deserialise_numeral_vector_list(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void serialise_numeral_vector_list(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral vector list.");
-    fwprintf(stdout, L"Debug: Deserialise numeral vector list. source count p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise numeral vector list. source count *p2: %i\n", *((int*) p2));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise numeral vector list.");
+    fwprintf(stdout, L"Debug: Serialise numeral vector list. source count p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Serialise numeral vector list. source count *p2: %i\n", *((int*) p2));
 
     //
     // Declaration

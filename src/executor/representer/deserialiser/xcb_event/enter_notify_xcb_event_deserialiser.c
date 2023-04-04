@@ -19,26 +19,27 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef ENTER_NOTIFY_XCB_EVENT_DESERIALISER_SOURCE
 #define ENTER_NOTIFY_XCB_EVENT_DESERIALISER_SOURCE
 
+//
+// System interface
+//
+
 #include <xcb/xcb.h>
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
 
 //
 // Library interface
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/modifier/appender/item/part_item_appender.c"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

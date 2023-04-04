@@ -19,12 +19,16 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef ATTRIBUTES_WIN32_CONSOLE_SERIALISER_SOURCE
 #define ATTRIBUTES_WIN32_CONSOLE_SERIALISER_SOURCE
+
+//
+// System interface
+//
 
 #include <windows.h>
 
@@ -32,15 +36,8 @@
 // Library interface
 //
 
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/representer/serialiser/win32_console/background_win32_console_serialiser.c"
-#include "../../../../executor/representer/serialiser/win32_console/effect_win32_console_serialiser.c"
-#include "../../../../executor/representer/serialiser/win32_console/foreground_win32_console_serialiser.c"
 #include "logger.h"
 
 /**

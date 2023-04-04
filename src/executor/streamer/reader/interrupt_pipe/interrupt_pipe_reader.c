@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -31,20 +31,17 @@
 //
 
 #include <stddef.h> // size_t
+#include <stdio.h> // stdout
 #include <unistd.h> // read
+#include <wchar.h> // fwprintf
 
 //
 // Library interface
 //
 
 #include "constant.h"
-#include "variable.h"
-
-//
-// Executable interface
-//
-
 #include "logger.h"
+#include "variable.h"
 
 /**
  * Reads message from interrupt pipe.

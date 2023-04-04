@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,26 +27,19 @@
 #define JULIAN_DAY_GREGORIAN_CALENDAR_TIME_SCALE_DESERIALISER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "arithmetic.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../../executor/calculator/double/multiply_double_calculator.c"
-#include "../../../../../executor/calculator/double/subtract_double_calculator.c"
-#include "../../../../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../../../../executor/calculator/integer/divide_integer_calculator.c"
-#include "../../../../../executor/calculator/integer/multiply_integer_calculator.c"
-#include "../../../../../executor/calculator/integer/subtract_integer_calculator.c"
-#include "../../../../../executor/caster/double/integer_double_caster.c"
-#include "../../../../../executor/caster/integer/double_integer_caster.c"
-#include "../../../../../executor/comparator/integer/less_integer_comparator.c"
-#include "../../../../../executor/copier/integer_copier.c"
-#include "../../../../../executor/representer/deserialiser/time_scale/gregorian_calendar/check_reform_julian_day_gregorian_calendar_time_scale_deserialiser.c"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

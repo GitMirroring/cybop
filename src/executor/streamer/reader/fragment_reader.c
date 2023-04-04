@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,31 +27,20 @@
 #define FRAGMENT_READER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/streamer/reader/inline/inline_reader.c"
-#include "../../../executor/streamer/reader/signal/signal_reader.c"
 #include "logger.h"
-
-#if defined(__linux__) || defined(__unix__)
-    #include "../../../executor/streamer/reader/basic/basic_reader.c"
-#elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../executor/streamer/reader/basic/basic_reader.c"
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../executor/streamer/reader/win32_console/win32_console_reader.c"
-    #include "../../../executor/streamer/reader/winsock/winsock_reader.c"
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
 
 /**
  * Reads a message fragment via the given channel.

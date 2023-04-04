@@ -19,26 +19,27 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef UNIX_DEVICE_WRITER_SOURCE
 #define UNIX_DEVICE_WRITER_SOURCE
 
+//
+// System interface
+//
+
 #include <sys/ioctl.h> // ioctl
 #include <errno.h> // errno
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
 
 //
 // Library interface
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
 #include "logger.h"
 
 /**
@@ -61,8 +62,8 @@ void write_unix_device(void* p0, void* p1, void* p2) {
                 int* d = (int*) p0;
 
                 log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write unix device.");
-                fwprintf(stdout, L"Debug: Write unix device. f: %i\n", f);
-                fwprintf(stdout, L"Debug: Write unix device. *f: %i\n", *f);
+                fwprintf(stdout, L"Debug: Write unix device. d: %i\n", d);
+                fwprintf(stdout, L"Debug: Write unix device. *d: %i\n", *d);
                 fwprintf(stdout, L"Debug: Write unix device. c: %i\n", c);
                 fwprintf(stdout, L"Debug: Write unix device. *c: %i\n", *c);
 
@@ -114,7 +115,7 @@ void write_unix_device(void* p0, void* p1, void* p2) {
                 // https://www.gnu.org/software/libc/manual/html_mono/libc.html#IOCTLs
                 // However, most ioctl operations are operating system-specific and not part of glibc.
                 //
-                int r = ioctl(*f, *c, p2);
+                int r = ioctl(*d, *c, p2);
 
                 if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

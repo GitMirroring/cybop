@@ -27,17 +27,18 @@
 #define SIGNAL_WRITER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/copier/array/forward_array_copier.c"
-#include "../../../../executor/modifier/item_modifier.c"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

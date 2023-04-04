@@ -19,14 +19,19 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef LESS_INTEGER_COMPARATOR_SOURCE
 #define LESS_INTEGER_COMPARATOR_SOURCE
 
-#include "../../../executor/copier/integer_copier.c"
+//
+// Library interface
+//
+
+#include "constant.h"
+#include "knowledge.h"
 
 /**
  * Compares the left- with the right integer for lessness.

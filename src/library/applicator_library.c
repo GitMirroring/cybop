@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,38 +27,38 @@
 #define APPLICATOR_LIBRARY_SOURCE
 
 //
-// Sum up all relevant source files via include.
-//
-// CAUTION! The instruction "add_library" of file "CMakeLists.txt" expects
-// a list of all relevant source files to be added to the library.
-// However, it is important to specify only ONE source file since otherwise,
-// the following error will occur in almost all cases:
-//
-// /usr/bin/ld: CMakeFiles/[library].dir/[file].c.o: in function `[function]':
-// [file].c:(.text+0xe53a): multiple definition of `[function]'; CMakeFiles/[library].dir/[file].c.o:[file].c:(.text+0xf274): first defined here
-//
-// The reason is that each source file added via "add_library" is treated
-// SEPARATELY when it comes to adding its include files. But since cyboi
-// does NOT use header files (*.h) and includes source files (*.c) DIRECTLY
-// instead, the above "multiple definition" error occurs.
-//
-// In order to avoid this, ONE special source file has been created for EACH
-// library, whose sole sense is to SUM UP all relevant source files via include.
-//
-// The reasons for cyboi NOT to use header files are:
-// 1 Effort: There are hundreds of implementation files, one per function.
-// 2 Dependencies: They are straightforward and clear between implementation files.
-// 3 Simplicity: Other languages like java do not use header files either.
+// access
 //
 
 #include "../applicator/access/count.c"
 #include "../applicator/access/get.c"
 #include "../applicator/access/get_index.c"
 #include "../applicator/access/indicate.c"
+
+//
+// activate
+//
+
 #include "../applicator/activate/disable.c"
 #include "../applicator/activate/enable.c"
+
+//
+// calculate
+//
+
 #include "../applicator/calculate/calculate.c"
+#include "../applicator/calculate/type_calculate.c"
+
+//
+// cast
+//
+
 #include "../applicator/cast/cast.c"
+
+//
+// command
+//
+
 #include "../applicator/command/archive_file.c"
 #include "../applicator/command/change_directory.c"
 #include "../applicator/command/change_permission.c"
@@ -103,36 +103,134 @@
 #include "../applicator/command/who.c"
 #include "../applicator/command/who_am_i.c"
 #include "../applicator/command/word_count.c"
+
+//
+// communicate
+//
+
 #include "../applicator/communicate/identify.c"
 #include "../applicator/communicate/receive.c"
 #include "../applicator/communicate/send.c"
+
+//
+// compare and check
+//
+
 #include "../applicator/compare/compare.c"
+#include "../applicator/compare/result_compare.c"
+#include "../applicator/compare/type_compare.c"
+
+//
+// contain
+//
+
 #include "../applicator/contain/contain.c"
+
+//
+// convert
+//
+
 #include "../applicator/convert/decode.c"
 #include "../applicator/convert/encode.c"
+
+//
+// dispatch
+//
+
 #include "../applicator/dispatch/close.c"
 #include "../applicator/dispatch/open.c"
+
+//
+// feel
+//
+
 #include "../applicator/feel/sense.c"
 #include "../applicator/feel/suspend.c"
+
+//
+// flow
+//
+
 #include "../applicator/flow/branch.c"
 #include "../applicator/flow/loop.c"
 #include "../applicator/flow/sequence.c"
+
+//
+// logify
+//
+
 #include "../applicator/logify/logify.c"
+#include "../applicator/logify/type_logify.c"
+
+//
+// maintain
+//
+
 #include "../applicator/maintain/shutdown.c"
 #include "../applicator/maintain/startup.c"
+
+//
+// manipulate
+//
+
 #include "../applicator/manipulate/manipulate.c"
+
+//
+// memorise
+//
+
 #include "../applicator/memorise/create.c"
 #include "../applicator/memorise/destroy.c"
+#include "../applicator/memorise/part_create.c"
+
+//
+// modify
+//
+
+#include "../applicator/modify/array_modify.c"
+#include "../applicator/modify/deep_modify.c"
+#include "../applicator/modify/index_modify.c"
 #include "../applicator/modify/modify.c"
+#include "../applicator/modify/type_modify.c"
+
+//
+// randomise
+//
+
 #include "../applicator/randomise/retrieve.c"
 #include "../applicator/randomise/sow.c"
+
+//
+// represent
+//
+
 #include "../applicator/represent/deserialise.c"
 #include "../applicator/represent/serialise.c"
+
+//
+// run
+//
+
 #include "../applicator/run/run.c"
 #include "../applicator/run/sleep.c"
+
+//
+// sort
+//
+
 #include "../applicator/sort/sort.c"
+
+//
+// stream
+//
+
 #include "../applicator/stream/read.c"
 #include "../applicator/stream/write.c"
+
+//
+// time
+//
+
 #include "../applicator/time/time.c"
 
 /* APPLICATOR_LIBRARY_SOURCE */

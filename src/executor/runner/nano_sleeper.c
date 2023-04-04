@@ -19,24 +19,27 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef NANO_SLEEPER_SOURCE
 #define NANO_SLEEPER_SOURCE
 
-#include <errno.h>
-#include <time.h>
+//
+// System interface
+//
 
-#ifdef _MSC_VER
-    #include "../../windows/cyboi_win_mapper.h"
-#else
-    #include <unistd.h>
-    #ifdef WIN32
-        #include <pthread_time.h>
-    #endif
-#endif
+#include <errno.h>
+#include <stdio.h> // stdout
+#include <time.h>
+#include <wchar.h> // fwprintf
+
+//
+// Library interface
+//
+
+#include "constant.h"
 
 /**
  * Suspends execution of the calling thread for (at least)

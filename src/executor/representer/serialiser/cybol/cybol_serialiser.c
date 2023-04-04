@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,44 +27,21 @@
 #define CYBOL_SERIALISER_SOURCE
 
 //
-// Executable interface
+// System interface
 //
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
 
 //
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/converter/decoder/decoder.c"
-#include "../../../../executor/representer/serialiser/boolean/boolean_serialiser.c"
-#include "../../../../executor/representer/serialiser/colour/terminal_colour_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/byte_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/channel_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/compound_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/encoding_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/format_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/language_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/type_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/datetime/gregorian/gregorian_datetime_serialiser.c"
-#include "../../../../executor/representer/serialiser/datetime/jd/jd_datetime_serialiser.c"
-#include "../../../../executor/representer/serialiser/datetime/jd/mjd_datetime_serialiser.c"
-#include "../../../../executor/representer/serialiser/datetime/jd/tjd_datetime_serialiser.c"
-#include "../../../../executor/representer/serialiser/datetime/julian/julian_datetime_serialiser.c"
-#include "../../../../executor/representer/serialiser/datetime/posix/posix_datetime_serialiser.c"
-#include "../../../../executor/representer/serialiser/datetime/tai/tai_datetime_serialiser.c"
-#include "../../../../executor/representer/serialiser/datetime/ti/ti_datetime_serialiser.c"
-#include "../../../../executor/representer/serialiser/datetime/utc/utc_datetime_serialiser.c"
-#include "../../../../executor/representer/serialiser/duration/iso/iso_duration_serialiser.c"
-#include "../../../../executor/representer/serialiser/duration/jd/jd_duration_serialiser.c"
-#include "../../../../executor/representer/serialiser/duration/julian/julian_duration_serialiser.c"
-#include "../../../../executor/representer/serialiser/duration/si/si_duration_serialiser.c"
-#include "../../../../executor/representer/serialiser/numeral/numeral_serialiser.c"
 #include "logger.h"
+#include "tui.h"
 
 /**
  * Serialises the source into the destination, according to the given format.

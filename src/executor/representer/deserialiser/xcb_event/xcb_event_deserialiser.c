@@ -19,36 +19,28 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef XCB_EVENT_DESERIALISER_SOURCE
 #define XCB_EVENT_DESERIALISER_SOURCE
 
+//
+// System interface
+//
+
 #include <xcb/xcb.h> // xcb_generic_event_t, XCB_BUTTON_PRESS etc.
 #include <stdint.h> // uint8_t
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
 
 //
 // Library interface
 //
 
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/representer/deserialiser/xcb_event/button_press_xcb_event_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/xcb_event/button_release_xcb_event_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/xcb_event/client_message_xcb_event_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/xcb_event/configure_notify_xcb_event_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/xcb_event/enter_notify_xcb_event_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/xcb_event/expose_xcb_event_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/xcb_event/key_press_xcb_event_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/xcb_event/key_release_xcb_event_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/xcb_event/leave_notify_xcb_event_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/xcb_event/motion_notify_xcb_event_deserialiser.c"
 #include "logger.h"
 
 /**

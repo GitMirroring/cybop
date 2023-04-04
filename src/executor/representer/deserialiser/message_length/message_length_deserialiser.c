@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,21 +27,23 @@
 #define MESSAGE_LENGTH_DESERIALISER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "binary.h"
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../../executor/representer/deserialiser/ansi_escape_code_length/ansi_escape_code_length_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/binary_crlf_termination/binary_crlf_termination_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/ftp_line_end/ftp_line_end_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/http_request_message_length/http_request_message_length_deserialiser.c"
 #include "logger.h"
+#include "tui.h"
+#include "web.h"
 
 /**
  * Deserialises the message and searches for either:

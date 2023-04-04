@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,32 +27,22 @@
 #define COMPOUND_CYBOL_DESERIALISER_SOURCE
 
 //
-// Executable interface
+// System interface
 //
 
-#include "../../../../executor/converter/encoder/encoder.c"
-#include "../../../../executor/representer/deserialiser/cybol/part_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/xml/xml_deserialiser.c"
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
 
 //
-// Forbidden includes
-//
-// CAUTION! Do NOT include the following files since otherwise,
-// circular references would occur due to module dependencies.
-// Instead, forward declarations are used further below.
-// Therefore, the following includes are to be commented OUT
-// and listed here just for information.
+// Library interface
 //
 
-// #include "../../../../executor/representer/deserialiser/cybol/content_cybol_deserialiser.c"
-// #include "../../../../executor/representer/deserialiser/xml/xml_deserialiser.c"
-
-//
-// Forward declarations
-//
-
-void deserialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14);
-void deserialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
+#include "arithmetic.h"
+#include "communication.h"
+#include "constant.h"
+#include "knowledge.h"
+#include "logger.h"
+#include "xml.h"
 
 /**
  * Deserialises the cybol compound element (part or property).

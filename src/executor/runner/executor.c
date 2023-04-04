@@ -19,28 +19,21 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef EXECUTOR_SOURCE
 #define EXECUTOR_SOURCE
 
+//
+// System interface
+//
+
 #include <sys/types.h>
 #include <errno.h>
-
-//
-// Library interface
-//
-
-#include "constant.h"
-#include "logger.h"
-
-//
-// Executable interface
-//
-
-#include "../../executor/converter/encoder/utf/utf_8_encoder.c"
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
 
 #if defined(__linux__) || defined(__unix__)
     #include <sys/wait.h>
@@ -52,6 +45,16 @@
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
+
+//
+// Library interface
+//
+
+#include "communication.h"
+#include "constant.h"
+#include "knowledge.h"
+#include "logger.h"
+#include "shell.h"
 
 /**
  * Executes the command as process.

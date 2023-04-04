@@ -19,26 +19,27 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef MUTEX_DEALLOCATOR_SOURCE
 #define MUTEX_DEALLOCATOR_SOURCE
 
+//
+// System interface
+//
+
+#include <stdio.h> // stdout
 #include <threads.h> // mtx_t, mtx_destroy
+#include <wchar.h> // fwprintf
 
 //
 // Library interface
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../executor/memoriser/deallocator/array_deallocator.c"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

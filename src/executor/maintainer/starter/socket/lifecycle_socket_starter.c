@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -29,6 +29,9 @@
 //
 // System interface
 //
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
 
 #if defined(__linux__) || defined(__unix__)
     #include <sys/socket.h>
@@ -45,24 +48,15 @@
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "client.h"
+#include "communication.h"
 #include "constant.h"
-#include "variable.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../../executor/dispatcher/opener/socket/device_socket_opener.c"
-#include "../../../../executor/maintainer/starter/socket/bind_socket_starter.c"
-#include "../../../../executor/maintainer/starter/socket/listen_socket_starter.c"
-#include "../../../../executor/memoriser/allocator/socket_address/socket_address_allocator.c"
-#include "../../../../executor/memoriser/deallocator/socket_address_deallocator.c"
-#include "../../../../executor/representer/deserialiser/socket/address_family_socket_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/socket/protocol_family_socket_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/socket/protocol_socket_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/socket/style_socket_deserialiser.c"
+#include "knowledge.h"
 #include "logger.h"
+#include "server.h"
+#include "variable.h"
+#include "web.h"
 
 /**
  * Starts up server socket lifecycle.

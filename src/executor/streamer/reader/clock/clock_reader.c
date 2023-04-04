@@ -27,17 +27,17 @@
 #define CLOCK_READER_SOURCE
 
 //
+// System interface
+//
+
+#include "time.h" // time
+
+//
 // Library interface
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../executor/copier/array/forward_array_copier.c"
+#include "knowledge.h"
 #include "logger.h"
 
 /**
@@ -49,14 +49,18 @@ void read_clock(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read clock.");
 
-    //?? TODO: A standard "int" is too small to capture a time,
-    //?? which is of type "long int".
-    //?? Possibly switch all "int" types within cyboi into "long int"?
+    //
+    // CAUTION! A standard "int" is too small to capture a time,
+    // which is of type "long int".
+    // Possibly switch some "int" types within cyboi into "long int"?
+    //
 
+    //
     // Get current time of system.
+    //
     // CAUTION! In the GNU C Library, time_t is equivalent to long int.
-    *t = time((time_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
-
+    //
+    time_t t = time((time_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
 }
 
 /* CLOCK_READER_SOURCE */

@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,26 +27,21 @@
 #define CONTENT_URI_HTTP_REQUEST_DESERIALISER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/memoriser/allocator/array_allocator.c"
-#include "../../../../executor/memoriser/allocator/part_allocator.c"
-#include "../../../../executor/memoriser/deallocator/array_deallocator.c"
-#include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../executor/copier/array/forward_array_copier.c"
-#include "../../../../executor/modifier/part_modifier.c"
-#include "../../../../executor/representer/deserialiser/http_request/decode_http_request_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/percent_encoding/percent_encoding_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/uri/uri_deserialiser.c"
-#include "../../../../executor/selector/http_request/uri_http_request_selector.c"
+#include "knowledge.h"
 #include "logger.h"
+#include "wui.h"
 
 /**
  * Deserialises the http request uri content.

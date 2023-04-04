@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -30,20 +30,10 @@
 // Library interface
 //
 
+#include "arithmetic.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../executor/calculator/integer/multiply_integer_calculator.c"
-#include "../../../executor/calculator/integer/subtract_integer_calculator.c"
-#include "../../../executor/manipulator/integer/check_integer_manipulator.c"
-#include "../../../executor/manipulator/integer/clear_integer_manipulator.c"
-#include "../../../executor/manipulator/integer/set_integer_manipulator.c"
-#include "../../../executor/manipulator/integer/shift_left_integer_manipulator.c"
 #include "logger.h"
-#include "../../../mapper/type_to_size_mapper.c"
+#include "mapper.h"
 
 /**
  * Rotates all bits of value to the left by position.

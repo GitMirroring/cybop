@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -30,23 +30,9 @@
 // Library interface
 //
 
+#include "arithmetic.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../../executor/calculator/double/absolute_double_calculator.c"
-#include "../../../../../executor/calculator/double/divide_double_calculator.c"
-#include "../../../../../executor/calculator/double/multiply_double_calculator.c"
-#include "../../../../../executor/calculator/double/subtract_double_calculator.c"
-#include "../../../../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../../../../executor/calculator/integer/subtract_integer_calculator.c"
-#include "../../../../../executor/caster/double/integer_double_caster.c"
-#include "../../../../../executor/caster/integer/double_integer_caster.c"
-#include "../../../../../executor/comparator/double/less_double_comparator.c"
-#include "../../../../../executor/copier/double_copier.c"
-#include "../../../../../executor/copier/integer_copier.c"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

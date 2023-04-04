@@ -19,15 +19,21 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef INDENTATION_MODEL_DIAGRAM_SERIALISER_SOURCE
 #define INDENTATION_MODEL_DIAGRAM_SERIALISER_SOURCE
 
-#include "../../../../executor/memoriser/reallocator/array_reallocator.c"
-#include "../../../../executor/modifier/item_modifier.c"
+//
+// Library interface
+//
+
+#include "arithmetic.h"
+#include "communication.h"
+#include "constant.h"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

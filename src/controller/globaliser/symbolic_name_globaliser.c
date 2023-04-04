@@ -19,19 +19,18 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef SYMBOLIC_NAME_GLOBALISER_SOURCE
 #define SYMBOLIC_NAME_GLOBALISER_SOURCE
 
-#include "../../controller/globaliser/symbolic_name/address_family_socket_symbolic_name_globaliser.c"
-#include "../../controller/globaliser/symbolic_name/baudrate_serial_symbolic_name_globaliser.c"
-#include "../../controller/globaliser/symbolic_name/mutex_thread_symbolic_name_globaliser.c"
-#include "../../controller/globaliser/symbolic_name/protocol_family_socket_symbolic_name_globaliser.c"
-#include "../../controller/globaliser/symbolic_name/protocol_socket_symbolic_name_globaliser.c"
-#include "../../controller/globaliser/symbolic_name/style_socket_symbolic_name_globaliser.c"
+//
+// Library interface
+//
+
+#include "controller.h"
 
 /**
  * Initialises symbolic name (pre-processor-defined) global variables.

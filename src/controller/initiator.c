@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,23 +27,21 @@
 #define INITIATOR_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "client.h"
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../controller/checker/checker.c"
-#include "../executor/communicator/receiver/receiver.c"
-#include "../executor/dispatcher/closer/basic/basic_closer.c"
-#include "../executor/dispatcher/opener/file/file_opener.c"
-#include "../executor/memoriser/allocator/part_allocator.c"
-#include "../executor/memoriser/deallocator/part_deallocator.c"
-#include "../executor/modifier/item_modifier.c"
-#include "../executor/modifier/part_modifier.c"
+#include "controller.h"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

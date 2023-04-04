@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,46 +27,21 @@
 #define SOCKET_ADDRESS_ALLOCATOR_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "arithmetic.h"
 #include "constant.h"
-#include "variable.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../../executor/memoriser/allocator/socket_address/inet_socket_address_allocator.c"
-//
-//?? TODO: This ifndef can be removed as soon as the mingw compiler supports ipv6.
-//
-#if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/memoriser/allocator/socket_address/inet6_socket_address_allocator.c"
-#elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../executor/memoriser/allocator/socket_address/inet6_socket_address_allocator.c"
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-    // Empty, since the mingw compiler does NOT support ipv6.
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
+#include "knowledge.h"
 #include "logger.h"
-
-#if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/memoriser/allocator/socket_address/local_socket_address_allocator.c"
-#elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../executor/memoriser/allocator/socket_address/local_socket_address_allocator.c"
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-    //
-    // CAUTION! The local or unix domain sockets are
-    // NOT implemented in the windows operating system.
-    //
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
+#include "variable.h"
 
 /**
  * Allocates a socket address depending on the given address family.

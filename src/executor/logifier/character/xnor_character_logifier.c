@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -31,12 +31,6 @@
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../executor/copier/integer_copier.c"
 #include "logger.h"
 
 /**
@@ -59,9 +53,11 @@ void logify_character_xnor(void* p0, void* p1) {
 
             *v = ~((*v) ^ (*m));
 
-        if(*v < 0){
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Value range exceeded");
-        }
+            if (*v < 0) {
+
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Value range exceeded");
+            }
+
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify character xnor. The left value is null.");

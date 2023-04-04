@@ -19,25 +19,27 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef COPIER_SOURCE
 #define COPIER_SOURCE
 
-#include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/comparator/integer/unequal_integer_comparator.c"
-#include "../../executor/copier/character_copier.c"
-#include "../../executor/copier/complex_copier.c"
-#include "../../executor/copier/datetime_copier.c"
-#include "../../executor/copier/double_copier.c"
-#include "../../executor/copier/duration_copier.c"
-#include "../../executor/copier/fraction_copier.c"
-#include "../../executor/copier/integer_copier.c"
-#include "../../executor/copier/part_copier.c"
-#include "../../executor/copier/pointer_copier.c"
-#include "../../executor/copier/wide_character_copier.c"
+//
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
+// Library interface
+//
+
+#include "arithmetic.h"
+#include "constant.h"
+#include "knowledge.h"
 
 /**
  * Copies the value.

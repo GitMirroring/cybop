@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,23 +27,22 @@
 #define STARTER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "algorithm.h"
 #include "constant.h"
+#include "knowledge.h"
 #include "logger.h"
-
-//
-// Executable interface
-//
-
-#include "../../../executor/copier/array/forward_array_copier.c"
-#include "../../../executor/finder/list_finder.c"
-#include "../../../executor/maintainer/starter/entry_starter.c"
-#include "../../../executor/maintainer/starter/service_starter.c"
-#include "../../../executor/memoriser/allocator/server_entry_allocator.c"
-#include "../../../executor/modifier/item_modifier.c"
-#include "../../../mapper/channel_to_internal_memory_mapper.c"
+#include "mapper.h"
+#include "server.h"
 
 /**
  * Starts up the given server.

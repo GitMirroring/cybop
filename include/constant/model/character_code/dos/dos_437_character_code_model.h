@@ -19,14 +19,18 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef DOS_437_CHARACTER_CODE_MODEL_CONSTANT_HEADER
 #define DOS_437_CHARACTER_CODE_MODEL_CONSTANT_HEADER
 
-#include <stddef.h>
+//
+// System interface
+//
+
+#include <stddef.h> // wchar_t
 
 //
 // A "Character Set" consists of three parts:

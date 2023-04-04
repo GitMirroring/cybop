@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,23 +27,20 @@
 #define SENDER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "communication.h"
 #include "constant.h"
+#include "knowledge.h"
 #include "logger.h"
-
-//
-// Executable interface
-//
-
-//?? #include "../../../executor/communicator/sender/compress_sender.c"
-#include "../../../executor/communicator/sender/encode_sender.c"
-#include "../../../executor/communicator/sender/select_sender.c"
-#include "../../../executor/communicator/sender/serialise_sender.c"
-#include "../../../executor/communicator/sender/write_sender.c"
-#include "../../../executor/memoriser/allocator/item_allocator.c"
-#include "../../../executor/memoriser/deallocator/item_deallocator.c"
 
 /**
  * Sends the source via the given channel.

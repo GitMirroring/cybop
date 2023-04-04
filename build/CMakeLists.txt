@@ -19,7 +19,7 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.25.0 2023-03-01
+# @version CYBOP 0.26.0 2023-04-04
 # @author Enrico Gallus <enrico.gallus@googlemail.com>
 # @author Christian Heller <christian.heller@cybop.org>
 #
@@ -50,34 +50,17 @@ set(ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/.." CACHE PATH "root dir" FORCE)
 set(CYBOI_EXECUTABLE_SOURCES ${ROOT_DIR}/src/cyboi/cyboi.c)
 
 #
-# Set cyboi library sources.
+# Set module path for finding external libraries.
 #
-# CAUTION! The instruction "add_library" of file "CMakeLists.txt" expects
-# a list of all relevant source files to be added to the library.
-# However, it is important to specify only ONE source file since otherwise,
-# the following error will occur in almost all cases:
+# CAUTION! This path has to be set BEFORE calling any "find" command.
 #
-# /usr/bin/ld: CMakeFiles/[library].dir/[file].c.o: in function `[function]':
-# [file].c:(.text+0xe53a): multiple definition of `[function]'; CMakeFiles/[library].dir/[file].c.o:[file].c:(.text+0xf274): first defined here
-#
-# The reason is that each source file added via "add_library" is treated
-# SEPARATELY when it comes to adding its include files. But since cyboi
-# does NOT use header files (*.h) and includes source files (*.c) DIRECTLY
-# instead, the above "multiple definition" error occurs.
-#
-# In order to avoid this, ONE special source file has been created for EACH
-# library, whose sole sense is to SUM UP all relevant source files via include.
-#
-# The reasons for cyboi NOT to use header files are:
-# 1 Effort: There are hundreds of implementation files, one per function.
-# 2 Dependencies: They are straightforward and clear between implementation files.
-# 3 Simplicity: Other languages like java do not use header files either.
-#
-set(LOGGER_CYBOI_LIBRARY_SOURCES ${ROOT_DIR}/src/library/logger_library.c)
-set(XDT_CYBOI_LIBRARY_SOURCES ${ROOT_DIR}/src/library/xdt_library.c)
-set(EXECUTOR_CYBOI_LIBRARY_SOURCES ${ROOT_DIR}/src/library/executor_library.c)
-set(APPLICATOR_CYBOI_LIBRARY_SOURCES ${ROOT_DIR}/src/library/applicator_library.c)
-set(CONTROLLER_CYBOI_LIBRARY_SOURCES ${ROOT_DIR}/src/library/controller_library.c)
+set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${ROOT_DIR}/build/cmake")
+
+# Find library packages.
+include(cmake/finding/finding.cmake)
+
+# Set library sources.
+include(cmake/setting/setting.cmake)
 
 #
 # Define filesystem paths for output files.
@@ -95,38 +78,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${ROOT_DIR}/bin)
 # Configure file with macros to pass values to cyboi source code.
 configure_file(cmake_configuration.h.in ${ROOT_DIR}/include/variable/cmake_configuration.h)
 
-#
-# Add library.
-#
-# CAUTION! It would be possible to write a separate "CMakeLists.txt"
-# for each single library. The configuration file for a library
-# (static or shared) resembles that of an application.
-# However, for reasons of better overview and to have everything
-# in just one place it was decided to add all libraries here.
-#
-# CAUTION! It is NOT necessary to list all source files.
-# Instead, just mention the file that keeps the entry function.
-# All other files are added automatically from there via included dependencies.
-#
-# CAUTION! Avoid using "file(GLOB ...)" to add all files of a directory.
-# This feature does not provide attended mastery of the compilation process.
-# Instead, use the copy-paste output of: ls -1 src/*.c
-# (The argument is minus one and NOT letter L.)
-#
-# https://stackoverflow.com/questions/17511496/how-to-create-a-shared-library-with-cmake
-#
-# CAUTION! The prefix "lib" is added automatically by cmake.
-#
-# Example:
-#
-# Define only "xdt" and NOT "libxdt" as name since otherwise,
-# the resulting name would be "liblibxdt".
-#
-add_library(cyboi-logger SHARED ${LOGGER_CYBOI_LIBRARY_SOURCES})
-add_library(cyboi-xdt SHARED ${XDT_CYBOI_LIBRARY_SOURCES})
-add_library(cyboi-executor SHARED ${EXECUTOR_CYBOI_LIBRARY_SOURCES})
-add_library(cyboi-applicator SHARED ${APPLICATOR_CYBOI_LIBRARY_SOURCES})
-add_library(cyboi-controller SHARED ${CONTROLLER_CYBOI_LIBRARY_SOURCES})
+# Add libraries.
+include(cmake/adding/adding.cmake)
 
 # Add executable to be created by make.
 add_executable(${BINARY_NAME} ${CYBOI_EXECUTABLE_SOURCES})
@@ -136,20 +89,17 @@ add_custom_target(clean-all
     COMMAND ${CMAKE_MAKE_PROGRAM} clean
     COMMAND ${CMAKE_COMMAND} -P cmake/clean_all.cmake)
 
-# Link internal libraries.
-include(cmake/internal_libraries.cmake)
+# Link libraries.
+include(cmake/linking/linking.cmake)
 
-# Link external libraries.
-include(cmake/external_libraries.cmake)
+# Include directories.
+include(cmake/inclusion/inclusion.cmake)
 
-# Apply codestyling.
-# include(cmake/codestyling.cmake)
+# Define library specifics.
+include(cmake/definition/definition.cmake)
 
 # Generate api.
 include(cmake/api.cmake)
-
-# Run tests.
-# include(cmake/test.cmake)
 
 # Adjust copyright.
 # include(cmake/versioning.cmake)
@@ -158,5 +108,4 @@ include(cmake/api.cmake)
 include(cmake/packaging.cmake)
 
 # Add make targets.
-# add_custom_target(dev COMMAND ${CMAKE_MAKE_PROGRAM} clean cyboi test analysis formatting api)
 add_custom_target(dev COMMAND ${CMAKE_MAKE_PROGRAM} clean cyboi api)

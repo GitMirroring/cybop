@@ -19,17 +19,19 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef COMPLEX_CALCULATOR_SOURCE
 #define COMPLEX_CALCULATOR_SOURCE
 
-#include "../../executor/calculator/complex/add_complex_calculator.c"
-#include "../../executor/calculator/complex/divide_complex_calculator.c"
-#include "../../executor/calculator/complex/multiply_complex_calculator.c"
-#include "../../executor/calculator/complex/subtract_complex_calculator.c"
+//
+// Library interface
+//
+
+#include "arithmetic.h"
+#include "constant.h"
 #include "logger.h"
 
 /**

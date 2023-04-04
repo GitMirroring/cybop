@@ -19,16 +19,24 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef GET_INDEX_ACCESS_LOGIC_CYBOL_NAME_CONSTANT_HEADER
 #define GET_INDEX_ACCESS_LOGIC_CYBOL_NAME_CONSTANT_HEADER
 
-#include <stddef.h>
+//
+// System interface
+//
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
+#include <stddef.h> // wchar_t
+
+//
+// Library interface
+//
+
+#include "constant.h"
 
 /** The index get index access logic cybol name. */
 static wchar_t* INDEX_GET_INDEX_ACCESS_LOGIC_CYBOL_NAME = L"index";

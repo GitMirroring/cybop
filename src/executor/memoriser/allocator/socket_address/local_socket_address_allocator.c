@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,20 +27,20 @@
 #define LOCAL_SOCKET_ADDRESS_ALLOCATOR_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
 #include "constant.h"
-#include "variable.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/accessor/setter/socket_address/local_socket_address_setter.c"
-#include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/memoriser/allocator/array_allocator.c"
+#include "knowledge.h"
 #include "logger.h"
+#include "variable.h"
 
 /**
  * Allocate local socket address.

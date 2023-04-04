@@ -19,18 +19,21 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef BEGIN_HTML_SERIALISER_SOURCE
 #define BEGIN_HTML_SERIALISER_SOURCE
 
-#include "../../../../executor/logifier/boolean/and_boolean_logifier.c"
-#include "../../../../executor/logifier/boolean/or_boolean_logifier.c"
-#include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../executor/representer/serialiser/html/attributes_html_serialiser.c"
-#include "../../../../executor/representer/serialiser/html/indentation_html_serialiser.c"
+//
+// Library interface
+//
+
+#include "arithmetic.h"
+#include "communication.h"
+#include "constant.h"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

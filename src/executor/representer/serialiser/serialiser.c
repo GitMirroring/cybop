@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,39 +27,36 @@
 #define SERIALISER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "communication.h"
 #include "constant.h"
+#include "knowledge.h"
+#include "logger.h"
+
+//
+// Representer interface
+//
+
+#include "binary.h"
+#include "cybol.h"
+#include "gui.h"
+#include "json.h"
+#include "text.h"
+#include "tui.h"
+#include "web.h"
+#include "wui.h"
 #include "xdt.h"
-
-//
-// Executable interface
-//
-
-#include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/modifier/item_modifier.c"
-#include "../../../executor/representer/serialiser/binary_crlf/binary_crlf_serialiser.c"
-//?? #include "../../../executor/representer/serialiser/csv/csv_serialiser.c"
-#include "../../../executor/representer/serialiser/cybol/constraints_cybol_serialiser.c"
-#include "../../../executor/representer/serialiser/gui/constraints_gui_serialiser.c"
-#include "../../../executor/representer/serialiser/html/constraints_html_serialiser.c"
-#include "../../../executor/representer/serialiser/http_request/http_request_serialiser.c"
-#include "../../../executor/representer/serialiser/http_response/http_response_serialiser.c"
-//?? #include "../../../executor/representer/serialiser/joined_string/joined_string_serialiser.c"
-#include "../../../executor/representer/serialiser/json/constraints_json_serialiser.c"
-#include "../../../executor/representer/serialiser/model_diagram/constraints_model_diagram_serialiser.c"
-#include "../../../executor/representer/serialiser/terminal_mode/terminal_mode_serialiser.c"
-//?? #include "../../../executor/representer/serialiser/textline_list/textline_list_serialiser.c"
-#include "../../../executor/representer/serialiser/tui/constraints_tui_serialiser.c"
-//?? #include "../../../executor/representer/serialiser/xdt_field_description/xdt_field_description_serialiser.c"
-//?? #include "../../../executor/representer/serialiser/xdt/xdt_serialiser.c"
-//
-// CAUTION! The xml serialiser is used e.g. in the cybol serialiser.
-// Therefore, do NOT delete this include, even if the xml serialiser
-// is possibly not called directly below.
-//
-#include "../../../executor/representer/serialiser/xml/constraints_xml_serialiser.c"
+#include "xml.h"
 
 /**
  * Serialises the source into the destination, according to the given language.

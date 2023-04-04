@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -30,21 +30,12 @@
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../../../../executor/memoriser/allocator/item_allocator.c"
-#include "../../../../../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../../../../../executor/modifier/item_modifier.c"
-#include "../../../../../../executor/copier/array/forward_array_copier.c"
-#include "../../../../../../executor/representer/serialiser/numeral/integer_numeral_serialiser.c"
-#include "../../../../../../executor/representer/serialiser/time_scale/gregorian_calendar/gregorian_calendar_time_scale_serialiser.c"
-#include "../../../../../../executor/representer/serialiser/xdt/datetime/qyyyy/quarter_qyyyy_datetime_xdt_serialiser.c"
+#include "knowledge.h"
 #include "logger.h"
+#include "type.h"
 
 /**
  * Serialises the source datetime into the destination qyyyy wide character data.

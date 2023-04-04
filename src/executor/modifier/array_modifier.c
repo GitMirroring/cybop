@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,29 +27,19 @@
 #define ARRAY_MODIFIER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "arithmetic.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/modifier/filler/filler.c"
-#include "../../executor/modifier/inserter/inserter.c"
-#include "../../executor/modifier/lowerer/lowerer.c"
-#include "../../executor/modifier/normaliser/normaliser.c"
-#include "../../executor/modifier/overwriter/overwriter.c"
-#include "../../executor/modifier/remover/remover.c"
-#include "../../executor/modifier/repeater/repeater.c"
-#include "../../executor/modifier/replacer/replacer.c"
-#include "../../executor/modifier/reverser/reverser.c"
-#include "../../executor/modifier/stripper/leading_stripper.c"
-#include "../../executor/modifier/stripper/stripper.c"
-#include "../../executor/modifier/stripper/trailing_stripper.c"
-#include "../../executor/modifier/upperer/upperer.c"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

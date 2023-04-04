@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,18 +27,19 @@
 #define NUMERAL_VECTOR_SERIALISER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/copier/pointer_copier.c"
-#include "../../../../executor/representer/serialiser/numeral_vector/item_numeral_vector_serialiser.c"
+#include "knowledge.h"
 #include "logger.h"
 
 /**
@@ -83,6 +84,7 @@ void serialise_numeral_vector(void* p0, void* p1, void* p2, void* p3, void* p4, 
     //
     allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
+/*??
     //
     // Iterate through number array in order to serialise its single numbers into
     // wide character list parts appended to the temporary part element item.
@@ -99,6 +101,7 @@ void serialise_numeral_vector(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
     // Concatenate tree nodes with separator in between.
     serialise_joined_string_preparation(t, p1, p2, (void*) COMMA_UNICODE_CHARACTER_CODE_MODEL, (void*) COMMA_UNICODE_CHARACTER_CODE_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+*/
 
     // Deallocate temporary part element item.
     deallocate_item((void*) &t, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);

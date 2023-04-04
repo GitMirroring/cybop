@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,26 +27,24 @@
 #define LINE_FIELD_XDT_DESERIALISER_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "arithmetic.h"
+#include "communication.h"
 #include "constant.h"
-#include "xdt.h"
-
-//
-// Executable interface
-//
-
-#include "../../../../../executor/calculator/integer/subtract_integer_calculator.c"
-#include "../../../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../../../executor/copier/integer_copier.c"
-#include "../../../../../executor/representer/deserialiser/numeral/integer_numeral_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/whitespace/whitespace_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/xdt/field/content_field_xdt_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/xdt/field/identification_field_xdt_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/xdt/field/part_field_xdt_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/xdt/field/size_field_xdt_deserialiser.c"
+#include "knowledge.h"
 #include "logger.h"
+#include "text.h"
+#include "type.h"
+#include "xdt.h"
 
 /**
  * Deserialises xdt field line.

@@ -19,17 +19,24 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef DELIMITER_CSV_NAME_CONSTANT_HEADER
 #define DELIMITER_CSV_NAME_CONSTANT_HEADER
 
+//
+// System interface
+//
+
 #include <stddef.h> // wchar_t
 
-#include "../../../constant/model/character_code/unicode/unicode_character_code_model.h"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.h"
+//
+// Library interface
+//
+
+#include "constant.h"
 
 /** The colon delimiter csv name. */
 static wchar_t* COLON_DELIMITER_CSV_NAME = COLON_UNICODE_CHARACTER_CODE_MODEL_ARRAY;

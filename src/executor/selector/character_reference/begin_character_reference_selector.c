@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,22 +27,19 @@
 #define BEGIN_CHARACTER_REFERENCE_SELECTOR_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
+#include "communication.h"
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../executor/copier/pointer_copier.c"
-#include "../../../executor/detector/detector.c"
-#include "../../../executor/modifier/item_modifier.c"
-#include "../../../executor/mover/mover.c"
-#include "../../../executor/representer/deserialiser/character_reference/decimal_character_reference_deserialiser.c"
-#include "../../../executor/representer/deserialiser/character_reference/entity_character_reference_deserialiser.c"
-#include "../../../executor/representer/deserialiser/character_reference/hexadecimal_character_reference_deserialiser.c"
+#include "knowledge.h"
 #include "logger.h"
 
 /**

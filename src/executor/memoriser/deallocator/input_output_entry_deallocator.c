@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -27,20 +27,20 @@
 #define INPUT_OUTPUT_ENTRY_DEALLOCATOR_SOURCE
 
 //
+// System interface
+//
+
+#include <stdio.h> // stdout
+#include <wchar.h> // fwprintf
+
+//
 // Library interface
 //
 
 #include "constant.h"
-
-//
-// Executable interface
-//
-
-#include "../../../executor/copier/array/forward_array_copier.c"
-#include "../../../executor/maintainer/shutter/list_shutter.c"
-#include "../../../executor/memoriser/deallocator/array_deallocator.c"
-#include "../../../executor/memoriser/deallocator/item_deallocator.c"
+#include "knowledge.h"
 #include "logger.h"
+#include "server.h"
 
 /**
  * Deallocates the input output entry.

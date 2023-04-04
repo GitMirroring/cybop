@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.25.0 2023-03-01
+ * @version CYBOP 0.26.0 2023-04-04
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -68,6 +68,7 @@ void apply_enable(void* p0, void* p1, void* p2, void* p3, void* p4);
 //
 
 void apply_calculate(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
+void apply_calculate_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 //
 // cast
@@ -80,6 +81,8 @@ void apply_cast(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
 //
 
 void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void apply_compare_result(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11);
+void apply_compare_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10);
 
 //
 // command
@@ -178,6 +181,7 @@ void apply_sequence(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 //
 
 void apply_logify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
+void apply_logify_type(void* p0, void* p1, void* p2, void* p3, void* p4);
 
 //
 // maintain
@@ -197,6 +201,7 @@ void apply_manipulate(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 //
 
 void apply_create(void* p0, void* p1, void* p2, void* p3, void* p4);
+void apply_create_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
 void apply_destroy(void* p0, void* p1, void* p2, void* p3, void* p4);
 
 //
@@ -204,6 +209,10 @@ void apply_destroy(void* p0, void* p1, void* p2, void* p3, void* p4);
 //
 
 void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
+void apply_modify_array(void* p0, void* p1, void* p2, void* p3, void* p4);
+void apply_modify_deep(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14);
+void apply_modify_index(void* p0, void* p1);
+void apply_modify_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15);
 
 //
 // randomise
