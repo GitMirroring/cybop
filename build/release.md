@@ -20,13 +20,10 @@
 
 *The following steps can be executed together at once by running ```make dev```*
 
-1. Delete old compilation files by running ```make clean```
-2. Compile cyboi by running ```make cyboi``` which executes gcc
-3. Test cybol example applications by running ```make test``` which executes cyboi
-4. Check source code statically by running ```make analysis``` which calls "CppCheck"
-  (CAUTION! Possibly skip it. It took almost 48 h. All that was found was some unused functions.)
-5. Verify style by running ```make formatting``` which calls `ClangFormat` with code changes DISABLED
-6. Generate api by running ```make api``` which executes the cybol api-generator
+1. Configure cmake by running (including the dot at the end) ```cmake .```
+2. Delete old compilation files by running ```make clean```
+3. Compile cyboi by running ```make cyboi``` which executes gcc
+4. Generate api by running ```make api``` which executes the cybol api-generator
 
 ## Website
 

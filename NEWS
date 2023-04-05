@@ -13,6 +13,25 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+CYBOP 0.26.0, 2023-04-04, Christian Heller  <christian.heller@cybop.org>
+
+        * CYBOI:
+            De-/Serialiser:
+            - Add error code constants for german "elektronische Ersatzbescheinigung" (eEB) of "Kommunikation im Medizinwesen" (KIM) infrastructure
+            - Add internet message format (imf) name constants necessary for email communication
+            Libraries:
+            - Add directory "library/" for special summary source files
+            - Create header files in directory "include/" with constants, variables and function signatures
+            - Move file "cyboi.c" from directory "controller/" into separate directory "cyboi/" destined only for executable
+            - Remove keyword "static" before any variables in directory "variable/", so that they are valid and usable globally across libraries
+            - Adapt all source code to new header file includes
+        * Project:
+            CMake Scripts:
+            - Refactor configuration files in order to produce shared libraries
+            - Add shared libraries for sub directories of "src/", "src/executor/" and "src/executor/representer/"
+            - Reintegrate external libraries
+            - Generate binaries into directories "bin/" for executable and into "lib/" for libraries
+
 CYBOP 0.25.0, 2023-03-01, Christian Heller  <christian.heller@cybop.org>
 
         * CYBOI:

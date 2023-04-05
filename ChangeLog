@@ -22,7 +22,7 @@
 
         * Fix compilation bugs caused by missing includes
         * Fix linker bugs caused by missing library entries in cmake files
-        * Integrate external libraries
+        * Reintegrate external libraries
         * Release CYBOP 0.26.0
 
 2023-04-02  Christian Heller  <christian.heller@cybop.org>
@@ -98,7 +98,7 @@
 
         * Add xdt serialiser to shared library "xdt"
         * Rename "xdt.h" into "xdt_library.h"
-        * Add directory "library" for special summary source files
+        * Add directory "library/" for special summary source files
         * Move file "cyboi.c" from directory "controller/" into separate directory "cyboi/" destined only for executable
         * Move some files of directory "controller/" into sub directories
         * Split file "array_copier.c" into many situated in sub directory "executor/copier/array/"
@@ -109,7 +109,7 @@
 
         * Split file "build/cmake/libraries.cmake" into "internal_libraries.cmake" and "external_libraries.cmake"
         * Add shared library "xdt"
-        * Provide function signatures in header file "xdt.h" of directory "include"
+        * Provide function signatures in header file "xdt.h" of directory "include/"
         * List xdt files to be taken into the library in "CMakeLists.txt"
         * Correct wrong includes appearing during compilation of the xdt library
         * Test case that a linked libary is not available delivering an "error while loading shared libraries: libxdt.so: cannot open shared object file: No such file or directory"
