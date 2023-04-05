@@ -1,32 +1,27 @@
 <!--#include virtual="/top.shtml" -->
 
 <section class="container mt-5">
-    <h1>CYBOP 0.26.0</h1>
+    <h1>CYBOP 0.27.0</h1>
 </section>
 
 <section class="container">
     <h2>CYBOI</h2>
     <ul>
-        <h3>De-/Serialiser:</h3>
-        <li>Add error code constants for german "elektronische Ersatzbescheinigung" (eEB) of "Kommunikation im Medizinwesen" (KIM) infrastructure</li>
-        <li>Add internet message format (imf) name constants necessary for email communication</li>
-        <h3>Libraries:</h3>
-        <li>Add directory "library/" for special summary source files</li>
-        <li>Create header files in directory "include/" with constants, variables and function signatures</li>
-        <li>Move file "cyboi.c" from directory "controller/" into separate directory "cyboi/" destined only for executable</li>
-        <li>Remove keyword "static" before any variables in directory "variable/", so that they are valid and usable globally across libraries</li>
-        <li>Adapt all source code to new header file includes</li>
+        <li>TODO</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOL</h2>
+    <ul>
+        <li>TODO</li>
     </ul>
 </section>
 
 <section class="container">
     <h2>Project</h2>
     <ul>
-        <h3>CMake Scripts:</h3>
-        <li>Refactor configuration files in order to produce shared libraries</li>
-        <li>Add shared libraries for sub directories of "src/", "src/executor/" and "src/executor/representer/"</li>
-        <li>Reintegrate external libraries</li>
-        <li>Generate binaries into directories "bin/" for executable and into "lib/" for libraries</li>
+        <li>TODO</li>
     </ul>
 </section>
 

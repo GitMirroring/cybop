@@ -64,12 +64,12 @@
         <div class="row mt-4">
             <div class="col-sm-12 text-left">
                 <p>
-                    Copyright &copy; 1999-2022.<br/>
+                    Copyright &copy; 1999-2023.<br/>
                     Except where otherwise noted, content on this site is licensed under a Creative Commons Attribution 4.0 International license.<br/>
                     Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0).
                 </p>
                 <p>
-                    Last Update: 2022-12-06
+                    Last Update: 2023-04-04
                 </p>
             </div>
         </div>
