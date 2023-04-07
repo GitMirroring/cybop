@@ -14,6 +14,8 @@
 Library
 _______
 
+        * Comment out unused integer constants in order to reduce file size of source and binaries
+
         * Try to include and use a cyboi shared library in a qt application
         * Provide something like an "initialise_library" function to set up global variables, knowledge memory etc. which are necessary when using for example the xdt library standalone only
         * Provide knowledge memory, stack memory etc. as global variables, so that applications external to cyboi may use them

@@ -24,32 +24,39 @@
 #
 
 #
-# Include root directories.
+# glut library
 #
 
+#find_package(GLUT)
+
 #
-# CAUTION! The list does NOT contain interface include files provided
-# by the libraries but those which are REQUIRED by the source files.
+# opengl library
+#
+# Legacy: GL
+# New: GLVND (GL vendor-neutral)
+#
+# Old solution:
+# find_package(OpenGL REQUIRED)
+#
+# New solution:
+# find_package(OpenGL REQUIRED COMPONENTS OpenGL)
+#
+#find_package(OpenGL REQUIRED COMPONENTS OpenGL)
+
+#
+# pthread library
 #
 
-target_include_directories(cyboi-mapper PUBLIC
-    "${ROOT_DIR}/include"
-    "${ROOT_DIR}/include/executor"
-)
+find_package(Threads REQUIRED)
 
-target_include_directories(cyboi-logger PUBLIC
-    "${ROOT_DIR}/include"
-)
+#
+# x11 library
+#
 
-target_include_directories(cyboi-applicator PUBLIC
-    "${ROOT_DIR}/include"
-    "${ROOT_DIR}/include/executor"
-)
+#find_package(X11)
 
-target_include_directories(cyboi-controller PUBLIC
-    "${ROOT_DIR}/include"
-)
+#
+# xcb library
+#
 
-target_include_directories(${BINARY_NAME} PUBLIC
-    "${ROOT_DIR}/include"
-)
+find_package(XCB)

@@ -24,32 +24,12 @@
 #
 
 #
-# Include root directories.
+# Link libraries.
 #
 
-#
-# CAUTION! The list does NOT contain interface include files provided
-# by the libraries but those which are REQUIRED by the source files.
-#
-
-target_include_directories(cyboi-mapper PUBLIC
-    "${ROOT_DIR}/include"
-    "${ROOT_DIR}/include/executor"
-)
-
-target_include_directories(cyboi-logger PUBLIC
-    "${ROOT_DIR}/include"
-)
-
-target_include_directories(cyboi-applicator PUBLIC
-    "${ROOT_DIR}/include"
-    "${ROOT_DIR}/include/executor"
-)
-
-target_include_directories(cyboi-controller PUBLIC
-    "${ROOT_DIR}/include"
-)
-
-target_include_directories(${BINARY_NAME} PUBLIC
-    "${ROOT_DIR}/include"
+target_link_libraries(${BINARY_NAME}
+    # math library
+    m
+    ${CMAKE_THREAD_LIBS_INIT}
+    ${XCB_LIBRARIES}
 )

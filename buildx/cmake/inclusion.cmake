@@ -24,7 +24,7 @@
 #
 
 #
-# Include executor directories.
+# Include directories.
 #
 
 #
@@ -32,50 +32,9 @@
 # by the libraries but those which are REQUIRED by the source files.
 #
 
-target_include_directories(cyboi-executor-algorithm PUBLIC
-    "${ROOT_DIR}/include"
-    "${ROOT_DIR}/include/executor"
-    "${ROOT_DIR}/include/executor/representer"
-)
-
-target_include_directories(cyboi-executor-arithmetic PUBLIC
-    "${ROOT_DIR}/include"
-    "${ROOT_DIR}/include/executor"
-)
-
-target_include_directories(cyboi-executor-client PUBLIC
+target_include_directories(${BINARY_NAME} PUBLIC
     "${XCB_INCLUDE_DIRS}"
     "${ROOT_DIR}/include"
     "${ROOT_DIR}/include/executor"
     "${ROOT_DIR}/include/executor/representer"
-)
-
-target_include_directories(cyboi-executor-communication PUBLIC
-    "${XCB_INCLUDE_DIRS}"
-    "${ROOT_DIR}/include"
-    "${ROOT_DIR}/include/executor"
-    "${ROOT_DIR}/include/executor/representer"
-)
-
-target_include_directories(cyboi-executor-knowledge PUBLIC
-    "${ROOT_DIR}/include"
-    "${ROOT_DIR}/include/executor"
-    "${ROOT_DIR}/include/executor/representer"
-)
-
-target_include_directories(cyboi-executor-server PUBLIC
-    "${XCB_INCLUDE_DIRS}"
-    "${ROOT_DIR}/include"
-    "${ROOT_DIR}/include/executor"
-    "${ROOT_DIR}/include/executor/representer"
-)
-
-target_include_directories(cyboi-executor-shell PUBLIC
-    "${ROOT_DIR}/include"
-    "${ROOT_DIR}/include/executor"
-)
-
-target_include_directories(cyboi-executor-system PUBLIC
-    "${ROOT_DIR}/include"
-    "${ROOT_DIR}/include/executor"
 )

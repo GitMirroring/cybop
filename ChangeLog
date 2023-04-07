@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-04-07  Christian Heller  <christian.heller@cybop.org>
+
+        * Add file "src/cyboi/cyboix.c" representing a monolithic executable "cyboix" without shared libraries
+        * Add directory "buildx/" providing scripts to build a monolithic executable "cyboix" without shared libraries
+
 2023-04-04  Christian Heller  <christian.heller@cybop.org>
 
         * Fix compilation bugs caused by missing includes

@@ -79,9 +79,6 @@ target_link_libraries(cyboi-executor-system
     ${CMAKE_THREAD_LIBS_INIT}
 )
 
-#
-# TODO:
-#
 #if(GLUT_FOUND)
 #    include_directories(${GLUT_INCLUDE_DIRS})
     # overwrite _glut_libraries only with entries that exist

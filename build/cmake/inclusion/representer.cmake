@@ -28,8 +28,8 @@
 #
 
 #
-# CAUTION! The list does NOT contain interface include files provided by
-# the library but those which are REQUIRED by the library source files.
+# CAUTION! The list does NOT contain interface include files provided
+# by the libraries but those which are REQUIRED by the source files.
 #
 
 target_include_directories(cyboi-executor-representer-binary PUBLIC

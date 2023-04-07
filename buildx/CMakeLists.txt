@@ -35,7 +35,7 @@ cmake_minimum_required(VERSION 3.18.4)
 project(cybop LANGUAGES C VERSION 0.26.0)
 
 # Set binary executable name.
-set(BINARY_NAME cyboi)
+set(BINARY_NAME cyboix)
 
 # Get current year.
 string(TIMESTAMP CURRENT_YEAR %Y)
@@ -47,7 +47,7 @@ string(CONCAT COPYRIGHT_INFO "Copyright (C) 1999-" ${CURRENT_YEAR} ". Christian 
 set(ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/.." CACHE PATH "root dir" FORCE)
 
 # Set cyboi executable sources.
-set(CYBOI_EXECUTABLE_SOURCES ${ROOT_DIR}/src/cyboi/cyboi.c)
+set(CYBOI_EXECUTABLE_SOURCES ${ROOT_DIR}/src/cyboi/cyboix.c)
 
 #
 # Set module path for finding external libraries.
@@ -57,10 +57,7 @@ set(CYBOI_EXECUTABLE_SOURCES ${ROOT_DIR}/src/cyboi/cyboi.c)
 set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 # Find library packages.
-include(cmake/finding/finding.cmake)
-
-# Set library sources.
-include(cmake/setting/setting.cmake)
+include(cmake/finding.cmake)
 
 #
 # Define filesystem paths for output files.
@@ -78,50 +75,19 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${ROOT_DIR}/bin)
 # Configure file with macros to pass values to cyboi source code.
 configure_file(cmake_configuration.h.in ${ROOT_DIR}/include/variable/cmake_configuration.h)
 
-# Add libraries.
-include(cmake/adding/adding.cmake)
-
-# Add executable to be created by make.
+# Add MONOLITHIC executable to be created by make, WITHOUT shared libraries.
 add_executable(${BINARY_NAME} ${CYBOI_EXECUTABLE_SOURCES})
 
 # Link libraries.
-include(cmake/linking/linking.cmake)
+include(cmake/linking.cmake)
 
 # Include directories.
-include(cmake/inclusion/inclusion.cmake)
+include(cmake/inclusion.cmake)
 
 # Define library specifics.
-include(cmake/definition/definition.cmake)
-
-# TEST START
-
-# Add MONOLITHIC executable WITHOUT shared libraries.
-#add_executable(cyboix ${ROOT_DIR}/src/cyboi/monolithic_cyboi.c)
-add_executable(cyboix ${ROOT_DIR}/src/cyboi/cyboix.c)
-
-# Link external libraries to MONOLITHIC executable.
-target_link_libraries(cyboix
-    # math library
-    m
-    ${CMAKE_THREAD_LIBS_INIT}
-    ${XCB_LIBRARIES}
-)
-
-# TEST END
-
-# Generate api.
-include(cmake/api.cmake)
-
-# Adjust copyright.
-# include(cmake/versioning.cmake)
-
-# Pack distributable using cpack.
-include(cmake/packaging.cmake)
+include(cmake/definition.cmake)
 
 # Add make target.
 add_custom_target(clean-all
     COMMAND ${CMAKE_MAKE_PROGRAM} clean
     COMMAND ${CMAKE_COMMAND} -P cmake/clean_all.cmake)
-
-# Add make targets.
-add_custom_target(dev COMMAND ${CMAKE_MAKE_PROGRAM} clean cyboi api)

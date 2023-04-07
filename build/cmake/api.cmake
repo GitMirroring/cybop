@@ -2,7 +2,7 @@ FIND_PACKAGE(Python3 REQUIRED COMPONENTS Interpreter REQUIRED)
 
 add_custom_target(api
         COMMAND ${CMAKE_COMMAND} -E echo api
-        COMMENT "generate api data and api website")
+        COMMENT "Generate api data and api website")
 
 add_custom_command(TARGET api
         COMMAND pip3 install -r requirements.txt
