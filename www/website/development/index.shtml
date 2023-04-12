@@ -45,20 +45,6 @@
 </section>
 
 <section class="container">
-    <h2>Bug Reporting</h2>
-    <p>
-        Developers use their internal TODO lists.
-        Additionally, a list of errors and wishes sent by users is managed in the Savannah portal.
-    </p>
-    <p>
-        <a href="http://savannah.nongnu.org/bugs/?group=cybop">http://savannah.nongnu.org/bugs/?group=cybop</a>
-    </p>
-    <a href="https://savannah.nongnu.org/bugs/?group=cybop&func=additem">
-        <span class="badge rounded-pill p-3" style="font-size: 14pt;">Submit Bug Report</span>
-    </a>
-</section>
-
-<section class="container">
     <h2>Mailing List</h2>
     <p>
         There is currently just one mailing list in the project,

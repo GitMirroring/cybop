@@ -11,6 +11,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+git
+___
+
+        * Migrate cybop svn to git
+
 Library
 _______
 
@@ -35,7 +40,6 @@ IDE
 ___
 
         * Create qt c++ application as cybol ide (tree on the left, tabs on the right with table/text/cybol-xml/json
-        * Migrate cybop svn to git
 
         * Check for new cmake ideas
             https://iamsorush.com/posts/cpp-cmake-build/

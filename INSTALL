@@ -69,20 +69,18 @@ The following are names of Debian packages.
 CYBOL application execution:
     libc6
     xorg
-    freeglut3
+    [freeglut3 (currently NOT used yet in cyboi)]
 
 CYBOI compilation:
     cmake (version >= 3.0.2)
-    gcc
+    gcc (automatically installed by cmake)
     libc-dev | libc6-dev
     xorg-dev
     libxcb1-dev (automatically installed by libx11-dev and xorg-dev; but libx11-dev "xlibs" actually not used anymore in cyboi)
-    freeglut3-dev
+    [freeglut3-dev (currently NOT used yet in cyboi)]
 
 CYBOP development (helpful, but not essential):
-    subversion
-    clang-format
-    cppcheck (cppcheck-gui)
+    subversion (in future versions probably git)
     valgrind (graphviz, kcachegrind, valkyrie)
     python3, python-is-python3, python3-pip (for cybol api documentation generation in cmake target and build scripts)
 

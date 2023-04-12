@@ -93,22 +93,6 @@ include(cmake/inclusion/inclusion.cmake)
 # Define library specifics.
 include(cmake/definition/definition.cmake)
 
-# TEST START
-
-# Add MONOLITHIC executable WITHOUT shared libraries.
-#add_executable(cyboix ${ROOT_DIR}/src/cyboi/monolithic_cyboi.c)
-add_executable(cyboix ${ROOT_DIR}/src/cyboi/cyboix.c)
-
-# Link external libraries to MONOLITHIC executable.
-target_link_libraries(cyboix
-    # math library
-    m
-    ${CMAKE_THREAD_LIBS_INIT}
-    ${XCB_LIBRARIES}
-)
-
-# TEST END
-
 # Generate api.
 include(cmake/api.cmake)
 
