@@ -19,16 +19,14 @@
 <section class="container">
     <h2>Source Code</h2>
     <p>
-        There are currently about 464 thousand lines of source code in the cyboi interpreter.
-        They belong to about 1.800 files and are organised in about 500 sub directories.
+        The source code repository is managed using the Git version control system (VCS).
+        Historically, it was the Concurrent Versions System (CVS) first, then Subversion (SVN), now Git.
     </p>
     <p>
-        Our source code repository is managed using the Subversion (SVN) centralised version control system.
+        Checkout instructions:<br/>
+        <a href="https://savannah.nongnu.org/git/?group=cybop">https://savannah.nongnu.org/git/?group=cybop</a>
     </p>
-    <p>
-        <a href="http://savannah.nongnu.org/svn/?group=cybop">http://savannah.nongnu.org/svn/?group=cybop</a>
-    </p>
-    <a href="http://svn.savannah.gnu.org/viewvc/cybop/trunk/">
+    <a href="https://git.savannah.nongnu.org/cgit/cybop.git">
         <span class="badge rounded-pill p-3" style="font-size: 14pt;">Browse Sources Repository</span>
     </a>
 </section>
