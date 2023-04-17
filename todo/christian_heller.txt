@@ -11,11 +11,6 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-git
-___
-
-        * Migrate cybop svn to git
-
 Library
 _______
 

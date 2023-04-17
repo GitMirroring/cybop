@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-04-17  Christian Heller  <christian.heller@cybop.org>
+
+        * Migrate cybop svn to git
+
 2023-04-07  Christian Heller  <christian.heller@cybop.org>
 
         * Add file "src/cyboi/cyboix.c" representing a monolithic executable "cyboix" without shared libraries
