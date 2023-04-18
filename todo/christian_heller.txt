@@ -16,6 +16,8 @@ _______
 
         * Comment out unused integer constants in order to reduce file size of source and binaries
 
+        * Building for Multiple Platforms | Qt Creator Manual
+            https://doc.qt.io/qtcreator/creator-building-targets.html
         * Try to include and use a cyboi shared library in a qt application
         * Provide something like an "initialise_library" function to set up global variables, knowledge memory etc. which are necessary when using for example the xdt library standalone only
         * Provide knowledge memory, stack memory etc. as global variables, so that applications external to cyboi may use them
@@ -399,6 +401,9 @@ Awakener
 ________
 
         * Reactivate awakener in file "??" (search)
+
+        * Read:
+            https://bytefreaks.net/howtos/c-how-to-tell-the-status-of-a-socket
 
         * Verify that terminal awaken works, since cybol application "tui" does exit after escape only if pressing one more button
         * Is last char detected only if another char is following or also if "remaining count" is zero?
