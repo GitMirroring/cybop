@@ -78,6 +78,8 @@ CYBOI compilation:
     xorg-dev
     libxcb1-dev (automatically installed by libx11-dev and xorg-dev; but libx11-dev "xlibs" actually not used anymore in cyboi)
     [freeglut3-dev (currently NOT used yet in cyboi)]
+    python3-venv (for python script generating api)
+    python3-pip (for python script generating api)
 
 CYBOP development (helpful, but not essential):
     subversion (in future versions probably git)
