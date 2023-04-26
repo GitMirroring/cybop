@@ -27,19 +27,13 @@
 #define RESPONSE_CODE_SMTP_MODEL_CONSTANT_HEADER
 
 //
-// System interface
-//
-
-#include <stddef.h> // wchar_t
-
-//
 // Library interface
 //
 
 #include "constant.h"
 
 //
-// 1xx - client error
+// 1xx - accepted but confirmation necessary
 //
 
 /** The 101 response code smtp model. */
@@ -47,7 +41,7 @@ static unsigned char* NUMERICAL_101_RESPONSE_CODE_SMTP_MODEL = "101 Server conne
 static int* NUMERICAL_101_RESPONSE_CODE_SMTP_MODEL_COUNT = NUMBER_66_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// 2xx - informational
+// 2xx - success
 //
 
 /** The 211 response code smtp model. */
@@ -83,7 +77,7 @@ static unsigned char* NUMERICAL_252_RESPONSE_CODE_SMTP_MODEL = "252 The server c
 static int* NUMERICAL_252_RESPONSE_CODE_SMTP_MODEL_COUNT = NUMBER_113_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// 3xx - accepted
+// 3xx - accepted but more information necessary
 //
 
 /** The 334 response code smtp model. */
@@ -95,7 +89,7 @@ static unsigned char* NUMERICAL_354_RESPONSE_CODE_SMTP_MODEL = "354 The server c
 static int* NUMERICAL_354_RESPONSE_CODE_SMTP_MODEL_COUNT = NUMBER_142_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// 4xx - server error
+// 4xx - temporary server error
 //
 
 /** The 421 response code smtp model. */
@@ -147,7 +141,7 @@ static unsigned char* NUMERICAL_471_RESPONSE_CODE_SMTP_MODEL = "471 Mail server 
 static int* NUMERICAL_471_RESPONSE_CODE_SMTP_MODEL_COUNT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// 5xx - data error
+// 5xx - fatal server error
 //
 
 /** The 500 response code smtp model. */
