@@ -6,7 +6,7 @@ from apiParser import Parser
 class ApiParserTest(unittest.TestCase):
     def test_parsing_logic(self):
         parser = Parser()
-        result = parser.parse_api_javadoc('../../src/constant/format/cybol/logic/calculate_logic_cybol_format.c')
+        result = parser.parse_api_javadoc('../../include/constant/format/cybol/logic/calculate_logic_cybol_format.c')
         self.assertEqual(1, len(result))
         calculate_add_logic = next(filter(lambda x: x.name == 'calculate/add', result), None)
         self.assertIsNotNone(calculate_add_logic)
@@ -21,7 +21,7 @@ class ApiParserTest(unittest.TestCase):
 
     def test_parsing_state(self):
         parser = Parser()
-        result = parser.parse_api_javadoc('../../src/constant/format/cybol/state/number_state_cybol_format.c')
+        result = parser.parse_api_javadoc('../../include/constant/format/cybol/state/number_state_cybol_format.c')
         self.assertEqual(6, len(result))
         integer_state = next(filter(lambda x: x.name == 'number/integer', result), None)
         self.assertIsNotNone(integer_state)

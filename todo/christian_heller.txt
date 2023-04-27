@@ -11,52 +11,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-Library
-_______
-
-        * Comment out unused integer constants in order to reduce file size of source and binaries
-
-        * Building for Multiple Platforms | Qt Creator Manual
-            https://doc.qt.io/qtcreator/creator-building-targets.html
-        * Try to include and use a cyboi shared library in a qt application
-        * Provide something like an "initialise_library" function to set up global variables, knowledge memory etc. which are necessary when using for example the xdt library standalone only
-        * Provide knowledge memory, stack memory etc. as global variables, so that applications external to cyboi may use them
-            Within cyboi, these memory variables may be forwarded as parametre (argument) as was done up to now.
-            But when using cyboi as library, these memory variables should additionally be provided as global variables, which is just a few lines of code.
-
-        TRY TO:
-        * Remove keyword "static" before any constants in directory "constant/", since header files should not contain any static variables
-        * Add keyword "const" to definition of variables in directory "constant/"
-        * Treat constant pointers specially:
-            https://stackoverflow.com/questions/12042549/define-constant-variables-in-c-header
-
-        * Verify correctness of function calls in file "operation_handler.c"
-            for example in section "manipulate" function "calculate" is called instead
-
-IDE
-___
-
-        * Create qt c++ application as cybol ide (tree on the left, tabs on the right with table/text/cybol-xml/json
-
-        * Check for new cmake ideas
-            https://iamsorush.com/posts/cpp-cmake-build/
-
-Licencing
-_________
-
-        * Apply multi-licensing to cyboi (or a fragment of it called "cyblib"), in order to make it usable by proprietary applications
-            German: Mehrfachlizenzierung
-        * Offer the following licences: LGPL version 3, GPL version 2, GPL version 3
-            similar to "Qt for Open Source Development":
-            https://www.qt.io/download-open-source?hsCtaTracking=e9c17691-91a0-4616-9bc2-1a6a6c318914%7C963686f8-2c68-442a-b17b-3d73ce95b819
-
 Kommunikation im Medizinwesen (KIM)
 ___________________________________
 
-        POSSIBLY put all of the following file with constants into a common directory like "internet" or "email" ??
-        * Add simple mail transfer protocol (smtp) name constants in directory "constant/name/smtp/"
-        * Add post office protocol (pop) name constants in directory "constant/name/pop/"
-        * Add internet message access protocol (imap) name constants in directory "constant/name/imap/"
+        * Add smtp deserialiser
+        * Ignore "Unstructured Header Field Bodies" in smtp deserialiser
+        * Unfold multiple-line representation of a field body portion of a header field into a single line of characters with unlimited length
 
         * Add smtp serialiser
             consider internet message format (imf) only chapter 3.6 syntax in https://www.rfc-editor.org/rfc/rfc5322
@@ -64,10 +24,6 @@ ___________________________________
         * Assure that header fields are no longer than 78 characters, as recommended by the ietf rfc
         * Assure that lines of characters in the body are limited to 78 characters
             following the ietf rfc, they MUST be limited to 998 characters, and SHOULD be limited to 78 characters, excluding the CRLF
-
-        * Add smtp deserialiser
-        * Ignore "Unstructured Header Field Bodies" in smtp deserialiser
-        * Unfold multiple-line representation of a field body portion of a header field into a single line of characters with unlimited length
 
         * Add pop serialiser
         * Add pop deserialiser
@@ -106,6 +62,61 @@ ___
         * Delete superfluous file "record_xdt_name.c"
 
         * Activate or delete files "hierarchy_field_xdt_deserialiser_FUTURE_BDT_4.c" and "hierarchy_field_xdt_selector_FUTURE_BDT_4.c"
+
+Library
+_______
+
+        * Comment out unused integer constants in order to reduce file size of source and binaries
+
+        * Building for Multiple Platforms | Qt Creator Manual
+            https://doc.qt.io/qtcreator/creator-building-targets.html
+
+        Using qt from cyboi c:
+            https://stackoverflow.com/questions/21267066/using-a-qt-library-from-a-c-program
+
+        Using cyboi c functionality from qt app:
+        * Try to include and use a cyboi shared library in a qt application
+        * Solve possible compilation problems
+            Problem:
+            - object files cannot be linked against each other due to mangeling of the c++ compiler
+            - functions may be overloaded in c++ (same name, different signature = arguments)
+            - also symbols may have the same name in different namespaces
+            - mangeling does encode symbols in a way that they cannot be mixed up
+            - this may also happen to symbols in cyboi c or header files so that they cannot be found within the c shared library
+            Solution:
+            - insert special compiler directives into the cyboi c header files
+            - in order to DISABLE mangeling of the compiler at these places
+
+        * Provide something like an "initialise_library" function to set up global variables, knowledge memory etc. which are necessary when using for example the xdt library standalone only
+        * Provide knowledge memory, stack memory etc. as global variables, so that applications external to cyboi may use them
+            Within cyboi, these memory variables may be forwarded as parametre (argument) as was done up to now.
+            But when using cyboi as library, these memory variables should additionally be provided as global variables, which is just a few lines of code.
+
+        TRY TO:
+        * Remove keyword "static" before any constants in directory "constant/", since header files should not contain any static variables
+        * Add keyword "const" to definition of variables in directory "constant/"
+        * Treat constant pointers specially:
+            https://stackoverflow.com/questions/12042549/define-constant-variables-in-c-header
+
+        * Verify correctness of function calls in file "operation_handler.c"
+            for example in section "manipulate" function "calculate" is called instead
+
+IDE
+___
+
+        * Create qt c++ application as cybol ide (tree on the left, tabs on the right with table/text/cybol-xml/json
+
+        * Check for new cmake ideas
+            https://iamsorush.com/posts/cpp-cmake-build/
+
+Licencing
+_________
+
+        * Apply multi-licensing to cyboi (or a fragment of it called "cyblib"), in order to make it usable by proprietary applications
+            German: Mehrfachlizenzierung
+        * Offer the following licences: LGPL version 3, GPL version 2, GPL version 3
+            similar to "Qt for Open Source Development":
+            https://www.qt.io/download-open-source?hsCtaTracking=e9c17691-91a0-4616-9bc2-1a6a6c318914%7C963686f8-2c68-442a-b17b-3d73ce95b819
 
 Verifier
 ________

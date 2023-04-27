@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMMAND_POP3_MODEL_CONSTANT_HEADER
-#define COMMAND_POP3_MODEL_CONSTANT_HEADER
+#ifndef RESPONSE_IMAP_MODEL_CONSTANT_HEADER
+#define RESPONSE_IMAP_MODEL_CONSTANT_HEADER
 
 //
 // Library interface
@@ -32,53 +32,65 @@
 
 #include "constant.h"
 
-/** The APOP command pop3 model. */
-static unsigned char* APOP_COMMAND_POP3_MODEL = "APOP";
-static int* APOP_COMMAND_POP3_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The BAD response imap model. */
+static unsigned char* BAD_RESPONSE_IMAP_MODEL = "BAD";
+static int* BAD_RESPONSE_IMAP_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The DELE command pop3 model. */
-static unsigned char* DELE_COMMAND_POP3_MODEL = "DELE";
-static int* DELE_COMMAND_POP3_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The BYE response imap model. */
+static unsigned char* BYE_RESPONSE_IMAP_MODEL = "BYE";
+static int* BYE_RESPONSE_IMAP_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The LIST command pop3 model. */
-static unsigned char* LIST_COMMAND_POP3_MODEL = "LIST";
-static int* LIST_COMMAND_POP3_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The CAPABILITY response imap model. */
+static unsigned char* CAPABILITY_RESPONSE_IMAP_MODEL = "CAPABILITY";
+static int* CAPABILITY_RESPONSE_IMAP_MODEL_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The NOOP command pop3 model. */
-static unsigned char* NOOP_COMMAND_POP3_MODEL = "NOOP";
-static int* NOOP_COMMAND_POP3_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The ENABLED response imap model. */
+static unsigned char* ENABLED_RESPONSE_IMAP_MODEL = "ENABLED";
+static int* ENABLED_RESPONSE_IMAP_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The PASS command pop3 model. */
-static unsigned char* PASS_COMMAND_POP3_MODEL = "PASS";
-static int* PASS_COMMAND_POP3_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The ESEARCH response imap model. */
+static unsigned char* v_RESPONSE_IMAP_MODEL = "ESEARCH";
+static int* ESEARCH_RESPONSE_IMAP_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The QUIT command pop3 model. */
-static unsigned char* QUIT_COMMAND_POP3_MODEL = "QUIT";
-static int* QUIT_COMMAND_POP3_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The EXISTS response imap model. */
+static unsigned char* EXISTS_RESPONSE_IMAP_MODEL = "EXISTS";
+static int* EXISTS_RESPONSE_IMAP_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The RETR command pop3 model. */
-static unsigned char* RETR_COMMAND_POP3_MODEL = "RETR";
-static int* RETR_COMMAND_POP3_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The EXPUNGE response imap model. */
+static unsigned char* EXPUNGE_RESPONSE_IMAP_MODEL = "EXPUNGE";
+static int* EXPUNGE_RESPONSE_IMAP_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The RSET command pop3 model. */
-static unsigned char* RSET_COMMAND_POP3_MODEL = "RSET";
-static int* RSET_COMMAND_POP3_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The FETCH response imap model. */
+static unsigned char* FETCH_RESPONSE_IMAP_MODEL = "FETCH";
+static int* FETCH_RESPONSE_IMAP_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The STAT command pop3 model. */
-static unsigned char* STAT_COMMAND_POP3_MODEL = "STAT";
-static int* STAT_COMMAND_POP3_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The FLAGS response imap model. */
+static unsigned char* FLAGS_RESPONSE_IMAP_MODEL = "FLAGS";
+static int* FLAGS_RESPONSE_IMAP_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The TOP command pop3 model. */
-static unsigned char* TOP_COMMAND_POP3_MODEL = "TOP";
-static int* TOP_COMMAND_POP3_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The LIST response imap model. */
+static unsigned char* LIST_RESPONSE_IMAP_MODEL = "LIST";
+static int* LIST_RESPONSE_IMAP_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The UIDL command pop3 model. */
-static unsigned char* UIDL_COMMAND_POP3_MODEL = "UIDL";
-static int* UIDL_COMMAND_POP3_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The NAMESPACE response imap model. */
+static unsigned char* NAMESPACE_RESPONSE_IMAP_MODEL = "NAMESPACE";
+static int* NAMESPACE_RESPONSE_IMAP_MODEL_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The USER command pop3 model. */
-static unsigned char* USER_COMMAND_POP3_MODEL = "USER";
-static int* USER_COMMAND_POP3_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The NO response imap model. */
+static unsigned char* NO_RESPONSE_IMAP_MODEL = "NO";
+static int* NO_RESPONSE_IMAP_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* COMMAND_POP3_MODEL_CONSTANT_HEADER */
+/** The OK response imap model. */
+static unsigned char* OK_RESPONSE_IMAP_MODEL = "OK";
+static int* OK_RESPONSE_IMAP_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The PREAUTH response imap model. */
+static unsigned char* PREAUTH_RESPONSE_IMAP_MODEL = "PREAUTH";
+static int* PREAUTH_RESPONSE_IMAP_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The STATUS response imap model. */
+static unsigned char* STATUS_RESPONSE_IMAP_MODEL = "STATUS";
+static int* STATUS_RESPONSE_IMAP_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/* RESPONSE_IMAP_MODEL_CONSTANT_HEADER */
 #endif

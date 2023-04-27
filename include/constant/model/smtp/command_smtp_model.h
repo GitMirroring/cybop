@@ -27,12 +27,6 @@
 #define COMMAND_SMTP_MODEL_CONSTANT_HEADER
 
 //
-// System interface
-//
-
-#include <stddef.h> // wchar_t
-
-//
 // Library interface
 //
 

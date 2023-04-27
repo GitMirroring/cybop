@@ -18,6 +18,16 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-04-27  Christian Heller  <christian.heller@cybop.org>
+
+        * Fix problem with api generator by adapting format constants paths from "src/" to "include/" in directory "build/scripts/"
+
+2023-04-26  Christian Heller  <christian.heller@cybop.org>
+
+        * Add simple mail transfer protocol (smtp) constants in directory "include/constant/model/smtp/"
+        * Add post office protocol (pop) constants in directory "include/constant/model/pop3/"
+        * Add internet message access protocol (imap) constants in directory "include/constant/model/imap/"
+
 2023-04-17  Christian Heller  <christian.heller@cybop.org>
 
         * Migrate cybop svn to git
@@ -6143,7 +6153,7 @@
 
 2010-08-10  Enrico Gallus  <enrico.gallus@googlemail.com>
 
-        * Extend files constant/model/internet_protocol_model.c and constant/model/service_port_model.c
+        * Extend files "constant/model/internet_protocol_model.c" and "constant/model/service_port_model.c"
 
 2010-08-06  Christian Heller  <christian.heller@tuxtax.de>
 
