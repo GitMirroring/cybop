@@ -1,0 +1,69 @@
+<!--
+    This application demonstrates the client side of an smtp communication
+    consisting of several command/response cycles.
+-->
+
+<node>
+
+    <!-- Build up knowledge tree -->
+
+    <node name="create_fileid" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="id"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="device" channel="inline" format="text/plain" model="internet/smtp_client/app.cybol"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+    <node name="initialise_app" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+    <!-- Open channels -->
+
+    <node name="open_stdout" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="device" channel="inline" format="text/plain" model="standard-output"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
+    </node>
+    <node name="open_socket" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
+        <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
+        <node name="style" channel="inline" format="text/plain" model="stream"/>
+        <node name="protocol" channel="inline" format="text/plain" model="tcp"/>
+        <node name="device" channel="inline" format="text/plain" model="127.0.0.1"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".server_socket"/>
+    </node>
+
+    <!-- Send email -->
+
+    <node name="send_email" channel="inline" format="text/cybol-path" model=".send"/>
+
+    <!-- Close channels -->
+
+    <node name="close_socket" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".server_socket"/>
+    </node>
+    <node name="close_stdout" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
+    </node>
+
+    <!-- Exit programme -->
+
+    <node name="exit_programme" channel="inline" format="live/exit" model=""/>
+
+</node>

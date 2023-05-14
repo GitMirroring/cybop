@@ -1,0 +1,18 @@
+<node>
+
+    <!-- The user interface -->
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+
+    <!-- The socket communication -->
+    <node name="server_socket" channel="inline" format="number/integer" model="-1"/>
+
+    <!-- The send logic -->
+    <node name="send" channel="file" format="element/part" model="internet/smtp_client/send.cybol"/>
+
+    <!-- The message to be sent -->
+    <node name="message" channel="file" format="application/octet-stream" model="internet/smtp_client/message.txt"/>
+
+    <!-- The received data -->
+    <node name="response" channel="inline" format="application/octet-stream" model=""/>
+
+</node>

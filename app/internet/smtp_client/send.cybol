@@ -1,0 +1,207 @@
+<node>
+
+    <!-- HELO -->
+
+    <node name="print_command" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="HELO 127.0.0.1"/>
+    </node>
+    <node name="send_command" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/smtp-command"/>
+        <node name="message" channel="inline" format="application/octet-stream" model="HELO 127.0.0.1"/>
+    </node>
+
+    <node name="receive_response" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".server_socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/smtp-response"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".response"/>
+    </node>
+    <node name="print_response" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="application/octet-stream"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".response"/>
+    </node>
+    <node name="reset_response_model" channel="inline" format="modify/empty" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".response"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+    <!-- MAIL FROM -->
+
+    <node name="print_command" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="MAIL FROM:&#60;christian.heller@cybop.org&#62;"/>
+    </node>
+    <node name="send_command" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/smtp-command"/>
+        <node name="message" channel="inline" format="application/octet-stream" model="MAIL FROM:&#60;christian.heller@cybop.org&#62;"/>
+    </node>
+
+    <node name="receive_response" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".server_socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/smtp-response"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".response"/>
+    </node>
+    <node name="print_response" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="application/octet-stream"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".response"/>
+    </node>
+    <node name="reset_response_model" channel="inline" format="modify/empty" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".response"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+    <!-- RCPT TO -->
+
+    <node name="print_command" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="RCPT TO:&#60;christian.heller@cybop.org&#62;"/>
+    </node>
+    <node name="send_command" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/smtp-command"/>
+        <node name="message" channel="inline" format="application/octet-stream" model="RCPT TO:&#60;christian.heller@cybop.org&#62;"/>
+    </node>
+
+    <node name="receive_response" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".server_socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/smtp-response"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".response"/>
+    </node>
+    <node name="print_response" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="application/octet-stream"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".response"/>
+    </node>
+    <node name="reset_response_model" channel="inline" format="modify/empty" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".response"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+    <!-- DATA -->
+
+    <node name="print_command" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="DATA"/>
+    </node>
+    <node name="send_command" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/smtp-command"/>
+        <node name="message" channel="inline" format="application/octet-stream" model="DATA"/>
+    </node>
+
+    <node name="receive_response" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".server_socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/smtp-response"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".response"/>
+    </node>
+    <node name="print_response" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="application/octet-stream"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".response"/>
+    </node>
+    <node name="reset_response_model" channel="inline" format="modify/empty" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".response"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+    <!-- Message -->
+
+    <node name="print_command" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Message ..."/>
+    </node>
+    <node name="send_command" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/smtp-command"/>
+        <node name="message" channel="inline" format="application/octet-stream" model=".message"/>
+    </node>
+
+    <node name="receive_response" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".server_socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/smtp-response"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".response"/>
+    </node>
+    <node name="print_response" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="application/octet-stream"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".response"/>
+    </node>
+    <node name="reset_response_model" channel="inline" format="modify/empty" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".response"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+    <!-- QUIT -->
+
+    <node name="print_command" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="QUIT"/>
+    </node>
+    <node name="send_command" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/smtp-command"/>
+        <node name="message" channel="inline" format="application/octet-stream" model="QUIT"/>
+    </node>
+
+    <node name="receive_response" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".server_socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/smtp-response"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".response"/>
+    </node>
+    <node name="print_response" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="application/octet-stream"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".response"/>
+    </node>
+    <node name="reset_response_model" channel="inline" format="modify/empty" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".response"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+</node>
