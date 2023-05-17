@@ -32,6 +32,38 @@
 </section>
 
 <section class="container">
+    <div class="row mt-5">
+        <div class="col-sm-6 p-5">
+            <img src="/development/architecture/architecture.png" alt="Universal CYBOL Communication" class="img-fluid mx-auto d-block"/>
+        </div>
+        <div class="col-sm-6 p-5">
+            <h2>CYBOI Architecture</h2>
+            <ul>
+                <li>Executable as monolith or with libraries</li>
+                <li>One central event loop running endlessly</li>
+                <li>Applicator as API to CYBOL applications</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="row mt-5">
+        <div class="col-sm-6 p-5">
+            <h2>CYBOI Functionality</h2>
+            <ul>
+                <li>Lifecycle functions as pairs</li>
+                <li>System communication</li>
+                <li>Data manipulation</li>
+            </ul>
+        </div>
+        <div class="col-sm-6 p-5">
+            <img src="/development/architecture/lifecycle.png" alt="Universal CYBOL Communication" class="img-fluid mx-auto d-block"/>
+        </div>
+    </div>
+</section>
+
+<section class="container">
     <h2>Code Conventions</h2>
     <p>
         The style guide recommendations for coding in the C programming language
