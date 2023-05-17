@@ -204,11 +204,29 @@ static int* HTTP_REQUEST_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_305_INTEGER_STATE
 /** The http-response message state cyboi language. */
 static int* HTTP_RESPONSE_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_306_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The imap-command message state cyboi language. */
+static int* IMAP_COMMAND_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_307_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The imap-response message state cyboi language. */
+static int* IMAP_RESPONSE_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_308_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The news message state cyboi language. */
-static int* NEWS_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_307_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* NEWS_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_309_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The pop3-command message state cyboi language. */
+static int* POP3_COMMAND_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_310_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The pop3-reply message state cyboi language. */
+static int* POP3_REPLY_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_311_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The smtp-command message state cyboi language. */
+static int* SMTP_COMMAND_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_312_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The smtp-response message state cyboi language. */
+static int* SMTP_RESPONSE_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_313_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The tui message state cyboi language. */
-static int* TUI_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_308_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* TUI_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_314_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // model

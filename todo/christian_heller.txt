@@ -14,6 +14,7 @@
 Kommunikation im Medizinwesen (KIM)
 ___________________________________
 
+        * Test cybol application "app/internet/smtp_server/" and "app/internet/smtp_client/"
         * Add smtp deserialiser
         * Ignore "Unstructured Header Field Bodies" in smtp deserialiser
         * Unfold multiple-line representation of a field body portion of a header field into a single line of characters with unlimited length

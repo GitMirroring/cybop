@@ -5,12 +5,14 @@
 
 <node>
 
-    <!-- Build up knowledge tree -->
+    <!-- Creation -->
 
     <node name="create_fileid" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="id"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>
+
+    <!-- Initialisation -->
 
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -30,7 +32,7 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
-    <!-- Open channels -->
+    <!-- Opening -->
 
     <node name="open_stdout" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -47,11 +49,11 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
 
-    <!-- Send email -->
+    <!-- Sending -->
 
     <node name="send_email" channel="inline" format="text/cybol-path" model=".send"/>
 
-    <!-- Close channels -->
+    <!-- Closing -->
 
     <node name="close_socket" channel="inline" format="dispatch/close" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
@@ -62,7 +64,7 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
     </node>
 
-    <!-- Exit programme -->
+    <!-- Exiting -->
 
     <node name="exit_programme" channel="inline" format="live/exit" model=""/>
 

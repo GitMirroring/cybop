@@ -35,6 +35,7 @@ Contents
 4 Development
 4.1 Make Targets
 4.2 API
+4.3 Python Scripts for API
 
 5 Distribution
 5.1 Tagging
@@ -364,18 +365,6 @@ See file "build/release.md" for possible make targets and tool usage.
 4.2 API
 _______
 
-- Check out python scripts:
-
-    cd cybop/build/
-    git clone https://github.com/EnricoGallus/CybopBuildScripts.git scripts
-
-OR:
-
-- Update python scripts:
-
-    cd cybop/build/scripts/
-    git pull
-
 - Generate application programming interface (api) using:
 
     make api
@@ -440,27 +429,65 @@ written in cybol:
 It generates the final html file representing the api documentation
 with state and logic.
 
+4.3 Python Scripts for API
+__________________________
+
+Repository origin of the python scripts:
+https://github.com/EnricoGallus/CybopBuildScripts
+
+Owner (only he has the right to push):
+Enrico Gallus <enrico.gallus@googlemail.com>
+
+When others have changed the python scripts, they have to
+raise a pull request following these steps:
+
+1 Clone OR pull repository
+
+cd cybop/build/
+git clone https://github.com/EnricoGallus/CybopBuildScripts.git scripts
+
+OR:
+
+cd cybop/build/scripts/
+git pull
+
+2 Change local source code
+
+3 Push changes (publish) OR raise pull request
+
+git push
+
+OR:
+
+- via web portal github.com
+- fork (GitHub function) a project to have it referenced in ones own user account
+- clone it to work locally with it
+- change it and and commit changes
+- push to remote repo
+- raise a pull (GitHub function) request to the owner on GitHub
+- the owner will then decide if changes get integrated into the source
+
 5 Distribution
 ==============
 
 5.1 Tagging
 ___________
 
-Tagging and branching are very simple in SVN.
-The root node of the trunk/ directory is just copied.
-The graphical kdesvn application does not provide this functionality.
-Therefore, adapt and use the following command line:
+There are two kinds of tags in git:
+- annotated: stored as separate object in database
+- non-annotated (lightweight): stores only the reference to a commit (just like a branch)
 
-svn copy svn+ssh://christian@svn.savannah.nongnu.org/cybop/trunk svn+ssh://christian@svn.savannah.nongnu.org/cybop/tags/cybop-0.14.0 -m "Tag the cybop-0.14.0 release"
+git tag -a cybop-0.24.0 -m "Tag the cybop-0.24.0 release"
 
-The https protocol as in the following example did work with the berliOS portal,
-but it does NOT work with savannah:
+Just like a commit, a tag has to be pushed into the main directory using:
 
-svn copy https://christian@svn.savannah.nongnu.org/cybop/trunk https://christian@svn.savannah.nongnu.org/cybop/tags/cybop-0.14.0 -m "Tag the cybop-0.14.0 release"
+git push origin cybop-0.24.0
 
-It shows the following error:
+OR:
 
-svn: OPTIONS of 'https://christian@svn.savannah.nongnu.org/cybop': SSL handshake failed: SSL error: An unexpected TLS packet was received. (https://svn.savannah.nongnu.org)
+git push origin --tags
+
+The latter pushes ALL locally generated tags into the remote repository.
 
 5.2 Packing
 ___________

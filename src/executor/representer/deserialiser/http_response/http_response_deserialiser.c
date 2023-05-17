@@ -34,7 +34,7 @@
 
 //
 // Many Web servers supply incorrect Content-Type headers with their
-// HTTP responses.  In order to be compatible with these Web servers,
+// HTTP responses. In order to be compatible with these Web servers,
 // Web browsers must consider the content of HTTP responses as well as
 // the Content-Type header when determining the effective mime type of
 // the response. The following document describes an algorithm for
@@ -50,10 +50,10 @@
 /**
  * Deserialises the http response into a model and properties.
  *
- * @param p0 the destination model item (pointer reference)
- * @param p1 the destination properties item (pointer reference)
- * @param p2 the source wide character array
- * @param p3 the source wide character array count
+ * @param p0 the destination model item
+ * @param p1 the destination properties item
+ * @param p2 the source data
+ * @param p3 the source count
  */
 void deserialise_http_response(void* p0, void* p1, void* p2, void* p3) {
 

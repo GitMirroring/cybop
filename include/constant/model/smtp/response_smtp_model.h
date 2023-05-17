@@ -89,7 +89,7 @@ static unsigned char* NUMERICAL_354_RESPONSE_SMTP_MODEL = "354 The server confir
 static int* NUMERICAL_354_RESPONSE_SMTP_MODEL_COUNT = NUMBER_142_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// 4xx - temporary server error
+// 4xx - temporary server error (transient)
 //
 
 /** The 421 response smtp model. */
@@ -141,7 +141,7 @@ static unsigned char* NUMERICAL_471_RESPONSE_SMTP_MODEL = "471 Mail server error
 static int* NUMERICAL_471_RESPONSE_SMTP_MODEL_COUNT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// 5xx - fatal server error
+// 5xx - fatal server error (permanent)
 //
 
 /** The 500 response smtp model. */

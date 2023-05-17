@@ -14,6 +14,11 @@ Add:
 Examples:
 git add directory/: Stage all changes to all files within a directory titled directory
 git add README.md: Stage all changes within the README.md file
+git add -u: stages modified and deleted files only, NOT new files
+
+Seldom:
+git add .: adds the entire directory recursively, including files whose names begin with a dot
+git add -A: stages all files, including new, modified, and deleted files, including files in the current directory and in higher directories that still belong to the same git repository
 
 Workflow:
 - Create a branch:

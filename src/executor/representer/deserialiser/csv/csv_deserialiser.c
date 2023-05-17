@@ -64,7 +64,7 @@ void deserialise_csv(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     // The textline list item.
     void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The index item data, count.
+    // The textline list item data, count.
     void* ld = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* lc = *NULL_POINTER_STATE_CYBOI_MODEL;
 

@@ -126,11 +126,33 @@ static int* HTTP_REQUEST_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_20_INTEGER_
 static wchar_t* HTTP_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/http-response";
 static int* HTTP_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/**
- * The message/news state cybol language.
- */
+/** The message/imap-command state cybol language. */
+static wchar_t* IMAP_COMMAND_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/imap-command";
+static int* IMAP_COMMAND_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The message/imap-response state cybol language. */
+static wchar_t* IMAP_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/imap-response";
+static int* IMAP_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The message/news state cybol language. */
 static wchar_t* NEWS_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/news";
 static int* NEWS_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The message/pop3-command state cybol language. */
+static wchar_t* POP3_COMMAND_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/pop3-command";
+static int* POP3_COMMAND_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The message/pop3-reply state cybol language. */
+static wchar_t* POP3_REPLY_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/pop3-reply";
+static int* POP3_REPLY_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The message/smtp-command state cybol language. */
+static wchar_t* SMTP_COMMAND_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/smtp-command";
+static int* SMTP_COMMAND_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The message/smtp-response state cybol language. */
+static wchar_t* SMTP_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/smtp-response";
+static int* SMTP_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The message/tui state cybol language.

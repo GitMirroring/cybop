@@ -57,7 +57,9 @@ void get_name_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
 
     if (i > *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
+        //
         // A part with the given name was found.
+        //
 
         // Get part at index from source whole part.
         copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
