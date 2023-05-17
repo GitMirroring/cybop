@@ -1,0 +1,121 @@
+
+Git Usage
+=========
+
+Commands
+________
+
+https://github.com/git-guides/git-add
+
+Add:
+- selects a file and moves it to the staging area, marking it for inclusion in the next commit
+- one can select all files, a directory, specific files, or even specific parts of a file for staging and commit
+
+Examples:
+git add directory/: Stage all changes to all files within a directory titled directory
+git add README.md: Stage all changes within the README.md file
+
+Workflow:
+- Create a branch:
+git branch update-readme
+- Checkout to that branch:
+git checkout update-readme
+- Change a file or files
+- Save the file or files
+- Add the files or segments of code that should be included in the next commit:
+git add README.md
+- Commit the changes:
+git commit -m "update the README to include links to contributing guide"
+- Push the changes to the remote branch:
+git push -u origin update-readme
+
+Remove:
+- remove files from the working tree and from the index
+
+Examples:
+- Remove a file both from the Git repository and the filesystem:
+git rm file1.txt
+- Remove a file only from repository, but keep it on the filesystem:
+git rm file2.txt --cached
+- Remove directory and content:
+git rm -r directory
+- Use wildcards which are resolved by the shell and NOT the git command:
+git rm -- *.txt
+
+Confusion:
+- if you git add a deleted file the deletion is staged for commit
+- the language of "add" when you're actually "deleting" can be confusing
+- to be more clear, better think of git "stage" in place of git "add"
+
+Delete a file via GitHub web gui:
+- view any file in your repository
+- click the trash can icon at the top
+- commit the removal just like any other web-based edit
+- "git pull" to update local repo and have the file deleted locally too
+
+git (classic)
+_____________
+
+1 Clone (initial) OR pull (update) repository
+
+cd cybop/build/
+git clone https://github.com/EnricoGallus/CybopBuildScripts.git scripts
+
+OR:
+
+cd cybop/build/scripts/
+git pull
+
+2 Change AND save local source code
+
+3 Push changes (publish)
+
+git push
+
+git (with GitHub)
+_________________
+
+1 fork project via web portal GitHub, to have it referenced in ones own user account
+2 clone it to work locally with it
+3 change it and and commit changes
+4 push to remote GitHub repo
+5 raise pull request to the owner via web portal GitHub
+6 the owner will then decide if changes get integrated into the source
+
+GitHub
+______
+
+https://stackoverflow.com/questions/5009600/difference-between-fork-and-branch-on-github
+
+Repository (Repo):
+- corresponds to the collaborated work of the team
+- across one or many branches
+- all contributors have their own copy of it
+
+Fork:
+- of the main repo corresponds to a contributor's work
+- is really a GitHub (NOT Git) construct
+- stores a clone of the repo in your user account
+- as a clone, it will contain all the branches in the main repo at the time you made the fork
+
+Branch:
+- many branches may exist within a fork and/or in the main repo
+- they can correspond to several kinds of things, depending on how you want to work
+- could refer to a version of the project or different channels of development, like hotfixes or experimental work
+
+Pull Request:
+- corresponds to the task in the GitHub ecosystem
+- to contribute an isolated finished task to the main repo
+- corresponds to the commits made in that task
+- these commits are pulled from either my fork or my branch to the main repo
+
+Commit:
+- a set of changes to the code
+- one of the most interesting things about Git
+- one does NOT transfer files, but logs of changes
+
+Entfernen vertraulicher Daten aus einem Repository
+__________________________________________________
+
+https://docs.github.com/de/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository
+
