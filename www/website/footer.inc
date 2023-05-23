@@ -55,7 +55,7 @@
                 </p>
                 <p>
                     Web: <a href="http://www.cybop.org/">http://www.cybop.org/</a><br/>
-                    Portal: <a href="https://savannah.nongnu.org/projects/">https://savannah.nongnu.org/projects/</a><br/>
+                    Portal: <a href="https://savannah.nongnu.org/projects/cybop/">https://savannah.nongnu.org/projects/cybop/</a><br/>
                 </p>
             </div>
 
