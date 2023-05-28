@@ -55,7 +55,7 @@
 // searcher
 //
 
-#include "../../executor/searcher/TODO_array_searcher.c"
+#include "../../executor/searcher/searcher.c"
 
 //
 // sorter

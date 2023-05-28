@@ -106,12 +106,6 @@ void detect_comparison(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 void detect_moving(void* p0, void* p1, void* p2, void* p3, void* p4);
 
 //
-// mover
-//
-
-void move(void* p0, void* p1, void* p2, void* p3, void* p4);
-
-//
 // packer
 //
 

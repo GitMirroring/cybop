@@ -75,6 +75,12 @@ void find_part(void* p0, void* p1, void* p2);
 void find_part_element(void* p0, void* p1, void* p2, void* p3, void* p4);
 
 //
+// mover
+//
+
+void move(void* p0, void* p1, void* p2, void* p3, void* p4);
+
+//
 // searcher
 //
 

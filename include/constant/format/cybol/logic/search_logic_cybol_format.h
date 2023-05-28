@@ -61,14 +61,14 @@
  *     <node name="element" channel="inline" format="text/plain" model="q"/>
  * </node>
  *
- * <node name="search_string" channel="inline" format="search/binary" model="">
+ * <node name="search_number" channel="inline" format="search/binary" model="">
  *     <node name="index" channel="inline" format="text/cybol-path" model="#index"/>
  *     <node name="list" channel="inline" format="number/integer" model="0,1,2,3,4,5,6,7,8,9"/>
  *     <node name="element" channel="inline" format="number/integer" model="1,2,3"/>
  *     <node name="backward" channel="inline" format="logicvalue/boolean" model="true"/>
  * </node>
  *
- * <node name="search_string" channel="inline" format="search/binary" model="">
+ * <node name="search_part" channel="inline" format="search/binary" model="">
  *     <node name="index" channel="inline" format="text/cybol-path" model="#index"/>
  *     <node name="list" channel="inline" format="text/cybol-path" model=".db.songs"/>
  *     <node name="element" channel="inline" format="text/cybol-path" model="#title"/>
@@ -109,14 +109,14 @@ static int* BINARY_SEARCH_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  *     <node name="element" channel="inline" format="text/plain" model="q"/>
  * </node>
  *
- * <node name="search_string" channel="inline" format="search/interpolation" model="">
+ * <node name="search_number" channel="inline" format="search/interpolation" model="">
  *     <node name="index" channel="inline" format="text/cybol-path" model="#index"/>
  *     <node name="list" channel="inline" format="number/integer" model="0,1,2,3,4,5,6,7,8,9"/>
  *     <node name="element" channel="inline" format="number/integer" model="1,2,3"/>
  *     <node name="backward" channel="inline" format="logicvalue/boolean" model="true"/>
  * </node>
  *
- * <node name="search_string" channel="inline" format="search/interpolation" model="">
+ * <node name="search_part" channel="inline" format="search/interpolation" model="">
  *     <node name="index" channel="inline" format="text/cybol-path" model="#index"/>
  *     <node name="list" channel="inline" format="text/cybol-path" model=".db.songs"/>
  *     <node name="element" channel="inline" format="text/cybol-path" model="#title"/>
@@ -153,14 +153,14 @@ static int* INTERPOLATION_SEARCH_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_ST
  *     <node name="element" channel="inline" format="text/plain" model="cybop"/>
  * </node>
  *
- * <node name="search_string" channel="inline" format="search/linear" model="">
+ * <node name="search_number" channel="inline" format="search/linear" model="">
  *     <node name="index" channel="inline" format="text/cybol-path" model="#index"/>
  *     <node name="list" channel="inline" format="number/integer" model="5,7,1,2,3,4,6,1,2,3,0,2"/>
  *     <node name="element" channel="inline" format="number/integer" model="1,2,3"/>
  *     <node name="backward" channel="inline" format="logicvalue/boolean" model="true"/>
  * </node>
  *
- * <node name="search_string" channel="inline" format="search/linear" model="">
+ * <node name="search_part" channel="inline" format="search/linear" model="">
  *     <node name="index" channel="inline" format="text/cybol-path" model="#index"/>
  *     <node name="list" channel="inline" format="text/cybol-path" model=".db.songs"/>
  *     <node name="element" channel="inline" format="text/cybol-path" model="#title"/>

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SORTER_SOURCE
-#define SORTER_SOURCE
+#ifndef SEARCHER_SOURCE
+#define SEARCHER_SOURCE
 
 //
 // Library interface
@@ -36,7 +36,7 @@
 #include "logger.h"
 
 /*
- * Sorts the data array using the given algorithm (operation type).
+ * Searches data using the given algorithm (operation type).
  *
  * @param p0 the array data (pointer reference only if type is part or pointer)
  * @param p1 the type
@@ -50,27 +50,27 @@
  * @param p9 the descending flag
  * @param p10 the operation type
  */
-void sort(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void search(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Search.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p10, (void*) BUBBLE_SORT_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p10, (void*) LINEAR_SEARCH_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            sort_bubble(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
+            search_linear(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
         }
     }
 
 /*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p10, (void*) INSERTION_SORT_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p10, (void*) BINARY_SEARCH_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -80,30 +80,20 @@ void sort(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p10, (void*) QUICK_SORT_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p10, (void*) INTERPOLATION_SEARCH_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             sort_quick(p0, p1, p2);
         }
     }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p10, (void*) SELECTION_SORT_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            sort_selection(p0, p1, p2);
-        }
-    }
 */
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sort. The operation type is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not search. The operation type is unknown.");
     }
 }
 
-/* SORTER_SOURCE */
+/* SEARCHER_SOURCE */
 #endif

@@ -60,9 +60,9 @@ void move(void* p0, void* p1, void* p2, void* p3, void* p4) {
     calculate_integer_multiply((void*) &m, p3);
 
     // Compare if backward flag is set.
-    compare_integer_equal((void*) &r, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
         // The backward flag is NOT set.

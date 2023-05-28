@@ -134,7 +134,7 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         // Therefore, the break flag gets handed over to the handler and
         // forwarded to this file "part_handler.c" where it gets checked.
         //
-        // CAUTION! If this model is not executed within a loop, then the
+        // CAUTION! If this model is NOT executed within a loop, then the
         // cybol loop break property is NULL and just gets IGNORED inside
         // the comparison function, so that the break flag does NOT get set.
         //
