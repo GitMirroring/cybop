@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SORT_LOGIC_CYBOL_NAME_CONSTANT_HEADER
-#define SORT_LOGIC_CYBOL_NAME_CONSTANT_HEADER
+#ifndef SORTING_LOGIC_CYBOL_NAME_CONSTANT_HEADER
+#define SORTING_LOGIC_CYBOL_NAME_CONSTANT_HEADER
 
 //
 // System interface
@@ -38,17 +38,17 @@
 
 #include "constant.h"
 
-/** The part sort logic cybol name. */
-static wchar_t* PART_SORT_LOGIC_CYBOL_NAME = L"part";
-static int* PART_SORT_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The part sorting logic cybol name. */
+static wchar_t* PART_SORTING_LOGIC_CYBOL_NAME = L"part";
+static int* PART_SORTING_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The criterion sort logic cybol name. */
-static wchar_t* CRITERION_SORT_LOGIC_CYBOL_NAME = L"criterion";
-static int* CRITERION_SORT_LOGIC_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The criterion sorting logic cybol name. */
+static wchar_t* CRITERION_SORTING_LOGIC_CYBOL_NAME = L"criterion";
+static int* CRITERION_SORTING_LOGIC_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The descending sort logic cybol name. */
-static wchar_t* DESCENDING_SORT_LOGIC_CYBOL_NAME = L"descending";
-static int* DESCENDING_SORT_LOGIC_CYBOL_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The descending sorting logic cybol name. */
+static wchar_t* DESCENDING_SORTING_LOGIC_CYBOL_NAME = L"descending";
+static int* DESCENDING_SORTING_LOGIC_CYBOL_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* SORT_LOGIC_CYBOL_NAME_CONSTANT_HEADER */
+/* SORTING_LOGIC_CYBOL_NAME_CONSTANT_HEADER */
 #endif

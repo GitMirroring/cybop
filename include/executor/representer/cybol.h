@@ -75,6 +75,7 @@
 #include "constant/format/cybol/logic/randomise_logic_cybol_format.h"
 #include "constant/format/cybol/logic/represent_logic_cybol_format.h"
 #include "constant/format/cybol/logic/run_logic_cybol_format.h"
+#include "constant/format/cybol/logic/search_logic_cybol_format.h"
 #include "constant/format/cybol/logic/sort_logic_cybol_format.h"
 #include "constant/format/cybol/logic/stream_logic_cybol_format.h"
 #include "constant/format/cybol/logic/time_logic_cybol_format.h"
@@ -237,7 +238,9 @@
 #include "constant/name/cybol/logic/run/programme_run_logic_cybol_name.h"
 #include "constant/name/cybol/logic/run/sleep_run_logic_cybol_name.h"
 
-#include "constant/name/cybol/logic/sort/sort_logic_cybol_name.h"
+#include "constant/name/cybol/logic/searching/searching_logic_cybol_name.h"
+
+#include "constant/name/cybol/logic/sorting/sorting_logic_cybol_name.h"
 
 #include "constant/name/cybol/logic/streaming/read_streaming_logic_cybol_name.h"
 #include "constant/name/cybol/logic/streaming/write_streaming_logic_cybol_name.h"

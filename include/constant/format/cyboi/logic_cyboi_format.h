@@ -536,28 +536,41 @@ static int* SERIALISE_REPRESENT_LOGIC_CYBOI_FORMAT = NUMBER_2401_INTEGER_STATE_C
 //
 
 /** The run logic cyboi format. */
-static int* RUN_LOGIC_CYBOI_FORMAT = NUMBER_2500_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* RUN_LOGIC_CYBOI_FORMAT = NUMBER_2450_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The nano sleep run logic cyboi format. */
-static int* NANO_SLEEP_RUN_LOGIC_CYBOI_FORMAT = NUMBER_2501_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* NANO_SLEEP_RUN_LOGIC_CYBOI_FORMAT = NUMBER_2451_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The second sleep run logic cyboi format. */
-static int* SECOND_SLEEP_RUN_LOGIC_CYBOI_FORMAT = NUMBER_2502_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* SECOND_SLEEP_RUN_LOGIC_CYBOI_FORMAT = NUMBER_2452_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// search
+//
+
+/** The search/binary logic cybol format. */
+static int* BINARY_SEARCH_LOGIC_CYBOI_FORMAT = NUMBER_2500_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The search/interpolation logic cybol format. */
+static int* INTERPOLATION_SEARCH_LOGIC_CYBOI_FORMAT = NUMBER_2501_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The search/linear logic cybol format. */
+static int* LINEAR_SEARCH_LOGIC_CYBOI_FORMAT = NUMBER_2502_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // sort
 //
 
-/** The sort/bubble logic cybol format. **/
+/** The sort/bubble logic cybol format. */
 static int* BUBBLE_SORT_LOGIC_CYBOI_FORMAT = NUMBER_2600_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The sort/insertion logic cybol format. **/
+/** The sort/insertion logic cybol format. */
 static int* INSERTION_SORT_LOGIC_CYBOI_FORMAT = NUMBER_2601_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The sort/quick logic cybol format. **/
+/** The sort/quick logic cybol format. */
 static int* QUICK_SORT_LOGIC_CYBOI_FORMAT = NUMBER_2602_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The sort/selection logic cybol format. **/
+/** The sort/selection logic cybol format. */
 static int* SELECTION_SORT_LOGIC_CYBOI_FORMAT = NUMBER_2603_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //

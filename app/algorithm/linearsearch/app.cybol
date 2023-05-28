@@ -1,0 +1,13 @@
+<node>
+
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+
+    <node name="textstring" channel="inline" format="text/plain" model="abcdefghijklmnopqrstuvwxyz"/>
+    <node name="numbers" channel="inline" format="number/integer" model="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20"/>
+    <node name="homogeneous" channel="file" format="element/part" model="algorithm/linearsearch/homogeneous.cybol"/>
+    <node name="heterogeneous" channel="file" format="element/part" model="algorithm/linearsearch/heterogeneous.cybol"/>
+
+    <node name="test" channel="file" format="element/part" model="algorithm/linearsearch/test.cybol"/>
+    <node name="search" channel="file" format="element/part" model="algorithm/linearsearch/search.cybol"/>
+
+</node>

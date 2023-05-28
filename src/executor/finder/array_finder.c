@@ -54,21 +54,21 @@ void find_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     compare_integer_unequal((void*) &r, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        //
-        // The lifo flag IS set.
-        //
-
-        find_array_lifo(p0, p1, p2, p3, p4);
-
-    } else {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
         // The lifo flag is NOT set.
         //
 
         find_array_fifo(p0, p1, p2, p3, p4);
+
+    } else {
+
+        //
+        // The lifo flag IS set.
+        //
+
+        find_array_lifo(p0, p1, p2, p3, p4);
     }
 }
 
