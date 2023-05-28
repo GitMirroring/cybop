@@ -37,6 +37,14 @@
 #include "../../executor/container/basic/integer_container.c"
 
 //
+// detector
+//
+
+#include "../../executor/detector/comparison_detector.c"
+#include "../../executor/detector/detector.c"
+#include "../../executor/detector/moving_detector.c"
+
+//
 // finder
 //
 
@@ -52,10 +60,22 @@
 #include "../../executor/finder/part_finder.c"
 
 //
+// mover
+//
+
+#include "../../executor/mover/mover.c"
+
+//
 // searcher
 //
 
+#include "../../executor/searcher/check_array_searcher.c"
+#include "../../executor/searcher/comparison_array_searcher.c"
+#include "../../executor/searcher/fifo_array_searcher.c"
+#include "../../executor/searcher/lifo_array_searcher.c"
+#include "../../executor/searcher/part_array_searcher.c"
 #include "../../executor/searcher/searcher.c"
+#include "../../executor/searcher/type_array_searcher.c"
 
 //
 // sorter

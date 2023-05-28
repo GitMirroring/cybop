@@ -215,6 +215,12 @@
 #include "../applicator/run/sleep.c"
 
 //
+// search
+//
+
+#include "../applicator/search/search.c"
+
+//
 // sort
 //
 

@@ -30,6 +30,7 @@
 // Library interface
 //
 
+#include "algorithm.h"
 #include "communication.h"
 #include "constant.h"
 #include "knowledge.h"

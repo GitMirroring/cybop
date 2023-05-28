@@ -236,6 +236,12 @@ void apply_run(void* p0, void* p1, void* p2, void* p3, void* p4);
 void apply_sleep(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
 
 //
+// search
+//
+
+void apply_search(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
+
+//
 // sort
 //
 

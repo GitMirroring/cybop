@@ -78,20 +78,6 @@
 #include "../../executor/converter/encoder/utf/utf_8_encoder.c"
 
 //
-// detector
-//
-
-#include "../../executor/detector/comparison_detector.c"
-#include "../../executor/detector/detector.c"
-#include "../../executor/detector/moving_detector.c"
-
-//
-// mover
-//
-
-#include "../../executor/mover/mover.c"
-
-//
 // packer
 //
 

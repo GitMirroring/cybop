@@ -30,8 +30,8 @@
 // Library interface
 //
 
+#include "algorithm.h"
 #include "arithmetic.h"
-#include "communication.h"
 #include "constant.h"
 #include "knowledge.h"
 #include "logger.h"

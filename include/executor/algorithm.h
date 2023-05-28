@@ -58,6 +58,14 @@ void contain_integer_none(void* p0, void* p1, void* p2, void* p3);
 void contain_integer_right(void* p0, void* p1, void* p2, void* p3);
 
 //
+// detector
+//
+
+void detect(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void detect_comparison(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void detect_moving(void* p0, void* p1, void* p2, void* p3, void* p4);
+
+//
 // finder
 //
 
@@ -84,7 +92,13 @@ void move(void* p0, void* p1, void* p2, void* p3, void* p4);
 // searcher
 //
 
-void search(void* TODO);
+void search(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10);
+void search_array_check(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12);
+void search_array_comparison(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13);
+void search_array_fifo(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void search_array_lifo(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void search_array_part(void* p0, void* p1, void* p2, void* p3, void* p4);
+void search_array_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10);
 
 //
 // sorter

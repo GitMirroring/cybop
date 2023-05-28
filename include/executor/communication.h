@@ -98,14 +98,6 @@ void encode_utf_16(void* p0, void* p1, void* p2);
 void encode_utf_8(void* p0, void* p1, void* p2);
 
 //
-// detector
-//
-
-void detect(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
-void detect_comparison(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
-void detect_moving(void* p0, void* p1, void* p2, void* p3, void* p4);
-
-//
 // packer
 //
 
