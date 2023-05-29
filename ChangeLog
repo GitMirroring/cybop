@@ -18,6 +18,23 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-05-28  Christian Heller  <christian.heller@cybop.org>
+
+        * Add smtp deserialiser
+        * Add cybol operation "search/linear"
+        * Implement new module "executor/searcher/"
+        * Add cybol application "algorithm/linearsearch/"
+        * Move functions "detect" and "move" from module "communication" to "algorithm"
+        * Extend documentation in file "doc/development/add_new_cybol_operation.txt" with new steps related to directories "include/" and "src/library/"
+
+2023-05-21  Christian Heller  <christian.heller@cybop.org>
+
+        * Rename directory "constant/name/cybol/logic/sort/" into "constant/name/cybol/logic/sorting/"
+
+2023-05-04  Christian Heller  <christian.heller@cybop.org>
+
+        * Add cybol application "app/internet/smtp_server/"
+
 2023-05-01  Christian Heller  <christian.heller@cybop.org>
 
         * Add cybol application "app/internet/smtp_client/"

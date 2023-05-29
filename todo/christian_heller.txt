@@ -14,17 +14,24 @@
 Kommunikation im Medizinwesen (KIM)
 ___________________________________
 
-        * Test cybol application "app/internet/smtp_server/" and "app/internet/smtp_client/"
-        * Add smtp deserialiser
-        * Ignore "Unstructured Header Field Bodies" in smtp deserialiser
-        * Unfold multiple-line representation of a field body portion of a header field into a single line of characters with unlimited length
+        * Test cybol application "algorithm/linearsearch/"
+        * Test searcher functionality
 
-        * Add smtp serialiser
+        * Replace functionality of "finder" with "searcher" in all source code
+        * Delete directories in include and src related to outdated "find" and "executor/finder/"
+
+        * Check and possibly correct architecture control flow diagram on website -- endless loop in checker OR handler ??
+        * Check if preprocessor macro is necessary in header OR source files (probably NOT both) --> delete superfluous ones
+
+        * Test cybol application "app/internet/smtp_server/" and "app/internet/smtp_client/"
+        * Simplify smtp deserialiser by using new searcher functionality
             consider internet message format (imf) only chapter 3.6 syntax in https://www.rfc-editor.org/rfc/rfc5322
             continue smtp implementation by reading chapters 3 and 4 in https://www.rfc-editor.org/rfc/rfc5321.html
         * Assure that header fields are no longer than 78 characters, as recommended by the ietf rfc
         * Assure that lines of characters in the body are limited to 78 characters
             following the ietf rfc, they MUST be limited to 998 characters, and SHOULD be limited to 78 characters, excluding the CRLF
+        * Ignore "Unstructured Header Field Bodies" in smtp deserialiser
+        * Unfold multiple-line representation of a field body portion of a header field into a single line of characters with unlimited length
 
         * Add pop serialiser
         * Add pop deserialiser

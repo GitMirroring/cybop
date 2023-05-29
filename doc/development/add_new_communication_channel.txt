@@ -32,6 +32,12 @@ ________
 * Add files for channel to directory "executor/maintainer/starter/"
 * Add files for channel to directory "executor/maintainer/shutter/"
 
+* Add files for channel to directory "executor/dispatcher/opener/"
+* Add files for channel to directory "executor/dispatcher/closer/"
+
+* Add files for channel to directory "executor/feeler/sensor/"
+* Add files for channel to directory "executor/feeler/suspender/"
+
 * Add files for channel to directory "executor/streamer/reader/"
 * Add files for channel to directory "executor/streamer/writer/"
 

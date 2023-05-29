@@ -73,8 +73,9 @@ git pull
 
 2 Change AND save local source code
 
-3 Push changes (publish)
+3 Commit and push changes (publish)
 
+git commit -m "Update ..."
 git push
 
 git (with GitHub)

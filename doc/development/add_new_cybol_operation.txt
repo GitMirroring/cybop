@@ -27,9 +27,13 @@ ___________________________________________
 * Add operation to file "executor/representer/serialiser/cybol/format_cybol_serialiser.c"
 
 * Add file for each new operation to directory "executor/"
-
 * Add file for each new operation to directory "applicator/"
 * Add operation to file "controller/handler/operation_handler.c"
+
+* Add function headers to "include/executor/*"
+* Add file includes to "src/library/executor/*"
+* Add function header to "include/applicator.h"
+* Add file includes to "src/library/applicator_library.c"
 
 Processing Steps for Shell Script Operation
 ___________________________________________
