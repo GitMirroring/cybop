@@ -1522,6 +1522,40 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     }
 
     //
+    // search
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p8, (void*) BINARY_SEARCH_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_search(p0, p1, p3, p4, p2, (void*) BINARY_SEARCH_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p8, (void*) INTERPOLATION_SEARCH_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_search(p0, p1, p3, p4, p2, (void*) INTERPOLATION_SEARCH_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p8, (void*) LINEAR_SEARCH_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_search(p0, p1, p3, p4, p2, (void*) LINEAR_SEARCH_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    //
     // sort
     //
 
@@ -1535,7 +1569,6 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         }
     }
 
-/*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p8, (void*) INSERTION_SORT_LOGIC_CYBOI_FORMAT);
@@ -1565,7 +1598,6 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_sort(p0, p1, p3, p4, p2, (void*) SELECTION_SORT_LOGIC_CYBOI_FORMAT);
         }
     }
-*/
 
     //
     // stream

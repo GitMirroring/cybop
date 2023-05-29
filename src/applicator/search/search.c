@@ -37,7 +37,7 @@
 #include "logger.h"
 
 /*
- * Searches an element within a list using an algorithm.
+ * Searches the list element equal to the given searchword, using an algorithm.
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -58,8 +58,8 @@ void apply_search(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The list.
     void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The element.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The searchword.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The model flag.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The backward flag.
@@ -67,10 +67,12 @@ void apply_search(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     // The index model item.
     void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The list model item.
+    // The list type, model item.
+    void* lt = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The element model item.
-    void* em = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The searchword type, model item.
+    void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The model flag model item.
     void* mm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The backward flag model item.
@@ -78,12 +80,14 @@ void apply_search(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     // The index model item data.
     void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The list model item data, count.
+    // The list type, model item data, count.
+    void* ltd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* lmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The element model item data, count.
-    void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* emc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The searchword type, model item data, count.
+    void* std = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* smc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The model flag model item data.
     void* mmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The backward flag model item data.
@@ -97,8 +101,8 @@ void apply_search(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     get_part_name((void*) &i, p0, (void*) INDEX_SEARCHING_LOGIC_CYBOL_NAME, (void*) INDEX_SEARCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get list.
     get_part_name((void*) &l, p0, (void*) LIST_SEARCHING_LOGIC_CYBOL_NAME, (void*) LIST_SEARCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get element.
-    get_part_name((void*) &e, p0, (void*) ELEMENT_SEARCHING_LOGIC_CYBOL_NAME, (void*) ELEMENT_SEARCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get searchword.
+    get_part_name((void*) &s, p0, (void*) SEARCHWORD_SEARCHING_LOGIC_CYBOL_NAME, (void*) SEARCHWORD_SEARCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get model flag.
     get_part_name((void*) &m, p0, (void*) MODEL_SEARCHING_LOGIC_CYBOL_NAME, (void*) MODEL_SEARCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get backward flag.
@@ -106,10 +110,12 @@ void apply_search(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     // Get index model item.
     copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get list model item.
+    // Get list type, model item.
+    copy_array_forward((void*) &lt, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &lm, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get element model item.
-    copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get searchword type, model item.
+    copy_array_forward((void*) &st, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get model flag model item.
     copy_array_forward((void*) &mm, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get backward flag model item.
@@ -117,12 +123,14 @@ void apply_search(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     // Get index model item data.
     copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get list model item data, count.
+    // Get list type, model item data, count.
+    copy_array_forward((void*) &ltd, lt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &lmc, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get element model item data, count.
-    copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &emc, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Get searchword type, model item data, count.
+    copy_array_forward((void*) &std, st, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &smc, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get model flag model item data.
     copy_array_forward((void*) &mmd, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get backward flag model item data.
@@ -132,7 +140,7 @@ void apply_search(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // Functionality
     //
 
-    search(pmd, ptd, pmc, (void*) &cmd, cmc, ctd, p2, p3, p4, dmd, p5);
+    search(imd, lmd, lmc, ltd, mmd, smd, smc, std, bmd, p5);
 }
 
 /* SEARCH_SOURCE */

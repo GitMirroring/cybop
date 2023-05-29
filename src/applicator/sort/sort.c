@@ -86,11 +86,11 @@ void apply_sort(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     //
 
     // Get part.
-    get_part_name((void*) &p, p0, (void*) PART_SORT_LOGIC_CYBOL_NAME, (void*) PART_SORT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &p, p0, (void*) PART_SORTING_LOGIC_CYBOL_NAME, (void*) PART_SORTING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get criterion.
-    get_part_name((void*) &c, p0, (void*) CRITERION_SORT_LOGIC_CYBOL_NAME, (void*) CRITERION_SORT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &c, p0, (void*) CRITERION_SORTING_LOGIC_CYBOL_NAME, (void*) CRITERION_SORTING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get descending flag.
-    get_part_name((void*) &d, p0, (void*) DESCENDING_SORT_LOGIC_CYBOL_NAME, (void*) DESCENDING_SORT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &d, p0, (void*) DESCENDING_SORTING_LOGIC_CYBOL_NAME, (void*) DESCENDING_SORTING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get part type, model item.
     copy_array_forward((void*) &pt, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);

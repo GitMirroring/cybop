@@ -38,60 +38,62 @@
 /*
  * Searches data using the given algorithm (operation type).
  *
- * @param p0 the array data (pointer reference only if type is part or pointer)
- * @param p1 the type
- * @param p2 the array count
- * @param p3 the criterion data (pointer reference)
- * @param p4 the criterion count
- * @param p5 the criterion type
- * @param p6 the knowledge memory part (pointer reference)
- * @param p7 the stack memory item
- * @param p8 the internal memory data
- * @param p9 the descending flag
- * @param p10 the operation type
+ * @param p0 the index (if found; unchanged otherwise)
+ * @param p1 the list data
+ * @param p2 the list count
+ * @param p3 the list type
+ * @param p4 the list model flag (false = name, true = model)
+ * @param p5 the searchword data
+ * @param p6 the searchword count
+ * @param p7 the searchword type
+ * @param p8 the backward flag
+ * @param p9 the operation type
  */
-void search(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void search(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Search.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Search.");
+    fwprintf(stdout, L"Debug: Search. p9: %i\n", p9);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p10, (void*) LINEAR_SEARCH_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            search_linear(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
-        }
-    }
-
 /*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p10, (void*) BINARY_SEARCH_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p9, (void*) BINARY_SEARCH_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            sort_insertion(p0, p1, p2);
+            search_binary(p0, p1, p2);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p10, (void*) INTERPOLATION_SEARCH_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p9, (void*) INTERPOLATION_SEARCH_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            sort_quick(p0, p1, p2);
+            search_interpolation(p0, p1, p2);
         }
     }
 */
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p9, (void*) LINEAR_SEARCH_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            search_linear(p0, p1, p2, p3, p4, p5, p6, p7, p8);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not search. The operation type is unknown.");
+        fwprintf(stdout, L"Warning: Could not search. The operation type is unknown. p9: %i\n", p9);
+        fwprintf(stdout, L"Warning: Could not search. The operation type is unknown. *p9: %i\n", *((int*) p9));
     }
 }
 

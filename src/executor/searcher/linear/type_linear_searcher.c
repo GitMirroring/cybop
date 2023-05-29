@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TYPE_ARRAY_SEARCHER_SOURCE
-#define TYPE_ARRAY_SEARCHER_SOURCE
+#ifndef TYPE_LINEAR_SEARCHER_SOURCE
+#define TYPE_LINEAR_SEARCHER_SOURCE
 
 //
 // Library interface
@@ -42,35 +42,34 @@
  * @param p0 the index (if found; unchanged otherwise)
  * @param p1 the list data position (pointer reference)
  * @param p2 the list count remaining
- * @param p3 the list model flag (false = name, true = model)
- * @param p4 the searchword data
- * @param p5 the searchword count
- * @param p6 the type
- * @param p7 the loop variable
- * @param p8 the step (increment or decrement)
- * @param p9 the backward flag
- * @param p10 the break flag
+ * @param p3 the list type
+ * @param p4 the list model flag (false = name, true = model)
+ * @param p5 the searchword data
+ * @param p6 the searchword count
+ * @param p7 the searchword type
+ * @param p8 the loop variable
+ * @param p9 the step (increment or decrement)
+ * @param p10 the backward flag
+ * @param p11 the break flag
  */
-void search_array_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void search_linear_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // The position represents the current PART.
         void** pos = (void**) p1;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Search array type.");
-        fwprintf(stdout, L"Debug: Search array type.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Search linear type.");
+        fwprintf(stdout, L"Debug: Search linear type. p0: %i\n", p0);
 
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-        // The list type.
-        int lt = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
         // The element data, count, type.
         void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
         int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         int et = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
-        compare_integer_equal((void*) &r, p6, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p3, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -78,8 +77,6 @@ void search_array_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             // The list represents primitive data.
             //
 
-            // Copy list type.
-            copy_integer((void*) &lt, p6);
             //
             // Initialise element with current list data.
             //
@@ -90,8 +87,8 @@ void search_array_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             // searchword count gets assigned to the element count here.
             //
             copy_pointer((void*) &ed, p1);
-            copy_integer((void*) &ec, p5);
-            copy_integer((void*) &et, p6);
+            search_linear_elementcount((void*) &ec, p2, p6);
+            copy_integer((void*) &et, p3);
 
         } else {
 
@@ -99,23 +96,21 @@ void search_array_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             // The list contains compound parts.
             //
 
-            // Copy list type.
-            copy_integer((void*) &lt, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
             //
             // Initialise element with part name OR model,
             // depending on the given model flag.
             //
-            search_array_part((void*) &ed, (void*) &ec, (void*) &et, *pos, p3);
+            search_linear_part((void*) &ed, (void*) &ec, (void*) &et, *pos, p4);
         }
 
-        search_array_comparison(p0, p1, p2, (void*) &lt, ed, (void*) &ec, p4, p5, p6, p7, p8, p9, p10, (void*) &et);
+        search_linear_comparison(p0, p1, p2, p3, ed, (void*) &ec, (void*) &et, p5, p6, p7, p8, p9, p10, p11);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not search array type. The list data position is null.");
-        fwprintf(stdout, L"Error: Could not search array type. The list data position is null. p1: %i\n", p1);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not search linear type. The list data position is null.");
+        fwprintf(stdout, L"Error: Could not search linear type. The list data position is null. p1: %i\n", p1);
     }
 }
 
-/* TYPE_ARRAY_SEARCHER_SOURCE */
+/* TYPE_LINEAR_SEARCHER_SOURCE */
 #endif

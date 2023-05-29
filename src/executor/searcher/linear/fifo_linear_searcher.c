@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LIFO_ARRAY_SEARCHER_SOURCE
-#define LIFO_ARRAY_SEARCHER_SOURCE
+#ifndef FIFO_LINEAR_SEARCHER_SOURCE
+#define FIFO_LINEAR_SEARCHER_SOURCE
 
 //
 // Library interface
@@ -38,21 +38,21 @@
 
 /**
  * Finds the index of the given searched element (sequence) within the list
- * (investigated array), using the last-in-first-out (lifo) principle (stack)
- * with BACKWARD search.
+ * using the first-in-first-out (fifo) principle (queue), with FORWARD search.
  *
  * @param p0 the index (if found; unchanged otherwise)
  * @param p1 the list data
  * @param p2 the list count
- * @param p3 the list model flag (false = name, true = model)
- * @param p4 the searchword data
- * @param p5 the searchword count
- * @param p6 the type
+ * @param p3 the list type
+ * @param p4 the list model flag (false = name, true = model)
+ * @param p5 the searchword data
+ * @param p6 the searchword count
+ * @param p7 the searchword type
  */
-void search_array_lifo(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void search_linear_fifo(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Search array lifo.");
-    fwprintf(stdout, L"Debug: Search array lifo.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Search linear fifo.");
+    fwprintf(stdout, L"Debug: Search linear fifo. p0: %i\n", p0);
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -69,39 +69,25 @@ void search_array_lifo(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     void* pos = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The list count remaining.
     int rem = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The initial offset.
-    int o = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Initialise list data position.
     copy_pointer((void*) &pos, (void*) &p1);
     // Initialise list count remaining.
     copy_integer((void*) &rem, p2);
-    //
-    // Initialise offset.
-    //
-    // CAUTION! Do NOT try to optimise by reducing loop cycles or break the
-    // loop earlier here, since this would work only with primitive data.
-    // For parts, however, EACH part's name or model has to be searched inside.
-    //
-    // Therefore, just move by the LIST COUNT and do NOT subtract
-    // the searchword count from the offset here.
-    //
-    // CAUTION! Subtract ONE since this is used for an index.
-    //
-    copy_integer((void*) &o, p2);
-    calculate_integer_subtract((void*) &o, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-    // Move current position forward to the END of the list.
-    move((void*) &pos, (void*) &rem, p6, (void*) &o, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
         // Check loop criterion.
         //
-        // CAUTION! Use the "greater" and NOT the "greater_or_equal" function here,
-        // since the case of equal counts still has to be considered below.
+        // CAUTION! Do NOT try to optimise by reducing loop cycles or break the
+        // loop earlier here, since this would work only with primitive data.
+        // For parts, however, EACH part's name or model has to be searched inside.
         //
-        compare_integer_greater((void*) &b, (void*) &rem, p2);
+        // Therefore, compare with ZERO and NOT with the list count or
+        // searchword count here.
+        //
+        compare_integer_less_or_equal((void*) &b, (void*) &rem, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -112,14 +98,14 @@ void search_array_lifo(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             //
             // Compare list entry with given searched element.
             //
-            // CAUTION! Set step to DECREMENT (-1).
+            // CAUTION! Set step to INCREMENT (+1).
             //
-            // CAUTION! Set BACKWARD flag to TRUE.
+            // CAUTION! Set BACKWARD flag to FALSE.
             //
-            search_array_type(p0, (void*) &pos, (void*) &rem, p3, p4, p5, p6, (void*) &j, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &b);
+            search_linear_type(p0, (void*) &pos, (void*) &rem, p3, p4, p5, p6, p7, (void*) &j, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &b);
         }
     }
 }
 
-/* LIFO_ARRAY_SEARCHER_SOURCE */
+/* FIFO_LINEAR_SEARCHER_SOURCE */
 #endif

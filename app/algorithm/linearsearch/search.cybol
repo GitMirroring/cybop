@@ -1,9 +1,9 @@
 <node>
 
-    <node name="search" channel="inline" format="search/binary" model="">
+    <node name="search" channel="inline" format="search/linear" model="">
         <node name="index" channel="inline" format="text/cybol-path" model="#index"/>
         <node name="list" channel="inline" format="text/cybol-path" model="#list"/>
-        <node name="element" channel="inline" format="text/cybol-path" model="#element"/>
+        <node name="searchword" channel="inline" format="text/cybol-path" model="#searchword"/>
         <node name="backward" channel="inline" format="text/cybol-path" model="#backward"/>
         <node name="model" channel="inline" format="text/cybol-path" model="#model"/>
     </node>

@@ -71,7 +71,6 @@
 //
 
 #include <stdio.h> // stdin, stdout, stderr
-#include <stdio.h> // stdout
 #include <wchar.h> // fwprintf
 
 //

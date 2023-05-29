@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMPARISON_ARRAY_SEARCHER_SOURCE
-#define COMPARISON_ARRAY_SEARCHER_SOURCE
+#ifndef CHECK_LINEAR_SEARCHER_SOURCE
+#define CHECK_LINEAR_SEARCHER_SOURCE
 
 //
 // Library interface
@@ -33,10 +33,11 @@
 #include "algorithm.h"
 #include "arithmetic.h"
 #include "constant.h"
+#include "knowledge.h"
 #include "logger.h"
 
 /**
- * Checks if the list contains parts or primitive types.
+ * Compares list element with given searchword.
  *
  * @param p0 the index (if found; unchanged otherwise)
  * @param p1 the list data position (pointer reference)
@@ -46,46 +47,49 @@
  * @param p5 the element count
  * @param p6 the searchword data
  * @param p7 the searchword count
- * @param p8 the type
+ * @param p8 the element and searchword type
  * @param p9 the loop variable
  * @param p10 the step (increment or decrement)
  * @param p11 the backward flag
  * @param p12 the break flag
- * @param p13 the element type
  */
-void search_array_comparison(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
+void search_linear_check(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Search array comparison.");
-    fwprintf(stdout, L"Debug: Search array comparison.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Search linear check.");
+    fwprintf(stdout, L"Debug: Search linear check. p0: %i\n", p0);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, p8, p13);
+    //
+    // Compare element with searchword.
+    //
+    // CAUTION! Since the operation "check" does lexicographical comparison,
+    // the COUNTS of both operands have to be EQUAL for a positive result.
+    //
+    check_operation((void*) &r, p4, p6, p5, p7, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, p8);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
-        // The given type and determined element type are EQUAL.
+        // The searchword has been found.
         //
 
-        // Compare list element with given searchword.
-        search_array_check(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+        // Copy index.
+        copy_integer(p0, p9);
+
+        // Set break flag.
+        copy_integer(p12, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     } else {
 
-        //
-        // The given type and determined element type are UNEQUAL.
-        //
-        // CAUTION! In this case the current element of the list is just SKIPPED,
-        // but the loop will CONTINUE to run and compare the remaining elements.
-        //
+        // Move the current position.
+        move(p1, p2, p3, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, p11);
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not search array comparison. The given type and determined element type are unequal.");
-        fwprintf(stdout, L"Error: Could not search array comparison. The given type and determined element type are unequal. p8: %i, p13: %i\n", p8, p13);
-        fwprintf(stdout, L"Error: Could not search array comparison. The given type and determined element type are unequal. *p8: %i, *p13: %i\n", *((int*) p8), *((int*) p13));
+        // Calculate loop variable using step (increment or decrement).
+        calculate_integer_add(p9, p10);
     }
 }
 
-/* COMPARISON_ARRAY_SEARCHER_SOURCE */
+/* CHECK_LINEAR_SEARCHER_SOURCE */
 #endif

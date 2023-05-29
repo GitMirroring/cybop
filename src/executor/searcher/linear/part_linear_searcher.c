@@ -23,14 +23,13 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_ARRAY_SEARCHER_SOURCE
-#define PART_ARRAY_SEARCHER_SOURCE
+#ifndef PART_LINEAR_SEARCHER_SOURCE
+#define PART_LINEAR_SEARCHER_SOURCE
 
 //
 // Library interface
 //
 
-#include "algorithm.h"
 #include "arithmetic.h"
 #include "constant.h"
 #include "knowledge.h"
@@ -45,10 +44,10 @@
  * @param p3 the part (list data position)
  * @param p4 the model flag (false = name, true = model)
  */
-void search_array_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void search_linear_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Search array part.");
-    fwprintf(stdout, L"Debug: Search array part.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Search linear part.");
+    fwprintf(stdout, L"Debug: Search linear part. p0: %i\n", p0);
 
     // The part type item.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -114,5 +113,5 @@ void search_array_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_integer(p2, td);
 }
 
-/* PART_ARRAY_SEARCHER_SOURCE */
+/* PART_LINEAR_SEARCHER_SOURCE */
 #endif
