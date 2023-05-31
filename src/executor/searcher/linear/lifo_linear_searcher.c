@@ -61,9 +61,6 @@ void search_linear_lifo(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     //
     // CAUTION! Do NOT delete this variable since it is needed as result index.
     //
-    // CAUTION! The value of -1 is IMPORTANT since it causes the loop
-    // to break by default, if the given element count is null or zero.
-    //
     int j = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The list data position.
     void* pos = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -74,7 +71,12 @@ void search_linear_lifo(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
     // Initialise list data position.
     copy_pointer((void*) &pos, (void*) &p1);
+    //
     // Initialise list count remaining.
+    //
+    // CAUTION! This initialisation is IMPORTANT so that the offset
+    // can be added properly to the list count remaining below.
+    //
     copy_integer((void*) &rem, p2);
     //
     // Initialise offset.
@@ -92,6 +94,23 @@ void search_linear_lifo(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     calculate_integer_subtract((void*) &o, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     // Move current position forward to the END of the list.
     move((void*) &pos, (void*) &rem, p3, (void*) &o, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    // Initialise loop variable.
+    copy_integer((void*) &j, (void*) &o);
+
+    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        //
+        // CAUTION! If the loop count handed over as parametre is NULL,
+        // then the break flag will NEVER be set to true, because the loop
+        // variable comparison does (correctly) not consider null values.
+        // Therefore, in this case, the break flag is set to true already here.
+        //
+        // Initialising the break flag with true will NOT work either, since it:
+        // a) will be left untouched if a comparison operand is null;
+        // b) would have to be reset to true in each loop cycle.
+        //
+        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    }
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 

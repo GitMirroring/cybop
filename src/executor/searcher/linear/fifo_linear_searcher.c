@@ -61,10 +61,7 @@ void search_linear_fifo(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     //
     // CAUTION! Do NOT delete this variable since it is needed as result index.
     //
-    // CAUTION! The value of -1 is IMPORTANT since it causes the loop
-    // to break by default, if the given element count is null or zero.
-    //
-    int j = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The list data position.
     void* pos = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The list count remaining.

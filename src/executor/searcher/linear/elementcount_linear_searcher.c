@@ -36,7 +36,7 @@
 #include "logger.h"
 
 /**
- * Verifies that the element count is within a valid value range.
+ * Assigns the searchword count to the element count only if it is within a valid value range.
  *
  * @param p0 the element count
  * @param p1 the searchword count
@@ -45,7 +45,8 @@
 void search_linear_elementcount(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Search linear elementcount.");
-    fwprintf(stdout, L"Debug: Search linear elementcount. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Search linear elementcount. searchword count p1: %i; list count remaining p2: %i\n", p1, p2);
+    //?? fwprintf(stdout, L"Debug: Search linear elementcount. searchword count *p1: %i; list count remaining *p2: %i\n", *((int*) p1), *((int*) p2));
 
     // The lower limit comparison result.
     int l = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -64,14 +65,22 @@ void search_linear_elementcount(void* p0, void* p1, void* p2) {
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not search linear elementcount. The elementcount value is greater than the list count remaining.");
-            fwprintf(stdout, L"Error: Could not search linear elementcount. The elementcount value is greater than the list count remaining. p1: %i\n", p1);
+            //
+            // CAUTION! Do NOT log this case since it is REGULAR behaviour that
+            // the list starts growing element by element so that at the beginning,
+            // its count (length) might be smaller than the searchword count.
+            //
+            // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not search linear elementcount. The searchword count is greater than the list count remaining.");
+            // fwprintf(stdout, L"Warning: Could not search linear elementcount. The searchword count is greater than the list count remaining. searchword count p1: %i; list count remaining p2: %i\n", p1, p2);
+            // fwprintf(stdout, L"Warning: Could not search linear elementcount. The searchword count is greater than the list count remaining. searchword count *p1: %i; list count remaining *p2: %i\n", *((int*) p1), *((int*) p2));
+            //
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not search linear elementcount. The elementcount value is less or equal to zero.");
-        fwprintf(stdout, L"Error: Could not search linear elementcount. The elementcount value is less or equal to zero. p1: %i\n", p1);
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not search linear elementcount. The searchword count is less or equal to zero.");
+        fwprintf(stdout, L"Warning: Could not search linear elementcount. The searchword count is less or equal to zero. searchword count p1: %i; list count remaining p2: %i\n", p1, p2);
+        fwprintf(stdout, L"Warning: Could not search linear elementcount. The searchword count is less or equal to zero. searchword count *p1: %i; list count remaining *p2: %i\n", *((int*) p1), *((int*) p2));
     }
 }
 

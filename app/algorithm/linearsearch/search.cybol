@@ -1,8 +1,34 @@
 <node>
 
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#index"/>
+    </node>
+
+<!--
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="{#list}"/>
+    </node>
+
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#searchword"/>
+    </node>
+-->
+
     <node name="search" channel="inline" format="search/linear" model="">
         <node name="index" channel="inline" format="text/cybol-path" model="#index"/>
-        <node name="list" channel="inline" format="text/cybol-path" model="#list"/>
+        <node name="list" channel="inline" format="text/cybol-path" model="{#list}"/>
         <node name="searchword" channel="inline" format="text/cybol-path" model="#searchword"/>
         <node name="backward" channel="inline" format="text/cybol-path" model="#backward"/>
         <node name="model" channel="inline" format="text/cybol-path" model="#model"/>

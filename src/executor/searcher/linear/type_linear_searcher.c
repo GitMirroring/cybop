@@ -60,7 +60,8 @@ void search_linear_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         void** pos = (void**) p1;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Search linear type.");
-        fwprintf(stdout, L"Debug: Search linear type. p0: %i\n", p0);
+        fwprintf(stdout, L"Debug: Search linear type. p3: %i\n", p3);
+        fwprintf(stdout, L"Debug: Search linear type. *p3: %i\n", *((int*) p3));
 
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -87,7 +88,7 @@ void search_linear_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             // searchword count gets assigned to the element count here.
             //
             copy_pointer((void*) &ed, p1);
-            search_linear_elementcount((void*) &ec, p2, p6);
+            search_linear_elementcount((void*) &ec, p6, p2);
             copy_integer((void*) &et, p3);
 
         } else {

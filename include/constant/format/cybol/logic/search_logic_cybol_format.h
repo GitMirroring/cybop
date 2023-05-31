@@ -43,11 +43,11 @@
  *
  * Description:
  *
- * Finds the first occurrence of the specified element within the sorted list
+ * Finds the first occurrence of the specified searchword within the sorted list
  * using binary (half-interval, logarithmic, binary chop) search.
  *
- * Returns the index of the element as result or minus one (-1) if the
- * element could not be found.
+ * Returns the index of the searchword as result or minus one (-1) if the
+ * searchword could not be found.
  *
  * Caution! The list must be sorted first to be able to apply binary search.
  *
@@ -58,28 +58,28 @@
  * <node name="search_string" channel="inline" format="search/binary" model="">
  *     <node name="index" channel="inline" format="text/cybol-path" model="#index"/>
  *     <node name="list" channel="inline" format="text/plain" model="abcdefghijklmnopqrstuvwxyz"/>
- *     <node name="element" channel="inline" format="text/plain" model="q"/>
+ *     <node name="searchword" channel="inline" format="text/plain" model="q"/>
  * </node>
  *
  * <node name="search_number" channel="inline" format="search/binary" model="">
  *     <node name="index" channel="inline" format="text/cybol-path" model="#index"/>
  *     <node name="list" channel="inline" format="number/integer" model="0,1,2,3,4,5,6,7,8,9"/>
- *     <node name="element" channel="inline" format="number/integer" model="1,2,3"/>
+ *     <node name="searchword" channel="inline" format="number/integer" model="1,2,3"/>
  *     <node name="backward" channel="inline" format="logicvalue/boolean" model="true"/>
  * </node>
  *
  * <node name="search_part" channel="inline" format="search/binary" model="">
  *     <node name="index" channel="inline" format="text/cybol-path" model="#index"/>
  *     <node name="list" channel="inline" format="text/cybol-path" model=".db.songs"/>
- *     <node name="element" channel="inline" format="text/cybol-path" model="#title"/>
+ *     <node name="searchword" channel="inline" format="text/cybol-path" model="#title"/>
  *     <node name="model" channel="inline" format="logicvalue/boolean" model="false"/>
  * </node>
  *
  * Properties:
  *
- * - index (required) [text/cybol-path]: The index of the found element or minus one (-1) if it could not be found within the list.
+ * - index (required) [text/cybol-path]: The index of the found searchword or minus one (-1) if it could not be found within the list.
  * - list (required) [text/cybol-path | text/plain | number/integer | number/double | logicvalue/boolean | element/part]: The list to be searched through.
- * - element (required) [text/cybol-path | text/plain | number/integer | number/double | logicvalue/boolean | element/part]: The element to be searched for.
+ * - searchword (required) [text/cybol-path | text/plain | number/integer | number/double | logicvalue/boolean | element/part]: The searchword to be searched for.
  * - model (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to search through the parts' name or model value. It makes sense only if the list is of format (type) element/part which means pointers to parts. If null, the default is false (name is used).
  * - backward (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to search forward or backward. If null, the default is false (forward search is used).
  */
@@ -91,11 +91,11 @@ static int* BINARY_SEARCH_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  *
  * Description:
  *
- * Finds the first occurrence of the specified element within the sorted list
+ * Finds the first occurrence of the specified searchword within the sorted list
  * using interpolation binary search.
  *
- * Returns the index of the element as result or minus one (-1) if the
- * element could not be found.
+ * Returns the index of the searchword as result or minus one (-1) if the
+ * searchword could not be found.
  *
  * Caution! The list must be sorted first to be able to apply interpolation binary search.
  *
@@ -106,28 +106,28 @@ static int* BINARY_SEARCH_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  * <node name="search_string" channel="inline" format="search/interpolation" model="">
  *     <node name="index" channel="inline" format="text/cybol-path" model="#index"/>
  *     <node name="list" channel="inline" format="text/plain" model="abcdefghijklmnopqrstuvwxyz"/>
- *     <node name="element" channel="inline" format="text/plain" model="q"/>
+ *     <node name="searchword" channel="inline" format="text/plain" model="q"/>
  * </node>
  *
  * <node name="search_number" channel="inline" format="search/interpolation" model="">
  *     <node name="index" channel="inline" format="text/cybol-path" model="#index"/>
  *     <node name="list" channel="inline" format="number/integer" model="0,1,2,3,4,5,6,7,8,9"/>
- *     <node name="element" channel="inline" format="number/integer" model="1,2,3"/>
+ *     <node name="searchword" channel="inline" format="number/integer" model="1,2,3"/>
  *     <node name="backward" channel="inline" format="logicvalue/boolean" model="true"/>
  * </node>
  *
  * <node name="search_part" channel="inline" format="search/interpolation" model="">
  *     <node name="index" channel="inline" format="text/cybol-path" model="#index"/>
  *     <node name="list" channel="inline" format="text/cybol-path" model=".db.songs"/>
- *     <node name="element" channel="inline" format="text/cybol-path" model="#title"/>
+ *     <node name="searchword" channel="inline" format="text/cybol-path" model="#title"/>
  *     <node name="model" channel="inline" format="logicvalue/boolean" model="false"/>
  * </node>
  *
  * Properties:
  *
- * - index (required) [text/cybol-path]: The index of the found element or minus one (-1) if it could not be found within the list.
+ * - index (required) [text/cybol-path]: The index of the found searchword or minus one (-1) if it could not be found within the list.
  * - list (required) [text/cybol-path | text/plain | number/integer | number/double | logicvalue/boolean | element/part]: The list to be searched through.
- * - element (required) [text/cybol-path | text/plain | number/integer | number/double | logicvalue/boolean | element/part]: The element to be searched for.
+ * - searchword (required) [text/cybol-path | text/plain | number/integer | number/double | logicvalue/boolean | element/part]: The searchword to be searched for.
  * - model (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to search through the parts' name or model value. It makes sense only if the list is of format (type) element/part which means pointers to parts. If null, the default is false (name is used).
  * - backward (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to search forward or backward. If null, the default is false (forward search is used).
  */
@@ -139,39 +139,39 @@ static int* INTERPOLATION_SEARCH_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_ST
  *
  * Description:
  *
- * Finds the first occurrence of the specified element within the list
+ * Finds the first occurrence of the specified searchword within the list
  * using linear (sequential) search.
  *
- * Returns the index of the element as result or minus one (-1) if the
- * element could not be found.
+ * Returns the index of the searchword as result or minus one (-1) if the
+ * searchword could not be found.
  *
  * Examples:
  *
  * <node name="search_string" channel="inline" format="search/linear" model="">
  *     <node name="index" channel="inline" format="text/cybol-path" model="#index"/>
  *     <node name="list" channel="inline" format="text/plain" model="Hello cybop world!"/>
- *     <node name="element" channel="inline" format="text/plain" model="cybop"/>
+ *     <node name="searchword" channel="inline" format="text/plain" model="cybop"/>
  * </node>
  *
  * <node name="search_number" channel="inline" format="search/linear" model="">
  *     <node name="index" channel="inline" format="text/cybol-path" model="#index"/>
  *     <node name="list" channel="inline" format="number/integer" model="5,7,1,2,3,4,6,1,2,3,0,2"/>
- *     <node name="element" channel="inline" format="number/integer" model="1,2,3"/>
+ *     <node name="searchword" channel="inline" format="number/integer" model="1,2,3"/>
  *     <node name="backward" channel="inline" format="logicvalue/boolean" model="true"/>
  * </node>
  *
  * <node name="search_part" channel="inline" format="search/linear" model="">
  *     <node name="index" channel="inline" format="text/cybol-path" model="#index"/>
  *     <node name="list" channel="inline" format="text/cybol-path" model=".db.songs"/>
- *     <node name="element" channel="inline" format="text/cybol-path" model="#title"/>
+ *     <node name="searchword" channel="inline" format="text/cybol-path" model="#title"/>
  *     <node name="model" channel="inline" format="logicvalue/boolean" model="false"/>
  * </node>
  *
  * Properties:
  *
- * - index (required) [text/cybol-path]: The index of the found element or minus one (-1) if it could not be found within the list.
+ * - index (required) [text/cybol-path]: The index of the found searchword or minus one (-1) if it could not be found within the list.
  * - list (required) [text/cybol-path | text/plain | number/integer | number/double | logicvalue/boolean | element/part]: The list to be searched through.
- * - element (required) [text/cybol-path | text/plain | number/integer | number/double | logicvalue/boolean | element/part]: The element to be searched for.
+ * - searchword (required) [text/cybol-path | text/plain | number/integer | number/double | logicvalue/boolean | element/part]: The searchword to be searched for.
  * - model (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to search through the parts' name or model value. It makes sense only if the list is of format (type) element/part which means pointers to parts. If null, the default is false (name is used).
  * - backward (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to search forward or backward. If null, the default is false (forward search is used).
  */
