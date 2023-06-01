@@ -1,0 +1,7 @@
+<node>
+
+    <node name="say-hello" channel="inline" format="text/cybol-path" model=".logic.send_hello"/>
+    <node name="load-data" channel="inline" format="text/cybol-path" model=".logic.send_data"/>
+    <node name="exit" channel="inline" format="text/cybol-path" model=".logic.exit_programme"/>
+
+</node>

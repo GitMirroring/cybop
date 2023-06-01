@@ -1,0 +1,15 @@
+<node>
+
+    <!-- Get client belonging to the handler that was placed into the interrupt pipe. -->
+    <node name="get_client_id" channel="inline" format="communicate/identify" model="">
+        <node name="identification" channel="inline" format="text/cybol-path" model=".client_socket"/>
+    </node>
+
+    <node name="handle_close" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".client_socket"/>
+    </node>
+
+</node>

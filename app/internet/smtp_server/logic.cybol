@@ -1,0 +1,27 @@
+<node>
+
+    <node name="send_hello" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
+        <node name="message" channel="inline" format="application/octet-stream" model="Hello World!"/>
+    </node>
+
+    <node name="send_data" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".data"/>
+    </node>
+
+    <node name="exit_programme" channel="inline" format="live/exit" model=""/>
+
+    <node name="handle_enable" channel="file" format="element/part" model="internet/smtp_server/handle_enable.cybol"/>
+    <node name="handle_sense" channel="file" format="element/part" model="internet/smtp_server/handle_sense.cybol"/>
+    <node name="handle_close" channel="file" format="element/part" model="internet/smtp_server/handle_close.cybol"/>
+
+</node>

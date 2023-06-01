@@ -1,0 +1,15 @@
+<node>
+
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+
+    <node name="logic" channel="file" format="element/part" model="internet/smtp_server/logic.cybol"/>
+    <node name="actions" channel="file" format="element/part" model="internet/smtp_server/actions.cybol"/>
+
+    <node name="request" channel="inline" format="application/octet-stream" model=""/>
+    <node name="action" channel="inline" format="text/plain" model=""/>
+
+    <node name="client_socket" channel="inline" format="number/integer" model="-1"/>
+
+    <node name="path" channel="inline" format="text/plain" model=""/>
+
+</node>

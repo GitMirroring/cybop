@@ -31,12 +31,19 @@
         <node name="searchword" channel="inline" format="number/integer" model="11,12,13"/>
         <node name="backward" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
--->
 
     <node name="test_part_in_homogeneous_list" channel="inline" format="text/cybol-path" model=".search">
         <node name="index" channel="inline" format="number/integer" model="-1"/>
         <node name="list" channel="inline" format="text/cybol-path" model=".homogeneous"/>
         <node name="searchword" channel="inline" format="text/plain" model="part_2"/>
+    </node>
+-->
+
+    <node name="test_part_by_model_instead_of_name" channel="inline" format="text/cybol-path" model=".search">
+        <node name="index" channel="inline" format="number/integer" model="-1"/>
+        <node name="list" channel="inline" format="text/cybol-path" model=".homogeneous"/>
+        <node name="searchword" channel="inline" format="text/plain" model="part 4"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
 <!--
@@ -44,13 +51,6 @@
         <node name="index" channel="inline" format="number/integer" model="-1"/>
         <node name="list" channel="inline" format="text/cybol-path" model=".heterogeneous"/>
         <node name="searchword" channel="inline" format="text/plain" model="text_part_7"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="false"/>
-    </node>
-
-    <node name="test_part_by_model_instead_of_name" channel="inline" format="text/cybol-path" model=".search">
-        <node name="index" channel="inline" format="number/integer" model="-1"/>
-        <node name="list" channel="inline" format="text/cybol-path" model=".homogeneous"/>
-        <node name="searchword" channel="inline" format="text/plain" model="part 4"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 -->

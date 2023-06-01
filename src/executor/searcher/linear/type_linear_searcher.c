@@ -97,6 +97,8 @@ void search_linear_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             // The list contains compound parts.
             //
 
+            //?? fwprintf(stdout, L"Debug: Search linear type. data position *pos: %i\n", *pos);
+
             //
             // Initialise element with part name OR model,
             // depending on the given model flag.

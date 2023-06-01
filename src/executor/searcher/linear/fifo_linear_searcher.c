@@ -52,7 +52,8 @@
 void search_linear_fifo(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Search linear fifo.");
-    fwprintf(stdout, L"Debug: Search linear fifo. p0: %i\n", p0);
+    fwprintf(stdout, L"Debug: Search linear fifo. index p0: %i\n", p0);
+    fwprintf(stdout, L"Debug: Search linear fifo. index *p0: %i\n", *((int*) p0));
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

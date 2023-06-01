@@ -51,7 +51,8 @@
 void search_linear(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Search linear.");
-    fwprintf(stdout, L"Debug: Search linear. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Search linear. backward flag p8: %i\n", p8);
+    //?? fwprintf(stdout, L"Debug: Search linear. backward flag *p8: %i\n", *((int*) p8));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

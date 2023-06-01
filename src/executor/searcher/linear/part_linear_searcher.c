@@ -41,7 +41,7 @@
  * @param p0 the element data (pointer reference)
  * @param p1 the element count
  * @param p2 the element type
- * @param p3 the part (list data position)
+ * @param p3 the part array (list data position)
  * @param p4 the model flag (false = name, true = model)
  */
 void search_linear_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
@@ -50,9 +50,19 @@ void search_linear_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
     fwprintf(stdout, L"Debug: Search linear part. model flag p4: %i\n", p4);
     //?? fwprintf(stdout, L"Debug: Search linear part. model flag *p4: %i\n", *((int*) p4));
 
+    //
+    // The part.
+    //
+    // CAUTION! The parametre handed over is an ARRAY of pointers to the single parts.
+    // Therefore, this parametre has to be DEREFERENCED in order to get the actual part.
+    // In order to achieve this, the FIRST pointer at index ZERO is copied below.
+    //
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    // Get part at index ZERO.
+    copy_array_forward((void*) &p, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     // Compare if part name (false) or model (true) is to be retrieved.
     compare_integer_unequal((void*) &r, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
@@ -69,7 +79,7 @@ void search_linear_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
         void* nc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get part name item.
-        copy_array_forward((void*) &n, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &n, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
         // Get part name item data, count.
         copy_array_forward((void*) &nd, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         copy_array_forward((void*) &nc, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
@@ -91,7 +101,6 @@ void search_linear_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
         fwprintf(stdout, L"Debug: Search linear part. nc: %i\n", nc);
         fwprintf(stdout, L"Debug: Search linear part. *nc: %i\n", *((int*) nc));
         fwprintf(stdout, L"Debug: Search linear part. type: %i\n", *((int*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE));
-        fwprintf(stdout, L"Debug: Search linear part. *nc: %i\n", *((int*) *((void**) nc)));
 
     } else {
 
@@ -111,9 +120,9 @@ void search_linear_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
         void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get part model item.
-        copy_array_forward((void*) &m, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &m, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
         // Get part type item.
-        copy_array_forward((void*) &t, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &t, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
 
         // Get part name item data, count.
         copy_array_forward((void*) &md, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -128,6 +137,7 @@ void search_linear_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
         copy_integer(p2, td);
 
         fwprintf(stdout, L"Debug: Search linear part. md: %i\n", md);
+        fwprintf(stdout, L"Debug: Search linear part. md as wchar_t: %ls\n", (wchar_t*) md);
         fwprintf(stdout, L"Debug: Search linear part. mc: %i\n", mc);
         fwprintf(stdout, L"Debug: Search linear part. *mc: %i\n", *((int*) mc));
         fwprintf(stdout, L"Debug: Search linear part. td: %i\n", td);

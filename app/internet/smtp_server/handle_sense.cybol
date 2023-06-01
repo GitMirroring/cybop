@@ -1,0 +1,97 @@
+<node>
+
+    <!-- Identification -->
+
+    <!-- Get client belonging to the handler that was placed into the interrupt pipe. -->
+    <node name="get_client_id" channel="inline" format="communicate/identify" model="">
+        <node name="identification" channel="inline" format="text/cybol-path" model=".client_socket"/>
+    </node>
+
+    <node name="print_accept" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Receive client data at socket:"/>
+    </node>
+    <node name="print_socket" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".client_socket"/>
+    </node>
+
+    <!-- Reset -->
+
+    <!-- CAUTION! If the request was not reset here, then the last valid previous request would be used again and again, neverendingly. -->
+    <node name="reset_request_model" channel="inline" format="modify/empty" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".request"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+    <node name="reset_request_properties" channel="inline" format="modify/empty" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".request"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <!-- Reception -->
+
+    <node name="receive_request" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".request"/>
+        <!-- Read indirectly from internal buffer into which data have been written by the sensing thread. -->
+        <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <!-- Determination -->
+
+    <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->
+    <node name="overwrite_path" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".path"/>
+        <node name="source" channel="inline" format="text/plain" model=".actions."/>
+    </node>
+    <node name="decode_request" channel="inline" format="convert/decode" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".action"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".request"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+    </node>
+    <node name="append_action" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".action"/>
+    </node>
+
+    <node name="print_path_label" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Path:"/>
+    </node>
+    <node name="print_path" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".path"/>
+    </node>
+
+    <!-- Execution -->
+
+    <!--
+        CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.
+        Otherwise, another signal might be executed before, so that this signal could possibly
+        not find all resources anymore, if they meanwhile have been manipulated by the other signal.
+        The "flow/sequence" operation ensures that the given model is executed directly.
+
+        CAUTION! Use path REFERENCE here, since the action is just
+        a string pointing to the actual model to be executed.
+    -->
+    <node name="execute_action" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="text/cybol-path" model="{.path}"/>
+    </node>
+
+</node>

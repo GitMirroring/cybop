@@ -32,7 +32,7 @@ treepath
 test
 deep
 
-scripting
+[scripting]
 
 ui:
 tui
@@ -50,4 +50,7 @@ starlike
 repertoire
 
 presence
+
+algorithm:
+linearsearch
 

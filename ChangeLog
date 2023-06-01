@@ -18,11 +18,19 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-06-01  Christian Heller  <christian.heller@cybop.org>
+
+        * Dereference pointer array so that first part gets determined correctly in file "part_linear_searcher.c"
+
+2023-05-31  Christian Heller  <christian.heller@cybop.org>
+
+        * Correct loop variable index bug in directory "executor/searcher/linear/"
+
 2023-05-28  Christian Heller  <christian.heller@cybop.org>
 
         * Add smtp deserialiser
         * Add cybol operation "search/linear"
-        * Implement new module "executor/searcher/"
+        * Implement new directory "executor/searcher/"
         * Add cybol application "algorithm/linearsearch/"
         * Move functions "detect" and "move" from module "communication" to "algorithm"
         * Extend documentation in file "doc/development/add_new_cybol_operation.txt" with new steps related to directories "include/" and "src/library/"

@@ -14,8 +14,9 @@
 Kommunikation im Medizinwesen (KIM)
 ___________________________________
 
+        * Reflect upon how to search in part model -- exact matching as for name or RECURSIVE call of search function to scan through the whole string, in directory "executor/searcher/linear/"
         * Test cybol application "algorithm/linearsearch/"
-        * Test searcher functionality
+        * Test cyboi searcher functionality in directory "executor/searcher/linear/"
 
         * Replace functionality of "finder" with "searcher" in all source code
         * Delete directories in include and src related to outdated "find" and "executor/finder/"
