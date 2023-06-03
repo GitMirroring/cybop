@@ -33,6 +33,7 @@
 
     <!-- Test -->
 
+<!--
     <node name="open_treefile" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
@@ -51,6 +52,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
+-->
 
     <!-- Startup -->
 

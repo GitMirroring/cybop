@@ -1,5 +1,6 @@
 <node>
 
+<!--
     <node name="TEST" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
@@ -8,7 +9,6 @@
         <node name="message" channel="inline" format="text/cybol-path" model="#index"/>
     </node>
 
-<!--
     <node name="TEST" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>

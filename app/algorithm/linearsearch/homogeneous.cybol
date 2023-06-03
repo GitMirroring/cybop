@@ -11,4 +11,16 @@
     <node name="part_8" channel="inline" format="text/plain" model="This is the model (value) of part 8 as text string."/>
     <node name="part_9" channel="inline" format="text/plain" model="This is the model (value) of part 9 as text string."/>
 
+    <!-- Entries are doubled to have a different position for backward search -->
+    <node name="part_0" channel="inline" format="text/plain" model="This is the model (value) of part 0 as text string."/>
+    <node name="part_1" channel="inline" format="text/plain" model="This is the model (value) of part 1 as text string."/>
+    <node name="part_2" channel="inline" format="text/plain" model="This is the model (value) of part 2 as text string."/>
+    <node name="part_3" channel="inline" format="text/plain" model="This is the model (value) of part 3 as text string."/>
+    <node name="part_4" channel="inline" format="text/plain" model="This is the model (value) of part 4 as text string."/>
+    <node name="part_5" channel="inline" format="text/plain" model="This is the model (value) of part 5 as text string."/>
+    <node name="part_6" channel="inline" format="text/plain" model="This is the model (value) of part 6 as text string."/>
+    <node name="part_7" channel="inline" format="text/plain" model="This is the model (value) of part 7 as text string."/>
+    <node name="part_8" channel="inline" format="text/plain" model="This is the model (value) of part 8 as text string."/>
+    <node name="part_9" channel="inline" format="text/plain" model="This is the model (value) of part 9 as text string."/>
+
 </node>

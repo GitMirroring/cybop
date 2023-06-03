@@ -18,6 +18,18 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-06-03  Christian Heller  <christian.heller@cybop.org>
+
+        * Split file "part_linear_searcher.c" into "name_linear_searcher.c" and "model_linear_searcher.c"
+        * Call function "search_linear_primitive" instead of the recursive "search_linear_fifo" in file "name_linear_searcher.c"
+        * Avoid endlessly deep recursion by checking type in file "model_linear_searcher.c"
+        * Complete cyboi searcher functionality in directory "executor/searcher/linear/"
+
+2023-06-02  Christian Heller  <christian.heller@cybop.org>
+
+        * Adapt searcher so that not only primitive but also part elements may get processed
+        * Use recursive call of search function for a part's name and model
+
 2023-06-01  Christian Heller  <christian.heller@cybop.org>
 
         * Dereference pointer array so that first part gets determined correctly in file "part_linear_searcher.c"

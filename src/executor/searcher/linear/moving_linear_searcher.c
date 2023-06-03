@@ -23,51 +23,41 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHECK_LINEAR_SEARCHER_SOURCE
-#define CHECK_LINEAR_SEARCHER_SOURCE
+#ifndef MOVING_LINEAR_SEARCHER_SOURCE
+#define MOVING_LINEAR_SEARCHER_SOURCE
 
 //
 // Library interface
 //
 
-#include "algorithm.h"
 #include "arithmetic.h"
 #include "constant.h"
 #include "knowledge.h"
 #include "logger.h"
 
 /**
- * Compares list element with given searchword.
+ * Moves pointer to the next position.
  *
  * @param p0 the index (if found; unchanged otherwise)
  * @param p1 the list data position (pointer reference)
  * @param p2 the list count remaining
  * @param p3 the list type
- * @param p4 the element data
- * @param p5 the element count
- * @param p6 the searchword data
- * @param p7 the searchword count
- * @param p8 the element and searchword type
- * @param p9 the loop variable
- * @param p10 the step (increment or decrement)
- * @param p11 the backward flag
- * @param p12 the break flag
+ * @param p4 the break flag
+ * @param p5 the loop variable
+ * @param p6 the step (increment or decrement)
+ * @param p7 the backward flag
+ * @param p8 the found flag (false = NOT found, true = element WAS found)
  */
-void search_linear_check(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void search_linear_moving(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Search linear check.");
-    fwprintf(stdout, L"Debug: Search linear check. p0: %i\n", p0);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Search linear moving.");
+    //?? fwprintf(stdout, L"Debug: Search linear moving. step p6: %i\n", p6);
+    //?? fwprintf(stdout, L"Debug: Search linear moving. step *p6: %i\n", *((int)* p6));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    //
-    // Compare element with searchword.
-    //
-    // CAUTION! Since the operation "check" does lexicographical comparison,
-    // the COUNTS of both operands have to be EQUAL for a positive result.
-    //
-    check_operation((void*) &r, p4, p6, p5, p7, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, p8);
+    compare_integer_unequal((void*) &r, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -75,21 +65,21 @@ void search_linear_check(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // The searchword has been found.
         //
 
-        // Copy index.
-        copy_integer(p0, p9);
+        // Copy current element's index as result.
+        copy_integer(p0, p5);
 
         // Set break flag.
-        copy_integer(p12, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     } else {
 
         // Move the current position.
-        move(p1, p2, p3, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, p11);
+        move(p1, p2, p3, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, p7);
 
         // Calculate loop variable using step (increment or decrement).
-        calculate_integer_add(p9, p10);
+        calculate_integer_add(p5, p6);
     }
 }
 
-/* CHECK_LINEAR_SEARCHER_SOURCE */
+/* MOVING_LINEAR_SEARCHER_SOURCE */
 #endif

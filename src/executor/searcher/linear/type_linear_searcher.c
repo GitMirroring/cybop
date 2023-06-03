@@ -47,10 +47,10 @@
  * @param p5 the searchword data
  * @param p6 the searchword count
  * @param p7 the searchword type
- * @param p8 the loop variable
- * @param p9 the step (increment or decrement)
- * @param p10 the backward flag
- * @param p11 the break flag
+ * @param p8 the break flag
+ * @param p9 the loop variable
+ * @param p10 the step (increment or decrement)
+ * @param p11 the backward flag
  */
 void search_linear_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
@@ -60,15 +60,13 @@ void search_linear_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         void** pos = (void**) p1;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Search linear type.");
-        fwprintf(stdout, L"Debug: Search linear type. p3: %i\n", p3);
-        fwprintf(stdout, L"Debug: Search linear type. *p3: %i\n", *((int*) p3));
+        //?? fwprintf(stdout, L"Debug: Search linear type. list type p3: %i\n", p3);
+        //?? fwprintf(stdout, L"Debug: Search linear type. list type *p3: %i\n", *((int*) p3));
 
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-        // The element data, count, type.
-        void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
-        int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        int et = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+        // The found flag.
+        int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         compare_integer_equal((void*) &r, p3, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
@@ -78,18 +76,7 @@ void search_linear_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             // The list represents primitive data.
             //
 
-            //
-            // Initialise element with current list data.
-            //
-            // CAUTION! Since the operation "check" called further below does
-            // lexicographical comparison, the COUNTS of both operands have to
-            // be EQUAL for a positive result. But the list count remaining
-            // is mostly greater than the searchword count. Therefore, the
-            // searchword count gets assigned to the element count here.
-            //
-            copy_pointer((void*) &ed, p1);
-            search_linear_elementcount((void*) &ec, p6, p2);
-            copy_integer((void*) &et, p3);
+            search_linear_primitive((void*) &f, *pos, p2, p3, p5, p6, p7);
 
         } else {
 
@@ -97,21 +84,20 @@ void search_linear_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             // The list contains compound parts.
             //
 
-            //?? fwprintf(stdout, L"Debug: Search linear type. data position *pos: %i\n", *pos);
-
             //
             // Initialise element with part name OR model,
             // depending on the given model flag.
             //
-            search_linear_part((void*) &ed, (void*) &ec, (void*) &et, *pos, p4);
+            search_linear_part((void*) &f, *pos, p4, p5, p6, p7);
         }
 
-        search_linear_comparison(p0, p1, p2, p3, ed, (void*) &ec, (void*) &et, p5, p6, p7, p8, p9, p10, p11);
+        // Assign index and break OR move to the next position.
+        search_linear_moving(p0, p1, p2, p3, p8, p9, p10, p11, (void*) &f);
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not search linear type. The list data position is null.");
-        fwprintf(stdout, L"Error: Could not search linear type. The list data position is null. p1: %i\n", p1);
+        fwprintf(stdout, L"Error: Could not search linear type. The list data position is null. list data position p1: %i\n", p1);
     }
 }
 

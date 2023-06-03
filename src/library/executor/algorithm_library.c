@@ -69,13 +69,16 @@
 // searcher
 //
 
-#include "../../executor/searcher/linear/check_linear_searcher.c"
 #include "../../executor/searcher/linear/comparison_linear_searcher.c"
 #include "../../executor/searcher/linear/elementcount_linear_searcher.c"
 #include "../../executor/searcher/linear/fifo_linear_searcher.c"
 #include "../../executor/searcher/linear/lifo_linear_searcher.c"
 #include "../../executor/searcher/linear/linear_searcher.c"
+#include "../../executor/searcher/linear/model_linear_searcher.c"
+#include "../../executor/searcher/linear/moving_linear_searcher.c"
+#include "../../executor/searcher/linear/name_linear_searcher.c"
 #include "../../executor/searcher/linear/part_linear_searcher.c"
+#include "../../executor/searcher/linear/primitive_linear_searcher.c"
 #include "../../executor/searcher/linear/type_linear_searcher.c"
 
 #include "../../executor/searcher/searcher.c"
