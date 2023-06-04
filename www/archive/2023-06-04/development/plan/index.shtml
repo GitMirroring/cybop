@@ -1,0 +1,347 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>Release Plan</h1>
+</section>
+
+<section class="container">
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th width="20px" class="text-center">\</th>
+                <th>Planned or Released Version</th>
+                <th>Date</th>
+                <th>Features</th>
+                <th>Release Master</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="table-danger"></td>
+                <td>1.0.0</td>
+                <td>20xx</td>
+                <td><a href="cybop-1.0.0.shtml">Features</a></td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-warning"></td>
+                <td>0.27.0</td>
+                <td>circa 2024</td>
+                <td><a href="cybop-0.27.0.shtml">Features</a></td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.26.0</td>
+                <td>2023-04-04</td>
+                <td><a href="cybop-0.26.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.25.0</td>
+                <td>2023-03-01</td>
+                <td><a href="cybop-0.25.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.24.0</td>
+                <td>2022-12-24</td>
+                <td><a href="cybop-0.24.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.23.0</td>
+                <td>2022-09-04</td>
+                <td><a href="cybop-0.23.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.22.0</td>
+                <td>2022-02-22</td>
+                <td><a href="cybop-0.22.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.21.0</td>
+                <td>2020-07-29</td>
+                <td><a href="cybop-0.21.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.20.0</td>
+                <td>2018-06-30</td>
+                <td><a href="cybop-0.20.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.19.0</td>
+                <td>2017-04-10</td>
+                <td><a href="cybop-0.19.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.18.0</td>
+                <td>2016-12-21</td>
+                <td><a href="cybop-0.18.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.17.0</td>
+                <td>2015-04-20</td>
+                <td><a href="cybop-0.17.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.16.0</td>
+                <td>2014-03-31</td>
+                <td><a href="cybop-0.16.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.15.0</td>
+                <td>2013-09-22</td>
+                <td><a href="cybop-0.15.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.14.0</td>
+                <td>2013-05-31</td>
+                <td><a href="cybop-0.14.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.13.0</td>
+                <td>2013-03-29</td>
+                <td><a href="cybop-0.13.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.12.0</td>
+                <td>2012-08-22</td>
+                <td><a href="cybop-0.12.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.11.0</td>
+                <td>2012-06-08</td>
+                <td><a href="cybop-0.11.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.10.0</td>
+                <td>2011-02-27</td>
+                <td><a href="cybop-0.10.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.9.0</td>
+                <td>2009-02-01</td>
+                <td><a href="cybop-0.9.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.8.0</td>
+                <td>2007-05-31</td>
+                <td><a href="cybop-0.8.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.7.0</td>
+                <td>2006-09-09</td>
+                <td><a href="cybop-0.7.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.6.0</td>
+                <td>2005-08-29</td>
+                <td><a href="cybop-0.6.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.5.0</td>
+                <td>2005-06-28</td>
+                <td><a href="cybop-0.5.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.4.0</td>
+                <td>2005-03-01</td>
+                <td><a href="cybop-0.4.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:dennis.reichenbach@gmx.net">Dennis Reichenbach</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.3.1.1</td>
+                <td>2004-12-06</td>
+                <td><a href="cybop-0.3.1.1.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:dennis.reichenbach@gmx.net">Dennis Reichenbach</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.3.1</td>
+                <td>2004-11-23</td>
+                <td><a href="cybop-0.3.1.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:dennis.reichenbach@gmx.net">Dennis Reichenbach</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.3.0</td>
+                <td>2004-09-13</td>
+                <td><a href="cybop-0.3.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.2.2</td>
+                <td>2004-06-23</td>
+                <td><a href="cybop-0.2.2.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.2.1</td>
+                <td>2004-06-11</td>
+                <td><a href="cybop-0.2.1.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.2.0</td>
+                <td>2004-04-29</td>
+                <td><a href="cybop-0.2.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.1.0</td>
+                <td>2003-09-11</td>
+                <td><a href="/development/plan/cybop-0.1.0.shtml">Features</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.0.7</td>
+                <td>2003-06-23</td>
+                <td></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.0.6</td>
+                <td>2003-04-28</td>
+                <td></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.0.5</td>
+                <td>2003-03-15</td>
+                <td></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.0.1<br/>-0.0.4</td>
+                <td>1999..2003</td>
+                <td>See <a href="https://sourceforge.net/projects/resmedicinae/">Res Medicinae</a></td>
+                <td>
+                    <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

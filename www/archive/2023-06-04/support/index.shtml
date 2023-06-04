@@ -1,0 +1,22 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>Support</h1>
+</section>
+
+<section class="container">
+
+    <h2>Company</h2>
+    <p>
+        The German company "CYBOP Software" offers services, training and
+        presentations around this new technology.<br/>
+        It is specialised on data format transformation and application development.
+    </p>
+    <p>
+        You may find their website at:<br/>
+        <a href="https://cybop.de/en/">https://cybop.de/en/</a>
+    </p>
+
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

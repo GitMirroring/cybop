@@ -1,0 +1,61 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.19.0</h1>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <ul>
+        <li>Replace preprocessor macros with posix-compliant ones</li>
+        <li>Let last preprocessor branch report an error instead of using linux as fallback OS</li>
+        <li>Simplify string arrays in directory "constant/"</li>
+        <li>Delete log message constants and use string literals in source code context</li>
+        <li>Extend knowledge path deserialiser to retrieve all kinds of memory (knowledge, signal, stack)</li>
+        <li>Rewrite knowledge deserialiser and knowledge selector for path () and index [] as well as nested paths and path references</li>
+        <li>Tailor files "handler.c" and "knowledge_part_getter.c" since common code was moved to unified knowledge path deserialiser</li>
+        <li>Merge container functionality "overwrite", "append", "insert", "remove", "empty", "fill" into cybol operation "modify"</li>
+        <li>Reintroduce type comparison of destination- and source part in "modify" applicator</li>
+        <li>Support cybol properties "destination_properties" and "source_properties" in "modify" applicator</li>
+        <li>Evaluate cybol property flag "move" in "modify" applicator, in order to use shallow- or deep copying</li>
+        <li>Adapt modifier functions by forwarding deep copying flag in directory "executor/modifier/"</li>
+        <li>Move stack handling from file "element_part_handler.c" to "part_handler.c"</li>
+        <li>Replace function call "handle_properties" for stack memory variables with "modify_item" (append)</li>
+        <li>Move function call "modify_array" (empty) from "array_deallocator" to "item_deallocator", so that only data array but not count and size trigger it</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOL</h2>
+    <ul>
+        <li>Replace knowledge path character number sign "#" with colon ":" as separator for property access</li>
+        <li>Provide memory root paths ".", "#", "|", for knowledge-, stack-, signal memory, respectively</li>
+        <li>Extend knowledge deserialiser to accept path references, e.g. *.app.node and unlimited nested references, e.g. **.app.node</li>
+        <li>Migrate cybol applications to new knowledge path syntax with mime type "text/cybol-path"</li>
+        <li>Remove old mime types "path/knowledge", "path/reference", "path/stack"</li>
+        <li>Write cybol application "cybol-path" for testing knowledge path variants</li>
+        <li>Delete superfluous property "type" for "modify/" container operations in cybol applications and api documentation</li>
+        <li>Use "destination_properties" property for operation "modify/empty" in cybol applications using it</li>
+        <li>Verify correct execution of cybol application "copier" for testing shallow- and deep copying (cloning)</li>
+        <li>Optimise cybol application "counter_stack_deep" using stack variables</li>
+        <li>Optimise cybol application "tui_control" using stack variables</li>
+        <li>Add cybol application "project_overview"</li>
+        <li>Continue cybol application "clean_result_directory"</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>Project</h2>
+    <ul>
+        <li>Add cmake build scripts to new directory "build/"</li>
+        <li>Include doxygen configuration to cmake</li>
+        <li>Add python script "build/cmake/adjustcopyright.py"</li>
+        <li>Move icons and manpages to directory "build/"</li>
+        <li>Move testing functionality from "src/tester/" to new directory "test/"</li>
+        <li>Remove autotools configuration files, since they got replaced with cmake</li>
+        <li>Use file "build/.clang-format" for code formatting</li>
+        <li>Add python script "tools/changeString.py" for simplifying string arrays in directory "constant/"</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

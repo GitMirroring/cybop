@@ -106,30 +106,6 @@ static wchar_t* FORMAT_GET_ACCESS_LOGIC_CYBOL_FORMAT = L"access/get-format";
 static int* FORMAT_GET_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The access/get-index logic cybol format.
- *
- * Description:
- *
- * Retrieves the index of the part with the given name within the whole.
- *
- * Examples:
- *
- * <node name="count_nodes" channel="inline" format="access/get-index" model="">
- *     <node name="index" channel="inline" format="text/cybol-path" model="#index"/>
- *     <node name="name" channel="inline" format="text/cybol-path" model="#name"/>
- *     <node name="whole" channel="inline" format="text/cybol-path" model=".domain.list"/>
- * </node>
- *
- * Properties:
- *
- * - index (required) [text/cybol-path]: The index of the found part with the given name within its compound whole parent node.
- * - name (required) [text/cybol-path | text/plain]: The name of the part node whose index is to be retrieved.
- * - whole (required) [text/cybol-path]: The compound whole node in which to search for the name.
- */
-static wchar_t* GET_INDEX_ACCESS_LOGIC_CYBOL_FORMAT = L"access/get-index";
-static int* GET_INDEX_ACCESS_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
  * The access/get-name logic cybol format.
  *
  * Description:

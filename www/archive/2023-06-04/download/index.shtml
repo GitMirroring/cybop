@@ -1,0 +1,103 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>Download</h1>
+</section>
+
+<section class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <p>
+                This demonstration package contains the cyboi interpreter
+                pre-compiled for 64-Bit-Linux and some example applications.
+            </p>
+            <p>
+                After unpacking, change into package directory, for example:<br/>
+                cd /home/xy/cybop/demo
+            </p>
+            <p>
+                Execute an application, for example:<br/>
+                ./cyboi hello/cli/run.cybol
+            </p>
+            <a href="https://download.savannah.nongnu.org/releases/cybop/cybop-demo-0.24.2-Linux.zip">
+                <span class="badge rounded-pill p-3" style="font-size: 14pt;">Download Demo</span>
+            </a>
+        </div>
+        <div class="col-sm-4">
+            <p>
+                This is a source code package (tar.gz tarball), which is meant to be used by developers.
+            </p>
+            <p>
+                The cyboi interpreter is currently compilable and runnable on Linux only.
+            </p>
+            <a href="https://download.savannah.nongnu.org/releases/cybop/cybop-0.26.0-Linux.tar.gz">
+                <span class="badge rounded-pill p-3" style="font-size: 14pt;">Download Source Code</span>
+            </a>
+        </div>
+        <div class="col-sm-4">
+            <p>
+                This link leads to the cybop download directory containing all versions and signature files.
+            </p>
+            <a href="http://savannah.nongnu.org/files/?group=cybop">
+                <span class="badge rounded-pill p-3" style="font-size: 14pt;">View Directory</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <h2>Licence</h2>
+    <p>
+        Different open source licences apply to the various parts of CYBOP.
+    </p>
+    <h3>CYBOP</h3>
+    <p>
+        The concepts behind <i>Cybernetics Oriented Programming</i> (CYBOP)
+        and all documentation about it are released under the
+        <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation License</a> (GFDL).
+        It ensures that all CYBOP ideas are freely available,
+        better understandable and extensible by anybody.
+    </p>
+    <h3>CYBOI</h3>
+    <a href="http://www.gnu.org/licenses/gpl.html">
+        <img src="/download/gplv3-127x51.png" alt="GPL Logo" class="float-start me-4"/>
+    </a>
+    <p>
+        The <i>Cybernetics Oriented Interpreter</i> (CYBOI) is the
+        active core system that serves as interface between
+        the computer hardware and the passive knowledge encoded in CYBOL.
+        It is placed under the
+        <a href="http://www.gnu.org/licenses/gpl.html">GNU General Public License</a> (GPL)
+        so that it will always be free, and any extensions to it will be free as well.
+    </p>
+    <h3>CYBOL</h3>
+    <a href="http://www.gnu.org/licenses/lgpl.html">
+        <img src="/download/lgplv3-147x51.png" alt="LGPL Logo" class="float-start me-4"/>
+    </a>
+    <p>
+        The XML- or JSON-based <i>Cybernetics Oriented Language</i> (CYBOL)
+        is used to model abstract knowledge.
+        The CYBOL core models are put under the
+        <a href="http://www.gnu.org/licenses/lgpl.html">GNU Lesser General Public License</a> (LGPL),
+        so that not only free software developers (knowledge modellers)
+        can make use of them, but also commercial companies.
+        The reason is that companies use algorithms, workflows, concepts,
+        organisational knowledge and data in general, which they want to keep private.
+        An insurance company, for instance, uses special algorithms to calculate their policies;
+        healthcare institutions use their own organisational concepts.
+    </p>
+</section>
+
+<!--
+<section class="container">
+    <h2>CYBOL Editor (CYBOLE)</h2>
+    <p>
+        An external open source project is developing a CYBOL editor called CYBOLE.
+    </p>
+    <a href="https://github.com/EnricoGallus/cybole">
+        <span class="badge rounded-pill p-3" style="font-size: 14pt;">GitHub Project Page</span>
+    </a>
+</section>
+-->
+
+<!--#include virtual="/bottom.shtml" -->

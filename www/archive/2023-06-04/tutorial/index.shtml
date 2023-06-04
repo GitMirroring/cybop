@@ -1,0 +1,581 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>Tutorial</h1>
+    <p>
+        Short films explain some aspects of CYBOP development.
+        They can be found on various video portals.
+    </p>
+</section>
+
+<section class="container">
+    <h2>CYBOL Language and Applications</h2>
+    <table class="table table-hover table-sm">
+        <tr class="table-dark">
+            <th style="width: 50%;" class="p-3">Deutsch (German)</th>
+            <th class="p-3">English</th>
+        </tr>
+        <tr>
+            <td class="p-3">
+                <h5>Herunterladen und Ausführen einer CYBOL-Anwendung</h5>
+                <p>(Download via Web Browser, Entkomprimieren, Ausführen in Terminal/Konsole)</p>
+                <a href="https://www.bitchute.com/video/jnpWnuzQg7zv/">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="https://odysee.com/@christian.heller:8/download:e7">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="https://rumble.com/v1zus28-herunterladen-und-ausfhren-einer-cybol-anwendung.html">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="https://youtu.be/6MSyQwBOfYo">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+            <td class="p-3">
+                <h5>TODO</h5>
+<!--
+                <p>(TODO Keywords)</p>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+-->
+            </td>
+        </tr>
+        <tr>
+            <td class="p-3">
+                <h5>Bestandteile und Syntax der Sprache CYBOL (XML/JSON)</h5>
+                <p>(XML tag, XML attributes, usable in XML or JSON, API Documentation)</p>
+                <a href="https://www.bitchute.com/video/TZKxAEGVGhbR/">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="https://odysee.com/@christian.heller:8/language:15">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="https://rumble.com/v1zut0o-bestandteile-und-syntax-der-sprache-cybol-xmljson.html">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="https://youtu.be/jJPsETey6t4">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+            <td class="p-3">
+                <h5>TODO</h5>
+<!--
+                <p>(TODO Keywords)</p>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+-->
+            </td>
+        </tr>
+        <tr>
+            <td class="p-3">
+                <h5>Die Beispiel-Anwendung EXIT</h5>
+                <p>(Programm, das sich selbst sofort wieder beendet)</p>
+                <a href="https://www.bitchute.com/video/gW7ImEx9dw3c/">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="https://odysee.com/@christian.heller:8/exit:4">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="https://rumble.com/v1zusdw-die-beispiel-anwendung-exit.html">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="https://youtu.be/rPrD1sUsJoE">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+            <td class="p-3">
+                <h5>TODO</h5>
+<!--
+                <p>(TODO Keywords)</p>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+-->
+            </td>
+        </tr>
+        <tr>
+            <td class="p-3">
+                <h5>Die Beispiel-Anwendung ADDITION</h5>
+                <p>(Programm, das die Summe zweier Zahlen berechnet, Aufbau Anwendungsbaum)</p>
+                <a href="https://www.bitchute.com/video/mhFh050Tigvq/">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="https://odysee.com/addition:3d175865b34dc560b7ea5c51bd01504031eb2223">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="https://rumble.com/v1zur7c-die-beispiel-anwendung-addition.html">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="https://youtu.be/8Zfh6-RFkp0">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+            <td class="p-3">
+                <h5>TODO</h5>
+<!--
+                <p>(TODO Keywords)</p>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+-->
+            </td>
+        </tr>
+        <tr>
+            <td class="p-3">
+                <h5>Die Beispiel-Anwendung HELLO</h5>
+                <p>(Programm, das eine Zeichenkette ausgibt, Varianten: CLI, CYBLIB library, file, TUI, GUI)</p>
+                <a href="https://www.bitchute.com/video/XwJ5PcDWkzwL/">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="https://odysee.com/@christian.heller:8/hello:bd66">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="https://rumble.com/v1zuso6-die-beispiel-anwendung-hello.html">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="https://youtu.be/WSfuaXb75Nw">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+            <td class="p-3">
+                <h5>TODO</h5>
+<!--
+                <p>(TODO Keywords)</p>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+-->
+            </td>
+        </tr>
+        <tr>
+            <td class="p-3">
+                <h5>Die Beispiel-Anwendung COUNTER</h5>
+                <p>(Programm, das Zahlen ausgibt, Test Laufzeit-Anwendungsmodell, Heap und Stack, Doppelhierarchie, Eigenschaften, Metadaten)</p>
+                <a href="https://www.bitchute.com/video/RsKlNEucGk47/">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="https://odysee.com/counter:284466bdce0fa89bc7edeb8c2bb48fe51805fcab">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="https://rumble.com/v1zuryw-die-beispiel-anwendung-counter.html">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="https://youtu.be/25dykk8y7EY">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+            <td class="p-3">
+                <h5>TODO</h5>
+<!--
+                <p>(TODO Keywords)</p>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+-->
+            </td>
+        </tr>
+        <tr>
+            <td class="p-3">
+                <h5>Die Beispiel-Anwendung REPERTOIRE</h5>
+                <p>(XML-Datenbestand, Musiktitel, Generierung HTML-Dateien)</p>
+                <a href="https://www.bitchute.com/video/m1ehadeZ6IMX/">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="https://odysee.com/repertoire:02f2d2b1d17b6414233dfc94c89e3d8fae0b06ec?r=7CvS3EapJUqewPfEPNQ44AwhdiFzeMhu">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="https://rumble.com/v21hhs0-die-beispiel-anwendung-repertoire.html">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="https://youtu.be/-s5vWvLYOL8">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+            <td class="p-3">
+                <h5>TODO</h5>
+<!--
+                <p>(TODO Keywords)</p>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+-->
+            </td>
+        </tr>
+        <tr>
+            <td class="p-3">
+                <h5>Die Beispiel-Anwendungen USER INTERACTION (UI)</h5>
+                <p>(TUI mit Nutzereingabe, Textmenü mit Auswahlbalken, GUI-Fenster mit Knöpfen, WUI als HTML-Seite)</p>
+                <a href="https://www.bitchute.com/video/GeUp6Snz7Cr1/">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="https://odysee.com/@christian.heller:8/ui:dff?r=7CvS3EapJUqewPfEPNQ44AwhdiFzeMhu">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="https://rumble.com/v21h0qe-die-beispiel-anwendungen-user-interface-ui.html">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="https://youtu.be/q9pfoX3Vqxw">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+            <td class="p-3">
+                <h5>TODO</h5>
+<!--
+                <p>(TODO Keywords)</p>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+-->
+            </td>
+        </tr>
+        <tr>
+            <td class="p-3">
+                <h5>Die Beispiel-Anwendungen INTERNET</h5>
+                <p>(Socket, Client/Server, Web-Server, HTTP, statische Dateien, dynamische Web-Inhalte)</p>
+                <a href="https://www.bitchute.com/video/EKAJuqpyEtXJ/">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="https://odysee.com/@christian.heller:8/internet:c?r=7CvS3EapJUqewPfEPNQ44AwhdiFzeMhu">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="https://rumble.com/v21h0tq-die-beispiel-anwendungen-internet.html">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="https://youtu.be/Z2Af63sdn2g">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+            <td class="p-3">
+                <h5>TODO</h5>
+<!--
+                <p>(TODO Keywords)</p>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+-->
+            </td>
+        </tr>
+        <tr>
+            <td class="p-3">
+                <h5>Die Beispiel-Anwendung STARLIKE</h5>
+                <p>(Sternförmige Kommunikation, TUI, GUI, WUI, send/receive)</p>
+                <a href="https://www.bitchute.com/video/7Hblm88K9J92/">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="https://odysee.com/@christian.heller:8/starlike:3?r=7CvS3EapJUqewPfEPNQ44AwhdiFzeMhu">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="https://rumble.com/v21hhvm-die-beispiel-anwendung-starlike.html">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="https://youtu.be/ZGyTPvv3AGs">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+            <td class="p-3">
+                <h5>TODO</h5>
+<!--
+                <p>(TODO Keywords)</p>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+-->
+            </td>
+        </tr>
+    </table>
+</section>
+
+<section class="container">
+    <h2>CYBOP Theory and Ideas</h2>
+    <table class="table table-hover table-sm">
+        <tr class="table-dark">
+            <th style="width: 50%;" class="p-3">Deutsch (German)</th>
+            <th class="p-3">English</th>
+        </tr>
+        <tr>
+            <td class="p-3">
+                <h5>Die Idee hinter CYBOP</h5>
+                <p>(Baumstruktur, XML und JSON, tabellenorientierter Editor zur Programmierung)</p>
+                <a href="https://www.bitchute.com/video/uZguTAsn082C/">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="https://odysee.com/@christian.heller:8/2022-11-02_-_die_idee_hinter_cybop:d?r=7CvS3EapJUqewPfEPNQ44AwhdiFzeMhu">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="https://rumble.com/v1r63te-die-idee-hinter-cybop.html">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="https://youtu.be/1QGuKK7CE5A">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+            <td class="p-3">
+                <h5>TODO</h5>
+<!--
+                <p>(TODO Keywords)</p>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+-->
+            </td>
+        </tr>
+        <tr>
+            <td class="p-3">
+                <h5>Die Bestandteile von CYBOP</h5>
+                <p>(CYBOP-Theorie, universelles Schema, plattformunabhängige CYBOL-Sprache, Zustände und Logik, CYBOI-Interpreter)</p>
+                <a href="https://www.bitchute.com/video/z7JTrTzjP5TH/">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="https://odysee.com/@christian.heller:8/2022-11-02_-_die_bestandteile_von_cybop:1?r=7CvS3EapJUqewPfEPNQ44AwhdiFzeMhu">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="https://rumble.com/v1r63o4-die-bestandteile-von-cybop.html">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="https://youtu.be/0XvCEU09Vq4">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+            <td class="p-3">
+                <h5>TODO</h5>
+<!--
+                <p>(TODO Keywords)</p>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+-->
+            </td>
+        </tr>
+        <tr>
+            <td class="p-3">
+                <h5>Visionäre Programmentwicklung mit CYBOP</h5>
+                <p>(Fachdaten, Benutzungsoberfläche, sternförmige Übersetzung, vereinfachter Entwicklungsprozess)</p>
+                <a href="https://www.bitchute.com/video/vPya4sqgpuy2/">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="https://odysee.com/@christian.heller:8/2022-11-02_-_visionaere_programmentwicklung_mit_cybop:1?r=7CvS3EapJUqewPfEPNQ44AwhdiFzeMhu">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="https://rumble.com/v1r63hg-visionre-programmentwicklung-mit-cybop.html">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="https://youtu.be/_Lr_mEOxJUg">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+            <td class="p-3">
+                <h5>TODO</h5>
+<!--
+                <p>(TODO Keywords)</p>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+-->
+            </td>
+        </tr>
+        <tr>
+            <td class="p-3">
+                <h5>Das CYBOP-Schema als Informationsgerüst</h5>
+                <p>(Universelles Schema als Grundgerüst, Metapher DNS-Molekül, Anwendungsdaten und Abläufe, Baum mit Doppelhierarchie)</p>
+                <a href="https://www.bitchute.com/video/mXI15DLJunGQ/">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="https://odysee.com/@christian.heller:8/2022-11-02_-_das_cybop-schema_als_informationsgeruest:6?r=7CvS3EapJUqewPfEPNQ44AwhdiFzeMhu">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="https://rumble.com/v1r639y-das-cybop-schema-als-informationsgerst.html">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="https://youtu.be/IkgN8IJm6Xk">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+            <td class="p-3">
+                <h5>TODO</h5>
+<!--
+                <p>(TODO Keywords)</p>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+-->
+            </td>
+        </tr>
+        <tr>
+            <td class="p-3">
+                <h5>Interdisziplinäre Entwurfsprinzipien in CYBOP</h5>
+                <p>(Kybernetik, Bionik, Natur, Wissenschaftsgebiete als Ideenlieferant für die Informatik)</p>
+                <a href="https://www.bitchute.com/video/65BhyZVVy7la/">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="https://odysee.com/@christian.heller:8/2022-11-02_-_interdisziplinaere_entwurfsprinzipien_in_cybop:a?r=7CvS3EapJUqewPfEPNQ44AwhdiFzeMhu">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="https://rumble.com/v1yp9qu-interdisziplinre-entwurfsprinzipien-in-cybop.html">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="https://youtu.be/92w9WMCBLXw">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+            </td>
+            <td class="p-3">
+                <h5>TODO</h5>
+<!--
+                <p>(TODO Keywords)</p>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">BitChute</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Odysee</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">Rumble</span>
+                </a>
+                <a href="TODO">
+                    <span class="badge rounded-pill p-2" style="font-size: 14pt;">YouTube</span>
+                </a>
+-->
+            </td>
+        </tr>
+    </table>
+</section>
+
+<section class="container">
+    <h2>CYBOI Interpreter and Architecture</h2>
+    <table class="table table-hover table-sm">
+        <tr class="table-dark">
+            <th style="width: 50%;" class="p-3">Deutsch (German)</th>
+            <th class="p-3">English</th>
+        </tr>
+    </table>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

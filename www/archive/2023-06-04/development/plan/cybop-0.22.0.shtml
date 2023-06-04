@@ -1,0 +1,99 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.22.0</h1>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <h3>Communication architecture:</h3>
+    <ul>
+        <li>Redesign completely to make it yet more uniform, slim and efficient</li>
+        <li>Store communication values in cascade of pointer arrays for (1) internal memory (2) input output entry (3) server entry (4) client entry</li>
+        <li>Realise optional asynchronous communication via enable thread and sense threadv
+        <li>Use iso c library "threads.h" being a wrapper for posix "pthread" library</li>
+        <li>Distinguish between standalone client and server-side client stub</li>
+        <li>Provide mutex-protected client requst buffer for each server</li>
+        <li>Provide mutex-protected input buffer and output buffer for each client</li>
+        <li>Detect length prefix or end suffix using message length deserialiser</li>
+        <li>Use low-level functions "read" and "write" instead of stream functions</li>
+        <li>Prepare timeout handling via function "time" and accepttime list</li>
+    </ul>
+    <h3>Interrupt pipe:</h3>
+    <ul>
+        <li>Introduce interrupt pipe to avoid busy waiting with endless loop</li>
+        <li>Communicate between input threads and main thread via interrupt pipe</li>
+        <li>Let main thread block while waiting for input from interrupt pipe</li>
+        <li>Clean up event (signal) handling in controller checker</li>
+    </ul>
+    <h3>Awakener:</h3>
+    <ul>
+        <li>Use blocking input for all channels</li>
+        <li>Eliminate busy waiting with sleep time variables</li>
+        <li>Introduce awakener for letting the system send a fake input to itself</li>
+        <li>Wake up blocking sensing threads, so that they can exit themselves</li>
+        <li>Implement terminal awakener using function "ioctl"</li>
+        <li>Implement display awakener using function "xcb_send_event" from "xcb/xproto.h"</li>
+        <li>Wait for child thread to finish using function "thrd_join"</li>
+    </ul>
+    <h3>General:</h3>
+    <ul>
+        <li>Optimise knowledge path deserialiser</li>
+        <li>Add threader with spinner and cutter for handling thread functions</li>
+        <li>Add porter with locker and unlocker for handling mutex</li>
+        <li>Unify error logging</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOL</h2>
+    <h3>Lifecycle:</h3>
+    <ul>
+        <li>maintain/startup and maintain/shutdown</li>
+        <li>activate/enable and activate/disable</li>
+        <li>dispatch/open and dispatch/close</li>
+        <li>configure/initialise and configure/finalise</li>
+        <li>feel/sense and feel/suspend</li>
+        <li>communicate/receive and communicate/send</li>
+        <li>stream/read and stream/write</li>
+        <li>convert/decode and convert/encode</li>
+        <li>represent/deserialise and represent/serialise</li>
+    </ul>
+    <h3>General:</h3>
+    <ul>
+        <li>Eliminate cybol property "network_service" (e.g. "http"), since specifying a unique port (e.g. 80) suffices</li>
+        <li>Add property "timeout" to operation "maintain/startup"</li>
+        <li>Store client device identifier in corresponding cybol application (file descriptor, socket number, window id)</li>
+    </ul>
+    <h3>Application "presence":</h3>
+    <ul>
+        <li>Distinguish request between file path and query with key-value-pairs</li>
+        <li>Make css be transferred as file, since dynamic URL does only work with JavaScript</li>
+        <li>Make header image and heraldic symbol get transferred as static file and not dynamic byte stream</li>
+        <li>Remove "close" from http headers, to not always close http connection</li>
+        <li>Adapt to using stack memory variables</li>
+    </ul>
+    <h3>Applications:</h3>
+    <ul>
+        <li>Add small files to "communication" demonstrating lifecycle operations</li>
+        <li>Simplify "www_server_dynamic" and delete css</li>
+        <li>Split socket handler in "ui" into action handler and empty message sender, in order to reply to favicon and other requests</li>
+        <li>Test language "message/binary-crlf" in "socket_client" and "socket_server"</li>
+        <li>Make tables that remained empty in "wui" work again</li>
+        <li>Make cybol application "user_interface/gui" work again</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>Project</h2>
+    <h3>Documentation:</h3>
+    <ul>
+        <li>Move development documentation files and diagrams from "src/" to "doc/development/cyboi/"</li>
+        <li>Update document "doc/development/cyboi/design_decisions.txt"</li>
+        <li>Add diagram "doc/development/cyboi/knowledge_deserialiser.xmi"</li>
+        <li>Create svg images from all diagrams</li>
+        <li>Add comparison table document "doc/development/cyboi/service_lifecycle.pdf"</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

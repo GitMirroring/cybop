@@ -1,0 +1,61 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.4.0</h1>
+</section>
+
+<section class="container">
+    <h2>Project</h2>
+    <ul>
+        <li>Debian Packages <i>cyboi-doc</i> and <i>cybol-examples</i></li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <ul>
+        <li>Move global variables and constants into special files</li>
+        <li>Use encapsulated primitives so that pointers
+            can be handed through the system, instead of
+            copies of char, int, double etc.;
+            encapsulation is also necessary to preserve a
+            primitive's value in memory -- otherwise, their value
+            gets lost as soon as a parser procedure is left</li>
+        <li>Complete system lifecycle and waiting loop</li>
+        <li>Simplify configuration file which now consists
+            of solely key-value pairs, on just one level,
+            NOT hierarchically</li>
+        <li>Store configuration values internally in a simple
+            pointer array instead of an extra data structure;
+            it is not necessary to store additional type information
+            in a second column of the internals memory, because
+            internals are ALWAYS simple pointers to some date
+            structure that was created outside the internals memory</li>
+        <li>Adapt whole system to new configuration handling</li>
+        <li>Factor out code from cyboi main function into separate
+            files and procedures, for better overview</li>
+        <li>Change all <i>get</i> procedures in arrays, so that only references,
+            but NOT copies are delivered back; change system accordingly</li>
+        <li>Change complete CYBOI system from unnecessary triple-referenced
+            pointers to simple ones</li>
+        <li>Only hand over those variables as double reference which:
+            <ol>
+                <li>will carry a result to be delivered back</li>
+                <li>have to be treated as array</li>
+            </ol></li>
+        <li>Remove signal from signal_memory only AFTER
+            the signal has been handled</li>
+        <li>Correct A LOT OF bugs causing segmentation faults at runtime</li>
+        <li>Get <i>Hello, World!</i> application running</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOL</h2>
+    <ul>
+        <li>Create first applications <i>exit</i> and <i>helloworld</i></li>
+        <li>Prepare <i>resadmin</i> application with web frontend</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

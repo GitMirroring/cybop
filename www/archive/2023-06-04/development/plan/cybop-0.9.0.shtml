@@ -1,0 +1,35 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.9.0</h1>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <ul>
+        <li>Complete interrupt mechanism and sleeping for different communication channels
+            (CYBOI-internal signal, text- or graphical user interface, socket)</li>
+        <li>Use Unicode (instead of formerly ASCII-) character code, UTF-8 encoding, wide characters</li>
+        <li>Restructure constants into four categories: "name", "channel", "abstraction", "model"</li>
+        <li>Change abstraction constants to follow MIME type-like style</li>
+        <li>Replace "libxml2" with a self-written XML parser</li>
+        <li>Add a corresponding CYBOL parser, to be called right after the XML parser
+            (like two filters called in a sequence)</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOL</h2>
+    <ul>
+        <li>Use MIME type-like values for the "abstraction" xml attribute</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>Project</h2>
+    <ul>
+        <li>Switch from 32 Bit- to 64 Bit architecture by adapting autoconf/ make files</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

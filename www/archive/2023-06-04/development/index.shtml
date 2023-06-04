@@ -1,0 +1,127 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>Development</h1>
+</section>
+
+<section class="container">
+    <h2>Project Portal</h2>
+    <p>
+        The project is hosted on the GNU Savannah open source software portal.
+    </p>
+    <a href="https://savannah.nongnu.org/projects/cybop/">
+        <img src="/development/sv-nongnu.png" alt="GNU Savannah Logo" vspace="2" width="124" height="32" border="1"/>
+        <br/>
+        https://savannah.nongnu.org/projects/cybop/
+    </a>
+</section>
+
+<section class="container">
+    <h2>Source Code</h2>
+    <p>
+        The source code repository is managed using the Git version control system (VCS).
+        Historically, it was the Concurrent Versions System (CVS) first, then Subversion (SVN), now Git.
+    </p>
+    <p>
+        Checkout instructions:<br/>
+        <a href="https://savannah.nongnu.org/git/?group=cybop">https://savannah.nongnu.org/git/?group=cybop</a>
+    </p>
+    <a href="https://git.savannah.nongnu.org/cgit/cybop.git">
+        <span class="badge rounded-pill p-3" style="font-size: 14pt;">Browse Sources Repository</span>
+    </a>
+</section>
+
+<section class="container">
+    <div class="row mt-5">
+        <div class="col-sm-6 p-5">
+            <img src="/development/architecture/architecture.png" alt="Universal CYBOL Communication" class="img-fluid mx-auto d-block"/>
+        </div>
+        <div class="col-sm-6 p-5">
+            <h2>CYBOI Architecture</h2>
+            <ul>
+                <li>Executable as monolith or with libraries</li>
+                <li>One central event loop running endlessly</li>
+                <li>Applicator as API to CYBOL applications</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="row mt-5">
+        <div class="col-sm-6 p-5">
+            <h2>CYBOI Functionality</h2>
+            <ul>
+                <li>Lifecycle functions as pairs</li>
+                <li>System communication</li>
+                <li>Data manipulation</li>
+            </ul>
+        </div>
+        <div class="col-sm-6 p-5">
+            <img src="/development/architecture/lifecycle.png" alt="Universal CYBOL Communication" class="img-fluid mx-auto d-block"/>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <h2>Code Conventions</h2>
+    <p>
+        The style guide recommendations for coding in the C programming language
+        while developing on the CYBOI interpreter.
+    </p>
+    <a href="/development/conventions/">
+        <span class="badge rounded-pill p-3" style="font-size: 14pt;">Read Code Conventions</span>
+    </a>
+</section>
+
+<section class="container">
+    <h2>Mailing List</h2>
+    <p>
+        There is currently just one mailing list in the project,
+        which is used mainly for developer discussion.
+        However, interested users seeking support may address this list as well.
+    </p>
+    <ul>
+        <li>Developer List: <a href="mailto:cybop-developers@nongnu.org">cybop-developers@nongnu.org</a></li>
+        <li>Registration: <a href="https://lists.nongnu.org/mailman/listinfo/cybop-developers">https://lists.nongnu.org/mailman/listinfo/cybop-developers</a></li>
+        <li>Overview: <a href="http://savannah.nongnu.org/mail/?group=cybop">Mailing Lists</a></li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>Release Plan</h2>
+    <p>
+        <a href="/development/plan/" class="mt-4">
+            <span class="badge rounded-pill p-3" style="font-size: 14pt;">Study Release Plan</span>
+        </a>
+    </p>
+</section>
+
+<section class="container">
+    <h2>How to Help</h2>
+    <p>
+        We currently follow the development model of "Benevolent Dictatorship". This is for historical reasons.
+        Most contributions come from the project founder who implements ideas which he formulated over the years.
+    </p>
+    <p>
+        However, help from the Community is always welcome and could save time,
+        which can then better be invested in developing the core interpreter.
+        Here are some ideas where your support would be possible and useful:
+    </p>
+    <ul>
+        <li>CYBOL Editor (create development tool with several views: text, xml, json, tree-table, graphical blocks)</li>
+        <li>GUI Designer (develop RAD tool to create user interfaces quickly)</li>
+        <li>Documentation (write user manual and update API)</li>
+        <li>Website (maintain and update content)</li>
+        <li>Build Process (integrate libraries or factor out plug-ins, currently using cmake)</li>
+        <li>Continuous Integration/Delivery (package software for CI/CD)</li>
+        <li>Import/Export Filters (write parser and serialiser for new data formats)</li>
+        <li>Database Concept Integration (optimise JSON/XML file size for storage, provide SQL like queries)</li>
+        <li>Graphical User Interface (design GUI components, make use of fonts, implement layouts, control window)</li>
+        <li>Migration (port CYBOI interpreter to Windows, Mac OSX, Android, iOS)</li>
+        <li>CYBOL Library (provide basic functionality usable by CYBOL applications)</li>
+        <li>Bug Reporting (test cybol applications)</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

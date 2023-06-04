@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-06-04  Christian Heller  <christian.heller@cybop.org>
+
+        * Delete cybol operation "access/get-index"
+        * Replace functionality of part "finder" with "searcher" in all source code but leave client finder intact
+        * Place endless loop at correct module in architecture control flow diagram on website
+
 2023-06-03  Christian Heller  <christian.heller@cybop.org>
 
         * Split file "part_linear_searcher.c" into "name_linear_searcher.c" and "model_linear_searcher.c"

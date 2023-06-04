@@ -1,0 +1,53 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.17.0</h1>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <ul>
+        <li>Prepare gui serialiser and layout serialiser</li>
+        <li>Add randomise operations</li>
+        <li>Add more cyboi shell commands and -operations (Maximilian Brenner)</li>
+        <li>Complete socket functionality and keep client socket integer array internally</li>
+        <li>Define symbolic names as variable values at startup</li>
+        <li>Create input/output entry structure for all kinds of services</li>
+        <li>Optimise endless loop checking for signals/service interrupts in controller (eliminate some sensing threads)</li>
+        <li>Loop and close all services at shutdown</li>
+        <li>Merge input/output filters for various channels in chain (device|compression|encoding|language+format|knowledge)</li>
+        <li>Distinguish low-level reading/writing in directory "executor/streamer/" from "executor/communicator/" as central i/o point</li>
+        <li>Reactivate and update http-request/http-response/uri de-/serialiser</li>
+        <li>Implement xml serialiser</li>
+        <li>Implement cybol element/part serialiser</li>
+        <li>Introduce new channel "clock" for reading and adjusting time and date</li>
+        <li>Introduce new channel "randomiser" for sowing a seed and generating random numbers</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOL</h2>
+    <ul>
+        <li>Update api generator</li>
+        <li>Provide syntax files in XML, JSON, self-defined "short" notation in new directory "doc/books/cybol/syntax/"</li>
+        <li>Rename all xml tags (model, part, property, constraint) uniformly to just "node"</li>
+        <li>Add "string_comparison" cybol application</li>
+        <li>Add "randomiser" cybol application</li>
+        <li>Add "arithmetics" cybol application</li>
+        <li>Rewrite "calculator" cybol application (Sibylle Hebenstreit, Marc Jäkel, Andreas Burkhardt)</li>
+        <li>Add "tictactoe" cybol application (Sandra Rum, Stephan Griese, Thomas Schulze)</li>
+        <li>Add "socket_server" and "socket_client" cybol applications</li>
+        <li>Add "www_server_static" and "www_server_dynamic" cybol applications</li>
+        <li>Continue "presence" cybol application with css, calendar week navigation, favicon, uri generation</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>Project</h2>
+    <ul>
+        <li>Update cybol api specification (Max Müller-Domhardt, Sebastian König)</li>
+        <li>Add "cybol_generator" gui designer based on C++/Qt (Pit Braunsdorf, Sophia Kledzinski)</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

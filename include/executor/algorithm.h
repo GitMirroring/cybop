@@ -69,18 +69,11 @@ void detect_moving(void* p0, void* p1, void* p2, void* p3, void* p4);
 // finder
 //
 
-void find_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
-void find_array_fifo(void* p0, void* p1, void* p2, void* p3, void* p4);
-void find_array_lifo(void* p0, void* p1, void* p2, void* p3, void* p4);
 void find_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
-void find_item(void* p0, void* p1, void* p2);
-void find_item_element(void* p0, void* p1, void* p2, void* p3);
 void find_list(void* p0, void* p1, void* p2, void* p3);
 void find_list_element(void* p0, void* p1, void* p2, void* p3);
 void find_list_index(void* p0, void* p1, void* p2, void* p3);
 void find_mode(void* p0, void* p1, void* p2, void* p3);
-void find_part(void* p0, void* p1, void* p2);
-void find_part_element(void* p0, void* p1, void* p2, void* p3, void* p4);
 
 //
 // mover

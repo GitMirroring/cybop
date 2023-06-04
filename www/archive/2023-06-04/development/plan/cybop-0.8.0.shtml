@@ -1,0 +1,39 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.8.0</h1>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <ul>
+        <li>Restructure CYBOI command line argument handling to allow for dynamic log file, log level etc.</li>
+        <li>Recognise command line options: version, help, test</li>
+        <li>Implement file output of text, now available in CYBOL</li>
+        <li>Implement shell input, output, error output, now available in CYBOL</li>
+        <li>Complete serialiser converting cybop knowledge models into structured text
+            called "model diagram" (good for debugging cybop knowledge models)</li>
+        <li>Generate formatted xhtml code, with tags and attributes, from CYBOL</li>
+        <li>Provide first version of web user interfaces (wui) using tcp socket (not usable yet)</li>
+        <li>Complete parser converting the German X Datentraeger (xDT) medical exchange format into CYBOI knowledge models</li>
+        <li>Add opengl startup and shutdown</li>
+        <li>Add new test procedures</li>
+        <li>Internal improvements and bugfixes</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOL</h2>
+    <ul>
+        <li>Update cybol applications</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>Project</h2>
+    <ul>
+        <li>Add opengl/ mesa libraries to makefile</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

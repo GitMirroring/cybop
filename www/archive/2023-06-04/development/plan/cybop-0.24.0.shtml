@@ -1,0 +1,83 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.24.0</h1>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <h3>General:</h3>
+    <ul>
+        <li>Remove channel, encoding, language from cyboi-internal allocated part structure</li>
+        <li>Add reverser providing functionality for cybol operation "modify/reverse"</li>
+        <li>Add lowerer providing functionality for cybol operation "modify/lower"</li>
+        <li>Add upperer providing functionality for cybol operation "modify/upper"</li>
+        <li>Add repeater providing functionality for cybol operation "modify/repeat"</li>
+        <li>Add replacer providing functionality for cybol operation "modify/replace"</li>
+    </ul>
+    <h3>Serialiser and Deserialiser:</h3>
+    <ul>
+        <li>Clean up cybol de-/serialiser from obsolete channel, encoding, language</li>
+        <li>Move boolean/colour/datetime/duration/socket out of cybol de-/serialiser</li>
+        <li>Add numeral vector de-/serialiser</li>
+        <li>Add numeral de-/serialiser detecting number format automatically which is needed in json</li>
+        <li>Consider number base prefix and process dual/octal/decimal/hexadecimal numbers</li>
+        <li>Offer scientific notation for decimal fractions</li>
+        <li>Handle complex numbers in cartesian and polar form</li>
+        <li>Provide language properties constraints to various de-/serialisers</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOL</h2>
+    <h3>Properties:</h3>
+    <ul>
+        <li>Add property "repetition" for cybol operation "modify/repeat"</li>
+        <li>Add property "searchword" for cybol operation "modify/replace"</li>
+        <li>Replace language "message/cli" with "message/tui"</li>
+        <li>Add languages "text/cybol+xml" and "text/cybol+json"</li>
+        <li>Use mime type format "application/octet-stream" as replacement for "text/ascii"</li>
+    </ul>
+    <h3>Language Properties (Constraints):</h3>
+    <ul>
+        <li>"separator", "grouping" (thousands separator) used in numeral deserialiser</li>
+        <li>"sign", "prefix", "base", "classicoctal", "grouping", "separator", "decimals", "scientific" used in numeral serialiser</li>
+        <li>"positioning" used in tui serialiser</li>
+    </ul>
+    <h3>Applications:</h3>
+    <ul>
+        <li>Add cybol application "knowledge_tree/creation/"</li>
+        <li>Add cybol applications "reverser", "lowerer", "upperer", "repeater", "replacer" to directory "examples/container_modification/"</li>
+        <li>Add cybol application "serialiser/xml/"</li>
+        <li>Add cybol application "serialiser/cybol/"</li>
+        <li>Make multi-channel "Hello World!" cybol application "ui" work fully and save screenshots of tui, gui, wui</li>
+        <li>Move working cybol applications from directory "examples" to new directory "app" for demonstration</li>
+        <li>Rename cybol library to "cyblib"</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>Project</h2>
+    <h3>Documentation:</h3>
+    <ul>
+        <li>Update cybol api specification in javadoc comment blocks of files in directory "constant/format/cybol/"</li>
+        <li>Update cyboi interpreter c code conventions style guide and upload to website</li>
+        <li>Update release instructions</li>
+    </ul>
+    <h3>Website:</h3>
+    <ul>
+        <li>Make up simplified demo package as zip file containing just readme + cyboi + a few functioning apps</li>
+        <li>Upload tutorials to various video portals</li>
+        <li>Provide tutorials as separate page on website</li>
+    </ul>
+    <h3>Build Process:</h3>
+    <ul>
+        <li>Delete unused/obsolete bin and dist folder (Enrico Gallus)</li>
+        <li>Remove doxygen completely (Enrico Gallus)</li>
+        <li>Rename make targets (Enrico Gallus)</li>
+        <li>Generate cmake config header file during make process (Enrico Gallus)</li>
+        <li>Add deb to cpack package list (Enrico Gallus)</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

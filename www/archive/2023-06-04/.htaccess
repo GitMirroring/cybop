@@ -1,0 +1,12 @@
+#
+# The default files to be searched for.
+#
+# By default, SHTML is not part of that list but
+# needed for Server Side Includes (SSI).
+# A possible alternative is PHP.
+#
+DirectoryIndex index.shtml index.html index.htm index.php index.phtml index.php5
+
+# Disable caching on server.
+Header always set Cache-Control: s-maxage=0
+

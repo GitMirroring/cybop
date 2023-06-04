@@ -32,7 +32,6 @@
 
 #include "../applicator/access/count.c"
 #include "../applicator/access/get.c"
-#include "../applicator/access/get_index.c"
 #include "../applicator/access/indicate.c"
 
 //

@@ -143,7 +143,6 @@
 
 #include "constant/name/cybol/logic/access/count_access_logic_cybol_name.h"
 #include "constant/name/cybol/logic/access/get_access_logic_cybol_name.h"
-#include "constant/name/cybol/logic/access/get_index_access_logic_cybol_name.h"
 #include "constant/name/cybol/logic/access/indicate_access_logic_cybol_name.h"
 
 #include "constant/name/cybol/logic/activation/disable_activation_logic_cybol_name.h"

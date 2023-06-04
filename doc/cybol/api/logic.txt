@@ -1,6 +1,5 @@
 access/count
 access/get-format
-access/get-index
 access/get-name
 access/get-type
 access/indicate-empty
@@ -135,6 +134,9 @@ represent/serialise
 run/run
 run/sleep-nano
 run/sleep-second
+search/binary
+search/interpolation
+search/linear
 sort/bubble
 sort/insertion
 sort/quick

@@ -14,11 +14,10 @@
 Kommunikation im Medizinwesen (KIM)
 ___________________________________
 
-        * Replace functionality of "finder" with "searcher" in all source code
-        * Delete directories in include and src related to outdated "find" and "executor/finder/"
-
-        * Check and possibly correct architecture control flow diagram on website -- endless loop in checker OR handler ??
         * Check if preprocessor macro is necessary in header OR source files (probably NOT both) --> delete superfluous ones
+
+        * Clean up directory "controller/checker/client/"
+        * Clean up directory "controller/checker/io/"
 
         * Test cybol application "app/internet/smtp_server/" and "app/internet/smtp_client/"
         * Simplify smtp deserialiser by using new searcher functionality

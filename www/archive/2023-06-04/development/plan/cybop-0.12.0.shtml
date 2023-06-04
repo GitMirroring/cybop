@@ -1,0 +1,40 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.12.0</h1>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <ul>
+        <li>Advance ansi escape code generator</li>
+        <li>Add or update container functions: get, count, indicate (empty or exists), insert, remove</li>
+        <li>Improve terminal input and -output</li>
+        <li>Replace optionaliser with command line deserialiser</li>
+        <li>Simplify cyboi command line so that "--knowledge" argument is the default</li>
+        <li>Update html serialiser with switchable formatting</li>
+        <li>Implement handling of index in knowledge path</li>
+        <li>Implement character reference de-/serialiser for numeric character reference (hexadecimal and decimal) and entity reference</li>
+        <li>Prepare percent encoding de-/serialiser</li>
+        <li>Add decimal fraction de-/serialiser and calculator of Falk Müller</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOL</h2>
+    <ul>
+        <li>Make cybol application "ui_control" work again</li>
+        <li>Add applications get_count, addition_using_indices, index_usage, knowledge_tree_access, addition_using_serialisation, wui, tui, double</li>
+        <li>Generate cybol application programming interface (api) specification from cybol files using html format, contributed by Enrico Gallus</li>
+        <li>Add new operations: represent/serialise, represent/deserialise, access/get-name</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>Project</h2>
+    <ul>
+        <li>Add "cybol_extension" tutorial of Falk Müller</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

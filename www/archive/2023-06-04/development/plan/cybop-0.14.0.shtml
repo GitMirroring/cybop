@@ -1,0 +1,41 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.14.0</h1>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <ul>
+        <li>Port to win32 api using mingw and pre-processor defines (Tobias K&#246;hler)</li>
+        <li>Enable terminal output under windows using win32 console functionality</li>
+        <li>Split logger into several files and add windows system error log function</li>
+        <li>Fix serial port interface (Tobias K&#246;hler)</li>
+        <li>Migrate x window system event receiver from xlib to x c bindings (xcb)</li>
+        <li>Add bit manipulation functions, e.g. "clear", "set", "shift_left", "rotate_right"</li>
+        <li>Add bit logic operations, e.g. "and", "xor"</li>
+        <li>Add calculator and comparator for types double and pointer (Marcel Wesberg)</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOL</h2>
+    <ul>
+        <li>Add unix- as well as windows shell commands in a platform independent manner (Falco Prescher)</li>
+        <li>Add language "message/cli" using command-line output, other than "message/tui" which uses whole screen terminal output</li>
+        <li>Update gui cybol application</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>Project</h2>
+    <ul>
+        <li>Update cybol api specification (Johannes David)</li>
+        <li>Update beginner's manual and translate into English (Tim Illner)</li>
+        <li>Add cybol source editor "Cybol-Eclipse-Plugin" (Michael Dietrich)</li>
+        <li>Add cybol source editor "cybol_web_creator" (Axel Petzka)</li>
+        <li>Add cybol source editor "Visual_Cybop" (Alexander Papenfu&#223;)</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

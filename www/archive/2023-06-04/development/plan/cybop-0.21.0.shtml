@@ -1,0 +1,81 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.21.0</h1>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <h3>Socket</h3>
+    <ul>
+        <li>Make socket communication work in blocking and non-blocking mode</li>
+        <li>Make initial and follow-up reads work for long messages greater than buffer size in loop of "socket_reader.c"</li>
+        <li>Let file "socket_sensor.c" rely upon function "read_device" using "ioctl" internally, since MSG_PEEK with socket read did not work</li>
+        <li>Implement device access using function "ioctl" for device-dependent request code (command)</li>
+    </ul>
+    <h3>Display</h3>
+    <ul>
+        <li>Refactor gui action handling reading out event details (event_name, x, y)</li>
+        <li>Handle window close and resize event</li>
+        <li>Avoid flickering of display by considering only the last in a row of multiple expose events in "xcb_deserialiser.c"</li>
+        <li>Add all possible event types to "x_window_system_starter.c" and "xcb_deserialiser.c"</li>
+        <li>Add gui_event language constant</li>
+        <li>Detect mouse clicks properly by adding parent element's origo</li>
+        <li>Assure proper nesting of gui elements</li>
+        <li>Use default font if none is given</li>
+    </ul>
+    <h3>Terminal</h3>
+    <ul>
+        <li>Store stdin/stdout file stream instead of file descriptor in input/output memory, since stream is a more complex structure containing the descriptor</li>
+        <li>Adapt terminal shudown files in order to restore original terminal modes properly</li>
+        <li>Merge common startup/shutdown functionality for unix terminal and win32 console</li>
+        <li>Hold two separate terminal file descriptors for input- and output</li>
+    </ul>
+    <h3>IO Entry</h3>
+    <ul>
+        <li>Unify handling of channel startup and shutdown using new input/output entry structure</li>
+        <li>Apply new input/output entry structure to terminal, display, socket</li>
+        <li>Sense client requests on socket and other channels using new "executor/acceptor"</li>
+        <li>Delete outdated directories and files related to sensing threads, which are not used anymore</li>
+        <li>Add new cybol operations "activate/enable" and "activate/disable"</li>
+    </ul>
+    <h3>Bugfix</h3>
+    <ul>
+        <li>Filter out non-existing parts in "part_knowledge_deserialiser.c"</li>
+        <li>Use type argument instead of hard-coded wide character for comparison in "detector.c"</li>
+        <li>Use binary mode always for opening files, no matter if reading or writing, in files "file_reader.c" and "stream_file_writer.c"</li>
+        <li>Fix unpredictable errors caused by mixed pointer- and integer calculation in io entry setter and getter</li>
+        <li>Make logger work properly (in debug mode causing log files of a size > 100 MB for cybol application "user_interface/gui/")</li>
+        <li>Use destination type as source type by default in function "apply_modify", so that cybol operations like "modify/empty" lacking a source part work fine</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOL</h2>
+    <ul>
+        <li>Refactor cybol applications "internet/www_server_static/" and "internet/www_server_dynamic/", now being able to handle requests from multiple clients</li>
+        <li>Test image transfer and handling of multiple clients in cybol applications "internet/socket_server" and "internet/socket_client"</li>
+        <li>Delete binary mode cybol property, since it is used by default now</li>
+        <li>Add cybol application "file/copy/"</li>
+        <li>Merge all "Hello World!" cybol applications into "examples/hello_world/"</li>
+        <li>Introduce new cybol base library "examples/cybol/", in order to provide standard functionality such as "print-newline" or "exit"</li>
+        <li>Improve cybol application "user_interface/ui/" with buttons for handling input in tui, gui, wui</li>
+        <li>Make cybol application "user_interface/gui/" work again with coloured rectangles on window expose event and printed message on mouse release event</li>
+        <li>Reorganise cybol application directory "examples/" using sub categories</li>
+        <li>Replace outdated property name "part" with "destination" in all cybol applications using cybol operation "modify/empty"</li>
+        <li>Adapt all cybol applications to use operation "activate/enable" instead of old "live/sense"</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>Project</h2>
+    <ul>
+        <li>Add step-by-step development instructions for how to add a new communication channel</li>
+        <li>Add documentation "src/maintenance_properties.ods" comparing cybol startup/shutdown for various channels</li>
+        <li>Add documentation "src/communication_properties.ods" comparing cybol send/receive for various channels</li>
+        <li>Extend CMake test "test/terminal_sensor_test" and make it work</li>
+        <li>Clean up some CMake tests</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

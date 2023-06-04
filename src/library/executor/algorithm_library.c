@@ -48,16 +48,11 @@
 // finder
 //
 
-#include "../../executor/finder/array_finder.c"
 #include "../../executor/finder/element_list_finder.c"
 #include "../../executor/finder/entry_finder.c"
-#include "../../executor/finder/fifo_array_finder.c"
-#include "../../executor/finder/item_finder.c"
-#include "../../executor/finder/lifo_array_finder.c"
 #include "../../executor/finder/list_finder.c"
 #include "../../executor/finder/list_index_finder.c"
 #include "../../executor/finder/mode_finder.c"
-#include "../../executor/finder/part_finder.c"
 
 //
 // mover

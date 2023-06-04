@@ -1,0 +1,31 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.3.0</h1>
+</section>
+
+<section class="container">
+    <h2>Project</h2>
+    <ul>
+        <li>Compile CYBOI under Windows OS, using GNU C compiler and CYGWIN</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <ul>
+        <li>Communication over Sockets</li>
+        <li>Reimplement compound model, according to new CYBOL structure</li>
+        <li>Continue XML parser, using libxml2 as temporary solution</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOL Core</h2>
+    <ul>
+        <li>Rethink CYBOL structure</li>
+        <li>Create simple CYBOL example file just exiting the application</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

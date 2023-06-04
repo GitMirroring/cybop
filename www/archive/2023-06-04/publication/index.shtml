@@ -1,0 +1,238 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>Publication</h1>
+    <p>
+        All documents on this page are published under the terms of the <i>GNU Free Documentation License</i> (FDL).
+    </p>
+</section>
+
+<section class="container">
+    <h2>Specification Book</h2>
+    <div class="row mt-5">
+        <div class="col-sm-6">
+            <img src="/publication/book/2006_cybop/cover.jpeg" alt="CYBOP Book Cover" class="img-fluid mx-auto d-block" style="width: 300px; border-style: solid; border-width: 10px; border-color: #3873c2;"/>
+        </div>
+        <div class="col-sm-6">
+            <p>
+                Christian Heller.
+                Cybernetics Oriented Programming (CYBOP):
+                An Investigation on the Applicability of Inter-Disciplinary Concepts to Software System Development.
+                Ilmenau: Tux Tax, 2006
+            </p>
+            <p class="mt-4">
+                <a href="/publication/book/2006_cybop/">
+                    <span class="badge rounded-pill p-3" style="font-size: 14pt;">View Book Description</span>
+                </a>
+            </p>
+            <p class="mt-4">
+                <a href="/publication/book/2006_cybop/cybop.pdf">
+                    <span class="badge rounded-pill p-3" style="font-size: 14pt;">Read CYBOP Book (PDF)</span>
+                </a>
+            </p>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-sm-6">
+            <p>
+                Christian Heller.
+                Cybernetics Oriented Language (CYBOL):
+                An interpretable Knowledge Modelling- and Programming Language.
+                Application Programming Interface (API) Specification.
+                Version 2.0.
+                Ilmenau: Tux Tax, 2007-07-31
+            </p>
+            <p class="mt-4">
+                <a href="/publication/book/2007_cybol/2007-07-31_cybol_2.0.pdf">
+                    <span class="badge rounded-pill p-3" style="font-size: 14pt;">Read CYBOL Book (PDF)</span>
+                </a>
+            </p>
+            <p class="mt-5">
+                Caution! There is a more up-to-date version of the CYBOL API documentation available as Website:
+            </p>
+            <p class="mt-4">
+                <a href="/documentation/api/">
+                    <span class="badge rounded-pill p-3" style="font-size: 14pt;">View latest API documentation</span>
+                </a>
+            </p>
+        </div>
+        <div class="col-sm-6">
+            <img src="/publication/book/2007_cybol/cover.jpeg" alt="CYBOL Book Cover" class="img-fluid mx-auto d-block" style="width: 300px; border-style: solid; border-width: 10px; border-color: #3873c2;"/>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <h2>Conference Presentation</h2>
+    <p>
+        <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+        (<a href="/publication/presentation/2007-05_linuxtag_berlin/photo.jpeg">Photo</a>):<br/>
+        Cybernetics Oriented Programming (CYBOP).<br/>
+        <a href="/publication/presentation/2007-05_linuxtag_berlin/presentation.pdf">Presentation</a> (PDF)<br/>
+        <a href="http://www.linuxtag.org/2007/de/conf/events/vp-samstag.html">LinuxTag Conference</a>, Berlin, 2007-06-02
+    </p>
+    <p>
+        <a href="mailto:christian.heller@cybop.org">Christian Heller</a>
+        (<a href="/publication/presentation/2005_linux_world/photo.jpeg">Photo</a>):<br/>
+        Cybernetics Oriented Programming (CYBOP).<br/>
+        <a href="/publication/presentation/2005_linux_world/poster.pdf">Poster</a> (PDF)<br/>
+        <a href="http://www.linuxworldexpo.de">Linux World Conference and Expo</a>, Frankfurt am Main, November 2005
+    </p>
+    <p>
+        <a href="mailto:rolf.holzmueller@gmx.de">Rolf Holzmueller</a>:<br/>
+        Untersuchung der Realisierungsmoeglichkeiten von CYBOL-Webfrontends, unter Verwendung von Konzepten des Cybernetics Oriented Programming (CYBOP).<br/>
+        <a href="/publication/presentation/2005_cyboi_as_webserver/praesentation.pdf">Diploma Presentation</a> [German] (PDF)<br/>
+        Technical University of Ilmenau, July 2005
+    </p>
+    <p>
+        <a href="mailto:christian.heller@cybop.org">Christian Heller</a>:<br/>
+        Cybernetics Oriented Programming (CYBOP) in Res Medicinae.<br/>
+        <a href="/publication/presentation/2002_oshca/index.html">Presentation</a> (HTML)<br/>
+        OSHCA Conference, Los Angeles, November 2002
+    </p>
+    <p>
+        <a href="mailto:christian.heller@cybop.org">Christian Heller</a>:<br/>
+        Res Medicinae / CYBOP (ResMedLib) Architecture.<br/>
+        <a href="/publication/presentation/2002_internal/index.html">Internal Presentation</a> (HTML)<br/>
+        Technical University of Ilmenau, April 2002
+    </p>
+</section>
+
+<section class="container">
+    <h2>Scientific Paper</h2>
+    <p>
+        <a href="mailto:max.brauer@inqbus.de">Max Brauer</a>:<br/>
+        Veranschaulichung des doppelhierarchischen Ansatzes von CYBOP durch die Programmiersprache Python.<br/>
+        <a href="/publication/paper/2012_knowledge_schema_in_python/paper.pdf">Article</a><br/>
+        August 2012
+    </p>
+    <p>
+        <a href="mailto:christian.heller@cybop.org">Christian Heller</a>:<br/>
+        An Investigation on the Applicability of Inter-disciplinary Concepts to Software System Development.<br/>
+        <a href="/publication/paper/2007_an_investigation/paper.pdf">Scientific Paper</a><br/>
+        February 2006
+    </p>
+    <p>
+        <a href="mailto:christian.heller@cybop.org">Christian Heller</a>,
+        <a href="mailto:periklis.sochos@tu-ilmenau.de">Periklis Sochos</a>,
+        <a href="mailto:ilka.philippow@tu-ilmenau.de">Ilka Philippow</a>:<br/>
+        Reflexions on Knowledge Modelling.<br/>
+        <a href="/publication/paper/2006_reflexions_on_knowledge_modelling/paper.pdf">Scientific Paper</a><br/>
+        <a href="http://ebus.informatik.uni-leipzig.de/se2006/">Software Engineering (SE) Conference</a>, Leipzig, Germany, 28-31 March 2006<br/>
+        <a href="/publication/paper/2006_reflexions_on_knowledge_modelling/se_2006_rejection_notification.txt">Rejection</a>
+    </p>
+    <p>
+        <a href="mailto:rolf.holzmueller@gmx.de">Rolf Holzmueller</a>:<br/>
+        Untersuchung der Realisierungsmoeglichkeiten von CYBOL-Webfrontends, unter Verwendung von Konzepten des Cybernetics Oriented Programming (CYBOP).<br/>
+        <a href="/publication/paper/2005_webserver_and_cyboi_diploma/diplomarbeit.pdf">Diploma Work</a> [German]<br/>
+        Technical University of Ilmenau, July 2005
+    </p>
+    <p>
+        <a href="mailto:christian.heller@cybop.org">Christian Heller</a>,
+        <a href="mailto:detlef.streitferdt@tu-ilmenau.de">Detlef Streitferdt</a>,
+        <a href="mailto:ilka.philippow@tu-ilmenau.de">Ilka Philippow</a>:<br/>
+        A new Pattern Systematics.<br/>
+        <a href="/publication/paper/2005_new_pattern_systematics/paper.pdf">Scientific Paper</a><br/>
+        <a href="http://2005.ecoop.org/">European Conference on Object-Oriented Programming (ECOOP)</a>, Glasgow, UK, 25-29 July 2005<br/>
+        <a href="/publication/paper/2005_new_pattern_systematics/ecoop_paper_rejection_notification.txt">Rejection</a><br/>
+        <a href="http://hillside.net/europlop/">European Conference on Pattern Languages of Programs (EuroPLoP)</a>, Irsee, Germany, 06-10 July 2005<br/>
+        <a href="/publication/paper/2005_new_pattern_systematics/europlop_resubmission_proposal.txt">Resubmission Proposal</a> |
+        <a href="/publication/paper/2005_new_pattern_systematics/europlop_focus_group_rejection_notification.txt">Rejection</a> of
+        <a href="/publication/paper/2005_new_pattern_systematics/europlop_focus_group/index.html">Focus Group Proposal</a>
+    </p>
+    <p>
+        <a href="mailto:christian.heller@cybop.org">Christian Heller</a>:<br/>
+        Cybernetics Oriented Language (CYBOL).<br/>
+        <a href="/publication/paper/2004_cybernetics_oriented_language/paper.pdf">Scientific Paper</a><br/>
+        <a href="http://www.iiisci.org/sci2004/">World Multi-Conference on Systemics, Cybernetics and Informatics (SCI)</a>, Orlando, Florida, USA, July 2004<br/>
+        <a href="/publication/paper/2004_cybernetics_oriented_language/sci_2004_paper_acceptance.txt">Acceptance</a><br/>
+        <a href="http://www.iiisci.org/sci2004/proceedingssci/">IIIS Proceedings</a>, Volume V, pp. 178-185. ISBN 980-6560-13-2
+    </p>
+    <p>
+        <a href="mailto:christian.heller@cybop.org">Christian Heller</a>,
+        <a href="mailto:info@torstenkunze.de">Torsten Kunze</a>,
+        <a href="mailto:info@jens-bohl.de">Jens Bohl</a>,
+        <a href="mailto:ilka.philippow@tu-ilmenau.de">Ilka Philippow</a>:<br/>
+        A new Concept for System Communication.<br/>
+        <a href="/publication/paper/2003_system_communication/paper.pdf">Scientific Paper</a><br/>
+        <a href="http://oopsla.acm.org/">Conference on Object-Oriented Programming, Systems, Languages and Applications (OOPSLA)</a>, Anaheim, California, USA, October 2003<br/>
+        <a href="/publication/paper/2003_system_communication/oopsla_notification_of_acceptance.txt">Acceptance</a> |
+        <a href="http://swt-www.informatik.uni-hamburg.de/conferences/oopsla2003-workshop-position-papers.html">Workshop Position Papers</a><br/>
+        <a href="http://www.netobjectdays.org">NET.OBJECT DAYS (NODe) Conference</a>, Erfurt, Germany, 22-25 September 2003<br/>
+        <a href="/publication/paper/2003_system_communication/node_paper_rejection_notification.pdf">Rejection</a> |
+        <a href="/publication/paper/2003_system_communication/node_paper_review.pdf">Review</a><br/>
+        <a href="http://www.edocconference.org/">Enterprise Distributed Object Computing (EDOC) Conference</a>, Brisbane, Australia, 16-19 September 2003<br/>
+        <a href="/publication/paper/2003_system_communication/edoc_paper_rejection_notification.txt">Rejection</a>
+    </p>
+    <p>
+        <a href="mailto:jens.kleinschmidt@gmx.de">Jens Kleinschmidt</a>:<br/>
+        Ein Beitrag zur Evaluierung von Komponententechnologien im Umfeld von Software zur medizinischen Bildbearbeitung.<br/>
+        <a href="/publication/paper/2003_corba_soap_image_transfer/diplomarbeit.pdf">Diploma Work</a> [German]<br/>
+        Technical University of Ilmenau, July 2003
+    </p>
+    <p>
+        <a href="mailto:christian.heller@cybop.org">Christian Heller</a>,
+        <a href="mailto:info@jens-bohl.de">Jens Bohl</a>,
+        <a href="mailto:info@torstenkunze.de">Torsten Kunze</a>,
+        <a href="mailto:ilka.philippow@tu-ilmenau.de">Ilka Philippow</a>:<br/>
+        A flexible Software Architecture for Presentation Layers demonstrated on Medical Documentation with Episodes and Inclusion of Topological Report.<br/>
+        <a href="/publication/paper/2003_flexible_presentation_layer_article/paper.pdf">Scientific Paper</a><br/>
+        <a href="http://www.josmc.org/">Journal of Free and Open Source Medical Computing (JOSMC)</a>, June 2003<br/>
+        <a href="http://www.josmc.org/bohl2003.pdf">Paper at JOSMC</a><br/>
+        <a href="/publication/paper/2003_flexible_presentation_layer_article/josmc_paper_review.txt">Review</a><br/>
+        <a href="http://www.iis.nsk.su/psi03/">Perspectives of System Informatics (PSI)</a>, Novosibirsk, Akademgorodok, Russia, 9-12 July 2003<br/>
+        <a href="/publication/paper/2003_flexible_presentation_layer_article/psi_paper_rejection_notification.txt">Rejection</a>
+    </p>
+    <p>
+        <a href="mailto:kumanan@uni.de">Kumanan Kanagasabapathy</a>:<br/>
+        Erstellung und Anbindung intuitiver Frontends an eine Anwendung zur Verwaltung administrativer Personendaten unter Beachtung von Aspekten der Internationalisierung.<br/>
+        <a href="/publication/paper/2003_internationalization_in_java/studienarbeit.pdf">Student Project</a> [German]<br/>
+        Technical University of Ilmenau, June 2003
+    </p>
+    <p>
+        <a href="mailto:rolf.holzmueller@gmx.de">Rolf Holzmueller</a>:<br/>
+        Erstellung intuitiver Web Frontends zur Terminplanung und Verwaltung administrativer Daten, basierend auf einem Webserver mit JSP Technologie sowie Anbindung an ein Medizinisches Informationssystem.<br/>
+        <a href="/publication/paper/2003_scheduling_over_web/studienarbeit.pdf">Student Project</a> [German]<br/>
+        Technical University of Ilmenau, April 2003
+    </p>
+    <p>
+        <a href="mailto:behrendt.dirk@web.de">Dirk Behrendt</a>:<br/>
+        Erstellen eines Backup Moduls unter Verwendung gaengiger Design Patterns aus dem ResMedLib Framework.<br/>
+        <a href="/publication/paper/2003_design_patterns_for_backup/studienarbeit.pdf">Student Project</a> [German]<br/>
+        Technical University of Ilmenau, January 2003
+    </p>
+    <p>
+        <a href="mailto:info@torstenkunze.de">Torsten Kunze</a>:<br/>
+        Untersuchung zur Realisierbarkeit einer technologieneutralen Mapping-Schicht für den Datenaustausch am Beispiel einer Anwendung zum medizinischen Formulardruck als integrativer Bestandteil eines Electronic Health Record (EHR).<br/>
+        <a href="/publication/paper/2003_flexible_communication_layer_diploma/diplomarbeit.pdf">Diploma Work</a> [German] |
+        <a href="/publication/paper/2003_flexible_communication_layer_diploma/verteidigung.pdf">Presentation</a> [German]<br/>
+        Technical University of Ilmenau, January 2003
+    </p>
+    <p>
+        <a href="mailto:info@jens-bohl.de">Jens Bohl</a>:<br/>
+        Möglichkeiten der Gestaltung flexibler Softwarearchitekturen für Präsentationsschichten, dargestellt anhand episodenbasierter medizinischer Dokumentation unter Einbeziehung topologischer Befundung.<br/>
+        <a href="/publication/paper/2003_flexible_presentation_layer_diploma/diplomarbeit.pdf">Diploma Work</a> [German]<br/>
+        Technical University of Ilmenau, January 2003
+    </p>
+    <p>
+        <a href="mailto:christian.heller@cybop.org">Christian Heller</a>:<br/>
+        An Extended Component Lifecycle.<br/>
+        <a href="/publication/paper/2002_an_extended_component_lifecycle/article.pdf">Scientific Paper</a><br/>
+        Technical University of Ilmenau, May 2002
+    </p>
+    <p>
+        <a href="mailto:christian.heller@cybop.org">Christian Heller</a>:<br/>
+        Res Medicinae Design Ideas.<br/>
+        <a href="/publication/paper/2001_design_document/design.pdf">Document</a>
+    </p>
+    <p>
+        <a href="mailto:christian.heller@cybop.org">Christian Heller</a>:<br/>
+        Medizinische Informatik: Open Source erreicht die Medizin.<br/>
+        <a href="/publication/paper/2001_open_source_erreicht_die_medizin/article.pdf">Article</a> [German]<br/>
+        Deutsches Aerzteblatt 98, Heft 23 (08.06.2001), Seite 18, [SUPPLEMENT: Praxis Computer]
+        <a href="http://www.aerzteblatt.de/v4/archiv/pdf.asp?id=27586">PDF</a> |
+        <a href="http://www.aerzteblatt.de/v4/archiv/artikel.asp?id=27586">HTML</a>
+    </p>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

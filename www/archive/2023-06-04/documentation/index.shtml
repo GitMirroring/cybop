@@ -1,0 +1,135 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>Documentation</h1>
+</section>
+
+<section class="container">
+    <h2>Application Programming Interface (API)</h2>
+    <p>
+        The CYBOL language offers plenty of data formats (types) and operations,
+        all of which follow the MIME type standard in an extended version.
+    </p>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header h6">
+                    Data Format (Type) Examples
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>number/integer</li>
+                        <li>text/plain</li>
+                        <li>element/part</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header h6">
+                    Operation Examples
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>calculate/add</li>
+                        <li>communicate/send</li>
+                        <li>flow/loop</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="mt-4">
+        <a href="/documentation/api/">
+            <span class="badge rounded-pill p-3" style="font-size: 14pt;">View API documentation</span>
+        </a>
+    </p>
+</section>
+
+<section class="container mt-5">
+    <div class="row mt-5">
+        <div class="col-sm-6">
+            <h2>Terminology</h2>
+            <p>
+                <b>CYBOP</b> stands for <i>Cybernetics Oriented Programming</i> and is a new approach
+                to software development, which is based on the principle of simple tree structures.
+            </p>
+            <p>
+                <b>CYBOL</b> is a platform-independent language for knowledge specification and
+                application programming, which may be saved in either XML or JSON format.
+            </p>
+            <p>
+                <b>CYBOI</b> is the corresponding interpreter, written in C,
+                that is needed to execute applications defined in CYBOL.
+            </p>
+        </div>
+        <div class="col-sm-6">
+            <!--
+                CAUTION! The solution recommended in the bootstrap documentation does NOT work:
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe width="1196" height="673" src="https://www.youtube.com/embed/J4EJNuvFDBA" alt="Erklärvideo Die Idee hinter CYBOP" class="embed-responsive-item" allowfullscreen>
+                    </iframe>
+                </div>
+                An alternative is mentioned here:
+                https://stackoverflow.com/questions/68327933/bootstrap-5-responsive-iframe-keeping-16-9-ratio
+                https://getbootstrap.com/docs/5.0/helpers/ratio/
+                https://getbootstrap.com/docs/5.0/migration/
+                It works perfect on bootstrap 5 when adding width and height.
+            -->
+            <div class="ratio ratio-16x9 mt-5">
+                <iframe src="https://www.youtube.com/embed/1QGuKK7CE5A" alt="Erklärvideo Die Idee hinter CYBOP" style="max-width: 100%; height: 100%;" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--
+<section class="container">
+    <h2>Developer Manual</h2>
+    <p>
+        The following documents are somewhat outdated, but put here anyway,
+        until updated versions are available.
+    </p>
+    <ul>
+        <li><a href="manual/2016-02-22_manual_de.pdf">Handbuch (2016-02-22, German/Deutsch)</a></li>
+        <li><a href="manual/2013-04-04_manual_en.pdf">Beginner's Tutorial (2013-04-04, English)</a></li>
+    </ul>
+</section>
+-->
+
+<section class="container">
+    <h2>Project Name</h2>
+    <p>
+        This project has nothing to do with the idea of "Transhumanism".
+        It is just about seeing god's own nature as teacher and applying
+        its ideas for the design of better technical systems.
+    </p>
+    <p>
+        Cybernetics as scientific discipline deals with the control of
+        systems as well as with information processing within the same.
+        Its sub field of Bionics puts focus on transferring phenomena
+        of nature to technics.
+    </p>
+    <p>
+        The CYBOP project was baptised this way because it takes some ideas from
+        nature (for example forwarding of the DNA at cell separation in biology)
+        and from other scientific disciplines (for example abstraction principles
+        of human thinking as described by psychology) and applies these to
+        software development.
+    </p>
+</section>
+
+<!--
+<section class="container">
+    <h2>History</h2>
+    <p class="mt-4">
+        <a href="/documentation/history/">
+            <span class="badge rounded-pill p-3" style="font-size: 14pt;">View Project History</span>
+        </a>
+    </p>
+</section>
+-->
+
+<!--#include virtual="/bottom.shtml" -->
