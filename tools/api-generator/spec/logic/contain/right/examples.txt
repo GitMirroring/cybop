@@ -1,5 +1,0 @@
-<node name="check_for_string" channel="inline" format="contain/right" model="">
-    <node name="result" channel="inline" format="text/cybol-path" model="#flag"/>
-    <node name="part" channel="inline" format="text/cybol-path" model=".gedichte.[#index]"/>
-    <node name="value" channel="inline" format="text/plain" model="Laß du den Himmel, Freund, sorgen wie gestern so heut."/>
-</node>

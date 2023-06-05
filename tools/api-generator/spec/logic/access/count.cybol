@@ -1,5 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Counts the child nodes of a compound node of type &#x0022;element/part&#x0022; or &#x0022;element/property&#x0022;."/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/access/count/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/access/count/properties.cybol"/>
-</node>

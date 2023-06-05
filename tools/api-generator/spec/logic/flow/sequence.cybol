@@ -1,9 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Executes the given programme flow as sequence.
-
-This encapsulating operation &#x0022;flow/sequence&#x0022; is provided here to have all three constructs of structural programming implemented together, which are &#x0022;sequence&#x0022;, &#x0022;loop&#x0022; and &#x0022;branch&#x0022;.
-
-However, in principle, logic models may be executed standalone directly or with encapsulating operation &#x0022;flow/sequence&#x0022;. Both kinds of execution are possible."/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/flow/sequence/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/flow/sequence/properties.cybol"/>
-</node>

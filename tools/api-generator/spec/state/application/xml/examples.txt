@@ -1,1 +1,0 @@
-<node name="document" channel="file" format="application/xml" model="path/to/file.xml"/>

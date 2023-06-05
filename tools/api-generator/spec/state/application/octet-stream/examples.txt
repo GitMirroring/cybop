@@ -1,2 +1,0 @@
-<node name="image" channel="inline" format="application/octet-stream" model=""/>
-<node name="text" channel="file" format="application/octet-stream" model="path/to/file.dat"/>

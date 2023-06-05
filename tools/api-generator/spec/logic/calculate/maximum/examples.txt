@@ -1,4 +1,0 @@
-<node name="determine_maximum" channel="inline" format="calculate/maximum" model="">
-    <node name="result" channel="inline" format="text/cybol-path" model=".maximum"/>
-    <node name="operand" channel="inline" format="number/integer" model=".value"/>
-</node>

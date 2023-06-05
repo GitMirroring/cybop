@@ -1,4 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="A terminal colour value as written word representing the pre-defined colour name."/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/state/colour/terminal/examples.txt"/>
-</node>

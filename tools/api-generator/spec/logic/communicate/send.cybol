@@ -1,6 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Sends a message via the communication channel."/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/communicate/send/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/communicate/send/properties.cybol"/>
-    <node name="language_constraints" channel="file" format="element/part" model="api-generator/spec/logic/communicate/send/language_constraints.cybol"/>
-</node>

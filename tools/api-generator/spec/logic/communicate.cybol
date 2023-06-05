@@ -1,5 +1,0 @@
-<node>
-    <node name="identify" channel="file" format="element/part" model="api-generator/spec/logic/communicate/identify.cybol"/>
-    <node name="receive" channel="file" format="element/part" model="api-generator/spec/logic/communicate/receive.cybol"/>
-    <node name="send" channel="file" format="element/part" model="api-generator/spec/logic/communicate/send.cybol"/>
-</node>

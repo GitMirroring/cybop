@@ -1,9 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="This is pure text data, sometimes called &#x0022;string&#x0022; or &#x0022;character array&#x0022;.
-
-Common file suffixes are: txt
-
-The text may be encoded in various ways, which is specified in a different property called &#x0022;encoding&#x0022;.
-It is usually given when using the cybol operations send or receive."/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/state/text/plain/examples.txt"/>
-</node>

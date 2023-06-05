@@ -1,7 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Inserts the source data into the destination part at the destination index.
-
-Existing data behind the destination index (insertion position) get moved towards the end."/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/modify/insert/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/modify/insert/properties.cybol"/>
-</node>

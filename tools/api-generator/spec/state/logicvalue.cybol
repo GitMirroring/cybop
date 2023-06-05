@@ -1,3 +1,0 @@
-<node>
-    <node name="boolean" channel="file" format="element/part" model="api-generator/spec/state/logicvalue/boolean.cybol"/>
-</node>

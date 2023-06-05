@@ -1,4 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="The cyboi-internal data type used to allocate memory."/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/state/meta/type/examples.txt"/>
-</node>

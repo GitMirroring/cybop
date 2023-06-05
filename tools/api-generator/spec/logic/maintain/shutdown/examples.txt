@@ -1,3 +1,0 @@
-<node name="shutdown_connexion_to_x_window_system_server" channel="inline" format="maintain/shutdown" model="">
-    <node name="channel" channel="inline" format="meta/channel" model="display"/>
-</node>

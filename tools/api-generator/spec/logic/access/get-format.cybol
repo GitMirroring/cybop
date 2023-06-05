@@ -1,5 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Retrieves a part&#x0027;s format."/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/access/get-format/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/access/get-format/properties.cybol"/>
-</node>

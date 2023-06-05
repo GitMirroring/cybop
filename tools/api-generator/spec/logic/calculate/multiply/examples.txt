@@ -1,4 +1,0 @@
-<node name="multiply" channel="inline" format="calculate/multiply" model="">
-    <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
-    <node name="operand" channel="inline" format="number/integer" model="3"/>
-</node>

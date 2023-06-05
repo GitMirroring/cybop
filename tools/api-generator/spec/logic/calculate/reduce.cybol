@@ -1,5 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Reduces a vulgar fraction to the lowest possible denominator."/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/calculate/reduce/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/calculate/reduce/properties.cybol"/>
-</node>

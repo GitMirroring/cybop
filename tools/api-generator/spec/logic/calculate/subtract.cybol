@@ -1,7 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Subtracts the operand from the result.
-
-difference = minuend - subtrahend"/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/calculate/subtract/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/calculate/subtract/properties.cybol"/>
-</node>

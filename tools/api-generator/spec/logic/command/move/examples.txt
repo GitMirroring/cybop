@@ -1,7 +1,0 @@
-<node name="move_file" channel="inline" format="command/move" model="">
-    <node name="destination" channel="inline" format="text/plain" model="./shell_command_move_file/moved_and_please_do_not_commit_me.txt"/>
-    <node name="source" channel="inline" format="text/plain" model="./shell_command_move_file/original.txt"/>
-    <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
-    <node name="interactive" channel="inline" format="logicvalue/boolean" model="true"/>
-    <node name="verbose" channel="inline" format="logicvalue/boolean" model="true"/>
-</node>

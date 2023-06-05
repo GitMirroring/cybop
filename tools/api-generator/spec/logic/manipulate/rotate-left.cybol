@@ -1,9 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Rotates all bits of the value to the left by the given position.
-
-This bit manipulation operation corresponds to the &#x0022;ROL&#x0022; (rotate left) assembler command.
-
-TODO: NOT IMPLEMENTED YET!"/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/manipulate/rotate-left/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/manipulate/rotate-left/properties.cybol"/>
-</node>

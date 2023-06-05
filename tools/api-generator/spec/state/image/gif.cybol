@@ -1,6 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="An image in Graphics Interchange Format (GIF).
-
-The file suffix is gif."/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/state/image/gif/examples.txt"/>
-</node>

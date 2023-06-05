@@ -1,7 +1,0 @@
-<node>
-    <node name="duration" channel="inline" format="text/plain" model="">
-        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
-        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | number/integer"/>
-        <node name="description" channel="inline" format="text/plain" model="The time as amount of nanoseconds to sleep."/>
-    </node>
-</node>

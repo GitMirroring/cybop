@@ -1,7 +1,0 @@
-<node name="remove_file" channel="inline" format="command/remove" model="">
-    <node name="path" channel="inline" format="text/plain" model="./shell_command_remove_file/do_not_commit_if_this_is_deleted.txt"/>
-    <node name="force" channel="inline" format="logicvalue/boolean" model="true"/>
-    <node name="interactive" channel="inline" format="logicvalue/boolean" model="true"/>
-    <node name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
-    <node name="verbose" channel="inline" format="logicvalue/boolean" model="true"/>
-</node>

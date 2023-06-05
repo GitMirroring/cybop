@@ -1,8 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="A part node of the cyboi-internal knowledge tree.
-
-Each tree node (also called part) has a double hierarchy representing:
-- model hierarchy: whole-part, container-element, macrocosm-microcosm, child parts
-- properties hierarchy: metadata, constraints, parametres of a function, position and size of a graphical component"/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/state/element/part/examples.txt"/>
-</node>

@@ -1,7 +1,0 @@
-<node>
-    <node name="cybol-path" channel="file" format="element/part" model="api-generator/spec/state/text/cybol-path.cybol"/>
-    <node name="html" channel="file" format="element/part" model="api-generator/spec/state/text/html.cybol"/>
-    <node name="json" channel="file" format="element/part" model="api-generator/spec/state/text/json.cybol"/>
-    <node name="plain" channel="file" format="element/part" model="api-generator/spec/state/text/plain.cybol"/>
-    <node name="xml" channel="file" format="element/part" model="api-generator/spec/state/text/xml.cybol"/>
-</node>

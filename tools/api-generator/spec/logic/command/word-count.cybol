@@ -1,7 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Counts different occurences and outputs the number of rows, words and bytes for every file, via shell command.
-
-TODO: COMPLETE AND VERIFY YET!"/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/command/word-count/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/command/word-count/properties.cybol"/>
-</node>

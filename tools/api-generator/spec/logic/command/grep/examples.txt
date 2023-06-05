@@ -1,4 +1,0 @@
-<node name="grep" channel="inline" format="command/grep" model="">
-    <node name="pattern" channel="inline" format="text/plain" model="test"/>
-    <node name="file" channel="inline" format="text/plain" model="test/grep.txt"/>
-</node>

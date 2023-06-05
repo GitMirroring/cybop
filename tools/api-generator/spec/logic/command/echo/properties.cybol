@@ -1,7 +1,0 @@
-<node>
-    <node name="message" channel="inline" format="text/plain" model="">
-        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | text/plain"/>
-        <node name="description" channel="inline" format="text/plain" model="The message to be sent to standard output."/>
-    </node>
-</node>

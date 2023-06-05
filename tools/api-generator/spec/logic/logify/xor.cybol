@@ -1,7 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Applies the boolean logic operation XOR.
-
-y = x1 XOR x2"/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/logify/xor/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/logify/xor/properties.cybol"/>
-</node>

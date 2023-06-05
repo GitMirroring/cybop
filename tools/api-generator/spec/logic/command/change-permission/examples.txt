@@ -1,3 +1,0 @@
-<node name="TODO" channel="inline" format="command/TODO" model="">
-    <node name="TODO" channel="inline" format="text/cybol-path" model=""/>
-</node>

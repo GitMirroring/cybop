@@ -1,6 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="A video in MP4 format, which is defined in RFC 4337.
-
-The file suffix is mp4."/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/state/video/mp4/examples.txt"/>
-</node>

@@ -1,3 +1,0 @@
-<node name="channel" channel="inline" format="meta/channel" model="file"/>
-<node name="channel" channel="inline" format="meta/channel" model="socket"/>
-<node name="channel" channel="inline" format="meta/channel" model="inline"/>

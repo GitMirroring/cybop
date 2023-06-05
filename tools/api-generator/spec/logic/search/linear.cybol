@@ -1,9 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Finds the first occurrence of the specified searchword within the list
-using linear (sequential) search.
-
-Returns the index of the searchword as result;
-leaves the index untouched otherwise."/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/search/linear/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/search/linear/properties.cybol"/>
-</node>

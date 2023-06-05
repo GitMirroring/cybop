@@ -1,9 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Resets the bit at the given position.
-
-This bit manipulation operation corresponds to the &#x0022;BTR&#x0022; (bit reset) assembler command.
-
-TODO: NOT IMPLEMENTED YET!"/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/manipulate/clear/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/manipulate/clear/properties.cybol"/>
-</node>

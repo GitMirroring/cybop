@@ -1,6 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Shows if the network interface is available, via shell command.
-
-TODO: COMPLETE AND VERIFY YET!"/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/command/ifup/examples.txt"/>
-</node>

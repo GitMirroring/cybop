@@ -1,4 +1,0 @@
-<node name="negate_number" channel="inline" format="calculate/negate" model="">
-    <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
-    <node name="operand" channel="inline" format="number/integer" model="-4"/>
-</node>

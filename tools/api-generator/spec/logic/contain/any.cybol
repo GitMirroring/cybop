@@ -1,7 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Checks if the given part contains the value at all, no matter at which position.
-
-TODO: NOT IMPLEMENTED YET!"/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/contain/any/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/contain/any/properties.cybol"/>
-</node>

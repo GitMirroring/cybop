@@ -1,7 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Delays execution for the given number of seconds via shell command.
-
-TODO: COMPLETE AND VERIFY YET!"/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/command/delay/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/command/delay/properties.cybol"/>
-</node>

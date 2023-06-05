@@ -1,7 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Shows system messages from /var/log via shell command.
-
-TODO: COMPLETE AND VERIFY YET!"/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/command/system-messages/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/command/system-messages/properties.cybol"/>
-</node>

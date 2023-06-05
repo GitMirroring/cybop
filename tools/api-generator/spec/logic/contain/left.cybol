@@ -1,7 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Checks if the part starts with the given value, at the beginning.
-
-TODO: NOT IMPLEMENTED YET!"/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/contain/left/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/contain/left/properties.cybol"/>
-</node>
