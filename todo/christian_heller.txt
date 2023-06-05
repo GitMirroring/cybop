@@ -14,9 +14,6 @@
 Kommunikation im Medizinwesen (KIM)
 ___________________________________
 
-        * Clean up or delete directory "controller/checker/client/"
-        * Clean up or delete directory "controller/checker/io/"
-
         * Test cybol application "app/internet/smtp_server/" and "app/internet/smtp_client/"
         * Simplify smtp deserialiser by using new searcher functionality
             consider internet message format (imf) only chapter 3.6 syntax in https://www.rfc-editor.org/rfc/rfc5322
@@ -488,6 +485,10 @@ _____________________
 
 Socket / WUI
 ____________
+
+        * Add current time as one more integer number to interrupt pipe when adding a requesting client to the pipe
+        * Implement mechanism to frequently check socket timeout by comparing with original time
+        * See file "todo/check_socket_timeout.c"
 
         * Read article "cybop/tmp/gourley_-_http_-_the_definitive_guide_-_4.7_the_mysteries_of_connection_close.pdf"
 

@@ -22,6 +22,8 @@
 
         * Delete preprocessor macros in implementation source files, since they are required only in header files
         * Clean up some unnecessary forward declarations which have become superfluous due to the usage of header files
+        * Delete directories "controller/checker/io/" and "controller/checker/client/" which have long become superfluous since using an interrupt pipe
+        * Update uml activity diagram "doc/development/cyboi/checker_and_sensor" accordingly
 
 2023-06-04  Christian Heller  <christian.heller@cybop.org>
 

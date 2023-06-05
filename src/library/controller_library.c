@@ -28,20 +28,8 @@
 //
 
 #include "../controller/checker/checker.c"
-/*??
-#include "../controller/checker/client/all_client_checker.c"
-#include "../controller/checker/client/available_element_client_checker.c"
-#include "../controller/checker/client/element_client_checker.c"
-#include "../controller/checker/client/empty_element_client_checker.c"
-#include "../controller/checker/client/list_client_checker.c"
-*/
 #include "../controller/checker/empty_checker.c"
 #include "../controller/checker/found_checker.c"
-/*??
-#include "../controller/checker/io/accept_io_checker.c"
-#include "../controller/checker/io/receive_io_checker.c"
-#include "../controller/checker/io/socket_io_checker.c"
-*/
 #include "../controller/checker/signal_checker.c"
 
 #include "../controller/deoptionaliser/deoptionaliser.c"

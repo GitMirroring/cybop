@@ -122,16 +122,8 @@ void initiate(void* p0, void* p1, void* p2, void* p3);
 //
 
 void check(void* p0, void* p1);
-void check_client_all(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
-void check_client_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10);
-void check_client_element_available(void* p0, void* p1, void* p2, void* p3, void* p4);
-void check_client_element_empty(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10);
-void check_client_list(void* p0, void* p1, void* p2, void* p3, void* p4);
 void check_empty(void* p0, void* p1, void* p2);
 void check_found(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
-void check_io_accept(void* p0, void* p1, void* p2, void* p3);
-void check_io_receive(void* p0, void* p1, void* p2, void* p3, void* p4);
-void check_io_socket(void* p0, void* p1, void* p2);
 void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 
 //
