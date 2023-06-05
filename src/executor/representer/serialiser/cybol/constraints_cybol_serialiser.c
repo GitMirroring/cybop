@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONSTRAINTS_CYBOL_SERIALISER_SOURCE
-#define CONSTRAINTS_CYBOL_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -170,6 +167,3 @@ void serialise_cybol_constraints(void* p0, void* p1, void* p2, void* p3, void* p
     // Serialise cybol.
     serialise_cybol(p0, p1, p2, p3, p4, smd, bmd, prmd, cmd, dmd, dmc, pmd, nmd, p10);
 }
-
-/* CONSTRAINTS_CYBOL_SERIALISER_SOURCE */
-#endif

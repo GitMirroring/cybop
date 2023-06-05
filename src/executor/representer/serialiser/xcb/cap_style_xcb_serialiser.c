@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CAP_STYLE_XCB_SERIALISER_SOURCE
-#define CAP_STYLE_XCB_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -121,6 +118,3 @@ void serialise_xcb_cap_style(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb cap style. The cap style is unknown.");
     }
 }
-
-/* CAP_STYLE_XCB_SERIALISER_SOURCE */
-#endif

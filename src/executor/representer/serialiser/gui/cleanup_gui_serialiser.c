@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLEANUP_GUI_SERIALISER_SOURCE
-#define CLEANUP_GUI_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -57,6 +54,3 @@ void serialise_gui_cleanup(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* CLEANUP_GUI_SERIALISER_SOURCE */
-#endif

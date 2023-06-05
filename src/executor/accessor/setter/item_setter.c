@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ITEM_SETTER_SOURCE
-#define ITEM_SETTER_SOURCE
-
 //
 // Library interface
 //
@@ -140,6 +137,3 @@ void set_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* 
         copy_array_forward(a, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4, p5);
     }
 }
-
-/* ITEM_SETTER_SOURCE */
-#endif

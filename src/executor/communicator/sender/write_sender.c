@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WRITE_SENDER_SOURCE
-#define WRITE_SENDER_SOURCE
-
 //
 // System interface
 //
@@ -74,6 +71,3 @@ void send_write(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
         fwprintf(stdout, L"Warning: Could not send write. The channel is null. channel *p5: %i\n", *((int*) p5));
     }
 }
-
-/* WRITE_SENDER_SOURCE */
-#endif

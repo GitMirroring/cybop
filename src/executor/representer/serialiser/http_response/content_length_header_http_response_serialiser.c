@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONTENT_LENGTH_HEADER_HTTP_RESPONSE_SERIALISER_SOURCE
-#define CONTENT_LENGTH_HEADER_HTTP_RESPONSE_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -81,6 +78,3 @@ void serialise_http_response_header_content_length(void* p0, void* p1) {
     // Deallocate wide character item.
     deallocate_item((void*) &i, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* CONTENT_LENGTH_HEADER_HTTP_RESPONSE_SERIALISER_SOURCE */
-#endif

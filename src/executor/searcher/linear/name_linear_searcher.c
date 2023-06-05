@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NAME_LINEAR_SEARCHER_SOURCE
-#define NAME_LINEAR_SEARCHER_SOURCE
-
 //
 // Library interface
 //
@@ -79,6 +76,3 @@ void search_linear_name(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //?? fwprintf(stdout, L"Debug: Search linear name. nc: %i\n", nc);
     //?? fwprintf(stdout, L"Debug: Search linear name. *nc: %i\n", *((int*) nc));
 }
-
-/* NAME_LINEAR_SEARCHER_SOURCE */
-#endif

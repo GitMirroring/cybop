@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_NUMERAL_DESERIALISER_SOURCE
-#define PART_NUMERAL_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -156,6 +153,3 @@ void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, 
     //?? fwprintf(stdout, L"Debug: Deserialise numeral part. number base power p3: %i\n", p3);
     //?? fwprintf(stdout, L"Debug: Deserialise numeral part. number base power *p3: %f\n", *((double*) p3));
 }
-
-/* PART_NUMERAL_DESERIALISER_SOURCE */
-#endif

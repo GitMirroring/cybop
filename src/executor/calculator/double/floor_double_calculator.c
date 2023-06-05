@@ -24,9 +24,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FLOOR_DOUBLE_CALCULATOR_SOURCE
-#define FLOOR_DOUBLE_CALCULATOR_SOURCE
-
 //
 // System interface
 //
@@ -77,6 +74,3 @@ void calculate_double_floor(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate double floor. The source is null.");
     }
 }
-
-/* FLOOR_DOUBLE_CALCULATOR_SOURCE */
-#endif

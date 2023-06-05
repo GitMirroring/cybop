@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ENCODE_HEADER_ENTRY_HTTP_RESPONSE_SERIALISER_SOURCE
-#define ENCODE_HEADER_ENTRY_HTTP_RESPONSE_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -92,6 +89,3 @@ void serialise_http_response_header_entry_encode(void* p0, void* p1, void* p2, v
     // Deallocate character name, model item.
     deallocate_item((void*) &m, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* ENCODE_HEADER_ENTRY_HTTP_RESPONSE_SERIALISER_SOURCE */
-#endif

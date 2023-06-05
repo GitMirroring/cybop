@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NON_WHITESPACE_SELECTOR_SOURCE
-#define NON_WHITESPACE_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -70,6 +67,3 @@ void select_whitespace_non(void* p0, void* p1, void* p2) {
     // Assign destination non-whitespace flag.
     copy_integer(p0, (void*) &r);
 }
-
-/* NON_WHITESPACE_SELECTOR_SOURCE */
-#endif

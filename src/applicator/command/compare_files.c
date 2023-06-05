@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMPARE_FILES_SOURCE
-#define COMPARE_FILES_SOURCE
-
 //
 // Library interface
 //
@@ -193,6 +190,3 @@ void apply_compare_files(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_compare_files(pa1md, pa1mc, pa2md, pa2mc, dmd, omd, smd, cmd, umd, amd, lmd, wmd);
 }
-
-/* COMPARE_FILES_SOURCE */
-#endif

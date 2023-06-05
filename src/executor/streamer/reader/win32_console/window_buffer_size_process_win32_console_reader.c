@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WINDOW_BUFFER_SIZE_PROCESS_WIN32_CONSOLE_READER_SOURCE
-#define WINDOW_BUFFER_SIZE_PROCESS_WIN32_CONSOLE_READER_SOURCE
-
 //
 // System interface
 //
@@ -63,6 +60,3 @@ void read_win32_console_process_window_buffer_size(void* p0, void* p1, void* p2)
 //    *w = c.X;
 //    *h = c.Y;
 }
-
-/* WINDOW_BUFFER_SIZE_PROCESS_WIN32_CONSOLE_READER_SOURCE */
-#endif

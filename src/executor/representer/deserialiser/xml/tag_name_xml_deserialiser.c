@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TAG_NAME_XML_DESERIALISER_SOURCE
-#define TAG_NAME_XML_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -122,6 +119,3 @@ void deserialise_xml_tag_name(void* p0, void* p1, void* p2, void* p3, void* p4, 
         }
     }
 }
-
-/* TAG_NAME_XML_DESERIALISER_SOURCE */
-#endif

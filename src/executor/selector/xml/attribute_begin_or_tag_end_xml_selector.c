@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ATTRIBUTE_BEGIN_OR_TAG_END_XML_SELECTOR_SOURCE
-#define ATTRIBUTE_BEGIN_OR_TAG_END_XML_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -128,6 +125,3 @@ void select_xml_attribute_begin_or_tag_end(void* p0, void* p1, void* p2, void* p
         calculate_integer_add(p5, (void*) &step);
     }
 }
-
-/* ATTRIBUTE_BEGIN_OR_TAG_END_XML_SELECTOR_SOURCE */
-#endif

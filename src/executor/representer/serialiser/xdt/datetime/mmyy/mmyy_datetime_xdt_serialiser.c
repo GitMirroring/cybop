@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MMYY_DATETIME_XDT_SERIALISER_SOURCE
-#define MMYY_DATETIME_XDT_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -162,6 +159,3 @@ void serialise_xdt_datetime_mmyy(void* p0, void* p1, void* p2) {
     deallocate_item((void*) &yi, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     deallocate_item((void*) &mi, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* MMYY_DATETIME_XDT_SERIALISER_SOURCE */
-#endif

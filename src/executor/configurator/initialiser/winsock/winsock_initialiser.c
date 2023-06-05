@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WINSOCK_INITIALISER_SOURCE
-#define WINSOCK_INITIALISER_SOURCE
-
 //
 // System interface
 //
@@ -97,6 +94,3 @@ void initialise_winsock() {
         log_error((void*) &e);
     }
 }
-
-/* WINSOCK_INITIALISER_SOURCE */
-#endif

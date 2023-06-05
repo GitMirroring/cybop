@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef URI_DESERIALISER_SOURCE
-#define URI_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -328,6 +325,3 @@ void deserialise_uri(void* p0, void* p1, void* p2, void* p3) {
         fwprintf(stdout, L"Warning: Could not deserialise uri. The uri is invalid.\n");
     }
 }
-
-/* URI_DESERIALISER_SOURCE */
-#endif

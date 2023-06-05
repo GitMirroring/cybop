@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef EQUAL_COMPLEX_COMPARATOR_SOURCE
-#define EQUAL_COMPLEX_COMPARATOR_SOURCE
-
 //
 // Library interface
 //
@@ -77,6 +74,3 @@ void compare_complex_equal(void* p0, void* p1, void* p2) {
         // CAUTION! Leave result UNCHANGED.
     }
 }
-
-/* EQUAL_COMPLEX_COMPARATOR_SOURCE */
-#endif

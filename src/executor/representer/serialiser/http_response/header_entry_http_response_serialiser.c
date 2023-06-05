@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HEADER_ENTRY_HTTP_RESPONSE_SERIALISER_SOURCE
-#define HEADER_ENTRY_HTTP_RESPONSE_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -74,6 +71,3 @@ void serialise_http_response_header_entry(void* p0, void* p1, void* p2, void* p3
 
     serialise_http_response_header_entry_encode(p0, nd, nc, md, mc);
 }
-
-/* HEADER_ENTRY_HTTP_RESPONSE_SERIALISER_SOURCE */
-#endif

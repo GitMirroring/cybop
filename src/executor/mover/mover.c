@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MOVER_SOURCE
-#define MOVER_SOURCE
-
 //
 // Library interface
 //
@@ -103,6 +100,3 @@ void move(void* p0, void* p1, void* p2, void* p3, void* p4) {
         calculate_integer_add(p1, p3);
     }
 }
-
-/* MOVER_SOURCE */
-#endif

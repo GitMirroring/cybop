@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENT_JSON_SERIALISER_SOURCE
-#define ELEMENT_JSON_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -99,6 +96,3 @@ void serialise_json_element(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     // Serialise part element content.
     serialise_json_content(p0, md, mc, pd, pc, p3, p4, p5, p6, p7, p8, p9, p10, p11, fd, nd, nc);
 }
-
-/* ELEMENT_JSON_SERIALISER_SOURCE */
-#endif

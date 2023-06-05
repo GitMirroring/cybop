@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WEEKDAY_TIME_SCALE_SERIALISER_SOURCE
-#define WEEKDAY_TIME_SCALE_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -77,6 +74,3 @@ void serialise_time_scale_weekday(void* p0, void* p1) {
     // Divide by day count in order to determine modulo.
     calculate_integer_modulo(p0, (void*) DAY_COUNT_WEEK_TIME_SCALE_MODEL);
 }
-
-/* WEEKDAY_TIME_SCALE_SERIALISER_SOURCE */
-#endif

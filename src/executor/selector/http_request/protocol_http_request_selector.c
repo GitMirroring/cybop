@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PROTOCOL_HTTP_REQUEST_SELECTOR_SOURCE
-#define PROTOCOL_HTTP_REQUEST_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -108,6 +105,3 @@ void select_http_request_protocol(void* p0, void* p1, void* p2, void* p3, void* 
         calculate_integer_add(p4, (void*) &step);
     }
 }
-
-/* PROTOCOL_HTTP_REQUEST_SELECTOR_SOURCE */
-#endif

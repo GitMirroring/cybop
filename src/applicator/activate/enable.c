@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ENABLE_SOURCE
-#define ENABLE_SOURCE
-
 //
 // Library interface
 //
@@ -119,6 +116,3 @@ void apply_enable(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     enable((void*) &port, cmd, p4, (void*) &h);
 }
-
-/* ENABLE_SOURCE */
-#endif

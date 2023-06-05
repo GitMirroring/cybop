@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef UTC_DATETIME_DESERIALISER_SOURCE
-#define UTC_DATETIME_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -78,6 +75,3 @@ void deserialise_datetime_utc(void* p0, void* p1, void* p2) {
     //
     deallocate_array((void*) &t, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
 }
-
-/* UTC_DATETIME_DESERIALISER_SOURCE */
-#endif

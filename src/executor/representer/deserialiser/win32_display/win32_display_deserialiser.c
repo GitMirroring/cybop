@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WIN32_DISPLAY_DESERIALISER_SOURCE
-#define WIN32_DISPLAY_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -525,6 +522,3 @@ void deserialise_win32_display(void* p0, void* p1, void* p2, void* p3, void* p4,
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read win32 display process. The message is null.");
     }
 }
-
-/* WIN32_DISPLAY_DESERIALISER_SOURCE */
-#endif

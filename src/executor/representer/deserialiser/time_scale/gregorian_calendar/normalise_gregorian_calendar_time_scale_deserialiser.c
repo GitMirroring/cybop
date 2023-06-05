@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NORMALISE_GREGORIAN_CALENDAR_TIME_SCALE_DESERIALISER_SOURCE
-#define NORMALISE_GREGORIAN_CALENDAR_TIME_SCALE_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -90,6 +87,3 @@ void deserialise_time_scale_gregorian_calendar_normalise(void* p0, void* p1) {
         calculate_integer_add(p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
-
-/* NORMALISE_GREGORIAN_CALENDAR_TIME_SCALE_DESERIALISER_SOURCE */
-#endif

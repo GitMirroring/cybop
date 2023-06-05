@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HEADER_VALUE_HTTP_REQUEST_SELECTOR_SOURCE
-#define HEADER_VALUE_HTTP_REQUEST_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -36,18 +33,6 @@
 #include "constant.h"
 #include "knowledge.h"
 #include "logger.h"
-
-//
-// Forbidden interface
-//
-// CAUTION! Do NOT include the following files since otherwise,
-// circular references would occur due to module dependencies.
-// Instead, forward declarations are used further below.
-// Therefore, the following includes are to be commented OUT
-// and listed here just for information.
-//
-
-// #include "../../../../executor/representer/deserialiser/http_request/header_argument_http_request_deserialiser.c"
 
 //
 // Forward declaration
@@ -123,6 +108,3 @@ void select_http_request_header_value(void* p0, void* p1, void* p2, void* p3, vo
         calculate_integer_add(p4, (void*) &step);
     }
 }
-
-/* HEADER_VALUE_HTTP_REQUEST_SELECTOR_SOURCE */
-#endif

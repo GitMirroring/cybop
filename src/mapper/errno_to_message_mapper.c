@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ERRNO_TO_MESSAGE_MAPPER_SOURCE
-#define ERRNO_TO_MESSAGE_MAPPER_SOURCE
-
 //
 // System interface
 //
@@ -42,20 +39,6 @@
 #include "constant.h"
 #include "knowledge.h"
 #include "mapper.h"
-
-//
-// Forbidden interface
-//
-
-//
-// CAUTION! Do NOT include the "content_gui_serialiser.c" module.
-// It is true, the "serialise_gui_content" function is called from here,
-// but the module dependency hierarchy slightly differs and just goes top-down
-// by module granularity and NOT by call hierarchy.
-// Therefore, the "gui_serialiser.c" module is included here.
-//
-
-// #include "logger.h"
 
 //
 // Forward declaration
@@ -529,6 +512,3 @@ void map_errno_to_message(void* p0, void* p1) {
         fwprintf(stdout, L"Error: Could not map errno to message. The errno value is null. p1: %i\n", p1);
     }
 }
-
-/* ERRNO_TO_MESSAGE_MAPPER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef UNIX_TERMINAL_MODE_COPIER_SOURCE
-#define UNIX_TERMINAL_MODE_COPIER_SOURCE
-
 //
 // System interface
 //
@@ -69,6 +66,3 @@ void copy_terminal_mode_unix(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy terminal mode unix. The source terminal mode is null.");
     }
 }
-
-/* UNIX_TERMINAL_MODE_COPIER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SERVER_ENTRY_ALLOCATOR_SOURCE
-#define SERVER_ENTRY_ALLOCATOR_SOURCE
-
 //
 // System interface
 //
@@ -169,6 +166,3 @@ void allocate_server_entry(void* p0) {
         fwprintf(stdout, L"Error: Could not allocate server entry. The server entry is null. p0: %i\n", p0);
     }
 }
-
-/* SERVER_ENTRY_ALLOCATOR_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef EFFECT_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-#define EFFECT_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -58,6 +55,3 @@ void serialise_ansi_escape_code_effect(void* p0, void* p1, void* p2, void* p3, v
         serialise_ansi_escape_code_attribute(p0, p1, p2, p3);
     }
 }
-
-/* EFFECT_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
-#endif

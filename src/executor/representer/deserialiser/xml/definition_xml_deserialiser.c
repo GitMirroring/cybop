@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DEFINITION_XML_DESERIALISER_SOURCE
-#define DEFINITION_XML_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -80,6 +77,3 @@ void deserialise_xml_definition(void* p0, void* p1, void* p2) {
         //?? TODO: Process definition string here.
     }
 }
-
-/* DEFINITION_XML_DESERIALISER_SOURCE */
-#endif

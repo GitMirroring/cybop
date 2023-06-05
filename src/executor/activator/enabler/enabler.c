@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ENABLER_SOURCE
-#define ENABLER_SOURCE
-
 //
 // System interface
 //
@@ -81,6 +78,3 @@ void enable(void* p0, void* p1, void* p2, void* p3) {
     // Invoke enable function within a new thread.
     enable_thread(se);
 }
-
-/* ENABLER_SOURCE */
-#endif

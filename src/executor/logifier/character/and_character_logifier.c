@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef AND_CHARACTER_LOGIFIER_SOURCE
-#define AND_CHARACTER_LOGIFIER_SOURCE
-
 //
 // Library interface
 //
@@ -63,6 +60,3 @@ void logify_character_and(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify character and. The mask is null.");
     }
 }
-
-/* AND_CHARACTER_LOGIFIER_SOURCE */
-#endif

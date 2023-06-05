@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CARTESIAN_COMPLEX_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE
-#define CARTESIAN_COMPLEX_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -79,6 +76,3 @@ void deserialise_numeral_assembler_complex_cartesian(void* p0, void* p1, void* p
     // Assign imaginary part.
     set_complex_element(p0, (void*) &i, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
 }
-
-/* CARTESIAN_COMPLEX_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE */
-#endif

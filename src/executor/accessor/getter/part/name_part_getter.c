@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NAME_PART_GETTER_SOURCE
-#define NAME_PART_GETTER_SOURCE
-
 //
 // Library interface
 //
@@ -59,6 +56,3 @@ void get_part_name(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     // Get actual destination part behind source model part.
     get_part_knowledge(p0, (void*) &s, p5, p6, p7);
 }
-
-/* NAME_PART_GETTER_SOURCE */
-#endif

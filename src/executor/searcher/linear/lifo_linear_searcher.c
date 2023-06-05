@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LIFO_LINEAR_SEARCHER_SOURCE
-#define LIFO_LINEAR_SEARCHER_SOURCE
-
 //
 // Library interface
 //
@@ -140,6 +137,3 @@ void search_linear_lifo(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         }
     }
 }
-
-/* LIFO_LINEAR_SEARCHER_SOURCE */
-#endif

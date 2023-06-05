@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef OPEN_SOURCE
-#define OPEN_SOURCE
-
 //
 // Library interface
 //
@@ -251,6 +248,3 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // Deallocate file open mode default item.
     deallocate_item((void*) &mode, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* OPEN_SOURCE */
-#endif

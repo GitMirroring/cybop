@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MUTEX_DEALLOCATOR_SOURCE
-#define MUTEX_DEALLOCATOR_SOURCE
-
 //
 // System interface
 //
@@ -78,6 +75,3 @@ void deallocate_mutex(void* p0) {
         fwprintf(stdout, L"Error: Could not deallocate mutex. The mutex is null. p0: %i\n", p0);
     }
 }
-
-/* MUTEX_DEALLOCATOR_SOURCE */
-#endif

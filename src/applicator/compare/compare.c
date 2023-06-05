@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMPARE_SOURCE
-#define COMPARE_SOURCE
-
 //
 // Library interface
 //
@@ -194,6 +191,3 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     // Compare left- and right operand type.
     apply_compare_result(rmd, lo, ro, p5, (void*) &type, (void*) &count, (void*) &left_index, (void*) &right_index, rmc, p6, rotd, rtd);
 }
-
-/* COMPARE_SOURCE */
-#endif

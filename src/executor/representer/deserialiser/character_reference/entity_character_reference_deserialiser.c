@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ENTITY_CHARACTER_REFERENCE_DESERIALISER_SOURCE
-#define ENTITY_CHARACTER_REFERENCE_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -96,6 +93,3 @@ void deserialise_character_reference_entity(void* p0, void* p1, void* p2) {
     // Deserialise named html character entity.
     deserialise_character_reference_html(p0, ed, (void*) &ec);
 }
-
-/* ENTITY_CHARACTER_REFERENCE_DESERIALISER_SOURCE */
-#endif

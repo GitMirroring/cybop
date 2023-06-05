@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HELPER_SOURCE
-#define HELPER_SOURCE
-
 //
 // System interface
 //
@@ -100,6 +97,3 @@ void help(void* p0) {
     // Deallocate message item.
     deallocate_item((void*) &m, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* HELPER_SOURCE */
-#endif

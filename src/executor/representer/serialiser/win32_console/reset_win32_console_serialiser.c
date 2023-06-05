@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef RESET_WIN32_CONSOLE_SERIALISER_SOURCE
-#define RESET_WIN32_CONSOLE_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -97,6 +94,3 @@ void serialise_win32_console_reset(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console reset. The original attributes is null.");
     }
 }
-
-/* RESET_WIN32_CONSOLE_SERIALISER_SOURCE */
-#endif

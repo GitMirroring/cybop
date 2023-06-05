@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BODY_HTTP_RESPONSE_SERIALISER_SOURCE
-#define BODY_HTTP_RESPONSE_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -81,6 +78,3 @@ void serialise_http_response_body(void* p0, void* p1, void* p2, void* p3, void* 
         copy_array_forward(p1, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     }
 }
-
-/* BODY_HTTP_RESPONSE_SERIALISER_SOURCE */
-#endif

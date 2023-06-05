@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SOCKET_IO_CHECKER_SOURCE
-#define SOCKET_IO_CHECKER_SOURCE
-
 //
 // Library interface
 //
@@ -110,6 +107,3 @@ void check_io_socket(void* p0, void* p1, void* p2) {
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
-
-/* SOCKET_IO_CHECKER_SOURCE */
-#endif

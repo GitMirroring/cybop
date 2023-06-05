@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHARACTER_CASTER_SOURCE
-#define CHARACTER_CASTER_SOURCE
-
 //
 // Library interface
 //
@@ -63,6 +60,3 @@ void cast_character(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast character. The source type is unknown.");
     }
 }
-
-/* CHARACTER_CASTER_SOURCE */
-#endif

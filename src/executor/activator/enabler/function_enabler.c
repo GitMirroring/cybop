@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FUNCTION_ENABLER_SOURCE
-#define FUNCTION_ENABLER_SOURCE
-
 //
 // System interface
 //
@@ -136,6 +133,3 @@ int enable_function(void* p0) {
 
     return *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 }
-
-/* FUNCTION_ENABLER_SOURCE */
-#endif

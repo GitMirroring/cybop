@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MOVE_KNOWLEDGE_SELECTOR_SOURCE
-#define MOVE_KNOWLEDGE_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -86,6 +83,3 @@ void select_knowledge_move(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         select_knowledge_end(p0, p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4, p5);
     }
 }
-
-/* MOVE_KNOWLEDGE_SELECTOR_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef JULIAN_DATE_TIME_SCALE_SERIALISER_SOURCE
-#define JULIAN_DATE_TIME_SCALE_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -70,6 +67,3 @@ void serialise_time_scale_julian_date(void* p0, void* p1) {
     // Add source julian day integer part.
     calculate_double_add(p0, (void*) &dd);
 }
-
-/* JULIAN_DATE_TIME_SCALE_SERIALISER_SOURCE */
-#endif

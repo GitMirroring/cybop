@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_ALLOCATOR_SOURCE
-#define PART_ALLOCATOR_SOURCE
-
 //
 // System interface
 //
@@ -41,19 +38,6 @@
 #include "knowledge.h"
 #include "logger.h"
 #include "variable.h"
-
-//
-// Forbidden interface
-//
-// CAUTION! Do NOT include the following files since otherwise,
-// circular references would occur due to module dependencies.
-// Instead, forward declarations are used further below.
-// Therefore, the following includes are to be commented OUT
-// and listed here just for information.
-//
-
-// #include "../../../executor/copier/array/forward_array_copier.c"
-// #include "../../../executor/modifier/item_modifier.c"
 
 //
 // Forward declaration
@@ -181,6 +165,3 @@ void allocate_part(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Error: Could not allocate part. The type is null. type p2: %i\n", p2);
     }
 }
-
-/* PART_ALLOCATOR_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_REFERENCER_SOURCE
-#define PART_REFERENCER_SOURCE
-
 //
 // System interface
 //
@@ -119,6 +116,3 @@ void reference_part(void* p0, void* p1, void* p2) {
         }
     }
 }
-
-/* PART_REFERENCER_SOURCE */
-#endif

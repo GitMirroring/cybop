@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ACTION_GUI_DESERIALISER_SOURCE
-#define ACTION_GUI_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -134,6 +131,3 @@ void deserialise_gui_action(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     //
     deserialise_gui_content(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, emd, emc, xmd, ymd, p10, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 }
-
-/* ACTION_GUI_DESERIALISER_SOURCE */
-#endif

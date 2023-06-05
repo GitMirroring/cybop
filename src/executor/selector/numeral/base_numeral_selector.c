@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BASE_NUMERAL_SELECTOR_SOURCE
-#define BASE_NUMERAL_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -168,6 +165,3 @@ void select_numeral_base(void* p0, void* p1, void* p2) {
         }
     }
 }
-
-/* BASE_NUMERAL_SELECTOR_SOURCE */
-#endif

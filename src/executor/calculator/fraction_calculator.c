@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FRACTION_CALCULATOR_SOURCE
-#define FRACTION_CALCULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -127,6 +124,3 @@ void calculate_fraction(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate fraction. The operation type is unknown.");
     }
 }
-
-/* FRACTION_CALCULATOR_SOURCE */
-#endif

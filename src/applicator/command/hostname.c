@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HOSTNAME_SOURCE
-#define HOSTNAME_SOURCE
-
 //
 // Library interface
 //
@@ -129,6 +126,3 @@ void apply_hostname(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_hostname(dmd, fmd, imd, amd, smd);
 }
-
-/* HOSTNAME_SOURCE */
-#endif

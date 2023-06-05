@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_GUI_SERIALISER_SOURCE
-#define PART_GUI_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -108,6 +105,3 @@ void serialise_gui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         j++;
     }
 }
-
-/* PART_GUI_SERIALISER_SOURCE */
-#endif

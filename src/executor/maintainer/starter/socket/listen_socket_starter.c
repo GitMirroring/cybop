@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LISTEN_SOCKET_STARTER_SOURCE
-#define LISTEN_SOCKET_STARTER_SOURCE
-
 //
 // Library interface
 //
@@ -54,6 +51,3 @@ void startup_socket_listen(void* p0, void* p1) {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* LISTEN_SOCKET_STARTER_SOURCE */
-#endif

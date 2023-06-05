@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BACKSLASH_ESCAPE_SERIALISER_SOURCE
-#define BACKSLASH_ESCAPE_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -172,6 +169,3 @@ void serialise_backslash_escape(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Warning: Could not serialise backslash escape. The source wide character is unknown. source data p1: %ls\n", (wchar_t*) p1);
     }
 }
-
-/* BACKSLASH_ESCAPE_SERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MODE_TERMINAL_INITIALISER_SOURCE
-#define MODE_TERMINAL_INITIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -107,6 +104,3 @@ void initialise_terminal_mode(void* p0) {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* MODE_TERMINAL_INITIALISER_SOURCE */
-#endif

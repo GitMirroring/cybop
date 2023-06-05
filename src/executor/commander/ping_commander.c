@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PING_COMMANDER_SOURCE
-#define PING_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -183,6 +180,3 @@ void command_ping(void* hmd, void* hmc, void* cmd, void* cmc, void* imd, void* i
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not execute command ping. The host is null.");
     }
 }
-
-/* PING_COMMANDER_SOURCE */
-#endif

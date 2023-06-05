@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LISTEN_WINSOCK_STARTER_SOURCE
-#define LISTEN_WINSOCK_STARTER_SOURCE
-
 //
 // System interface
 //
@@ -100,6 +97,3 @@ void startup_winsock_listen(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock listen. The connexions is null.");
     }
 }
-
-/* LISTEN_WINSOCK_STARTER_SOURCE */
-#endif

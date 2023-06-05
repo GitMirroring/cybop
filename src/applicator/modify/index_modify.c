@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INDEX_MODIFY_SOURCE
-#define INDEX_MODIFY_SOURCE
-
 //
 // Library interface
 //
@@ -55,6 +52,3 @@ void apply_modify_index(void* p0, void* p1) {
         copy_integer(p0, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
     }
 }
-
-/* INDEX_MODIFY_SOURCE */
-#endif

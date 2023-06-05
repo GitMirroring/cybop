@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHARACTER_PERCENT_ENCODING_DESERIALISER_SOURCE
-#define CHARACTER_PERCENT_ENCODING_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -192,6 +189,3 @@ void deserialise_percent_encoding_character(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Error: Could not deserialise percent encoding character. The character count (number of digits) is unequal two. source character count remaining *p2: %i\n", *((int*) p2));
     }
 }
-
-/* CHARACTER_PERCENT_ENCODING_DESERIALISER_SOURCE */
-#endif

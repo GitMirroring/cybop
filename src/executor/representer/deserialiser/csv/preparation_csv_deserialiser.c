@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PREPARATION_CSV_DESERIALISER_SOURCE
-#define PREPARATION_CSV_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -159,6 +156,3 @@ void deserialise_csv_preparation(void* p0, void* p1, void* p2, void* p3, void* p
         deallocate_item((void*) &q, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     }
 }
-
-/* PREPARATION_CSV_DESERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DETECTOR_SOURCE
-#define DETECTOR_SOURCE
-
 //
 // System interface
 //
@@ -89,6 +86,3 @@ void detect(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not detect. The remaining count is smaller than the array count.");
     }
 }
-
-/* DETECTOR_SOURCE */
-#endif

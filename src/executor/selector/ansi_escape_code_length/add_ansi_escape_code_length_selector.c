@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ADD_ANSI_ESCAPE_CODE_LENGTH_SELECTOR_SOURCE
-#define ADD_ANSI_ESCAPE_CODE_LENGTH_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -78,6 +75,3 @@ void select_ansi_escape_code_length_add(void* p0, void* p1, void* p2) {
         calculate_integer_add(p0, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL_COUNT);
     }
 }
-
-/* ADD_ANSI_ESCAPE_CODE_LENGTH_SELECTOR_SOURCE */
-#endif

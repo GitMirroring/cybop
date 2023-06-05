@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INTERNAL_MEMORY_DEALLOCATOR_SOURCE
-#define INTERNAL_MEMORY_DEALLOCATOR_SOURCE
-
 //
 // System interface
 //
@@ -227,6 +224,3 @@ void deallocate_internal_memory(void* p0) {
         fwprintf(stdout, L"Error: Could not deallocate internal memory. The internal memory is null. p0: %i\n", p0);
     }
 }
-
-/* INTERNAL_MEMORY_DEALLOCATOR_SOURCE */
-#endif

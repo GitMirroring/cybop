@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONTENT_GUI_SERIALISER_SOURCE
-#define CONTENT_GUI_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -42,18 +39,6 @@
 #include "constant.h"
 #include "knowledge.h"
 #include "logger.h"
-
-//
-// Forbidden interface
-//
-// CAUTION! Do NOT include the following files since otherwise,
-// circular references would occur due to module dependencies.
-// Instead, forward declarations are used further below.
-// Therefore, the following includes are to be commented OUT
-// and listed here just for information.
-//
-
-// #include "../../../../executor/representer/serialiser/gui/gui_serialiser.c"
 
 //
 // Forward declaration
@@ -178,6 +163,3 @@ void serialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         deallocate_item((void*) &t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
     }
 }
-
-/* CONTENT_GUI_SERIALISER_SOURCE */
-#endif

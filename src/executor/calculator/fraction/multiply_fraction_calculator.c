@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MULTIPLY_FRACTION_CALCULATOR_SOURCE
-#define MULTIPLY_FRACTION_CALCULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -71,6 +68,3 @@ void calculate_fraction_multiply(void* p0, void* p1) {
     // Reduce fraction.
     calculate_fraction_reduce(p0);
 }
-
-/* MULTIPLY_FRACTION_CALCULATOR_SOURCE */
-#endif

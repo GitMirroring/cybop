@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BYTES_PERCENT_ENCODING_SERIALISER_SOURCE
-#define BYTES_PERCENT_ENCODING_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -44,6 +41,3 @@ void serialise_percent_encoding_bytes(void* p0, void* p1) {
 
     //?? TODO: Call loop: Serialise multibyte sequence into pair of hexadecimal digits represented as character data.
 }
-
-/* BYTES_PERCENT_ENCODING_SERIALISER_SOURCE */
-#endif

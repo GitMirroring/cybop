@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FLAG_READER_SOURCE
-#define FLAG_READER_SOURCE
-
 //
 // System interface
 //
@@ -89,6 +86,3 @@ void read_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         read_buffer(p0, p4, p5, p6);
     }
 }
-
-/* FLAG_READER_SOURCE */
-#endif

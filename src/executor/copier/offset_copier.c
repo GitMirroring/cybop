@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef OFFSET_COPIER_SOURCE
-#define OFFSET_COPIER_SOURCE
-
 //
 // System interface
 //
@@ -38,18 +35,6 @@
 //
 
 #include "knowledge.h"
-
-//
-// Forbidden interface
-//
-// CAUTION! Do NOT include the following files since otherwise,
-// circular references would occur due to module dependencies.
-// Instead, forward declarations are used further below.
-// Therefore, the following includes are to be commented OUT
-// and listed here just for information.
-//
-
-// #include "../../executor/copier/copier.c"
 
 //
 // Forward declaration
@@ -94,6 +79,3 @@ void copy_offset(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Copy source- to destination value.
     copy(d, s, p2, p3);
 }
-
-/* OFFSET_COPIER_SOURCE */
-#endif

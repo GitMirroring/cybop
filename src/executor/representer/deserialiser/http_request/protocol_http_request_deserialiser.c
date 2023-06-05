@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PROTOCOL_HTTP_REQUEST_DESERIALISER_SOURCE
-#define PROTOCOL_HTTP_REQUEST_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -91,6 +88,3 @@ void deserialise_http_request_protocol(void* p0, void* p1, void* p2, void* p3) {
         }
     }
 }
-
-/* PROTOCOL_HTTP_REQUEST_DESERIALISER_SOURCE */
-#endif

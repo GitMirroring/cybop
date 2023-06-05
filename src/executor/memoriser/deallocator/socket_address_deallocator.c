@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SOCKET_ADDRESS_DEALLOCATOR_SOURCE
-#define SOCKET_ADDRESS_DEALLOCATOR_SOURCE
-
 //
 // System interface
 //
@@ -175,6 +172,3 @@ void deallocate_socket_address(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deallocate socket address. The address size is null.");
     }
 }
-
-/* SOCKET_ADDRESS_DEALLOCATOR_SOURCE */
-#endif

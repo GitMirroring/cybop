@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NETSTAT_SOURCE
-#define NETSTAT_SOURCE
-
 //
 // Library interface
 //
@@ -225,6 +222,3 @@ void apply_netstat(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_netstat(rmd, imd, gmd, smd, mmd, vmd, nmd, emd, pmd, lmd, amd, omd, tmd);
 }
-
-/* NETSTAT_SOURCE */
-#endif

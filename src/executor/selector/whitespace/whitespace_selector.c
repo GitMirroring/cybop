@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WHITESPACE_SELECTOR_SOURCE
-#define WHITESPACE_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -132,6 +129,3 @@ void select_whitespace(void* p0, void* p1, void* p2, void* p3, void* p4) {
         }
     }
 }
-
-/* WHITESPACE_SELECTOR_SOURCE */
-#endif

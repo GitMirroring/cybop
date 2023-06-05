@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SERVER_ENTRY_DEALLOCATOR_SOURCE
-#define SERVER_ENTRY_DEALLOCATOR_SOURCE
-
 //
 // System interface
 //
@@ -151,6 +148,3 @@ void deallocate_server_entry(void* p0) {
         fwprintf(stdout, L"Error: Could not deallocate server entry. The server entry is null. p0: %i\n", p0);
     }
 }
-
-/* SERVER_ENTRY_DEALLOCATOR_SOURCE */
-#endif

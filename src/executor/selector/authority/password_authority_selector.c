@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PASSWORD_AUTHORITY_SELECTOR_SOURCE
-#define PASSWORD_AUTHORITY_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -63,6 +60,3 @@ void select_authority_password(void* p0, void* p1, void* p2, void* p3, void* p4)
         calculate_integer_add(p4, (void*) &step);
     }
 }
-
-/* PASSWORD_AUTHORITY_SELECTOR_SOURCE */
-#endif

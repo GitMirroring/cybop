@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SERVICE_SHUTTER_SOURCE
-#define SERVICE_SHUTTER_SOURCE
-
 //
 // System interface
 //
@@ -84,6 +81,3 @@ void shutdown_service(void* p0, void* p1) {
         fwprintf(stdout, L"Warning: Could not shutdown service. The channel is unknown. *p1: %i\n", *((int*) p1));
     }
 }
-
-/* SERVICE_SHUTTER_SOURCE */
-#endif

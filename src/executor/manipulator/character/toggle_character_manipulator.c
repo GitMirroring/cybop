@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TOGGLE_CHARACTER_MANIPULATOR_SOURCE
-#define TOGGLE_CHARACTER_MANIPULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -58,6 +55,3 @@ void manipulate_character_toggle(void* p0, void* p1) {
     // Apply exclusive or (xor).
     logify_character_xor(p0, (void*) &b);
 }
-
-/* TOGGLE_CHARACTER_MANIPULATOR_SOURCE */
-#endif

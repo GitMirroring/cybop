@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FLAG_SHUTTER_SOURCE
-#define FLAG_SHUTTER_SOURCE
-
 //
 // System interface
 //
@@ -86,6 +83,3 @@ void shutdown_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
         shutdown_lifecycle(p5, p0, p2, p1, p3, p4);
     }
 }
-
-/* FLAG_SHUTTER_SOURCE */
-#endif

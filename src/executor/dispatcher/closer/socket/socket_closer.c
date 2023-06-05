@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SOCKET_CLOSER_SOURCE
-#define SOCKET_CLOSER_SOURCE
-
 //
 // Library interface
 //
@@ -59,6 +56,3 @@ void close_socket(void* p0) {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* SOCKET_CLOSER_SOURCE */
-#endif

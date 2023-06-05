@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SI_DURATION_SERIALISER_SOURCE
-#define SI_DURATION_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -43,6 +40,3 @@ void serialise_duration_si(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise duration si.");
 }
-
-/* SI_DURATION_SERIALISER_SOURCE */
-#endif

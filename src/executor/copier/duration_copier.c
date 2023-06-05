@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DURATION_COPIER_SOURCE
-#define DURATION_COPIER_SOURCE
-
 //
 // Library interface
 //
@@ -80,6 +77,3 @@ void copy_duration(void* p0, void* p1) {
     deallocate_array((void*) &s, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
     deallocate_array((void*) &e, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
 }
-
-/* DURATION_COPIER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WUI_LIBRARY_SOURCE
-#define WUI_LIBRARY_SOURCE
-
 //
 // character reference
 //
@@ -90,6 +87,3 @@
 #include "../../../executor/representer/serialiser/percent_encoding/percent_encoding_serialiser.c"
 
 #include "../../../executor/selector/percent_encoding/begin_percent_encoding_selector.c"
-
-/* WUI_LIBRARY_SOURCE */
-#endif

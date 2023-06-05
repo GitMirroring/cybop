@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DISPLAY_CONTENT_COMMANDER_SOURCE
-#define DISPLAY_CONTENT_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -210,6 +207,3 @@ void command_display_content(void* pd, void* pc, void* ln, void* sqz, void* clr)
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* DISPLAY_CONTENT_COMMANDER_SOURCE */
-#endif

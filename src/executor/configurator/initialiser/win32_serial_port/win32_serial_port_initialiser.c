@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WIN32_SERIAL_PORT_INITIALISER_SOURCE
-#define WIN32_SERIAL_PORT_INITIALISER_SOURCE
-
 //
 // System interface
 //
@@ -60,6 +57,3 @@ void initialise_win32_serial_port(void* p0) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise win32 serial port. The serial port mode is null.");
     }
 }
-
-/* WIN32_SERIAL_PORT_INITIALISER_SOURCE */
-#endif

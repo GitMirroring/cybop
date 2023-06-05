@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENT_ISO_8859_DECODER_SOURCE
-#define ELEMENT_ISO_8859_DECODER_SOURCE
-
 //
 // System interface
 //
@@ -81,6 +78,3 @@ void decode_iso_8859_element(void* p0, void* p1, void* p2, void* p3) {
     // Decode source character.
     decode_iso_8859_character(p0, (void*) &c, p3);
 }
-
-/* ELEMENT_ISO_8859_DECODER_SOURCE */
-#endif

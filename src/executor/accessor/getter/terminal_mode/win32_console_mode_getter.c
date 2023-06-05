@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WIN32_CONSOLE_MODE_GETTER_SOURCE
-#define WIN32_CONSOLE_MODE_GETTER_SOURCE
-
 //
 // System interface
 //
@@ -84,6 +81,3 @@ void get_console_mode_win32(void* p0, void* p1) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get console mode win32. The source file descriptor is null.");
     }
 }
-
-/* WIN32_CONSOLE_MODE_GETTER_SOURCE */
-#endif

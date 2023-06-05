@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HEADER_ARGUMENT_HTTP_REQUEST_SELECTOR_SOURCE
-#define HEADER_ARGUMENT_HTTP_REQUEST_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -80,6 +77,3 @@ void select_http_request_header_argument(void* p0, void* p1, void* p2, void* p3,
         calculate_integer_add(p5, (void*) &step);
     }
 }
-
-/* HEADER_ARGUMENT_HTTP_REQUEST_SELECTOR_SOURCE */
-#endif

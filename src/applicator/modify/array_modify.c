@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ARRAY_MODIFY_SOURCE
-#define ARRAY_MODIFY_SOURCE
-
 //
 // Library interface
 //
@@ -59,6 +56,3 @@ void apply_modify_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
         copy_pointer(p1, p3);
     }
 }
-
-/* ARRAY_MODIFY_SOURCE */
-#endif

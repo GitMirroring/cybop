@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef EXTRACT_RECEIVER_SOURCE
-#define EXTRACT_RECEIVER_SOURCE
-
 //
 // System interface
 //
@@ -84,6 +81,3 @@ void receive_extract(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
         fwprintf(stdout, L"Warning: Could not receive extract. The compression is null. compression *p5: %i\n", *((int*) p5));
     }
 }
-
-/* EXTRACT_RECEIVER_SOURCE */
-#endif

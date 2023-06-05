@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SHUTTER_SOURCE
-#define SHUTTER_SOURCE
-
 //
 // System interface
 //
@@ -102,6 +99,3 @@ void shutdown_server(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Warning: Could not shutdown server. A server entry with the given service identification (port) does not exist. p1: %i\n", p1);
     }
 }
-
-/* SHUTTER_SOURCE */
-#endif

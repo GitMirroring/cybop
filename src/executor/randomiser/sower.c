@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SOWER_SOURCE
-#define SOWER_SOURCE
-
 //
 // System interface
 //
@@ -84,6 +81,3 @@ void sow(void* p0) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sow. The source seed is null.");
     }
 }
-
-/* SOWER_SOURCE */
-#endif

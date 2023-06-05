@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONSTRAINTS_HTML_SERIALISER_SOURCE
-#define CONSTRAINTS_HTML_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -193,6 +190,3 @@ void serialise_html_constraints(void* p0, void* p1, void* p2, void* p3, void* p4
     // Serialise part element content into html.
     serialise_html_content(p0, p1, p2, p3, p4, smd, bmd, cmd, dmd, dmc, pmd, nmd, (void*) &indentation, (void*) &l, p10);
 }
-
-/* CONSTRAINTS_HTML_SERIALISER_SOURCE */
-#endif

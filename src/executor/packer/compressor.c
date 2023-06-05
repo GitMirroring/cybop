@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMPRESSOR_SOURCE
-#define COMPRESSOR_SOURCE
-
 //
 // Library interface
 //
@@ -44,6 +41,3 @@ void compress(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compress.");
 }
-
-/* COMPRESSOR_SOURCE */
-#endif

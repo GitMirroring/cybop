@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LIFECYCLE_CLOSER_SOURCE
-#define LIFECYCLE_CLOSER_SOURCE
-
 //
 // System interface
 //
@@ -112,6 +109,3 @@ void close_lifecycle(void* p0, void* p1, void* p2, void* p3, void* p4) {
         fwprintf(stdout, L"Error: Could not close lifecycle. The client entry is null. p1: %i\n", p1);
     }
 }
-
-/* LIFECYCLE_CLOSER_SOURCE */
-#endif

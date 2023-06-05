@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WIN32_CONSOLE_MODE_SETTER_SOURCE
-#define WIN32_CONSOLE_MODE_SETTER_SOURCE
-
 //
 // System interface
 //
@@ -84,6 +81,3 @@ void set_win32_console_mode(void* p0, void* p1) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set win32 console mode. The source console mode is null.");
     }
 }
-
-/* WIN32_CONSOLE_MODE_SETTER_SOURCE */
-#endif

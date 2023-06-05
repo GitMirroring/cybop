@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INTEGER_LOGIFIER_SOURCE
-#define INTEGER_LOGIFIER_SOURCE
-
 //
 // Library interface
 //
@@ -135,6 +132,3 @@ void logify_integer(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify integer. The operation type is unknown.");
     }
 }
-
-/* INTEGER_LOGIFIER_SOURCE */
-#endif

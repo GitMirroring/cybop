@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMMAND_ANSI_ESCAPE_CODE_LENGTH_SELECTOR_SOURCE
-#define COMMAND_ANSI_ESCAPE_CODE_LENGTH_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -110,6 +107,3 @@ void select_ansi_escape_code_length_command(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Warning: Could not select ansi escape code length command. The ansi escape code is unknown. count remaining *p2: %i\n", *((int*) p2));
     }
 }
-
-/* COMMAND_ANSI_ESCAPE_CODE_LENGTH_SELECTOR_SOURCE */
-#endif

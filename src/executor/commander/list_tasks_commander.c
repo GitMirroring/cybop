@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LIST_TASKS_COMMANDER_SOURCE
-#define LIST_TASKS_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -169,6 +166,3 @@ void command_list_tasks(void* ld, void* ad, void* vd) {
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* LIST_TASKS_COMMANDER_SOURCE */
-#endif

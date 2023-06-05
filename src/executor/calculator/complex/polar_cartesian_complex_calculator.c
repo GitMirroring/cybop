@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef POLAR_CARTESIAN_COMPLEX_CALCULATOR_SOURCE
-#define POLAR_CARTESIAN_COMPLEX_CALCULATOR_SOURCE
-
 //
 // System interface
 //
@@ -100,6 +97,3 @@ void calculate_complex_cartesian_polar(void* p0, void* p1, void* p2, void* p3) {
         fwprintf(stdout, L"Error: Could not calculate complex cartesian polar. The source polar coordinates argument is null. argument p3: %i\n", p3);
     }
 }
-
-/* POLAR_CARTESIAN_COMPLEX_CALCULATOR_SOURCE */
-#endif

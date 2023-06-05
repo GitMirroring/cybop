@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NULL_NUMERAL_DESERIALISER_SOURCE
-#define NULL_NUMERAL_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -97,6 +94,3 @@ void deserialise_numeral_null(void* p0, void* p1, void* p2, void* p3, void* p4, 
         fwprintf(stdout, L"Error: Could not deserialise numeral null. The allocated part is null. p1: %i\n", p1);
     }
 }
-
-/* NULL_NUMERAL_DESERIALISER_SOURCE */
-#endif

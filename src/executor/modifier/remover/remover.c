@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef REMOVER_SOURCE
-#define REMOVER_SOURCE
-
 //
 // System interface
 //
@@ -91,6 +88,3 @@ void remove_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove. The destination index is outside the array boundaries.");
     }
 }
-
-/* REMOVER_SOURCE */
-#endif

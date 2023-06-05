@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ARGUMENT_COMMAND_LINE_DESERIALISER_SOURCE
-#define ARGUMENT_COMMAND_LINE_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -125,6 +122,3 @@ void deserialise_command_line_argument(void* p0, void* p1, void* p2, void* p3, v
         log_write((void*) stdout, L"Error: Could not deserialise command line argument. The command line argument is null.\n");
     }
 }
-
-/* ARGUMENT_COMMAND_LINE_DESERIALISER_SOURCE */
-#endif

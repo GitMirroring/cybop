@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DISK_USAGE_SOURCE
-#define DISK_USAGE_SOURCE
-
 //
 // Library interface
 //
@@ -129,6 +126,3 @@ void apply_disk_usage(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_disk_usage(hmd, smd, amd, bmd, tmd);
 }
-
-/* DISK_USAGE_SOURCE */
-#endif

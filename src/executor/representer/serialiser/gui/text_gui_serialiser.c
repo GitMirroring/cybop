@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TEXT_GUI_SERIALISER_SOURCE
-#define TEXT_GUI_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -63,6 +60,3 @@ void serialise_gui_text(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* TEXT_GUI_SERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef REPEATER_SOURCE
-#define REPEATER_SOURCE
-
 //
 // System interface
 //
@@ -82,6 +79,3 @@ void repeat(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
         fwprintf(stdout, L"Warning: Could not repeat. The source type is not wide character. type *p5: %i\n", *((int*) p5));
     }
 }
-
-/* REPEATER_SOURCE */
-#endif

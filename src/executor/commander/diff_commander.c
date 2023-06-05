@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DIFF_COMMANDER_SOURCE
-#define DIFF_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -150,6 +147,3 @@ void command_diff(void* f1md, void* f1mc, void* f2md, void* f2mc) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not execute command grep. The first file is null.");
     }
 }
-
-/* DIFF_COMMANDER_SOURCE */
-#endif

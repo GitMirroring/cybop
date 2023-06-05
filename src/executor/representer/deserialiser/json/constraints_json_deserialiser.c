@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONSTRAINTS_JSON_DESERIALISER_SOURCE
-#define CONSTRAINTS_JSON_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -111,6 +108,3 @@ void deserialise_json_constraints(void* p0, void* p1, void* p2, void* p3, void* 
     // Deserialise json value.
     deserialise_json_value(p0, p1, p2, p3, dmd, dmc, tmd, tmc, (void*) ROOT_JSON_CYBOI_NAME, (void*) ROOT_JSON_CYBOI_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL);
 }
-
-/* CONSTRAINTS_JSON_DESERIALISER_SOURCE */
-#endif

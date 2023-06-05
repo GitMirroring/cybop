@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ENCODE_SOURCE
-#define ENCODE_SOURCE
-
 //
 // Library interface
 //
@@ -104,6 +101,3 @@ void apply_encode(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Encode the source- into the destination part.
     encode(dm, smd, smc, emd);
 }
-
-/* ENCODE_SOURCE */
-#endif

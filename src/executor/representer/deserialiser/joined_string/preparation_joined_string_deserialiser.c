@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PREPARATION_JOINED_STRING_DESERIALISER_SOURCE
-#define PREPARATION_JOINED_STRING_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -158,6 +155,3 @@ void deserialise_joined_string_preparation(void* p0, void* p1, void* p2, void* p
         deallocate_item((void*) &q, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     }
 }
-
-/* PREPARATION_JOINED_STRING_DESERIALISER_SOURCE */
-#endif

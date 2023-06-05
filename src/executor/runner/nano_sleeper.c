@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NANO_SLEEPER_SOURCE
-#define NANO_SLEEPER_SOURCE
-
 //
 // System interface
 //
@@ -185,6 +182,3 @@ void sleep_nano(void* p0) {
         fwprintf(stdout, L"Error: Could not sleep nano. The duration is null.\n");
     }
 }
-
-/* NANO_SLEEPER_SOURCE */
-#endif

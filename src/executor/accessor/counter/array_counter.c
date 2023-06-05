@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ARRAY_COUNTER_SOURCE
-#define ARRAY_COUNTER_SOURCE
-
 //
 // Library interface
 //
@@ -130,6 +127,3 @@ void count_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         j++;
     }
 }
-
-/* ARRAY_COUNTER_SOURCE */
-#endif

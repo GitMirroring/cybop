@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef OPERATION_BUBBLE_SORTER_SOURCE
-#define OPERATION_BUBBLE_SORTER_SOURCE
-
 //
 // Library interface
 //
@@ -58,6 +55,3 @@ void sort_bubble_operation(void* p0, void* p1) {
         copy_integer(p0, (void*) LESS_COMPARE_LOGIC_CYBOI_FORMAT);
     }
 }
-
-/* OPERATION_BUBBLE_SORTER_SOURCE */
-#endif

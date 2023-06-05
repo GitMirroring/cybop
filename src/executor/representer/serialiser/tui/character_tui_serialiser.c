@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHARACTER_TUI_SERIALISER_SOURCE
-#define CHARACTER_TUI_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -56,6 +53,3 @@ void serialise_tui_character(void* p0, void* p1, void* p2, void* p3) {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* CHARACTER_TUI_SERIALISER_SOURCE */
-#endif

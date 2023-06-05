@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ID_COMMANDER_SOURCE
-#define ID_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -198,6 +195,3 @@ void command_id(void* cmd, void* gmd, void* smd, void* nmd, void* umd) {
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* ID_COMMANDER_SOURCE */
-#endif

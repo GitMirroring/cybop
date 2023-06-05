@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DEALLOCATION_READER_SOURCE
-#define DEALLOCATION_READER_SOURCE
-
 //
 // System interface
 //
@@ -141,6 +138,3 @@ void read_deallocation(void* p0, void* p1, void* p2, void* p3) {
     // }
     //
 }
-
-/* DEALLOCATION_READER_SOURCE */
-#endif

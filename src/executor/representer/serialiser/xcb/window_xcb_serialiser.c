@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WINDOW_XCB_SERIALISER_SOURCE
-#define WINDOW_XCB_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -205,6 +202,3 @@ void serialise_xcb_window(void* p0, void* p1, void* p2, void* p3, void* p4, void
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb window. The source size height is null.");
     }
 }
-
-/* WINDOW_XCB_SERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENT_PART_LAYOUT_SERIALISER_SOURCE
-#define ELEMENT_PART_LAYOUT_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -147,6 +144,3 @@ void serialise_layout_part_element(void* p0, void* p1, void* p2, void* p3, void*
     copy_array_forward(smd, (void*) &h, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DIMENSION_1_VECTOR_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 */
 }
-
-/* ELEMENT_PART_LAYOUT_SERIALISER_SOURCE */
-#endif

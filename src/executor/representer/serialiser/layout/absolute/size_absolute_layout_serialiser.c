@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SIZE_ABSOLUTE_LAYOUT_SERIALISER_SOURCE
-#define SIZE_ABSOLUTE_LAYOUT_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -67,6 +64,3 @@ void serialise_layout_absolute_size(void* p0, void* p1, void* p2, void* p3, void
     //
     serialise_layout_part(p0, p1, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p3, p6, p9, p10, p11, p12, p13);
 }
-
-/* SIZE_ABSOLUTE_LAYOUT_SERIALISER_SOURCE */
-#endif

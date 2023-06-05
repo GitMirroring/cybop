@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NORMALISE_DOUBLE_CALCULATOR_SOURCE
-#define NORMALISE_DOUBLE_CALCULATOR_SOURCE
-
 //
 // System interface
 //
@@ -165,6 +162,3 @@ void calculate_double_normalise(void* p0, void* p1, void* p2, void* p3, void* p4
         }
     }
 }
-
-/* NORMALISE_DOUBLE_CALCULATOR_SOURCE */
-#endif

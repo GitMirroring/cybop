@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ENTRY_SENSOR_SOURCE
-#define ENTRY_SENSOR_SOURCE
-
 //
 // System interface
 //
@@ -106,6 +103,3 @@ void sense_entry(void* p0, void* p1, void* p2, void* p3) {
     //
     copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CLOSER_HANDLER_INPUT_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
-
-/* ENTRY_SENSOR_SOURCE */
-#endif

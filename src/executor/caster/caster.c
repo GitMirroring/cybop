@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CASTER_SOURCE
-#define CASTER_SOURCE
-
 //
 // Library interface
 //
@@ -124,6 +121,3 @@ void cast_offset(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     cast(d, s, p2, p3);
 }
-
-/* CASTER_SOURCE */
-#endif

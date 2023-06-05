@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef RECORDS_BDT_XDT_DESERIALISER_SOURCE
-#define RECORDS_BDT_XDT_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -84,6 +81,3 @@ void deserialise_xdt_bdt_records(void* p0, void* p1, void* p2, void* p3) {
         j++;
     }
 }
-
-/* RECORDS_BDT_XDT_DESERIALISER_SOURCE */
-#endif

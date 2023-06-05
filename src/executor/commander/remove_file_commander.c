@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef REMOVE_FILE_COMMANDER_SOURCE
-#define REMOVE_FILE_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -242,6 +239,3 @@ void command_remove_file(void* pmd, void* pmc, void* fmd, void* imd, void* rmd, 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not command remove file. The path is null.");
     }
 }
-
-/* REMOVE_FILE_COMMANDER_SOURCE */
-#endif

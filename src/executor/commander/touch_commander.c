@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TOUCH_COMMANDER_SOURCE
-#define TOUCH_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -182,6 +179,3 @@ void command_touch(void* pmd, void* pmc, void* rmd, void* rmc, void* tmd, void* 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not execute command touch. The path is null.");
     }
 }
-
-/* TOUCH_COMMANDER_SOURCE */
-#endif

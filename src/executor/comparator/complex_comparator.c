@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMPLEX_COMPARATOR_SOURCE
-#define COMPLEX_COMPARATOR_SOURCE
-
 //
 // Library interface
 //
@@ -74,6 +71,3 @@ void compare_complex(void* p0, void* p1, void* p2, void* p3) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare complex. The operation type is unknown.");
     }
 }
-
-/* COMPLEX_COMPARATOR_SOURCE */
-#endif

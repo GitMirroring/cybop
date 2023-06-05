@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DISABLER_SOURCE
-#define DISABLER_SOURCE
-
 //
 // System interface
 //
@@ -104,6 +101,3 @@ void disable(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Warning: Could not disable. A server entry with the given service identification (port) does not exist. p1: %i\n", p1);
     }
 }
-
-/* DISABLER_SOURCE */
-#endif

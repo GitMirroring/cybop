@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WRITE_SOURCE
-#define WRITE_SOURCE
-
 //
 // Library interface
 //
@@ -152,6 +149,3 @@ void apply_write(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Write data to device.
     write_data(rm, mmd, mmc, (void*) &m, p4, cmd, smd, pmd, (void*) &h, amd);
 }
-
-/* WRITE_SOURCE */
-#endif

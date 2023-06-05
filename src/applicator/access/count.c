@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COUNT_SOURCE
-#define COUNT_SOURCE
-
 //
 // Library interface
 //
@@ -117,6 +114,3 @@ void apply_count(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //
     count_part(cmd, p, fmd, fmc, smd, smc);
 }
-
-/* COUNT_SOURCE */
-#endif

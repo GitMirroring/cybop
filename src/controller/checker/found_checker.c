@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FOUND_CHECKER_SOURCE
-#define FOUND_CHECKER_SOURCE
-
 //
 // System interface
 //
@@ -91,6 +88,3 @@ void check_found(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // Handle signal.
     handle(p0, p1, p2, p3, p4, p6, (void*) &x, p7, *NULL_POINTER_STATE_CYBOI_MODEL);
 }
-
-/* FOUND_CHECKER_SOURCE */
-#endif

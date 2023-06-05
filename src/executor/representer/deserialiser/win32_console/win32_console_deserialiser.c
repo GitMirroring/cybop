@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WIN32_CONSOLE_DESERIALISER_SOURCE
-#define WIN32_CONSOLE_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -49,6 +46,3 @@ void deserialise_win32_console(void* p0, void* p1, void* p2) {
     //?? Later, search down the tui tree to identify the actual command!
     modify_item(p0, (void*) ESCAPE_KEYBOARD_STATE_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ESCAPE_KEYBOARD_STATE_CYBOL_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 }
-
-/* WIN32_CONSOLE_DESERIALISER_SOURCE */
-#endif

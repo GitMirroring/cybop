@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SEND_SOURCE
-#define SEND_SOURCE
-
 //
 // Library interface
 //
@@ -253,6 +250,3 @@ void apply_send(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Deallocate type item.
     deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 }
-
-/* SEND_SOURCE */
-#endif

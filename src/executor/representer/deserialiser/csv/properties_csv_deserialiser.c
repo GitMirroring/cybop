@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PROPERTIES_CSV_DESERIALISER_SOURCE
-#define PROPERTIES_CSV_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -124,6 +121,3 @@ void deserialise_csv_properties(void* p0, void* p1, void* p2, void* p3, void* p4
     // Prepare variables necessary for deserialisation.
     deserialise_csv_preparation(p0, p1, p2, p3, dmd, dmc, qmd, qmc, hmd);
 }
-
-/* PROPERTIES_CSV_DESERIALISER_SOURCE */
-#endif

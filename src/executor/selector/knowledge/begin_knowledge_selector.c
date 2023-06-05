@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BEGIN_KNOWLEDGE_SELECTOR_SOURCE
-#define BEGIN_KNOWLEDGE_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -177,6 +174,3 @@ void select_knowledge_begin(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         deserialise_knowledge_name(p0, p1, p2, p3, p5, p7, p8);
     }
 }
-
-/* BEGIN_KNOWLEDGE_SELECTOR_SOURCE */
-#endif

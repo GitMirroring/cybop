@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LIST_OPEN_FILES_COMMANDER_SOURCE
-#define LIST_OPEN_FILES_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -217,6 +214,3 @@ void command_list_open_files(void* umd, void* smd, void* lmd, void* dmd, void* t
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* LIST_OPEN_FILES_COMMANDER_SOURCE */
-#endif

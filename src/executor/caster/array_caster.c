@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ARRAY_CASTER_SOURCE
-#define ARRAY_CASTER_SOURCE
-
 //
 // Library interface
 //
@@ -164,6 +161,3 @@ void cast_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast array. The source index is not smaller than the count.");
     }
 }
-
-/* ARRAY_CASTER_SOURCE */
-#endif

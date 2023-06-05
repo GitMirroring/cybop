@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHANNEL_CYBOL_SERIALISER_SOURCE
-#define CHANNEL_CYBOL_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -172,6 +169,3 @@ void serialise_cybol_channel(void* p0, void* p1) {
         fwprintf(stdout, L"Warning: Could not serialise cybol channel. The source cyboi channel is unknown. cyboi channel *p1: %i\n", *((int*) p1));
     }
 }
-
-/* CHANNEL_CYBOL_SERIALISER_SOURCE */
-#endif

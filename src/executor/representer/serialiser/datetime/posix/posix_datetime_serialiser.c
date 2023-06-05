@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef POSIX_DATETIME_SERIALISER_SOURCE
-#define POSIX_DATETIME_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -43,6 +40,3 @@ void serialise_datetime_posix(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise datetime posix.");
 }
-
-/* POSIX_DATETIME_SERIALISER_SOURCE */
-#endif

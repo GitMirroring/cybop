@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef GUI_EVENT_DESERIALISER_SOURCE
-#define GUI_EVENT_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -54,6 +51,3 @@ void deserialise_gui_event(void* p0, void* p1) {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* GUI_EVENT_DESERIALISER_SOURCE */
-#endif

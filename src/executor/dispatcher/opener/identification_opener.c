@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef IDENTIFICATION_OPENER_SOURCE
-#define IDENTIFICATION_OPENER_SOURCE
-
 //
 // System interface
 //
@@ -82,6 +79,3 @@ void open_identification(void* p0, void* p1, void* p2, void* p3) {
     // Copy client device name item.
     modify_item(n, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 }
-
-/* IDENTIFICATION_OPENER_SOURCE */
-#endif

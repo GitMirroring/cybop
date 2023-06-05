@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENT_HANDLER_SOURCE
-#define ELEMENT_HANDLER_SOURCE
-
 //
 // Library interface
 //
@@ -122,6 +119,3 @@ void handle_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         write_signal(p2, (void*) &s);
     }
 }
-
-/* ELEMENT_HANDLER_SOURCE */
-#endif

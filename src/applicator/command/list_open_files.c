@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LIST_OPEN_FILES_SOURCE
-#define LIST_OPEN_FILES_SOURCE
-
 //
 // Library interface
 //
@@ -129,6 +126,3 @@ void apply_list_open_files(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_list_open_files(umd, smd, lmd, dmd, tmd);
 }
-
-/* LIST_OPEN_FILES_SOURCE */
-#endif

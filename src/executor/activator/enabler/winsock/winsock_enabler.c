@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WINSOCK_ENABLER_SOURCE
-#define WINSOCK_ENABLER_SOURCE
-
 //
 // System interface
 //
@@ -110,6 +107,3 @@ void enable_winsock(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable winsock. The receiver server socket is null.");
     }
 }
-
-/* WINSOCK_ENABLER_SOURCE */
-#endif

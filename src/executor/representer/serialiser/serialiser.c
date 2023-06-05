@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SERIALISER_SOURCE
-#define SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -424,6 +421,3 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         //?? fwprintf(stdout, L"Warning: Could not serialise. The language is unknown or null. language *p12: %i\n", *((int*) p12));
     }
 }
-
-/* SERIALISER_SOURCE */
-#endif

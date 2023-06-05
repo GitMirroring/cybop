@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TYPE_LOGIFY_SOURCE
-#define TYPE_LOGIFY_SOURCE
-
 //
 // System interface
 //
@@ -81,6 +78,3 @@ void apply_logify_type(void* p0, void* p1, void* p2, void* p3, void* p4) {
         fwprintf(stdout, L"Error: Output type: %i. Input type: %i.\n", *((int*) p3), *((int*) p4));
     }
 }
-
-/* TYPE_LOGIFY_SOURCE */
-#endif

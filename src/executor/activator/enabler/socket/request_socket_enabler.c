@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef REQUEST_SOCKET_ENABLER_SOURCE
-#define REQUEST_SOCKET_ENABLER_SOURCE
-
 //
 // System interface
 //
@@ -64,6 +61,3 @@ void enable_socket_request(void* p0, void* p1) {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* REQUEST_SOCKET_ENABLER_SOURCE */
-#endif

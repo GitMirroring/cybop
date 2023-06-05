@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ARRAY_ALLOCATOR_SOURCE
-#define ARRAY_ALLOCATOR_SOURCE
-
 //
 // System interface
 //
@@ -183,6 +180,3 @@ void allocate_array(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Error: Could not allocate array. The type is null. type p2: %i\n", p2);
     }
 }
-
-/* ARRAY_ALLOCATOR_SOURCE */
-#endif

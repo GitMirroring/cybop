@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef IFUP_COMMANDER_SOURCE
-#define IFUP_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -99,6 +96,3 @@ void command_ifup() {
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* IFUP_COMMANDER_SOURCE */
-#endif

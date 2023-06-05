@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LEAVE_NOTIFY_XCB_EVENT_DESERIALISER_SOURCE
-#define LEAVE_NOTIFY_XCB_EVENT_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -90,6 +87,3 @@ void deserialise_xcb_event_leave_notify(void* p0, void* p1) {
         fwprintf(stdout, L"Error: Could not deserialise xcb event leave notify. The source event is null. p1: %i\n", p1);
     }
 }
-
-/* LEAVE_NOTIFY_XCB_EVENT_DESERIALISER_SOURCE */
-#endif

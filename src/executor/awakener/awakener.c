@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef AWAKENER_SOURCE
-#define AWAKENER_SOURCE
-
 //
 // System interface
 //
@@ -107,6 +104,3 @@ void awaken(void* p0, void* p1) {
         fwprintf(stdout, L"Warning: Could not awaken. The channel is unknown. p1: %i\n", *((int*) p1));
     }
 }
-
-/* AWAKENER_SOURCE */
-#endif

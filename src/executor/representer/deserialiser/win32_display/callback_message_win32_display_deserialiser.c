@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef EVENT_WIN32_DISPLAY_READER_SOURCE
-#define EVENT_WIN32_DISPLAY_READER_SOURCE
-
 //
 // System interface
 //
@@ -147,6 +144,3 @@ LRESULT CALLBACK deserialise_win32_display_message_callback(HWND w, UINT m, WPAR
 
     return r;
 }
-
-/* EVENT_WIN32_DISPLAY_READER_SOURCE */
-#endif

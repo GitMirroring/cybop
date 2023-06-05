@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FRAGMENT_READER_SOURCE
-#define FRAGMENT_READER_SOURCE
-
 //
 // System interface
 //
@@ -175,6 +172,3 @@ void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
         fwprintf(stdout, L"Warning: Could not read fragment. The channel is unknown. *p7: %i\n", *((int*) p7));
     }
 }
-
-/* FRAGMENT_READER_SOURCE */
-#endif

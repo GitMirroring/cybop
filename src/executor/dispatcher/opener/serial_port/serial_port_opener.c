@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SERIAL_PORT_OPENER_SOURCE
-#define SERIAL_PORT_OPENER_SOURCE
-
 //
 // System interface
 //
@@ -80,6 +77,3 @@ void open_serial_port(void* p0, void* p1, void* p2) {
     // Open device.
     open_basic(p0, p1, p2, (void*) &f, (void*) &mt);
 }
-
-/* SERIAL_PORT_OPENER_SOURCE */
-#endif

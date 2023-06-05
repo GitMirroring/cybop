@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ITEM_COUNTER_SOURCE
-#define ITEM_COUNTER_SOURCE
-
 //
 // Library interface
 //
@@ -103,6 +100,3 @@ void count_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
         copy_integer(p0, c);
     }
 }
-
-/* ITEM_COUNTER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FIND_COMMAND_SOURCE
-#define FIND_COMMAND_SOURCE
-
 //
 // Library interface
 //
@@ -119,6 +116,3 @@ void apply_find_command(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_find_command(cmd, cmc, bmd, mmd, smd);
 }
-
-/* FIND_COMMAND_SOURCE */
-#endif

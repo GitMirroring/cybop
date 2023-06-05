@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLEAR_WIN32_CONSOLE_SERIALISER_SOURCE
-#define CLEAR_WIN32_CONSOLE_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -145,6 +142,3 @@ void serialise_win32_console_clear(void* p0) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console clear. The standard output is null.");
     }
 }
-
-/* CLEAR_WIN32_CONSOLE_SERIALISER_SOURCE */
-#endif

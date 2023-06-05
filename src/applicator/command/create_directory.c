@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CREATE_DIRECTORY_SOURCE
-#define CREATE_DIRECTORY_SOURCE
-
 //
 // Library interface
 //
@@ -83,6 +80,3 @@ void apply_create_directory(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_create_directory(pmd, pmc);
 }
-
-/* CREATE_DIRECTORY_SOURCE */
-#endif

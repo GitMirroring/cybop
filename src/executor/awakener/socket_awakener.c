@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SOCKET_AWAKENER_SOURCE
-#define SOCKET_AWAKENER_SOURCE
-
 //
 // System interface
 //
@@ -99,6 +96,3 @@ void awake_socket(void* p0) {
     //?? TODO: How to write data NOT to remote client socket but rather to local READ BUFFER?
     //?? ioctl();
 }
-
-/* SOCKET_AWAKENER_SOURCE */
-#endif

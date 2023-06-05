@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DEEP_MODIFY_SOURCE
-#define DEEP_MODIFY_SOURCE
-
 //
 // System interface
 //
@@ -124,6 +121,3 @@ void apply_modify_deep(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         modify_part(p14, *NULL_POINTER_STATE_CYBOI_MODEL, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p4, p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT, p13);
     }
 }
-
-/* DEEP_MODIFY_SOURCE */
-#endif

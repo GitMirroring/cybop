@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ECHO_MESSAGE_COMMANDER_SOURCE
-#define ECHO_MESSAGE_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -109,6 +106,3 @@ void command_echo_message(void* mmd, void* mmc) {
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* ECHO_MESSAGE_COMMANDER_SOURCE */
-#endif

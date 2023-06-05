@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_POPPER_SOURCE
-#define PART_POPPER_SOURCE
-
 //
 // System interface
 //
@@ -97,6 +94,3 @@ void pop_part(void* p0, void* p1, void* p2) {
     // memory access errors.
     //
 }
-
-/* PART_POPPER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DISPLAY_SHUTTER_SOURCE
-#define DISPLAY_SHUTTER_SOURCE
-
 //
 // Library interface
 //
@@ -57,6 +54,3 @@ void shutdown_display(void* p0) {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* DISPLAY_SHUTTER_SOURCE */
-#endif

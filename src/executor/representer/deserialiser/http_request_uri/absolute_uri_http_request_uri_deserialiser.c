@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ABSOLUTE_URI_HTTP_REQUEST_URI_DESERIALISER_SOURCE
-#define ABSOLUTE_URI_HTTP_REQUEST_URI_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -93,6 +90,3 @@ void deserialise_absolute_uri_http_request_uri(void* p0, void* p1, void* p2, voi
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise absolute uri http request uri. The comparison result is null.");
     }
 }
-
-/* ABSOLUTE_URI_HTTP_REQUEST_URI_DESERIALISER_SOURCE */
-#endif

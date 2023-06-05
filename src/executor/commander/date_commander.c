@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DATE_COMMANDER_SOURCE
-#define DATE_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -207,6 +204,3 @@ void command_date(void* nmd, void* nmc, void* tmd, void* imd, void* rmd, void* u
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* DATE_COMMANDER_SOURCE */
-#endif

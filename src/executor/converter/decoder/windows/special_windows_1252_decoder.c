@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SPECIAL_WINDOWS_1252_DECODER_SOURCE
-#define SPECIAL_WINDOWS_1252_DECODER_SOURCE
-
 //
 // Library interface
 //
@@ -318,6 +315,3 @@ void decode_windows_1252_special(void* p0, void* p1) {
         }
     }
 }
-
-/* SPECIAL_WINDOWS_1252_DECODER_SOURCE */
-#endif

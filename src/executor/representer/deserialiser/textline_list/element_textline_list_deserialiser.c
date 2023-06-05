@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENT_TEXTLINE_LIST_DESERIALISER_SOURCE
-#define ELEMENT_TEXTLINE_LIST_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -122,6 +119,3 @@ void deserialise_textline_list_element(void* p0, void* p1, void* p2, void* p3, v
         fwprintf(stdout, L"Error: Could not deserialise textline list element. The textline data is null. textline data p3: %i\n", p3);
     }
 }
-
-/* ELEMENT_TEXTLINE_LIST_DESERIALISER_SOURCE */
-#endif

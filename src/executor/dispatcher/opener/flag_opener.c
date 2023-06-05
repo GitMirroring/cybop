@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FLAG_OPENER_SOURCE
-#define FLAG_OPENER_SOURCE
-
 //
 // System interface
 //
@@ -123,6 +120,3 @@ void open_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         open_stub(p0, p12);
     }
 }
-
-/* FLAG_OPENER_SOURCE */
-#endif

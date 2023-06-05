@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef EQUAL_PART_COMPARATOR_SOURCE
-#define EQUAL_PART_COMPARATOR_SOURCE
-
 //
 // System interface
 //
@@ -41,18 +38,6 @@
 #include "constant.h"
 #include "knowledge.h"
 #include "logger.h"
-
-//
-// Forbidden interface
-//
-// CAUTION! Do NOT include the following files since otherwise,
-// circular references would occur due to module dependencies.
-// Instead, forward declarations are used further below.
-// Therefore, the following includes are to be commented OUT
-// and listed here just for information.
-//
-
-// #include "../../../executor/comparator/item_comparator.c"
 
 //
 // Forward declaration
@@ -269,6 +254,3 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare part equal. The right part is null.");
     }
 }
-
-/* EQUAL_PART_COMPARATOR_SOURCE */
-#endif

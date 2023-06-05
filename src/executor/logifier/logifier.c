@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LOGIFIER_SOURCE
-#define LOGIFIER_SOURCE
-
 //
 // Library interface
 //
@@ -96,6 +93,3 @@ void logify(void* p0, void* p1, void* p2, void* p3) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify. The operand type is unknown.");
     }
 }
-
-/* LOGIFIER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INSIDE_REMOVER_SOURCE
-#define INSIDE_REMOVER_SOURCE
-
 //
 // System interface
 //
@@ -282,6 +279,3 @@ void remove_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
         fwprintf(stdout, L"Error: Could not remove inside. The destination array size is null. p5: %i\n", p5);
     }
 }
-
-/* INSIDE_REMOVER_SOURCE */
-#endif

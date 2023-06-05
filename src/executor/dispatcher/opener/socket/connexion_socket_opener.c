@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONNEXION_SOCKET_OPENER_SOURCE
-#define CONNEXION_SOCKET_OPENER_SOURCE
-
 //
 // System interface
 //
@@ -65,6 +62,3 @@ void open_socket_connexion(void* p0, void* p1, void* p2) {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* CONNEXION_SOCKET_OPENER_SOURCE */
-#endif

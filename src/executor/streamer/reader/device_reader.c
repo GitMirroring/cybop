@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DEVICE_READER_SOURCE
-#define DEVICE_READER_SOURCE
-
 //
 // System interface
 //
@@ -179,6 +176,3 @@ void read_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // Call endless loop waiting for data input.
     read_loop(p0, p1, p2, fd, (void*) &fs, p3, (void*) &ipw, im, (void*) &h, (void*) &cl, ex, p5, (void*) &ml, p6);
 }
-
-/* DEVICE_READER_SOURCE */
-#endif

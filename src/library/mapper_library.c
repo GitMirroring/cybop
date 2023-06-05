@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MAPPER_LIBRARY_SOURCE
-#define MAPPER_LIBRARY_SOURCE
-
 //
 // channel
 //
@@ -61,6 +58,3 @@
 //
 
 #include "../mapper/type_to_size_mapper.c"
-
-/* MAPPER_LIBRARY_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef GREP_SOURCE
-#define GREP_SOURCE
-
 //
 // Library interface
 //
@@ -97,6 +94,3 @@ void apply_grep(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_grep(pmd, pmc, fmd, fmc);
 }
-
-/* GREP_SOURCE */
-#endif

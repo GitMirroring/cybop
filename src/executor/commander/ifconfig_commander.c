@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef IFCONFIG_COMMANDER_SOURCE
-#define IFCONFIG_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -221,6 +218,3 @@ void command_ifconfig(void* imd, void* imc, void* amd, void* smd, void* dmd, voi
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* DISPLAY_COMMANDER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SHELL_LIBRARY_SOURCE
-#define SHELL_LIBRARY_SOURCE
-
 //
 // commander
 //
@@ -74,6 +71,3 @@
 #include "../../executor/commander/who_am_i_commander.c"
 #include "../../executor/commander/who_commander.c"
 #include "../../executor/commander/word_count_commander.c"
-
-/* SHELL_LIBRARY_SOURCE */
-#endif

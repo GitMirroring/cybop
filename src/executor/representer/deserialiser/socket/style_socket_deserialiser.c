@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STYLE_SOCKET_DESERIALISER_SOURCE
-#define STYLE_SOCKET_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -140,6 +137,3 @@ void deserialise_socket_style(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise socket style. The style is not known.");
     }
 }
-
-/* STYLE_SOCKET_DESERIALISER_SOURCE */
-#endif

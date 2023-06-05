@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SYSTEM_MESSAGES_COMMANDER_SOURCE
-#define SYSTEM_MESSAGES_COMMANDER_SOURCE
-
 //
 // Library interface
 //
@@ -193,6 +190,3 @@ void command_system_messages(void* hmd, void* cmd, void* kmd, void* lmd, void* u
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* SYSTEM_MESSAGES_COMMANDER_SOURCE */
-#endif

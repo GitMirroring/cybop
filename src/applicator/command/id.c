@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ID_SOURCE
-#define ID_SOURCE
-
 //
 // Library interface
 //
@@ -109,6 +106,3 @@ void apply_id(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_id(cmd, gmd, smd, nmd, umd);
 }
-
-/* ID_SOURCE */
-#endif

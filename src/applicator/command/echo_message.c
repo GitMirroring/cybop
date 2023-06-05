@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ECHO_MESSAGE_SOURCE
-#define ECHO_MESSAGE_SOURCE
-
 //
 // Library interface
 //
@@ -79,6 +76,3 @@ void apply_echo_message(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_echo_message(mmd, mmc);
 }
-
-/* ECHO_MESSAGE_SOURCE */
-#endif

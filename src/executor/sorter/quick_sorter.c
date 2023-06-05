@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef QUICK_SORTER_SOURCE
-#define QUICK_SORTER_SOURCE
-
 //
 // Library interface
 //
@@ -43,9 +40,6 @@ void sort_quick() {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort quick.");
 
 }
-
-/* QUICK_SORTER_SOURCE */
-#endif
 
     /**
      * Sort array using quick sort algorithm.

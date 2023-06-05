@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BINARY_LIBRARY_SOURCE
-#define BINARY_LIBRARY_SOURCE
-
 //
 // binary crlf
 //
@@ -38,6 +35,3 @@
 #include "../../../executor/representer/serialiser/binary_crlf/binary_crlf_serialiser.c"
 
 #include "../../../executor/selector/binary_crlf/termination_binary_crlf_selector.c"
-
-/* BINARY_LIBRARY_SOURCE */
-#endif

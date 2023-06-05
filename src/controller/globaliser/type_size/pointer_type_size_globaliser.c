@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef POINTER_TYPE_SIZE_GLOBALISER_SOURCE
-#define POINTER_TYPE_SIZE_GLOBALISER_SOURCE
-
 //
 // Library interface
 //
@@ -39,6 +36,3 @@ void globalise_type_size_pointer() {
 
     *POINTER_TYPE_SIZE = sizeof (void*);
 }
-
-/* POINTER_TYPE_SIZE_GLOBALISER_SOURCE */
-#endif

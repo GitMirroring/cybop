@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PARAMETRE_QUERY_HTTP_URI_SELECTOR_SOURCE
-#define PARAMETRE_QUERY_HTTP_URI_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -36,18 +33,6 @@
 #include "constant.h"
 #include "knowledge.h"
 #include "logger.h"
-
-//
-// Forbidden interface
-//
-// CAUTION! Do NOT include the following files since otherwise,
-// circular references would occur due to module dependencies.
-// Instead, forward declarations are used further below.
-// Therefore, the following includes are to be commented OUT
-// and listed here just for information.
-//
-
-// #include "../../../../executor/representer/deserialiser/uri/http/parametre_query_http_uri_deserialiser.c"
 
 //
 // Forward declaration
@@ -101,6 +86,3 @@ void select_http_uri_query_parametre(void* p0, void* p1, void* p2, void* p3, voi
         calculate_integer_add(p4, (void*) &step);
     }
 }
-
-/* PARAMETRE_QUERY_HTTP_URI_SELECTOR_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef KILL_COMMANDER_SOURCE
-#define KILL_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -109,6 +106,3 @@ void command_kill(void* pd, void* pc) {
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* KILL_COMMANDER_SOURCE */
-#endif

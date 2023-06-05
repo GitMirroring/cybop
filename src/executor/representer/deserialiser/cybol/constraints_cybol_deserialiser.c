@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONSTRAINTS_CYBOL_DESERIALISER_SOURCE
-#define CONSTRAINTS_CYBOL_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -123,6 +120,3 @@ void deserialise_cybol_constraints(void* p0, void* p1, void* p2, void* p3, void*
     // Deserialise cybol.
     deserialise_cybol(p0, p1, p2, p3, p4, p5, p6, p7, p8, dmd, dmc, tmd, tmc, pmd, p9);
 }
-
-/* CONSTRAINTS_CYBOL_DESERIALISER_SOURCE */
-#endif

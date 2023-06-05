@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef KEY_PROCESS_WIN32_CONSOLE_READER_SOURCE
-#define KEY_PROCESS_WIN32_CONSOLE_READER_SOURCE
-
 //
 // System interface
 //
@@ -82,6 +79,3 @@ void read_win32_console_process_key(void* p0, void* p1, void* p2) {
     // Get control key state (button or key mask).
 //    *m = (int) r.dwControlKeyState;
 }
-
-/* KEY_PROCESS_WIN32_CONSOLE_READER_SOURCE */
-#endif

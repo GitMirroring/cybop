@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ENTRY_FINDER_SOURCE
-#define ENTRY_FINDER_SOURCE
-
 //
 // System interface
 //
@@ -85,6 +82,3 @@ void find_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
         // fwprintf(stdout, L"Warning: Could not find entry. The internal memory name is invalid. This is unproblematic, since some channels like e.g. signal are not stored in internal memory. p0: %i\n", p0);
     }
 }
-
-/* ENTRY_FINDER_SOURCE */
-#endif

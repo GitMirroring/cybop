@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DATA_BLANK_LINE_TERMINATION_DESERIALISER_SOURCE
-#define DATA_BLANK_LINE_TERMINATION_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -111,6 +108,3 @@ void deserialise_blank_line_termination_data(void* p0, void* p1, void* p2) {
         }
     }
 }
-
-/* DATA_BLANK_LINE_TERMINATION_DESERIALISER_SOURCE */
-#endif

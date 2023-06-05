@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HEADER_ENTRY_HTTP_RESPONSE_SELECTOR_SOURCE
-#define HEADER_ENTRY_HTTP_RESPONSE_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -698,6 +695,3 @@ void select_http_response_header_entry(void* p0, void* p1, void* p2, void* p3, v
         //
     }
 }
-
-/* HEADER_ENTRY_HTTP_RESPONSE_SELECTOR_SOURCE */
-#endif

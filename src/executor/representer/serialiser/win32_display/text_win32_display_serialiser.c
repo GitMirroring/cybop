@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TEXT_WIN32_DISPLAY_SERIALISER_SOURCE
-#define TEXT_WIN32_DISPLAY_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -73,6 +70,3 @@ void serialise_win32_display_text(void* p0, void* p1, void* p2, void* p3, void* 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 display text. The device context is null.");
     }
 }
-
-/* TEXT_WIN32_DISPLAY_SERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TIME_SOURCE
-#define TIME_SOURCE
-
 //
 // Library interface
 //
@@ -78,6 +75,3 @@ void apply_time(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Retrieve current time from system.
     time_current(rmd);
 }
-
-/* TIME_SOURCE */
-#endif

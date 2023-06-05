@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef GREGORIAN_CALENDAR_TIME_SCALE_SERIALISER_SOURCE
-#define GREGORIAN_CALENDAR_TIME_SCALE_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -221,6 +218,3 @@ void serialise_time_scale_gregorian_calendar(void* p0, void* p1, void* p2, void*
     calculate_double_subtract(p5, (void*) &y);
     calculate_double_multiply(p5, (void*) &MINUTES_SECONDS_CONSTANT);
 }
-
-/* GREGORIAN_CALENDAR_TIME_SCALE_SERIALISER_SOURCE */
-#endif

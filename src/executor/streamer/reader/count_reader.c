@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COUNT_READER_SOURCE
-#define COUNT_READER_SOURCE
-
 //
 // System interface
 //
@@ -73,6 +70,3 @@ void read_count(void* p0, void* p1, void* p2) {
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
-
-/* COUNT_READER_SOURCE */
-#endif

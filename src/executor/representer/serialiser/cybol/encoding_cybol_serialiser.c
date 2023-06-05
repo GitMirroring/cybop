@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ENCODING_CYBOL_SERIALISER_SOURCE
-#define ENCODING_CYBOL_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -446,6 +443,3 @@ void serialise_cybol_encoding(void* p0, void* p1) {
         fwprintf(stdout, L"Warning: Could not serialise cybol encoding. The source cyboi encoding is unknown. cyboi encoding *p1: %i\n", *((int*) p1));
     }
 }
-
-/* ENCODING_CYBOL_SERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INTEGER_CASTER_SOURCE
-#define INTEGER_CASTER_SOURCE
-
 //
 // Library interface
 //
@@ -73,6 +70,3 @@ void cast_integer(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast integer. The source type is unknown.");
     }
 }
-
-/* INTEGER_CASTER_SOURCE */
-#endif

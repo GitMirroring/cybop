@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FLAG_WRITER_SOURCE
-#define FLAG_WRITER_SOURCE
-
 //
 // System interface
 //
@@ -89,6 +86,3 @@ void write_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
         write_thread(p5);
     }
 }
-
-/* FLAG_WRITER_SOURCE */
-#endif

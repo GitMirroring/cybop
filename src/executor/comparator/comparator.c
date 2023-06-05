@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMPARATOR_SOURCE
-#define COMPARATOR_SOURCE
-
 //
 // Library interface
 //
@@ -196,6 +193,3 @@ void compare(void* p0, void* p1, void* p2, void* p3, void* p4) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare. The operand type is unknown.");
     }
 }
-
-/* COMPARATOR_SOURCE */
-#endif

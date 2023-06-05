@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STRING_NORMALISER_SOURCE
-#define STRING_NORMALISER_SOURCE
-
 //
 // System interface
 //
@@ -90,6 +87,3 @@ void normalise_string(void* p0, void* p1, void* p2) {
         normalise_search(p0, p1, p2);
     }
 }
-
-/* STRING_NORMALISER_SOURCE */
-#endif

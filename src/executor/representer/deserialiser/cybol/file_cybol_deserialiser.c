@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FILE_CYBOL_DESERIALISER_SOURCE
-#define FILE_CYBOL_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -91,6 +88,3 @@ void deserialise_cybol_file(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     // Close file.
     close_basic((void*) &id);
 }
-
-/* FILE_CYBOL_DESERIALISER_SOURCE */
-#endif

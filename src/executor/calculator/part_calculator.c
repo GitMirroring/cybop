@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_CALCULATOR_SOURCE
-#define PART_CALCULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -63,6 +60,3 @@ void calculate_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     // Calculate elements of the result- with those of the operand model item.
     calculate_item(rm, om, p2, p3, p4, p5, p6);
 }
-
-/* PART_CALCULATOR_SOURCE */
-#endif

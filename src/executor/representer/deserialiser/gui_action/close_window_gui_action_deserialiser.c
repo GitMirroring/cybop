@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLOSE_WINDOW_GUI_ACTION_DESERIALISER_SOURCE
-#define CLOSE_WINDOW_GUI_ACTION_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -143,6 +140,3 @@ void deserialise_gui_action_close_window(void* p0, void* p1, void* p2, void* p3,
         fwprintf(stdout, L"Error: Could not deserialise gui action close window. The message format is not text/plain.\n");
     }
 }
-
-/* CLOSE_WINDOW_GUI_ACTION_DESERIALISER_SOURCE */
-#endif

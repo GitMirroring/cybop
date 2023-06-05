@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef JD_DATETIME_DESERIALISER_SOURCE
-#define JD_DATETIME_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -47,6 +44,3 @@ void deserialise_datetime_jd(void* p0, void* p1, void* p2) {
 
     deserialise_datetime_jd_basic(p0, p1, p2, (void*) JULIAN_DATE_TIME_SCALE_MODEL);
 }
-
-/* JD_DATETIME_DESERIALISER_SOURCE */
-#endif

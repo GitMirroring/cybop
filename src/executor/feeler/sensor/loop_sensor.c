@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LOOP_SENSOR_SOURCE
-#define LOOP_SENSOR_SOURCE
-
 //
 // System interface
 //
@@ -97,6 +94,3 @@ void sense_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
         //
     }
 }
-
-/* LOOP_SENSOR_SOURCE */
-#endif

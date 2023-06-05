@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TERMINAL_MODE_SERIALISER_SOURCE
-#define TERMINAL_MODE_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -67,6 +64,3 @@ void serialise_terminal_mode(void* p0, void* p1, void* p2, void* p3, void* p4, v
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise terminal mode. The format is unknown.");
     }
 }
-
-/* TERMINAL_MODE_SERIALISER_SOURCE */
-#endif

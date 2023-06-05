@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHANGE_DIRECTORY_COMMANDER_SOURCE
-#define CHANGE_DIRECTORY_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -179,6 +176,3 @@ void command_change_directory(void* pd, void* pc, void* p0, void* p1, void* p2) 
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* CHANGE_DIRECTORY_COMMANDER_SOURCE */
-#endif

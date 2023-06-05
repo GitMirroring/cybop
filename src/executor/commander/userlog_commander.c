@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef USERLOG_COMMANDER_SOURCE
-#define USERLOG_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -191,6 +188,3 @@ void command_userlog(void* hmd, void* cmd, void* smd, void* omd) {
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* USERLOG_COMMANDER_SOURCE */
-#endif

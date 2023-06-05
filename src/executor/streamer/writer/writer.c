@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WRITER_SOURCE
-#define WRITER_SOURCE
-
 //
 // System interface
 //
@@ -145,6 +142,3 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     // Write data via the given channel into the destination.
     write_flag(p0, bi, (void*) &t, p3, bm, ce, p4, p5, p8, p9);
 }
-
-/* WRITER_SOURCE */
-#endif

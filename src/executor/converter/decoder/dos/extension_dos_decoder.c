@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef EXTENSION_DOS_DECODER_SOURCE
-#define EXTENSION_DOS_DECODER_SOURCE
-
 //
 // Library interface
 //
@@ -69,6 +66,3 @@ void decode_dos_extension(void* p0, void* p1, void* p2) {
         }
     }
 }
-
-/* EXTENSION_DOS_DECODER_SOURCE */
-#endif

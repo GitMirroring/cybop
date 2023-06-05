@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STRING_UPPERER_SOURCE
-#define STRING_UPPERER_SOURCE
-
 //
 // System interface
 //
@@ -96,6 +93,3 @@ void upper_string(void* p0, void* p1, void* p2) {
         j++;
     }
 }
-
-/* STRING_UPPERER_SOURCE */
-#endif

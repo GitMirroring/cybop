@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TAI_DATETIME_SERIALISER_SOURCE
-#define TAI_DATETIME_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -81,6 +78,3 @@ void serialise_datetime_tai(void* p0, void* p1, void* p2) {
     deallocate_datetime((void*) &d);
 */
 }
-
-/* TAI_DATETIME_SERIALISER_SOURCE */
-#endif

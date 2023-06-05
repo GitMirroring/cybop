@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FOREGROUND_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-#define FOREGROUND_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -137,6 +134,3 @@ void serialise_ansi_escape_code_foreground(void* p0, void* p1, void* p2) {
         }
     }
 }
-
-/* FOREGROUND_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
-#endif

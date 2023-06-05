@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef READ_SOURCE
-#define READ_SOURCE
-
 //
 // Library interface
 //
@@ -187,6 +184,3 @@ void apply_read(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //
     read_deallocation(mmd, mmc, *NULL_POINTER_STATE_CYBOI_MODEL, cmd);
 }
-
-/* READ_SOURCE */
-#endif

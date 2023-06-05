@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ISO_8859_15_DECODER_SOURCE
-#define ISO_8859_15_DECODER_SOURCE
-
 //
 // Library interface
 //
@@ -1328,6 +1325,3 @@ void decode_iso_8859_15(void* p0, void* p1) {
         }
     }
 }
-
-/* ISO_8859_15_DECODER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHARACTER_REFERENCE_SERIALISER_SOURCE
-#define CHARACTER_REFERENCE_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -68,6 +65,3 @@ void serialise_character_reference(void* p0, void* p1, void* p2, void* p3) {
     //
     serialise_character_reference_data(p0, (void*) &d, (void*) &c, p3);
 }
-
-/* CHARACTER_REFERENCE_SERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BASIC_JD_DATETIME_SERIALISER_SOURCE
-#define BASIC_JD_DATETIME_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -59,6 +56,3 @@ void serialise_datetime_jd_basic(void* p0, void* p1, void* p2, void* p3) {
     // Assign resulting temporary julian date to destination.
     serialise_numeral_fraction_decimal(p0, (void*) &d, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 }
-
-/* BASIC_JD_DATETIME_SERIALISER_SOURCE */
-#endif

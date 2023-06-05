@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MOTION_NOTIFY_GUI_ACTION_DESERIALISER_SOURCE
-#define MOTION_NOTIFY_GUI_ACTION_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -56,6 +53,3 @@ void deserialise_gui_action_motion_notify(void* p0, void* p1, void* p2, void* p3
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui action motion notify.");
 }
-
-/* MOTION_NOTIFY_GUI_ACTION_DESERIALISER_SOURCE */
-#endif

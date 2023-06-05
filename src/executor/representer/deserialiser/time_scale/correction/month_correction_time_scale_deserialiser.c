@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MONTH_CORRECTION_TIME_SCALE_DESERIALISER_SOURCE
-#define MONTH_CORRECTION_TIME_SCALE_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -182,6 +179,3 @@ void deserialise_time_scale_correction_month(void* p0, void* p1) {
         }
     }
 }
-
-/* MONTH_CORRECTION_TIME_SCALE_DESERIALISER_SOURCE */
-#endif

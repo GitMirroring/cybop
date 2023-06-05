@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TERMINAL_COLOUR_DESERIALISER_SOURCE
-#define TERMINAL_COLOUR_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -137,6 +134,3 @@ void deserialise_colour_terminal(void* p0, void* p1, void* p2) {
         }
     }
 }
-
-/* TERMINAL_COLOUR_DESERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SORT_COMMANDER_SOURCE
-#define SORT_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -182,6 +179,3 @@ void command_sort(void* fmd, void* fmc, void* omd, void* omc, void* rmd, void* r
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not execute command sort. The file is null.");
     }
 }
-
-/* SORT_COMMANDER_SOURCE */
-#endif

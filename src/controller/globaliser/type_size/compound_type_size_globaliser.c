@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMPOUND_TYPE_SIZE_GLOBALISER_SOURCE
-#define COMPOUND_TYPE_SIZE_GLOBALISER_SOURCE
-
 //
 // Library interface
 //
@@ -57,6 +54,3 @@ void globalise_type_size_compound() {
     // Elements: numerator + denominator
     *FRACTION_COMPOUND_TYPE_SIZE = *SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE + *SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE;
 }
-
-/* COMPOUND_TYPE_SIZE_GLOBALISER_SOURCE */
-#endif

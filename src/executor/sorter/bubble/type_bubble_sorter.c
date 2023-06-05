@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TYPE_BUBBLE_SORTER_SOURCE
-#define TYPE_BUBBLE_SORTER_SOURCE
-
 //
 // Library interface
 //
@@ -76,6 +73,3 @@ void sort_bubble_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         compare(p0, p1, p2, p3, p4);
     }
 }
-
-/* TYPE_BUBBLE_SORTER_SOURCE */
-#endif

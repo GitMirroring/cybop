@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BUTTON_PRESS_GUI_ACTION_DESERIALISER_SOURCE
-#define BUTTON_PRESS_GUI_ACTION_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -56,6 +53,3 @@ void deserialise_gui_action_button_press(void* p0, void* p1, void* p2, void* p3,
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui action button press.");
 }
-
-/* BUTTON_PRESS_GUI_ACTION_DESERIALISER_SOURCE */
-#endif

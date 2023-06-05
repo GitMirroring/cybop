@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHANGE_DIRECTORY_SOURCE
-#define CHANGE_DIRECTORY_SOURCE
-
 //
 // Library interface
 //
@@ -119,6 +116,3 @@ void apply_change_directory(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_change_directory(pmd, pmc, nflmd, flmd, cdmd);
 }
-
-/* CHANGE_DIRECTORY_SOURCE */
-#endif

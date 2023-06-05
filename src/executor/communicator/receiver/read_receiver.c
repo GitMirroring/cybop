@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef READ_RECEIVER_SOURCE
-#define READ_RECEIVER_SOURCE
-
 //
 // System interface
 //
@@ -92,6 +89,3 @@ void receive_read(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         fwprintf(stdout, L"Warning: Could not receive read. The channel is null. channel *p7: %i\n", *((int*) p7));
     }
 }
-
-/* READ_RECEIVER_SOURCE */
-#endif

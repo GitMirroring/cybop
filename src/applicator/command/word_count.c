@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WORD_COUNT_SOURCE
-#define WORD_COUNT_SOURCE
-
 //
 // Library interface
 //
@@ -144,6 +141,3 @@ void apply_word_count(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_word_count(pmd, pmc, bmd, cmd, lmd, mmd, wmd);
 }
-
-/* WORD_COUNT_SOURCE */
-#endif

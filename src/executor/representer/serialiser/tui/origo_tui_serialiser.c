@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ORIGO_TUI_SERIALISER_SOURCE
-#define ORIGO_TUI_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -64,6 +61,3 @@ void serialise_tui_origo(void* p0, void* p1, void* p2, void* p3) {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* ORIGO_TUI_SERIALISER_SOURCE */
-#endif

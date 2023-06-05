@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LINEAR_SEARCHER_SOURCE
-#define LINEAR_SEARCHER_SOURCE
-
 //
 // Library interface
 //
@@ -76,6 +73,3 @@ void search_linear(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
         search_linear_lifo(p0, p1, p2, p3, p4, p5, p6, p7);
     }
 }
-
-/* LINEAR_SEARCHER_SOURCE */
-#endif

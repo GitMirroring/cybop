@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CAST_SOURCE
-#define CAST_SOURCE
-
 //
 // Library interface
 //
@@ -162,6 +159,3 @@ void apply_cast(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // Cast value by applying operation.
     cast_part(d, s, std, p5, (void*) &count, (void*) &destination_index, (void*) &source_index);
 }
-
-/* CAST_SOURCE */
-#endif

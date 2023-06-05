@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INDEX_PART_GETTER_SOURCE
-#define INDEX_PART_GETTER_SOURCE
-
 //
 // Library interface
 //
@@ -57,6 +54,3 @@ void get_part_index(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     // Get actual destination part behind source model part.
     get_part_knowledge(p0, (void*) &s, p3, p4, p5);
 }
-
-/* INDEX_PART_GETTER_SOURCE */
-#endif

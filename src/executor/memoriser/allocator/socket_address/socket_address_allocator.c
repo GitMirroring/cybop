@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SOCKET_ADDRESS_ALLOCATOR_SOURCE
-#define SOCKET_ADDRESS_ALLOCATOR_SOURCE
-
 //
 // System interface
 //
@@ -85,7 +82,7 @@ void allocate_socket_address(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             void** ad = (void**) p0;
 
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate socket address.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate socket address.");
 
             // The comparison result.
             int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -171,6 +168,3 @@ void allocate_socket_address(void* p0, void* p1, void* p2, void* p3, void* p4, v
         fwprintf(stdout, L"Error: Could not allocate socket address. The address size is null. p1: %i\n", p1);
     }
 }
-
-/* SOCKET_ADDRESS_ALLOCATOR_SOURCE */
-#endif

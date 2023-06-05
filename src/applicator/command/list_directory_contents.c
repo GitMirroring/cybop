@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LIST_DIRECTORY_CONTENTS_SOURCE
-#define LIST_DIRECTORY_CONTENTS_SOURCE
-
 //
 // Library interface
 //
@@ -205,6 +202,3 @@ void apply_list_directory_contents(void* p0, void* p1, void* p2, void* p3, void*
 
     command_list_directory_contents(pmd, pmc, amd, aamd, lmd, orpemd, rmd, smd, sbfsmd, sbmdmd, sbemd, epmd, epmc);
 }
-
-/* LIST_DIRECTORY_CONTENTS_SOURCE */
-#endif

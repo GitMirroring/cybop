@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BASIC_WRITER_SOURCE
-#define BASIC_WRITER_SOURCE
-
 //
 // System interface
 //
@@ -246,6 +243,3 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4) {
         fwprintf(stdout, L"Error: Could not write basic. The destination file descriptor is null. p0: %i\n", p0);
     }
 }
-
-/* BASIC_WRITER_SOURCE */
-#endif

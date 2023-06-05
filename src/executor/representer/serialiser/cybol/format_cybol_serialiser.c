@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FORMAT_CYBOL_SERIALISER_SOURCE
-#define FORMAT_CYBOL_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -2160,6 +2157,3 @@ void serialise_cybol_format(void* p0, void* p1) {
         fwprintf(stdout, L"Warning: Could not serialise cybol format. The source cyboi format is unknown. cyboi format *p1: %i\n", *((int*) p1));
     }
 }
-
-/* FORMAT_CYBOL_SERIALISER_SOURCE */
-#endif

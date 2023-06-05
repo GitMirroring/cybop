@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ARRAY_DEALLOCATOR_SOURCE
-#define ARRAY_DEALLOCATOR_SOURCE
-
 //
 // System interface
 //
@@ -90,6 +87,3 @@ void deallocate_array(void* p0, void* p1, void* p2, void* p3) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deallocate array. The array is null.");
     }
 }
-
-/* ARRAY_DEALLOCATOR_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SHUTDOWN_SOURCE
-#define SHUTDOWN_SOURCE
-
 //
 // Library interface
 //
@@ -116,6 +113,3 @@ void apply_shutdown(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Shutdown service.
     shutdown_server(p4, (void*) &port, cmd);
 }
-
-/* SHUTDOWN_SOURCE */
-#endif

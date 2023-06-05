@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef KEY_RELEASE_GUI_ACTION_DESERIALISER_SOURCE
-#define KEY_RELEASE_GUI_ACTION_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -56,6 +53,3 @@ void deserialise_gui_action_key_release(void* p0, void* p1, void* p2, void* p3, 
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui action key release.");
 }
-
-/* KEY_RELEASE_GUI_ACTION_DESERIALISER_SOURCE */
-#endif

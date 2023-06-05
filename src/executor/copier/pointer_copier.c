@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef POINTER_COPIER_SOURCE
-#define POINTER_COPIER_SOURCE
-
 //
 // Library interface
 //
@@ -78,6 +75,3 @@ void copy_pointer(void* p0, void* p1) {
         //
     }
 }
-
-/* POINTER_COPIER_SOURCE */
-#endif

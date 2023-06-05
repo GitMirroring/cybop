@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef END_COMPOUND_FIELD_BDT_XDT_SELECTOR_SOURCE
-#define END_COMPOUND_FIELD_BDT_XDT_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -1837,6 +1834,3 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
         //
     }
 }
-
-/* END_COMPOUND_FIELD_BDT_XDT_SELECTOR_SOURCE */
-#endif

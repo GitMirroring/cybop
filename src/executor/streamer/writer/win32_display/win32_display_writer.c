@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WIN32_DISPLAY_WRITER_SOURCE
-#define WIN32_DISPLAY_WRITER_SOURCE
-
 //
 // System interface
 //
@@ -81,6 +78,3 @@ void write_win32_display(void* p0) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write win32 display. The window is null.");
     }
 }
-
-/* WIN32_DISPLAY_WRITER_SOURCE */
-#endif

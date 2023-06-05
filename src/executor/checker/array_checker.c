@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ARRAY_CHECKER_SOURCE
-#define ARRAY_CHECKER_SOURCE
-
 //
 // Library interface
 //
@@ -137,6 +134,3 @@ void check_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         j++;
     }
 }
-
-/* ARRAY_CHECKER_SOURCE */
-#endif

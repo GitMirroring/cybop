@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef UNIX_FIFO_OPENER_SOURCE
-#define UNIX_FIFO_OPENER_SOURCE
-
 //
 // System interface
 //
@@ -86,6 +83,3 @@ void open_unix_fifo(void* p0, void* p1, void* p2) {
     // Open device.
     open_basic(p0, p1, p2, (void*) &f, (void*) &mt);
 }
-
-/* UNIX_FIFO_OPENER_SOURCE */
-#endif

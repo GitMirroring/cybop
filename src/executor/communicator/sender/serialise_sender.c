@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SERIALISE_SENDER_SOURCE
-#define SERIALISE_SENDER_SOURCE
-
 //
 // System interface
 //
@@ -90,6 +87,3 @@ void send_serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         //?? fwprintf(stdout, L"Warning: Could not send serialise. The language is null. language *p14: %i\n", *((int*) p14));
     }
 }
-
-/* SERIALISE_SENDER_SOURCE */
-#endif

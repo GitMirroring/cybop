@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SOCKET_OPENER_SOURCE
-#define SOCKET_OPENER_SOURCE
-
 //
 // Library interface
 //
@@ -95,6 +92,3 @@ void open_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // Deallocate socket address.
     deallocate_socket_address((void*) &ad, (void*) &as, (void*) &af);
 }
-
-/* SOCKET_OPENER_SOURCE */
-#endif

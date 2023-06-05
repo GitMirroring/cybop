@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef XML_LIBRARY_SOURCE
-#define XML_LIBRARY_SOURCE
-
 //
 // dtd
 //
@@ -84,6 +81,3 @@
 //
 
 //?? TODO
-
-/* XML_LIBRARY_SOURCE */
-#endif

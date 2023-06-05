@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENT_TUI_SERIALISER_SOURCE
-#define ELEMENT_TUI_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -97,6 +94,3 @@ void serialise_tui_element(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     //
     serialise_tui_content(p0, p1, md, mc, pd, pc, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, fd);
 }
-
-/* ELEMENT_TUI_SERIALISER_SOURCE */
-#endif

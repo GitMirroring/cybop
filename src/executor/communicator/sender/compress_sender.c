@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMPRESS_SENDER_SOURCE
-#define COMPRESS_SENDER_SOURCE
-
 //
 // System interface
 //
@@ -84,6 +81,3 @@ void send_compress(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
         fwprintf(stdout, L"Warning: Could not send compress. The compression is null. compression *p5: %i\n", *((int*) p5));
     }
 }
-
-/* COMPRESS_SENDER_SOURCE */
-#endif

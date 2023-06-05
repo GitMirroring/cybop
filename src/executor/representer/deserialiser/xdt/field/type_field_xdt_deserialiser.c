@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TYPE_FIELD_XDT_DESERIALISER_SOURCE
-#define TYPE_FIELD_XDT_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -127,6 +124,3 @@ void deserialise_xdt_field_type(void* p0, void* p1) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt field type. The format is unknown.");
     }
 }
-
-/* TYPE_FIELD_XDT_DESERIALISER_SOURCE */
-#endif

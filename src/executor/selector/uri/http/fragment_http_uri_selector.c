@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FRAGMENT_HTTP_URI_SELECTOR_SOURCE
-#define FRAGMENT_HTTP_URI_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -62,6 +59,3 @@ void select_http_uri_fragment(void* p0, void* p1, void* p2) {
         calculate_integer_add(p2, (void*) &step);
     }
 }
-
-/* FRAGMENT_HTTP_URI_SELECTOR_SOURCE */
-#endif

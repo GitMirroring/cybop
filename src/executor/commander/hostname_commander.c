@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HOSTNAME_COMMANDER_SOURCE
-#define HOSTNAME_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -216,6 +213,3 @@ void command_hostname(void* dmd, void* fmd, void* imd, void* amd, void* smd) {
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* HOSTNAME_COMMANDER_SOURCE */
-#endif

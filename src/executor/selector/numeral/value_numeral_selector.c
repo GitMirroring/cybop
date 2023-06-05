@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef VALUE_NUMERAL_SELECTOR_SOURCE
-#define VALUE_NUMERAL_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -351,6 +348,3 @@ void select_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void
         copy_integer(p12, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
-
-/* VALUE_NUMERAL_SELECTOR_SOURCE */
-#endif

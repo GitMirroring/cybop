@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ABSOLUTE_CHARACTER_CALCULATOR_SOURCE
-#define ABSOLUTE_CHARACTER_CALCULATOR_SOURCE
-
 //
 // System interface
 //
@@ -69,6 +66,3 @@ void calculate_character_absolute(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate character absolute. The source is null.");
     }
 }
-
-/* ABSOLUTE_CHARACTER_CALCULATOR_SOURCE */
-#endif

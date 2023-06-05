@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TYPE_LIBRARY_SOURCE
-#define TYPE_LIBRARY_SOURCE
-
 //
 // boolean
 //
@@ -120,7 +117,7 @@
 #include "../../../executor/representer/deserialiser/time_scale/correction/detection_leap_year_correction_time_scale_deserialiser.c"
 #include "../../../executor/representer/deserialiser/time_scale/correction/leap_year_correction_time_scale_deserialiser.c"
 #include "../../../executor/representer/deserialiser/time_scale/correction/month_correction_time_scale_deserialiser.c"
-#include "../../../executor/representer/deserialiser/time_scale/gregorian_calendar/ALTERNATIVE_julian_day_gregorian_calendar_time_scale_deserialiser.c"
+//?? #include "../../../executor/representer/deserialiser/time_scale/gregorian_calendar/ALTERNATIVE_julian_day_gregorian_calendar_time_scale_deserialiser.c"
 #include "../../../executor/representer/deserialiser/time_scale/gregorian_calendar/check_reform_julian_day_gregorian_calendar_time_scale_deserialiser.c"
 #include "../../../executor/representer/deserialiser/time_scale/gregorian_calendar/gregorian_calendar_time_scale_deserialiser.c"
 #include "../../../executor/representer/deserialiser/time_scale/gregorian_calendar/julian_day_gregorian_calendar_time_scale_deserialiser.c"
@@ -130,7 +127,7 @@
 #include "../../../executor/representer/deserialiser/time_scale/julian_date/julian_date_time_scale_deserialiser.c"
 #include "../../../executor/representer/deserialiser/time_scale/running_day/running_day_time_scale_deserialiser.c"
 
-#include "../../../executor/representer/serialiser/time_scale/gregorian_calendar/ALTERNATIVE_gregorian_calendar_time_scale_serialiser.c"
+//?? #include "../../../executor/representer/serialiser/time_scale/gregorian_calendar/ALTERNATIVE_gregorian_calendar_time_scale_serialiser.c"
 #include "../../../executor/representer/serialiser/time_scale/gregorian_calendar/correction_gregorian_calendar_time_scale_serialiser.c"
 #include "../../../executor/representer/serialiser/time_scale/gregorian_calendar/gregorian_calendar_time_scale_serialiser.c"
 #include "../../../executor/representer/serialiser/time_scale/gregorian_calendar/julian_day_gregorian_calendar_time_scale_serialiser.c"
@@ -141,6 +138,3 @@
 #include "../../../executor/representer/serialiser/time_scale/running_day/month_running_day_time_scale_serialiser.c"
 #include "../../../executor/representer/serialiser/time_scale/running_day/running_day_time_scale_serialiser.c"
 #include "../../../executor/representer/serialiser/time_scale/weekday/weekday_time_scale_serialiser.c"
-
-/* TYPE_LIBRARY_SOURCE */
-#endif

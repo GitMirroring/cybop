@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_LINEAR_SEARCHER_SOURCE
-#define PART_LINEAR_SEARCHER_SOURCE
-
 //
 // Library interface
 //
@@ -98,6 +95,3 @@ void search_linear_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
-
-/* PART_LINEAR_SEARCHER_SOURCE */
-#endif

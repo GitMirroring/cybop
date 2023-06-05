@@ -24,9 +24,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ABSOLUTE_DOUBLE_CALCULATOR_SOURCE
-#define ABSOLUTE_DOUBLE_CALCULATOR_SOURCE
-
 //
 // System interface
 //
@@ -73,6 +70,3 @@ void calculate_double_absolute(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate double absolute. The source is null.");
     }
 }
-
-/* ABSOLUTE_DOUBLE_CALCULATOR_SOURCE */
-#endif

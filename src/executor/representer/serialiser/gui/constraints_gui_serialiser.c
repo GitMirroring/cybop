@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONSTRAINTS_GUI_SERIALISER_SOURCE
-#define CONSTRAINTS_GUI_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -158,6 +155,3 @@ void serialise_gui_constraints(void* p0, void* p1, void* p2, void* p3, void* p4,
     // Initialise gui serialiser.
     serialise_gui_initial(p0, p1, p2, p3, p4, smd, bmd, cmd, dmd, dmc, pmd, nmd, p7, p8, p9, p10);
 }
-
-/* CONSTRAINTS_GUI_SERIALISER_SOURCE */
-#endif

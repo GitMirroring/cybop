@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ASSEMBLER_NUMERAL_SELECTOR_SOURCE
-#define ASSEMBLER_NUMERAL_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -136,6 +133,3 @@ void select_numeral_assembler(void* p0, void* p1, void* p2, void* p3, void* p4, 
         fwprintf(stdout, L"Warning: Could not select numeral assembler. The format is unknown. format *p9: %i\n", *((int*) p9));
     }
 }
-
-/* ASSEMBLER_NUMERAL_SELECTOR_SOURCE */
-#endif

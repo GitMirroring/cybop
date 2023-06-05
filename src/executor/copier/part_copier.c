@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_COPIER_SOURCE
-#define PART_COPIER_SOURCE
-
 //
 // Library interface
 //
@@ -33,18 +30,6 @@
 #include "constant.h"
 #include "knowledge.h"
 #include "logger.h"
-
-//
-// Forbidden interface
-//
-// CAUTION! Do NOT include the following files since otherwise,
-// circular references would occur due to module dependencies.
-// Instead, forward declarations are used further below.
-// Therefore, the following includes are to be commented OUT
-// and listed here just for information.
-//
-
-// #include "knowledge.h"
 
 //
 // Forward declaration
@@ -145,6 +130,3 @@ void copy_part(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy part. The source part is null.");
     }
 }
-
-/* PART_COPIER_SOURCE */
-#endif

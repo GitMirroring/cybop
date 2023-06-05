@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DESERIALISER_SOURCE
-#define DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -398,6 +395,3 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         fwprintf(stdout, L"Warning: Could not deserialise. The language is unknown or null. language *p12: %i\n", *((int*) p12));
     }
 }
-
-/* DESERIALISER_SOURCE */
-#endif

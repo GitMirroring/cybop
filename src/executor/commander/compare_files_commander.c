@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMPARE_FILES_COMMANDER_SOURCE
-#define COMPARE_FILES_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -274,6 +271,3 @@ void command_compare_files(void* p1d, void* p1c, void* p2d, void* p2c, void* p0,
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* COMPARE_FILES_COMMANDER_SOURCE */
-#endif

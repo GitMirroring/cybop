@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SIZE_GRID_LAYOUT_SERIALISER_SOURCE
-#define SIZE_GRID_LAYOUT_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -167,6 +164,3 @@ void serialise_layout_grid_size(void* p0, void* p1, void* p2, void* p3, void* p4
     // The formula gets selected depending on the last parametre.
     serialise_layout_part(p0, p1, (void*) &w, (void*) &h, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, p8, p9, p10, p11, p12);
 }
-
-/* SIZE_GRID_LAYOUT_SERIALISER_SOURCE */
-#endif

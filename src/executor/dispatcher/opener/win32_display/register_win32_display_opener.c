@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef REGISTER_WIN32_DISPLAY_OPENER_SOURCE
-#define REGISTER_WIN32_DISPLAY_OPENER_SOURCE
-
 //
 // System interface
 //
@@ -107,6 +104,3 @@ void open_win32_display_register(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open win32 display register. The window class is null.");
     }
 }
-
-/* REGISTER_WIN32_DISPLAY_OPENER_SOURCE */
-#endif

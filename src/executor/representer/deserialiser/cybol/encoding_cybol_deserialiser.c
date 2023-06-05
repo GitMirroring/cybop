@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ENCODING_CYBOL_DESERIALISER_SOURCE
-#define ENCODING_CYBOL_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -460,6 +457,3 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Warning: Could not deserialise cybol encoding. The source cybol encoding is unknown. cybol encoding *p2: %i\n", *((int*) p2));
     }
 }
-
-/* ENCODING_CYBOL_DESERIALISER_SOURCE */
-#endif

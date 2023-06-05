@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DISPLAY_CONTENT_SOURCE
-#define DISPLAY_CONTENT_SOURCE
-
 //
 // Library interface
 //
@@ -119,6 +116,3 @@ void apply_display_content(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_display_content(pmd, pmc, lnmd, sqzmd, clrmd);
 }
-
-/* DISPLAY_CONTENT_SOURCE */
-#endif

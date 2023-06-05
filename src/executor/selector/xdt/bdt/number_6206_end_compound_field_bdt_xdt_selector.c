@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NUMBER_6206_END_COMPOUND_FIELD_BDT_XDT_SELECTOR_SOURCE
-#define NUMBER_6206_END_COMPOUND_FIELD_BDT_XDT_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -71,6 +68,3 @@ void select_xdt_bdt_field_compound_end_6206(void* p0, void* p1) {
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
-
-/* NUMBER_6206_END_COMPOUND_FIELD_BDT_XDT_SELECTOR_SOURCE */
-#endif

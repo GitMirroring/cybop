@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NOT_INTEGER_LOGIFIER_SOURCE
-#define NOT_INTEGER_LOGIFIER_SOURCE
-
 //
 // Library interface
 //
@@ -58,6 +55,3 @@ void logify_integer_not(void* p0) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify integer not. The value is null.");
     }
 }
-
-/* NOT_INTEGER_LOGIFIER_SOURCE */
-#endif

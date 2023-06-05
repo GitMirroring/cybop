@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONTENT_XML_SELECTOR_SOURCE
-#define CONTENT_XML_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -147,6 +144,3 @@ void select_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         calculate_integer_add(p4, (void*) &step);
     }
 }
-
-/* CONTENT_XML_SELECTOR_SOURCE */
-#endif

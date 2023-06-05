@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHARACTER_INTEGER_CASTER_SOURCE
-#define CHARACTER_INTEGER_CASTER_SOURCE
-
 //
 // Library interface
 //
@@ -66,6 +63,3 @@ void cast_integer_character(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast integer character. The source is null.");
     }
 }
-
-/* CHARACTER_INTEGER_CASTER_SOURCE */
-#endif

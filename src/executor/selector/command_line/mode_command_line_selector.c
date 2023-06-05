@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MODE_COMMAND_LINE_SELECTOR_SOURCE
-#define MODE_COMMAND_LINE_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -144,6 +141,3 @@ void select_command_line_mode(void* p0, void* p1, void* p2, void* p3, void* p4, 
         copy_integer(p0, (void*) KNOWLEDGE_OPERATION_MODE_CYBOI_MODEL);
     }
 }
-
-/* MODE_COMMAND_LINE_SELECTOR_SOURCE */
-#endif

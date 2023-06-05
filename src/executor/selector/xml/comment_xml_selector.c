@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMMENT_XML_SELECTOR_SOURCE
-#define COMMENT_XML_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -66,6 +63,3 @@ void select_xml_comment(void* p0, void* p1, void* p2) {
         move(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
-
-/* COMMENT_XML_SELECTOR_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHARACTER_PERCENT_ENCODING_SERIALISER_SOURCE
-#define CHARACTER_PERCENT_ENCODING_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -113,6 +110,3 @@ void serialise_percent_encoding_character(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise percent encoding character. The source wide character is null.");
     }
 }
-
-/* CHARACTER_PERCENT_ENCODING_SERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONTENT_CYBOL_SERIALISER_SOURCE
-#define CONTENT_CYBOL_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -41,19 +38,6 @@
 #include "constant.h"
 #include "knowledge.h"
 #include "logger.h"
-
-//
-// Forbidden interface
-//
-// CAUTION! Do NOT include the following files since otherwise,
-// circular references would occur due to module dependencies.
-// Instead, forward declarations are used further below.
-// Therefore, the following includes are to be commented OUT
-// and listed here just for information.
-//
-
-// #include "../../../../executor/representer/serialiser/cybol/cybol_serialiser.c"
-// #include "../../../../executor/representer/serialiser/cybol/part_cybol_serialiser.c"
 
 //
 // Forward declaration
@@ -248,6 +232,3 @@ void serialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
     //
     modify_item(p0, (void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 }
-
-/* CONTENT_CYBOL_SERIALISER_SOURCE */
-#endif

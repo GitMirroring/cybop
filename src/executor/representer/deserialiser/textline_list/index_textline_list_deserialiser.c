@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INDEX_TEXTLINE_LIST_DESERIALISER_SOURCE
-#define INDEX_TEXTLINE_LIST_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -88,6 +85,3 @@ void deserialise_textline_list_index(void* p0, void* p1, void* p2, void* p3) {
     // Deallocate index item.
     deallocate_item((void*) &i, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* INDEX_TEXTLINE_LIST_DESERIALISER_SOURCE */
-#endif

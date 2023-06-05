@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef POINTER_COMPARATOR_SOURCE
-#define POINTER_COMPARATOR_SOURCE
-
 //
 // Library interface
 //
@@ -114,6 +111,3 @@ void compare_pointer(void* p0, void* p1, void* p2, void* p3) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare pointer. The operation type is unknown.");
     }
 }
-
-/* POINTER_COMPARATOR_SOURCE */
-#endif

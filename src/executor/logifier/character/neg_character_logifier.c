@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NEG_CHARACTER_LOGIFIER_SOURCE
-#define NEG_CHARACTER_LOGIFIER_SOURCE
-
 //
 // Library interface
 //
@@ -58,6 +55,3 @@ void logify_character_neg(void* p0) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify character neg. The value is null.");
     }
 }
-
-/* NEG_CHARACTER_LOGIFIER_SOURCE */
-#endif

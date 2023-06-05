@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef KNOWLEDGE_DESERIALISER_SOURCE
-#define KNOWLEDGE_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -119,6 +116,3 @@ void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
-
-/* KNOWLEDGE_DESERIALISER_SOURCE */
-#endif

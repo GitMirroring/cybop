@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WINDOWS_1252_DECODER_SOURCE
-#define WINDOWS_1252_DECODER_SOURCE
-
 //
 // Library interface
 //
@@ -110,6 +107,3 @@ void decode_windows_1252(void* p0, void* p1) {
         decode_iso_8859_extension(p0, p1, (void*) ISO_8859_1_CYBOI_ENCODING);
     }
 }
-
-/* WINDOWS_1252_DECODER_SOURCE */
-#endif

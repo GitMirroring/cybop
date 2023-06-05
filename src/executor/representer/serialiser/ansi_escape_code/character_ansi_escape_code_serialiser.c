@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHARACTER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-#define CHARACTER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -48,6 +45,3 @@ void serialise_ansi_escape_code_character(void* p0, void* p1, void* p2) {
     // Append character to the destination.
     modify_item(p0, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 }
-
-/* CHARACTER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
-#endif

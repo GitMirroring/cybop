@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WIDE_CHARACTER_COPIER_SOURCE
-#define WIDE_CHARACTER_COPIER_SOURCE
-
 //
 // System interface
 //
@@ -85,6 +82,3 @@ void copy_wide_character(void* p0, void* p1) {
         //
     }
 }
-
-/* WIDE_CHARACTER_COPIER_SOURCE */
-#endif

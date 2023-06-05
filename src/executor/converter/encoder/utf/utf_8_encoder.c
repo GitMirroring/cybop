@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef UTF_8_ENCODER_SOURCE
-#define UTF_8_ENCODER_SOURCE
-
 //
 // System interface
 //
@@ -390,6 +387,3 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Error: Could not encode utf-8. The source count is null. p2: %i\n", p2);
     }
 }
-
-/* UTF_8_ENCODER_SOURCE */
-#endif

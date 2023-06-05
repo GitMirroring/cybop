@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef REFERENCE_NORMALISER_SOURCE
-#define REFERENCE_NORMALISER_SOURCE
-
 //
 // System interface
 //
@@ -81,6 +78,3 @@ void normalise_reference(void* p0, void* p1, void* p2) {
     //
     normalise_string(p0, (void*) &d, (void*) &c);
 }
-
-/* REFERENCE_NORMALISER_SOURCE */
-#endif

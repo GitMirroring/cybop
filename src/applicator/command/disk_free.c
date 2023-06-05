@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DISK_FREE_SOURCE
-#define DISK_FREE_SOURCE
-
 //
 // Library interface
 //
@@ -141,6 +138,3 @@ void apply_disk_free(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_disk_free(amd, hmd, kmd, lmd, mmd, tmd);
 }
-
-/* DISK_FREE_SOURCE */
-#endif

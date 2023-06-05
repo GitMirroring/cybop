@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME_GLOBALISER_SOURCE
-#define PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME_GLOBALISER_SOURCE
-
 //
 // The C header file "sys/socket.h" does not actually define
 // those constants, but instead includes "bits/socket.h".
@@ -162,6 +159,3 @@ void globalise_symbolic_name_socket_protocol_family() {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME_GLOBALISER_SOURCE */
-#endif

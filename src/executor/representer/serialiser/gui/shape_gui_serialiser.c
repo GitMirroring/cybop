@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SHAPE_GUI_SERIALISER_SOURCE
-#define SHAPE_GUI_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -170,6 +167,3 @@ void serialise_gui_shape(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui shape. The shape is unknown.");
     }
 }
-
-/* SHAPE_GUI_SERIALISER_SOURCE */
-#endif

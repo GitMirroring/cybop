@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FUNCTION_WRITER_SOURCE
-#define FUNCTION_WRITER_SOURCE
-
 //
 // System interface
 //
@@ -154,6 +151,3 @@ int write_function(void* p0) {
 
     return *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 }
-
-/* FUNCTION_WRITER_SOURCE */
-#endif

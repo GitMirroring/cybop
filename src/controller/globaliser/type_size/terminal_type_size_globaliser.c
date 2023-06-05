@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TERMINAL_TYPE_SIZE_GLOBALISER_SOURCE
-#define TERMINAL_TYPE_SIZE_GLOBALISER_SOURCE
-
 //
 // System interface
 //
@@ -63,6 +60,3 @@ void globalise_type_size_terminal() {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* TERMINAL_TYPE_SIZE_GLOBALISER_SOURCE */
-#endif

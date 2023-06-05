@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef RETRIEVE_SOURCE
-#define RETRIEVE_SOURCE
-
 //
 // System interface
 //
@@ -142,6 +139,3 @@ void apply_retrieve(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Retrieve current result from system.
     retrieve(rmd, (void*) &minimum, (void*) &maximum);
 }
-
-/* RETRIEVE_SOURCE */
-#endif

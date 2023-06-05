@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DECIMAL_FRACTION_NUMERAL_SERIALISER_SOURCE
-#define DECIMAL_FRACTION_NUMERAL_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -242,6 +239,3 @@ void serialise_numeral_fraction_decimal(void* p0, void* p1, void* p2, void* p3, 
         serialise_numeral_integer(p0, (void*) &p, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4, p5);
     }
 }
-
-/* DECIMAL_FRACTION_NUMERAL_SERIALISER_SOURCE */
-#endif

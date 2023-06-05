@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SYMBOLIC_NAME_GLOBALISER_SOURCE
-#define SYMBOLIC_NAME_GLOBALISER_SOURCE
-
 //
 // Library interface
 //
@@ -61,6 +58,3 @@ void globalise_symbolic_name() {
     globalise_symbolic_name_socket_style();
     globalise_symbolic_name_socket_protocol();
 }
-
-/* SYMBOLIC_NAME_GLOBALISER_SOURCE */
-#endif

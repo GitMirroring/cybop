@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FIELD_BDT_XDT_DESERIALISER_SOURCE
-#define FIELD_BDT_XDT_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -129,6 +126,3 @@ void deserialise_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4,
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt bdt field. The loop break flag is null.");
     }
 }
-
-/* FIELD_BDT_XDT_DESERIALISER_SOURCE */
-#endif

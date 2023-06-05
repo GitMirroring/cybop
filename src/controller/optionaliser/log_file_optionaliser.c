@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LOG_FILE_OPTIONALISER_SOURCE
-#define LOG_FILE_OPTIONALISER_SOURCE
-
 //
 // System interface
 //
@@ -119,6 +116,3 @@ void optionalise_log_file(void* p0, void* p1) {
         log_write((void*) stdout, L"Error: Could not optionalise log file. The file descriptor is null.\n");
     }
 }
-
-/* LOG_FILE_OPTIONALISER_SOURCE */
-#endif

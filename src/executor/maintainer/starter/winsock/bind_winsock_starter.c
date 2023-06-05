@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BIND_WINSOCK_STARTER_SOURCE
-#define BIND_WINSOCK_STARTER_SOURCE
-
 //
 // System interface
 //
@@ -108,6 +105,3 @@ void startup_winsock_bind(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. The address size is null.");
     }
 }
-
-/* BIND_WINSOCK_STARTER_SOURCE */
-#endif

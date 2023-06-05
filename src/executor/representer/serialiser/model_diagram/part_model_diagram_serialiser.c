@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_MODEL_DIAGRAM_SERIALISER_SOURCE
-#define PART_MODEL_DIAGRAM_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -118,6 +115,3 @@ void serialise_model_diagram_part(void* p0, void* p1, void* p2, void* p3, void* 
         j++;
     }
 }
-
-/* PART_MODEL_DIAGRAM_SERIALISER_SOURCE */
-#endif

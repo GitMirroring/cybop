@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TERMINATED_MESSAGE_LOGGER_SOURCE
-#define TERMINATED_MESSAGE_LOGGER_SOURCE
-
 //
 // System interface
 //
@@ -123,6 +120,3 @@ void log_message_terminated(void* p0, void* p1) {
         fputws(L"Error: Could not log message terminated. The log message as null terminated string is null.\n", stdout);
     }
 }
-
-/* TERMINATED_MESSAGE_LOGGER_SOURCE */
-#endif

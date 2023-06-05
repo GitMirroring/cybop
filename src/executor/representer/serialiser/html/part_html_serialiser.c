@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_HTML_SERIALISER_SOURCE
-#define PART_HTML_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -91,6 +88,3 @@ void serialise_html_part(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         j++;
     }
 }
-
-/* PART_HTML_SERIALISER_SOURCE */
-#endif

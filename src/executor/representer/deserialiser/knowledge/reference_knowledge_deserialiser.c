@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef REFERENCE_KNOWLEDGE_DESERIALISER_SOURCE
-#define REFERENCE_KNOWLEDGE_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -118,6 +115,3 @@ void deserialise_knowledge_reference(void* p0, void* p1, void* p2, void* p3, voi
         deserialise_knowledge_element(p0, (void*) &w, p2, p3, p4, p5, p6);
     }
 }
-
-/* REFERENCE_KNOWLEDGE_DESERIALISER_SOURCE */
-#endif

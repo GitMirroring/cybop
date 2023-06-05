@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHARACTER_ANSI_ESCAPE_CODE_DESERIALISER_SOURCE
-#define CHARACTER_ANSI_ESCAPE_CODE_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -67,6 +64,3 @@ void deserialise_ansi_escape_code_character(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise ansi escape code character. The source data position is null.");
     }
 }
-
-/* CHARACTER_ANSI_ESCAPE_CODE_DESERIALISER_SOURCE */
-#endif

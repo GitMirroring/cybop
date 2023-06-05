@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MUTEX_ALLOCATOR_SOURCE
-#define MUTEX_ALLOCATOR_SOURCE
-
 //
 // System interface
 //
@@ -93,6 +90,3 @@ void allocate_mutex(void* p0) {
         fwprintf(stdout, L"Error: Could not allocate mutex. The mutex is null. p0: %i\n", p0);
     }
 }
-
-/* MUTEX_ALLOCATOR_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INITIAL_GUI_SERIALISER_SOURCE
-#define INITIAL_GUI_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -42,25 +39,6 @@
 #include "constant.h"
 #include "knowledge.h"
 #include "logger.h"
-
-//
-// Forbidden interface
-//
-// CAUTION! Do NOT include the following files since otherwise,
-// circular references would occur due to module dependencies.
-// Instead, forward declarations are used further below.
-// Therefore, the following includes are to be commented OUT
-// and listed here just for information.
-//
-
-//?? TODO:
-//
-// CAUTION! Do NOT include the "content_gui_serialiser.c" module.
-// It is true, the "serialise_gui_content" function is called from here,
-// but the module dependency hierarchy slightly differs and just goes top-down
-// by module granularity and NOT by call hierarchy.
-// Therefore, the "gui_serialiser.c" module is included here.
-//
 
 /**
  * Initialises the gui serialiser.
@@ -146,6 +124,3 @@ void serialise_gui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     serialise_gui_content(c, s, w, gc, f, dc, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p15);
 }
-
-/* INITIAL_GUI_SERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef URI_SELECTOR_SOURCE
-#define URI_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -173,6 +170,3 @@ void select_uri(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select uri. The uri scheme is unknown.");
     }
 }
-
-/* URI_SELECTOR_SOURCE */
-#endif

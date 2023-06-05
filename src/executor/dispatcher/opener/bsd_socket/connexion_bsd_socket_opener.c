@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONNEXION_BSD_SOCKET_OPENER_SOURCE
-#define CONNEXION_BSD_SOCKET_OPENER_SOURCE
-
 //
 // System interface
 //
@@ -119,6 +116,3 @@ void open_bsd_socket_connexion(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Error: Could not open bsd socket connexion. The address size is null. p2: %i\n", p2);
     }
 }
-
-/* CONNEXION_BSD_SOCKET_OPENER_SOURCE */
-#endif

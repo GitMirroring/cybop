@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STARTUP_SOURCE
-#define STARTUP_SOURCE
-
 //
 // Library interface
 //
@@ -197,6 +194,3 @@ void apply_startup(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // Startup service.
     startup_server(p4, (void*) &port, dmd, dmc, nmd, nmc, stmd, stmc, prmd, prmc, comd, tomd, cmd, p5);
 }
-
-/* STARTUP_SOURCE */
-#endif

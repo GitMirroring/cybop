@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TYPE_NORMALISER_SOURCE
-#define TYPE_NORMALISER_SOURCE
-
 //
 // System interface
 //
@@ -74,6 +71,3 @@ void normalise_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
         fwprintf(stdout, L"Warning: Could not normalise type. The source type is not wide character. type *p5: %i\n", *((int*) p5));
     }
 }
-
-/* TYPE_NORMALISER_SOURCE */
-#endif

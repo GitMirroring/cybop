@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STARTER_SOURCE
-#define STARTER_SOURCE
-
 //
 // System interface
 //
@@ -113,6 +110,3 @@ void startup_server(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         fwprintf(stdout, L"Warning: Could not startup server. A server entry with the given service identification (port) does already exist. *p1: %i\n", *((int*) p1));
     }
 }
-
-/* STARTER_SOURCE */
-#endif

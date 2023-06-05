@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TOUCH_SOURCE
-#define TOUCH_SOURCE
-
 //
 // Library interface
 //
@@ -111,6 +108,3 @@ void apply_touch(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_touch(pmd, pmc, rmd, rmc, tmd, tmc);
 }
-
-/* TOUCH_SOURCE */
-#endif

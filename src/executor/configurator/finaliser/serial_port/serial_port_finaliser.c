@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SERIAL_PORT_FINALISER_SOURCE
-#define SERIAL_PORT_FINALISER_SOURCE
-
 //
 // System interface
 //
@@ -65,6 +62,3 @@ void finalise_serial_port(void* p0, void* p1) {
     // Deallocate terminal mode.
     deallocate_terminal_mode((void*) &m);
 }
-
-/* SERIAL_PORT_FINALISER_SOURCE */
-#endif

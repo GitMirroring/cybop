@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENT_CLIENT_CHECKER_SOURCE
-#define ELEMENT_CLIENT_CHECKER_SOURCE
-
 //
 // System interface
 //
@@ -115,6 +112,3 @@ void check_client_element(void* p0, void* p1, void* p2, void* p3, void* p4, void
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check client element empty. The accepttime list data is null.");
     }
 }
-
-/* ELEMENT_CLIENT_CHECKER_SOURCE */
-#endif

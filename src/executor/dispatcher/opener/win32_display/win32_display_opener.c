@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WIN32_DISPLAY_OPENER_SOURCE
-#define WIN32_DISPLAY_OPENER_SOURCE
-
 //
 // System interface
 //
@@ -108,6 +105,3 @@ void open_win32_display(void* p0, void* p1) {
     // Set window.
     copy_integer(p0, (void*) &wndi);
 }
-
-/* WIN32_DISPLAY_OPENER_SOURCE */
-#endif

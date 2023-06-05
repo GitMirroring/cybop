@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FILE_UNIX_FIFO_OPENER_SOURCE
-#define FILE_UNIX_FIFO_OPENER_SOURCE
-
 //
 // System interface
 //
@@ -133,6 +130,3 @@ void open_unix_fifo_file(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Error: Could not open unix fifo file. The open mode is null. p2: %i\n", p2);
     }
 }
-
-/* FILE_UNIX_FIFO_OPENER_SOURCE */
-#endif

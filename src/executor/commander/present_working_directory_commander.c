@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PWD_COMMANDER_SOURCE
-#define PWD_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -147,6 +144,3 @@ void command_pwd(void* lmd, void* pmd) {
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* PWD_COMMANDER_SOURCE */
-#endif

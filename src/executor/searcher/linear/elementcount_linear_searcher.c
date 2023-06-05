@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENTCOUNT_LINEAR_SEARCHER_SOURCE
-#define ELEMENTCOUNT_LINEAR_SEARCHER_SOURCE
-
 //
 // Library interface
 //
@@ -83,6 +80,3 @@ void search_linear_elementcount(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Warning: Could not search linear elementcount. The searchword count is less or equal to zero. searchword count *p1: %i; list count remaining *p2: %i\n", *((int*) p1), *((int*) p2));
     }
 }
-
-/* ELEMENTCOUNT_LINEAR_SEARCHER_SOURCE */
-#endif

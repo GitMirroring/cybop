@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DESERIALISE_SOURCE
-#define DESERIALISE_SOURCE
-
 //
 // Library interface
 //
@@ -130,6 +127,3 @@ void apply_deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Deserialise the source- into the destination part.
     deserialise(dm, dp, smd, smc, spd, spc, lpd, lpc, p2, p3, p4, fmd, lmd);
 }
-
-/* DESERIALISE_SOURCE */
-#endif

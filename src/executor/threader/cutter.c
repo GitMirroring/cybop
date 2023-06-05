@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CUTTER_SOURCE
-#define CUTTER_SOURCE
-
 //
 // System interface
 //
@@ -115,6 +112,3 @@ void cut(void* p0) {
         fwprintf(stdout, L"Error: Could not cut. The thread identification is null. p0: %i\n", p0);
     }
 }
-
-/* CUTTER_SOURCE */
-#endif

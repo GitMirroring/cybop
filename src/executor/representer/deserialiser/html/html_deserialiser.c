@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HTML_DESERIALISER_SOURCE
-#define HTML_DESERIALISER_SOURCE
-
 /**
  * Deserialises the html into a model.
  *
@@ -35,6 +32,3 @@
  */
 void deserialise_html(void* p0, void* p1, void* p2) {
 }
-
-/* HTML_DESERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INET_SOCKET_ADDRESS_SETTER_SOURCE
-#define INET_SOCKET_ADDRESS_SETTER_SOURCE
-
 //
 // System interface
 //
@@ -120,6 +117,3 @@ void set_socket_address_inet(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set socket address inet. The socket port is null.");
     }
 }
-
-/* INET_SOCKET_ADDRESS_SETTER_SOURCE */
-#endif

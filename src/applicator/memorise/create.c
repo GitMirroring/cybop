@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CREATE_SOURCE
-#define CREATE_SOURCE
-
 //
 // Library interface
 //
@@ -127,6 +124,3 @@ void apply_create(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     apply_create_part(w, p2, nmd, nmc, fmd, (void*) &whole_part_item_index);
 }
-
-/* CREATE_SOURCE */
-#endif

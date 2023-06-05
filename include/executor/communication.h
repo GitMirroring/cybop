@@ -122,7 +122,6 @@ void read_clock(void* p0);
 void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
 void read_completion(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
 void read_count(void* p0, void* p1, void* p2);
-void read_count(void* p0, void* p1, void* p2);
 void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9);
 void read_deallocation(void* p0, void* p1, void* p2, void* p3);
 void read_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);

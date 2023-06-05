@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PROTOCOL_SOCKET_DESERIALISER_SOURCE
-#define PROTOCOL_SOCKET_DESERIALISER_SOURCE
-
 #if defined(__linux__) || defined(__unix__)
     #include <sys/socket.h>
 #elif defined(__APPLE__) && defined(__MACH__)
@@ -172,6 +169,3 @@ void deserialise_socket_protocol(void* p0, void* p1, void* p2) {
     // Assign protocol.
     copy_integer(p0, (void*) &p);
 }
-
-/* PROTOCOL_SOCKET_DESERIALISER_SOURCE */
-#endif

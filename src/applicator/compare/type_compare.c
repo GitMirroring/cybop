@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TYPE_COMPARE_SOURCE
-#define TYPE_COMPARE_SOURCE
-
 //
 // System interface
 //
@@ -87,6 +84,3 @@ void apply_compare_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         fwprintf(stdout, L"Error: Left operand type: %i. Right operand type: %i.\n", *((int*) p4), *((int*) p5));
     }
 }
-
-/* TYPE_COMPARE_SOURCE */
-#endif

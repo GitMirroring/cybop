@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef UTC_DATETIME_SERIALISER_SOURCE
-#define UTC_DATETIME_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -66,6 +63,3 @@ void serialise_datetime_utc(void* p0, void* p1, void* p2) {
     serialise_numeral_integer(p0, (void*) &m, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
     serialise_numeral_integer(p0, (void*) &y, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DECIMAL_BASE_NUMERAL_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 }
-
-/* UTC_DATETIME_SERIALISER_SOURCE */
-#endif

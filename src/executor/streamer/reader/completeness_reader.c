@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMPLETENESS_READER_SOURCE
-#define COMPLETENESS_READER_SOURCE
-
 //
 // System interface
 //
@@ -210,6 +207,3 @@ void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         fwprintf(stdout, L"Warning: Could not read completeness. The channel is unknown. *p5: %i\n", *((int*) p5));
     }
 }
-
-/* COMPLETENESS_READER_SOURCE */
-#endif

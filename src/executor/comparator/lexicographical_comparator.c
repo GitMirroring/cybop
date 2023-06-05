@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LEXICOGRAPHICAL_COMPARATOR_SOURCE
-#define LEXICOGRAPHICAL_COMPARATOR_SOURCE
-
 //
 // Library interface
 //
@@ -80,6 +77,3 @@ void compare_lexicographical(void* p0, void* p1, void* p2, void* p3, void* p4, v
         compare_count_scalar(p0, p1, p2, p8, p9, p3, p4, p10);
     }
 }
-
-/* LEXICOGRAPHICAL_COMPARATOR_SOURCE */
-#endif

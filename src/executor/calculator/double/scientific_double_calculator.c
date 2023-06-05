@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SCIENTIFIC_DOUBLE_CALCULATOR_SOURCE
-#define SCIENTIFIC_DOUBLE_CALCULATOR_SOURCE
-
 //
 // System interface
 //
@@ -108,6 +105,3 @@ void calculate_double_scientific(void* p0, void* p1, void* p2) {
         calculate_double_normalise(p0, p1, p2, (void*) LESS_COMPARE_LOGIC_CYBOI_FORMAT, (void*) NUMBER_1_0_DOUBLE_STATE_CYBOI_MODEL, (void*) DIVIDE_CALCULATE_LOGIC_CYBOI_FORMAT, (void*) ADD_CALCULATE_LOGIC_CYBOI_FORMAT);
     }
 }
-
-/* SCIENTIFIC_DOUBLE_CALCULATOR_SOURCE */
-#endif

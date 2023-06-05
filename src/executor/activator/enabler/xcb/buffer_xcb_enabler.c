@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BUFFER_XCB_ENABLER_SOURCE
-#define BUFFER_XCB_ENABLER_SOURCE
-
 //
 // System interface
 //
@@ -72,6 +69,3 @@ void enable_xcb_buffer(void* p0, void* p1, void* p2) {
     // Unlock mutex.
     unlock(p2);
 }
-
-/* BUFFER_XCB_ENABLER_SOURCE */
-#endif

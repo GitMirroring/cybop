@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_BUBBLE_SORTER_SOURCE
-#define PART_BUBBLE_SORTER_SOURCE
-
 //
 // System interface
 //
@@ -150,6 +147,3 @@ void sort_bubble_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         //
     }
 }
-
-/* PART_BUBBLE_SORTER_SOURCE */
-#endif

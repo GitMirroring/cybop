@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DDMMYYYYDDMMYYYY_DURATION_XDT_SERIALISER_SOURCE
-#define DDMMYYYYDDMMYYYY_DURATION_XDT_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -43,6 +40,3 @@ void serialise_xdt_duration_ddmmyyyyddmmyyyy(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xdt duration ddmmyyyyddmmyyyy.");
 }
-
-/* DDMMYYYYDDMMYYYY_DURATION_XDT_SERIALISER_SOURCE */
-#endif

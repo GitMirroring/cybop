@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LETTER_LOWERER_SOURCE
-#define LETTER_LOWERER_SOURCE
-
 //
 // System interface
 //
@@ -70,6 +67,3 @@ void lower_letter(void* p0, void* p1) {
     ... compare for other letters ...
 */
 }
-
-/* LETTER_LOWERER_SOURCE */
-#endif

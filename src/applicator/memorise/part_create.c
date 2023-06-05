@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_CREATE_SOURCE
-#define PART_CREATE_SOURCE
-
 //
 // Library interface
 //
@@ -146,6 +143,3 @@ void apply_create_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply create part. The knowledge memory part is null.");
     }
 }
-
-/* PART_CREATE_SOURCE */
-#endif

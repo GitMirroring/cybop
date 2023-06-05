@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TERMINAL_MODE_DEALLOCATOR_SOURCE
-#define TERMINAL_MODE_DEALLOCATOR_SOURCE
-
 //
 // Library interface
 //
@@ -69,6 +66,3 @@ void deallocate_terminal_mode(void* p0) {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* TERMINAL_MODE_DEALLOCATOR_SOURCE */
-#endif

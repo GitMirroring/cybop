@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHANGE_PERMISSION_SOURCE
-#define CHANGE_PERMISSION_SOURCE
-
 //
 // Library interface
 //
@@ -161,6 +158,3 @@ void apply_change_permission(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_change_permission(pmd, pmc, umd, umc, gmd, gmc, omd, omc, rmd, smd, vmd);
 }
-
-/* CHANGE_PERMISSION_SOURCE */
-#endif

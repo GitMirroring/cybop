@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FILL_RULE_XCB_SERIALISER_SOURCE
-#define FILL_RULE_XCB_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -99,6 +96,3 @@ void serialise_xcb_fill_rule(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb fill rule. The fill rule is unknown.");
     }
 }
-
-/* FILL_RULE_XCB_SERIALISER_SOURCE */
-#endif

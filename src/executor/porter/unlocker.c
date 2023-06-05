@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef UNLOCKER_SOURCE
-#define UNLOCKER_SOURCE
-
 //
 // System interface
 //
@@ -68,6 +65,3 @@ int unlock(void* p0) {
         // fwprintf(stdout, L"Warning: Could not unlock mutex. The mutex is null. p0: %i\n", p0);
     }
 }
-
-/* UNLOCKER_SOURCE */
-#endif

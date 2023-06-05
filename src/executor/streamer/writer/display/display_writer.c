@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DISPLAY_WRITER_SOURCE
-#define DISPLAY_WRITER_SOURCE
-
 //
 // Library interface
 //
@@ -55,6 +52,3 @@ void write_display(void* p0, void* p1) {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* DISPLAY_WRITER_SOURCE */
-#endif

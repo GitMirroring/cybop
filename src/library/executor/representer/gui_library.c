@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef GUI_LIBRARY_SOURCE
-#define GUI_LIBRARY_SOURCE
-
 //
 // gui
 //
@@ -125,7 +122,4 @@
 
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
-
-/* GUI_LIBRARY_SOURCE */
 #endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DOUBLE_INDEX_COUNT_VERIFIER_SOURCE
-#define DOUBLE_INDEX_COUNT_VERIFIER_SOURCE
-
 //
 // System interface
 //
@@ -104,6 +101,3 @@ void verify_double_index_count(void* p0, void* p1, void* p2, void* p3, void* p4,
         // fwprintf(stdout, L"Warning: Could not verify double index count. The sum of one of the indices and element count is greater than the first or second data count.\n");
     }
 }
-
-/* DOUBLE_INDEX_COUNT_VERIFIER_SOURCE */
-#endif

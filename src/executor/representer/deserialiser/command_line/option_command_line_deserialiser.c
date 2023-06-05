@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef OPTION_COMMAND_LINE_DESERIALISER_SOURCE
-#define OPTION_COMMAND_LINE_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -132,6 +129,3 @@ void deserialise_command_line_option(void* p0, void* p1, void* p2, void* p3, voi
     //
     select_command_line_mode(p0, p1, p2, p3, p4, vd, (void*) &vc, od, (void*) &oc);
 }
-
-/* OPTION_COMMAND_LINE_DESERIALISER_SOURCE */
-#endif

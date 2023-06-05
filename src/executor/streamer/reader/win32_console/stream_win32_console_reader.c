@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STREAM_WIN32_CONSOLE_READER_SOURCE
-#define STREAM_WIN32_CONSOLE_READER_SOURCE
-
 //
 // System interface
 //
@@ -92,6 +89,3 @@ void read_win32_console_stream(void* p0, void* p1, void* p2, void* p3, void* p4,
 //??    deserialise(p0, p1, p2, p3, p4, p5, td, tc, (void*) &m, (void*) &px, (void*) &py, p6, p7);
 //    deserialise_tui(p0, (void*) &bk, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 }
-
-/* STREAM_WIN32_CONSOLE_READER_SOURCE */
-#endif

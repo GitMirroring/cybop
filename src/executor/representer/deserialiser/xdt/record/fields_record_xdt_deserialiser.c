@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FIELDS_RECORD_XDT_DESERIALISER_SOURCE
-#define FIELDS_RECORD_XDT_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -93,6 +90,3 @@ void deserialise_xdt_record_fields(void* p0, void* p1, void* p2) {
         j++;
     }
 }
-
-/* FIELDS_RECORD_XDT_DESERIALISER_SOURCE */
-#endif

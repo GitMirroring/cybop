@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NEWLINE_TUI_SERIALISER_SOURCE
-#define NEWLINE_TUI_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -97,6 +94,3 @@ void serialise_tui_newline(void* p0, void* p1, void* p2, void* p3) {
         }
     }
 }
-
-/* NEWLINE_TUI_SERIALISER_SOURCE */
-#endif

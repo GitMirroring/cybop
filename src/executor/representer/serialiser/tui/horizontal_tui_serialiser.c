@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HORIZONTAL_TUI_SERIALISER_SOURCE
-#define HORIZONTAL_TUI_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -95,6 +92,3 @@ void serialise_tui_horizontal(void* p0, void* p1, void* p2, void* p3, void* p4, 
         copy_integer(p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
-
-/* HORIZONTAL_TUI_SERIALISER_SOURCE */
-#endif

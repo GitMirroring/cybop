@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TERMINAL_FINALISER_SOURCE
-#define TERMINAL_FINALISER_SOURCE
-
 //
 // System interface
 //
@@ -66,6 +63,3 @@ void finalise_terminal(void* p0, void* p1) {
     // Deallocate terminal mode.
     deallocate_terminal_mode((void*) &m);
 }
-
-/* TERMINAL_FINALISER_SOURCE */
-#endif

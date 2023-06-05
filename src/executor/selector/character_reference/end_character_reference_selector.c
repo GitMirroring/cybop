@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef END_CHARACTER_REFERENCE_SELECTOR_SOURCE
-#define END_CHARACTER_REFERENCE_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -90,6 +87,3 @@ void select_character_reference_end(void* p0, void* p1, void* p2, void* p3) {
         calculate_integer_add(p3, (void*) &step);
     }
 }
-
-/* END_CHARACTER_REFERENCE_SELECTOR_SOURCE */
-#endif

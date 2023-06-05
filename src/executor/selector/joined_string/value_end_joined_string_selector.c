@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef VALUE_END_JOINED_STRING_SELECTOR_SOURCE
-#define VALUE_END_JOINED_STRING_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -97,6 +94,3 @@ void select_joined_string_end_value(void* p0, void* p1, void* p2, void* p3, void
         move(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
-
-/* VALUE_END_JOINED_STRING_SELECTOR_SOURCE */
-#endif

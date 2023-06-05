@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PRIMITIVE_LINEAR_SEARCHER_SOURCE
-#define PRIMITIVE_LINEAR_SEARCHER_SOURCE
-
 //
 // Library interface
 //
@@ -67,6 +64,3 @@ void search_linear_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // Check if element type and searchword type are equal.
     search_linear_comparison(p0, p1, (void*) &ec, p3, p4, p5, p6);
 }
-
-/* PRIMITIVE_LINEAR_SEARCHER_SOURCE */
-#endif

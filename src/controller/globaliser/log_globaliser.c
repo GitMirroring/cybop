@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LOG_GLOBALISER_SOURCE
-#define LOG_GLOBALISER_SOURCE
-
 //
 // System interface
 //
@@ -83,6 +80,3 @@ void globalise_log() {
     //
     LOG_OUTPUT = *NULL_POINTER_STATE_CYBOI_MODEL;
 }
-
-/* LOG_GLOBALISER_SOURCE */
-#endif

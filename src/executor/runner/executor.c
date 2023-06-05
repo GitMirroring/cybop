@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef EXECUTOR_SOURCE
-#define EXECUTOR_SOURCE
-
 //
 // System interface
 //
@@ -536,6 +533,3 @@ void execute(void* p0, void* p1) {
     }
 */
 }
-
-/* EXECUTOR_SOURCE */
-#endif

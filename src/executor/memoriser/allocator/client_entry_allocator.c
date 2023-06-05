@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLIENT_ENTRY_ALLOCATOR_SOURCE
-#define CLIENT_ENTRY_ALLOCATOR_SOURCE
-
 //
 // System interface
 //
@@ -245,6 +242,3 @@ void allocate_client_entry(void* p0, void* p1) {
         fwprintf(stdout, L"Error: Could not allocate client entry. The client entry is null. p0: %i\n", p0);
     }
 }
-
-/* CLIENT_ENTRY_ALLOCATOR_SOURCE */
-#endif

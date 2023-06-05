@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_INDICATOR_SOURCE
-#define PART_INDICATOR_SOURCE
-
 //
 // Library interface
 //
@@ -56,6 +53,3 @@ void indicate_part(void* p0, void* p1, void* p2) {
     // Indicate part model item.
     indicate_item(p0, m, p2);
 }
-
-/* PART_INDICATOR_SOURCE */
-#endif

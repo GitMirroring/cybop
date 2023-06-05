@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INDENTATION_MODEL_DIAGRAM_SERIALISER_SOURCE
-#define INDENTATION_MODEL_DIAGRAM_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -161,6 +158,3 @@ void serialise_model_diagram_indentation(void* p0, void* p1, void* p2) {
         j++;
     }
 }
-
-/* INDENTATION_MODEL_DIAGRAM_SERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ROTATE_LEFT_INTEGER_MANIPULATOR_SOURCE
-#define ROTATE_LEFT_INTEGER_MANIPULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -79,6 +76,3 @@ void manipulate_integer_rotate_left(void* p0, void* p1) {
         manipulate_integer_set(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     }
 }
-
-/* ROTATE_LEFT_INTEGER_MANIPULATOR_SOURCE */
-#endif

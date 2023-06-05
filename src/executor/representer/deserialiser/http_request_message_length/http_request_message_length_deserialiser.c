@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HTTP_REQUEST_MESSAGE_LENGTH_DESERIALISER_SOURCE
-#define HTTP_REQUEST_MESSAGE_LENGTH_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -111,6 +108,3 @@ void deserialise_http_request_message_length(void* p0, void* p1, void* p2) {
         }
     }
 }
-
-/* HTTP_REQUEST_MESSAGE_LENGTH_DESERIALISER_SOURCE */
-#endif

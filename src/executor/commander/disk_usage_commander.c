@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DISK_USAGE_COMMANDER_SOURCE
-#define DISK_USAGE_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -216,6 +213,3 @@ void command_disk_usage(void* hmd, void* smd, void* amd, void* bmd, void* tmd) {
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* DISK_USAGE_COMMANDER_SOURCE */
-#endif

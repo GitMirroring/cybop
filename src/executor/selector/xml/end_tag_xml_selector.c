@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef END_TAG_XML_SELECTOR_SOURCE
-#define END_TAG_XML_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -75,6 +72,3 @@ void select_xml_end_tag(void* p0, void* p1, void* p2) {
         move(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
-
-/* END_TAG_XML_SELECTOR_SOURCE */
-#endif

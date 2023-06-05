@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INTEGER_CALCULATOR_SOURCE
-#define INTEGER_CALCULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -143,6 +140,3 @@ void calculate_integer(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate integer. The operation type is unknown.");
     }
 }
-
-/* INTEGER_CALCULATOR_SOURCE */
-#endif

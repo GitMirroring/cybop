@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FILLER_SOURCE
-#define FILLER_SOURCE
-
 //
 // Library interface
 //
@@ -98,6 +95,3 @@ void fill(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, 
         calculate_integer_add((void*) &j, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
-
-/* FILLER_SOURCE */
-#endif

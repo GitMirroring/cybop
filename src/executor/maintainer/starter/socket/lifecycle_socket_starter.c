@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LIFECYCLE_SOCKET_STARTER_SOURCE
-#define LIFECYCLE_SOCKET_STARTER_SOURCE
-
 //
 // System interface
 //
@@ -150,6 +147,3 @@ void startup_socket_lifecycle(void* p0, void* p1, void* p2, void* p3, void* p4, 
         fwprintf(stdout, L"Error: Could not startup socket lifecycle. The socket communication style is NOT stream socket. *p0: %i\n", *((int*) p0));
     }
 }
-
-/* LIFECYCLE_SOCKET_STARTER_SOURCE */
-#endif

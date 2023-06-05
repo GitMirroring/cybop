@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LOGGER_LIBRARY_SOURCE
-#define LOGGER_LIBRARY_SOURCE
-
 //
 // logger
 //
@@ -45,7 +42,4 @@
     #include "../logger/windows_system_error_logger.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
-
-/* LOGGER_LIBRARY_SOURCE */
 #endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DEVICE_SOCKET_OPENER_SOURCE
-#define DEVICE_SOCKET_OPENER_SOURCE
-
 //
 // Library interface
 //
@@ -68,6 +65,3 @@ void open_socket_device(void* p0, void* p1, void* p2, void* p3) {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* DEVICE_SOCKET_OPENER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef OVERWRITER_SOURCE
-#define OVERWRITER_SOURCE
-
 //
 // System interface
 //
@@ -40,18 +37,6 @@
 #include "arithmetic.h"
 #include "constant.h"
 #include "knowledge.h"
-
-//
-// Forbidden interface
-//
-// CAUTION! Do NOT include the following files since otherwise,
-// circular references would occur due to module dependencies.
-// Instead, forward declarations are used further below.
-// Therefore, the following includes are to be commented OUT
-// and listed here just for information.
-//
-
-// #include "logger.h"
 
 /**
  * Overwrites the destination- with the source array,
@@ -325,6 +310,3 @@ void overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not overwrite. The destination array is null.");
     }
 }
-
-/* OVERWRITER_SOURCE */
-#endif

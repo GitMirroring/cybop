@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SLEEP_SOURCE
-#define SLEEP_SOURCE
-
 //
 // Library interface
 //
@@ -81,6 +78,3 @@ void apply_sleep(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     sleep_duration(dmd, p5);
 }
-
-/* SLEEP_SOURCE */
-#endif

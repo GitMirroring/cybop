@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DOUBLE_COPIER_SOURCE
-#define DOUBLE_COPIER_SOURCE
-
 //
 // System interface
 //
@@ -71,6 +68,3 @@ void copy_double(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy double. The source is null.");
     }
 }
-
-/* DOUBLE_COPIER_SOURCE */
-#endif

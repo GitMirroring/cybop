@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef UNIX_TERMINAL_MODE_SETTER_SOURCE
-#define UNIX_TERMINAL_MODE_SETTER_SOURCE
-
 //
 // System interface
 //
@@ -105,6 +102,3 @@ void set_unix_terminal_mode(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set unix terminal mode. The source terminal mode is null.");
     }
 }
-
-/* UNIX_TERMINAL_MODE_SETTER_SOURCE */
-#endif

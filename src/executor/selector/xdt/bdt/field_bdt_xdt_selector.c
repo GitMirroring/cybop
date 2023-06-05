@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FIELD_BDT_XDT_SELECTOR_SOURCE
-#define FIELD_BDT_XDT_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -1831,6 +1828,3 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
         modify_item(p0, p7, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
     }
 }
-
-/* FIELD_BDT_XDT_SELECTOR_SOURCE */
-#endif

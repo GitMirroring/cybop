@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef XCB_CLOSER_SOURCE
-#define XCB_CLOSER_SOURCE
-
 //
 // System interface
 //
@@ -112,6 +109,3 @@ void close_xcb(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close xcb. The window identification is null.");
     }
 }
-
-/* XCB_CLOSER_SOURCE */
-#endif

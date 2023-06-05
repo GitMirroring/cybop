@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SIZE_FIELD_XDT_DESERIALISER_SOURCE
-#define SIZE_FIELD_XDT_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -80,6 +77,3 @@ void deserialise_xdt_field_size(void* p0, void* p1, void* p2, void* p3) {
         fwprintf(stdout, L"Error: Could not deserialise xdt field size. The source data position is null. p1: %i\n", p1);
     }
 }
-
-/* SIZE_FIELD_XDT_DESERIALISER_SOURCE */
-#endif

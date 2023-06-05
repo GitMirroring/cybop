@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LIST_INDEX_FINDER_SOURCE
-#define LIST_INDEX_FINDER_SOURCE
-
 //
 // System interface
 //
@@ -124,6 +121,3 @@ void find_list_index(void* p0, void* p1, void* p2, void* p3) {
         j++;
     }
 }
-
-/* LIST_INDEX_FINDER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MODIFY_SOURCE
-#define MODIFY_SOURCE
-
 //
 // Library interface
 //
@@ -293,6 +290,3 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     //?? TODO: Delete later. Testing only.
     //?? DEBUG_CYBOP = 0;
 }
-
-/* MODIFY_SOURCE */
-#endif

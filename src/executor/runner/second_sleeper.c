@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SECOND_SLEEPER_SOURCE
-#define SECOND_SLEEPER_SOURCE
-
 //
 // System interface
 //
@@ -97,6 +94,3 @@ void sleep_second(void* p0) {
         fwprintf(stdout, L"Error: Could not sleep second. The duration is null.\n");
     }
 }
-
-/* SECOND_SLEEPER_SOURCE */
-#endif

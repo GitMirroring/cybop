@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MAXIMUM_INTEGER_CALCULATOR_SOURCE
-#define MAXIMUM_INTEGER_CALCULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -66,6 +63,3 @@ void calculate_integer_maximum(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate integer maximum. The right operand is null.");
     }
 }
-
-/* MAXIMUM_INTEGER_CALCULATOR_SOURCE */
-#endif

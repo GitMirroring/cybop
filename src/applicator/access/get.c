@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef GET_SOURCE
-#define GET_SOURCE
-
 //
 // Library interface
 //
@@ -74,6 +71,3 @@ void apply_get(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // Get part element.
     get(e, p, p5);
 }
-
-/* GET_SOURCE */
-#endif

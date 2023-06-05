@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WINDOWS_SYSTEM_ERROR_LOGGER_SOURCE
-#define WINDOWS_SYSTEM_ERROR_LOGGER_SOURCE
-
 //
 // System interface
 //
@@ -81,6 +78,3 @@ void log_windows_system_error(void* p0) {
         }
     }
 }
-
-/* WINDOWS_SYSTEM_ERROR_LOGGER_SOURCE */
-#endif

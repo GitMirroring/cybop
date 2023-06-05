@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MODEL_FIELD_XDT_SERIALISER_SOURCE
-#define MODEL_FIELD_XDT_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -170,6 +167,3 @@ void serialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xdt field model. The format is unknown.");
     }
 }
-
-/* MODEL_FIELD_XDT_SERIALISER_SOURCE */
-#endif

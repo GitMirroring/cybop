@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TUI_DESERIALISER_SOURCE
-#define TUI_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -55,6 +52,3 @@ void deserialise_tui(void* p0, void* p1, void* p2) {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* TUI_DESERIALISER_SOURCE */
-#endif

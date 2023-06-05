@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ASCII_DESERIALISER_SOURCE
-#define ASCII_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -79,6 +76,3 @@ void deserialise_ascii(void* p0, void* p1, void* p2) {
     // Deallocate character item.
     deallocate_item((void*) &i, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* ASCII_DESERIALISER_SOURCE */
-#endif

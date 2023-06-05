@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef RECORD_CSV_DESERIALISER_SOURCE
-#define RECORD_CSV_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -89,6 +86,3 @@ void deserialise_csv_record(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     //
     deserialise_joined_string_list(p0, (void*) &d, (void*) &c, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
 }
-
-/* RECORD_CSV_DESERIALISER_SOURCE */
-#endif

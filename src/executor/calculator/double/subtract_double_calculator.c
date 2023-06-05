@@ -24,9 +24,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SUBTRACT_DOUBLE_CALCULATOR_SOURCE
-#define SUBTRACT_DOUBLE_CALCULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -64,6 +61,3 @@ void calculate_double_subtract(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate double subtract. The subtrahend is null.");
     }
 }
-
-/* SUBTRACT_DOUBLE_CALCULATOR_SOURCE */
-#endif

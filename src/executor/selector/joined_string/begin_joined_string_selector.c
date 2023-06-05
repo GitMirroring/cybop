@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BEGIN_JOINED_STRING_SELECTOR_SOURCE
-#define BEGIN_JOINED_STRING_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -104,6 +101,3 @@ void select_joined_string_begin(void* p0, void* p1, void* p2, void* p3, void* p4
         deserialise_joined_string_value(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p13, p14, p15);
     }
 }
-
-/* BEGIN_JOINED_STRING_SELECTOR_SOURCE */
-#endif

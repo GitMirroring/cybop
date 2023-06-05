@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DATA_PERCENT_ENCODING_DESERIALISER_SOURCE
-#define DATA_PERCENT_ENCODING_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -77,6 +74,3 @@ void deserialise_percent_encoding_data(void* p0, void* p1, void* p2) {
         select_percent_encoding_begin(p0, p1, p2);
     }
 }
-
-/* DATA_PERCENT_ENCODING_DESERIALISER_SOURCE */
-#endif

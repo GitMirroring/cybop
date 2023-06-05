@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INTEGER_NUMERAL_SERIALISER_SOURCE
-#define INTEGER_NUMERAL_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -223,6 +220,3 @@ void serialise_numeral_integer(void* p0, void* p1, void* p2, void* p3, void* p4,
     // Deallocate temporary number wide character item.
     deallocate_item((void*) &i, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* INTEGER_NUMERAL_SERIALISER_SOURCE */
-#endif

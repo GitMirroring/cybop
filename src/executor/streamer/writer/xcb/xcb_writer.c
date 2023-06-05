@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef XCB_WRITER_SOURCE
-#define XCB_WRITER_SOURCE
-
 //
 // System interface
 //
@@ -112,6 +109,3 @@ void write_xcb(void* p0, void* p1) {
         fwprintf(stdout, L"Error: Could not write xcb. The destination window id is null. p0: %i\n", p0);
     }
 }
-
-/* XCB_WRITER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PROPERTIES_CONTEXT_XCB_SERIALISER_SOURCE
-#define PROPERTIES_CONTEXT_XCB_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -274,6 +271,3 @@ void serialise_xcb_context_properties(void* p0, void* p1, void* p2, void* p3, vo
         encode_utf_8(p12, (void*) L"7x13", (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL);
     }
 }
-
-/* PROPERTIES_CONTEXT_XCB_SERIALISER_SOURCE */
-#endif

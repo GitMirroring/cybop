@@ -24,9 +24,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MULTIPLY_DOUBLE_CALCULATOR_SOURCE
-#define MULTIPLY_DOUBLE_CALCULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -64,6 +61,3 @@ void calculate_double_multiply(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate double multiply. The factor is null.");
     }
 }
-
-/* MULTIPLY_DOUBLE_CALCULATOR_SOURCE */
-#endif

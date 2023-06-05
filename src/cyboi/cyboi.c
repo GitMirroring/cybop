@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CYBOI_SOURCE
-#define CYBOI_SOURCE
-
 //
 // System interface
 //
@@ -243,6 +240,3 @@ int main(int p0, char** p1) {
 
     return r;
 }
-
-/* CYBOI_SOURCE */
-#endif

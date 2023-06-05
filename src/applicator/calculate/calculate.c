@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CALCULATE_SOURCE
-#define CALCULATE_SOURCE
-
 //
 // Library interface
 //
@@ -168,6 +165,3 @@ void apply_calculate(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
     // Compare result- and operand type.
     apply_calculate_type(r, o, p5, (void*) &type, (void*) &count, (void*) &result_index, (void*) &operand_index, otd);
 }
-
-/* CALCULATE_SOURCE */
-#endif

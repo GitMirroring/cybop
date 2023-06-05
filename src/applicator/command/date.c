@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DATE_SOURCE
-#define DATE_SOURCE
-
 //
 // Library interface
 //
@@ -131,6 +128,3 @@ void apply_date(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_date(nmd, nmc, tmd, imd, rmd, umd);
 }
-
-/* DATE_SOURCE */
-#endif

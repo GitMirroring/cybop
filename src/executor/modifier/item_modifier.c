@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ITEM_MODIFIER_SOURCE
-#define ITEM_MODIFIER_SOURCE
-
 //
 // System interface
 //
@@ -127,6 +124,3 @@ void modify_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         fwprintf(stdout, L"Warning: Could not modify item. The sum of the given index and count is outside the data array count. This may be regular behaviour. Probably, the model pointed to by a cybol path is null or empty or a cybol model (e.g. a string) is wrong since it was not emptied before being filled. r: %i\n", r);
     }
 }
-
-/* ITEM_MODIFIER_SOURCE */
-#endif

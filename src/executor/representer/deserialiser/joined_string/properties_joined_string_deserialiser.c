@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PROPERTIES_JOINED_STRING_DESERIALISER_SOURCE
-#define PROPERTIES_JOINED_STRING_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -110,6 +107,3 @@ void deserialise_joined_string_properties(void* p0, void* p1, void* p2, void* p3
     // Prepare variables necessary for deserialisation.
     deserialise_joined_string_preparation(p0, p1, p2, dmd, dmc, qmd, qmc);
 }
-
-/* PROPERTIES_JOINED_STRING_DESERIALISER_SOURCE */
-#endif

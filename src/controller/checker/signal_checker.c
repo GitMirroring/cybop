@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SIGNAL_CHECKER_SOURCE
-#define SIGNAL_CHECKER_SOURCE
-
 //
 // System interface
 //
@@ -155,6 +152,3 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     //
     deallocate_item((void*) &s, (void*) POINTER_STATE_CYBOI_TYPE);
 }
-
-/* SIGNAL_CHECKER_SOURCE */
-#endif

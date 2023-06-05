@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INSIDE_INSERTER_SOURCE
-#define INSIDE_INSERTER_SOURCE
-
 //
 // System interface
 //
@@ -204,6 +201,3 @@ void insert_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not insert inside. The destination array is null.");
     }
 }
-
-/* INSIDE_INSERTER_SOURCE */
-#endif

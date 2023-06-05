@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONTENT_MODEL_DIAGRAM_SERIALISER_SOURCE
-#define CONTENT_MODEL_DIAGRAM_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -41,19 +38,6 @@
 #include "constant.h"
 #include "knowledge.h"
 #include "logger.h"
-
-//
-// Forbidden interface
-//
-// CAUTION! Do NOT include the following files since otherwise,
-// circular references would occur due to module dependencies.
-// Instead, forward declarations are used further below.
-// Therefore, the following includes are to be commented OUT
-// and listed here just for information.
-//
-
-// #include "../../../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
-// #include "../../../../executor/representer/serialiser/model_diagram/part_model_diagram_serialiser.c"
 
 //
 // Forward declaration
@@ -123,6 +107,3 @@ void serialise_model_diagram_content(void* p0, void* p1, void* p2, void* p3, voi
     // Append part properties.
     serialise_model_diagram_part(p0, p3, p4, p5, p6, p7, p8, p9, p10, p11, p13, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 }
-
-/* CONTENT_MODEL_DIAGRAM_SERIALISER_SOURCE */
-#endif

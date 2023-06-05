@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ANSI_ESCAPE_CODE_SELECTOR_SOURCE
-#define ANSI_ESCAPE_CODE_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -88,6 +85,3 @@ void select_ansi_escape_code(void* p0, void* p1, void* p2) {
         select_ansi_escape_code_character(p0, p1, p2);
     }
 }
-
-/* ANSI_ESCAPE_CODE_SELECTOR_SOURCE */
-#endif

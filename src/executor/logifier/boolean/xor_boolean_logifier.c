@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef XOR_BOOLEAN_LOGIFIER_SOURCE
-#define XOR_BOOLEAN_LOGIFIER_SOURCE
-
 //
 // Library interface
 //
@@ -63,6 +60,3 @@ void logify_boolean_xor(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify boolean xor. The input is null.");
     }
 }
-
-/* XOR_BOOLEAN_LOGIFIER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TYPE_SIZE_GLOBALISER_SOURCE
-#define TYPE_SIZE_GLOBALISER_SOURCE
-
 //
 // Library interface
 //
@@ -62,6 +59,3 @@ void globalise_type_size() {
     //
     globalise_type_size_compound();
 }
-
-/* TYPE_SIZE_GLOBALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DESTROY_SOURCE
-#define DESTROY_SOURCE
-
 //
 // Library interface
 //
@@ -84,6 +81,3 @@ void apply_destroy(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //
     deallocate_part((void*) &p);
 }
-
-/* DESTROY_SOURCE */
-#endif

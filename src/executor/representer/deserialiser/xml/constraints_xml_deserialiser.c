@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONSTRAINTS_XML_DESERIALISER_SOURCE
-#define CONSTRAINTS_XML_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -115,6 +112,3 @@ void deserialise_xml_constraints(void* p0, void* p1, void* p2, void* p3, void* p
     // Deserialise xml element content.
     deserialise_xml_content(p0, p1, p2, p3, (void*) &normalisation, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 }
-
-/* CONSTRAINTS_XML_DESERIALISER_SOURCE */
-#endif

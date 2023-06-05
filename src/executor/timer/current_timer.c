@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CURRENT_TIMER_SOURCE
-#define CURRENT_TIMER_SOURCE
-
 //
 // System interface
 //
@@ -101,6 +98,3 @@ void time_current(void* p0) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not time current. The destination time is null.");
     }
 }
-
-/* CURRENT_TIMER_SOURCE */
-#endif

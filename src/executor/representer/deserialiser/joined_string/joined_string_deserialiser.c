@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef JOINED_STRING_DESERIALISER_SOURCE
-#define JOINED_STRING_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -83,6 +80,3 @@ void deserialise_joined_string(void* p0, void* p1, void* p2, void* p3, void* p4,
     //
     deserialise_joined_string_properties(p0, (void*) &d, (void*) &c, p3, p4, p5, p6, p7);
 }
-
-/* JOINED_STRING_DESERIALISER_SOURCE */
-#endif

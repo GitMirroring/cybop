@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PRIMITIVE_TUI_SERIALISER_SOURCE
-#define PRIMITIVE_TUI_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -99,6 +96,3 @@ void serialise_tui_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // Deallocate wide character item.
     deallocate_item((void*) &i, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* PRIMITIVE_TUI_SERIALISER_SOURCE */
-#endif

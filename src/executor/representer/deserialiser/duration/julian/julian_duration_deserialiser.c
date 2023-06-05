@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef JULIAN_DURATION_DESERIALISER_SOURCE
-#define JULIAN_DURATION_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -43,6 +40,3 @@ void deserialise_duration_julian(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise duration julian.");
 }
-
-/* JULIAN_DURATION_DESERIALISER_SOURCE */
-#endif

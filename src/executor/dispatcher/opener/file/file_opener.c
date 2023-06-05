@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FILE_OPENER_SOURCE
-#define FILE_OPENER_SOURCE
-
 //
 // System interface
 //
@@ -85,6 +82,3 @@ void open_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Open device.
     open_basic(p0, p1, p2, (void*) &m, (void*) &pt);
 }
-
-/* FILE_OPENER_SOURCE */
-#endif

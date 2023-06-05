@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLEAR_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-#define CLEAR_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -49,6 +46,3 @@ void serialise_ansi_escape_code_clear(void* p0) {
     serialise_ansi_escape_code_character(p0, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL_COUNT);
     serialise_ansi_escape_code_character(p0, (void*) ERASE_DISPLAY_ANSI_ESCAPE_CODE_MODEL, (void*) ERASE_DISPLAY_ANSI_ESCAPE_CODE_MODEL_COUNT);
 }
-
-/* CLEAR_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
-#endif

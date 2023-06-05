@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DECODE_SOURCE
-#define DECODE_SOURCE
-
 //
 // Library interface
 //
@@ -104,6 +101,3 @@ void apply_decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Decode the source- into the destination part.
     decode(dm, smd, smc, emd);
 }
-
-/* DECODE_SOURCE */
-#endif

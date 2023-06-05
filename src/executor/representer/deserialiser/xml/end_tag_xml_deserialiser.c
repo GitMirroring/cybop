@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef END_TAG_XML_DESERIALISER_SOURCE
-#define END_TAG_XML_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -77,6 +74,3 @@ void deserialise_xml_end_tag(void* p0, void* p1) {
         select_xml_end_tag(p0, p1, (void*) &b);
     }
 }
-
-/* END_TAG_XML_DESERIALISER_SOURCE */
-#endif

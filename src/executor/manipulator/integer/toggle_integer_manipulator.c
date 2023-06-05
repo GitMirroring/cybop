@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TOGGLE_INTEGER_MANIPULATOR_SOURCE
-#define TOGGLE_INTEGER_MANIPULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -53,6 +50,3 @@ void manipulate_integer_toggle(void* p0, void* p1) {
     // Apply exclusive or (xor).
     logify_integer_xor(p0, (void*) &b);
 }
-
-/* TOGGLE_INTEGER_MANIPULATOR_SOURCE */
-#endif

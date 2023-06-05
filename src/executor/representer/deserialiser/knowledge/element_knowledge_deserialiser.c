@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENT_KNOWLEDGE_DESERIALISER_SOURCE
-#define ELEMENT_KNOWLEDGE_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -149,6 +146,3 @@ void deserialise_knowledge_element(void* p0, void* p1, void* p2, void* p3, void*
         }
     }
 }
-
-/* ELEMENT_KNOWLEDGE_DESERIALISER_SOURCE */
-#endif

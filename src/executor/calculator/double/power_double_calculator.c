@@ -24,9 +24,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef POWER_DOUBLE_CALCULATOR_SOURCE
-#define POWER_DOUBLE_CALCULATOR_SOURCE
-
 //
 // System interface
 //
@@ -70,6 +67,3 @@ void calculate_double_power(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate double power. The power is null.");
     }
 }
-
-/* POWER_DOUBLE_CALCULATOR_SOURCE */
-#endif

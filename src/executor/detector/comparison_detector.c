@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMPARISON_DETECTOR_SOURCE
-#define COMPARISON_DETECTOR_SOURCE
-
 //
 // System interface
 //
@@ -88,6 +85,3 @@ void detect_comparison(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not detect comparison. The source data position is null.");
     }
 }
-
-/* COMPARISON_DETECTOR_SOURCE */
-#endif

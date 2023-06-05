@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INPUT_WIN32_CONSOLE_INITIALISER_SOURCE
-#define INPUT_WIN32_CONSOLE_INITIALISER_SOURCE
-
 //
 // System interface
 //
@@ -89,6 +86,3 @@ void initialise_win32_console_input(void* p0) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise win32 console input. The console mode is null.");
     }
 }
-
-/* INPUT_WIN32_CONSOLE_INITIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef EXPOSE_XCB_EVENT_DESERIALISER_SOURCE
-#define EXPOSE_XCB_EVENT_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -96,6 +93,3 @@ void deserialise_xcb_event_expose(void* p0, void* p1) {
         fwprintf(stdout, L"Error: Could not deserialise xcb event expose. The source event is null. p1: %i\n", p1);
     }
 }
-
-/* EXPOSE_XCB_EVENT_DESERIALISER_SOURCE */
-#endif

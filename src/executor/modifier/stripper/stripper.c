@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STRIPPER_SOURCE
-#define STRIPPER_SOURCE
-
 //
 // System interface
 //
@@ -77,6 +74,3 @@ void strip(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
         fwprintf(stdout, L"Error: Could not strip. The destination array is null. destination array p0: %i\n", p0);
     }
 }
-
-/* STRIPPER_SOURCE */
-#endif

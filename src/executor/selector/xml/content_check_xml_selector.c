@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONTENT_CHECK_XML_SELECTOR_SOURCE
-#define CONTENT_CHECK_XML_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -103,6 +100,3 @@ void select_xml_check_content(void* p0, void* p1, void* p2, void* p3) {
         move(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
-
-/* CONTENT_CHECK_XML_SELECTOR_SOURCE */
-#endif

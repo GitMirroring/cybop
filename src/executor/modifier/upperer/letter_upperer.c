@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LETTER_UPPERER_SOURCE
-#define LETTER_UPPERER_SOURCE
-
 //
 // System interface
 //
@@ -70,6 +67,3 @@ void upper_letter(void* p0, void* p1) {
     ... compare for other letters ...
 */
 }
-
-/* LETTER_UPPERER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef AUTHORITY_HTTP_URI_DESERIALISER_SOURCE
-#define AUTHORITY_HTTP_URI_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -152,6 +149,3 @@ void deserialise_http_uri_authority(void* p0, void* p1, void* p2, void* p3) {
     //
     deserialise_http_uri_authority_content(p0, ad, (void*) &ac);
 }
-
-/* AUTHORITY_HTTP_URI_DESERIALISER_SOURCE */
-#endif

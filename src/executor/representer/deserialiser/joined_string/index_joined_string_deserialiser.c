@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INDEX_JOINED_STRING_DESERIALISER_SOURCE
-#define INDEX_JOINED_STRING_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -101,6 +98,3 @@ void deserialise_joined_string_index(void* p0, void* p1, void* p2, void* p3, voi
     // Deallocate index item.
     deallocate_item((void*) &i, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* INDEX_JOINED_STRING_DESERIALISER_SOURCE */
-#endif

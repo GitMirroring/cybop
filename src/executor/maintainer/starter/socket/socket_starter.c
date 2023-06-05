@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SOCKET_STARTER_SOURCE
-#define SOCKET_STARTER_SOURCE
-
 //
 // System interface
 //
@@ -98,6 +95,3 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     // Set socket number into server entry.
     copy_array_forward(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_SOCKET_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
-
-/* SOCKET_STARTER_SOURCE */
-#endif

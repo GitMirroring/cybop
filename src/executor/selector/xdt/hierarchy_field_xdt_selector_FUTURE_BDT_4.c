@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HIERARCHY_FIELD_XDT_SELECTOR_SOURCE
-#define HIERARCHY_FIELD_XDT_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -43,18 +40,6 @@
 #include "constant.h"
 #include "knowledge.h"
 #include "logger.h"
-
-//
-// Forbidden interface
-//
-// CAUTION! Do NOT include the following files since otherwise,
-// circular references would occur due to module dependencies.
-// Instead, forward declarations are used further below.
-// Therefore, the following includes are to be commented OUT
-// and listed here just for information.
-//
-
-// #include "../../../../executor/representer/deserialiser/xdt/record_xdt_deserialiser.c"
 
 //
 // Forward declaration
@@ -212,6 +197,3 @@ void select_xdt_field_hierarchy(void* p0, void* p1, void* p2, void* p3, void* p4
         fwprintf(stdout, L"Warning: Could not select xdt field hierarchy. The hierarchy is more than one level below the current one. field dependency hierarchy *p8: %i\n", *((int*) p8));
     }
 }
-
-/* HIERARCHY_FIELD_XDT_SELECTOR_SOURCE */
-#endif

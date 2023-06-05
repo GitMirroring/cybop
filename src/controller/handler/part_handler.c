@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_HANDLER_SOURCE
-#define PART_HANDLER_SOURCE
-
 //
 // System interface
 //
@@ -152,6 +149,3 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         j++;
     }
 }
-
-/* PART_HANDLER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SIGN_NUMERAL_SELECTOR_SOURCE
-#define SIGN_NUMERAL_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -90,6 +87,3 @@ void select_numeral_sign(void* p0, void* p1, void* p2) {
         }
     }
 }
-
-/* SIGN_NUMERAL_SELECTOR_SOURCE */
-#endif

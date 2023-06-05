@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef GREGORIAN_CALENDAR_TIME_SCALE_DESERIALISER_SOURCE
-#define GREGORIAN_CALENDAR_TIME_SCALE_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -88,6 +85,3 @@ void deserialise_time_scale_gregorian_calendar(void* p0, void* p1, void* p2, voi
     set_datetime_element(p0, (void*) &d, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
     set_datetime_element(p0, (void*) &s, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
 }
-
-/* GREGORIAN_CALENDAR_TIME_SCALE_DESERIALISER_SOURCE */
-#endif

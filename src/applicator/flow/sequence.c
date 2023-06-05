@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SEQUENCE_SOURCE
-#define SEQUENCE_SOURCE
-
 //
 // Library interface
 //
@@ -122,6 +119,3 @@ void apply_sequence(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     // Handle model as new operation.
     handle(m, p4, p2, p3, p5, p6, (void*) &x, p7, *NULL_POINTER_STATE_CYBOI_MODEL);
 }
-
-/* SEQUENCE_SOURCE */
-#endif

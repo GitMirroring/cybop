@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DEVICE_WINSOCK_OPENER_SOURCE
-#define DEVICE_WINSOCK_OPENER_SOURCE
-
 //
 // System interface
 //
@@ -129,6 +126,3 @@ void open_winsock_device(void* p0, void* p1, void* p2, void* p3) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock device. The protocol is null.");
     }
 }
-
-/* DEVICE_WINSOCK_OPENER_SOURCE */
-#endif

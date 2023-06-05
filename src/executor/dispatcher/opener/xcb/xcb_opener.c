@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef XCB_OPENER_SOURCE
-#define XCB_OPENER_SOURCE
-
 //
 // System interface
 //
@@ -304,6 +301,3 @@ void open_xcb(void* p0, void* p1) {
         fwprintf(stdout, L"Error: Could not open xcb. The connexion is null. c: %i\n", c);
     }
 }
-
-/* XCB_OPENER_SOURCE */
-#endif

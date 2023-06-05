@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HTML_CHARACTER_REFERENCE_SERIALISER_SOURCE
-#define HTML_CHARACTER_REFERENCE_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -180,6 +177,3 @@ void serialise_character_reference_html(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise character reference html. The source wide character is null.");
     }
 }
-
-/* HTML_CHARACTER_REFERENCE_SERIALISER_SOURCE */
-#endif

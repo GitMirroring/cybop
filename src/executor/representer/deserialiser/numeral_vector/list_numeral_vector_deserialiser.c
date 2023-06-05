@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LIST_NUMERAL_VECTOR_DESERIALISER_SOURCE
-#define LIST_NUMERAL_VECTOR_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -228,6 +225,3 @@ void deserialise_numeral_vector_list(void* p0, void* p1, void* p2, void* p3, voi
     //
     deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 }
-
-/* LIST_NUMERAL_VECTOR_DESERIALISER_SOURCE */
-#endif

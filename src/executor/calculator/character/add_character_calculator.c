@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ADD_CHARACTER_CALCULATOR_SOURCE
-#define ADD_CHARACTER_CALCULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -63,6 +60,3 @@ void calculate_character_add(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate character add. The summand is null.");
     }
 }
-
-/* ADD_CHARACTER_CALCULATOR_SOURCE */
-#endif

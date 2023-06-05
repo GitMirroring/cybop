@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DOUBLE_INTEGER_CASTER_SOURCE
-#define DOUBLE_INTEGER_CASTER_SOURCE
-
 //
 // System interface
 //
@@ -76,6 +73,3 @@ void cast_integer_double(void* p0, void* p1) {
         fwprintf(stdout, L"Error: Could not cast integer double. The source is null. p1: %i\n", p1);
     }
 }
-
-/* DOUBLE_INTEGER_CASTER_SOURCE */
-#endif

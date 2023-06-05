@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NUMBER_JSON_DESERIALISER_SOURCE
-#define NUMBER_JSON_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -138,6 +135,3 @@ void deserialise_json_number(void* p0, void* p1, void* p2, void* p3, void* p4, v
         }
     }
 }
-
-/* NUMBER_JSON_DESERIALISER_SOURCE */
-#endif

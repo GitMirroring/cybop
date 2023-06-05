@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INITIAL_TUI_SERIALISER_SOURCE
-#define INITIAL_TUI_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -138,6 +135,3 @@ void serialise_tui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     //
     serialise_tui_content(p0, op, p1, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, (void*) &l, (void*) &a, p18);
 }
-
-/* INITIAL_TUI_SERIALISER_SOURCE */
-#endif

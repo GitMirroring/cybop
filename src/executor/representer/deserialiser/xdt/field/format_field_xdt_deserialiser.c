@@ -24,9 +24,6 @@
  * Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FORMAT_FIELD_XDT_DESERIALISER_SOURCE
-#define FORMAT_FIELD_XDT_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -7795,6 +7792,3 @@ void deserialise_xdt_field_format(void* p0, void* p1) {
         }
     }
 }
-
-/* FORMAT_FIELD_XDT_DESERIALISER_SOURCE */
-#endif

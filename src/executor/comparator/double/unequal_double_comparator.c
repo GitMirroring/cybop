@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef UNEQUAL_DOUBLE_COMPARATOR_SOURCE
-#define UNEQUAL_DOUBLE_COMPARATOR_SOURCE
-
 //
 // Library interface
 //
@@ -70,6 +67,3 @@ void compare_double_unequal(void* p0, void* p1, void* p2) {
         // It might use functions that cause circular references.
     }
 }
-
-/* UNEQUAL_DOUBLE_COMPARATOR_SOURCE */
-#endif

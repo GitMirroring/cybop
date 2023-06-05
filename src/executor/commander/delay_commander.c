@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DELAY_COMMANDER_SOURCE
-#define DELAY_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -109,6 +106,3 @@ void command_delay(void* tmd, void* tmc) {
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* DELAY_COMMANDER_SOURCE */
-#endif

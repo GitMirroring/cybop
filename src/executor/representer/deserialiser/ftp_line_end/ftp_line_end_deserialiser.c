@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FTP_LINE_END_DESERIALISER_SOURCE
-#define FTP_LINE_END_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -79,6 +76,3 @@ void deserialise_ftp_line_end(void* p0, void* p1, void* p2) {
     //
     deserialise_ftp_line_end_data(p0, (void*) &d, (void*) &c);
 }
-
-/* FTP_LINE_END_DESERIALISER_SOURCE */
-#endif

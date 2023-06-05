@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ITEM_NUMERAL_VECTOR_DESERIALISER_SOURCE
-#define ITEM_NUMERAL_VECTOR_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -90,6 +87,3 @@ void deserialise_numeral_vector_item(void* p0, void* p1, void* p2, void* p3, voi
     // Deallocate temporary part element item.
     deallocate_item((void*) &t, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 }
-
-/* ITEM_NUMERAL_VECTOR_DESERIALISER_SOURCE */
-#endif

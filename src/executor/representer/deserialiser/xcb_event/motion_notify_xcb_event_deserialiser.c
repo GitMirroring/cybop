@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MOTION_NOTIFY_XCB_EVENT_DESERIALISER_SOURCE
-#define MOTION_NOTIFY_XCB_EVENT_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -86,6 +83,3 @@ void deserialise_xcb_event_motion_notify(void* p0, void* p1) {
         fwprintf(stdout, L"Error: Could not deserialise xcb event motion notify. The source event is null. p1: %i\n", p1);
     }
 }
-
-/* MOTION_NOTIFY_XCB_EVENT_DESERIALISER_SOURCE */
-#endif

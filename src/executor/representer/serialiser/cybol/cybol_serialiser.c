@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CYBOL_SERIALISER_SOURCE
-#define CYBOL_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -444,6 +441,3 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
         //
     }
 }
-
-/* CYBOL_SERIALISER_SOURCE */
-#endif

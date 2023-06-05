@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MODEL_FIELD_XDT_DESERIALISER_SOURCE
-#define MODEL_FIELD_XDT_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -186,6 +183,3 @@ void deserialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3, void* p
         fwprintf(stdout, L"Warning: Could not deserialise xdt field model. The format is unknown. format *p7: %i\n", *((int*) p7));
     }
 }
-
-/* MODEL_FIELD_XDT_DESERIALISER_SOURCE */
-#endif

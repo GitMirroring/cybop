@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ALLOCATION_NUMERAL_DESERIALISER_SOURCE
-#define ALLOCATION_NUMERAL_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -125,6 +122,3 @@ void deserialise_numeral_allocation(void* p0, void* p1, void* p2, void* p3, void
         fwprintf(stdout, L"Error: Could not deserialise numeral allocation. The destination number part is null. p0: %i\n", p0);
     }
 }
-
-/* ALLOCATION_NUMERAL_DESERIALISER_SOURCE */
-#endif

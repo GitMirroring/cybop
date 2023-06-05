@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SEARCHER_SOURCE
-#define SEARCHER_SOURCE
-
 //
 // Library interface
 //
@@ -97,6 +94,3 @@ void search(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
         fwprintf(stdout, L"Warning: Could not search. The operation type is unknown. *p9: %i\n", *((int*) p9));
     }
 }
-
-/* SEARCHER_SOURCE */
-#endif

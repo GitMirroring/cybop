@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WIDE_ARGUMENT_COMMAND_LINE_DESERIALISER_SOURCE
-#define WIDE_ARGUMENT_COMMAND_LINE_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -103,6 +100,3 @@ void deserialise_command_line_argument_wide(void* p0, void* p1, void* p2, void* 
     // Deallocate argument item.
     deallocate_item((void*) &a, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* WIDE_ARGUMENT_COMMAND_LINE_DESERIALISER_SOURCE */
-#endif

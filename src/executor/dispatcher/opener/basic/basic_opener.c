@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BASIC_OPENER_SOURCE
-#define BASIC_OPENER_SOURCE
-
 //
 // System interface
 //
@@ -155,6 +152,3 @@ void open_basic(void* p0, void* p1, void* p2, void* p3, void* p4) {
         fwprintf(stdout, L"Error: Could not open basic. The open mode is null. p4: %i\n", p4);
     }
 }
-
-/* BASIC_OPENER_SOURCE */
-#endif

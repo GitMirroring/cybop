@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PRIMITIVE_XML_SERIALISER_SOURCE
-#define PRIMITIVE_XML_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -179,6 +176,3 @@ void serialise_xml_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // Serialise line break.
     serialise_xml_break(p0, p10);
 }
-
-/* PRIMITIVE_XML_SERIALISER_SOURCE */
-#endif

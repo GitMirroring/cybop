@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MEMORY_KNOWLEDGE_SELECTOR_SOURCE
-#define MEMORY_KNOWLEDGE_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -121,6 +118,3 @@ void select_knowledge_memory(void* p0, void* p1, void* p2, void* p3, void* p4, v
         //?? fwprintf(stdout, L"Warning: Could not select knowledge memory. The source whole part element index is unknown. source whole part element index p5: %p\n", p5);
     }
 }
-
-/* MEMORY_KNOWLEDGE_SELECTOR_SOURCE */
-#endif

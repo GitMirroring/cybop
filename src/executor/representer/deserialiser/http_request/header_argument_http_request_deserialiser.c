@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HEADER_ARGUMENT_HTTP_REQUEST_DESERIALISER_SOURCE
-#define HEADER_ARGUMENT_HTTP_REQUEST_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -84,6 +81,3 @@ void deserialise_http_request_header_argument(void* p0, void* p1, void* p2, void
         select_http_request_header_argument(p0, p1, p2, p3, had, (void*) &hac, (void*) &b);
     }
 }
-
-/* HEADER_ARGUMENT_HTTP_REQUEST_DESERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MEMORY_FREE_SOURCE
-#define MEMORY_FREE_SOURCE
-
 //
 // Library interface
 //
@@ -129,6 +126,3 @@ void apply_memory_free(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_memory_free(hmd, kmd, mmd, gmd, tmd);
 }
-
-/* MEMORY_FREE_SOURCE */
-#endif

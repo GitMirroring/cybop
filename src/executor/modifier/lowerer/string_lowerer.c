@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STRING_LOWERER_SOURCE
-#define STRING_LOWERER_SOURCE
-
 //
 // System interface
 //
@@ -96,6 +93,3 @@ void lower_string(void* p0, void* p1, void* p2) {
         j++;
     }
 }
-
-/* STRING_LOWERER_SOURCE */
-#endif

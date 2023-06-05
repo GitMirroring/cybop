@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DISPLAY_TYPE_SIZE_GLOBALISER_SOURCE
-#define DISPLAY_TYPE_SIZE_GLOBALISER_SOURCE
-
 //
 // System interface
 //
@@ -59,6 +56,3 @@ void globalise_type_size_display() {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* DISPLAY_TYPE_SIZE_GLOBALISER_SOURCE */
-#endif

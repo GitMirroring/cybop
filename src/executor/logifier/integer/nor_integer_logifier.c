@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NOR_INTEGER_LOGIFIER_SOURCE
-#define NOR_INTEGER_LOGIFIER_SOURCE
-
 //
 // Library interface
 //
@@ -68,6 +65,3 @@ void logify_integer_nor(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify integer nor. The mask is null.");
     }
 }
-
-/* NOR_INTEGER_LOGIFIER_SOURCE */
-#endif

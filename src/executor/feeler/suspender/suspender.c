@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SUSPENDER_SOURCE
-#define SUSPENDER_SOURCE
-
 //
 // System interface
 //
@@ -83,6 +80,3 @@ void suspend(void* p0, void* p1, void* p2, void* p3, void* p4) {
         fwprintf(stdout, L"Warning: Could not suspend. A client entry with the given identification does not exist. *p4: %i\n", *((int*) p4));
     }
 }
-
-/* SUSPENDER_SOURCE */
-#endif

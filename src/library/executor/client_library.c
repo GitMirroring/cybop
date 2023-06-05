@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLIENT_LIBRARY_SOURCE
-#define CLIENT_LIBRARY_SOURCE
-
 //
 // configurator
 //
@@ -140,6 +137,3 @@
 
 #include "../../executor/feeler/suspender/suspender.c"
 #include "../../executor/feeler/suspender/thread_suspender.c"
-
-/* CLIENT_LIBRARY_SOURCE */
-#endif

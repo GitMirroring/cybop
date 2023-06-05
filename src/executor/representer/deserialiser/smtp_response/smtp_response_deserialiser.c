@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SMTP_RESPONSE_DESERIALISER_SOURCE
-#define SMTP_RESPONSE_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -89,6 +86,3 @@ void deserialise_smtp_response(void* p0, void* p1, void* p2, void* p3) {
     // Deallocate wide character item.
     deallocate_item((void*) &w, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* SMTP_RESPONSE_DESERIALISER_SOURCE */
-#endif

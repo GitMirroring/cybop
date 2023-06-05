@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ASCII_SERIALISER_SOURCE
-#define ASCII_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -79,6 +76,3 @@ void serialise_ascii(void* p0, void* p1, void* p2) {
     // Deallocate wide character item.
     deallocate_item((void*) &i, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* ASCII_SERIALISER_SOURCE */
-#endif

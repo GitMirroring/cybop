@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LOG_LEVEL_COMMAND_LINE_SELECTOR_SOURCE
-#define LOG_LEVEL_COMMAND_LINE_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -115,6 +112,3 @@ void select_command_line_log_level(void* p0, void* p1, void* p2) {
         log_write((void*) stdout, L"Warning: Could not select command line log level. The log level name is unknown.\n");
     }
 }
-
-/* LOG_LEVEL_COMMAND_LINE_SELECTOR_SOURCE */
-#endif

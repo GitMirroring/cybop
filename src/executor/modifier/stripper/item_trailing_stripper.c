@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ITEM_TRAILING_STRIPPER_SOURCE
-#define ITEM_TRAILING_STRIPPER_SOURCE
-
 //
 // System interface
 //
@@ -93,6 +90,3 @@ void strip_trailing_item(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Deallocate temporary string item.
     deallocate_item((void*) &t, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* ITEM_TRAILING_STRIPPER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef IDENTIFICATION_KNOWLEDGE_DESERIALISER_SOURCE
-#define IDENTIFICATION_KNOWLEDGE_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -98,6 +95,3 @@ void deserialise_knowledge_identification(void* p0, void* p1, void* p2, void* p3
     //
     select_knowledge_identification(p0, p1, nmd, nmc, p5, p7, p8);
 }
-
-/* IDENTIFICATION_KNOWLEDGE_DESERIALISER_SOURCE */
-#endif

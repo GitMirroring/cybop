@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WIN32_CONSOLE_MODE_COPIER_SOURCE
-#define WIN32_CONSOLE_MODE_COPIER_SOURCE
-
 //
 // System interface
 //
@@ -69,6 +66,3 @@ void copy_console_mode_win32(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy console mode win32. The source console mode is null.");
     }
 }
-
-/* WIN32_CONSOLE_MODE_COPIER_SOURCE */
-#endif

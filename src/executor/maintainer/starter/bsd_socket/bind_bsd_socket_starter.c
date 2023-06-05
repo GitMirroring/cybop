@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BIND_BSD_SOCKET_STARTER_SOURCE
-#define BIND_BSD_SOCKET_STARTER_SOURCE
-
 //
 // System interface
 //
@@ -111,6 +108,3 @@ void startup_bsd_socket_bind(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Error: Could not startup bsd socket bind. The address size is null. p2: %i\n", p2);
     }
 }
-
-/* BIND_BSD_SOCKET_STARTER_SOURCE */
-#endif

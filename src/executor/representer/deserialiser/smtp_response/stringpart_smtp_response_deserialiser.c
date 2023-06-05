@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STRINGPART_SMTP_RESPONSE_DESERIALISER_SOURCE
-#define STRINGPART_SMTP_RESPONSE_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -78,6 +75,3 @@ void deserialise_smtp_response_stringpart(void* p0, void* p1, void* p2, void* p3
     // Add reply code as integer NUMBER to destination properties item.
     // Add reply textstring to destination properties item.
 }
-
-/* STRINGPART_SMTP_RESPONSE_DESERIALISER_SOURCE */
-#endif

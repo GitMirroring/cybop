@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FRACTION_NUMERAL_DESERIALISER_SOURCE
-#define FRACTION_NUMERAL_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -161,6 +158,3 @@ void deserialise_numeral_fraction(void* p0, void* p1, void* p2, void* p3) {
     // Copy result.
     copy_double(p0, (void*) &r);
 }
-
-/* FRACTION_NUMERAL_DESERIALISER_SOURCE */
-#endif

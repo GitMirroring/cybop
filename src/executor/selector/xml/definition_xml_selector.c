@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DEFINITION_XML_SELECTOR_SOURCE
-#define DEFINITION_XML_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -66,6 +63,3 @@ void select_xml_definition(void* p0, void* p1, void* p2) {
         move(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
-
-/* DEFINITION_XML_SELECTOR_SOURCE */
-#endif

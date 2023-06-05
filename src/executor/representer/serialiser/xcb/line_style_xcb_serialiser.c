@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LINE_STYLE_XCB_SERIALISER_SOURCE
-#define LINE_STYLE_XCB_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -110,6 +107,3 @@ void serialise_xcb_line_style(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb line style. The line style is unknown.");
     }
 }
-
-/* LINE_STYLE_XCB_SERIALISER_SOURCE */
-#endif

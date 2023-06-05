@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ITEM_REPEATER_SOURCE
-#define ITEM_REPEATER_SOURCE
-
 //
 // System interface
 //
@@ -94,6 +91,3 @@ void repeat_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // Deallocate temporary string item.
     deallocate_item((void*) &t, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* ITEM_REPEATER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef UTF_16_DECODER_SOURCE
-#define UTF_16_DECODER_SOURCE
-
 //
 // Library interface
 //
@@ -87,6 +84,3 @@ void decode_utf_16(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode UTF-16.");
 }
-
-/* UTF_16_DECODER_SOURCE */
-#endif

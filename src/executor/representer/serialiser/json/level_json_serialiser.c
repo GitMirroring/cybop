@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LEVEL_JSON_SERIALISER_SOURCE
-#define LEVEL_JSON_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -93,6 +90,3 @@ void serialise_json_level(void* p0, void* p1) {
         j++;
     }
 }
-
-/* LEVEL_JSON_SERIALISER_SOURCE */
-#endif

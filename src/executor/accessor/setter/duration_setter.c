@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DURATION_SETTER_SOURCE
-#define DURATION_SETTER_SOURCE
-
 //
 // Library interface
 //
@@ -128,6 +125,3 @@ void set_duration_element(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set duration element. The destination duration is null.");
     }
 }
-
-/* DURATION_SETTER_SOURCE */
-#endif

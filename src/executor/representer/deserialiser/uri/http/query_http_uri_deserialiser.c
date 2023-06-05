@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef QUERY_HTTP_URI_DESERIALISER_SOURCE
-#define QUERY_HTTP_URI_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -161,6 +158,3 @@ void deserialise_http_uri_query(void* p0, void* p1, void* p2, void* p3) {
     //
     deserialise_http_uri_query_content(p0, qd, (void*) &qc);
 }
-
-/* QUERY_HTTP_URI_DESERIALISER_SOURCE */
-#endif

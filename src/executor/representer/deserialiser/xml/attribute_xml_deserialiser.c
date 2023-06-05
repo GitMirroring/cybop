@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ATTRIBUTE_XML_DESERIALISER_SOURCE
-#define ATTRIBUTE_XML_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -178,6 +175,3 @@ void deserialise_xml_attribute(void* p0, void* p1, void* p2, void* p3, void* p4)
         }
     }
 }
-
-/* ATTRIBUTE_XML_DESERIALISER_SOURCE */
-#endif

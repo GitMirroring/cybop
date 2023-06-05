@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NUMBER_NUMERAL_DESERIALISER_SOURCE
-#define NUMBER_NUMERAL_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -177,6 +174,3 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
         fwprintf(stdout, L"Error: Could not deserialise numeral number. The detected type %i (format: %i) and destination type (format *p11: %i) are not identical.\n", t, f, *((int*) p11));
     }
 }
-
-/* NUMBER_NUMERAL_DESERIALISER_SOURCE */
-#endif

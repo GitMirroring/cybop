@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BUFFER_READER_SOURCE
-#define BUFFER_READER_SOURCE
-
 //
 // System interface
 //
@@ -129,6 +126,3 @@ void read_buffer(void* p0, void* p1, void* p2, void* p3) {
         }
     }
 }
-
-/* BUFFER_READER_SOURCE */
-#endif

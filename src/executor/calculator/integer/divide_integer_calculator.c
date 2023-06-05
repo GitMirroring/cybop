@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DIVIDE_INTEGER_CALCULATOR_SOURCE
-#define DIVIDE_INTEGER_CALCULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -62,6 +59,3 @@ void calculate_integer_divide(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate integer divide. The summand is null.");
     }
 }
-
-/* DIVIDE_INTEGER_CALCULATOR_SOURCE */
-#endif

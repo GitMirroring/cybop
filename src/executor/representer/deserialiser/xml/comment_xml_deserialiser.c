@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMMENT_XML_DESERIALISER_SOURCE
-#define COMMENT_XML_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -81,6 +78,3 @@ void deserialise_xml_comment(void* p0, void* p1) {
         //
     }
 }
-
-/* COMMENT_XML_DESERIALISER_SOURCE */
-#endif

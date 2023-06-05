@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WIN32_DEVICE_WRITER_SOURCE
-#define WIN32_DEVICE_WRITER_SOURCE
-
 //
 // System interface
 //
@@ -129,6 +126,3 @@ void write_win32_device(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write win32 device. The command is null.");
     }
 }
-
-/* WIN32_DEVICE_WRITER_SOURCE */
-#endif

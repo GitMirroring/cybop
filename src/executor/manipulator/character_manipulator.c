@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHARACTER_MANIPULATOR_SOURCE
-#define CHARACTER_MANIPULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -142,6 +139,3 @@ void manipulate_character(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not manipulate character. The operation type is null.");
     }
 }
-
-/* CHARACTER_MANIPULATOR_SOURCE */
-#endif

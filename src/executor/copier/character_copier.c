@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHARACTER_COPIER_SOURCE
-#define CHARACTER_COPIER_SOURCE
-
 //
 // System interface
 //
@@ -71,6 +68,3 @@ void copy_character(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy character. The source is null.");
     }
 }
-
-/* CHARACTER_COPIER_SOURCE */
-#endif

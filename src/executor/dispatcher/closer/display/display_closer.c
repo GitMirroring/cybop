@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DISPLAY_CLOSER_SOURCE
-#define DISPLAY_CLOSER_SOURCE
-
 //
 // Library interface
 //
@@ -56,6 +53,3 @@ void close_display(void* p0, void* p1) {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* DISPLAY_CLOSER_SOURCE */
-#endif

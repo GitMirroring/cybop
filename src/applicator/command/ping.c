@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PING_SOURCE
-#define PING_SOURCE
-
 //
 // Library interface
 //
@@ -111,6 +108,3 @@ void apply_ping(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_ping(hmd, hmc, cmd, cmc, imd, imc);
 }
-
-/* PING_SOURCE */
-#endif

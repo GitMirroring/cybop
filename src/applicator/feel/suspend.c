@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SUSPEND_SOURCE
-#define SUSPEND_SOURCE
-
 //
 // Library interface
 //
@@ -118,6 +115,3 @@ void apply_suspend(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Suspend data input sensing.
     suspend(p4, cmd, sfmd, pmd, smd);
 }
-
-/* SUSPEND_SOURCE */
-#endif

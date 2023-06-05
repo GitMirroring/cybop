@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SCHEME_URI_DESERIALISER_SOURCE
-#define SCHEME_URI_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -121,6 +118,3 @@ void deserialise_uri_scheme(void* p0, void* p1, void* p2, void* p3) {
     // Decode uri depending on given scheme (http, ftp etc.).
     select_uri(p0, p1, p2, p3, sd, (void*) &sc);
 }
-
-/* SCHEME_URI_DESERIALISER_SOURCE */
-#endif

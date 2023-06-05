@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SPINNER_SOURCE
-#define SPINNER_SOURCE
-
 //
 // System interface
 //
@@ -144,6 +141,3 @@ void spin(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Error: Could not spin. The thread function is null. p1: %i\n", p1);
     }
 }
-
-/* SPINNER_SOURCE */
-#endif

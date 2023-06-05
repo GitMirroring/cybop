@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ALGORITHM_LIBRARY_SOURCE
-#define ALGORITHM_LIBRARY_SOURCE
-
 //
 // container
 //
@@ -97,6 +94,3 @@
 #include "../../executor/sorter/selection_sorter.c"
 
 #include "../../executor/sorter/sorter.c"
-
-/* ALGORITHM_LIBRARY_SOURCE */
-#endif

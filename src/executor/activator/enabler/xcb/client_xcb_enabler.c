@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLIENT_XCB_ENABLER_SOURCE
-#define CLIENT_XCB_ENABLER_SOURCE
-
 //
 // System interface
 //
@@ -303,6 +300,3 @@ void enable_xcb_client(void* p0, void* p1) {
         fwprintf(stdout, L"Error: Could not enable xcb client. The event is null.\n");
     }
 }
-
-/* CLIENT_XCB_ENABLER_SOURCE */
-#endif

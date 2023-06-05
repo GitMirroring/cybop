@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ATTRIBUTE_NAME_XML_SELECTOR_SOURCE
-#define ATTRIBUTE_NAME_XML_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -83,6 +80,3 @@ void select_xml_attribute_name(void* p0, void* p1, void* p2, void* p3) {
         calculate_integer_add(p2, (void*) &step);
     }
 }
-
-/* ATTRIBUTE_NAME_XML_SELECTOR_SOURCE */
-#endif

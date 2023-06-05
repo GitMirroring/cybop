@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WINSOCK_CLOSER_SOURCE
-#define WINSOCK_CLOSER_SOURCE
-
 //
 // System interface
 //
@@ -91,6 +88,3 @@ void close_winsock(void* p0) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close winsock. The socket is null.");
     }
 }
-
-/* WINSOCK_CLOSER_SOURCE */
-#endif

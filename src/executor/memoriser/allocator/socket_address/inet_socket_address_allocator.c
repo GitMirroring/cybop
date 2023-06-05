@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INET_SOCKET_ADDRESS_ALLOCATOR_SOURCE
-#define INET_SOCKET_ADDRESS_ALLOCATOR_SOURCE
-
 //
 // System interface
 //
@@ -70,7 +67,7 @@ void allocate_socket_address_inet(void* p0, void* p1, void* p2, void* p3, void* 
 
         void** ad = (void**) p0;
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate socket address inet.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate socket address inet.");
 
         // The host address.
         struct in_addr ha;
@@ -142,6 +139,3 @@ void allocate_socket_address_inet(void* p0, void* p1, void* p2, void* p3, void* 
         fwprintf(stdout, L"Error: Could not allocate socket address inet. The address data is null. p0: %i\n", p0);
     }
 }
-
-/* INET_SOCKET_ADDRESS_ALLOCATOR_SOURCE */
-#endif

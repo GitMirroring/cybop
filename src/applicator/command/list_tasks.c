@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LIST_TASKS_SOURCE
-#define LIST_TASKS_SOURCE
-
 //
 // Library interface
 //
@@ -105,6 +102,3 @@ void apply_list_tasks(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_list_tasks(lmd, amd, vmd);
 }
-
-/* LIST_TASKS_SOURCE */
-#endif

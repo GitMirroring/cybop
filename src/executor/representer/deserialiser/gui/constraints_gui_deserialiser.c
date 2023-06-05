@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONSTRAINTS_GUI_DESERIALISER_SOURCE
-#define CONSTRAINTS_GUI_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -106,6 +103,3 @@ void deserialise_gui_constraints(void* p0, void* p1, void* p2, void* p3, void* p
     // Deserialise gui action properties.
     deserialise_gui_action(p0, p1, mmd, mmc, mpd, mpc, mfd, p4, p5, p6, p7);
 }
-
-/* CONSTRAINTS_GUI_DESERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DECIMAL_FRACTION_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE
-#define DECIMAL_FRACTION_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -78,6 +75,3 @@ void deserialise_numeral_assembler_fraction_decimal(void* p0, void* p1, void* p2
     // Multiply destination decimal fraction with algebraic sign factor.
     calculate_double_multiply(p0, (void*) &s);
 }
-
-/* DECIMAL_FRACTION_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE */
-#endif

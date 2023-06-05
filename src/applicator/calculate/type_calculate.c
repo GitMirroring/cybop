@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TYPE_CALCULATE_SOURCE
-#define TYPE_CALCULATE_SOURCE
-
 //
 // System interface
 //
@@ -86,6 +83,3 @@ void apply_calculate_type(void* p0, void* p1, void* p2, void* p3, void* p4, void
         fwprintf(stdout, L"Error: Result type: %i. Operand type: %i.\n", *((int*) p3), *((int*) p4));
     }
 }
-
-/* TYPE_CALCULATE_SOURCE */
-#endif

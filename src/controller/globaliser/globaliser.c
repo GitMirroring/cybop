@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef GLOBALISER_SOURCE
-#define GLOBALISER_SOURCE
-
 //
 // System interface
 //
@@ -70,6 +67,3 @@ void globalise() {
     globalise_log();
     globalise_reference_counter();
 }
-
-/* GLOBALISER_SOURCE */
-#endif

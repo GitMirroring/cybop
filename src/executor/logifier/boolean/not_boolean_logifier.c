@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NOT_BOOLEAN_LOGIFIER_SOURCE
-#define NOT_BOOLEAN_LOGIFIER_SOURCE
-
 //
 // Library interface
 //
@@ -53,6 +50,3 @@ void logify_boolean_not(void* p0) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify boolean not. The output is null.");
     }
 }
-
-/* NOT_BOOLEAN_LOGIFIER_SOURCE */
-#endif

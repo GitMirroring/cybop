@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef RECORD_BDT_XDT_DESERIALISER_SOURCE
-#define RECORD_BDT_XDT_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -103,6 +100,3 @@ void deserialise_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3) {
     // This is necessary in order to activate rubbish (garbage) collection.
     modify_item(p0, (void*) &d, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 }
-
-/* RECORD_BDT_XDT_DESERIALISER_SOURCE */
-#endif

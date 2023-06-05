@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENT_CYBOL_DESERIALISER_SOURCE
-#define ELEMENT_CYBOL_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -80,6 +77,3 @@ void deserialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     deserialise_cybol_content(p0, pmd, pmc, ppd, ppc, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
 }
-
-/* ELEMENT_CYBOL_DESERIALISER_SOURCE */
-#endif

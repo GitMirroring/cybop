@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef KNOWLEDGE_PART_GETTER_SOURCE
-#define KNOWLEDGE_PART_GETTER_SOURCE
-
 //
 // System interface
 //
@@ -147,6 +144,3 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
         fwprintf(stdout, L"Error: Could not get part knowledge. The source part is null. p1: %i\n", p1);
     }
 }
-
-/* KNOWLEDGE_PART_GETTER_SOURCE */
-#endif

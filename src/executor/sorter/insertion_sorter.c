@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INSERTION_SORTER_SOURCE
-#define INSERTION_SORTER_SOURCE
-
 //
 // Library interface
 //
@@ -44,9 +41,6 @@ void sort_insertion() {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort insertion.");
 
 }
-
-/* INSERTION_SORTER_SOURCE */
-#endif
 
 /*
     public static void sort_insertion(int[] a) {

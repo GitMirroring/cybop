@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DECIMALS_NUMERAL_SERIALISER_SOURCE
-#define DECIMALS_NUMERAL_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -178,6 +175,3 @@ void serialise_numeral_decimals(void* p0, void* p1, void* p2, void* p3) {
         }
     }
 }
-
-/* DECIMALS_NUMERAL_SERIALISER_SOURCE */
-#endif

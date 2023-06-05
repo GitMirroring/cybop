@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef QYYYY_DATETIME_XDT_SERIALISER_SOURCE
-#define QYYYY_DATETIME_XDT_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -139,6 +136,3 @@ void serialise_xdt_datetime_qyyyy(void* p0, void* p1, void* p2) {
     // be negative or zero, but have at least a value of ONE.
     deallocate_item((void*) &yi, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* QYYYY_DATETIME_XDT_SERIALISER_SOURCE */
-#endif

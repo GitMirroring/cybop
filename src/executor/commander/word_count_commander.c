@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WORD_COUNT_COMMANDER_SOURCE
-#define WORD_COUNT_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -219,6 +216,3 @@ void command_word_count(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* WORD_COUNT_COMMANDER_SOURCE */
-#endif

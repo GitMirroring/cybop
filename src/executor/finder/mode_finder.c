@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MODE_FINDER_SOURCE
-#define MODE_FINDER_SOURCE
-
 //
 // System interface
 //
@@ -96,6 +93,3 @@ void find_mode(void* p0, void* p1, void* p2, void* p3) {
         copy_array_forward(p0, se, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_CLIENTS_SERVER_STATE_CYBOI_NAME);
     }
 }
-
-/* MODE_FINDER_SOURCE */
-#endif

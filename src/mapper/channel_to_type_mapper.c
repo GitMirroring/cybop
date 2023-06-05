@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHANNEL_TO_TYPE_MAPPER_SOURCE
-#define CHANNEL_TO_TYPE_MAPPER_SOURCE
-
 //
 // System interface
 //
@@ -147,6 +144,3 @@ void map_channel_to_type(void* p0, void* p1) {
         //?? fwprintf(stdout, L"Warning: Could not map channel to type. The channel is unknown. This is unproblematic, since channels like signal do not use a buffer. channel p1: %i\n", *((int*) p1));
     }
 }
-
-/* CHANNEL_TO_TYPE_MAPPER_SOURCE */
-#endif

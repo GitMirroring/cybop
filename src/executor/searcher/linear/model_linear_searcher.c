@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MODEL_LINEAR_SEARCHER_SOURCE
-#define MODEL_LINEAR_SEARCHER_SOURCE
-
 //
 // Library interface
 //
@@ -104,6 +101,3 @@ void search_linear_model(void* p0, void* p1, void* p2, void* p3, void* p4) {
         fwprintf(stdout, L"Warning: Could not search linear model. The model does not contain primitive data but further parts, and arbitrarily deep trees do not make sense for search. *td: %i\n", *((int*) td));
     }
 }
-
-/* MODEL_LINEAR_SEARCHER_SOURCE */
-#endif

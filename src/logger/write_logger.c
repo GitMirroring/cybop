@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WRITE_LOGGER_SOURCE
-#define WRITE_LOGGER_SOURCE
-
 //
 // System interface
 //
@@ -79,6 +76,3 @@ void log_write(void* p0, void* p1) {
         fwprintf(stdout, L"Error: Could not log write. The log message is null. p1: %i\n", p1);
     }
 }
-
-/* WRITE_LOGGER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONSTRAINTS_JSON_SERIALISER_SOURCE
-#define CONSTRAINTS_JSON_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -205,6 +202,3 @@ void serialise_json_constraints(void* p0, void* p1, void* p2, void* p3, void* p4
     // Append line break.
     serialise_json_break(p0, (void*) &indentation);
 }
-
-/* CONSTRAINTS_JSON_SERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WHO_SOURCE
-#define WHO_SOURCE
-
 //
 // Library interface
 //
@@ -109,6 +106,3 @@ void apply_who(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_who(amd, bmd, dmd, lmd, smd);
 }
-
-/* WHO_SOURCE */
-#endif

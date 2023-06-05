@@ -24,9 +24,6 @@
  * @author Sandra Rum <sandra.rum@cs12-2.ba-leipzig.de>
  */
 
-#ifndef RETRIEVER_SOURCE
-#define RETRIEVER_SOURCE
-
 //
 // System interface
 //
@@ -99,6 +96,3 @@ void retrieve(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not retrieve. The minimum is greater or equal to the maximum.");
     }
 }
-
-/* RETRIEVER_SOURCE */
-#endif

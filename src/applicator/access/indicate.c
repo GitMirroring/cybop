@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INDICATE_SOURCE
-#define INDICATE_SOURCE
-
 //
 // Library interface
 //
@@ -90,6 +87,3 @@ void apply_indicate(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     // Indicate fill level of part.
     indicate_part(rmd, p, p5);
 }
-
-/* INDICATE_SOURCE */
-#endif

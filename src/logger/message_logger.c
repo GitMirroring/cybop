@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MESSAGE_LOGGER_SOURCE
-#define MESSAGE_LOGGER_SOURCE
-
 //
 // Library interface
 //
@@ -176,6 +173,3 @@ void log_message(void* p0, void* p1, void* p2) {
         //
     }
 }
-
-/* MESSAGE_LOGGER_SOURCE */
-#endif

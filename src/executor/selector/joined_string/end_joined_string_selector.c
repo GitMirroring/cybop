@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef END_JOINED_STRING_SELECTOR_SOURCE
-#define END_JOINED_STRING_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -89,6 +86,3 @@ void select_joined_string_end(void* p0, void* p1, void* p2, void* p3, void* p4, 
         select_joined_string_end_quotation(p0, p1, p2, p5, p6, p7, p8, p9, p10, p12);
     }
 }
-
-/* END_JOINED_STRING_SELECTOR_SOURCE */
-#endif

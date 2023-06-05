@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INDENTATION_XML_SERIALISER_SOURCE
-#define INDENTATION_XML_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -98,6 +95,3 @@ void serialise_xml_indentation(void* p0, void* p1, void* p2) {
         }
     }
 }
-
-/* INDENTATION_XML_SERIALISER_SOURCE */
-#endif

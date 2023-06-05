@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BINARY_CRLF_SERIALISER_SOURCE
-#define BINARY_CRLF_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -71,6 +68,3 @@ void serialise_binary_crlf(void* p0, void* p1, void* p2) {
     fwprintf(stdout, L"Debug: Serialise binary crlf. post d: %s\n", (char*) d);
 */
 }
-
-/* BINARY_CRLF_SERIALISER_SOURCE */
-#endif

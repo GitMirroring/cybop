@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DEVICE_BSD_SOCKET_OPENER_SOURCE
-#define DEVICE_BSD_SOCKET_OPENER_SOURCE
-
 //
 // System interface
 //
@@ -145,6 +142,3 @@ void open_bsd_socket_device(void* p0, void* p1, void* p2, void* p3) {
         fwprintf(stdout, L"Error: Could not open bsd socket device. The protocol is null. p3: %i\n", p3);
     }
 }
-
-/* DEVICE_BSD_SOCKET_OPENER_SOURCE */
-#endif

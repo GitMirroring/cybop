@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DISPLAY_AWAKENER_SOURCE
-#define DISPLAY_AWAKENER_SOURCE
-
 //
 // System interface
 //
@@ -91,6 +88,3 @@ void awake_display(void* p0) {
     // Flush out event to xcb.
     xcb_flush(ct);
 }
-
-/* DISPLAY_AWAKENER_SOURCE */
-#endif

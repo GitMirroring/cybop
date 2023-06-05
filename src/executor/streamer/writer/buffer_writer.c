@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BUFFER_WRITER_SOURCE
-#define BUFFER_WRITER_SOURCE
-
 //
 // System interface
 //
@@ -77,6 +74,3 @@ void write_buffer(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Unlock mutex.
     unlock(p4);
 }
-
-/* BUFFER_WRITER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHANNEL_TO_INTERNAL_MEMORY_MAPPER_SOURCE
-#define CHANNEL_TO_INTERNAL_MEMORY_MAPPER_SOURCE
-
 //
 // System interface
 //
@@ -121,6 +118,3 @@ void map_channel_to_internal_memory(void* p0, void* p1) {
         // fwprintf(stdout, L"Warning: Could not map channel to internal memory. The channel is unknown. This is unproblematic, since e.g. the signal channel is not stored in the internal memory. channel p1: %i\n", *((int*) p1));
     }
 }
-
-/* CHANNEL_TO_INTERNAL_MEMORY_MAPPER_SOURCE */
-#endif

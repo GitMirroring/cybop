@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CYBOL_LIBRARY_SOURCE
-#define CYBOL_LIBRARY_SOURCE
-
 //
 // cybol
 //
@@ -90,6 +87,3 @@
 #include "../../../executor/representer/serialiser/model_diagram/line_model_diagram_serialiser.c"
 #include "../../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
 #include "../../../executor/representer/serialiser/model_diagram/part_model_diagram_serialiser.c"
-
-/* CYBOL_LIBRARY_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HELP_SOURCE
-#define HELP_SOURCE
-
 //
 // Library interface
 //
@@ -79,6 +76,3 @@ void apply_help(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_help(mmd, mmc);
 }
-
-/* ECHO_MESSAGE_SOURCE */
-#endif

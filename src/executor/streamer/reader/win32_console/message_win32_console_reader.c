@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MESSAGE_WIN32_CONSOLE_READER_SOURCE
-#define MESSAGE_WIN32_CONSOLE_READER_SOURCE
-
 //
 // System interface
 //
@@ -131,6 +128,3 @@ void read_win32_console_message(void* p0, void* p1, void* p2, void* p3) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read win32 console message. The input buffer size is null.");
     }
 }
-
-/* MESSAGE_WIN32_CONSOLE_READER_SOURCE */
-#endif

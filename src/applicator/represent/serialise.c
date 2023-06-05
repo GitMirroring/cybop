@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SERIALISE_SOURCE
-#define SERIALISE_SOURCE
-
 //
 // Library interface
 //
@@ -135,6 +132,3 @@ void apply_serialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //
     serialise(dm, smd, smc, spd, spc, lpd, lpc, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, fmd, lmd);
 }
-
-/* SERIALISE_SOURCE */
-#endif

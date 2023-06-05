@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef IDENTIFY_SOURCE
-#define IDENTIFY_SOURCE
-
 //
 // System interface
 //
@@ -93,6 +90,3 @@ void apply_identify(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //?? fwprintf(stdout, L"\n\n\nDebug: Apply identify. imd: %i\n", imd);
     //?? fwprintf(stdout, L"Debug: Apply identify. *imd: %i\n\n\n\n", *((int*) imd));
 }
-
-/* IDENTIFY_SOURCE */
-#endif

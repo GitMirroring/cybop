@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MESSAGE_LENGTH_DESERIALISER_SOURCE
-#define MESSAGE_LENGTH_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -124,6 +121,3 @@ void deserialise_message_length(void* p0, void* p1, void* p2, void* p3) {
         fwprintf(stdout, L"Warning: Deserialise message length. The language (protocol) is not known. *p3: %i\n", *((int*) p3));
     }
 }
-
-/* MESSAGE_LENGTH_DESERIALISER_SOURCE */
-#endif

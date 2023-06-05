@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ATTRIBUTES_XML_SERIALISER_SOURCE
-#define ATTRIBUTES_XML_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -83,6 +80,3 @@ void serialise_xml_attributes(void* p0, void* p1, void* p2) {
         j++;
     }
 }
-
-/* ATTRIBUTES_XML_SERIALISER_SOURCE */
-#endif

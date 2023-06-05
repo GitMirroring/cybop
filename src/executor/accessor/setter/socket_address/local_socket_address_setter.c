@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LOCAL_SOCKET_ADDRESS_SETTER_SOURCE
-#define LOCAL_SOCKET_ADDRESS_SETTER_SOURCE
-
 //
 // System interface
 //
@@ -201,6 +198,3 @@ void set_socket_address_local(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Error: Could not set socket address local. The file name count is null. p2: %i\n", p2);
     }
 }
-
-/* LOCAL_SOCKET_ADDRESS_SETTER_SOURCE */
-#endif

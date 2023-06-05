@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LOG_UNGLOBALISER_SOURCE
-#define LOG_UNGLOBALISER_SOURCE
-
 /**
  * Finalises log global variables.
  */
@@ -45,10 +42,7 @@ void unglobalise_log() {
     // Programs should deal only with pointers to these objects (FILE* values),
     // rather than the objects themselves.
     //
-    // Hence, the following line would not make sense and is FORBIDDEN:
+    // Hence, the following line would NOT make sense and is FORBIDDEN:
     // free(LOG_OUTPUT);
     //
 }
-
-/* LOG_UNGLOBALISER_SOURCE */
-#endif

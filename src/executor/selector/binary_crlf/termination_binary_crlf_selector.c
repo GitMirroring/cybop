@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TERMINATION_BINARY_CRLF_SELECTOR_SOURCE
-#define TERMINATION_BINARY_CRLF_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -77,6 +74,3 @@ void select_binary_crlf_termination(void* p0, void* p1, void* p2, void* p3, void
         calculate_integer_add(p3, (void*) &step);
     }
 }
-
-/* TERMINATION_BINARY_CRLF_SELECTOR_SOURCE */
-#endif

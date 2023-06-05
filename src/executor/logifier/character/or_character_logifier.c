@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef OR_CHARACTER_LOGIFIER_SOURCE
-#define OR_CHARACTER_LOGIFIER_SOURCE
-
 //
 // Library interface
 //
@@ -63,6 +60,3 @@ void logify_character_or(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify character or. The mask is null.");
     }
 }
-
-/* OR_CHARACTER_LOGIFIER_SOURCE */
-#endif

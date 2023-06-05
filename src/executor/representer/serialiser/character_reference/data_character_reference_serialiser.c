@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DATA_CHARACTER_REFERENCE_SERIALISER_SOURCE
-#define DATA_CHARACTER_REFERENCE_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -92,6 +89,3 @@ void serialise_character_reference_data(void* p0, void* p1, void* p2, void* p3) 
         move(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
-
-/* DATA_CHARACTER_REFERENCE_SERIALISER_SOURCE */
-#endif

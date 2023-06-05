@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PROCESS_WIN32_CONSOLE_READER_SOURCE
-#define PROCESS_WIN32_CONSOLE_READER_SOURCE
-
 //
 // Library interface
 //
@@ -128,6 +125,3 @@ void read_win32_console_process(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read win32 console process. The event type is null.");
     }
 }
-
-/* PROCESS_WIN32_CONSOLE_READER_SOURCE */
-#endif

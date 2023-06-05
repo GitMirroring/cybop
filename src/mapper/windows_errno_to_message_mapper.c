@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WINDOWS_ERRNO_TO_MESSAGE_MAPPER_SOURCE
-#define WINDOWS_ERRNO_TO_MESSAGE_MAPPER_SOURCE
-
 //
 // System interface
 //
@@ -40,18 +37,6 @@
 
 #include "constant.h"
 #include "knowledge.h"
-
-//
-// Forbidden interface
-//
-// CAUTION! Do NOT include the following files since otherwise,
-// circular references would occur due to module dependencies.
-// Instead, forward declarations are used further below.
-// Therefore, the following includes are to be commented OUT
-// and listed here just for information.
-//
-
-// #include "logger.h"
 
 //
 // Forward declaration
@@ -162,6 +147,3 @@ void map_errno_to_message_windows(void* p0, void* p1) {
         fwprintf(stdout, L"Error: Could not map errno to message windows. The errno value is null. p1: %i\n", p1);
     }
 }
-
-/* WINDOWS_ERRNO_TO_MESSAGE_MAPPER_SOURCE */
-#endif

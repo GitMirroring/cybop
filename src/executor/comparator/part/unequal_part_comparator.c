@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef UNEQUAL_PART_COMPARATOR_SOURCE
-#define UNEQUAL_PART_COMPARATOR_SOURCE
-
 //
 // Library interface
 //
@@ -73,6 +70,3 @@ void compare_part_unequal(void* p0, void* p1, void* p2) {
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
-
-/* UNEQUAL_PART_COMPARATOR_SOURCE */
-#endif

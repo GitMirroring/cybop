@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CREATE_DIRECTORY_COMMANDER_SOURCE
-#define CREATE_DIRECTORY_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -145,6 +142,3 @@ void command_create_directory(void* p0, void* p1) {
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* CREATE_DIRECTORY_COMMANDER_SOURCE */
-#endif

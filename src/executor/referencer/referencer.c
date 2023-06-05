@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef REFERENCER_SOURCE
-#define REFERENCER_SOURCE
-
 //
 // Library interface
 //
@@ -59,6 +56,3 @@ void reference(void* p0, void* p1, void* p2, void* p3, void* p4) {
         reference_array(p0, p1, p2, p3, p4);
     }
 }
-
-/* REFERENCER_SOURCE */
-#endif

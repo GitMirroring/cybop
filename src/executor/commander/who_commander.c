@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WHO_COMMANDER_SOURCE
-#define WHO_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -197,6 +194,3 @@ void command_who(void* amd, void* bmd, void* dmd, void* lmd, void* smd) {
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* WHO_COMMANDER_SOURCE */
-#endif

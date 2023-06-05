@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CRITERION_BUBBLE_SORTER_SOURCE
-#define CRITERION_BUBBLE_SORTER_SOURCE
-
 //
 // System interface
 //
@@ -102,6 +99,3 @@ void sort_bubble_criterion(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sort bubble part. The comparison criterion type is not WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE.\n");
     }
 }
-
-/* CRITERION_BUBBLE_SORTER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PUSHER_SOURCE
-#define PUSHER_SOURCE
-
 //
 // System interface
 //
@@ -108,6 +105,3 @@ void push(void* p0, void* p1, void* p2, void* p3, void* p4) {
         j++;
     }
 }
-
-/* PUSHER_SOURCE */
-#endif

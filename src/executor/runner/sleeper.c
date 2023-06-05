@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SLEEPER_SOURCE
-#define SLEEPER_SOURCE
-
 //
 // System interface
 //
@@ -88,6 +85,3 @@ void sleep_duration(void* p0, void* p1) {
         fwprintf(stdout, L"Error: Could not sleep. The operation format is unknown.\n");
     }
 }
-
-/* SLEEPER_SOURCE */
-#endif

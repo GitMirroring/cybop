@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PIPE_OPENER_SOURCE
-#define PIPE_OPENER_SOURCE
-
 //
 // Library interface
 //
@@ -58,6 +55,3 @@ void open_pipe(void* p0) {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* PIPE_OPENER_SOURCE */
-#endif

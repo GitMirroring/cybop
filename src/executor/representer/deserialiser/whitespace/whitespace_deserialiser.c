@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WHITESPACE_DESERIALISER_SOURCE
-#define WHITESPACE_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -86,6 +83,3 @@ void deserialise_whitespace(void* p0, void* p1) {
         select_whitespace_non((void*) &b, p0, p1);
     }
 }
-
-/* WHITESPACE_DESERIALISER_SOURCE */
-#endif

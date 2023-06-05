@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NAND_INTEGER_LOGIFIER_SOURCE
-#define NAND_INTEGER_LOGIFIER_SOURCE
-
 //
 // Library interface
 //
@@ -68,6 +65,3 @@ void logify_integer_nand(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify integer nand. The mask is null.");
     }
 }
-
-/* NAND_INTEGER_LOGIFIER_SOURCE */
-#endif

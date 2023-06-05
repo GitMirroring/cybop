@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef KILL_SOURCE
-#define KILL_SOURCE
-
 //
 // Library interface
 //
@@ -83,6 +80,3 @@ void apply_kill(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_kill(pmd, pmc);
 }
-
-/* ECHO_MESSAGE_SOURCE */
-#endif

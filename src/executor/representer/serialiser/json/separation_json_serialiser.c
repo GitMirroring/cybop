@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SEPARATION_JSON_SERIALISER_SOURCE
-#define SEPARATION_JSON_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -50,6 +47,3 @@ void serialise_json_separation(void* p0, void* p1) {
     // Append space character.
     serialise_json_space(p0, p1);
 }
-
-/* SEPARATION_JSON_SERIALISER_SOURCE */
-#endif

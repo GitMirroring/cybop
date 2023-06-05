@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLIENT_ENABLER_SOURCE
-#define CLIENT_ENABLER_SOURCE
-
 //
 // System interface
 //
@@ -98,6 +95,3 @@ void enable_client(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Warning: Could not enable client. The channel is unknown. Channel *p2: %i\n", *((int*) p2));
     }
 }
-
-/* CLIENT_ENABLER_SOURCE */
-#endif

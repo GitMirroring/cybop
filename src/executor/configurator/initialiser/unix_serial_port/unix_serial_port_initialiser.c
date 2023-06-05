@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef UNIX_SERIAL_PORT_INITIALISER_SOURCE
-#define UNIX_SERIAL_PORT_INITIALISER_SOURCE
-
 //
 // System interface
 //
@@ -164,6 +161,3 @@ void initialise_unix_serial_port(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise unix serial port. The terminal mode is null.");
     }
 }
-
-/* UNIX_SERIAL_PORT_INITIALISER_SOURCE */
-#endif

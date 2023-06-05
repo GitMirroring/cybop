@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMPARISON_LINEAR_SEARCHER_SOURCE
-#define COMPARISON_LINEAR_SEARCHER_SOURCE
-
 //
 // Library interface
 //
@@ -83,6 +80,3 @@ void search_linear_comparison(void* p0, void* p1, void* p2, void* p3, void* p4, 
         fwprintf(stdout, L"Warning: Could not search linear comparison. The element type and searchword type are unequal. *p3: %i, *p6: %i\n", *((int*) p3), *((int*) p6));
     }
 }
-
-/* COMPARISON_LINEAR_SEARCHER_SOURCE */
-#endif

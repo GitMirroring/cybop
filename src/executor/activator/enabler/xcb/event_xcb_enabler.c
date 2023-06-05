@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef EVENT_XCB_ENABLER_SOURCE
-#define EVENT_XCB_ENABLER_SOURCE
-
 //
 // System interface
 //
@@ -90,6 +87,3 @@ void enable_xcb_event(void* p0, void* p1) {
         fwprintf(stdout, L"Error: Could not enable xcb event. The source connexion is null. p1: %i\n", p1);
     }
 }
-
-/* EVENT_XCB_ENABLER_SOURCE */
-#endif

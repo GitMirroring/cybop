@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LOCAL_SOCKET_ADDRESS_ALLOCATOR_SOURCE
-#define LOCAL_SOCKET_ADDRESS_ALLOCATOR_SOURCE
-
 //
 // System interface
 //
@@ -56,7 +53,7 @@ void allocate_socket_address_local(void* p0, void* p1, void* p2, void* p3) {
 
         void** ad = (void**) p0;
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate socket address local.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate socket address local.");
 
         //
         // Allocate socket address.
@@ -85,6 +82,3 @@ void allocate_socket_address_local(void* p0, void* p1, void* p2, void* p3) {
         fwprintf(stdout, L"Error: Could not allocate socket address local. The address data is null. p0: %i\n", p0);
     }
 }
-
-/* LOCAL_SOCKET_ADDRESS_ALLOCATOR_SOURCE */
-#endif

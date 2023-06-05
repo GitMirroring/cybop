@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LEADING_STRIPPER_SOURCE
-#define LEADING_STRIPPER_SOURCE
-
 //
 // System interface
 //
@@ -82,6 +79,3 @@ void strip_leading(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
         fwprintf(stdout, L"Warning: Could not strip leading. The source type is not wide character. type *p5: %i\n", *((int*) p5));
     }
 }
-
-/* LEADING_STRIPPER_SOURCE */
-#endif

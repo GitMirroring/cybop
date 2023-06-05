@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef POINTER_CALCULATOR_SOURCE
-#define POINTER_CALCULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -73,6 +70,3 @@ void calculate_pointer(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate pointer. The operation type is unknown.");
     }
 }
-
-/* POINTER_CALCULATOR_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SET_INTEGER_MANIPULATOR_SOURCE
-#define SET_INTEGER_MANIPULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -53,6 +50,3 @@ void manipulate_integer_set(void* p0, void* p1) {
     // Apply or.
     logify_integer_or(p0, (void*) &b);
 }
-
-/* SET_INTEGER_MANIPULATOR_SOURCE */
-#endif

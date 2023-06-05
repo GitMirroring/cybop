@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMPLEX_COPIER_SOURCE
-#define COMPLEX_COPIER_SOURCE
-
 //
 // Library interface
 //
@@ -56,6 +53,3 @@ void copy_complex(void* p0, void* p1) {
     set_complex_element(p0, (void*) &r, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
     set_complex_element(p0, (void*) &i, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
 }
-
-/* COMPLEX_COPIER_SOURCE */
-#endif

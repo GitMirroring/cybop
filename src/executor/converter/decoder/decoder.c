@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DECODER_SOURCE
-#define DECODER_SOURCE
-
 //
 // System interface
 //
@@ -165,6 +162,3 @@ void decode(void* p0, void* p1, void* p2, void* p3) {
         fwprintf(stdout, L"Warning: Could not decode. The encoding is unknown or null. encoding *p3: %i\n", *((int*) p3));
     }
 }
-
-/* DECODER_SOURCE */
-#endif

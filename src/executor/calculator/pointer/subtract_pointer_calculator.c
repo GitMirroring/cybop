@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SUBTRACT_POINTER_CALCULATOR_SOURCE
-#define SUBTRACT_POINTER_CALCULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -78,6 +75,3 @@ void calculate_pointer_subtract(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate pointer subtract. The subtrahend is null.");
     }
 }
-
-/* SUBTRACT_POINTER_CALCULATOR_SOURCE */
-#endif

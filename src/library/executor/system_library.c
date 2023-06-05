@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SYSTEM_LIBRARY_SOURCE
-#define SYSTEM_LIBRARY_SOURCE
-
 //
 // porter
 //
@@ -62,6 +59,3 @@
 //
 
 #include "../../executor/timer/current_timer.c"
-
-/* SYSTEM_LIBRARY_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LOG_FILE_DEOPTIONALISER_SOURCE
-#define LOG_FILE_DEOPTIONALISER_SOURCE
-
 //
 // System interface
 //
@@ -137,6 +134,3 @@ void deoptionalise_log_file(void* p0) {
         log_write((void*) stdout, L"Error: Could not deoptionalise log file. The file descriptor is null.\n");
     }
 }
-
-/* LOG_FILE_DEOPTIONALISER_SOURCE */
-#endif

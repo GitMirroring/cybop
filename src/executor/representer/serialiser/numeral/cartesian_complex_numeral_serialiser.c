@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CARTESIAN_COMPLEX_NUMERAL_SERIALISER_SOURCE
-#define CARTESIAN_COMPLEX_NUMERAL_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -83,6 +80,3 @@ void serialise_numeral_complex_cartesian(void* p0, void* p1, void* p2, void* p3,
     //
     serialise_numeral_fraction_decimal(p0, (void*) &i, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4, p5, p6, p7, p8, p9);
 }
-
-/* CARTESIAN_COMPLEX_NUMERAL_SERIALISER_SOURCE */
-#endif

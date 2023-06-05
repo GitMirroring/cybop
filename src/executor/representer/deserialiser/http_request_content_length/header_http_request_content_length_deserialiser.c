@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HEADER_HTTP_REQUEST_CONTENT_LENGTH_DESERIALISER_SOURCE
-#define HEADER_HTTP_REQUEST_CONTENT_LENGTH_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -92,6 +89,3 @@ void deserialise_http_request_content_length_header(void* p0, void* p1, void* p2
         select_http_request_content_length_header(p0, p1, p2, (void*) &hc, (void*) &b);
     }
 }
-
-/* HEADER_HTTP_REQUEST_CONTENT_LENGTH_DESERIALISER_SOURCE */
-#endif

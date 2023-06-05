@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef END_KNOWLEDGE_SELECTOR_SOURCE
-#define END_KNOWLEDGE_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -219,6 +216,3 @@ void select_knowledge_end(void* p0, void* p1, void* p2, void* p3, void* p4, void
         calculate_integer_add(p4, (void*) &step);
     }
 }
-
-/* END_KNOWLEDGE_SELECTOR_SOURCE */
-#endif

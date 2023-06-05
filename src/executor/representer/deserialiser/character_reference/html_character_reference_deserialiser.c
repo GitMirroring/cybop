@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HTML_CHARACTER_REFERENCE_DESERIALISER_SOURCE
-#define HTML_CHARACTER_REFERENCE_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -22428,6 +22425,3 @@ void deserialise_character_reference_html(void* p0, void* p1, void* p2) {
         }
     }
 }
-
-/* HTML_CHARACTER_REFERENCE_DESERIALISER_SOURCE */
-#endif

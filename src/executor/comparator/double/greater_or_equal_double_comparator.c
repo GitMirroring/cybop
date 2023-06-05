@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef GREATER_OR_EQUAL_DOUBLE_COMPARATOR_SOURCE
-#define GREATER_OR_EQUAL_DOUBLE_COMPARATOR_SOURCE
-
 //
 // Library interface
 //
@@ -70,6 +67,3 @@ void compare_double_greater_or_equal(void* p0, void* p1, void* p2) {
         // It might use functions that cause circular references.
     }
 }
-
-/* GREATER_OR_EQUAL_DOUBLE_COMPARATOR_SOURCE */
-#endif

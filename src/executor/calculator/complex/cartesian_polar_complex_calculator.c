@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CARTESIAN_POLAR_COMPLEX_CALCULATOR_SOURCE
-#define CARTESIAN_POLAR_COMPLEX_CALCULATOR_SOURCE
-
 //
 // System interface
 //
@@ -100,6 +97,3 @@ void calculate_complex_polar_cartesian(void* p0, void* p1, void* p2, void* p3) {
         fwprintf(stdout, L"Error: Could not calculate complex polar cartesian. The source cartesian coordinates imaginary part is null. imaginary part p3: %i\n", p3);
     }
 }
-
-/* CARTESIAN_POLAR_COMPLEX_CALCULATOR_SOURCE */
-#endif

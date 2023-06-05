@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STRING_XML_DESERIALISER_SOURCE
-#define STRING_XML_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -112,6 +109,3 @@ void deserialise_xml_string(void* p0, void* p1, void* p2, void* p3, void* p4) {
         deallocate_item((void*) &n, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     }
 }
-
-/* STRING_XML_DESERIALISER_SOURCE */
-#endif

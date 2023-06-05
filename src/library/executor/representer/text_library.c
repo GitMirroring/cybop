@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TEXT_LIBRARY_SOURCE
-#define TEXT_LIBRARY_SOURCE
-
 //
 // ascii
 //
@@ -88,6 +85,3 @@
 
 #include "../../../executor/selector/whitespace/non_whitespace_selector.c"
 #include "../../../executor/selector/whitespace/whitespace_selector.c"
-
-/* TEXT_LIBRARY_SOURCE */
-#endif

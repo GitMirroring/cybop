@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef UNIX_PIPE_CLOSER_SOURCE
-#define UNIX_PIPE_CLOSER_SOURCE
-
 //
 // System interface
 //
@@ -80,6 +77,3 @@ void close_unix_pipe(void* p0) {
         fwprintf(stdout, L"Error: Could not close unix pipe. The file descriptor array is null. p0: %i\n", p0);
     }
 }
-
-/* UNIX_PIPE_CLOSER_SOURCE */
-#endif

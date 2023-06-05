@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ADD_COMPLEX_CALCULATOR_SOURCE
-#define ADD_COMPLEX_CALCULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -69,6 +66,3 @@ void calculate_complex_add(void* p0, void* p1) {
     set_complex_element((void*) p0, (void*) &dr, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
     set_complex_element((void*) p0, (void*) &di, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
 }
-
-/* ADD_COMPLEX_CALCULATOR_SOURCE */
-#endif

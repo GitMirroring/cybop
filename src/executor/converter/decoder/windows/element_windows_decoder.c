@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENT_WINDOWS_DECODER_SOURCE
-#define ELEMENT_WINDOWS_DECODER_SOURCE
-
 //
 // Library interface
 //
@@ -56,6 +53,3 @@ void decode_windows_element(void* p0, void* p1, void* p2, void* p3) {
     // Decode source character.
     decode_windows_character(p0, (void*) &c, p3);
 }
-
-/* ELEMENT_WINDOWS_DECODER_SOURCE */
-#endif

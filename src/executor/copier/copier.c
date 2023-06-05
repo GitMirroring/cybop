@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COPIER_SOURCE
-#define COPIER_SOURCE
-
 //
 // System interface
 //
@@ -297,6 +294,3 @@ void copy(void* p0, void* p1, void* p2, void* p3) {
         fwprintf(stdout, L"Warning: Could not copy. The operand type is unknown. *p2: %i\n", *((int*) p2));
     }
 }
-
-/* COPIER_SOURCE */
-#endif

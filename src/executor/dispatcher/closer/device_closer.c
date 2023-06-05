@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DEVICE_CLOSER_SOURCE
-#define DEVICE_CLOSER_SOURCE
-
 //
 // System interface
 //
@@ -137,6 +134,3 @@ void close_device(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Warning: Could not close device. The channel is unknown. channel *p2: %i\n", *((int*) p2));
     }
 }
-
-/* DEVICE_CLOSER_SOURCE */
-#endif

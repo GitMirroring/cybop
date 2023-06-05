@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef VECTOR_COMPARATOR_SOURCE
-#define VECTOR_COMPARATOR_SOURCE
-
 //
 // Library interface
 //
@@ -62,6 +59,3 @@ void compare_vector(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     // Add offset to left- and right operand.
     compare_offset(r, p1, p2, p3, p4, p5);
 }
-
-/* VECTOR_COMPARATOR_SOURCE */
-#endif

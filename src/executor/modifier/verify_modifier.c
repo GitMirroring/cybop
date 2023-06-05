@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef VERIFY_MODIFIER_SOURCE
-#define VERIFY_MODIFIER_SOURCE
-
 //
 // Library interface
 //
@@ -100,6 +97,3 @@ void modify_verify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
         verify_double_index_count(p0, p1, p2, p3, p5, p5);
     }
 }
-
-/* VERIFY_MODIFIER_SOURCE */
-#endif

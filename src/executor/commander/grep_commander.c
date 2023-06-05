@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef GREP_COMMANDER_SOURCE
-#define GREP_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -151,6 +148,3 @@ void command_grep(void* pmd, void* pmc, void* fmd, void* fmc) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not execute command grep. The pattern is null.");
     }
 }
-
-/* GREP_COMMANDER_SOURCE */
-#endif

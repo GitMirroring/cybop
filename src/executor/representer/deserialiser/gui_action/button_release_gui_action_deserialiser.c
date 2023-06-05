@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BUTTON_RELEASE_GUI_ACTION_DESERIALISER_SOURCE
-#define BUTTON_RELEASE_GUI_ACTION_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -233,6 +230,3 @@ void deserialise_gui_action_button_release(void* p0, void* p1, void* p2, void* p
         fwprintf(stdout, L"Error: Could not deserialise gui action button release. The event y coordinate is null.\n");
     }
 }
-
-/* BUTTON_RELEASE_GUI_ACTION_DESERIALISER_SOURCE */
-#endif

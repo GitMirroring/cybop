@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NOR_CHARACTER_LOGIFIER_SOURCE
-#define NOR_CHARACTER_LOGIFIER_SOURCE
-
 //
 // Library interface
 //
@@ -68,6 +65,3 @@ void logify_character_nor(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify character nor. The mask is null.");
     }
 }
-
-/* NOR_CHARACTER_LOGIFIER_SOURCE */
-#endif

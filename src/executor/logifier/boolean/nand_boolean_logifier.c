@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NAND_BOOLEAN_LOGIFIER_SOURCE
-#define NAND_BOOLEAN_LOGIFIER_SOURCE
-
 //
 // Library interface
 //
@@ -63,6 +60,3 @@ void logify_boolean_nand(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify boolean nand. The input is null.");
     }
 }
-
-/* NAND_BOOLEAN_LOGIFIER_SOURCE */
-#endif

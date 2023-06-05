@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LIST_JOINED_STRING_DESERIALISER_SOURCE
-#define LIST_JOINED_STRING_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -102,6 +99,3 @@ void deserialise_joined_string_list(void* p0, void* p1, void* p2, void* p3, void
         j++;
     }
 }
-
-/* LIST_JOINED_STRING_DESERIALISER_SOURCE */
-#endif

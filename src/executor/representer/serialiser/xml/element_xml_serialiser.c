@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENT_XML_SERIALISER_SOURCE
-#define ELEMENT_XML_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -85,6 +82,3 @@ void serialise_xml_element(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // Serialise part element content.
     serialise_xml_content(p0, md, mc, pd, pc, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, fd);
 }
-
-/* ELEMENT_XML_SERIALISER_SOURCE */
-#endif

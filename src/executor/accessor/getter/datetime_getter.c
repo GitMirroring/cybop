@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DATETIME_GETTER_SOURCE
-#define DATETIME_GETTER_SOURCE
-
 //
 // Library interface
 //
@@ -103,6 +100,3 @@ void get_datetime_element(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get datetime element. The source datetime is null.");
     }
 }
-
-/* DATETIME_GETTER_SOURCE */
-#endif

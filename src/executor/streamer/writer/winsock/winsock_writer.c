@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WINSOCK_WRITER_SOURCE
-#define WINSOCK_WRITER_SOURCE
-
 //
 // System interface
 //
@@ -215,6 +212,3 @@ void write_winsock(void* p0, void* p1, void* p2, void* p3) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write winsock. The number of bytes transferred is null.");
     }
 }
-
-/* WINSOCK_WRITER_SOURCE */
-#endif

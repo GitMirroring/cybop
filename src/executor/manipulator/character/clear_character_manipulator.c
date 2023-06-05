@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLEAR_CHARACTER_MANIPULATOR_SOURCE
-#define CLEAR_CHARACTER_MANIPULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -61,6 +58,3 @@ void manipulate_character_clear(void* p0, void* p1) {
     // Apply and.
     logify_character_and(p0, (void*) &b);
 }
-
-/* CLEAR_CHARACTER_MANIPULATOR_SOURCE */
-#endif

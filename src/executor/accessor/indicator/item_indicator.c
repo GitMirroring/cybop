@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ITEM_INDICATOR_SOURCE
-#define ITEM_INDICATOR_SOURCE
-
 //
 // Library interface
 //
@@ -88,6 +85,3 @@ void indicate_item(void* p0, void* p1, void* p2) {
         }
     }
 }
-
-/* ITEM_INDICATOR_SOURCE */
-#endif

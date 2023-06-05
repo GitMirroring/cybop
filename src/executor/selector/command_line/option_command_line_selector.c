@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef OPTION_COMMAND_LINE_SELECTOR_SOURCE
-#define OPTION_COMMAND_LINE_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -81,6 +78,3 @@ void select_command_line_option(void* p0, void* p1, void* p2, void* p3) {
         calculate_integer_add(p3, (void*) &step);
     }
 }
-
-/* OPTION_COMMAND_LINE_SELECTOR_SOURCE */
-#endif

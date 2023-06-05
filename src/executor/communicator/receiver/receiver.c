@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef RECEIVER_SOURCE
-#define RECEIVER_SOURCE
-
 //
 // System interface
 //
@@ -211,6 +208,3 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // Deallocate serialised message item.
     deallocate_item((void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* RECEIVER_SOURCE */
-#endif

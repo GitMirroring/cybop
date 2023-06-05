@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INET_HOST_ADDRESS_DESERIALISER_SOURCE
-#define INET_HOST_ADDRESS_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -211,6 +208,3 @@ void deserialise_host_address_inet(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise host address inet. The inet host address is null.");
     }
 }
-
-/* INET_HOST_ADDRESS_DESERIALISER_SOURCE */
-#endif

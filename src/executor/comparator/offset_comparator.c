@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef OFFSET_COMPARATOR_SOURCE
-#define OFFSET_COMPARATOR_SOURCE
-
 //
 // Library interface
 //
@@ -64,6 +61,3 @@ void compare_offset(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     // Compare left operand with right operand.
     compare(p0, lo, ro, p3, p4);
 }
-
-/* OFFSET_COMPARATOR_SOURCE */
-#endif

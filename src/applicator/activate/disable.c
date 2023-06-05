@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DISABLE_SOURCE
-#define DISABLE_SOURCE
-
 //
 // Library interface
 //
@@ -115,6 +112,3 @@ void apply_disable(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     disable(p4, (void*) &port, cmd);
 }
-
-/* DISABLE_SOURCE */
-#endif

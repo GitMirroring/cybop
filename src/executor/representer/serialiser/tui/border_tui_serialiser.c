@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BORDER_TUI_SERIALISER_SOURCE
-#define BORDER_TUI_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -120,6 +117,3 @@ void serialise_tui_border(void* p0, void* p1, void* p2, void* p3, void* p4, void
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise tui border. The border model is unknown.");
     }
 }
-
-/* BORDER_TUI_SERIALISER_SOURCE */
-#endif

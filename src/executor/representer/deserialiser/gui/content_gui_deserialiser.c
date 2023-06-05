@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONTENT_GUI_DESERIALISER_SOURCE
-#define CONTENT_GUI_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -421,6 +418,3 @@ void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
         fwprintf(stdout, L"Warning: Could not deserialise gui content. The event name is unknown. p10: %i\n", p10);
     }
 }
-
-/* CONTENT_GUI_DESERIALISER_SOURCE */
-#endif

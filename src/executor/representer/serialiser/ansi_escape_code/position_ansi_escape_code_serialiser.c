@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef POSITION_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-#define POSITION_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -129,6 +126,3 @@ void serialise_ansi_escape_code_position(void* p0, void* p1, void* p2) {
     deallocate_item((void*) &iy, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     deallocate_item((void*) &ix, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* POSITION_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
-#endif

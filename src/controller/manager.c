@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MANAGER_SOURCE
-#define MANAGER_SOURCE
-
 //
 // System interface
 //
@@ -101,6 +98,3 @@ void manage(void* p0) {
     // Deallocate internal memory.
     deallocate_internal_memory((void*) &i);
 }
-
-/* MANAGER_SOURCE */
-#endif

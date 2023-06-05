@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BEGIN_VALUE_JSON_SELECTOR_SOURCE
-#define BEGIN_VALUE_JSON_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -663,6 +660,3 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
         move(p2, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
-
-/* BEGIN_VALUE_JSON_SELECTOR_SOURCE */
-#endif

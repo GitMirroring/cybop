@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MUTEX_THREAD_SYMBOLIC_NAME_GLOBALISER_SOURCE
-#define MUTEX_THREAD_SYMBOLIC_NAME_GLOBALISER_SOURCE
-
 //
 // System interface
 //
@@ -52,6 +49,3 @@ void globalise_symbolic_name_thread_mutex() {
     *RECURSIVE_MUTEX_TYPE_THREAD_SYMBOLIC_NAME = mtx_recursive;
     *TIMED_MUTEX_TYPE_THREAD_SYMBOLIC_NAME = mtx_timed;
 }
-
-/* MUTEX_THREAD_SYMBOLIC_NAME_GLOBALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHARACTER_WINDOWS_DECODER_SOURCE
-#define CHARACTER_WINDOWS_DECODER_SOURCE
-
 //
 // Library interface
 //
@@ -69,6 +66,3 @@ void decode_windows_character(void* p0, void* p1, void* p2) {
         }
     }
 }
-
-/* CHARACTER_WINDOWS_DECODER_SOURCE */
-#endif

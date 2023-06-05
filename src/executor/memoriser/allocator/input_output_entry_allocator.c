@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INPUT_OUTPUT_ENTRY_ALLOCATOR_SOURCE
-#define INPUT_OUTPUT_ENTRY_ALLOCATOR_SOURCE
-
 //
 // System interface
 //
@@ -106,6 +103,3 @@ void allocate_input_output_entry(void* p0) {
         fwprintf(stdout, L"Error: Could not allocate input output entry. The input output entry is null. p0: %i\n", p0);
     }
 }
-
-/* INPUT_OUTPUT_ENTRY_ALLOCATOR_SOURCE */
-#endif

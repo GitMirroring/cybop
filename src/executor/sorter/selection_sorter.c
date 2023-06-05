@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SELECTION_SORTER_SOURCE
-#define SELECTION_SORTER_SOURCE
-
 //
 // Library interface
 //
@@ -43,9 +40,6 @@ void sort_selection() {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort selection.");
 
 }
-
-/* SELECTION_SORTER_SOURCE */
-#endif
 
 /*
     public static void sort_selection(int[] a) {

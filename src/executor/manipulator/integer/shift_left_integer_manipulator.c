@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SHIFT_LEFT_INTEGER_MANIPULATOR_SOURCE
-#define SHIFT_LEFT_INTEGER_MANIPULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -63,6 +60,3 @@ void manipulate_integer_shift_left(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not manipulate integer shift left. The position is null.");
     }
 }
-
-/* SHIFT_LEFT_INTEGER_MANIPULATOR_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SYSTEM_MESSSAGES_SOURCE
-#define SYSTEM_MESSSAGES_SOURCE
-
 //
 // Library interface
 //
@@ -129,6 +126,3 @@ void apply_system_messages(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_system_messages(hmd, cmd, kmd, lmd, umd);
 }
-
-/* SYSTEM_MESSSAGES_SOURCE */
-#endif

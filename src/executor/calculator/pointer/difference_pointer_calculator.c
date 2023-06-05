@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MULTIPLY_POINTER_CALCULATOR_SOURCE
-#define MULTIPLY_POINTER_CALCULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -103,6 +100,3 @@ void calculate_pointer_difference(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate pointer difference. The subtrahend is null.");
     }
 }
-
-/* DIFFERENCE_POINTER_CALCULATOR_SOURCE */
-#endif

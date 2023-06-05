@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef POSITION_ABSOLUTE_LAYOUT_SERIALISER_SOURCE
-#define POSITION_ABSOLUTE_LAYOUT_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -49,6 +46,3 @@ void serialise_layout_absolute_position(void* p0, void* p1, void* p2, void* p3) 
     calculate_integer_add(p0, p2);
     calculate_integer_add(p1, p3);
 }
-
-/* POSITION_ABSOLUTE_LAYOUT_SERIALISER_SOURCE */
-#endif

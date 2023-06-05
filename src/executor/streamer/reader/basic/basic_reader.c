@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BASIC_READER_SOURCE
-#define BASIC_READER_SOURCE
-
 //
 // System interface
 //
@@ -224,6 +221,3 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
         fwprintf(stdout, L"Error: Could not read basic. The input memory size is null. p3: %i\n", p3);
     }
 }
-
-/* BASIC_READER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TYPE_STRING_JSON_SELECTOR_SOURCE
-#define TYPE_STRING_JSON_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -94,6 +91,3 @@ void select_json_string_type(void* p0, void* p1, void* p2, void* p3, void* p4, v
         deserialise_json_member(p0, p1, p2, p3, p4, p5, p6, p7);
     }
 }
-
-/* TYPE_STRING_JSON_SELECTOR_SOURCE */
-#endif

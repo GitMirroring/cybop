@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PROPERTIES_TUI_SERIALISER_SOURCE
-#define PROPERTIES_TUI_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -360,6 +357,3 @@ void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
         serialise_tui_origo(p0, p1, (void*) &pmdx, (void*) &pmdy);
     }
 }
-
-/* PROPERTIES_TUI_SERIALISER_SOURCE */
-#endif

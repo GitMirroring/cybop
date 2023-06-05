@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLOSER_SOURCE
-#define CLOSER_SOURCE
-
 //
 // System interface
 //
@@ -91,6 +88,3 @@ void close_client(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Execute client close lifecycle.
     close_lifecycle(p0, (void*) &ce, p2, cl, (void*) &i);
 }
-
-/* CLOSER_SOURCE */
-#endif

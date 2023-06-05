@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STRING_REVERSER_SOURCE
-#define STRING_REVERSER_SOURCE
-
 //
 // System interface
 //
@@ -97,6 +94,3 @@ void reverse_string(void* p0, void* p1, void* p2) {
         j--;
     }
 }
-
-/* STRING_REVERSER_SOURCE */
-#endif

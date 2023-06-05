@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SENDER_SOURCE
-#define SENDER_SOURCE
-
 //
 // System interface
 //
@@ -192,6 +189,3 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // Deallocate compressed character item.
     deallocate_item((void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* SENDER_SOURCE */
-#endif

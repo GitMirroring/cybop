@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ANSI_ESCAPE_CODE_DESERIALISER_SOURCE
-#define ANSI_ESCAPE_CODE_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -75,6 +72,3 @@ void deserialise_ansi_escape_code(void* p0, void* p1, void* p2) {
     //
     select_ansi_escape_code(p0, (void*) &d, (void*) &c);
 }
-
-/* ANSI_ESCAPE_CODE_DESERIALISER_SOURCE */
-#endif

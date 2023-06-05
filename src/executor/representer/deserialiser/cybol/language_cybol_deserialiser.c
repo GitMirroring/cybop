@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LANGUAGE_CYBOL_DESERIALISER_SOURCE
-#define LANGUAGE_CYBOL_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -559,6 +556,3 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Warning: Could not deserialise cybol language. The source cybol language is unknown. cybol language *p2: %i\n", *((int*) p2));
     }
 }
-
-/* LANGUAGE_CYBOL_DESERIALISER_SOURCE */
-#endif

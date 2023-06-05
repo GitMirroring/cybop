@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INTEGER_NUMERAL_DESERIALISER_SOURCE
-#define INTEGER_NUMERAL_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -151,6 +148,3 @@ void deserialise_numeral_integer(void* p0, void* p1, void* p2, void* p3) {
     // Copy result.
     copy_integer(p0, (void*) &res);
 }
-
-/* INTEGER_NUMERAL_DESERIALISER_SOURCE */
-#endif

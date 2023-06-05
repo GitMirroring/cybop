@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONSTRAINTS_MODEL_DIAGRAM_SERIALISER_SOURCE
-#define CONSTRAINTS_MODEL_DIAGRAM_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -166,6 +163,3 @@ void serialise_model_diagram_constraints(void* p0, void* p1, void* p2, void* p3,
     // Serialise model diagram.
     serialise_model_diagram_content(p0, p1, p2, p3, p4, smd, bmd, cmd, dmd, dmc, pmd, nmd, p10, (void*) &l, (void*) L"[selected_node]", (void*) NUMBER_15_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 }
-
-/* CONSTRAINTS_MODEL_DIAGRAM_SERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef VALUE_MANIPULATOR_SOURCE
-#define VALUE_MANIPULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -101,6 +98,3 @@ void manipulate_value(void* p0, void* p1, void* p2, void* p3) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not manipulate value. The operand type is null.");
     }
 }
-
-/* VALUE_MANIPULATOR_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INTERRUPT_PIPE_WRITER_SOURCE
-#define INTERRUPT_PIPE_WRITER_SOURCE
-
 //
 // System interface
 //
@@ -89,6 +86,3 @@ void write_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
         fwprintf(stdout, L"Error: Could not write interrupt pipe. The source client identification is null. p2: %i\n", p2);
     }
 }
-
-/* INTERRUPT_PIPE_WRITER_SOURCE */
-#endif

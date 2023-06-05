@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONTEXT_XCB_SERIALISER_SOURCE
-#define CONTEXT_XCB_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -360,6 +357,3 @@ void serialise_xcb_context(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     }
 */
 }
-
-/* CONTEXT_XCB_SERIALISER_SOURCE */
-#endif

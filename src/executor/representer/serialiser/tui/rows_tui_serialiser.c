@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ROWS_TUI_SERIALISER_SOURCE
-#define ROWS_TUI_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -99,6 +96,3 @@ void serialise_tui_rows(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         y++;
     }
 }
-
-/* ROWS_TUI_SERIALISER_SOURCE */
-#endif

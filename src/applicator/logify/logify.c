@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LOGIFY_SOURCE
-#define LOGIFY_SOURCE
-
 //
 // Library interface
 //
@@ -118,6 +115,3 @@ void apply_logify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // Compare output- and input type.
     apply_logify_type(omd, imd, p5, (void*) &type, itd);
 }
-
-/* LOGIFY_SOURCE */
-#endif

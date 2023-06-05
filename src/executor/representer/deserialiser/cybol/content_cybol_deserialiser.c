@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONTENT_CYBOL_DESERIALISER_SOURCE
-#define CONTENT_CYBOL_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -184,6 +181,3 @@ void deserialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4,
     // Deserialise cybol node (standard or root).
     deserialise_cybol_node(p0, snmd, snmc, scmd, scmc, sfmd, sfmc, smmd, smmc, p1, p2, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, (void*) &r);
 }
-
-/* CONTENT_CYBOL_DESERIALISER_SOURCE */
-#endif

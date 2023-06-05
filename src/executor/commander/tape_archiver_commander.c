@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TAPE_ARCHIVER_COMMANDER_SOURCE
-#define TAPE_ARCHIVER_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -378,6 +375,3 @@ void command_tape_archiver(void* smd, void* smc, void* dmd, void* dmc, void* fmd
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not command tape archiver. The destination path is null.");
     }
 }
-
-/* TAPE_ARCHIVER_COMMANDER_SOURCE */
-#endif

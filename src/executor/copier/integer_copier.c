@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INTEGER_COPIER_SOURCE
-#define INTEGER_COPIER_SOURCE
-
 //
 // Library interface
 //
@@ -63,6 +60,3 @@ void copy_integer(void* p0, void* p1) {
         // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy integer. The source is null.");
     }
 }
-
-/* INTEGER_COPIER_SOURCE */
-#endif

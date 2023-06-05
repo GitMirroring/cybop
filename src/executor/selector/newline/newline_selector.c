@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NEWLINE_SELECTOR_SOURCE
-#define NEWLINE_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -119,6 +116,3 @@ void select_newline(void* p0, void* p1, void* p2, void* p3) {
         calculate_integer_add(p3, (void*) &step);
     }
 }
-
-/* NEWLINE_SELECTOR_SOURCE */
-#endif

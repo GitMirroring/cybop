@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TI_DATETIME_SERIALISER_SOURCE
-#define TI_DATETIME_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -52,6 +49,3 @@ void serialise_datetime_ti(void* p0, void* p1, void* p2) {
 
     //?? TODO: To be defined in year 2022.
 }
-
-/* TI_DATETIME_SERIALISER_SOURCE */
-#endif

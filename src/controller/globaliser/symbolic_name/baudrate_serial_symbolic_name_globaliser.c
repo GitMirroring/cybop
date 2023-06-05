@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BAUDRATE_SERIAL_SYMBOLIC_NAME_GLOBALISER_SOURCE
-#define BAUDRATE_SERIAL_SYMBOLIC_NAME_GLOBALISER_SOURCE
-
 //
 // System interface
 //
@@ -180,6 +177,3 @@ void globalise_symbolic_name_serial_baudrate() {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* BAUDRATE_SERIAL_SYMBOLIC_NAME_GLOBALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BSD_SOCKET_ENABLER_SOURCE
-#define BSD_SOCKET_ENABLER_SOURCE
-
 //
 // System interface
 //
@@ -115,6 +112,3 @@ void enable_bsd_socket(void* p0, void* p1) {
         fwprintf(stdout, L"Error: Could not enable bsd socket. The receiver server socket is null. p1: %i\n", p1);
     }
 }
-
-/* BSD_SOCKET_ENABLER_SOURCE */
-#endif

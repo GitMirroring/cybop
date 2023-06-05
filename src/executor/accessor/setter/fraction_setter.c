@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FRACTION_SETTER_SOURCE
-#define FRACTION_SETTER_SOURCE
-
 //
 // System interface
 //
@@ -127,6 +124,3 @@ void set_fraction_element(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Warning: Could not set fraction element. The destination fraction is null. destination fraction p0 the same as e: %i\n", e);
     }
 }
-
-/* FRACTION_SETTER_SOURCE */
-#endif

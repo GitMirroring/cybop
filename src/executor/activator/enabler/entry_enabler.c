@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ENTRY_ENABLER_SOURCE
-#define ENTRY_ENABLER_SOURCE
-
 //
 // System interface
 //
@@ -59,6 +56,3 @@ void enable_entry(void* p0, void* p1) {
     // Set handler into server entry.
     copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_COMMUNICATION_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
-
-/* ENTRY_ENABLER_SOURCE */
-#endif

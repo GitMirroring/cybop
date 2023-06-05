@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef JSON_LIBRARY_SOURCE
-#define JSON_LIBRARY_SOURCE
-
 //
 // backslash escape
 //
@@ -80,6 +77,3 @@
 //
 
 #include "../../../executor/selector/sign/sign_selector.c"
-
-/* JSON_LIBRARY_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SELECT_RECEIVER_SOURCE
-#define SELECT_RECEIVER_SOURCE
-
 //
 // Library interface
 //
@@ -173,6 +170,3 @@ void receive_select(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
         }
     }
 }
-
-/* SELECT_RECEIVER_SOURCE */
-#endif

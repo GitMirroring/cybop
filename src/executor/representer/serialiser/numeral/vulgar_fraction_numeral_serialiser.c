@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef VULGAR_FRACTION_NUMERAL_SERIALISER_SOURCE
-#define VULGAR_FRACTION_NUMERAL_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -76,6 +73,3 @@ void serialise_numeral_fraction_vulgar(void* p0, void* p1, void* p2, void* p3, v
     // Serialise denominator.
     serialise_numeral_integer(p0, (void*) &d, p2, p3, p4, p5);
 }
-
-/* VULGAR_FRACTION_NUMERAL_SERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TERMINAL_INITIALISER_SOURCE
-#define TERMINAL_INITIALISER_SOURCE
-
 //
 // System interface
 //
@@ -83,6 +80,3 @@ void initialise_terminal(void* p0, void* p1) {
     // Deallocate terminal mode.
     deallocate_terminal_mode((void*) &m);
 }
-
-/* TERMINAL_INITIALISER_SOURCE */
-#endif

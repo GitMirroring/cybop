@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ASCII_DECODER_SOURCE
-#define ASCII_DECODER_SOURCE
-
 //
 // Library interface
 //
@@ -1328,6 +1325,3 @@ void decode_ascii(void* p0, void* p1) {
         }
     }
 }
-
-/* ASCII_DECODER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLEAR_INTEGER_MANIPULATOR_SOURCE
-#define CLEAR_INTEGER_MANIPULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -56,6 +53,3 @@ void manipulate_integer_clear(void* p0, void* p1) {
     // Apply and.
     logify_integer_and(p0, (void*) &b);
 }
-
-/* CLEAR_INTEGER_MANIPULATOR_SOURCE */
-#endif

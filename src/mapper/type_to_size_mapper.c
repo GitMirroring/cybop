@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TYPE_TO_SIZE_MAPPER_SOURCE
-#define TYPE_TO_SIZE_MAPPER_SOURCE
-
 //
 // System interface
 //
@@ -233,6 +230,3 @@ void map_type_to_size(void* p0, void* p1) {
         fwprintf(stdout, L"Error: Could not map type to size. The type is null. p1: %i\n", p1);
     }
 }
-
-/* TYPE_TO_SIZE_MAPPER_SOURCE */
-#endif

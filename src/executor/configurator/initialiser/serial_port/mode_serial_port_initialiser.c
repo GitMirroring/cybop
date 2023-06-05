@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MODE_SERIAL_PORT_INITIALISER_SOURCE
-#define MODE_SERIAL_PORT_INITIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -55,6 +52,3 @@ void initialise_serial_port_mode(void* p0, void* p1) {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* MODE_SERIAL_PORT_INITIALISER_SOURCE */
-#endif

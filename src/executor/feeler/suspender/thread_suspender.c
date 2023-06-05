@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef THREAD_SUSPENDER_SOURCE
-#define THREAD_SUSPENDER_SOURCE
-
 //
 // System interface
 //
@@ -77,6 +74,3 @@ void suspend_thread(void* p0) {
     // Wait for thread to exit.
     cut(t);
 }
-
-/* THREAD_SUSPENDER_SOURCE */
-#endif

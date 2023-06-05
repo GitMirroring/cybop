@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHECKER_SOURCE
-#define CHECKER_SOURCE
-
 //
 // System interface
 //
@@ -122,6 +119,3 @@ void check(void* p0, void* p1) {
         check_signal(p0, (void*) &k, stm, sm, p1, p, (void*) &f);
     }
 }
-
-/* CHECKER_SOURCE */
-#endif

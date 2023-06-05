@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef REFERENCE_REPLACER_SOURCE
-#define REFERENCE_REPLACER_SOURCE
-
 //
 // System interface
 //
@@ -82,6 +79,3 @@ void replace_reference(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     //
     replace_string(p0, (void*) &d, (void*) &c, p3, p4, p5, p6);
 }
-
-/* REFERENCE_REPLACER_SOURCE */
-#endif

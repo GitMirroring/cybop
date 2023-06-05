@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PROTOCOL_SOCKET_SYMBOLIC_NAME_GLOBALISER_SOURCE
-#define PROTOCOL_SOCKET_SYMBOLIC_NAME_GLOBALISER_SOURCE
-
 //
 // System interface
 //
@@ -117,6 +114,3 @@ void globalise_symbolic_name_socket_protocol() {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* PROTOCOL_SOCKET_SYMBOLIC_NAME_GLOBALISER_SOURCE */
-#endif

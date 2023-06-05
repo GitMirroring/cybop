@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TOP_SOURCE
-#define TOP_SOURCE
-
 //
 // Library interface
 //
@@ -109,6 +106,3 @@ void apply_top(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_top(bmd, cmd, hmd, imd, smd);
 }
-
-/* TOP_SOURCE */
-#endif

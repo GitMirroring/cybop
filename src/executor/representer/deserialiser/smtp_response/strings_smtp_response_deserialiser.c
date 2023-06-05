@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STRINGS_SMTP_RESPONSE_DESERIALISER_SOURCE
-#define STRINGS_SMTP_RESPONSE_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -93,6 +90,3 @@ void deserialise_smtp_response_strings(void* p0, void* p1, void* p2, void* p3) {
         j++;
     }
 }
-
-/* STRINGS_SMTP_RESPONSE_DESERIALISER_SOURCE */
-#endif

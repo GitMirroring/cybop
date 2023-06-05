@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STUB_OPENER_SOURCE
-#define STUB_OPENER_SOURCE
-
 //
 // System interface
 //
@@ -83,6 +80,3 @@ void open_stub(void* p0, void* p1) {
     // Unlock mutex.
     unlock(bm);
 }
-
-/* STUB_OPENER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef USERINFO_AUTHORITY_DESERIALISER_SOURCE
-#define USERINFO_AUTHORITY_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -112,6 +109,3 @@ void deserialise_authority_userinfo(void* p0, void* p1, void* p2, void* p3) {
         }
     }
 }
-
-/* USERINFO_AUTHORITY_DESERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LIST_CLIENT_CHECKER_SOURCE
-#define LIST_CLIENT_CHECKER_SOURCE
-
 //
 // System interface
 //
@@ -105,6 +102,3 @@ void check_client_list(void* p0, void* p1, void* p2, void* p3, void* p4) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check client list. The client list item count and accepttime list item count are unequal.");
     }
 }
-
-/* LIST_CLIENT_CHECKER_SOURCE */
-#endif

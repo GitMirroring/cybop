@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef UNGLOBALISER_SOURCE
-#define UNGLOBALISER_SOURCE
-
 //
 // Library interface
 //
@@ -46,6 +43,3 @@ void unglobalise() {
 
     unglobalise_log();
 }
-
-/* UNGLOBALISER_SOURCE */
-#endif

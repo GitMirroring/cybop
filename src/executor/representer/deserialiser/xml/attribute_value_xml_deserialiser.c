@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ATTRIBUTE_VALUE_XML_DESERIALISER_SOURCE
-#define ATTRIBUTE_VALUE_XML_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -82,6 +79,3 @@ void deserialise_xml_attribute_value(void* p0, void* p1, void* p2, void* p3) {
         select_xml_attribute_value(p0, p1, p3, (void*) &b);
     }
 }
-
-/* ATTRIBUTE_VALUE_XML_DESERIALISER_SOURCE */
-#endif

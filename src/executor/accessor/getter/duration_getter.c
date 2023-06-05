@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DURATION_GETTER_SOURCE
-#define DURATION_GETTER_SOURCE
-
 //
 // Library interface
 //
@@ -122,6 +119,3 @@ void get_duration_element(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get duration element. The source duration is null.");
     }
 }
-
-/* DURATION_GETTER_SOURCE */
-#endif

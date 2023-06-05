@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MODEL_DIAGRAM_SERIALISER_SOURCE
-#define MODEL_DIAGRAM_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -113,6 +110,3 @@ void serialise_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4, v
         serialise_cybol(p0, p1, p2, p3, p4, p5, p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p7, p8, p9, p10, p11, p12);
     }
 }
-
-/* MODEL_DIAGRAM_SERIALISER_SOURCE */
-#endif

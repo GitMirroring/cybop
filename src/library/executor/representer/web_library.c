@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WEB_LIBRARY_SOURCE
-#define WEB_LIBRARY_SOURCE
-
 //
 // authority
 //
@@ -190,6 +187,3 @@
 //
 
 //?? TODO
-
-/* WEB_LIBRARY_SOURCE */
-#endif

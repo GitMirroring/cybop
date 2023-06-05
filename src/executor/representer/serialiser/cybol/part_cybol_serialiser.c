@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_CYBOL_SERIALISER_SOURCE
-#define PART_CYBOL_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -90,6 +87,3 @@ void serialise_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4, void
         j++;
     }
 }
-
-/* PART_CYBOL_SERIALISER_SOURCE */
-#endif

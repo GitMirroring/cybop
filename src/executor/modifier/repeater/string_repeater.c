@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STRING_REPEATER_SOURCE
-#define STRING_REPEATER_SOURCE
-
 //
 // System interface
 //
@@ -92,6 +89,3 @@ void repeat_string(void* p0, void* p1, void* p2, void* p3) {
         j++;
     }
 }
-
-/* STRING_REPEATER_SOURCE */
-#endif

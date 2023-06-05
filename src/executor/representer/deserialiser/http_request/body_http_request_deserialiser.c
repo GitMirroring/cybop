@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BODY_HTTP_REQUEST_DESERIALISER_SOURCE
-#define BODY_HTTP_REQUEST_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -76,6 +73,3 @@ void deserialise_http_request_body(void* p0, void* p1, void* p2, void* p3) {
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise http request body. The source data position is null.");
     }
 }
-
-/* BODY_HTTP_REQUEST_DESERIALISER_SOURCE */
-#endif

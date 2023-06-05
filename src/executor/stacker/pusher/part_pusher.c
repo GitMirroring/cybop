@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_PUSHER_SOURCE
-#define PART_PUSHER_SOURCE
-
 //
 // Library interface
 //
@@ -92,6 +89,3 @@ void push_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Prepare part model for push onto stack memory.
     push_model(p0, (void*) &p, pnd, pnc, pfd, pmd, pmc, p3, p4);
 }
-
-/* PART_PUSHER_SOURCE */
-#endif

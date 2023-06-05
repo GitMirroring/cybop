@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LINE_SMTP_RESPONSE_DESERIALISER_SOURCE
-#define LINE_SMTP_RESPONSE_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -93,6 +90,3 @@ void deserialise_smtp_response_line(void* p0, void* p1, void* p2, void* p3) {
     //
     deallocate_item((void*) &l, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 }
-
-/* LINE_SMTP_RESPONSE_DESERIALISER_SOURCE */
-#endif

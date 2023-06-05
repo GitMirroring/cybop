@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SPELLCHECK_COMMANDER_SOURCE
-#define SPELLCHECK_COMMANDER_SOURCE
-
 //
 // Library interface
 //
@@ -169,6 +166,3 @@ void command_spellcheck(void* pd, void* pc, void* md, void* mc,void* smd, void* 
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* SPELLCHECK_COMMANDER_SOURCE */
-#endif

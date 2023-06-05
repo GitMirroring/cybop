@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MOVING_LINEAR_SEARCHER_SOURCE
-#define MOVING_LINEAR_SEARCHER_SOURCE
-
 //
 // Library interface
 //
@@ -80,6 +77,3 @@ void search_linear_moving(void* p0, void* p1, void* p2, void* p3, void* p4, void
         calculate_integer_add(p5, p6);
     }
 }
-
-/* MOVING_LINEAR_SEARCHER_SOURCE */
-#endif

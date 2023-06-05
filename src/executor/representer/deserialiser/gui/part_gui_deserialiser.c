@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_GUI_DESERIALISER_SOURCE
-#define PART_GUI_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -111,6 +108,3 @@ void deserialise_gui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void
     //
     deserialise_gui_content(p0, p1, md, mc, pd, pc, fd, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
 }
-
-/* PART_GUI_DESERIALISER_SOURCE */
-#endif

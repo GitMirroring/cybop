@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FRACTION_GETTER_SOURCE
-#define FRACTION_GETTER_SOURCE
-
 //
 // Library interface
 //
@@ -103,6 +100,3 @@ void get_fraction_element(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get fraction element. The source fraction is null.");
     }
 }
-
-/* FRACTION_GETTER_SOURCE */
-#endif

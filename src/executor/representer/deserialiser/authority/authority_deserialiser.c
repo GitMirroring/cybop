@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef AUTHORITY_DESERIALISER_SOURCE
-#define AUTHORITY_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -85,6 +82,3 @@ void deserialise_authority(void* p0, void* p1, void* p2, void* p3) {
     // Its reference is forwarded, as it gets incremented by sub routines inside.
     deserialise_authority_userinfo(p0, p1, (void*) &d, (void*) &c);
 }
-
-/* AUTHORITY_DESERIALISER_SOURCE */
-#endif

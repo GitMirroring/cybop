@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STATE_WIN32_CONSOLE_SERIALISER_SOURCE
-#define STATE_WIN32_CONSOLE_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -100,6 +97,3 @@ void serialise_win32_console_state(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console state. The source win32 console output data is null.");
     }
 }
-
-/* STATE_WIN32_CONSOLE_SERIALISER_SOURCE */
-#endif

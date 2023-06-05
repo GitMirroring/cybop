@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef USERLOG_SOURCE
-#define USERLOG_SOURCE
-
 //
 // Library interface
 //
@@ -117,6 +114,3 @@ void apply_userlog(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_userlog(hmd, umd, smd, omd);
 }
-
-/* USERLOG_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHARACTER_DOS_DECODER_SOURCE
-#define CHARACTER_DOS_DECODER_SOURCE
-
 //
 // System interface
 //
@@ -90,6 +87,3 @@ void decode_dos_character(void* p0, void* p1, void* p2) {
         decode_dos_extension(p0, p1, p2);
     }
 }
-
-/* CHARACTER_DOS_DECODER_SOURCE */
-#endif

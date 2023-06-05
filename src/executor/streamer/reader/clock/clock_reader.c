@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLOCK_READER_SOURCE
-#define CLOCK_READER_SOURCE
-
 //
 // System interface
 //
@@ -62,6 +59,3 @@ void read_clock(void* p0) {
     //
     time_t t = time((time_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
 }
-
-/* CLOCK_READER_SOURCE */
-#endif

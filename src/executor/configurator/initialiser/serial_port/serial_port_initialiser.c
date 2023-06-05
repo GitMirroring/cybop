@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SERIAL_PORT_INITIALISER_SOURCE
-#define SERIAL_PORT_INITIALISER_SOURCE
-
 //
 // System interface
 //
@@ -83,6 +80,3 @@ void initialise_serial_port(void* p0, void* p1, void* p2) {
     // Deallocate terminal mode.
     deallocate_terminal_mode((void*) &m);
 }
-
-/* SERIAL_PORT_INITIALISER_SOURCE */
-#endif

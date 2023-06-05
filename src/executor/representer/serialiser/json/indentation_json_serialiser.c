@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INDENTATION_JSON_SERIALISER_SOURCE
-#define INDENTATION_JSON_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -66,6 +63,3 @@ void serialise_json_indentation(void* p0, void* p1, void* p2) {
         serialise_json_level(p0, p1);
     }
 }
-
-/* INDENTATION_JSON_SERIALISER_SOURCE */
-#endif

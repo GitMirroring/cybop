@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef KNOWLEDGE_LIBRARY_SOURCE
-#define KNOWLEDGE_LIBRARY_SOURCE
-
 //
 // accessor
 //
@@ -258,6 +255,3 @@
 
 #include "../../executor/verifier/double_index_count_verifier.c"
 #include "../../executor/verifier/index_count_verifier.c"
-
-/* KNOWLEDGE_LIBRARY_SOURCE */
-#endif

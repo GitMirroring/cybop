@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef THREAD_TYPE_SIZE_GLOBALISER_SOURCE
-#define THREAD_TYPE_SIZE_GLOBALISER_SOURCE
-
 //
 // System interface
 //
@@ -46,6 +43,3 @@ void globalise_type_size_thread() {
     *IDENTIFICATION_THREAD_TYPE_SIZE = sizeof (thrd_t);
     *MUTEX_THREAD_TYPE_SIZE = sizeof (mtx_t);
 }
-
-/* THREAD_TYPE_SIZE_GLOBALISER_SOURCE */
-#endif

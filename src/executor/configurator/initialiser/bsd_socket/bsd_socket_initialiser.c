@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BSD_SOCKET_INITIALISER_SOURCE
-#define BSD_SOCKET_INITIALISER_SOURCE
-
 //
 // System interface
 //
@@ -153,6 +150,3 @@ void initialise_bsd_socket(void* p0) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise bsd socket. The socket is null.");
     }
 }
-
-/* BSD_SOCKET_INITIALISER_SOURCE */
-#endif

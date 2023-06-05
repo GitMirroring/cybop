@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LIFECYCLE_SHUTTER_SOURCE
-#define LIFECYCLE_SHUTTER_SOURCE
-
 //
 // System interface
 //
@@ -41,18 +38,6 @@
 #include "knowledge.h"
 #include "logger.h"
 #include "server.h"
-
-//
-// Forbidden interface
-//
-// CAUTION! Do NOT include the following files since otherwise,
-// circular references would occur due to module dependencies.
-// Instead, forward declarations are used further below.
-// Therefore, the following includes are to be commented OUT
-// and listed here just for information.
-//
-
-// #include "../../../executor/maintainer/shutter/list_shutter.c"
 
 //
 // Forward declaration
@@ -157,6 +142,3 @@ void shutdown_lifecycle(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         fwprintf(stdout, L"Error: Could not shutdown lifecycle. The server entry is null. p3: %i\n", p3);
     }
 }
-
-/* LIFECYCLE_SHUTTER_SOURCE */
-#endif

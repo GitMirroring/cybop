@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_FIELD_XDT_DESERIALISER_SOURCE
-#define PART_FIELD_XDT_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -133,6 +130,3 @@ void deserialise_xdt_field_part(void* p0, void* p1, void* p2, void* p3, void* p4
         fwprintf(stdout, L"Could not deserialise xdt field part. The field format is invalid: %i\n", f);
     }
 }
-
-/* PART_FIELD_XDT_DESERIALISER_SOURCE */
-#endif

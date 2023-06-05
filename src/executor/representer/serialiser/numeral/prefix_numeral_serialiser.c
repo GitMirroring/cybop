@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PREFIX_NUMERAL_SERIALISER_SOURCE
-#define PREFIX_NUMERAL_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -126,6 +123,3 @@ void serialise_numeral_prefix(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Warning: Could not serialise numeral prefix. The source number base is unknown. source number base *p1: %i\n", *((int*) p1));
     }
 }
-
-/* PREFIX_NUMERAL_SERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HELP_COMMANDER_SOURCE
-#define HELP_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -109,6 +106,3 @@ void command_help(void* cd, void* cc) {
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* HELP_COMMANDER_SOURCE */
-#endif

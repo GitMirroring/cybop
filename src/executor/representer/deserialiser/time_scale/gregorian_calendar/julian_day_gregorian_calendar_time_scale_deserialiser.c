@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef JULIAN_DAY_GREGORIAN_CALENDAR_TIME_SCALE_DESERIALISER_SOURCE
-#define JULIAN_DAY_GREGORIAN_CALENDAR_TIME_SCALE_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -136,6 +133,3 @@ void deserialise_time_scale_gregorian_calendar_julian_day(void* p0, void* p1, vo
     calculate_integer_add(p0, (void*) &o1);
     calculate_integer_add(p0, (void*) &rd);
 }
-
-/* JULIAN_DAY_GREGORIAN_CALENDAR_TIME_SCALE_DESERIALISER_SOURCE */
-#endif

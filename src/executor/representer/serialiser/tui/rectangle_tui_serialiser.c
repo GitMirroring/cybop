@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef RECTANGLE_TUI_SERIALISER_SOURCE
-#define RECTANGLE_TUI_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -77,6 +74,3 @@ void serialise_tui_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // Serialise tui rows.
     serialise_tui_rows(p0, p1, (void*) &hc, (void*) &vc, (void*) &ltc, (void*) &rtc, (void*) &lbc, (void*) &rbc, p2, p3, p4, p5);
 }
-
-/* RECTANGLE_TUI_SERIALISER_SOURCE */
-#endif

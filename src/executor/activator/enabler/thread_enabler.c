@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef THREAD_ENABLER_SOURCE
-#define THREAD_ENABLER_SOURCE
-
 //
 // System interface
 //
@@ -64,6 +61,3 @@ void enable_thread(void* p0) {
     // Invoke enable function WITHIN a new thread.
     spin(t, f, p0);
 }
-
-/* THREAD_ENABLER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ARRAY_REALLOCATOR_SOURCE
-#define ARRAY_REALLOCATOR_SOURCE
-
 //
 // System interface
 //
@@ -254,6 +251,3 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
         fwprintf(stdout, L"Error: Could not reallocate array. The size is null. p2: %i\n", p2);
     }
 }
-
-/* ARRAY_REALLOCATOR_SOURCE */
-#endif

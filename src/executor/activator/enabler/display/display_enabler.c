@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DISPLAY_ENABLER_SOURCE
-#define DISPLAY_ENABLER_SOURCE
-
 //
 // Library interface
 //
@@ -54,6 +51,3 @@ void enable_display(void* p0) {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* DISPLAY_ENABLER_SOURCE */
-#endif

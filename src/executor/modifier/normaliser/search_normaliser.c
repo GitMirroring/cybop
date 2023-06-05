@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SEARCH_NORMALISER_SOURCE
-#define SEARCH_NORMALISER_SOURCE
-
 //
 // System interface
 //
@@ -111,6 +108,3 @@ void normalise_search(void* p0, void* p1, void* p2) {
         }
     }
 }
-
-/* SEARCH_NORMALISER_SOURCE */
-#endif

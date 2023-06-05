@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef UNIX_DEVICE_WRITER_SOURCE
-#define UNIX_DEVICE_WRITER_SOURCE
-
 //
 // System interface
 //
@@ -143,6 +140,3 @@ void write_unix_device(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write unix device. The argument is null.");
     }
 }
-
-/* UNIX_DEVICE_WRITER_SOURCE */
-#endif

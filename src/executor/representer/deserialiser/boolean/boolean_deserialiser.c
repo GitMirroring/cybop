@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BOOLEAN_DESERIALISER_SOURCE
-#define BOOLEAN_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -76,6 +73,3 @@ void deserialise_boolean(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise boolean value. The value cannot be interpreted.");
     }
 }
-
-/* BOOLEAN_DESERIALISER_SOURCE */
-#endif

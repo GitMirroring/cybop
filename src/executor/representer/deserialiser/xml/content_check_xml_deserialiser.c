@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONTENT_CHECK_XML_DESERIALISER_SOURCE
-#define CONTENT_CHECK_XML_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -87,6 +84,3 @@ void deserialise_xml_check_content(void* p0, void* p1, void* p2) {
         select_xml_check_content(p0, p1, p2, (void*) &b);
     }
 }
-
-/* CONTENT_CHECK_XML_DESERIALISER_SOURCE */
-#endif

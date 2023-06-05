@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef RESULT_COMPARE_SOURCE
-#define RESULT_COMPARE_SOURCE
-
 //
 // System interface
 //
@@ -82,6 +79,3 @@ void apply_compare_result(void* p0, void* p1, void* p2, void* p3, void* p4, void
         fwprintf(stdout, L"Error: Result type *p11: %i\n", *((int*) p11));
     }
 }
-
-/* RESULT_COMPARE_SOURCE */
-#endif

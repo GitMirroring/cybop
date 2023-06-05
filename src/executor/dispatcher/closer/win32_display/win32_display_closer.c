@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WIN32_DISPLAY_CLOSER_SOURCE
-#define WIN32_DISPLAY_CLOSER_SOURCE
-
 //
 // System interface
 //
@@ -48,6 +45,3 @@ void close_win32_display(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close win32 display.");
 }
-
-/* WIN32_DISPLAY_CLOSER_SOURCE */
-#endif

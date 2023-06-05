@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NO_RESOURCE_HTTP_REQUEST_URI_DESERIALISER_SOURCE
-#define NO_RESOURCE_HTTP_REQUEST_URI_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -93,6 +90,3 @@ void deserialise_no_resource_http_request_uri(void* p0, void* p1, void* p2, void
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise no resource http request uri. The comparison result is null.");
     }
 }
-
-/* NO_RESOURCE_HTTP_REQUEST_URI_DESERIALISER_SOURCE */
-#endif

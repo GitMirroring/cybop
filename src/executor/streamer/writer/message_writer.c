@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MESSAGE_WRITER_SOURCE
-#define MESSAGE_WRITER_SOURCE
-
 //
 // System interface
 //
@@ -227,6 +224,3 @@ void write_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
         fwprintf(stdout, L"Warning: Could not write message. The channel is unknown. p8: %i\n", p8);
     }
 }
-
-/* MESSAGE_WRITER_SOURCE */
-#endif

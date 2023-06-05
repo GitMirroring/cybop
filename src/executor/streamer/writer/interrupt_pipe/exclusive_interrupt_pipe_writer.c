@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef EXCLUSIVE_INTERRUPT_PIPE_WRITER_SOURCE
-#define EXCLUSIVE_INTERRUPT_PIPE_WRITER_SOURCE
-
 //
 // System interface
 //
@@ -123,6 +120,3 @@ void write_interrupt_pipe_exclusive(void* p0, void* p1, void* p2, void* p3) {
         fwprintf(stdout, L"Error: Could not write interrupt pipe exclusive. The destination interrupt pipe write file descriptor is null. p0: %i\n", p0);
     }
 }
-
-/* EXCLUSIVE_INTERRUPT_PIPE_WRITER_SOURCE */
-#endif

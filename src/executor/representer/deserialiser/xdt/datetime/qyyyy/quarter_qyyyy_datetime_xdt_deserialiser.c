@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef QUARTER_QYYYY_DATETIME_XDT_DESERIALISER_SOURCE
-#define QUARTER_QYYYY_DATETIME_XDT_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -98,6 +95,3 @@ void deserialise_xdt_datetime_qyyyy_quarter(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt datetime qyyyy quarter. The quarter is unknown.");
     }
 }
-
-/* QUARTER_QYYYY_DATETIME_XDT_DESERIALISER_SOURCE */
-#endif

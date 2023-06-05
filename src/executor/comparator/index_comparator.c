@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INDEX_COMPARATOR_SOURCE
-#define INDEX_COMPARATOR_SOURCE
-
 //
 // System interface
 //
@@ -95,6 +92,3 @@ void compare_index(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
         fwprintf(stdout, L"Hint: Right count *p9: %i\n", *((int*) p9));
     }
 }
-
-/* INDEX_COMPARATOR_SOURCE */
-#endif

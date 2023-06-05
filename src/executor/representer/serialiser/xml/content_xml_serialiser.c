@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONTENT_XML_SERIALISER_SOURCE
-#define CONTENT_XML_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -134,6 +131,3 @@ void serialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         serialise_xml_filled(p0, p1, p2, p5, p6, p7, p8, p9, p10, p11, tmd, tmc, pmd, p12, p13, p14, p15);
     }
 }
-
-/* CONTENT_XML_SERIALISER_SOURCE */
-#endif

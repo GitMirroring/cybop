@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef REPLACER_SOURCE
-#define REPLACER_SOURCE
-
 //
 // System interface
 //
@@ -82,6 +79,3 @@ void replace(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p
         fwprintf(stdout, L"Warning: Could not replace. The source type is not wide character. type *p5: %i\n", *((int*) p5));
     }
 }
-
-/* REPLACER_SOURCE */
-#endif

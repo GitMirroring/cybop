@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef UNIX_TERMINAL_INITIALISER_SOURCE
-#define UNIX_TERMINAL_INITIALISER_SOURCE
-
 //
 // System interface
 //
@@ -136,6 +133,3 @@ void initialise_unix_terminal(void* p0) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise unix terminal. The terminal mode is null.");
     }
 }
-
-/* UNIX_TERMINAL_INITIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONNEXION_WINSOCK_OPENER_SOURCE
-#define CONNEXION_WINSOCK_OPENER_SOURCE
-
 //
 // System interface
 //
@@ -111,6 +108,3 @@ void open_winsock_connexion(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. The address size is null.");
     }
 }
-
-/* CONNEXION_WINSOCK_OPENER_SOURCE */
-#endif

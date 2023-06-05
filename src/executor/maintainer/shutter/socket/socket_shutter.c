@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SOCKET_SHUTTER_SOURCE
-#define SOCKET_SHUTTER_SOURCE
-
 //
 // System interface
 //
@@ -86,6 +83,3 @@ void shutdown_socket(void* p0) {
     //
     deallocate_array((void*) &s, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 }
-
-/* SOCKET_SHUTTER_SOURCE */
-#endif

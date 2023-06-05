@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef IFCONFIG_SOURCE
-#define IFCONFIG_SOURCE
-
 //
 // Library interface
 //
@@ -113,6 +110,3 @@ void apply_ifconfig(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_ifconfig(imd, imc, amd, smd, dmd, umd);
 }
-
-/* IFCONFIG_SOURCE */
-#endif

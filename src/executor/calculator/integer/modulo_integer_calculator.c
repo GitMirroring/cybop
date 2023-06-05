@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MODULO_INTEGER_CALCULATOR_SOURCE
-#define MODULO_INTEGER_CALCULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -67,6 +64,3 @@ void calculate_integer_modulo(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate integer modulo. The divisor is null.");
     }
 }
-
-/* MODULO_INTEGER_CALCULATOR_SOURCE */
-#endif

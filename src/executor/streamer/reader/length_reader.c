@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LENGTH_READER_SOURCE
-#define LENGTH_READER_SOURCE
-
 //
 // System interface
 //
@@ -165,6 +162,3 @@ void read_length(void* p0, void* p1, void* p2, void* p3) {
         }
     }
 }
-
-/* LENGTH_READER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ADAPT_UNIX_TO_WINDOWS_PATH_COMMANDER_SOURCE
-#define ADAPT_UNIX_TO_WINDOWS_PATH_COMMANDER_SOURCE
-
 //
 // Library interface
 //
@@ -102,6 +99,3 @@ void command_adapt_unix_to_windows_path(void* p0, void* p1, void* p2) {
         j++;
     }
 }
-
-/* ADAPT_UNIX_TO_WINDOWS_PATH_COMMANDER_SOURCE */
-#endif

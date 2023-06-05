@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef XCB_ENABLER_SOURCE
-#define XCB_ENABLER_SOURCE
-
 //
 // System interface
 //
@@ -203,6 +200,3 @@ void enable_xcb(void* p0) {
         fwprintf(stdout, L"Error: Could not enable xcb. The event is null. This indicates an input/output error. e: %i\n", e);
     }
 }
-
-/* XCB_ENABLER_SOURCE */
-#endif

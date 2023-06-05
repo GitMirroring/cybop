@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef GREATER_FRACTION_COMPARATOR_SOURCE
-#define GREATER_FRACTION_COMPARATOR_SOURCE
-
 //
 // Library interface
 //
@@ -71,6 +68,3 @@ void compare_fraction_greater(void* p0, void* p1, void* p2) {
     // Compare expanded numerators.
     compare_integer_greater(p0, (void*) &eln, (void*) &ern);
 }
-
-/* GREATER_FRACTION_COMPARATOR_SOURCE */
-#endif

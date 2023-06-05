@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INDENTATION_HTML_SERIALISER_SOURCE
-#define INDENTATION_HTML_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -97,6 +94,3 @@ void serialise_html_indentation(void* p0, void* p1, void* p2) {
         }
     }
 }
-
-/* INDENTATION_HTML_SERIALISER_SOURCE */
-#endif

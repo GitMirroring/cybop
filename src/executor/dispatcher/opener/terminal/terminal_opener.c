@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TERMINAL_OPENER_SOURCE
-#define TERMINAL_OPENER_SOURCE
-
 //
 // System interface
 //
@@ -130,6 +127,3 @@ void open_terminal(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Warning: Could not open terminal. The filename is unknown. p0: %i\n", p0);
     }
 }
-
-/* TERMINAL_OPENER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FINALISER_SOURCE
-#define FINALISER_SOURCE
-
 //
 // System interface
 //
@@ -98,6 +95,3 @@ void finalise(void* p0, void* p1, void* p2) {
         // fwprintf(stdout, L"Warning: Could not finalise. The channel is unknown. This is unproblematic, since most devices do not need an finalisation. *p2: %i\n", *((int*) p2));
     }
 }
-
-/* FINALISER_SOURCE */
-#endif

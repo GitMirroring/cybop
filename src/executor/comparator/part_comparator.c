@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_COMPARATOR_SOURCE
-#define PART_COMPARATOR_SOURCE
-
 //
 // Library interface
 //
@@ -66,6 +63,3 @@ void compare_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // Compare all elements of the left- with those of the right part model item.
     compare_item(p0, lm, rm, p3, p4, p5, p6, p7, p8, p9);
 }
-
-/* PART_COMPARATOR_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SOCKET_ENABLER_SOURCE
-#define SOCKET_ENABLER_SOURCE
-
 //
 // System interface
 //
@@ -67,6 +64,3 @@ void enable_socket(void* p0, void* p1) {
     // Accept client request on server socket.
     enable_socket_request(p0, s);
 }
-
-/* SOCKET_ENABLER_SOURCE */
-#endif

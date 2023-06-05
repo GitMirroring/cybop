@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LESS_OR_EQUAL_FRACTION_COMPARATOR_SOURCE
-#define LESS_OR_EQUAL_FRACTION_COMPARATOR_SOURCE
-
 //
 // Library interface
 //
@@ -71,6 +68,3 @@ void compare_fraction_less_or_equal(void* p0, void* p1, void* p2) {
     // Compare expanded numerators.
     compare_integer_less_or_equal(p0, (void*) &eln, (void*) &ern);
 }
-
-/* LESS_OR_EQUAL_FRACTION_COMPARATOR_SOURCE */
-#endif

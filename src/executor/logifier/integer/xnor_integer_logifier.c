@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef XNOR_INTEGER_LOGIFIER_SOURCE
-#define XNOR_INTEGER_LOGIFIER_SOURCE
-
 //
 // Library interface
 //
@@ -68,6 +65,3 @@ void logify_integer_xnor(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify integer xnor. The right value is null.");
     }
 }
-
-/* XNOR_INTEGER_LOGIFIER_SOURCE */
-#endif

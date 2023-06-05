@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ITEM_COMPARATOR_SOURCE
-#define ITEM_COMPARATOR_SOURCE
-
 //
 // Library interface
 //
@@ -69,6 +66,3 @@ void compare_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     compare_lexicographical(p0, ld, rd, p3, p4, p5, p6, p7, lc, rc, p8, p9);
 }
-
-/* ITEM_COMPARATOR_SOURCE */
-#endif

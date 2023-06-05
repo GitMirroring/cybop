@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONFIG_NETWORK_SOURCE
-#define CONFIG_NETWORK_SOURCE
-
 //
 // Library interface
 //
@@ -117,6 +114,3 @@ void apply_config_network(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_config_network(rmd, smd, vmd, amd);
 }
-
-/* CONFIG_NETWORK_SOURCE */
-#endif

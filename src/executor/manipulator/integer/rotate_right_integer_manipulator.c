@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ROTATE_RIGHT_INTEGER_MANIPULATOR_SOURCE
-#define ROTATE_RIGHT_INTEGER_MANIPULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -79,6 +76,3 @@ void manipulate_integer_rotate_right(void* p0, void* p1) {
         manipulate_integer_set(p0, (void*) &i);
     }
 }
-
-/* ROTATE_RIGHT_INTEGER_MANIPULATOR_SOURCE */
-#endif

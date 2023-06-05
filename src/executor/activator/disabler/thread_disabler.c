@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef THREAD_DISABLER_SOURCE
-#define THREAD_DISABLER_SOURCE
-
 //
 // System interface
 //
@@ -77,6 +74,3 @@ void disable_thread(void* p0) {
     // Wait for thread to exit.
     cut(t);
 }
-
-/* THREAD_DISABLER_SOURCE */
-#endif

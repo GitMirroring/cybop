@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef XCB_EVENT_DESERIALISER_SOURCE
-#define XCB_EVENT_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -253,6 +250,3 @@ void deserialise_xcb_event(void* p0, void* p1) {
         fwprintf(stdout, L"Error: Could not deserialise xcb event. The source event is null. event p1: %i\n", p1);
     }
 }
-
-/* XCB_EVENT_DESERIALISER_SOURCE */
-#endif

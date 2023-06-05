@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MINIMUM_INTEGER_CALCULATOR_SOURCE
-#define MINIMUM_INTEGER_CALCULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -66,6 +63,3 @@ void calculate_integer_minimum(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate integer minimum. The right operand is null.");
     }
 }
-
-/* MINIMUM_INTEGER_CALCULATOR_SOURCE */
-#endif

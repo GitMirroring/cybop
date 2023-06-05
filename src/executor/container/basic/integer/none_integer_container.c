@@ -24,9 +24,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NONE_INTEGER_CONTAINER_SOURCE
-#define NONE_INTEGER_CONTAINER_SOURCE
-
 //
 // Library interface
 //
@@ -71,6 +68,3 @@ void contain_integer_none(void* p0, void* p1, void* p2, void* p3) {
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
-
-/* NONE_INTEGER_CONTAINER_SOURCE */
-#endif

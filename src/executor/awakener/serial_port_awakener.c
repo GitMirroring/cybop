@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SERIAL_PORT_AWAKENER_SOURCE
-#define SERIAL_PORT_AWAKENER_SOURCE
-
 //
 // System interface
 //
@@ -90,6 +87,3 @@ void awake_serial_port(void* p0) {
         log_error((void*) &errno);
     }
 }
-
-/* SERIAL_PORT_AWAKENER_SOURCE */
-#endif

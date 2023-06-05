@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef IDENTIFICATION_FIELD_XDT_DESERIALISER_SOURCE
-#define IDENTIFICATION_FIELD_XDT_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -66,6 +63,3 @@ void deserialise_xdt_field_identification(void* p0, void* p1, void* p2, void* p3
 
     move(p2, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 }
-
-/* IDENTIFICATION_FIELD_XDT_DESERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HEADER_FIELD_HTTP_REQUEST_SELECTOR_SOURCE
-#define HEADER_FIELD_HTTP_REQUEST_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -562,6 +559,3 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
         //?? fwprintf(stdout, L"Warning: Could not select http request header field. The header http name is unknown. header argument data p1: %ls\n", (wchar_t*) p1);
     }
 }
-
-/* HEADER_FIELD_HTTP_REQUEST_SELECTOR_SOURCE */
-#endif

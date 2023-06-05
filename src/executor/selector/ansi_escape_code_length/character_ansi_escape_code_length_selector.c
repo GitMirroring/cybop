@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHARACTER_ANSI_ESCAPE_CODE_LENGTH_SELECTOR_SOURCE
-#define CHARACTER_ANSI_ESCAPE_CODE_LENGTH_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -127,6 +124,3 @@ void select_ansi_escape_code_length_character(void* p0, void* p1, void* p2) {
         copy_integer(p0, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
     }
 }
-
-/* CHARACTER_ANSI_ESCAPE_CODE_LENGTH_SELECTOR_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MULTIPLY_CHARACTER_CALCULATOR_SOURCE
-#define MULTIPLY_CHARACTER_CALCULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -63,6 +60,3 @@ void calculate_character_multiply(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate character multiply. The factor is null.");
     }
 }
-
-/* MULTIPLY_CHARACTER_CALCULATOR_SOURCE */
-#endif

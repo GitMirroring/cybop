@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef XML_CHARACTER_REFERENCE_SERIALISER_SOURCE
-#define XML_CHARACTER_REFERENCE_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -99,6 +96,3 @@ void serialise_character_reference_xml(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise character reference xml. The source wide character is null.");
     }
 }
-
-/* XML_CHARACTER_REFERENCE_SERIALISER_SOURCE */
-#endif

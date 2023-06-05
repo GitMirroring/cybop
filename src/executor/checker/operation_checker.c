@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef OPERATION_CHECKER_SOURCE
-#define OPERATION_CHECKER_SOURCE
-
 //
 // System interface
 //
@@ -129,6 +126,3 @@ void check_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
         fwprintf(stdout, L"Warning: Could not check operation. The operation type is unknown. *p5: %i\n", *((int*) p5));
     }
 }
-
-/* OPERATION_CHECKER_SOURCE */
-#endif

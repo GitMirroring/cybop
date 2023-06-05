@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ROOT_KNOWLEDGE_SELECTOR_SOURCE
-#define ROOT_KNOWLEDGE_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -147,6 +144,3 @@ void select_knowledge_root(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select knowledge root. The knowledge path data position is null.");
     }
 }
-
-/* ROOT_KNOWLEDGE_SELECTOR_SOURCE */
-#endif

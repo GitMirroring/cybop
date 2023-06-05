@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INET6_SOCKET_ADDRESS_ALLOCATOR_SOURCE
-#define INET6_SOCKET_ADDRESS_ALLOCATOR_SOURCE
-
 //
 // System interface
 //
@@ -55,15 +52,6 @@
 #include "logger.h"
 #include "variable.h"
 
-//
-// Executable interface
-//
-
-#include "../../../../executor/accessor/setter/socket_address/inet6_socket_address_setter.c"
-#include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/memoriser/allocator/array_allocator.c"
-#include "../../../../executor/representer/deserialiser/host_address/inet6_host_address_deserialiser.c"
-
 /**
  * Allocate inet6 socket address.
  *
@@ -79,7 +67,7 @@ void allocate_socket_address_inet6(void* p0, void* p1, void* p2, void* p3, void*
 
         void** ad = (void**) p0;
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate socket address inet6.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate socket address inet6.");
 
         // The host address.
         struct in6_addr ha;
@@ -151,6 +139,3 @@ void allocate_socket_address_inet6(void* p0, void* p1, void* p2, void* p3, void*
         fwprintf(stdout, L"Error: Could not allocate socket address inet6. The address data is null. p0: %i\n", p0);
     }
 }
-
-/* INET6_SOCKET_ADDRESS_ALLOCATOR_SOURCE */
-#endif

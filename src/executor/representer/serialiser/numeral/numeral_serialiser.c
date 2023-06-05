@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NUMERAL_SERIALISER_SOURCE
-#define NUMERAL_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -126,6 +123,3 @@ void serialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         }
     }
 }
-
-/* NUMERAL_SERIALISER_SOURCE */
-#endif

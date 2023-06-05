@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DEOPTIONALISER_SOURCE
-#define DEOPTIONALISER_SOURCE
-
 //
 // Library interface
 //
@@ -48,6 +45,3 @@ void deoptionalise(void* p0) {
 
     deoptionalise_log_file(p0);
 }
-
-/* DEOPTIONALISER_SOURCE */
-#endif

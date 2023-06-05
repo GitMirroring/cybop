@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BIND_SOCKET_STARTER_SOURCE
-#define BIND_SOCKET_STARTER_SOURCE
-
 //
 // Library interface
 //
@@ -56,6 +53,3 @@ void startup_socket_bind(void* p0, void* p1, void* p2) {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* BIND_SOCKET_STARTER_SOURCE */
-#endif

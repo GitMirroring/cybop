@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef VECTOR_COUNT_COMPARATOR_SOURCE
-#define VECTOR_COUNT_COMPARATOR_SOURCE
-
 //
 // System interface
 //
@@ -83,6 +80,3 @@ void compare_count_vector(void* p0, void* p1, void* p2, void* p3, void* p4, void
         fwprintf(stdout, L"Hint: Result count *p10: %i. Count *p5: %i.\n", *((int*) p10), *((int*) p5));
     }
 }
-
-/* VECTOR_COUNT_COMPARATOR_SOURCE */
-#endif

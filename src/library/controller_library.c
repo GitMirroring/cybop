@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONTROLLER_LIBRARY_SOURCE
-#define CONTROLLER_LIBRARY_SOURCE
-
 //
 // controller
 //
@@ -90,6 +87,3 @@
 
 #include "../controller/unglobaliser/log_unglobaliser.c"
 #include "../controller/unglobaliser/unglobaliser.c"
-
-/* CONTROLLER_LIBRARY_SOURCE */
-#endif

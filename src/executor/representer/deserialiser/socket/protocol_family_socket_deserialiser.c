@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PROTOCOL_FAMILY_SOCKET_DESERIALISER_SOURCE
-#define PROTOCOL_FAMILY_SOCKET_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -179,6 +176,3 @@ void deserialise_socket_family_protocol(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise socket family protocol. The family is not known.");
     }
 }
-
-/* PROTOCOL_FAMILY_SOCKET_DESERIALISER_SOURCE */
-#endif

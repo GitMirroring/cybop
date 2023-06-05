@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LOOP_SOURCE
-#define LOOP_SOURCE
-
 //
 // System interface
 //
@@ -181,6 +178,3 @@ void apply_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
         }
     }
 }
-
-/* LOOP_SOURCE */
-#endif

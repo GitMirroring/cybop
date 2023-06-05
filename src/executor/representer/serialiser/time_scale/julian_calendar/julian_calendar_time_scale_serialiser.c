@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef JULIAN_CALENDAR_TIME_SCALE_SERIALISER_SOURCE
-#define JULIAN_CALENDAR_TIME_SCALE_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -71,6 +68,3 @@ void serialise_time_scale_julian_calendar(void* p0, void* p1, void* p2, void* p3
     set_datetime_element(p0, (void*) &s, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
 */
 }
-
-/* JULIAN_CALENDAR_TIME_SCALE_SERIALISER_SOURCE */
-#endif

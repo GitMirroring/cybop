@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef REAL_TYPE_SIZE_GLOBALISER_SOURCE
-#define REAL_TYPE_SIZE_GLOBALISER_SOURCE
-
 //
 // Library interface
 //
@@ -41,6 +38,3 @@ void globalise_type_size_real() {
     *DOUBLE_REAL_TYPE_SIZE = sizeof (double);
 //??    *LONG_DOUBLE_REAL_TYPE_SIZE = sizeof (long double);
 }
-
-/* REAL_TYPE_SIZE_GLOBALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef JULIAN_DAY_GREGORIAN_CALENDAR_TIME_SCALE_DESERIALISER_SOURCE
-#define JULIAN_DAY_GREGORIAN_CALENDAR_TIME_SCALE_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -145,6 +142,3 @@ void deserialise_time_scale_gregorian_calendar_julian_day(void* p0, void* p1, vo
         fwprintf(stdout, L"Debug: deserialise time scale gregorian calendar julian day *p0 5: %i\n", *((int*) p0));
     }
 }
-
-/* JULIAN_DAY_GREGORIAN_CALENDAR_TIME_SCALE_DESERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BUBBLE_SORTER_SOURCE
-#define BUBBLE_SORTER_SOURCE
-
 //
 // Library interface
 //
@@ -159,6 +156,3 @@ void sort_bubble(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // in order to decrement the rubbish (garbage) collection counter.
     deallocate_array((void*) &r, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, p1);
 }
-
-/* BUBBLE_SORTER_SOURCE */
-#endif

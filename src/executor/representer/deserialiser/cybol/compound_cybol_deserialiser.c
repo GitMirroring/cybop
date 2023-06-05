@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMPOUND_CYBOL_DESERIALISER_SOURCE
-#define COMPOUND_CYBOL_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -166,6 +163,3 @@ void deserialise_cybol_compound(void* p0, void* p1, void* p2, void* p3, void* p4
     deallocate_item((void*) &m, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
     deallocate_item((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 }
-
-/* COMPOUND_CYBOL_DESERIALISER_SOURCE */
-#endif

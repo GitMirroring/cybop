@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_DEALLOCATOR_SOURCE
-#define PART_DEALLOCATOR_SOURCE
-
 //
 // System interface
 //
@@ -155,6 +152,3 @@ void deallocate_part(void* p0) {
         fwprintf(stdout, L"Error: Could not deallocate part. The part is null. p0: %i\n", p0);
     }
 }
-
-/* PART_DEALLOCATOR_SOURCE */
-#endif

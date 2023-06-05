@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef OFFSET_VALUE_MANIPULATOR_SOURCE
-#define OFFSET_VALUE_MANIPULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -59,6 +56,3 @@ void manipulate_value_offset(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Manipulate value.
     manipulate_value(v, p1, p2, p3);
 }
-
-/* OFFSET_VALUE_MANIPULATOR_SOURCE */
-#endif

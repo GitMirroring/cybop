@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NETSTAT_COMMANDER_SOURCE
-#define NETSTAT_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -400,6 +397,3 @@ void command_netstat(void* rmd, void* imd, void* gmd, void* smd, void* mmd, void
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* NETSTAT_COMMANDER_SOURCE */
-#endif

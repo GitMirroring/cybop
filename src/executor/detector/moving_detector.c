@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MOVING_DETECTOR_SOURCE
-#define MOVING_DETECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -58,6 +55,3 @@ void detect_moving(void* p0, void* p1, void* p2, void* p3, void* p4) {
         move(p0, p1, p2, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
-
-/* MOVING_DETECTOR_SOURCE */
-#endif

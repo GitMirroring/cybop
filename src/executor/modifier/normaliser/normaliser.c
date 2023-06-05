@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NORMALISER_SOURCE
-#define NORMALISER_SOURCE
-
 //
 // System interface
 //
@@ -80,6 +77,3 @@ void normalise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
         fwprintf(stdout, L"Error: Could not normalise. The destination array is null. destination array p0: %i\n", p0);
     }
 }
-
-/* NORMALISER_SOURCE */
-#endif

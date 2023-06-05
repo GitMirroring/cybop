@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef APPLICATOR_LIBRARY_SOURCE
-#define APPLICATOR_LIBRARY_SOURCE
-
 //
 // access
 //
@@ -237,6 +234,3 @@
 //
 
 #include "../applicator/time/time.c"
-
-/* APPLICATOR_LIBRARY_SOURCE */
-#endif

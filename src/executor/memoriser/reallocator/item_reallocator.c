@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ITEM_REALLOCATOR_SOURCE
-#define ITEM_REALLOCATOR_SOURCE
-
 //
 // System interface
 //
@@ -108,6 +105,3 @@ void reallocate_item(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Hint: This should NEVER happen. Is the given size zero or negative? Is the system heap out of memory?\n");
     }
 }
-
-/* ITEM_REALLOCATOR_SOURCE */
-#endif

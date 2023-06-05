@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef XOR_INTEGER_LOGIFIER_SOURCE
-#define XOR_INTEGER_LOGIFIER_SOURCE
-
 //
 // Library interface
 //
@@ -65,6 +62,3 @@ void logify_integer_xor(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify integer xor. The right value is null.");
     }
 }
-
-/* XOR_INTEGER_LOGIFIER_SOURCE */
-#endif

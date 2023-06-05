@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef VALUE_NUMERAL_DESERIALISER_SOURCE
-#define VALUE_NUMERAL_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -122,6 +119,3 @@ void deserialise_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4,
         }
     }
 }
-
-/* VALUE_NUMERAL_DESERIALISER_SOURCE */
-#endif

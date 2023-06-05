@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SENSE_SOURCE
-#define SENSE_SOURCE
-
 //
 // Library interface
 //
@@ -162,6 +159,3 @@ void apply_sense(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Sense data input.
     sense(p4, cmd, (void*) &server, (void*) &port, smd, lmd, (void*) &h, (void*) &cl);
 }
-
-/* SENSE_SOURCE */
-#endif

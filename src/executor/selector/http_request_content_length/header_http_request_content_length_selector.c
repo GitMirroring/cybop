@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HEADER_HTTP_REQUEST_CONTENT_LENGTH_SELECTOR_SOURCE
-#define HEADER_HTTP_REQUEST_CONTENT_LENGTH_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -78,6 +75,3 @@ void select_http_request_content_length_header(void* p0, void* p1, void* p2, voi
         calculate_integer_add(p3, (void*) &step);
     }
 }
-
-/* HEADER_HTTP_REQUEST_CONTENT_LENGTH_SELECTOR_SOURCE */
-#endif

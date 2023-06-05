@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TEST_CYBOL_DESERIALISER_SOURCE
-#define TEST_CYBOL_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -80,6 +77,3 @@ void deserialise_cybol_test(void* p0, void* p1, void* p2, void* p3, void* p4) {
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
-
-/* TEST_CYBOL_DESERIALISER_SOURCE */
-#endif

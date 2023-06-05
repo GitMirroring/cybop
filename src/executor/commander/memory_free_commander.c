@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MEMORY_FREE_COMMANDER_SOURCE
-#define MEMORY_FREE_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -211,6 +208,3 @@ void command_memory_free(void* hmd, void* kmd, void* mmd, void* gmd, void* tmd) 
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* MEMORY_FREE_COMMANDER_SOURCE */
-#endif

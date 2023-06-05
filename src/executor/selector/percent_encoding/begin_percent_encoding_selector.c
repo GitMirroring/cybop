@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BEGIN_PERCENT_ENCODING_SELECTOR_SOURCE
-#define BEGIN_PERCENT_ENCODING_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -92,6 +89,3 @@ void select_percent_encoding_begin(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select percent encoding begin. The source data position is null.");
     }
 }
-
-/* BEGIN_PERCENT_ENCODING_SELECTOR_SOURCE */
-#endif

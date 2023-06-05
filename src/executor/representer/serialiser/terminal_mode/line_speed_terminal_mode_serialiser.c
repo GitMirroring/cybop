@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LINE_SPEED_TERMINAL_MODE_SERIALISER_SOURCE
-#define LINE_SPEED_TERMINAL_MODE_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -364,6 +361,3 @@ void serialise_terminal_mode_line_speed(void* p0, void* p1) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise terminal mode line speed. The line speed is unknown.");
     }
 }
-
-/* LINE_SPEED_TERMINAL_MODE_SERIALISER_SOURCE */
-#endif

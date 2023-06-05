@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DECIMAL_DIGIT_SELECTOR_SOURCE
-#define DECIMAL_DIGIT_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -217,6 +214,3 @@ void select_digit_decimal(void* p0, void* p1, void* p2, void* p3, void* p4) {
         }
     }
 }
-
-/* DECIMAL_DIGIT_SELECTOR_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TOP_COMMANDER_SOURCE
-#define TOP_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -201,6 +198,3 @@ void command_top(void* bmd, void* cmd,void* hmd,void* imd,void* smd) {
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* TOP_COMMANDER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef THREAD_SENSOR_SOURCE
-#define THREAD_SENSOR_SOURCE
-
 //
 // System interface
 //
@@ -64,6 +61,3 @@ void sense_thread(void* p0) {
     // Invoke sense function WITHIN a new thread.
     spin(t, f, p0);
 }
-
-/* THREAD_SENSOR_SOURCE */
-#endif

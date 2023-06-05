@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DECODE_HTTP_REQUEST_DESERIALISER_SOURCE
-#define DECODE_HTTP_REQUEST_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -88,6 +85,3 @@ void deserialise_http_request_decode(void* p0, void* p1, void* p2, void* p3, voi
     // Deallocate wide character item.
     deallocate_item((void*) &i, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* DECODE_HTTP_REQUEST_DESERIALISER_SOURCE */
-#endif

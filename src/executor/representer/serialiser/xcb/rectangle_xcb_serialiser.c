@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef RECTANGLE_XCB_SERIALISER_SOURCE
-#define RECTANGLE_XCB_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -156,6 +153,3 @@ void serialise_xcb_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, v
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb rectangle. The height is null.");
     }
 }
-
-/* RECTANGLE_XCB_SERIALISER_SOURCE */
-#endif

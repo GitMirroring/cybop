@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef EMPTY_XML_SERIALISER_SOURCE
-#define EMPTY_XML_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -94,6 +91,3 @@ void serialise_xml_empty(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         serialise_xml_break(p0, p3);
     }
 }
-
-/* EMPTY_XML_SERIALISER_SOURCE */
-#endif

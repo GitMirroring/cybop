@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLEAR_SCREEN_SOURCE
-#define CLEAR_SCREEN_SOURCE
-
 //
 // Library interface
 //
@@ -54,6 +51,3 @@ void apply_clear_screen(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_clear_screen();
 }
-
-/* CLEAR_SCREEN_SOURCE */
-#endif

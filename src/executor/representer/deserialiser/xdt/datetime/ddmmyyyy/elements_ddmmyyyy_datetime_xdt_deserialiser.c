@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENTS_DDMMYYYY_DATETIME_XDT_DESERIALISER_SOURCE
-#define ELEMENTS_DDMMYYYY_DATETIME_XDT_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -94,6 +91,3 @@ void deserialise_xdt_datetime_ddmmyyyy_elements(void* p0, void* p1) {
     // in order to decrement the rubbish (garbage) collection counter.
     deallocate_array((void*) &t, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
 }
-
-/* ELEMENTS_DDMMYYYY_DATETIME_XDT_DESERIALISER_SOURCE */
-#endif

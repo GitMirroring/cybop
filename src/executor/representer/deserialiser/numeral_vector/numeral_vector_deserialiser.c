@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NUMERAL_VECTOR_DESERIALISER_SOURCE
-#define NUMERAL_VECTOR_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -94,6 +91,3 @@ void deserialise_numeral_vector(void* p0, void* p1, void* p2, void* p3, void* p4
     //
     deserialise_numeral_vector_item(p0, (void*) &d, (void*) &c, p3, p4, p5, p6, p7, p8);
 }
-
-/* NUMERAL_VECTOR_DESERIALISER_SOURCE */
-#endif

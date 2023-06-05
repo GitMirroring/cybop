@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MOUSE_PROCESS_WIN32_CONSOLE_READER_SOURCE
-#define MOUSE_PROCESS_WIN32_CONSOLE_READER_SOURCE
-
 //
 // System interface
 //
@@ -75,6 +72,3 @@ void read_win32_console_process_mouse(void* p0, void* p1, void* p2) {
     // Get event flags.
     //?? *TODO = r.dwEventFlags;
 }
-
-/* MOUSE_PROCESS_WIN32_CONSOLE_READER_SOURCE */
-#endif

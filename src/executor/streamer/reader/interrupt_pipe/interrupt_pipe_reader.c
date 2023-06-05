@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INTERRUPT_PIPE_READER_SOURCE
-#define INTERRUPT_PIPE_READER_SOURCE
-
 //
 // System interface
 //
@@ -150,6 +147,3 @@ void read_interrupt_pipe(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Error: Could not read interrupt pipe. The source interrupt pipe read file descriptor is null. p2: %i\n", p2);
     }
 }
-
-/* INTERRUPT_PIPE_READER_SOURCE */
-#endif

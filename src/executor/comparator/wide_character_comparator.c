@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WIDE_CHARACTER_COMPARATOR_SOURCE
-#define WIDE_CHARACTER_COMPARATOR_SOURCE
-
 //
 // Library interface
 //
@@ -116,6 +113,3 @@ void compare_wide_character(void* p0, void* p1, void* p2, void* p3) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare wide character. The operation type is unknown.");
     }
 }
-
-/* WIDE_CHARACTER_COMPARATOR_SOURCE */
-#endif

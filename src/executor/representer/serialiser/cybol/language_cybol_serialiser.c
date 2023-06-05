@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LANGUAGE_CYBOL_SERIALISER_SOURCE
-#define LANGUAGE_CYBOL_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -552,6 +549,3 @@ void serialise_cybol_language(void* p0, void* p1) {
         fwprintf(stdout, L"Warning: Could not serialise cybol language. The source cyboi language is unknown. cyboi language *p1: %i\n", *((int*) p1));
     }
 }
-
-/* LANGUAGE_CYBOL_SERIALISER_SOURCE */
-#endif

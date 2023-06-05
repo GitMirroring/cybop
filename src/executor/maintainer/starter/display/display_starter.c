@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DISPLAY_STARTER_SOURCE
-#define DISPLAY_STARTER_SOURCE
-
 //
 // System interface
 //
@@ -65,6 +62,3 @@ void startup_display(void* p0) {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* DISPLAY_STARTER_SOURCE */
-#endif

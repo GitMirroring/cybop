@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SWAP_BUBBLE_SORTER_SOURCE
-#define SWAP_BUBBLE_SORTER_SOURCE
-
 //
 // Library interface
 //
@@ -85,6 +82,3 @@ void sort_bubble_swap(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
-
-/* SWAP_BUBBLE_SORTER_SOURCE */
-#endif

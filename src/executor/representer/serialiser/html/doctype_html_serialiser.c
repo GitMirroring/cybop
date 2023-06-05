@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DOCTYPE_HTML_SERIALISER_SOURCE
-#define DOCTYPE_HTML_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -62,6 +59,3 @@ void serialise_html_doctype(void* p0, void* p1, void* p2, void* p3) {
     // Serialise line break.
     serialise_html_break(p0, p3);
 }
-
-/* DOCTYPE_HTML_SERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SCALAR_COUNT_COMPARATOR_SOURCE
-#define SCALAR_COUNT_COMPARATOR_SOURCE
-
 //
 // System interface
 //
@@ -83,6 +80,3 @@ void compare_count_scalar(void* p0, void* p1, void* p2, void* p3, void* p4, void
         fwprintf(stdout, L"Hint: Result count *p7: %i\n", *((int*) p7));
     }
 }
-
-/* SCALAR_COUNT_COMPARATOR_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef RUNNING_DAY_TIME_SCALE_SERIALISER_SOURCE
-#define RUNNING_DAY_TIME_SCALE_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -53,6 +50,3 @@ void serialise_time_scale_running_day(void* p0, void* p1, void* p2) {
     // Calculate day.
     serialise_time_scale_running_day_day(p1, p0, p2);
 }
-
-/* RUNNING_DAY_TIME_SCALE_SERIALISER_SOURCE */
-#endif

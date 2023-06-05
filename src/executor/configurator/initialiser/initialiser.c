@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INITIALISER_SOURCE
-#define INITIALISER_SOURCE
-
 //
 // System interface
 //
@@ -99,6 +96,3 @@ void initialise(void* p0, void* p1, void* p2, void* p3) {
         // fwprintf(stdout, L"Warning: Could not initialise. The channel is unknown. This is unproblematic, since most devices do not need an initialisation. *p3: %i\n", *((int*) p3));
     }
 }
-
-/* INITIALISER_SOURCE */
-#endif

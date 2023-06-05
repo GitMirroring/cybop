@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FIFO_OPENER_SOURCE
-#define FIFO_OPENER_SOURCE
-
 //
 // Library interface
 //
@@ -71,6 +68,3 @@ void open_fifo(void* p0, void* p1, void* p2) {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* FIFO_OPENER_SOURCE */
-#endif

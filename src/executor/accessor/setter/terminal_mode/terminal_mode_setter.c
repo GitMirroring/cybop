@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TERMINAL_MODE_SETTER_SOURCE
-#define TERMINAL_MODE_SETTER_SOURCE
-
 //
 // Library interface
 //
@@ -54,6 +51,3 @@ void set_terminal_mode(void* p0, void* p1) {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* TERMINAL_MODE_SETTER_SOURCE */
-#endif

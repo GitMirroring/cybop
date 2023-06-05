@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef JD_DURATION_SERIALISER_SOURCE
-#define JD_DURATION_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -43,6 +40,3 @@ void serialise_duration_jd(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise duration jd.");
 }
-
-/* JD_DURATION_SERIALISER_SOURCE */
-#endif

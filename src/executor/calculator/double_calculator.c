@@ -24,9 +24,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DOUBLE_CALCULATOR_SOURCE
-#define DOUBLE_CALCULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -115,6 +112,3 @@ void calculate_double(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate double. The operation type is unknown.");
     }
 }
-
-/* DOUBLE_CALCULATOR_SOURCE */
-#endif

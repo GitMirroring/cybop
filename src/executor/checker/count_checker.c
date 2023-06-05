@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COUNT_CHECKER_SOURCE
-#define COUNT_CHECKER_SOURCE
-
 //
 // Library interface
 //
@@ -60,6 +57,3 @@ void check_count(void* p0, void* p1, void* p2) {
         copy_integer(p0, p2);
     }
 }
-
-/* COUNT_CHECKER_SOURCE */
-#endif

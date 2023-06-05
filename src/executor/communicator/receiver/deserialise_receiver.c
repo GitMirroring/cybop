@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DESERIALISE_RECEIVER_SOURCE
-#define DESERIALISE_RECEIVER_SOURCE
-
 //
 // System interface
 //
@@ -77,6 +74,3 @@ void receive_deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         fwprintf(stdout, L"Warning: Could not receive deserialise. The language is null. language *p12: %i\n", *((int*) p12));
     }
 }
-
-/* DESERIALISE_RECEIVER_SOURCE */
-#endif

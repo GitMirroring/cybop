@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ACCEPT_IO_CHECKER_SOURCE
-#define ACCEPT_IO_CHECKER_SOURCE
-
 //
 // System interface
 //
@@ -113,6 +110,3 @@ void check_io_accept(void* p0, void* p1, void* p2, void* p3) {
         //
     }
 }
-
-/* ACCEPT_IO_CHECKER_SOURCE */
-#endif

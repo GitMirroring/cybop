@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ARCHIVE_FILE_SOURCE
-#define ARCHIVE_FILE_SOURCE
-
 //
 // Library interface
 //
@@ -166,6 +163,3 @@ void apply_archive_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* ARCHIVE_FILE_SOURCE */
-#endif

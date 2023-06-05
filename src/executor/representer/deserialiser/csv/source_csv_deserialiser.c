@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SOURCE_CSV_DESERIALISER_SOURCE
-#define SOURCE_CSV_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -87,6 +84,3 @@ void deserialise_csv_source(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     // Branch control flow depending on header flag.
     deserialise_csv_flag(p0, p1, md, mc, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p3);
 }
-
-/* SOURCE_CSV_DESERIALISER_SOURCE */
-#endif

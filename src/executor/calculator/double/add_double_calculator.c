@@ -24,9 +24,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ADD_DOUBLE_CALCULATOR_SOURCE
-#define ADD_DOUBLE_CALCULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -64,6 +61,3 @@ void calculate_double_add(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate double add. The summand is null.");
     }
 }
-
-/* ADD_DOUBLE_CALCULATOR_SOURCE */
-#endif

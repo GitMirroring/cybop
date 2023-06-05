@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STYLE_SOCKET_SYMBOLIC_NAME_GLOBALISER_SOURCE
-#define STYLE_SOCKET_SYMBOLIC_NAME_GLOBALISER_SOURCE
-
 //
 // System interface
 //
@@ -89,6 +86,3 @@ void globalise_symbolic_name_socket_style() {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* STYLE_SOCKET_SYMBOLIC_NAME_GLOBALISER_SOURCE */
-#endif

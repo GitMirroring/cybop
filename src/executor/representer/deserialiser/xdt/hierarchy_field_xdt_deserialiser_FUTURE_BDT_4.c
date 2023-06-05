@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HIERARCHY_FIELD_XDT_DESERIALISER_SOURCE
-#define HIERARCHY_FIELD_XDT_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -81,6 +78,3 @@ void deserialise_xdt_field_hierarchy(void* p0, void* p1) {
 
     //?? Copy hierarchy level for ALL possible xdt fields here ...
 }
-
-/* HIERARCHY_FIELD_XDT_DESERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COPY_FILE_COMMANDER_SOURCE
-#define COPY_FILE_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -306,6 +303,3 @@ void command_copy_file(void* smd, void* smc, void* dmd, void* dmc, void* fmd, vo
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not command copy file. The destination path is null.");
     }
 }
-
-/* COPY_FILE_COMMANDER_SOURCE */
-#endif

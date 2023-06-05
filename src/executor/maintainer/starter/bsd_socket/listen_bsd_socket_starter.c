@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LISTEN_BSD_SOCKET_STARTER_SOURCE
-#define LISTEN_BSD_SOCKET_STARTER_SOURCE
-
 //
 // System interface
 //
@@ -103,6 +100,3 @@ void startup_bsd_socket_listen(void* p0, void* p1) {
         fwprintf(stdout, L"Error: Could not startup bsd socket listen. The connexions is null. p1: %i\n", p1);
     }
 }
-
-/* LISTEN_BSD_SOCKET_STARTER_SOURCE */
-#endif

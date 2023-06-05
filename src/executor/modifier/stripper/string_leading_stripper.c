@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STRING_LEADING_STRIPPER_SOURCE
-#define STRING_LEADING_STRIPPER_SOURCE
-
 //
 // System interface
 //
@@ -114,6 +111,3 @@ void strip_leading_string(void* p0, void* p1, void* p2) {
         }
     }
 }
-
-/* STRING_LEADING_STRIPPER_SOURCE */
-#endif

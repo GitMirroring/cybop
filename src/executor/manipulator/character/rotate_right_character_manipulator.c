@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ROTATE_RIGHT_CHARACTER_MANIPULATOR_SOURCE
-#define ROTATE_RIGHT_CHARACTER_MANIPULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -87,6 +84,3 @@ void manipulate_character_rotate_right(void* p0, void* p1) {
         manipulate_character_set(p0, (void*) &i);
     }
 }
-
-/* ROTATE_RIGHT_CHARACTER_MANIPULATOR_SOURCE */
-#endif

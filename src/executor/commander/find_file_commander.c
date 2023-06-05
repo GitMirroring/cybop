@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FIND_FILE_COMMANDER_SOURCE
-#define FIND_FILE_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -198,6 +195,3 @@ void command_find_file(void* pmd, void* pmc, void* nmd, void* nmc, void* imd, vo
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not command find file. The path is null.");
     }
 }
-
-/* FIND_FILE_COMMANDER_SOURCE */
-#endif

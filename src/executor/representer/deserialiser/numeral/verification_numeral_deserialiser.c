@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef VERIFICATION_NUMERAL_DESERIALISER_SOURCE
-#define VERIFICATION_NUMERAL_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -103,6 +100,3 @@ void deserialise_numeral_verification(void* p0, void* p1, void* p2) {
     //
     deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 }
-
-/* VERIFICATION_NUMERAL_DESERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ADD_POINTER_CALCULATOR_SOURCE
-#define ADD_POINTER_CALCULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -86,6 +83,3 @@ void calculate_pointer_add(void* p0, void* p1) {
         // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate pointer add. The summand is null.");
     }
 }
-
-/* ADD_POINTER_CALCULATOR_SOURCE */
-#endif

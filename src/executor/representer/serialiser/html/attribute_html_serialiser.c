@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ATTRIBUTE_HTML_SERIALISER_SOURCE
-#define ATTRIBUTE_HTML_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -130,6 +127,3 @@ void serialise_html_attribute(void* p0, void* p1, void* p2) {
         deallocate_item((void*) &ref, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     }
 }
-
-/* ATTRIBUTE_HTML_SERIALISER_SOURCE */
-#endif

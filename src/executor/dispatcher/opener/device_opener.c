@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DEVICE_OPENER_SOURCE
-#define DEVICE_OPENER_SOURCE
-
 //
 // System interface
 //
@@ -141,6 +138,3 @@ void open_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         fwprintf(stdout, L"Warning: Could not open device. The channel is unknown. channel *p13: %i\n", *((int*) p13));
     }
 }
-
-/* DEVICE_OPENER_SOURCE */
-#endif

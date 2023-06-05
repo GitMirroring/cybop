@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef POPPER_SOURCE
-#define POPPER_SOURCE
-
 //
 // System interface
 //
@@ -132,6 +129,3 @@ void pop(void* p0, void* p1) {
         }
     }
 }
-
-/* POPPER_SOURCE */
-#endif

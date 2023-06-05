@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WINSOCK_READER_SOURCE
-#define WINSOCK_READER_SOURCE
-
 //
 // System interface
 //
@@ -209,6 +206,3 @@ void read_winsock(void* p0, void* p1, void* p2, void* p3, void* p4) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read winsock. The socket options is null.");
     }
 }
-
-/* WINSOCK_READER_SOURCE */
-#endif

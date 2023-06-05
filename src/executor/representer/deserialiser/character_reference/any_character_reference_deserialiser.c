@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ANY_CHARACTER_REFERENCE_DESERIALISER_SOURCE
-#define ANY_CHARACTER_REFERENCE_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -90,6 +87,3 @@ void deserialise_character_reference_any(void* p0, void* p1, void* p2) {
         select_character_reference_begin(p0, p1, p2);
     }
 }
-
-/* ANY_CHARACTER_REFERENCE_DESERIALISER_SOURCE */
-#endif

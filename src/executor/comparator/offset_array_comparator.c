@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef OFFSET_ARRAY_COMPARATOR_SOURCE
-#define OFFSET_ARRAY_COMPARATOR_SOURCE
-
 //
 // Library interface
 //
@@ -82,6 +79,3 @@ void compare_array_offset(void* p0, void* p1, void* p2, void* p3, void* p4, void
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare array offset. The right array is null.");
     }
 }
-
-/* OFFSET_ARRAY_COMPARATOR_SOURCE */
-#endif

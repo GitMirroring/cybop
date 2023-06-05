@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MOVE_FILE_SOURCE
-#define MOVE_FILE_SOURCE
-
 //
 // Library interface
 //
@@ -133,6 +130,3 @@ void apply_move_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_move_file(smd, smc, dmd, dmc, fmd, imd, vmd);
 }
-
-/* MOVE_FILE_SOURCE */
-#endif

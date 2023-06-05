@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BASE_64_DECODER_SOURCE
-#define BASE_64_DECODER_SOURCE
-
 //
 // Library interface
 //
@@ -44,6 +41,3 @@ void decode_base_64(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode base 64.");
 }
-
-/* BASE_64_DECODER_SOURCE */
-#endif

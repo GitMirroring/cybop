@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef AUTHORITY_HTTP_URI_SELECTOR_SOURCE
-#define AUTHORITY_HTTP_URI_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -118,6 +115,3 @@ void select_http_uri_authority(void* p0, void* p1, void* p2, void* p3, void* p4,
         calculate_integer_add(p4, (void*) &step);
     }
 }
-
-/* AUTHORITY_HTTP_URI_SELECTOR_SOURCE */
-#endif

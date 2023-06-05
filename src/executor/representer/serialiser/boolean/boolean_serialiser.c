@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BOOLEAN_SERIALISER_SOURCE
-#define BOOLEAN_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -83,6 +80,3 @@ void serialise_boolean(void* p0, void* p1) {
         fwprintf(stdout, L"Warning: Could not serialise boolean. The source boolean value is unknown. *p1: %i\n", *((int*) p1));
     }
 }
-
-/* BOOLEAN_SERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NETWORK_SERVICE_DESERIALISER_SOURCE
-#define NETWORK_SERVICE_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -133,6 +130,3 @@ void deserialise_network_service(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Warning: Could not deserialise network service. The given network service is unknown. network service count *p2: %i\n", *((int*) p2));
     }
 }
-
-/* NETWORK_SERVICE_DESERIALISER_SOURCE */
-#endif

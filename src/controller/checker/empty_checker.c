@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef EMPTY_CHECKER_SOURCE
-#define EMPTY_CHECKER_SOURCE
-
 //
 // System interface
 //
@@ -124,6 +121,3 @@ void check_empty(void* p0, void* p1, void* p2) {
     // Copy client identification.
     copy_integer(i, (void*) &id);
 }
-
-/* EMPTY_CHECKER_SOURCE */
-#endif

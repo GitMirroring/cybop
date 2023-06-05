@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INTEGER_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE
-#define INTEGER_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -61,6 +58,3 @@ void deserialise_numeral_assembler_integer(void* p0, void* p1, void* p2) {
     // Multiplicate integer with algebraic sign factor.
     calculate_integer_multiply(p0, p1);
 }
-
-/* INTEGER_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE */
-#endif

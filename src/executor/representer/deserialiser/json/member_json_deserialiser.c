@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MEMBER_JSON_DESERIALISER_SOURCE
-#define MEMBER_JSON_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -104,6 +101,3 @@ void deserialise_json_member(void* p0, void* p1, void* p2, void* p3, void* p4, v
     //
     deserialise_json_value(p0, p1, p2, p3, p4, p5, p6, p7, nd, (void*) &nc, *NULL_POINTER_STATE_CYBOI_MODEL);
 }
-
-/* MEMBER_JSON_DESERIALISER_SOURCE */
-#endif

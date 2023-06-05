@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef AUTHORITY_FORM_HTTP_REQUEST_URI_DESERIALISER_SOURCE
-#define AUTHORITY_FORM_HTTP_REQUEST_URI_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -93,6 +90,3 @@ void deserialise_authority_form_http_request_uri(void* p0, void* p1, void* p2, v
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise authority form http request uri. The comparison result is null.");
     }
 }
-
-/* AUTHORITY_FORM_HTTP_REQUEST_URI_DESERIALISER_SOURCE */
-#endif

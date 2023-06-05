@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_NAME_GETTER_SOURCE
-#define PART_NAME_GETTER_SOURCE
-
 //
 // System interface
 //
@@ -92,6 +89,3 @@ void get_name_part(void* p0, void* p1, void* p2, void* p3) {
     // Get destination part with given name from source whole data item.
     get_name_item(p0, s, n, p3);
 }
-
-/* PART_NAME_GETTER_SOURCE */
-#endif

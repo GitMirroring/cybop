@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ENTRY_STARTER_SOURCE
-#define ENTRY_STARTER_SOURCE
-
 //
 // System interface
 //
@@ -91,6 +88,3 @@ void startup_entry(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Set input output entry into server entry.
     copy_array_forward(p0, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INPUT_OUTPUT_BACKLINK_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
-
-/* ENTRY_STARTER_SOURCE */
-#endif

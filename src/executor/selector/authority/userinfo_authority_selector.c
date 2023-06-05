@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef USERINFO_AUTHORITY_SELECTOR_SOURCE
-#define USERINFO_AUTHORITY_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -79,6 +76,3 @@ void select_authority_userinfo(void* p0, void* p1, void* p2, void* p3, void* p4,
         calculate_integer_add(p4, (void*) &step);
     }
 }
-
-/* USERINFO_AUTHORITY_SELECTOR_SOURCE */
-#endif

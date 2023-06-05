@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef OPTIONALISER_SOURCE
-#define OPTIONALISER_SOURCE
-
 //
 // System interface
 //
@@ -92,6 +89,3 @@ void optionalise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // Deallocate terminated log file name item.
     deallocate_item((void*) &f, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* OPTIONALISER_SOURCE */
-#endif

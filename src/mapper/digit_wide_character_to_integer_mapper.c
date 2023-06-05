@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DIGIT_WIDE_CHARACTER_TO_INTEGER_MAPPER_SOURCE
-#define DIGIT_WIDE_CHARACTER_TO_INTEGER_MAPPER_SOURCE
-
 //
 // System interface
 //
@@ -286,6 +283,3 @@ void map_digit_wide_character_to_integer(void* p0, void* p1) {
         fwprintf(stdout, L"Warning: Could not map digit wide character to integer. The character is unknown. character *p1 as wchar_t: %lc\n", *((wchar_t*) p1));
     }
 }
-
-/* DIGIT_WIDE_CHARACTER_TO_INTEGER_MAPPER_SOURCE */
-#endif

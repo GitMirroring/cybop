@@ -24,9 +24,6 @@
  * @author Sandra Rum <sandra.rum@cs12-2.ba-leipzig.de>
  */
 
-#ifndef MAXIMUM_RETRIEVER_SOURCE
-#define MAXIMUM_RETRIEVER_SOURCE
-
 //
 // System interface
 //
@@ -295,6 +292,3 @@ void retrieve_maximum(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not retrieve maximum. The source maximum is null.");
     }
 }
-
-/* MAXIMUM_RETRIEVER_SOURCE */
-#endif

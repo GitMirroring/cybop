@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NETWORK_SERVICE_SERIALISER_SOURCE
-#define NETWORK_SERVICE_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -125,6 +122,3 @@ void serialise_network_service(void* p0, void* p1) {
         fwprintf(stdout, L"Warning: Could not serialise network service. The given port number is unknown. source data (port) *p1: %i\n", *((int*) p1));
     }
 }
-
-/* NETWORK_SERVICE_SERIALISER_SOURCE */
-#endif

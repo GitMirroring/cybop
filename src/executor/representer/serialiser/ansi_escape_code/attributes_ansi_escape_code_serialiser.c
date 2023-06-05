@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ATTRIBUTES_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-#define ATTRIBUTES_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -100,6 +97,3 @@ void serialise_ansi_escape_code_attributes(void* p0, void* p1, void* p2, void* p
         serialise_ansi_escape_code_character(p0, (void*) ATTRIBUTE_SUFFIX_ANSI_ESCAPE_CODE_MODEL, (void*) ATTRIBUTE_SUFFIX_ANSI_ESCAPE_CODE_MODEL_COUNT);
     }
 }
-
-/* ATTRIBUTES_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
-#endif

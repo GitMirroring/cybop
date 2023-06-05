@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TUI_LIBRARY_SOURCE
-#define TUI_LIBRARY_SOURCE
-
 //
 // terminal colour
 //
@@ -148,7 +145,4 @@
 
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
-
-/* TUI_LIBRARY_SOURCE */
 #endif

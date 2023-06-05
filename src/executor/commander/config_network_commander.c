@@ -24,9 +24,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONFIG_NETWORK_COMMANDER_SOURCE
-#define CONFIG_NETWORK_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -183,6 +180,3 @@ void command_config_network(void* p0, void* p1, void* p2, void* p3) {
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* CONFIG_NETWORK_COMMANDER_SOURCE */
-#endif

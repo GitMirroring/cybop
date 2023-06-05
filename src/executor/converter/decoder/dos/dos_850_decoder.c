@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DOS_850_DECODER_SOURCE
-#define DOS_850_DECODER_SOURCE
-
 //
 // Library interface
 //
@@ -1328,6 +1325,3 @@ void decode_dos_850(void* p0, void* p1) {
         }
     }
 }
-
-/* DOS_850_DECODER_SOURCE */
-#endif

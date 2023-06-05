@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMPONENT_GUI_SERIALISER_SOURCE
-#define COMPONENT_GUI_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -143,6 +140,3 @@ void serialise_gui_component(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // Cleanup context.
     serialise_gui_cleanup(p0, p1, p2, p3, p4, p5);
 }
-
-/* COMPONENT_GUI_SERIALISER_SOURCE */
-#endif

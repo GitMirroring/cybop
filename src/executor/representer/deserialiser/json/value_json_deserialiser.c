@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef VALUE_JSON_DESERIALISER_SOURCE
-#define VALUE_JSON_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -102,6 +99,3 @@ void deserialise_json_value(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         select_json_value_begin(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, (void*) &b, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
-
-/* VALUE_JSON_DESERIALISER_SOURCE */
-#endif

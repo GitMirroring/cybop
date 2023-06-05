@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef RIGHT_INTEGER_CONTAINER_SOURCE
-#define RIGHT_INTEGER_CONTAINER_SOURCE
-
 //
 // Library interface
 //
@@ -70,6 +67,3 @@ void contain_integer_right(void* p0, void* p1, void* p2, void* p3) {
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
-
-/* RIGHT_INTEGER_CONTAINER_SOURCE */
-#endif

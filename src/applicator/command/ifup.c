@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef IFUP_SOURCE
-#define IFUP_SOURCE
-
 //
 // Library interface
 //
@@ -48,6 +45,3 @@ void apply_ifup() {
 
     command_ifup();
 }
-
-/* IFUP_SOURCE */
-#endif

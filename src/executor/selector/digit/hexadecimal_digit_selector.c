@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HEXADECIMAL_DIGIT_SELECTOR_SOURCE
-#define HEXADECIMAL_DIGIT_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -243,6 +240,3 @@ void select_digit_hexadecimal(void* p0, void* p1, void* p2, void* p3, void* p4) 
         }
     }
 }
-
-/* HEXADECIMAL_DIGIT_SELECTOR_SOURCE */
-#endif

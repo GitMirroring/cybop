@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef POWER_NUMERAL_DESERIALISER_SOURCE
-#define POWER_NUMERAL_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -184,6 +181,3 @@ void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3, void* p4,
         }
     }
 }
-
-/* POWER_NUMERAL_DESERIALISER_SOURCE */
-#endif

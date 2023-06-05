@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FIND_FILE_SOURCE
-#define FIND_FILE_SOURCE
-
 //
 // Library interface
 //
@@ -121,6 +118,3 @@ void apply_find_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_find_file(pmd, pmc, nmd, nmc, imd, rmd);
 }
-
-/* FIND_FILE_SOURCE */
-#endif

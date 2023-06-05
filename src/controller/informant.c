@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INFORMANT_SOURCE
-#define INFORMANT_SOURCE
-
 //
 // System interface
 //
@@ -104,6 +101,3 @@ void inform(void* p0) {
     // Deallocate message item.
     deallocate_item((void*) &m, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* INFORMANT_SOURCE */
-#endif

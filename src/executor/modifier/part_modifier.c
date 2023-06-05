@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_MODIFIER_SOURCE
-#define PART_MODIFIER_SOURCE
-
 //
 // System interface
 //
@@ -82,6 +79,3 @@ void modify_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // Modify item as element of the part container.
     modify_item(i, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
 }
-
-/* PART_MODIFIER_SOURCE */
-#endif

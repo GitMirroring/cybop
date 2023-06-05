@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DECODE_RECEIVER_SOURCE
-#define DECODE_RECEIVER_SOURCE
-
 //
 // System interface
 //
@@ -84,6 +81,3 @@ void receive_decode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
         //?? fwprintf(stdout, L"Warning: Could not receive decode. The encoding is null. encoding *p5: %i\n", *((int*) p5));
     }
 }
-
-/* DECODE_RECEIVER_SOURCE */
-#endif

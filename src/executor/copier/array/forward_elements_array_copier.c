@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FORWARD_ELEMENTS_ARRAY_COPIER_SOURCE
-#define FORWARD_ELEMENTS_ARRAY_COPIER_SOURCE
-
 //
 // System interface
 //
@@ -99,6 +96,3 @@ void copy_array_elements_forward(void* p0, void* p1, void* p2, void* p3, void* p
         j++;
     }
 }
-
-/* FORWARD_ELEMENTS_ARRAY_COPIER_SOURCE */
-#endif

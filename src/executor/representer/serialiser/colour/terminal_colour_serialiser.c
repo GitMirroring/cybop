@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TERMINAL_COLOUR_SERIALISER_SOURCE
-#define TERMINAL_COLOUR_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -143,6 +140,3 @@ void serialise_colour_terminal(void* p0, void* p1) {
         fwprintf(stdout, L"Warning: Could not serialise colour terminal. The colour is unknown. *p1: %i\n", *((int*) p1));
     }
 }
-
-/* TERMINAL_COLOUR_SERIALISER_SOURCE */
-#endif

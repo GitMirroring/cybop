@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_CASTER_SOURCE
-#define PART_CASTER_SOURCE
-
 //
 // Library interface
 //
@@ -63,6 +60,3 @@ void cast_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // Cast elements of the source- into the destination item.
     cast_item(dm, sm, p2, p3, p4, p5, p6);
 }
-
-/* PART_CASTER_SOURCE */
-#endif

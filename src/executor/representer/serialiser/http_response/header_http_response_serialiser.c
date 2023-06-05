@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HEADER_HTTP_RESPONSE_SERIALISER_SOURCE
-#define HEADER_HTTP_RESPONSE_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -100,6 +97,3 @@ void serialise_http_response_header(void* p0, void* p1, void* p2, void* p3, void
     //
     serialise_http_response_header_content_length(p0, p3);
 }
-
-/* HEADER_HTTP_RESPONSE_SERIALISER_SOURCE */
-#endif

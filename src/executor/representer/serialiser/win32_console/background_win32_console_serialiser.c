@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BACKGROUND_WIN32_CONSOLE_SERIALISER_SOURCE
-#define BACKGROUND_WIN32_CONSOLE_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -153,6 +150,3 @@ void serialise_win32_console_background(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console background. The destination data is null.");
     }
 }
-
-/* BACKGROUND_WIN32_CONSOLE_SERIALISER_SOURCE */
-#endif

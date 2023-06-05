@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INPUT_OUTPUT_ENTRY_DEALLOCATOR_SOURCE
-#define INPUT_OUTPUT_ENTRY_DEALLOCATOR_SOURCE
-
 //
 // System interface
 //
@@ -114,6 +111,3 @@ void deallocate_input_output_entry(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Error: Could not deallocate input output entry. The input output entry is null. p0: %i\n", p0);
     }
 }
-
-/* INPUT_OUTPUT_ENTRY_DEALLOCATOR_SOURCE */
-#endif

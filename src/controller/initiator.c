@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INITIATOR_SOURCE
-#define INITIATOR_SOURCE
-
 //
 // System interface
 //
@@ -154,6 +151,3 @@ void initiate(void* p0, void* p1, void* p2, void* p3) {
     // Deallocate startup signal part.
     deallocate_part((void*) &s);
 }
-
-/* INITIATOR_SOURCE */
-#endif

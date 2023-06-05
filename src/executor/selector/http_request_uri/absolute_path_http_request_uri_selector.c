@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ABSOLUTE_PATH_HTTP_REQUEST_URI_SELECTOR_SOURCE
-#define ABSOLUTE_PATH_HTTP_REQUEST_URI_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -68,6 +65,3 @@ void select_absolute_path_http_request_uri(void* p0, void* p1, void* p2, void* p
         move(p2, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
-
-/* ABSOLUTE_PATH_HTTP_REQUEST_URI_SELECTOR_SOURCE */
-#endif

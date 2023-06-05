@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NUMBER_6325_END_COMPOUND_FIELD_BDT_XDT_SELECTOR_SOURCE
-#define NUMBER_6325_END_COMPOUND_FIELD_BDT_XDT_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -43,7 +40,7 @@
  * @param p0 the end flag
  * @param p1 the next source field name
  */
-void select_xdt_bdt_field_compound_end_6325(void* p0, void* p1) {
+void select_xdt_bdt_field_compound_end_6235(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xdt bdt field compound end treatment data collection date.");
 
@@ -86,6 +83,3 @@ void select_xdt_bdt_field_compound_end_6325(void* p0, void* p1) {
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
-
-/* NUMBER_6325_END_COMPOUND_FIELD_BDT_XDT_SELECTOR_SOURCE */
-#endif

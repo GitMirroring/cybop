@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef REMOVE_FILE_SOURCE
-#define REMOVE_FILE_SOURCE
-
 //
 // Library interface
 //
@@ -131,6 +128,3 @@ void apply_remove_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_remove_file(pmd, pmc, fmd, imd, rmd, vmd);
 }
-
-/* REMOVE_FILE_SOURCE */
-#endif

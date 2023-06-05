@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TERMINAL_AWAKENER_SOURCE
-#define TERMINAL_AWAKENER_SOURCE
-
 //
 // System interface
 //
@@ -110,6 +107,3 @@ void awake_terminal(void* p0) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not awake terminal. The device file descriptor is null.");
     }
 }
-
-/* TERMINAL_AWAKENER_SOURCE */
-#endif

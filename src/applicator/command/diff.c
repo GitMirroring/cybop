@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DIFF_SOURCE
-#define DIFF_SOURCE
-
 //
 // Library interface
 //
@@ -97,6 +94,3 @@ void apply_diff(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_diff(f1md, f1mc, f2md, f2mc);
 }
-
-/* GREP_SOURCE */
-#endif

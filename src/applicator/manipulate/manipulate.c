@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MANIPULATE_SOURCE
-#define MANIPULATE_SOURCE
-
 //
 // Library interface
 //
@@ -145,6 +142,3 @@ void apply_manipulate(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // Manipulate value bitwise by applying operation.
     manipulate_part(v, pmd, p5, vtd, (void*) &count, (void*) &index);
 }
-
-/* MANIPULATE_SOURCE */
-#endif

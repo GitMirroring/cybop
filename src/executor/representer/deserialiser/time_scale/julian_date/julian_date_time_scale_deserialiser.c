@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef JULIAN_DATE_TIME_SCALE_DESERIALISER_SOURCE
-#define JULIAN_DATE_TIME_SCALE_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -83,6 +80,3 @@ void deserialise_time_scale_julian_date(void* p0, void* p1) {
     set_datetime_element(p0, (void*) &d, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
     set_datetime_element(p0, (void*) &s, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
 }
-
-/* JULIAN_DATE_TIME_SCALE_DESERIALISER_SOURCE */
-#endif

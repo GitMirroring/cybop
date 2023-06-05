@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef THREAD_IDENTIFICATION_COPIER_SOURCE
-#define THREAD_IDENTIFICATION_COPIER_SOURCE
-
 //
 // System interface
 //
@@ -74,6 +71,3 @@ void copy_thread_identification(void* p0, void* p1) {
         fwprintf(stdout, L"Error: Could not copy thread identification. The source is null. p1: %i\n", p1);
     }
 }
-
-/* THREAD_IDENTIFICATION_COPIER_SOURCE */
-#endif

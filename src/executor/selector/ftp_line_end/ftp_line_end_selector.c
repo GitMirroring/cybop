@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FTP_LINE_END_SELECTOR_SOURCE
-#define FTP_LINE_END_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -78,6 +75,3 @@ void select_ftp_line_end(void* p0, void* p1, void* p2, void* p3, void* p4) {
         calculate_integer_add(p3, (void*) &step);
     }
 }
-
-/* FTP_LINE_END_SELECTOR_SOURCE */
-#endif

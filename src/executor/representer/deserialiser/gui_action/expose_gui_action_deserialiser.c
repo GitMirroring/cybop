@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef EXPOSE_GUI_ACTION_DESERIALISER_SOURCE
-#define EXPOSE_GUI_ACTION_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -117,6 +114,3 @@ void deserialise_gui_action_expose(void* p0, void* p1, void* p2, void* p3, void*
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui action expose. The message format is not text/plain.");
     }
 }
-
-/* EXPOSE_GUI_ACTION_DESERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLOSE_SOURCE
-#define CLOSE_SOURCE
-
 //
 // Library interface
 //
@@ -143,6 +140,3 @@ void apply_close(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Close down client.
     close_client(idmd, (void*) &port, cmd, (void*) &server, p4);
 }
-
-/* CLOSE_SOURCE */
-#endif

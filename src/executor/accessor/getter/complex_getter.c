@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMPLEX_GETTER_SOURCE
-#define COMPLEX_GETTER_SOURCE
-
 //
 // Library interface
 //
@@ -103,6 +100,3 @@ void get_complex_element(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get complex element. The source complex is null.");
     }
 }
-
-/* COMPLEX_GETTER_SOURCE */
-#endif

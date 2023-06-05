@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef EMAIL_LIBRARY_SOURCE
-#define EMAIL_LIBRARY_SOURCE
-
 //
 // imap
 //
@@ -53,6 +50,3 @@
 //
 
 //?? TODO
-
-/* EMAIL_LIBRARY_SOURCE */
-#endif

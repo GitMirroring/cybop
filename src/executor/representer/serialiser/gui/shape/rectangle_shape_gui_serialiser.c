@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef RECTANGLE_SHAPE_GUI_SERIALISER_SOURCE
-#define RECTANGLE_SHAPE_GUI_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -61,6 +58,3 @@ void serialise_gui_shape_rectangle(void* p0, void* p1, void* p2, void* p3, void*
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* RECTANGLE_SHAPE_GUI_SERIALISER_SOURCE */
-#endif

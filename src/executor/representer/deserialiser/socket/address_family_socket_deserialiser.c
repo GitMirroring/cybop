@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ADDRESS_FAMILY_SOCKET_DESERIALISER_SOURCE
-#define ADDRESS_FAMILY_SOCKET_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -179,6 +176,3 @@ void deserialise_socket_family_address(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise socket family address. The family is not known.");
     }
 }
-
-/* ADDRESS_FAMILY_SOCKET_DESERIALISER_SOURCE */
-#endif

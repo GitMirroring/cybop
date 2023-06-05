@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLEAR_SCREEN_COMMANDER_SOURCE
-#define CLEAR_SCREEN_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -99,6 +96,3 @@ void command_clear_screen() {
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* CLEAR_SCREEN_COMMANDER_SOURCE */
-#endif

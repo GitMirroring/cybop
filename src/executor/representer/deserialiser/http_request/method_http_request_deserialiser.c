@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef METHOD_HTTP_REQUEST_DESERIALISER_SOURCE
-#define METHOD_HTTP_REQUEST_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -99,6 +96,3 @@ void deserialise_http_request_method(void* p0, void* p1, void* p2, void* p3) {
         }
     }
 }
-
-/* METHOD_HTTP_REQUEST_DESERIALISER_SOURCE */
-#endif

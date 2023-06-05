@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DISK_FREE_COMMANDER_SOURCE
-#define DISK_FREE_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -238,6 +235,3 @@ void command_disk_free(void* amd, void* hmd, void* kmd, void* lmd, void* mmd, vo
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* DISK_FREE_COMMANDER_SOURCE */
-#endif

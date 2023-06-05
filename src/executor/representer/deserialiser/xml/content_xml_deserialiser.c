@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONTENT_XML_DESERIALISER_SOURCE
-#define CONTENT_XML_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -98,6 +95,3 @@ void deserialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
         }
     }
 }
-
-/* CONTENT_XML_DESERIALISER_SOURCE */
-#endif

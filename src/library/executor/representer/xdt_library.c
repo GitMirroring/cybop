@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef XDT_LIBRARY_SOURCE
-#define XDT_LIBRARY_SOURCE
-
 //
 // xdt
 //
@@ -214,6 +211,3 @@
 #include "../../../executor/selector/xdt/bdt/record_bdt_xdt_selector.c"
 //?? #include "../../../executor/selector/xdt/hierarchy_field_xdt_selector_FUTURE_BDT_4.c"
 #include "../../../executor/selector/xdt/record/record_xdt_selector.c"
-
-/* XDT_LIBRARY_SOURCE */
-#endif

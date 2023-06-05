@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FUNCTION_SENSOR_SOURCE
-#define FUNCTION_SENSOR_SOURCE
-
 //
 // System interface
 //
@@ -138,6 +135,3 @@ int sense_function(void* p0) {
 
     return *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 }
-
-/* FUNCTION_SENSOR_SOURCE */
-#endif

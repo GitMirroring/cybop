@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NAME_PARAMETRE_QUERY_HTTP_URI_SELECTOR_SOURCE
-#define NAME_PARAMETRE_QUERY_HTTP_URI_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -91,6 +88,3 @@ void select_http_uri_query_parametre_name(void* p0, void* p1, void* p2, void* p3
         calculate_integer_add(p4, (void*) &step);
     }
 }
-
-/* NAME_PARAMETRE_QUERY_HTTP_URI_SELECTOR_SOURCE */
-#endif

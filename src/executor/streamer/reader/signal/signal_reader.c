@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SIGNAL_READER_SOURCE
-#define SIGNAL_READER_SOURCE
-
 //
 // System interface
 //
@@ -127,6 +124,3 @@ void read_signal(void* p0, void* p1, void* p2, void* p3) {
         //?? fwprintf(stdout, L"Warning: Could not read signal. The signal memory is empty. *p2: %i\n\n", *((int*) p2));
     }
 }
-
-/* SIGNAL_READER_SOURCE */
-#endif

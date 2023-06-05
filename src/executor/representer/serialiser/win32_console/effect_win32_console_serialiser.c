@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef EFFECT_WIN32_CONSOLE_SERIALISER_SOURCE
-#define EFFECT_WIN32_CONSOLE_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -90,6 +87,3 @@ void serialise_win32_console_effect(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 console effect. The destination data is null.");
     }
 }
-
-/* EFFECT_WIN32_CONSOLE_SERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MESSAGE_READER_SOURCE
-#define MESSAGE_READER_SOURCE
-
 //
 // System interface
 //
@@ -88,6 +85,3 @@ void read_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         read_completion(p14, p6, p7, p8, p9, p1, p10, p12, (void*) &ec);
     }
 }
-
-/* MESSAGE_READER_SOURCE */
-#endif

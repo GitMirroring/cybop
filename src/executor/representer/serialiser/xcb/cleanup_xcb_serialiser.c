@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLEANUP_XCB_SERIALISER_SOURCE
-#define CLEANUP_XCB_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -76,6 +73,3 @@ void serialise_xcb_cleanup(void* p0, void* p1, void* p2, void* p3, void* p4) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb cleanup. The font is null.");
     }
 }
-
-/* CLEANUP_XCB_SERIALISER_SOURCE */
-#endif

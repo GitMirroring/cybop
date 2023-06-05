@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SELECT_SENDER_SOURCE
-#define SELECT_SENDER_SOURCE
-
 //
 // Library interface
 //
@@ -106,6 +103,3 @@ void send_select(void* p0, void* p1, void* p2) {
         }
     }
 }
-
-/* SELECT_SENDER_SOURCE */
-#endif

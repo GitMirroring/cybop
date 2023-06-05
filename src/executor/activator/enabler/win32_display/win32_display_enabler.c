@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WIN32_DISPLAY_ENABLER_SOURCE
-#define WIN32_DISPLAY_ENABLER_SOURCE
-
 //
 // System interface
 //
@@ -109,6 +106,3 @@ void enable_win32_display(void* p0, void* p1) {
         copy_array_forward(p1, (void*) &msg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EVENT_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     }
 }
-
-/* WIN32_DISPLAY_ENABLER_SOURCE */
-#endif

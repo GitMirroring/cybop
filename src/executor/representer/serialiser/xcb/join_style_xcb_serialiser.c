@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef JOIN_STYLE_XCB_SERIALISER_SOURCE
-#define JOIN_STYLE_XCB_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -110,6 +107,3 @@ void serialise_xcb_join_style(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb join style. The join style is unknown.");
     }
 }
-
-/* JOIN_STYLE_XCB_SERIALISER_SOURCE */
-#endif

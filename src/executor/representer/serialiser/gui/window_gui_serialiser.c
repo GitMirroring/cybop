@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WINDOW_GUI_SERIALISER_SOURCE
-#define WINDOW_GUI_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -238,6 +235,3 @@ void serialise_gui_window(void* p0, void* p1, void* p2, void* p3, void* p4, void
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* WINDOW_GUI_SERIALISER_SOURCE */
-#endif

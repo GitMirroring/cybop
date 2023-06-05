@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_MANIPULATOR_SOURCE
-#define PART_MANIPULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -56,6 +53,3 @@ void manipulate_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
     manipulate_item(m, p1, p2, p3, p4, p5);
 }
-
-/* PART_MANIPULATOR_SOURCE */
-#endif

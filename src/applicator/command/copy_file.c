@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COPY_FILE_SOURCE
-#define COPY_FILE_SOURCE
-
 //
 // Library interface
 //
@@ -181,5 +178,3 @@ void apply_copy_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_copy_file(smd, smc, dmd, dmc, fmd, imd, paamd, plmd, rmd, umd, vmd);
 }
-/* COPY_FILE_SOURCE */
-#endif

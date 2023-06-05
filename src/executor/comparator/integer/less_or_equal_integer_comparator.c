@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LESS_OR_EQUAL_INTEGER_COMPARATOR_SOURCE
-#define LESS_OR_EQUAL_INTEGER_COMPARATOR_SOURCE
-
 //
 // Library interface
 //
@@ -73,6 +70,3 @@ void compare_integer_less_or_equal(void* p0, void* p1, void* p2) {
         // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare integer less or equal. The right value is null.");
     }
 }
-
-/* LESS_OR_EQUAL_INTEGER_COMPARATOR_SOURCE */
-#endif

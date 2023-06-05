@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ARRAY_MODIFIER_SOURCE
-#define ARRAY_MODIFIER_SOURCE
-
 //
 // System interface
 //
@@ -243,6 +240,3 @@ void modify_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         fwprintf(stdout, L"Warning: Could not modify array. The operation type is unknown. *p13: %i\n", *((int*) p13));
     }
 }
-
-/* ARRAY_MODIFIER_SOURCE */
-#endif

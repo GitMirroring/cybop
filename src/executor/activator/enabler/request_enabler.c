@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef REQUEST_ENABLER_SOURCE
-#define REQUEST_ENABLER_SOURCE
-
 //
 // System interface
 //
@@ -129,6 +126,3 @@ void enable_request(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         //?? fwprintf(stdout, L"Warning: Could not enable request. The sender client identification is invalid. Only relevant for socket channel. NO problem for display channel, since the window was opened and id assigned MANUALLY in cybol. id: %i\n", id);
     }
 }
-
-/* REQUEST_ENABLER_SOURCE */
-#endif

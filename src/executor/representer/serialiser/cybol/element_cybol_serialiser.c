@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENT_CYBOL_SERIALISER_SOURCE
-#define ELEMENT_CYBOL_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -104,6 +101,3 @@ void serialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // Serialise part element content.
     serialise_cybol_content(p0, nd, nc, fd, md, mc, pd, pc, p3, p4, p5, p6, p7, p8, p9, p10);
 }
-
-/* ELEMENT_CYBOL_SERIALISER_SOURCE */
-#endif

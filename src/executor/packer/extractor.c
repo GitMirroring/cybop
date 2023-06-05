@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef EXTRACTOR_SOURCE
-#define EXTRACTOR_SOURCE
-
 //
 // Library interface
 //
@@ -44,6 +41,3 @@ void extract(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Extract.");
 }
-
-/* EXTRACTOR_SOURCE */
-#endif

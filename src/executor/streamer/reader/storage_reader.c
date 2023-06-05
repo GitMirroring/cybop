@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STORAGE_READER_SOURCE
-#define STORAGE_READER_SOURCE
-
 //
 // System interface
 //
@@ -120,6 +117,3 @@ void read_storage(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Unlock mutex.
     unlock(p2);
 }
-
-/* STORAGE_READER_SOURCE */
-#endif

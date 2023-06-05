@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MODE_FILE_OPENER_SOURCE
-#define MODE_FILE_OPENER_SOURCE
-
 //
 // System interface
 //
@@ -108,6 +105,3 @@ void open_file_mode(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Warning: Could not open file mode. The open mode is unknown. open mode data p1: %ls\n", (wchar_t*) p1);
     }
 }
-
-/* MODE_FILE_OPENER_SOURCE */
-#endif

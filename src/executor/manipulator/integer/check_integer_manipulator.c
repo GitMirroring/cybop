@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHECK_INTEGER_MANIPULATOR_SOURCE
-#define CHECK_INTEGER_MANIPULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -73,6 +70,3 @@ void manipulate_integer_check(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not manipulate integer check. The value is null.");
     }
 }
-
-/* CHECK_INTEGER_MANIPULATOR_SOURCE */
-#endif

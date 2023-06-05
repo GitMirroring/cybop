@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef EQUAL_INTEGER_COMPARATOR_SOURCE
-#define EQUAL_INTEGER_COMPARATOR_SOURCE
-
 //
 // Library interface
 //
@@ -74,6 +71,3 @@ void compare_integer_equal(void* p0, void* p1, void* p2) {
         // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare integer equal. The right value is null.");
     }
 }
-
-/* EQUAL_INTEGER_COMPARATOR_SOURCE */
-#endif

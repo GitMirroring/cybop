@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MONTH_RUNNING_DAY_TIME_SCALE_SERIALISER_SOURCE
-#define MONTH_RUNNING_DAY_TIME_SCALE_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -54,6 +51,3 @@ void serialise_time_scale_running_day_month(void* p0, void* p1) {
     calculate_integer_add(p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     calculate_integer_divide(p0, (void*) NUMBER_31_INTEGER_STATE_CYBOI_MODEL);
 }
-
-/* MONTH_RUNNING_DAY_TIME_SCALE_SERIALISER_SOURCE */
-#endif

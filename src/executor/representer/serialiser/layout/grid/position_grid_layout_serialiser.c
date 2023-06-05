@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef POSITION_GRID_LAYOUT_SERIALISER_SOURCE
-#define POSITION_GRID_LAYOUT_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -64,6 +61,3 @@ void serialise_layout_grid_position(void* p0, void* p1, void* p2, void* p3, void
     calculate_integer_add(p0, p4);
     calculate_integer_add(p1, p5);
 }
-
-/* POSITION_GRID_LAYOUT_SERIALISER_SOURCE */
-#endif

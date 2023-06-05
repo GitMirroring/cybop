@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INDEX_COUNT_VERIFIER_SOURCE
-#define INDEX_COUNT_VERIFIER_SOURCE
-
 //
 // System interface
 //
@@ -97,6 +94,3 @@ void verify_index_count(void* p0, void* p1, void* p2, void* p3) {
         // fwprintf(stdout, L"Hint: Test count sum c: %i. Data count *p3: %i.\n", c, *((int*) p3));
     }
 }
-
-/* INDEX_COUNT_VERIFIER_SOURCE */
-#endif

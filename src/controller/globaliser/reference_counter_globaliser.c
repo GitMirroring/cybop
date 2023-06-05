@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef REFERENCE_COUNTER_GLOBALISER_SOURCE
-#define REFERENCE_COUNTER_GLOBALISER_SOURCE
-
 //
 // Library interface
 //
@@ -42,6 +39,3 @@ void globalise_reference_counter() {
     *ITEM_REFERENCE_COUNTER = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     *PART_REFERENCE_COUNTER = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 }
-
-/* REFERENCE_COUNTER_GLOBALISER_SOURCE */
-#endif

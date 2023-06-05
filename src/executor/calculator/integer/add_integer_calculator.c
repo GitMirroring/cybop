@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ADD_INTEGER_CALCULATOR_SOURCE
-#define ADD_INTEGER_CALCULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -68,6 +65,3 @@ void calculate_integer_add(void* p0, void* p1) {
         // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate integer add. The summand is null.");
     }
 }
-
-/* ADD_INTEGER_CALCULATOR_SOURCE */
-#endif

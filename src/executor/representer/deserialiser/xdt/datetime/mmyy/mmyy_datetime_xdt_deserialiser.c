@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MMYY_DATETIME_XDT_DESERIALISER_SOURCE
-#define MMYY_DATETIME_XDT_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -61,6 +58,3 @@ void deserialise_xdt_datetime_mmyy(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt datetime mmyy. The source count is unequal 4.");
     }
 }
-
-/* MMYY_DATETIME_XDT_DESERIALISER_SOURCE */
-#endif

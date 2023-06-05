@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INDEX_CSV_DESERIALISER_SOURCE
-#define INDEX_CSV_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -101,6 +98,3 @@ void deserialise_csv_index(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // Deallocate index item.
     deallocate_item((void*) &i, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* INDEX_CSV_DESERIALISER_SOURCE */
-#endif

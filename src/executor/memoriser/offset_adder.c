@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef OFFSET_ADDER_SOURCE
-#define OFFSET_ADDER_SOURCE
-
 //
 // Library interface
 //
@@ -72,6 +69,3 @@ void add_offset(void* p0, void* p1, void* p2) {
     //
     calculate_pointer_add(p0, (void*) &o);
 }
-
-/* OFFSET_ADDER_SOURCE */
-#endif

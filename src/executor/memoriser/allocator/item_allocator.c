@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ITEM_ALLOCATOR_SOURCE
-#define ITEM_ALLOCATOR_SOURCE
-
 //
 // System interface
 //
@@ -188,6 +185,3 @@ void allocate_item(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Error: Could not allocate item. The type is null. type p2: %i\n", p2);
     }
 }
-
-/* ITEM_ALLOCATOR_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LESS_CHARACTER_COMPARATOR_SOURCE
-#define LESS_CHARACTER_COMPARATOR_SOURCE
-
 //
 // Library interface
 //
@@ -79,6 +76,3 @@ void compare_character_less(void* p0, void* p1, void* p2) {
         // It might use functions that cause circular references.
     }
 }
-
-/* LESS_CHARACTER_COMPARATOR_SOURCE */
-#endif

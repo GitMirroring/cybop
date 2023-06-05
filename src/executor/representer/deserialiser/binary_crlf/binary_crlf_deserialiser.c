@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BINARY_CRLF_DESERIALISER_SOURCE
-#define BINARY_CRLF_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -81,6 +78,3 @@ void deserialise_binary_crlf(void* p0, void* p1, void* p2) {
     //
     deserialise_binary_crlf_data(p0, (void*) &d, (void*) &c);
 }
-
-/* BINARY_CRLF_DESERIALISER_SOURCE */
-#endif

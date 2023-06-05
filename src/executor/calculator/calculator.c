@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CALCULATOR_SOURCE
-#define CALCULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -203,6 +200,3 @@ void calculate_offset(void* p0, void* p1, void* p2, void* p3, void* p4) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate offset. The operand is null.");
     }
 }
-
-/* CALCULATOR_SOURCE */
-#endif

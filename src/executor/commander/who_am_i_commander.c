@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WHO_AM_I_COMMANDER_SOURCE
-#define WHO_AM_I_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -95,6 +92,3 @@ void command_who_am_i() {
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* WHO_AM_I_COMMANDER_SOURCE */
-#endif

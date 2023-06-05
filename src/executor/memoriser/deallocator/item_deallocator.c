@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ITEM_DEALLOCATOR_SOURCE
-#define ITEM_DEALLOCATOR_SOURCE
-
 //
 // Library interface
 //
@@ -34,18 +31,6 @@
 #include "knowledge.h"
 #include "logger.h"
 #include "variable.h"
-
-//
-// Forbidden interface
-//
-// CAUTION! Do NOT include the following files since otherwise,
-// circular references would occur due to module dependencies.
-// Instead, forward declarations are used further below.
-// Therefore, the following includes are to be commented OUT
-// and listed here just for information.
-//
-
-// #include "../../../executor/modifier/array_modifier.c"
 
 //
 // Forward declaration
@@ -144,6 +129,3 @@ void deallocate_item(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deallocate item. The item is null.");
     }
 }
-
-/* ITEM_DEALLOCATOR_SOURCE */
-#endif

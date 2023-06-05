@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BYTE_CYBOL_SERIALISER_SOURCE
-#define BYTE_CYBOL_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -101,6 +98,3 @@ void serialise_cybol_byte(void* p0, void* p1, void* p2) {
     // Deallocate integer item.
     deallocate_item((void*) &i, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 }
-
-/* BYTE_CYBOL_SERIALISER_SOURCE */
-#endif

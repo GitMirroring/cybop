@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STRING_TRAILING_STRIPPER_SOURCE
-#define STRING_TRAILING_STRIPPER_SOURCE
-
 //
 // System interface
 //
@@ -184,6 +181,3 @@ void strip_trailing_string(void* p0, void* p1, void* p2) {
         }
     }
 }
-
-/* STRING_TRAILING_STRIPPER_SOURCE */
-#endif

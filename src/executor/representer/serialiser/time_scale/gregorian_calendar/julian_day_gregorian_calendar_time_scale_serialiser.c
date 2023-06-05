@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef JULIAN_DAY_GREGORIAN_CALENDAR_TIME_SCALE_SERIALISER_SOURCE
-#define JULIAN_DAY_GREGORIAN_CALENDAR_TIME_SCALE_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -150,6 +147,3 @@ void serialise_time_scale_gregorian_calendar_julian_day(void* p0, void* p1, void
     // Calculate month and day from running day.
     serialise_time_scale_running_day(p1, p2, (void*) &rd);
 }
-
-/* JULIAN_DAY_GREGORIAN_CALENDAR_TIME_SCALE_SERIALISER_SOURCE */
-#endif

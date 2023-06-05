@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef XCB_SHUTTER_SOURCE
-#define XCB_SHUTTER_SOURCE
-
 //
 // System interface
 //
@@ -159,6 +156,3 @@ void shutdown_xcb(void* p0) {
         fwprintf(stdout, L"Warning: Could not shutdown xcb. The connexion is null. c: %i\n", c);
     }
 }
-
-/* XCB_SHUTTER_SOURCE */
-#endif

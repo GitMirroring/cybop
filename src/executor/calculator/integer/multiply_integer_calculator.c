@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MULTIPLY_INTEGER_CALCULATOR_SOURCE
-#define MULTIPLY_INTEGER_CALCULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -68,6 +65,3 @@ void calculate_integer_multiply(void* p0, void* p1) {
         // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate integer multiply. The factor is null.");
     }
 }
-
-/* MULTIPLY_INTEGER_CALCULATOR_SOURCE */
-#endif

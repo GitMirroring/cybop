@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CSV_DESERIALISER_SOURCE
-#define CSV_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -98,6 +95,3 @@ void deserialise_csv(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
     //
     deallocate_item((void*) &l, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 }
-
-/* CSV_DESERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TYPE_MODIFY_SOURCE
-#define TYPE_MODIFY_SOURCE
-
 //
 // System interface
 //
@@ -102,6 +99,3 @@ void apply_modify_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         //
     }
 }
-
-/* TYPE_MODIFY_SOURCE */
-#endif

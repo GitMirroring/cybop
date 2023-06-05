@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ORIENTER_SOURCE
-#define ORIENTER_SOURCE
-
 //
 // System interface
 //
@@ -90,6 +87,3 @@ void orient(void* p0, void* p1) {
         //
     }
 }
-
-/* ORIENTER_SOURCE */
-#endif

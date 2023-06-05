@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LIST_SHUTTER_SOURCE
-#define LIST_SHUTTER_SOURCE
-
 //
 // System interface
 //
@@ -136,6 +133,3 @@ void shutdown_list(void* p0, void* p1, void* p2, void* p3, void* p4) {
         j--;
     }
 }
-
-/* LIST_SHUTTER_SOURCE */
-#endif

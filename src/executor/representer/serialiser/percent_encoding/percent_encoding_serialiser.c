@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PERCENT_ENCODING_SERIALISER_SOURCE
-#define PERCENT_ENCODING_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -148,6 +145,3 @@ void serialise_percent_encoding(void* p0, void* p1, void* p2) {
     //
     serialise_percent_encoding_data(p0, (void*) &d, (void*) &c);
 }
-
-/* PERCENT_ENCODING_SERIALISER_SOURCE */
-#endif

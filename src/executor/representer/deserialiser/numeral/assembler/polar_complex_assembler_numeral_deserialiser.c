@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef POLAR_COMPLEX_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE
-#define POLAR_COMPLEX_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -87,6 +84,3 @@ void deserialise_numeral_assembler_complex_polar(void* p0, void* p1, void* p2, v
     // Assign imaginary part.
     set_complex_element(p0, (void*) &i, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
 }
-
-/* POLAR_COMPLEX_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE */
-#endif

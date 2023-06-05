@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-06-05  Christian Heller  <christian.heller@cybop.org>
+
+        * Delete preprocessor macros in implementation source files, since they are required only in header files
+
 2023-06-04  Christian Heller  <christian.heller@cybop.org>
 
         * Delete cybol operation "access/get-index"

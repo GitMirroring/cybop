@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FRACTION_COPIER_SOURCE
-#define FRACTION_COPIER_SOURCE
-
 //
 // Library interface
 //
@@ -56,6 +53,3 @@ void copy_fraction(void* p0, void* p1) {
     set_fraction_element(p0, (void*) &sn, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
     set_fraction_element(p0, (void*) &sd, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
 }
-
-/* FRACTION_COPIER_SOURCE */
-#endif

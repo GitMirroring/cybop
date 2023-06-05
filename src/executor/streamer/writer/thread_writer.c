@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef THREAD_WRITER_SOURCE
-#define THREAD_WRITER_SOURCE
-
 //
 // System interface
 //
@@ -69,6 +66,3 @@ void write_thread(void* p0) {
     // Invoke write function WITHIN a new thread.
     spin((void*) &t, f, p0);
 }
-
-/* THREAD_WRITER_SOURCE */
-#endif

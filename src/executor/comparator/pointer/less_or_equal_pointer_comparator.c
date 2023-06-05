@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LESS_OR_EQUAL_POINTER_COMPARATOR_SOURCE
-#define LESS_OR_EQUAL_POINTER_COMPARATOR_SOURCE
-
 //
 // Library interface
 //
@@ -70,6 +67,3 @@ void compare_pointer_less_or_equal(void* p0, void* p1, void* p2) {
         // It might use functions that cause circular references.
     }
 }
-
-/* LESS_OR_EQUAL_POINTER_COMPARATOR_SOURCE */
-#endif

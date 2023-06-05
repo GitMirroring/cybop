@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SUFFIX_JSON_SERIALISER_SOURCE
-#define SUFFIX_JSON_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -77,6 +74,3 @@ void serialise_json_suffix(void* p0, void* p1, void* p2, void* p3) {
         serialise_json_indentation(p0, p3, p2);
     }
 }
-
-/* SUFFIX_JSON_SERIALISER_SOURCE */
-#endif

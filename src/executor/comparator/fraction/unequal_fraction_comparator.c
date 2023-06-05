@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef UNEQUAL_FRACTION_COMPARATOR_SOURCE
-#define UNEQUAL_FRACTION_COMPARATOR_SOURCE
-
 //
 // Library interface
 //
@@ -71,5 +68,3 @@ void compare_fraction_unequal(void* p0, void* p1, void* p2) {
     // Compare expanded numerators.
     compare_integer_unequal(p0, (void*) &eln, (void*) &ern);
 }
-/* UNEQUAL_FRACTION_COMPARATOR_SOURCE */
-#endif

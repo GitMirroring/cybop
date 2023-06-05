@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef XDT_SERIALISER_SOURCE
-#define XDT_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -104,6 +101,3 @@ void serialise_xdt(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xdt.");
 }
-
-/* XDT_SERIALISER_SOURCE */
-#endif

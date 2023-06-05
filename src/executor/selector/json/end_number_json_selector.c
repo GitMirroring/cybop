@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef END_NUMBER_JSON_SELECTOR_SOURCE
-#define END_NUMBER_JSON_SELECTOR_SOURCE
-
 //
 // System interface
 //
@@ -120,6 +117,3 @@ void select_json_number_end(void* p0, void* p1, void* p2, void* p3) {
         calculate_integer_add(p2, (void*) &step);
     }
 }
-
-/* END_NUMBER_JSON_SELECTOR_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LEAP_YEAR_CORRECTION_TIME_SCALE_DESERIALISER_SOURCE
-#define LEAP_YEAR_CORRECTION_TIME_SCALE_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -61,6 +58,3 @@ void deserialise_time_scale_correction_leap_year(void* p0, void* p1) {
         copy_integer(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     }
 }
-
-/* LEAP_YEAR_CORRECTION_TIME_SCALE_DESERIALISER_SOURCE */
-#endif

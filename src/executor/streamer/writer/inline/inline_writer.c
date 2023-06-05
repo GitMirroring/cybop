@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INLINE_WRITER_SOURCE
-#define INLINE_WRITER_SOURCE
-
 //
 // System interface
 //
@@ -120,6 +117,3 @@ void write_inline(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //
     copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 }
-
-/* INLINE_WRITER_SOURCE */
-#endif

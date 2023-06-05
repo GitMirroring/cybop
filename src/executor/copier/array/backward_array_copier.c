@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BACKWARD_ARRAY_COPIER_SOURCE
-#define BACKWARD_ARRAY_COPIER_SOURCE
-
 //
 // System interface
 //
@@ -96,6 +93,3 @@ void copy_array_backward(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         fwprintf(stdout, L"Error: Could not copy array forward. The source array is null. p1: %i\n", p1);
     }
 }
-
-/* BACKWARD_ARRAY_COPIER_SOURCE */
-#endif

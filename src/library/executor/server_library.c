@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SERVER_LIBRARY_SOURCE
-#define SERVER_LIBRARY_SOURCE
-
 //
 // activator
 //
@@ -116,7 +113,4 @@
     #include "../../executor/maintainer/starter/winsock/listen_winsock_starter.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
-
-/* SERVER_LIBRARY_SOURCE */
 #endif

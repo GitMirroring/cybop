@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_LAYOUT_SERIALISER_SOURCE
-#define PART_LAYOUT_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -89,6 +86,3 @@ void serialise_layout_part(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         j++;
     }
 }
-
-/* PART_LAYOUT_SERIALISER_SOURCE */
-#endif

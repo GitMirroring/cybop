@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHECK_REFORM_JULIAN_DAY_GREGORIAN_CALENDAR_TIME_SCALE_DESERIALISER_SOURCE
-#define CHECK_REFORM_JULIAN_DAY_GREGORIAN_CALENDAR_TIME_SCALE_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -94,6 +91,3 @@ void deserialise_time_scale_gregorian_calendar_julian_day_check_reform(void* p0,
         }
     }
 }
-
-/* CHECK_REFORM_JULIAN_DAY_GREGORIAN_CALENDAR_TIME_SCALE_DESERIALISER_SOURCE */
-#endif

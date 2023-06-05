@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHANNEL_CYBOL_DESERIALISER_SOURCE
-#define CHANNEL_CYBOL_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -190,6 +187,3 @@ void deserialise_cybol_channel(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Warning: Could not deserialise cybol channel. The source cybol channel is unknown. cybol channel *p2: %i\n", *((int*) p2));
     }
 }
-
-/* CHANNEL_CYBOL_DESERIALISER_SOURCE */
-#endif

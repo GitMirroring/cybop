@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LIST_DIRECTORY_CONTENTS_COMMANDER_SOURCE
-#define LIST_DIRECTORY_CONTENTS_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -374,6 +371,3 @@ void command_list_directory_contents(void* p0, void* p1, void* p2, void* p3, voi
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
-/* LIST_DIRECTORY_CONTENTS_COMMANDER_SOURCE */
-#endif

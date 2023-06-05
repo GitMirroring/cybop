@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LOCKER_SOURCE
-#define LOCKER_SOURCE
-
 //
 // System interface
 //
@@ -68,6 +65,3 @@ int lock(void* p0) {
         // fwprintf(stdout, L"Warning: Could not lock mutex. The mutex is null. p0: %i\n", p0);
     }
 }
-
-/* LOCKER_SOURCE */
-#endif

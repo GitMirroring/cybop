@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef RUN_SOURCE
-#define RUN_SOURCE
-
 //
 // Library interface
 //
@@ -80,6 +77,3 @@ void apply_run(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Execute command line in shell.
     execute(pmd, pmc);
 }
-
-/* RUN_SOURCE */
-#endif

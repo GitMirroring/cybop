@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHECK_CHARACTER_MANIPULATOR_SOURCE
-#define CHECK_CHARACTER_MANIPULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -78,6 +75,3 @@ void manipulate_character_check(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not manipulate character check. The value is null.");
     }
 }
-
-/* CHECK_CHARACTER_MANIPULATOR_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef VULGAR_FRACTION_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE
-#define VULGAR_FRACTION_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -74,6 +71,3 @@ void deserialise_numeral_assembler_fraction_vulgar(void* p0, void* p1, void* p2,
     // Assign denominator.
     set_fraction_element(p0, (void*) &d, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
 }
-
-/* VULGAR_FRACTION_ASSEMBLER_NUMERAL_DESERIALISER_SOURCE */
-#endif

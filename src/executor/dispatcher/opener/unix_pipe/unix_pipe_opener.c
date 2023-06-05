@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef UNIX_PIPE_OPENER_SOURCE
-#define UNIX_PIPE_OPENER_SOURCE
-
 //
 // System interface
 //
@@ -90,6 +87,3 @@ void open_unix_pipe(void* p0) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open unix pipe. The file descriptor array is null.");
     }
 }
-
-/* UNIX_PIPE_OPENER_SOURCE */
-#endif

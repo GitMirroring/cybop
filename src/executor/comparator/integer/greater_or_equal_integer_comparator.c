@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef GREATER_OR_EQUAL_INTEGER_COMPARATOR_SOURCE
-#define GREATER_OR_EQUAL_INTEGER_COMPARATOR_SOURCE
-
 //
 // Library interface
 //
@@ -73,6 +70,3 @@ void compare_integer_greater_or_equal(void* p0, void* p1, void* p2) {
         // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare integer greater or equal. The right value is null.");
     }
 }
-
-/* GREATER_OR_EQUAL_INTEGER_COMPARATOR_SOURCE */
-#endif

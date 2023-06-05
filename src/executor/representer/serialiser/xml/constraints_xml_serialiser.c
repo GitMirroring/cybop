@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONSTRAINTS_XML_SERIALISER_SOURCE
-#define CONSTRAINTS_XML_SERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -162,6 +159,3 @@ void serialise_xml_constraints(void* p0, void* p1, void* p2, void* p3, void* p4,
     // Serialise xml content.
     serialise_xml(p0, p1, p2, smd, bmd, cmd, dmd, dmc, pmd, nmd, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p10);
 }
-
-/* CONSTRAINTS_XML_SERIALISER_SOURCE */
-#endif

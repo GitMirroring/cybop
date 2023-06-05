@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMMUNICATION_LIBRARY_SOURCE
-#define COMMUNICATION_LIBRARY_SOURCE
-
 //
 // communicator
 //
@@ -113,7 +110,6 @@
 #include "../../executor/streamer/reader/message_reader.c"
 #include "../../executor/streamer/reader/reader.c"
 #include "../../executor/streamer/reader/signal/signal_reader.c"
-#include "../../executor/streamer/reader/sleep_reader.c"
 #include "../../executor/streamer/reader/storage_reader.c"
 
 #if defined(__linux__) || defined(__unix__)
@@ -160,7 +156,4 @@
     #include "../../executor/streamer/writer/winsock/winsock_writer.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
-
-/* COMMUNICATION_LIBRARY_SOURCE */
 #endif

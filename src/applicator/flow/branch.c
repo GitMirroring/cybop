@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BRANCH_SOURCE
-#define BRANCH_SOURCE
-
 //
 // Library interface
 //
@@ -148,6 +145,3 @@ void apply_branch(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         handle(f, p4, p2, p3, p5, p6, (void*) &x, p7, *NULL_POINTER_STATE_CYBOI_MODEL);
     }
 }
-
-/* BRANCH_SOURCE */
-#endif

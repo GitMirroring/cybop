@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WHO_AM_I_SOURCE
-#define WHO_AM_I_SOURCE
-
 //
 // Library interface
 //
@@ -48,6 +45,3 @@ void apply_who_am_i() {
 
     command_who_am_i();
 }
-
-/* WHO_AM_I_SOURCE */
-#endif

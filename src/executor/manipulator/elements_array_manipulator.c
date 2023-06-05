@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENTS_ARRAY_MANIPULATOR_SOURCE
-#define ELEMENTS_ARRAY_MANIPULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -79,6 +76,3 @@ void manipulate_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4)
         j++;
     }
 }
-
-/* ELEMENTS_ARRAY_MANIPULATOR_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef RECEIVE_SOURCE
-#define RECEIVE_SOURCE
-
 //
 // Library interface
 //
@@ -219,6 +216,3 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     receive_data(mm, mp, srmd, srmc, srpd, srpc, lpd, lpc, p2, p3, p4, fmd, lmd, emd, amd, (void*) &port, (void*) &server, cmd);
 }
-
-/* RECEIVE_SOURCE */
-#endif

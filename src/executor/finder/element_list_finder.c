@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENT_LIST_FINDER_SOURCE
-#define ELEMENT_LIST_FINDER_SOURCE
-
 //
 // System interface
 //
@@ -65,6 +62,3 @@ void find_list_element(void* p0, void* p1, void* p2, void* p3) {
     // Compare entry element with comparison data.
     compare_integer_equal(p0, e, p2);
 }
-
-/* ELEMENT_LIST_FINDER_SOURCE */
-#endif

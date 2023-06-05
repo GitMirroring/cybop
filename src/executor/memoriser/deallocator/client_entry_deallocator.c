@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLIENT_ENTRY_DEALLOCATOR_SOURCE
-#define CLIENT_ENTRY_DEALLOCATOR_SOURCE
-
 //
 // System interface
 //
@@ -221,6 +218,3 @@ void deallocate_client_entry(void* p0, void* p1) {
         fwprintf(stdout, L"Error: Could not deallocate client entry. The client entry is null. p0: %i\n", p0);
     }
 }
-
-/* CLIENT_ENTRY_DEALLOCATOR_SOURCE */
-#endif

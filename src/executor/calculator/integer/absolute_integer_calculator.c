@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ABSOLUTE_INTEGER_CALCULATOR_SOURCE
-#define ABSOLUTE_INTEGER_CALCULATOR_SOURCE
-
 //
 // System interface
 //
@@ -68,6 +65,3 @@ void calculate_integer_absolute(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate integer absolute. The source is null.");
     }
 }
-
-/* ABSOLUTE_INTEGER_CALCULATOR_SOURCE */
-#endif

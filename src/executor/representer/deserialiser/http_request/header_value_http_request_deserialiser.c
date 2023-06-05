@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HEADER_VALUE_HTTP_REQUEST_DESERIALISER_SOURCE
-#define HEADER_VALUE_HTTP_REQUEST_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -93,6 +90,3 @@ void deserialise_http_request_header_value(void* p0, void* p1, void* p2, void* p
         }
     }
 }
-
-/* HEADER_VALUE_HTTP_REQUEST_DESERIALISER_SOURCE */
-#endif

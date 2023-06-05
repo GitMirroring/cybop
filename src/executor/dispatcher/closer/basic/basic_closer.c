@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BASIC_CLOSER_SOURCE
-#define BASIC_CLOSER_SOURCE
-
 //
 // System interface
 //
@@ -105,6 +102,3 @@ void close_basic(void* p0) {
         fwprintf(stdout, L"Error: Could not close basic. The basic descriptor is null. p0: %i\n", p0);
     }
 }
-
-/* BASIC_CLOSER_SOURCE */
-#endif

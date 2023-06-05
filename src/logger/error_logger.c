@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ERROR_LOGGER_SOURCE
-#define ERROR_LOGGER_SOURCE
-
 //
 // System interface
 //
@@ -89,6 +86,3 @@ void log_error(void* p0) {
         fwprintf(stdout, L"Error: Could not log error. The errno value is null. p0: %i\n", p0);
     }
 }
-
-/* ERROR_LOGGER_SOURCE */
-#endif

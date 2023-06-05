@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DATETIME_COPIER_SOURCE
-#define DATETIME_COPIER_SOURCE
-
 //
 // Library interface
 //
@@ -56,6 +53,3 @@ void copy_datetime(void* p0, void* p1) {
     set_datetime_element(p0, (void*) &d, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
     set_datetime_element(p0, (void*) &s, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
 }
-
-/* DATETIME_COPIER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENTS_ARRAY_REFERENCER_SOURCE
-#define ELEMENTS_ARRAY_REFERENCER_SOURCE
-
 //
 // System interface
 //
@@ -96,6 +93,3 @@ void reference_array_elements(void* p0, void* p1, void* p2) {
         j++;
     }
 }
-
-/* ELEMENTS_ARRAY_REFERENCER_SOURCE */
-#endif

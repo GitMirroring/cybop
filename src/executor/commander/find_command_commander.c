@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FIND_COMMAND_COMMANDER_SOURCE
-#define FIND_COMMAND_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -191,6 +188,3 @@ void command_find_command(void* cmd, void* cmc, void* bmd, void* mmd, void* smd)
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not find command. The source path is null.");
     }
 }
-
-/* FIND_COMMAND_COMMANDER_SOURCE */
-#endif

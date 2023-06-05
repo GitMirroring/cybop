@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SET_CHARACTER_MANIPULATOR_SOURCE
-#define SET_CHARACTER_MANIPULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -58,6 +55,3 @@ void manipulate_character_set(void* p0, void* p1) {
     // Apply or.
     logify_character_or(p0, (void*) &b);
 }
-
-/* SET_CHARACTER_MANIPULATOR_SOURCE */
-#endif

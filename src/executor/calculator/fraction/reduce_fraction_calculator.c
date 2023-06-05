@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef REDUCE_FRACTION_CALCULATOR_SOURCE
-#define REDUCE_FRACTION_CALCULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -138,6 +135,3 @@ void calculate_fraction_reduce(void* p0) {
     set_fraction_element((void*) p0, (void*) &rn, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
     set_fraction_element((void*) p0, (void*) &rd, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
 }
-
-/* REDUCE_FRACTION_CALCULATOR_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INTEGRAL_TYPE_SIZE_GLOBALISER_SOURCE
-#define INTEGRAL_TYPE_SIZE_GLOBALISER_SOURCE
-
 //
 // System interface
 //
@@ -94,6 +91,3 @@ void globalise_type_size_integral() {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* INTEGRAL_TYPE_SIZE_GLOBALISER_SOURCE */
-#endif

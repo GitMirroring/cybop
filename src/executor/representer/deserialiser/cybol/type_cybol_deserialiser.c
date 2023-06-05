@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TYPE_CYBOL_DESERIALISER_SOURCE
-#define TYPE_CYBOL_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -467,6 +464,3 @@ void deserialise_cybol_type(void* p0, void* p1) {
         // fwprintf(stdout, L"Warning: Could not deserialise cybol type. The source cyboi format is unknown. cyboi format *p1: %i\n", *((int*) p1));
     }
 }
-
-/* TYPE_CYBOL_DESERIALISER_SOURCE */
-#endif

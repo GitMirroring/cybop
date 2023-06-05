@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef VOID_HTML_SERIALISER_SOURCE
-#define VOID_HTML_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -158,6 +155,3 @@ void serialise_html_void(void* p0, void* p1, void* p2) {
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
-
-/* VOID_HTML_SERIALISER_SOURCE */
-#endif

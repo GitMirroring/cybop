@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LINUX_ERRNO_TO_MESSAGE_MAPPER_SOURCE
-#define LINUX_ERRNO_TO_MESSAGE_MAPPER_SOURCE
-
 //
 // System interface
 //
@@ -259,6 +256,3 @@ void map_errno_to_message_linux(void* p0, void* p1) {
         fwprintf(stdout, L"Error: Could not map errno to message linux. The errno value is null. p1: %i\n", p1);
     }
 }
-
-/* LINUX_ERRNO_TO_MESSAGE_MAPPER_SOURCE */
-#endif

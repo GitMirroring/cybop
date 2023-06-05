@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SPELLCHECK_SOURCE
-#define SPELLCHECK_SOURCE
-
 //
 // Library interface
 //
@@ -179,6 +176,3 @@ void apply_spellcheck(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_spellcheck(pmd, pmc, mmd, mmc, smmd, smmc, lmd, lmc, emd, emc, kmd, kmc, mamd, mamc, db);
 }
-
-/* SPELLCHECK_SOURCE */
-#endif

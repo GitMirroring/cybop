@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STANDARD_CYBOL_DESERIALISER_SOURCE
-#define STANDARD_CYBOL_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -243,6 +240,3 @@ void deserialise_cybol_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     deallocate_item((void*) &f, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
     deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 }
-
-/* STANDARD_CYBOL_DESERIALISER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMPLEX_SETTER_SOURCE
-#define COMPLEX_SETTER_SOURCE
-
 //
 // Library interface
 //
@@ -117,6 +114,3 @@ void set_complex_element(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set complex element. The destination complex is null.");
     }
 }
-
-/* COMPLEX_SETTER_SOURCE */
-#endif

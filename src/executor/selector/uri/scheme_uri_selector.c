@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SCHEME_URI_SELECTOR_SOURCE
-#define SCHEME_URI_SELECTOR_SOURCE
-
 //
 // Library interface
 //
@@ -106,6 +103,3 @@ void select_uri_scheme(void* p0, void* p1, void* p2, void* p3) {
         calculate_integer_add(p2, (void*) &step);
     }
 }
-
-/* SCHEME_URI_SELECTOR_SOURCE */
-#endif

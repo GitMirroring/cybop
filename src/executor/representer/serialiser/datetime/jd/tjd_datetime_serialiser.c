@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TJD_DATETIME_SERIALISER_SOURCE
-#define TJD_DATETIME_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -47,6 +44,3 @@ void serialise_datetime_tjd(void* p0, void* p1, void* p2) {
 
     serialise_datetime_jd_basic(p0, p1, p2, (void*) TRUNCATED_JULIAN_DATE_TIME_SCALE_MODEL);
 }
-
-/* TJD_DATETIME_SERIALISER_SOURCE */
-#endif

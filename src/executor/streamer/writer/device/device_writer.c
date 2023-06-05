@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DEVICE_WRITER_SOURCE
-#define DEVICE_WRITER_SOURCE
-
 //
 // System interface
 //
@@ -65,6 +62,3 @@ void write_device(void* p0, void* p1, void* p2) {
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
-
-/* DEVICE_WRITER_SOURCE */
-#endif

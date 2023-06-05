@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CYBOI_LIBRARY_SOURCE
-#define CYBOI_LIBRARY_SOURCE
-
 //
 // command line
 //
@@ -38,6 +35,3 @@
 #include "../../../executor/selector/command_line/log_level_command_line_selector.c"
 #include "../../../executor/selector/command_line/mode_command_line_selector.c"
 #include "../../../executor/selector/command_line/option_command_line_selector.c"
-
-/* CYBOI_LIBRARY_SOURCE */
-#endif

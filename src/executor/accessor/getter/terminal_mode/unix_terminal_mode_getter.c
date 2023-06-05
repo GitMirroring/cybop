@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef UNIX_TERMINAL_MODE_GETTER_SOURCE
-#define UNIX_TERMINAL_MODE_GETTER_SOURCE
-
 //
 // System interface
 //
@@ -91,6 +88,3 @@ void get_terminal_mode_unix(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get terminal mode unix. The source file descriptor is null.");
     }
 }
-
-/* UNIX_TERMINAL_MODE_GETTER_SOURCE */
-#endif

@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BYTE_PERCENT_ENCODING_SERIALISER_SOURCE
-#define BYTE_PERCENT_ENCODING_SERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -55,6 +52,3 @@ void serialise_percent_encoding_byte(void* p0, void* p1) {
     //?? TODO:
     //?? serialise_numeral_integer((void*) &i, rd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) HEXADECIMAL_BASE_NUMERAL_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 }
-
-/* BYTE_PERCENT_ENCODING_SERIALISER_SOURCE */
-#endif

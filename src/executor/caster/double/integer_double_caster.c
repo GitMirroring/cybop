@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INTEGER_DOUBLE_CASTER_SOURCE
-#define INTEGER_DOUBLE_CASTER_SOURCE
-
 //
 // Library interface
 //
@@ -66,6 +63,3 @@ void cast_double_integer(void* p0, void* p1) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast double integer. The source is null.");
     }
 }
-
-/* INTEGER_DOUBLE_CASTER_SOURCE */
-#endif

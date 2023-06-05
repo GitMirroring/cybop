@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SEQUENCE_REPLACER_SOURCE
-#define SEQUENCE_REPLACER_SOURCE
-
 //
 // System interface
 //
@@ -106,6 +103,3 @@ void replace_sequence(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         fwprintf(stdout, L"Error: Could not replace sequence. The source data position is null. source data position p1: %i\n", p1);
     }
 }
-
-/* SEQUENCE_REPLACER_SOURCE */
-#endif

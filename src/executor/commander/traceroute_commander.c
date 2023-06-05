@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TRACEROUTE_COMMANDER_SOURCE
-#define TRACEROUTE_COMMANDER_SOURCE
-
 //
 // System interface
 //
@@ -127,6 +124,3 @@ void command_traceroute(void* hmd, void* hmc) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not execute command traceroute. The host is null.");
     }
 }
-
-/* TRACEROUTE_COMMANDER_SOURCE */
-#endif

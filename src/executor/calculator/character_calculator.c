@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHARACTER_CALCULATOR_SOURCE
-#define CHARACTER_CALCULATOR_SOURCE
-
 //
 // Library interface
 //
@@ -113,6 +110,3 @@ void calculate_character(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate character. The operation type is unknown.");
     }
 }
-
-/* CHARACTER_CALCULATOR_SOURCE */
-#endif

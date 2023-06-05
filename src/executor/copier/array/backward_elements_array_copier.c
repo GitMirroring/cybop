@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BACKWARD_ELEMENTS_ARRAY_COPIER_SOURCE
-#define BACKWARD_ELEMENTS_ARRAY_COPIER_SOURCE
-
 //
 // System interface
 //
@@ -96,6 +93,3 @@ void copy_array_elements_backward(void* p0, void* p1, void* p2, void* p3, void* 
         j--;
     }
 }
-
-/* BACKWARD_ELEMENTS_ARRAY_COPIER_SOURCE */
-#endif

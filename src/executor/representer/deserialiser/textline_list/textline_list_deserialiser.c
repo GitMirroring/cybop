@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TEXTLINE_LIST_DESERIALISER_SOURCE
-#define TEXTLINE_LIST_DESERIALISER_SOURCE
-
 //
 // System interface
 //
@@ -78,6 +75,3 @@ void deserialise_textline_list(void* p0, void* p1, void* p2) {
     //
     deserialise_textline_list_content(p0, (void*) &d, (void*) &c);
 }
-
-/* TEXTLINE_LIST_DESERIALISER_SOURCE */
-#endif

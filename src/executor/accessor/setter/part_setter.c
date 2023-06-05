@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_SETTER_SOURCE
-#define PART_SETTER_SOURCE
-
 //
 // Library interface
 //
@@ -63,6 +60,3 @@ void set_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* 
     // Copy source array to destination part metadata item data array.
     set_item(i, p1, p2, p3, p4, p5, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 }
-
-/* PART_SETTER_SOURCE */
-#endif

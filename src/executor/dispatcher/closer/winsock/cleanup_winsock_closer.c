@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLEANUP_WINSOCK_CLOSER_SOURCE
-#define CLEANUP_WINSOCK_CLOSER_SOURCE
-
 //
 // System interface
 //
@@ -82,6 +79,3 @@ void close_winsock_cleanup() {
         log_error((void*) &e);
     }
 }
-
-/* CLEANUP_WINSOCK_CLOSER_SOURCE */
-#endif

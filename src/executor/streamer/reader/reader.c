@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef READER_SOURCE
-#define READER_SOURCE
-
 //
 // System interface
 //
@@ -102,6 +99,3 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // Read data via the given channel into the destination.
     read_flag(p0, p1, p2, p3, ce, p4, p6, p9);
 }
-
-/* READER_SOURCE */
-#endif

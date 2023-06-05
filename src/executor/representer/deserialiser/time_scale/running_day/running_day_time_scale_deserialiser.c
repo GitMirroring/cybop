@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef RUNNING_DAY_TIME_SCALE_DESERIALISER_SOURCE
-#define RUNNING_DAY_TIME_SCALE_DESERIALISER_SOURCE
-
 //
 // Library interface
 //
@@ -90,6 +87,3 @@ void deserialise_time_scale_running_day(void* p0, void* p1, void* p2, void* p3) 
     // Copy running day to destination.
     copy_integer(p0, (void*) &rd);
 }
-
-/* RUNNING_DAY_TIME_SCALE_DESERIALISER_SOURCE */
-#endif

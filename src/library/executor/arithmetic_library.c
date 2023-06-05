@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ARITHMETIC_LIBRARY_SOURCE
-#define ARITHMETIC_LIBRARY_SOURCE
-
 //
 // calculator
 //
@@ -270,6 +267,3 @@
 #include "../../executor/manipulator/part_manipulator.c"
 
 #include "../../executor/manipulator/value_manipulator.c"
-
-/* ARITHMETIC_LIBRARY_SOURCE */
-#endif

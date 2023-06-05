@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TYPE_LINEAR_SEARCHER_SOURCE
-#define TYPE_LINEAR_SEARCHER_SOURCE
-
 //
 // Library interface
 //
@@ -100,6 +97,3 @@ void search_linear_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         fwprintf(stdout, L"Error: Could not search linear type. The list data position is null. list data position p1: %i\n", p1);
     }
 }
-
-/* TYPE_LINEAR_SEARCHER_SOURCE */
-#endif

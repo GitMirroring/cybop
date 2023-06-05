@@ -23,9 +23,6 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TRACEROUTE_SOURCE
-#define TRACEROUTE_SOURCE
-
 //
 // Library interface
 //
@@ -83,6 +80,3 @@ void apply_traceroute(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_traceroute(hmd, hmc);
 }
-
-/* TRACEROUTE_SOURCE */
-#endif
