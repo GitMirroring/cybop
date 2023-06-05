@@ -1,0 +1,5 @@
+<node>
+    <node name="run" channel="file" format="element/part" model="api-generator/spec/logic/run/run.cybol"/>
+    <node name="sleep-nano" channel="file" format="element/part" model="api-generator/spec/logic/run/sleep-nano.cybol"/>
+    <node name="sleep-second" channel="file" format="element/part" model="api-generator/spec/logic/run/sleep-second.cybol"/>
+</node>

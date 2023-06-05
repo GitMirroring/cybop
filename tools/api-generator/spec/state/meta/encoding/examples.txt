@@ -1,0 +1,1 @@
+<node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>

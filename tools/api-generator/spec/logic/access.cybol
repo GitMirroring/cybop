@@ -1,0 +1,8 @@
+<node>
+    <node name="count" channel="file" format="element/part" model="api-generator/spec/logic/access/count.cybol"/>
+    <node name="get-format" channel="file" format="element/part" model="api-generator/spec/logic/access/get-format.cybol"/>
+    <node name="get-name" channel="file" format="element/part" model="api-generator/spec/logic/access/get-name.cybol"/>
+    <node name="get-type" channel="file" format="element/part" model="api-generator/spec/logic/access/get-type.cybol"/>
+    <node name="indicate-empty" channel="file" format="element/part" model="api-generator/spec/logic/access/indicate-empty.cybol"/>
+    <node name="indicate-exists" channel="file" format="element/part" model="api-generator/spec/logic/access/indicate-exists.cybol"/>
+</node>

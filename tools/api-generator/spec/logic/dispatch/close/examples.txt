@@ -1,0 +1,16 @@
+<node name="close_file" channel="inline" format="dispatch/close" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="file"/>
+    <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+</node>
+
+<node name="close_stdout" channel="inline" format="dispatch/close" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    <node name="identification" channel="inline" format="text/cybol-path" model=".app.stdout"/>
+</node>
+
+<node name="handle_close" channel="inline" format="dispatch/close" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+    <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="port" channel="inline" format="number/integer" model="1971"/>
+    <node name="identification" channel="inline" format="text/cybol-path" model=".client_socket"/>
+</node>

@@ -1,0 +1,3 @@
+<node name="change_directory" channel="inline" format="command/change-directory" model="">
+    <node name="directory" channel="inline" format="text/plain" model="../src/controller/"/>
+</node>

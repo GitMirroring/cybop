@@ -1,0 +1,7 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Applies the boolean logic operation NAND.
+
+y = x1 NAND x2"/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/logify/nand/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/logify/nand/properties.cybol"/>
+</node>

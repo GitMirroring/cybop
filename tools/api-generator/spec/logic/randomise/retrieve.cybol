@@ -1,0 +1,7 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Retrieves the next pseudo-random number in the series.
+
+Caution! If calling &#x0022;randomise/retrieve&#x0022; before a seed has been established with &#x0022;randomise/sow&#x0022;, the value of 1 is used as default seed inside glibc."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/randomise/retrieve/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/randomise/retrieve/properties.cybol"/>
+</node>

@@ -1,0 +1,16 @@
+<node name="start_mc" channel="inline" format="run/run" model="">
+    <node name="programme" channel="inline" format="text/plain" model="mc"/>
+</node>
+
+<node name="start_dosemu" channel="inline" format="run/run" model="">
+    <node name="programme" channel="inline" format="text/plain" model="xdosemu"/>
+</node>
+
+<!-- Sleep for some time so that the output can be read by the user. -->
+<node name="run_shell_command" channel="inline" format="run/run" model="">
+    <node name="programme" channel="inline" format="text/plain" model="sleep 1.8"/>
+</node>
+
+<node name="execute_shell_script" channel="inline" format="run/run" model="">
+    <node name="programme" channel="file" format="text/plain" model="password_generator/sleep_timer.sh"/>
+</node>

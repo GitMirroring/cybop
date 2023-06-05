@@ -1,0 +1,8 @@
+<node>
+    <node name="byte" channel="file" format="element/part" model="api-generator/spec/state/number/byte.cybol"/>
+    <node name="complex-cartesian" channel="file" format="element/part" model="api-generator/spec/state/number/complex-cartesian.cybol"/>
+    <node name="complex-polar" channel="file" format="element/part" model="api-generator/spec/state/number/complex-polar.cybol"/>
+    <node name="fraction-decimal" channel="file" format="element/part" model="api-generator/spec/state/number/fraction-decimal.cybol"/>
+    <node name="fraction-vulgar" channel="file" format="element/part" model="api-generator/spec/state/number/fraction-vulgar.cybol"/>
+    <node name="integer" channel="file" format="element/part" model="api-generator/spec/state/number/integer.cybol"/>
+</node>

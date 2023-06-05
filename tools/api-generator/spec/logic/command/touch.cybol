@@ -1,0 +1,7 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Changes the timestamp of a file via shell command. May be used to create a new file.
+
+TODO: COMPLETE AND VERIFY YET!"/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/command/touch/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/command/touch/properties.cybol"/>
+</node>

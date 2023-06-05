@@ -1,0 +1,25 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Compares if left and right value are unequal.
+
+Commonly used operators in other programming languages: != &#x0026;#x003C;&#x0026;#x003E;
+
+Left and right operand as well as the boolean result are treated as vector. That is, one boolean result value is returned per each operand vector element. When comparing single elements, the vectors contain just one single value.
+
+Numbers may be given as vectors, for example the integer sequence &#x0022;1,2,3&#x0022;. If using text operands, for example &#x0022;Hello, World!&#x0022;, then the single characters are compared, one by one.
+
+Example with many elements:
+
+- operation: unequal
+- left: 10,2,3
+- right: 1,2,3
+- result: 0,1,1 (which corresponds to &#x0022;false,true,true&#x0022;)
+
+Example with one single element:
+
+- operation: unequal
+- left: 33
+- right: 3
+- result: 0 (which corresponds to &#x0022;false&#x0022;)"/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/compare/unequal/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/compare/unequal/properties.cybol"/>
+</node>

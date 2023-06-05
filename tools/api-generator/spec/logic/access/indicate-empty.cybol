@@ -1,0 +1,5 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Indicates if the given part is empty, that is its count is zero."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/access/indicate-empty/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/access/indicate-empty/properties.cybol"/>
+</node>

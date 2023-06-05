@@ -1,0 +1,162 @@
+<!-- Initialise an application tree from file at startup. -->
+<node name="open_file" channel="inline" format="dispatch/open" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="file"/>
+    <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    <node name="device" channel="inline" format="text/plain" model="counter/simple/app.cybol"/>
+</node>
+<node name="initialise_app" channel="inline" format="communicate/receive" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="file"/>
+    <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+    <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+    <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+    <node name="format" channel="inline" format="meta/format" model="element/part"/>
+    <node name="message" channel="inline" format="text/cybol-path" model="."/>
+</node>
+<node name="close_file" channel="inline" format="dispatch/close" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="file"/>
+    <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+</node>
+
+<!-- Read extensible markup language (xml) data from file. -->
+<node name="open_file" channel="inline" format="dispatch/open" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="file"/>
+    <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    <node name="device" channel="inline" format="text/plain" model="serialisation/xml/test/reference.xml"/>
+</node>
+<node name="deserialise_data" channel="inline" format="communicate/receive" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="file"/>
+    <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+    <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+    <node name="language" channel="inline" format="meta/language" model="application/xml">
+        <node name="normalisation" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+    <node name="format" channel="inline" format="meta/format" model="element/part"/>
+    <node name="message" channel="inline" format="text/cybol-path" model=".data"/>
+</node>
+<node name="close_file" channel="inline" format="dispatch/close" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="file"/>
+    <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+</node>
+
+<!-- Read javascript object notation (json) data from file. -->
+<node name="open_file" channel="inline" format="dispatch/open" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="file"/>
+    <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    <node name="device" channel="inline" format="text/plain" model="serialisation/json/test/scenario/default.json"/>
+</node>
+<node name="deserialise_data" channel="inline" format="communicate/receive" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="file"/>
+    <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+    <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+    <node name="language" channel="inline" format="meta/language" model="application/json"/>
+    <node name="format" channel="inline" format="meta/format" model="element/part"/>
+    <node name="message" channel="inline" format="text/cybol-path" model=".data"/>
+</node>
+<node name="close_file" channel="inline" format="dispatch/close" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="file"/>
+    <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+</node>
+
+<!-- Read character (comma) separated values (csv) from file. -->
+<node name="open_file" channel="inline" format="dispatch/open" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="file"/>
+    <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    <node name="device" channel="inline" format="text/cybol-path" model="#filename"/>
+</node>
+<node name="receive_file" channel="inline" format="communicate/receive" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="file"/>
+    <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+    <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+    <node name="language" channel="inline" format="meta/language" model="text/csv">
+        <node name="delimiter" channel="inline" format="text/cybol-path" model="#delimiter"/>
+        <node name="quotation" channel="inline" format="text/cybol-path" model="#quotation"/>
+        <node name="header" channel="inline" format="text/cybol-path" model="#header"/>
+    </node>
+    <!--
+        CAUTION! A possibly existing header will be written into the destination message PROPERTIES.
+        There is NO need to specify the cybol property "header" as sub node of "message" here,
+        since it is generated under that name automatically by the deserialiser inside.
+
+        CAUTION! The message has to be part of the HEAP memory,
+        since it would not be extensible if lying on the stack.
+    -->
+    <node name="message" channel="inline" format="text/cybol-path" model="{#table}"/>
+</node>
+<node name="close_file" channel="inline" format="dispatch/close" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="file"/>
+    <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+</node>
+
+<!-- Read user input command on terminal. -->
+<node name="receive_command" channel="inline" format="communicate/receive" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    <node name="sender" channel="inline" format="text/cybol-path" model=".var.stdin"/>
+    <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+    <node name="message" channel="inline" format="text/cybol-path" model="#command"/>
+    <!-- Read data from buffer in which they got stored by the sensing thread started through feel/sense before. -->
+    <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
+</node>
+
+<!-- Receive a gui window event on display. -->
+<node name="receive_event" channel="inline" format="communicate/receive" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="display"/>
+    <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="sender" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
+    <node name="language" channel="inline" format="meta/language" model="message/gui-request">
+        <node name="medium" channel="inline" format="text/cybol-path" model=".gui.window"/>
+    </node>
+    <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+    <node name="message" channel="inline" format="text/cybol-path" model=".gui.action"/>
+    <!-- Read indirectly from internal buffer into which data have been written by activate/enable before. -->
+    <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
+</node>
+
+<!-- Receive a binary file whose path has been given for example via internet url. -->
+<node name="open_file" channel="inline" format="dispatch/open" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="file"/>
+    <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    <node name="device" channel="inline" format="text/cybol-path" model=".var.path"/>
+</node>
+<node name="receive_file" channel="inline" format="communicate/receive" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="file"/>
+    <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+    <node name="language" channel="inline" format="meta/language" model="message/binary"/>
+    <node name="message" channel="inline" format="text/cybol-path" model=".var.file"/>
+</node>
+<node name="close_file" channel="inline" format="dispatch/close" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="file"/>
+    <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+</node>
+
+<!-- Receive client http request on the server side via network socket. -->
+<node name="receive_request" channel="inline" format="communicate/receive" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+    <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="port" channel="inline" format="number/integer" model="1971"/>
+    <node name="sender" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
+    <node name="language" channel="inline" format="meta/language" model="message/http-request"/>
+    <node name="format" channel="inline" format="meta/format" model="element/part"/>
+    <node name="message" channel="inline" format="text/cybol-path" model=".var.request"/>
+    <!-- Read indirectly from internal buffer into which data have been written by the sensing thread. -->
+    <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
+</node>
+
+<!-- Receive client binary request on the server side via network socket. -->
+<node name="receive_request" channel="inline" format="communicate/receive" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+    <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="port" channel="inline" format="number/integer" model="1971"/>
+    <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/>
+    <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
+    <node name="message" channel="inline" format="text/cybol-path" model=".request"/>
+    <!-- Read indirectly from internal buffer into which data have been written by the sensing thread. -->
+    <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
+</node>
+
+<!-- Receive server response on the client side via network socket. -->
+<node name="receive_response" channel="inline" format="communicate/receive" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+    <node name="sender" channel="inline" format="text/cybol-path" model=".server_socket"/>
+    <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
+    <node name="message" channel="inline" format="text/cybol-path" model=".response"/>
+</node>

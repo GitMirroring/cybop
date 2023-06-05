@@ -1,0 +1,17 @@
+<node>
+    <node name="result" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
+        <node name="description" channel="inline" format="text/plain" model="The boolean value resulting from lexicographical comparison."/>
+    </node>
+    <node name="left" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | text/plain"/>
+        <node name="description" channel="inline" format="text/plain" model="The left operand."/>
+    </node>
+    <node name="right" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | text/plain"/>
+        <node name="description" channel="inline" format="text/plain" model="The right operand."/>
+    </node>
+</node>

@@ -1,0 +1,17 @@
+<node>
+    <node name="append" channel="file" format="element/part" model="api-generator/spec/logic/modify/append.cybol"/>
+    <node name="empty" channel="file" format="element/part" model="api-generator/spec/logic/modify/empty.cybol"/>
+    <node name="fill" channel="file" format="element/part" model="api-generator/spec/logic/modify/fill.cybol"/>
+    <node name="insert" channel="file" format="element/part" model="api-generator/spec/logic/modify/insert.cybol"/>
+    <node name="lower" channel="file" format="element/part" model="api-generator/spec/logic/modify/lower.cybol"/>
+    <node name="normalise" channel="file" format="element/part" model="api-generator/spec/logic/modify/normalise.cybol"/>
+    <node name="overwrite" channel="file" format="element/part" model="api-generator/spec/logic/modify/overwrite.cybol"/>
+    <node name="remove" channel="file" format="element/part" model="api-generator/spec/logic/modify/remove.cybol"/>
+    <node name="repeat" channel="file" format="element/part" model="api-generator/spec/logic/modify/repeat.cybol"/>
+    <node name="replace" channel="file" format="element/part" model="api-generator/spec/logic/modify/replace.cybol"/>
+    <node name="reverse" channel="file" format="element/part" model="api-generator/spec/logic/modify/reverse.cybol"/>
+    <node name="strip" channel="file" format="element/part" model="api-generator/spec/logic/modify/strip.cybol"/>
+    <node name="strip-leading" channel="file" format="element/part" model="api-generator/spec/logic/modify/strip-leading.cybol"/>
+    <node name="strip-trailing" channel="file" format="element/part" model="api-generator/spec/logic/modify/strip-trailing.cybol"/>
+    <node name="upper" channel="file" format="element/part" model="api-generator/spec/logic/modify/upper.cybol"/>
+</node>

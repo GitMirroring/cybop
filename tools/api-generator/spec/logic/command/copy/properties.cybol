@@ -1,0 +1,47 @@
+<node>
+    <node name="source" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | text/plain"/>
+        <node name="description" channel="inline" format="text/plain" model="The source file to be copied."/>
+    </node>
+    <node name="destination" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | text/plain"/>
+        <node name="description" channel="inline" format="text/plain" model="The destination to copy to."/>
+    </node>
+    <node name="force" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | logicvalue/boolean"/>
+        <node name="description" channel="inline" format="text/plain" model="The flag indicating not to ask for permission for overwriting files or directories."/>
+    </node>
+    <node name="interactive" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | logicvalue/boolean"/>
+        <node name="description" channel="inline" format="text/plain" model="The flag indicating to ask everytime for permission of overwriting a file or directory."/>
+    </node>
+    <node name="preserve_all_attributes" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | logicvalue/boolean"/>
+        <node name="description" channel="inline" format="text/plain" model="The flag indicating that copied files and directories will have the same attributes as the originals."/>
+    </node>
+    <node name="preserve_links" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | logicvalue/boolean"/>
+        <node name="description" channel="inline" format="text/plain" model="The flag indicating that links are preserved so that they are not dereferenced while copying."/>
+    </node>
+    <node name="recursive" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | logicvalue/boolean"/>
+        <node name="description" channel="inline" format="text/plain" model="The flag indicating that all sub directories should be copied as well."/>
+    </node>
+    <node name="update" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | logicvalue/boolean"/>
+        <node name="description" channel="inline" format="text/plain" model="The flag indicating that just more recent data are copied to a destination path."/>
+    </node>
+    <node name="verbose" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | logicvalue/boolean"/>
+        <node name="description" channel="inline" format="text/plain" model="The flag indicating that the names of copied files and directories are shown."/>
+    </node>
+</node>

@@ -1,0 +1,9 @@
+<node name="retrieve_details" channel="inline" format="access/get-format" model="">
+    <node name="element" channel="inline" format="text/cybol-path" model="#format"/>
+    <node name="part" channel="inline" format="text/cybol-path" model=".app.node"/>
+</node>
+
+<node name="get_xdt_field_format" channel="inline" format="access/get-format" model="">
+    <node name="element" channel="inline" format="text/cybol-path" model=".temporary.xdt.field.format"/>
+    <node name="part" channel="inline" format="text/cybol-path" model=".temporary.xdt.field.root"/>
+</node>

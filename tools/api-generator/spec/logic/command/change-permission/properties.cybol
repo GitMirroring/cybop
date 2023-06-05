@@ -1,0 +1,37 @@
+<node>
+    <node name="path" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | text/plain"/>
+        <node name="description" channel="inline" format="text/plain" model="The filesystem path to the file or directory."/>
+    </node>
+    <node name="user" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | text/plain"/>
+        <node name="description" channel="inline" format="text/plain" model="TODO"/>
+    </node>
+    <node name="group" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | text/plain"/>
+        <node name="description" channel="inline" format="text/plain" model="TODO"/>
+    </node>
+    <node name="other" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | text/plain"/>
+        <node name="description" channel="inline" format="text/plain" model="TODO"/>
+    </node>
+    <node name="recursive" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | logicvalue/boolean"/>
+        <node name="description" channel="inline" format="text/plain" model="The flag indicating recursive processing."/>
+    </node>
+    <node name="silent" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | logicvalue/boolean"/>
+        <node name="description" channel="inline" format="text/plain" model="The flag indicating suppression of errors."/>
+    </node>
+    <node name="verbose" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | logicvalue/boolean"/>
+        <node name="description" channel="inline" format="text/plain" model="The flag indicating that a diagnostic output is wanted for every file."/>
+    </node>
+</node>

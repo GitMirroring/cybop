@@ -1,0 +1,12 @@
+<node>
+    <node name="absolute" channel="file" format="element/part" model="api-generator/spec/logic/calculate/absolute.cybol"/>
+    <node name="add" channel="file" format="element/part" model="api-generator/spec/logic/calculate/add.cybol"/>
+    <node name="divide" channel="file" format="element/part" model="api-generator/spec/logic/calculate/divide.cybol"/>
+    <node name="maximum" channel="file" format="element/part" model="api-generator/spec/logic/calculate/maximum.cybol"/>
+    <node name="minimum" channel="file" format="element/part" model="api-generator/spec/logic/calculate/minimum.cybol"/>
+    <node name="modulo" channel="file" format="element/part" model="api-generator/spec/logic/calculate/modulo.cybol"/>
+    <node name="multiply" channel="file" format="element/part" model="api-generator/spec/logic/calculate/multiply.cybol"/>
+    <node name="negate" channel="file" format="element/part" model="api-generator/spec/logic/calculate/negate.cybol"/>
+    <node name="reduce" channel="file" format="element/part" model="api-generator/spec/logic/calculate/reduce.cybol"/>
+    <node name="subtract" channel="file" format="element/part" model="api-generator/spec/logic/calculate/subtract.cybol"/>
+</node>

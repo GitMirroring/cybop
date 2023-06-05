@@ -1,0 +1,8 @@
+<node name="disable_server_socket" channel="inline" format="activate/disable" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+    <node name="port" channel="inline" format="number/integer" model="1971"/>
+</node>
+
+<node name="disable_display_server" channel="inline" format="activate/disable" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="display"/>
+</node>

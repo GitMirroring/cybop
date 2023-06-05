@@ -1,0 +1,11 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="An integer is a datum of integral data type, a data type that represents some range of mathematical integers.
+It is allowed to contain negative values.
+
+The standard type used internally is int with 32 Bits.
+It has a value range from −2,147,483,648 to 2,147,483,647, which is from −(2^31) to 2^31 - 1.
+
+Each number can be an element of a vector (array), e.g.:
+- integer: 1,2,3,4"/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/state/number/integer/examples.txt"/>
+</node>

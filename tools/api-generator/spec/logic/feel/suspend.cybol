@@ -1,0 +1,5 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Pauses data input sensing thread for the sender/client with the given identification."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/feel/suspend/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/feel/suspend/properties.cybol"/>
+</node>

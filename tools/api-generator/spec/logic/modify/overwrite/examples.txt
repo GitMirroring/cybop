@@ -1,0 +1,49 @@
+<node name="reset_query_exists_flag" channel="inline" format="modify/overwrite" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".query_exists"/>
+    <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+</node>
+
+<node name="overwrite_content" channel="inline" format="modify/overwrite" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".wui.index.body.content"/>
+    <node name="source" channel="inline" format="text/plain" model="Hello, World!"/>
+</node>
+
+<node name="assign_row" channel="inline" format="modify/overwrite" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model="#row"/>
+    <node name="source" channel="inline" format="text/plain" model="#row_heading"/>
+</node>
+
+<node name="initialise_count" channel="inline" format="modify/overwrite" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".counter.count"/>
+    <node name="source" channel="file" format="number/integer" model="counter/storage/count.txt"/>
+</node>
+
+<node name="overwrite_path" channel="inline" format="modify/overwrite" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".var.path"/>
+    <node name="source" channel="inline" format="text/cybol-path" model=".tui.(.tui.active):actions"/>
+</node>
+
+<node name="assemble_current_element_background" channel="inline" format="modify/overwrite" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".var.character"/>
+    <node name="source" channel="inline" format="text/cybol-path" model=".tui.main.menu:focus"/>
+</node>
+
+<node name="focus_background" channel="inline" format="modify/overwrite" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model="{.var.character}"/>
+    <node name="source" channel="inline" format="text/cybol-path" model=".settings.selection.background"/>
+</node>
+
+<node name="overwrite_data" channel="inline" format="modify/overwrite" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".wui.index.body.choices.table.(#name).data"/>
+    <node name="source" channel="inline" format="text/cybol-path" model=".domain.choices.(#name)"/>
+</node>
+
+<node name="overwrite_calendar_week" channel="inline" format="modify/overwrite" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".wui.index.body.navigation.table.row.week"/>
+    <node name="source" channel="inline" format="text/cybol-path" model=".domain.calendar.(.var.year_string).(.var.week_string)"/>
+</node>
+
+<node name="overwrite_href" channel="inline" format="modify/overwrite" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".wui.index.body.lecturers.table.(#name).(#day).link:href"/>
+    <node name="source" channel="inline" format="text/cybol-path" model="#href"/>
+</node>

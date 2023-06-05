@@ -1,0 +1,10 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="An integer with a size of just one byte.
+
+The standard type used internally is unsigned char with 8 Bits.
+It has a value range from 0 to 255.
+
+Caution! It is not to be mixed up with &#x0022;application/octet-stream&#x0022;.
+Numbers in an array are separated by comma; bytes of a stream are not."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/state/number/byte/examples.txt"/>
+</node>

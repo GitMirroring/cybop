@@ -1,0 +1,5 @@
+<node name="read_from_file" channel="inline" format="stream/read" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="file"/>
+    <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+    <node name="message" channel="inline" format="text/cybol-path" model=".data"/>
+</node>

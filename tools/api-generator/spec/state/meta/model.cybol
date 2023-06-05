@@ -1,0 +1,4 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="The cyboi-internal data model holding the actual data."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/state/meta/model/examples.txt"/>
+</node>

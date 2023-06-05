@@ -1,0 +1,7 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="A boolean logic variable represents one of two possible states,
+either true or false.
+
+Sometimes, a boolean value is called a flag."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/state/logicvalue/boolean/examples.txt"/>
+</node>

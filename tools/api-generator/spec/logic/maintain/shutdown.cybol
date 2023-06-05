@@ -1,0 +1,5 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Shuts down the service running on the channel."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/maintain/shutdown/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/maintain/shutdown/properties.cybol"/>
+</node>

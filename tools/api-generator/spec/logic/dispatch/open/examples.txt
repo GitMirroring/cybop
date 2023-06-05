@@ -1,0 +1,81 @@
+<node name="open_file_in_read_mode" channel="inline" format="dispatch/open" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="file"/>
+    <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    <node name="device" channel="inline" format="text/plain" model="app/config.cybol"/>
+</node>
+
+<node name="open_file_in_write_mode" channel="inline" format="dispatch/open" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="file"/>
+    <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    <node name="device" channel="inline" format="text/plain" model="knowledge_tree_test.txt"/>
+    <node name="mode" channel="inline" format="text/plain" model="write"/>
+</node>
+
+<node name="open_stdout" channel="inline" format="dispatch/open" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    <node name="device" channel="inline" format="text/plain" model="standard-output"/>
+    <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
+</node>
+
+<node name="open_stdin" channel="inline" format="dispatch/open" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    <node name="device" channel="inline" format="text/plain" model="standard-input"/>
+    <node name="identification" channel="inline" format="text/cybol-path" model=".var.stdin"/>
+</node>
+
+<node name="open_serial_port" channel="inline" format="dispatch/open" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="serial"/>
+    <node name="filename" channel="inline" format="text/plain" model="/dev/ttyACM0"/>
+    <node name="baudrate" channel="inline" format="number/integer" model="115200"/>
+    <node name="identification" channel="inline" format="text/cybol-path" model=".dev.serial_0"/>
+</node>
+
+<node name="open_fifo_named_pipe" channel="inline" format="dispatch/open" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="fifo"/>
+    <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    <node name="device" channel="inline" format="text/plain" model="app/special_file"/>
+    <node name="mode" channel="inline" format="text/plain" model="write"/>
+</node>
+
+<node name="open_serverside_client_socket_accepted_by_server_before" channel="inline" format="dispatch/open" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+    <!-- Open client device in server mode. It was already pre-configured inside by the accepting server socket. -->
+    <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="port" channel="inline" format="number/integer" model="1971"/>
+    <node name="identification" channel="inline" format="text/cybol-path" model=".client_socket_on_server"/>
+</node>
+
+<node name="open_client_socket_connecting_to_a_server" channel="inline" format="dispatch/open" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+    <!-- Open client device in client mode. It still has to be configured inside. -->
+    <node name="server" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="port" channel="inline" format="number/integer" model="1971"/>
+    <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
+    <node name="style" channel="inline" format="text/plain" model="stream"/>
+    <node name="protocol" channel="inline" format="text/plain" model="tcp"/>
+    <node name="device" channel="inline" format="text/plain" model="127.0.0.1"/>
+    <node name="identification" channel="inline" format="text/cybol-path" model=".standalone_client_socket"/>
+</node>
+
+<!--
+    In win32, each window catches its own events and is managed independently.
+    Therefore, the "server" property does not have to be given here.
+    TODO: This is yet to be implemented and tested in cyboi!
+-->
+<node name="open_client" channel="inline" format="dispatch/open" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="display"/>
+    <node name="identification" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
+</node>
+
+<!--
+    In the x window system (xcb api), a display server process manages
+    the events of all windows centrally.
+    Therefore, the "server" property has to be given here,
+    in order for the window to get managed by the display server.
+-->
+<node name="open_window" channel="inline" format="dispatch/open" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="display"/>
+    <!-- Open client window in server mode, so that it gets stored in the display server. -->
+    <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="identification" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
+</node>

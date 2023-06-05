@@ -1,0 +1,6 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="A text marked up using the Hypertext Markup Language (HTML).
+
+Common file suffixes are: html, htm, shtml, inc"/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/state/text/html/examples.txt"/>
+</node>

@@ -1,0 +1,1 @@
+<node name="data" channel="file" format="image/gif" model="path/to/file.gif"/>

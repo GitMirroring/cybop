@@ -52,6 +52,12 @@
 #include "logger.h"
 #include "variable.h"
 
+//
+// Forward declaration
+//
+
+void deserialise_host_address_inet(void* p0, void* p1, void* p2);
+
 /**
  * Allocate inet socket address.
  *

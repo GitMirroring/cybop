@@ -1,0 +1,3 @@
+<node>
+    <node name="mp4" channel="file" format="element/part" model="api-generator/spec/state/video/mp4.cybol"/>
+</node>

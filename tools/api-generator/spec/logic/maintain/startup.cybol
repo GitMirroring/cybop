@@ -1,0 +1,5 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Starts up a service on the channel."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/maintain/startup/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/maintain/startup/properties.cybol"/>
+</node>

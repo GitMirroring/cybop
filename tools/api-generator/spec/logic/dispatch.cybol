@@ -1,0 +1,4 @@
+<node>
+    <node name="close" channel="file" format="element/part" model="api-generator/spec/logic/dispatch/close.cybol"/>
+    <node name="open" channel="file" format="element/part" model="api-generator/spec/logic/dispatch/open.cybol"/>
+</node>

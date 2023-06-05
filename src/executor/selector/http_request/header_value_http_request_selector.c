@@ -34,12 +34,6 @@
 #include "knowledge.h"
 #include "logger.h"
 
-//
-// Forward declaration
-//
-
-void deserialise_http_request_header_argument(void* p0, void* p1, void* p2, void* p3);
-
 /**
  * Selects the http request header value.
  *

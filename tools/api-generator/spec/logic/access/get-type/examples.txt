@@ -1,0 +1,4 @@
+<node name="copy_type_of_part" channel="inline" format="access/get-type" model="">
+    <node name="element" channel="inline" format="text/cybol-path" model="#type"/>
+    <node name="part" channel="inline" format="text/cybol-path" model=".part_1"/>
+</node>

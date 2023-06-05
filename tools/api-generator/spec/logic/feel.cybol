@@ -1,0 +1,4 @@
+<node>
+    <node name="sense" channel="file" format="element/part" model="api-generator/spec/logic/feel/sense.cybol"/>
+    <node name="suspend" channel="file" format="element/part" model="api-generator/spec/logic/feel/suspend.cybol"/>
+</node>

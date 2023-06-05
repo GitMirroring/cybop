@@ -1,0 +1,9 @@
+<node name="normalise_plain_text" channel="inline" format="modify/normalise" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
+    <node name="source" channel="inline" format="text/plain" model="    Some text    with leading and trailing and intermediary    spaces    "/>
+</node>
+
+<node name="normalise_text_variable" channel="inline" format="modify/normalise" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
+    <node name="source" channel="inline" format="text/cybol-path" model=".text"/>
+</node>

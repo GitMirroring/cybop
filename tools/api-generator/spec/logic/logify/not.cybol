@@ -1,0 +1,9 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Applies the boolean logic operation NOT.
+
+y = x1 NOT x2
+
+When used with Bit operands, then this is the one&#x0027;s complement (all bits negated)."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/logify/not/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/logify/not/properties.cybol"/>
+</node>

@@ -1,0 +1,5 @@
+<node>
+    <node name="branch" channel="file" format="element/part" model="api-generator/spec/logic/flow/branch.cybol"/>
+    <node name="loop" channel="file" format="element/part" model="api-generator/spec/logic/flow/loop.cybol"/>
+    <node name="sequence" channel="file" format="element/part" model="api-generator/spec/logic/flow/sequence.cybol"/>
+</node>

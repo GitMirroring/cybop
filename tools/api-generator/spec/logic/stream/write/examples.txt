@@ -1,0 +1,12 @@
+<node name="write_to_file" channel="inline" format="stream/write" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="file"/>
+    <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+    <node name="message" channel="inline" format="application/octet-stream" model="Hello World!"/>
+    <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
+</node>
+
+<node name="write_to_pipeline" channel="inline" format="stream/write" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="fifo"/>
+    <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+    <node name="message" channel="inline" format="application/octet-stream" model="Hello World!"/>
+</node>

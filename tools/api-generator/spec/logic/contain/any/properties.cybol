@@ -1,0 +1,17 @@
+<node>
+    <node name="result" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
+        <node name="description" channel="inline" format="text/plain" model="The boolean result flag indicating whether or not the part contains the value at all."/>
+    </node>
+    <node name="part" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
+        <node name="description" channel="inline" format="text/plain" model="The part in which to search."/>
+    </node>
+    <node name="value" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | text/plain | number/integer"/>
+        <node name="description" channel="inline" format="text/plain" model="The value to search for."/>
+    </node>
+</node>

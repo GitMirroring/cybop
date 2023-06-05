@@ -1,0 +1,28 @@
+<node>
+    <node name="access" channel="file" format="element/part" model="api-generator/spec/logic/access.cybol"/>
+    <node name="activate" channel="file" format="element/part" model="api-generator/spec/logic/activate.cybol"/>
+    <node name="calculate" channel="file" format="element/part" model="api-generator/spec/logic/calculate.cybol"/>
+    <node name="cast" channel="file" format="element/part" model="api-generator/spec/logic/cast.cybol"/>
+    <node name="check" channel="file" format="element/part" model="api-generator/spec/logic/check.cybol"/>
+    <node name="command" channel="file" format="element/part" model="api-generator/spec/logic/command.cybol"/>
+    <node name="communicate" channel="file" format="element/part" model="api-generator/spec/logic/communicate.cybol"/>
+    <node name="compare" channel="file" format="element/part" model="api-generator/spec/logic/compare.cybol"/>
+    <node name="contain" channel="file" format="element/part" model="api-generator/spec/logic/contain.cybol"/>
+    <node name="convert" channel="file" format="element/part" model="api-generator/spec/logic/convert.cybol"/>
+    <node name="dispatch" channel="file" format="element/part" model="api-generator/spec/logic/dispatch.cybol"/>
+    <node name="feel" channel="file" format="element/part" model="api-generator/spec/logic/feel.cybol"/>
+    <node name="flow" channel="file" format="element/part" model="api-generator/spec/logic/flow.cybol"/>
+    <node name="live" channel="file" format="element/part" model="api-generator/spec/logic/live.cybol"/>
+    <node name="logify" channel="file" format="element/part" model="api-generator/spec/logic/logify.cybol"/>
+    <node name="maintain" channel="file" format="element/part" model="api-generator/spec/logic/maintain.cybol"/>
+    <node name="manipulate" channel="file" format="element/part" model="api-generator/spec/logic/manipulate.cybol"/>
+    <node name="memorise" channel="file" format="element/part" model="api-generator/spec/logic/memorise.cybol"/>
+    <node name="modify" channel="file" format="element/part" model="api-generator/spec/logic/modify.cybol"/>
+    <node name="randomise" channel="file" format="element/part" model="api-generator/spec/logic/randomise.cybol"/>
+    <node name="represent" channel="file" format="element/part" model="api-generator/spec/logic/represent.cybol"/>
+    <node name="run" channel="file" format="element/part" model="api-generator/spec/logic/run.cybol"/>
+    <node name="search" channel="file" format="element/part" model="api-generator/spec/logic/search.cybol"/>
+    <node name="sort" channel="file" format="element/part" model="api-generator/spec/logic/sort.cybol"/>
+    <node name="stream" channel="file" format="element/part" model="api-generator/spec/logic/stream.cybol"/>
+    <node name="time" channel="file" format="element/part" model="api-generator/spec/logic/time.cybol"/>
+</node>

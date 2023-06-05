@@ -1,0 +1,11 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Serialises the source into the destination, according to the given format.
+
+Caution! The serialised data are appended to the destination. Already existing content is not overwritten.
+Therefore, the destination possibly has to get emptied before since otherwise, the new data will get appended to the already existing old data.
+
+This operation may be used to concatenate the strings given as child nodes of the source part into the destination part and provide an optional cybol property &#x0022;separator&#x0022; to be used as such between the concatenated strings."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/represent/serialise/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/represent/serialise/properties.cybol"/>
+    <node name="language_constraints" channel="file" format="element/part" model="api-generator/spec/logic/represent/serialise/language_constraints.cybol"/>
+</node>

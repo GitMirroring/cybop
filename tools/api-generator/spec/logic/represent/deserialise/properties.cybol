@@ -1,0 +1,22 @@
+<node>
+    <node name="destination" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
+        <node name="description" channel="inline" format="text/plain" model="The node into which the deserialised data are written. Its format (type) depends on the given source data."/>
+    </node>
+    <node name="source" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | text/plain"/>
+        <node name="description" channel="inline" format="text/plain" model="The data to be deserialised."/>
+    </node>
+    <node name="language" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="meta/language"/>
+        <node name="description" channel="inline" format="text/plain" model="The language used for deserialisation."/>
+    </node>
+    <node name="format" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="meta/format"/>
+        <node name="description" channel="inline" format="text/plain" model="The format (type) of the source node."/>
+    </node>
+</node>

@@ -1,0 +1,7 @@
+<node>
+    <node name="part" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
+        <node name="description" channel="inline" format="text/plain" model="The part to be destroyed."/>
+    </node>
+</node>

@@ -1,0 +1,1 @@
+<node name="model" channel="inline" format="meta/model" model=""/>

@@ -1,0 +1,12 @@
+<node>
+    <node name="count" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
+        <node name="description" channel="inline" format="text/plain" model="The number of counted child nodes as result."/>
+    </node>
+    <node name="part" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
+        <node name="description" channel="inline" format="text/plain" model="The compound node of type "element/part" or "element/property" whose child nodes are to be counted."/>
+    </node>
+</node>

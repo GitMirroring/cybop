@@ -1,0 +1,5 @@
+<node name="insert_word_into_string" channel="inline" format="modify/insert" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".some_text"/>
+    <node name="source" channel="inline" format="text/cybol-path" model="#current_word"/>
+    <node name="destination_index" channel="inline" format="text/cybol-path" model=".text_position"/>
+</node>

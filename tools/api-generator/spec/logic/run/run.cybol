@@ -1,0 +1,5 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Executes a local programme."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/run/run/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/run/run/properties.cybol"/>
+</node>

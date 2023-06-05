@@ -1,0 +1,1 @@
+<node name="webpage" channel="file" format="text/html" model="path/to/webpage.html"/>

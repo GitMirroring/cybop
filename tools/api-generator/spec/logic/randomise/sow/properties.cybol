@@ -1,0 +1,7 @@
+<node>
+    <node name="seed" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | number/integer"/>
+        <node name="description" channel="inline" format="text/plain" model="The source seed to be established for a new series of pseudo-random numbers."/>
+    </node>
+</node>

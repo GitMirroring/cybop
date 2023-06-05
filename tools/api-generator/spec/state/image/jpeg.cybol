@@ -1,0 +1,8 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="An image format defined by the Joint Photographic Experts Group (JPEG).
+The format itself is called JPEG as well.
+Data are normally stored in JPEG File Interchange Format (JFIF).
+
+Possible file suffixes are: jpeg, jpg, jpe, jfif, jif."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/state/image/jpeg/examples.txt"/>
+</node>

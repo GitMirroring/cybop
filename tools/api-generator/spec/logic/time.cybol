@@ -1,0 +1,3 @@
+<node>
+    <node name="current" channel="file" format="element/part" model="api-generator/spec/logic/time/current.cybol"/>
+</node>

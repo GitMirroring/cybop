@@ -1,0 +1,5 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Identifies the device or client that has placed a request (handler) into the interrupt pipe."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/communicate/identify/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/communicate/identify/properties.cybol"/>
+</node>

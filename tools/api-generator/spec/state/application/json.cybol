@@ -1,0 +1,11 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Text data given in JavaScript Object Notation (JSON).
+
+There are three MIME assignments for json data:
+- application/json (official)
+- text/json (unofficial)
+- text/javascript (unofficial)
+
+Preference should be given to the OFFICIAL mime type &#x0022;application/json&#x0022;."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/state/application/json/examples.txt"/>
+</node>

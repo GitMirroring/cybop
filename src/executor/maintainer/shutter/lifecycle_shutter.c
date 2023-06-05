@@ -39,12 +39,6 @@
 #include "logger.h"
 #include "server.h"
 
-//
-// Forward declaration
-//
-
-void shutdown_list(void* p0, void* p1, void* p2, void* p3, void* p4);
-
 /**
  * Executes the service shutdown lifecycle.
  *

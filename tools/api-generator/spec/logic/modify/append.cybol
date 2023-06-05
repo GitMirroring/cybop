@@ -1,0 +1,5 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Appends the source data to the destination."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/modify/append/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/modify/append/properties.cybol"/>
+</node>

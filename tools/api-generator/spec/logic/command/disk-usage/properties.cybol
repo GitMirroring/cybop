@@ -1,0 +1,27 @@
+<node>
+    <node name="human" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | logicvalue/boolean"/>
+        <node name="description" channel="inline" format="text/plain" model="The flag indicating human-readable output."/>
+    </node>
+    <node name="summarise" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | logicvalue/boolean"/>
+        <node name="description" channel="inline" format="text/plain" model="The flag indicating that a summary shall be printed."/>
+    </node>
+    <node name="all" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | logicvalue/boolean"/>
+        <node name="description" channel="inline" format="text/plain" model="The flag indicating that all shall be printed."/>
+    </node>
+    <node name="bytes" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | logicvalue/boolean"/>
+        <node name="description" channel="inline" format="text/plain" model="The flag indicating size output in bytes."/>
+    </node>
+    <node name="total" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | logicvalue/boolean"/>
+        <node name="description" channel="inline" format="text/plain" model="The flag indicating that the total usage shall be printed."/>
+    </node>
+</node>

@@ -1,0 +1,5 @@
+<node name="sort_visitors" channel="inline" format="sort/quick" model="">
+    <node name="part" channel="inline" format="text/cybol-path" model=".domain.visitors"/>
+    <node name="criterion" channel="inline" format="text/plain" model=".surname"/>
+    <node name="descending" channel="inline" format="logicvalue/boolean" model="true"/>
+</node>

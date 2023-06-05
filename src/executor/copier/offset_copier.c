@@ -36,12 +36,6 @@
 
 #include "knowledge.h"
 
-//
-// Forward declaration
-//
-
-void copy(void* p0, void* p1, void* p2, void* p3);
-
 /**
  * Copies the source- to the destination value
  * using the given index to calculate an offset.

@@ -41,12 +41,6 @@
 #include "knowledge.h"
 #include "logger.h"
 
-//
-// Forward declaration
-//
-
-void deserialise_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
-
 /**
  * Selects the xdt field hierarchy.
  *

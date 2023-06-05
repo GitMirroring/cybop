@@ -1,0 +1,27 @@
+<node>
+    <node name="result" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
+        <node name="description" channel="inline" format="text/plain" model="The greater of the two given values. It initially represents the first value."/>
+    </node>
+    <node name="operand" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | number/any"/>
+        <node name="description" channel="inline" format="text/plain" model="The second value."/>
+    </node>
+    <node name="count" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | number/integer"/>
+        <node name="description" channel="inline" format="text/plain" model="The number of elements to be calculated. This is relevant only for arrays with more than one element. If null, the default is the lesser of left and right operand count."/>
+    </node>
+    <node name="result_index" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | number/integer"/>
+        <node name="description" channel="inline" format="text/plain" model="The result index from where to start calculating. If null, the default is zero."/>
+    </node>
+    <node name="operand_index" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | number/integer"/>
+        <node name="description" channel="inline" format="text/plain" model="The operand index from where to start calculating. If null, the default is zero."/>
+    </node>
+</node>

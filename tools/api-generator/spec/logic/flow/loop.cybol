@@ -1,0 +1,5 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Loops the programme flow endlessly, until the break flag is set."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/flow/loop/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/flow/loop/properties.cybol"/>
+</node>
