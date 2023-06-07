@@ -38,6 +38,7 @@
 #include "constant.h"
 #include "knowledge.h"
 #include "logger.h"
+#include "text.h"
 #include "type.h"
 
 /**
@@ -68,26 +69,30 @@ void deserialise_numeral_vector(void* p0, void* p1, void* p2, void* p3, void* p4
     //?? fwprintf(stdout, L"Debug: Deserialise numeral vector. source count p2: %i\n", p2);
     //?? fwprintf(stdout, L"Debug: Deserialise numeral vector. source count *p2: %i\n", *((int*) p2));
 
-    // The source data position.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The source count remaining.
-    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    // Copy source data position.
-    copy_pointer((void*) &d, (void*) &p1);
-    // Copy source count remaining.
-    copy_integer((void*) &c, p2);
+    // The temporary item storing wide character parts representing a number each.
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The temporary item data, count.
+    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* tc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
-    // Allocate temporary item.
+    // Allocate temporary part element item.
     //
-    // CAUTION! A copy of source count remaining is forwarded here,
-    // so that the original source value does not get changed.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
     //
-    // CAUTION! The source data position does NOT have to be copied,
-    // since the parametre that was handed over is already a copy.
-    // A local copy was made anyway, not to risk parametre falsification.
-    // Its reference is forwarded, as it gets incremented by sub routines inside.
-    //
-    deserialise_numeral_vector_item(p0, (void*) &d, (void*) &c, p3, p4, p5, p6, p7, p8);
+    allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+
+    // Deserialise numeral vector storing the single numbers as child nodes of the temporary part element item.
+    deserialise_joined_string(t, p1, p2, (void*) COMMA_UNICODE_CHARACTER_CODE_MODEL, (void*) COMMA_UNICODE_CHARACTER_CODE_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+
+    // Get temporary part element item data, count.
+    copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &tc, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    // Iterates through the list items in order to deserialise them into numbers.
+    deserialise_numeral_vector_list(p0, td, tc, p3, p4, p5, p6, p7, p8);
+
+    // Deallocate temporary part element item.
+    deallocate_item((void*) &t, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 }

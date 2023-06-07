@@ -38,14 +38,13 @@
 #include "constant.h"
 #include "knowledge.h"
 #include "logger.h"
-#include "text.h"
 
 /**
- * Deserialises a record (row) by calling the joined string deserialiser.
+ * Uses a pointer reference as window moving over the joined string.
  *
  * @param p0 the destination item
- * @param p1 the source textline model data
- * @param p2 the source textline model count
+ * @param p1 the source model wide character data
+ * @param p2 the source model wide character count
  * @param p3 the delimiter data, e.g. a comma OR semicolon OR some character sequence
  * @param p4 the delimiter count
  * @param p5 the escape data, e.g. a DOUBLE quotation mark
@@ -57,11 +56,11 @@
  * @param p11 the quotation begin data, e.g. a quotation mark
  * @param p12 the quotation begin count
  */
-void deserialise_csv_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void deserialise_joined_string_reference(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise csv record.");
-    //?? fwprintf(stdout, L"Debug: Deserialise csv record. source textline model count p2: %i\n", p2);
-    //?? fwprintf(stdout, L"Debug: Deserialise csv record. source textline model count *p2: %i\n", *((int*) p2));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise joined string reference.");
+    //?? fwprintf(stdout, L"Debug: Deserialise joined string reference. source model wide character count p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise joined string reference. source model wide character count *p2: %i\n", *((int*) p2));
 
     // The source data position.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -74,7 +73,7 @@ void deserialise_csv_record(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     copy_integer((void*) &c, p2);
 
     //
-    // Deserialise record (row) as joined string into separate parts.
+    // Deserialise list of values.
     //
     // CAUTION! A copy of source count remaining is forwarded here,
     // so that the original source value does not get changed.

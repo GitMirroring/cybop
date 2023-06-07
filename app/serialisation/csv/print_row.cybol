@@ -1,0 +1,51 @@
+<node>
+
+    <node name="count_columns" channel="inline" format="access/count" model="">
+        <node name="count" channel="inline" format="text/cybol-path" model="#column_count"/>
+        <node name="part" channel="inline" format="text/cybol-path" model="{{#row}}"/>
+    </node>
+
+<!--
+    <node name="TEST_count" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#column_count"/>
+    </node>
+-->
+
+    <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
+    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#column_break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="#column_index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model="#column_count"/>
+    </node>
+    <node name="loop_columns" channel="inline" format="flow/loop" model="">
+        <node name="break" channel="inline" format="text/cybol-path" model="#column_break"/>
+        <node name="model" channel="inline" format="text/cybol-path" model="#column_model"/>
+    </node>
+
+    <node name="print_right_border_and_newline" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
+            <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+        </node>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="|"/>
+    </node>
+
+    <!-- Loop test. -->
+    <node name="increment_index" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#row_index"/>
+        <node name="operand" channel="inline" format="number/integer" model="1"/>
+    </node>
+    <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
+    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#row_break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="#row_index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model="#row_count"/>
+    </node>
+
+</node>

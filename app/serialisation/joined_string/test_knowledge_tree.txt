@@ -1,0 +1,50 @@
+[selected_node] | element/part | 
++-id | number/integer | 5
++-string_comma | text/plain | a,1,01.07.2022,1 EUR,10 %
++-string_semicolon | text/plain | a;1;01.07.2022;1 EUR;10 %
++-string_comma_space | text/plain | a, 1, 01.07.2022, 1 EUR, 10 %
++-string_sequence | text/plain | a#?#1#?#01.07.2022#?#1 EUR#?#10 %
++-string_quoted | text/plain | " begin space","01/07/2022","some ""quoted"" text"
++-string_mixed | text/plain | " begin space",01/07/2022,"some ""quoted"" text"
++-string_quoted_inline | text/plain | " begin space","01/07/2022","some ""quoted"" text"
++-string_quoted_inline_semicolon | text/plain | " begin space";"01/07/2022";"some ""quoted"" text"
++-result_comma | element/part | 
+| +-0 | text/plain | a
+| +-1 | text/plain | 1
+| +-2 | text/plain | 01.07.2022
+| +-3 | text/plain | 1 EUR
+| +-4 | text/plain | 10 %
++-result_semicolon | element/part | 
+| +-0 | text/plain | a
+| +-1 | text/plain | 1
+| +-2 | text/plain | 01.07.2022
+| +-3 | text/plain | 1 EUR
+| +-4 | text/plain | 10 %
++-result_comma_space | element/part | 
+| +-0 | text/plain | a
+| +-1 | text/plain | 1
+| +-2 | text/plain | 01.07.2022
+| +-3 | text/plain | 1 EUR
+| +-4 | text/plain | 10 %
++-result_sequence | element/part | 
+| +-0 | text/plain | a
+| +-1 | text/plain | 1
+| +-2 | text/plain | 01.07.2022
+| +-3 | text/plain | 1 EUR
+| +-4 | text/plain | 10 %
++-result_quoted | element/part | 
+| +-0 | text/plain |  begin space
+| +-1 | text/plain | 01/07/2022
+| +-2 | text/plain | some "quoted" text
++-result_mixed | element/part | 
+| +-0 | text/plain |  begin space
+| +-1 | text/plain | 01/07/2022
+| +-2 | text/plain | some "quoted" text
++-result_quoted_inline | element/part | 
+| +-0 | text/plain |  begin space
+| +-1 | text/plain | 01/07/2022
+| +-2 | text/plain | some "quoted" text
++-result_quoted_inline_semicolon | element/part | 
+| +-0 | text/plain |  begin space
+| +-1 | text/plain | 01/07/2022
+| +-2 | text/plain | some "quoted" text

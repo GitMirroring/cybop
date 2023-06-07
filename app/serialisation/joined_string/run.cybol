@@ -1,0 +1,123 @@
+<node>
+
+    <!-- Creation -->
+
+    <node name="create_id" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="id"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+
+    <!-- Initialisation -->
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/joined_string/app.cybol"/>
+    </node>
+    <node name="initialise_app" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+    <!-- Deserialisation -->
+
+    <node name="deserialise_data_comma" channel="inline" format="represent/deserialise" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".result_comma"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".string_comma"/>
+        <node name="language" channel="inline" format="meta/language" model="text/joined-string">
+            <node name="delimiter" channel="inline" format="text/plain" model=","/>
+        </node>
+    </node>
+    <node name="deserialise_data_semicolon" channel="inline" format="represent/deserialise" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".result_semicolon"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".string_semicolon"/>
+        <node name="language" channel="inline" format="meta/language" model="text/joined-string">
+            <node name="delimiter" channel="inline" format="text/plain" model=";"/>
+        </node>
+    </node>
+    <node name="deserialise_data_space" channel="inline" format="represent/deserialise" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".result_comma_space"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".string_comma_space"/>
+        <node name="language" channel="inline" format="meta/language" model="text/joined-string">
+            <node name="delimiter" channel="inline" format="text/plain" model=", "/>
+        </node>
+    </node>
+    <node name="deserialise_data_sequence" channel="inline" format="represent/deserialise" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".result_sequence"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".string_sequence"/>
+        <node name="language" channel="inline" format="meta/language" model="text/joined-string">
+            <node name="delimiter" channel="inline" format="text/plain" model="#?#"/>
+        </node>
+    </node>
+    <node name="deserialise_data_quoted" channel="inline" format="represent/deserialise" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".result_quoted"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".string_quoted"/>
+        <node name="language" channel="inline" format="meta/language" model="text/joined-string">
+            <node name="delimiter" channel="inline" format="text/plain" model=","/>
+            <node name="quotation" channel="inline" format="text/plain" model="&#x22;"/>
+        </node>
+    </node>
+    <node name="deserialise_data_mixed" channel="inline" format="represent/deserialise" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".result_mixed"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".string_mixed"/>
+        <node name="language" channel="inline" format="meta/language" model="text/joined-string">
+            <node name="delimiter" channel="inline" format="text/plain" model=","/>
+            <node name="quotation" channel="inline" format="text/plain" model="&#x22;"/>
+        </node>
+    </node>
+    <node name="deserialise_data_quoted_inline" channel="inline" format="represent/deserialise" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".result_quoted_inline"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".string_quoted_inline"/>
+        <node name="language" channel="inline" format="meta/language" model="text/joined-string">
+            <node name="delimiter" channel="inline" format="text/plain" model=","/>
+            <node name="quotation" channel="inline" format="text/plain" model="&#x22;"/>
+        </node>
+    </node>
+    <node name="deserialise_data_quoted_inline_semicolon" channel="inline" format="represent/deserialise" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".result_quoted_inline_semicolon"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".string_quoted_inline_semicolon"/>
+        <node name="language" channel="inline" format="meta/language" model="text/joined-string">
+            <node name="delimiter" channel="inline" format="text/plain" model=";"/>
+            <node name="quotation" channel="inline" format="text/plain" model="&#x22;"/>
+        </node>
+    </node>
+
+    <!-- Test -->
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/joined_string/test_knowledge_tree.txt"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
+    </node>
+    <node name="send_knowledge" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+    <!-- Shutdown -->
+
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
+</node>
+
+<!--
+    This example deserialises a joined string and writes the created
+    knowledge tree into a model diagram text file.
+-->

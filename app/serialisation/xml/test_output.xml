@@ -1,0 +1,44 @@
+<node>
+    <node>
+        on
+    </node>
+    <node title="Sample Konfabulator Widget">
+        <node>
+            main_window
+        </node>
+        <node>
+            500
+        </node>
+        <node>
+            500
+        </node>
+    </node>
+    <node src="Images/Sun.png" name="sun1">
+        <node>
+            250
+        </node>
+        <node>
+            250
+        </node>
+        <node>
+            center
+        </node>
+    </node>
+    <node data="Click Here" size="36" style="bold">
+        <node>
+            text1
+        </node>
+        <node>
+            250
+        </node>
+        <node>
+            100
+        </node>
+        <node>
+            center
+        </node>
+        <node>
+            sun1.opacity = (sun1.opacity / 100) * 90;
+        </node>
+    </node>
+</node>

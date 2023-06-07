@@ -1,0 +1,88 @@
+<node>
+
+    <node name="byte" channel="inline" format="text/plain" model="byte">
+<!--
+        <node name="x" channel="inline" format="number/byte" model="0"/>
+        <node name="y" channel="inline" format="number/byte" model="2"/>
+        <node name="array" channel="inline" format="number/byte" model="0,1,2,3,4"/>
+-->
+    </node>
+
+    <node name="integer" channel="inline" format="text/plain" model="integer">
+<!--
+        <node name="decimal_base" channel="inline" format="number/integer" model="24"/>
+        <node name="negative" channel="inline" format="number/integer" model="-24"/>
+-->
+<!--
+        <node name="array" channel="inline" format="number/integer" model="0,1,2,3,4"/>
+-->
+        <!-- These numbers will get recognised only if the consider number base prefix flag is set. -->
+<!--
+        <node name="octal" channel="inline" format="number/integer" model="030"/>
+        <node name="many_zeros" channel="inline" format="number/integer" model="00030"/>
+        <node name="negative_octal" channel="inline" format="number/integer" model="-030"/>
+        <node name="hexadecimal" channel="inline" format="number/integer" model="0x18"/>
+        <node name="negative_hexadecimal" channel="inline" format="number/integer" model="-0x18"/>
+        <node name="hexadecimal_small_letter" channel="inline" format="number/integer" model="0xb"/>
+        <node name="hexadecimal_capital_letter" channel="inline" format="number/integer" model="0x1C"/>
+-->
+    </node>
+
+    <node name="fraction-decimal" channel="inline" format="text/plain" model="fraction-decimal">
+<!--
+        <node name="simple" channel="inline" format="number/fraction-decimal" model="24.4"/>
+        <node name="negative_sign" channel="inline" format="number/fraction-decimal" model="-24.4"/>
+        <node name="standard" channel="inline" format="number/fraction-decimal" model="7.0"/>
+        <node name="extra" channel="inline" format="number/fraction-decimal" model="123.45697"/>
+        <node name="lacking_decimal_places" channel="inline" format="number/fraction-decimal" model="7."/>
+        <node name="lacking_pre-decimal_point_position" channel="inline" format="number/fraction-decimal" model=".7"/>
+-->
+<!--
+        <node name="array" channel="inline" format="fraction-decimal" model="1.5,2.5,3.5"/>
+-->
+<!--
+        <node name="scientific" channel="inline" format="number/fraction-decimal" model="7e3"/>
+        <node name="optional_plus_sign" channel="inline" format="number/fraction-decimal" model="7e+3"/>
+        <node name="minus_sign" channel="inline" format="number/fraction-decimal" model="7e-3"/>
+        <node name="capital_letter_possible" channel="inline" format="number/fraction-decimal" model="7E-3"/>
+        <node name="scientific_notation_1" channel="inline" format="number/fraction-decimal" model="11e0"/>
+        <node name="scientific_notation_2" channel="inline" format="number/fraction-decimal" model=".11e2"/>
+        <node name="scientific_notation_3" channel="inline" format="number/fraction-decimal" model="0.007e-2"/>
+        <node name="scientific_notation_4" channel="inline" format="number/fraction-decimal" model="0.7e-2"/>
+        <node name="scientific_notation_5" channel="inline" format="number/fraction-decimal" model="7.0e-3"/>
+        <node name="longer_number" channel="inline" format="number/fraction-decimal" model="-12.34567e-2"/>
+-->
+    </node>
+
+    <node name="fraction-vulgar" channel="inline" format="text/plain" model="fraction-vulgar">
+<!--
+        <node name="positive" channel="inline" format="number/fraction-vulgar" model="1/2"/>
+        <node name="negative" channel="inline" format="number/fraction-vulgar" model="-2/3"/>
+-->
+    </node>
+
+    <node name="complex-cartesian" channel="inline" format="text/plain" model="complex-cartesian">
+<!--
+        <node name="standard" channel="inline" format="number/complex-cartesian" model="2+4"/>
+        <node name="negative_imaginary_part" channel="inline" format="number/complex-cartesian" model="2-4"/>
+        <node name="negative_real_part" channel="inline" format="number/complex-cartesian" model="-2+4"/>
+        <node name="both_parts_negative" channel="inline" format="number/complex-cartesian" model="-2-4"/>
+        <node name="decimal_fractions" channel="inline" format="number/complex-cartesian" model="-1.2+5.0"/>
+        <node name="scientific_notation" channel="inline" format="number/complex-cartesian" model="-1.2e6+.11e2"/>
+-->
+    </node>
+
+    <node name="complex-polar" channel="inline" format="text/plain" model="complex-polar">
+<!--
+        <node name="standard" channel="inline" format="number/complex-polar" model="2*exp(45)"/>
+        <node name="plus_sign" channel="inline" format="number/complex-polar" model="+2*exp(+45)"/>
+-->
+        <node name="minus_sign" channel="inline" format="number/complex-polar" model="-2*exp(-45)"/>
+<!--
+        <node name="decimal_fraction_value" channel="inline" format="number/complex-polar" model="-1.5*exp(45)"/>
+        <node name="decimal_fraction_argument" channel="inline" format="number/complex-polar" model="2*exp(-45.2)"/>
+        <node name="scientific_notation" channel="inline" format="number/complex-polar" model="-1.5e4*exp(-45)"/>
+-->
+    </node>
+
+</node>

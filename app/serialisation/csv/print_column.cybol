@@ -1,0 +1,52 @@
+<node>
+
+    <node name="print_left_border" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
+            <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
+        </node>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="|"/>
+    </node>
+    <node name="print_space" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
+            <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
+        </node>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model=" "/>
+    </node>
+    <node name="print_value" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
+            <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
+        </node>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="{{#row}}.[#column_index]"/>
+    </node>
+    <node name="print_space" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
+            <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
+        </node>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model=" "/>
+    </node>
+
+    <!-- Loop test. -->
+    <node name="increment_index" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#column_index"/>
+        <node name="operand" channel="inline" format="number/integer" model="1"/>
+    </node>
+    <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
+    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#column_break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="#column_index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model="#column_count"/>
+    </node>
+
+</node>

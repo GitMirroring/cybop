@@ -1,0 +1,27 @@
+<node>
+
+    <!--
+        CAUTION! The test strings HAVE TO be put into FILES,
+        since some of them contain quotation characters
+        which would mix up the xml if placed inline here.
+    -->
+
+    <node name="string_comma" channel="file" format="text/plain" model="serialisation/joined_string/test/comma.txt"/>
+    <node name="string_semicolon" channel="file" format="text/plain" model="serialisation/joined_string/test/semicolon.txt"/>
+    <node name="string_comma_space" channel="file" format="text/plain" model="serialisation/joined_string/test/comma_space.txt"/>
+    <node name="string_sequence" channel="file" format="text/plain" model="serialisation/joined_string/test/sequence.txt"/>
+    <node name="string_quoted" channel="file" format="text/plain" model="serialisation/joined_string/test/quoted.txt"/>
+    <node name="string_mixed" channel="file" format="text/plain" model="serialisation/joined_string/test/mixed.txt"/>
+    <node name="string_quoted_inline" channel="inline" format="text/plain" model="&#x22; begin space&#x22;,&#x22;01/07/2022&#x22;,&#x22;some &#x22;&#x22;quoted&#x22;&#x22; text&#x22;"/>
+    <node name="string_quoted_inline_semicolon" channel="inline" format="text/plain" model="&#x22; begin space&#x22;;&#x22;01/07/2022&#x22;;&#x22;some &#x22;&#x22;quoted&#x22;&#x22; text&#x22;"/>
+
+    <node name="result_comma" channel="inline" format="element/part" model=""/>
+    <node name="result_semicolon" channel="inline" format="element/part" model=""/>
+    <node name="result_comma_space" channel="inline" format="element/part" model=""/>
+    <node name="result_sequence" channel="inline" format="element/part" model=""/>
+    <node name="result_quoted" channel="inline" format="element/part" model=""/>
+    <node name="result_mixed" channel="inline" format="element/part" model=""/>
+    <node name="result_quoted_inline" channel="inline" format="element/part" model=""/>
+    <node name="result_quoted_inline_semicolon" channel="inline" format="element/part" model=""/>
+
+</node>

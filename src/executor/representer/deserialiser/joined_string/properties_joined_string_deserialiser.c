@@ -44,10 +44,10 @@
  * Prepares variables necessary for deserialisation.
  *
  * @param p0 the destination item
- * @param p1 the source data position (pointer reference)
- * @param p2 the source count remaining
- * @param p3 the source properties data
- * @param p4 the source properties count
+ * @param p1 the source model wide character data
+ * @param p2 the source model wide character count
+ * @param p3 the language properties (constraints) data
+ * @param p4 the language properties (constraints) count
  * @param p5 the knowledge memory part (pointer reference)
  * @param p6 the stack memory item
  * @param p7 the internal memory data
@@ -105,5 +105,5 @@ void deserialise_joined_string_properties(void* p0, void* p1, void* p2, void* p3
     //
 
     // Prepare variables necessary for deserialisation.
-    deserialise_joined_string_preparation(p0, p1, p2, dmd, dmc, qmd, qmc);
+    deserialise_joined_string(p0, p1, p2, dmd, dmc, qmd, qmc);
 }

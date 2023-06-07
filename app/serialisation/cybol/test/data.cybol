@@ -1,0 +1,10 @@
+<node>
+
+    <node name="text" channel="inline" format="text/plain" model="Ein Beispieltext."/>
+    <node name="numbers" channel="file" format="element/part" model="serialisation/cybol/test/numbers.cybol"/>
+    <node name="properties" channel="inline" format="text/plain" model="properties">
+        <node name="prop_1" channel="inline" format="text/plain" model="first property"/>
+        <node name="prop_2" channel="inline" format="text/plain" model="second property"/>
+    </node>
+
+</node>

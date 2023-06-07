@@ -45,8 +45,8 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source data position (pointer reference)
- * @param p3 the source count remaining
+ * @param p2 the source response line data
+ * @param p3 the source response line count
  */
 void deserialise_smtp_response_line(void* p0, void* p1, void* p2, void* p3) {
 
@@ -69,7 +69,7 @@ void deserialise_smtp_response_line(void* p0, void* p1, void* p2, void* p3) {
     allocate_item((void*) &l, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
     // Deserialise (split) joined string by SPACE into string list item.
-    deserialise_joined_string_preparation(l, p2, p3, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_joined_string(l, p2, p3, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // Get string list item data, count.
     copy_array_forward((void*) &ld, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);

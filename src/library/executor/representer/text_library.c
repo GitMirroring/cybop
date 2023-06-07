@@ -42,7 +42,6 @@
 #include "../../../executor/representer/deserialiser/csv/part_csv_deserialiser.c"
 #include "../../../executor/representer/deserialiser/csv/preparation_csv_deserialiser.c"
 #include "../../../executor/representer/deserialiser/csv/properties_csv_deserialiser.c"
-#include "../../../executor/representer/deserialiser/csv/record_csv_deserialiser.c"
 #include "../../../executor/representer/deserialiser/csv/source_csv_deserialiser.c"
 
 //
@@ -52,8 +51,8 @@
 #include "../../../executor/representer/deserialiser/joined_string/index_joined_string_deserialiser.c"
 #include "../../../executor/representer/deserialiser/joined_string/joined_string_deserialiser.c"
 #include "../../../executor/representer/deserialiser/joined_string/list_joined_string_deserialiser.c"
-#include "../../../executor/representer/deserialiser/joined_string/preparation_joined_string_deserialiser.c"
 #include "../../../executor/representer/deserialiser/joined_string/properties_joined_string_deserialiser.c"
+#include "../../../executor/representer/deserialiser/joined_string/reference_joined_string_deserialiser.c"
 #include "../../../executor/representer/deserialiser/joined_string/value_joined_string_deserialiser.c"
 
 #include "../../../executor/selector/joined_string/begin_joined_string_selector.c"

@@ -90,7 +90,6 @@
 #include "../../../executor/representer/deserialiser/numeral/power_numeral_deserialiser.c"
 #include "../../../executor/representer/deserialiser/numeral/value_numeral_deserialiser.c"
 #include "../../../executor/representer/deserialiser/numeral/verification_numeral_deserialiser.c"
-#include "../../../executor/representer/deserialiser/numeral_vector/item_numeral_vector_deserialiser.c"
 #include "../../../executor/representer/deserialiser/numeral_vector/list_numeral_vector_deserialiser.c"
 #include "../../../executor/representer/deserialiser/numeral_vector/numeral_vector_deserialiser.c"
 

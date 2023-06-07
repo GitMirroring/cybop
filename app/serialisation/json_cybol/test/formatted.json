@@ -1,0 +1,53 @@
+[
+
+    ["string", "inline", "text/plain", "Hello JSON!", []],
+
+    ["path", "inline", "text/cybol-path", ".non-existing.test.path", []],
+
+    ["integer", "inline", "number/integer", "2", []],
+
+    ["float", "inline", "number/fraction-decimal", "6.4000", []],
+
+    ["boolean", "inline", "logicvalue/boolean", "true", []],
+
+    ["array", "inline", "number/integer", "1", []],
+
+    ["object", "inline", "element/part", [
+
+        ["string", "inline", "text/plain", "This is an object", []],
+
+        ["sub_object", "inline", "element/part", [
+
+            ["string_1", "inline", "text/plain", "This is a sub object", []],
+
+            ["string_2", "inline", "text/plain", "Some more text", []]
+
+        ], [
+
+            ["position", "inline", "number/integer", "100", []],
+
+            ["size", "inline", "number/integer", "800", []]
+
+        ]],
+
+        ["empty_object", "inline", "element/part", [], []]
+
+    ], []],
+
+    ["operation", "inline", "communicate/send", "", [
+
+        ["channel", "inline", "meta/channel", "terminal", []],
+
+        ["receiver", "inline", "text/cybol-path", ".stdout", []],
+
+        ["language", "inline", "meta/language", "message/tui", []],
+
+        ["format", "inline", "meta/format", "number/integer", []],
+
+        ["message", "inline", "text/cybol-path", ".index", []]
+
+    ]],
+
+    ["message", "inline", "text/plain", "The End", []]
+
+]

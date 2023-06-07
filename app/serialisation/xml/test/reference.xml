@@ -1,0 +1,19 @@
+<test>
+
+    <node1 value="The quotation mark &quot; as entity reference"/>
+    <node2 value="The quotation mark &#34; as numeric decimal reference"/>
+    <node3 value="The quotation mark &#x22; as numeric hexadecimal reference"/>
+
+    <node4 value="The less than sign &lt; as entity reference"/>
+    <node5 value="The less than sign &#60; as numeric decimal reference"/>
+    <node6 value="The less than sign &#x3c; as numeric hexadecimal reference with small letters"/>
+    <node7 value="The less than sign &#X3c; as numeric hexadecimal reference with capital X prefix"/>
+    <node8 value="The less than sign &#x3C; as numeric hexadecimal reference with capital C number"/>
+
+    <node9>
+        Embedded text between two tags
+        with ampersand sign &amp; as entity reference
+        and ampersand sign &#38; as numeric decimal reference.
+    </node9>
+
+</test>

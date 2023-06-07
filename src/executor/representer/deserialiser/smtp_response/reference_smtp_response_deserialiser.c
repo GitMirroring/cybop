@@ -64,6 +64,7 @@ void deserialise_smtp_response_reference(void* p0, void* p1, void* p2, void* p3)
     // Copy source count remaining.
     copy_integer((void*) &c, p3);
 
+    //?? TODO: CAUTION! A reference is NOT necessary anymore, just use the normal parametre.
     // Deserialise smtp response line.
-    deserialise_smtp_response_line(p0, p1, (void*) &d, (void*) &c);
+    //?? deserialise_smtp_response_line(p0, p1, (void*) &d, (void*) &c);
 }

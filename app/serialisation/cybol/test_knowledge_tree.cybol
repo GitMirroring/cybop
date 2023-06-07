@@ -1,0 +1,18 @@
+<node>
+    <node name="text" format="text/plain" model="Ein Beispieltext."/>
+    <node name="numbers" format="element/part" model="<node>
+    <node name="byte" format="text/plain" model="byte"/>
+    <node name="integer" format="text/plain" model="integer"/>
+    <node name="fraction-decimal" format="text/plain" model="fraction-decimal"/>
+    <node name="fraction-vulgar" format="text/plain" model="fraction-vulgar"/>
+    <node name="complex-cartesian" format="text/plain" model="complex-cartesian"/>
+    <node name="complex-polar" format="text/plain" model="complex-polar">
+        <node name="minus_sign" format="number/complex-polar" model="2.0000*exp(125.2644)"/>
+    </node>
+</node>
+"/>
+    <node name="properties" format="text/plain" model="properties">
+        <node name="prop_1" format="text/plain" model="first property"/>
+        <node name="prop_2" format="text/plain" model="second property"/>
+    </node>
+</node>

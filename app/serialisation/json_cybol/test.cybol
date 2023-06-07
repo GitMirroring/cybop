@@ -1,0 +1,21 @@
+<node>
+
+    <node name="string" channel="inline" format="text/plain" model="Hello JSON!"/>
+    <node name="path" channel="inline" format="text/cybol-path" model=".non-existing.test.path"/>
+    <node name="integer" channel="inline" format="number/integer" model="2"/>
+    <node name="float" channel="inline" format="number/fraction-decimal" model="6.4"/>
+    <node name="boolean" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="array" channel="inline" format="number/integer" model="1,2,3"/>
+    <node name="object" channel="file" format="element/part" model="serialisation/json_cybol/object.cybol"/>
+
+    <node name="operation" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".index"/>
+    </node>
+
+    <node name="message" channel="inline" format="text/plain" model="The End"/>
+
+</node>

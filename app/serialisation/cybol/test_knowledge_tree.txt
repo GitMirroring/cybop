@@ -1,0 +1,13 @@
+[selected_node] | element/part | 
++-text | text/plain | Ein Beispieltext.
++-numbers | element/part | 
+| +-byte | text/plain | byte
+| +-integer | text/plain | integer
+| +-fraction-decimal | text/plain | fraction-decimal
+| +-fraction-vulgar | text/plain | fraction-vulgar
+| +-complex-cartesian | text/plain | complex-cartesian
+| +-complex-polar | text/plain | complex-polar
+| | :-minus_sign | number/complex-polar | 2.0000*exp(125.2644)
++-properties | text/plain | properties
+| :-prop_1 | text/plain | first property
+| :-prop_2 | text/plain | second property

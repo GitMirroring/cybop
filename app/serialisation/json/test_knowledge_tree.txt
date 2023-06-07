@@ -1,0 +1,36 @@
+[selected_node] | element/part | 
++-root | element/part | 
+| +-integer | element/part | 
+| | +-simple | number/integer | 24
+| | +-negative | number/integer | -24
+| | +-leading_zero | number/integer | 30
+| +-fraction-decimal | element/part | 
+| | +-simple | number/fraction-decimal | 24.0000
+| | +-negative_sign | number/fraction-decimal | -24.0000
+| | +-standard | number/fraction-decimal | 7.0000
+| | +-scientific_notation | number/fraction-decimal | 0.0070
+| | +-capital_letter_possible | number/fraction-decimal | 0.0070
+| | +-positive_without_sign | number/fraction-decimal | 7000.0000
+| | +-optional_plus_sign | number/fraction-decimal | 7000.0000
+| | +-scientific_notation_1 | number/fraction-decimal | 11.0000
+| | +-scientific_notation_2 | number/fraction-decimal | 0.0070
+| | +-scientific_notation_3 | number/fraction-decimal | 0.0070
+| | +-scientific_notation_4 | number/fraction-decimal | 0.0070
+| | +-standard | number/fraction-decimal | -0.1234
+| +-fraction-vulgar | element/part | 
+| | +-positive | number/fraction-vulgar | 1/2
+| | +-negative | number/fraction-vulgar | -2/3
+| +-complex-cartesian | element/part | 
+| | +-standard | number/complex-cartesian | 2.0000+4.0000
+| | +-negative_imaginary_part | number/complex-cartesian | 2.0000-4.0000
+| | +-negative_real_part | number/complex-cartesian | -2.0000+4.0000
+| | +-both_parts_negative | number/complex-cartesian | -2.0000-4.0000
+| | +-decimal_fractions | number/complex-cartesian | -1.2000+5.0000
+| | +-scientific_notation | number/complex-cartesian | -1200000.0000+11.0000
+| +-complex-polar | element/part | 
+| | +-standard | number/complex-polar | 2.0000*exp(125.2644)
+| | +-with_capital_letter_e | number/integer | -2
+| | +-without_times_sign_1 | number/fraction-decimal | -2.0000
+| | +-without_times_sign_2 | number/fraction-decimal | -2.0000
+| | +-decimal_fraction | number/complex-polar | 1.5000*exp(133.3139)
+| | +-scientific_notation | number/fraction-decimal | -15000.0000

@@ -115,8 +115,6 @@ void deserialise_numeral_part(void* p0, void* p1, void* p2, void* p3, void* p4, 
 void deserialise_numeral_power(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
 void deserialise_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11);
 void deserialise_numeral_vector(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
-void deserialise_numeral_vector_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
-void deserialise_numeral_vector_list(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
 void deserialise_numeral_vector_list(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
 void deserialise_numeral_verification(void* p0, void* p1, void* p2);
 

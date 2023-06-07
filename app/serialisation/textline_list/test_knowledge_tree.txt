@@ -1,0 +1,16 @@
+[selected_node] | element/part | 
++-id | number/integer | 5
++-data | element/part | 
+| +-0 | text/plain | Sample Text Heading
+| +-1 | text/plain | 
+| +-2 | text/plain | This text is to be parsed and deserialised by the cybol application
+| +-3 | text/plain | in order to be split into separate text lines which are then
+| +-4 | text/plain | stored as single parts within the cyboi-internal knowledge tree.
+| +-5 | text/plain | 
+| +-6 | text/plain | A second text paragraph contains some character (comma) separated values (csv):
+| +-7 | text/plain | a, 1, 01.07.2022, 1 EUR, 10 %
+| +-8 | text/plain | and a closing sentence.
+| +-9 | text/plain | 
+| +-10 | text/plain | That is it. The last text line does NOT contain a line break on PURPOSE,
+| +-11 | text/plain | in order to check if the cyboi deserialiser recognises it anyway.
+| +-12 | text/plain | This is the END (WITHOUT carriage return or line break).
