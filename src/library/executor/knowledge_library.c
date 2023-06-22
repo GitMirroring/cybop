@@ -169,7 +169,8 @@
 // modifier
 //
 
-#include "../../executor/modifier/appender/item/part_item_appender.c"
+#include "../../executor/modifier/appender/part_appender.c"
+#include "../../executor/modifier/appender/wide_character_from_character_part_appender.c"
 
 #include "../../executor/modifier/array_modifier.c"
 
@@ -193,7 +194,9 @@
 #include "../../executor/modifier/normaliser/type_normaliser.c"
 #include "../../executor/modifier/normaliser/whitespace_normaliser.c"
 
+#include "../../executor/modifier/overwriter/integer_from_character_overwriter.c"
 #include "../../executor/modifier/overwriter/overwriter.c"
+#include "../../executor/modifier/overwriter/wide_character_from_character_overwriter.c"
 
 #include "../../executor/modifier/part_modifier.c"
 

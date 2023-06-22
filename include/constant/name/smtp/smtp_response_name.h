@@ -23,35 +23,29 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-//
-// imap
-//
-
-//?? TODO
+#ifndef SMTP_RESPONSE_NAME_CONSTANT_HEADER
+#define SMTP_RESPONSE_NAME_CONSTANT_HEADER
 
 //
-// imf (internet message format)
-//
-// Metaphor:
-//
-// Where smtp is considered the "envelope", imf data are the "letter".
+// System interface
 //
 
-//?? TODO
+#include <stddef.h> // wchar_t
 
 //
-// pop3
+// Library interface
 //
 
-//?? TODO
+#include "constant.h"
 
-//
-// smtp
-//
+/** The status code separator (space) smtp response name. */
+static unsigned char* CODE_SEPARATOR_SMTP_RESPONSE_NAME = SPACE_ASCII_CHARACTER_CODE_MODEL_ARRAY;
+static int* CODE_SEPARATOR_SMTP_RESPONSE_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-#include "../../../executor/representer/deserialiser/smtp_response/code_smtp_response_deserialiser.c"
-#include "../../../executor/representer/deserialiser/smtp_response/smtp_response_deserialiser.c"
-#include "../../../executor/representer/deserialiser/smtp_response/text_smtp_response_deserialiser.c"
+/** The line separator ("carriage return" and "line feed") smtp response name. */
+static unsigned char LINE_SEPARATOR_SMTP_RESPONSE_NAME_ARRAY[] = { 0x0D, 0x0A };
+static unsigned char* LINE_SEPARATOR_SMTP_RESPONSE_NAME = LINE_SEPARATOR_SMTP_RESPONSE_NAME_ARRAY;
+static int* LINE_SEPARATOR_SMTP_RESPONSE_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-#include "../../../executor/selector/smtp_response/code_smtp_response_selector.c"
-#include "../../../executor/selector/smtp_response/text_smtp_response_selector.c"
+/* SMTP_RESPONSE_NAME_CONSTANT_HEADER */
+#endif

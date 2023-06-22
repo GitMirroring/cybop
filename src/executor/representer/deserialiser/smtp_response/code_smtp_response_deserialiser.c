@@ -37,27 +37,35 @@
 #include "arithmetic.h"
 #include "communication.h"
 #include "constant.h"
+#include "email.h"
 #include "knowledge.h"
 #include "logger.h"
 
 /**
- * Deserialises the string list.
+ * Deserialises the smtp response code.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source string list data
- * @param p3 the source string list count
+ * @param p2 the source data position (pointer reference)
+ * @param p3 the source count remaining
  */
-void deserialise_smtp_response_strings(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_smtp_response_code(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise smtp response strings.");
-    fwprintf(stdout, L"Debug: Deserialise smtp response strings. p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Deserialise smtp response strings. *p3: %i\n", *((int*) p3));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise smtp response code.");
+    fwprintf(stdout, L"Debug: Deserialise smtp response code. count remaining p3: %i\n", p3);
+    fwprintf(stdout, L"Debug: Deserialise smtp response code. count remaining *p3: %i\n", *((int*) p3));
 
-    // The loop variable.
-    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The status code data, count.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    // Initialise status code data.
+    copy_pointer((void*) &d, p2);
+
+    // Append response line IN COMPLETE to destination properties item.
+    append_part_wide_character_from_character(p1, (void*) LINE_SMTP_CYBOI_NAME, (void*) LINE_SMTP_CYBOI_NAME_COUNT, d, p3);
 
     if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -76,17 +84,19 @@ void deserialise_smtp_response_strings(void* p0, void* p1, void* p2, void* p3) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p3);
+        compare_integer_less_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Append status code to destination properties item.
+            append_part_wide_character_from_character(p1, (void*) CODE_SMTP_CYBOI_NAME, (void*) CODE_SMTP_CYBOI_NAME_COUNT, d, (void*) &c);
+
+            // Overwrite destination model item with status code as integer primitive.
+            overwrite_integer_from_character(p0, d, (void*) &c);
 
             break;
         }
 
-        // Deserialise string part.
-        deserialise_smtp_response_stringpart(p0, p1, p2, (void*) &j);
-
-        // Increment loop variable.
-        j++;
+        select_smtp_response_code(p1, p2, p3, (void*) &c, (void*) &b);
     }
 }

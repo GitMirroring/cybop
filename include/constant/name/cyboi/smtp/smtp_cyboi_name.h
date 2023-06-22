@@ -23,35 +23,32 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-//
-// imap
-//
-
-//?? TODO
+#ifndef SMTP_CYBOI_NAME_CONSTANT_HEADER
+#define SMTP_CYBOI_NAME_CONSTANT_HEADER
 
 //
-// imf (internet message format)
-//
-// Metaphor:
-//
-// Where smtp is considered the "envelope", imf data are the "letter".
+// System interface
 //
 
-//?? TODO
+#include <stddef.h> // wchar_t
 
 //
-// pop3
+// Library interface
 //
 
-//?? TODO
+#include "constant.h"
 
-//
-// smtp
-//
+/** The code smtp cyboi name. */
+static wchar_t* CODE_SMTP_CYBOI_NAME = L"code";
+static int* CODE_SMTP_CYBOI_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-#include "../../../executor/representer/deserialiser/smtp_response/code_smtp_response_deserialiser.c"
-#include "../../../executor/representer/deserialiser/smtp_response/smtp_response_deserialiser.c"
-#include "../../../executor/representer/deserialiser/smtp_response/text_smtp_response_deserialiser.c"
+/** The line smtp cyboi name. */
+static wchar_t* LINE_SMTP_CYBOI_NAME = L"line";
+static int* LINE_SMTP_CYBOI_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-#include "../../../executor/selector/smtp_response/code_smtp_response_selector.c"
-#include "../../../executor/selector/smtp_response/text_smtp_response_selector.c"
+/** The text smtp cyboi name. */
+static wchar_t* TEXT_SMTP_CYBOI_NAME = L"text";
+static int* TEXT_SMTP_CYBOI_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/* SMTP_CYBOI_NAME_CONSTANT_HEADER */
+#endif

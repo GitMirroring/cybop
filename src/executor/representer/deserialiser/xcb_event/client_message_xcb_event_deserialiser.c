@@ -65,7 +65,7 @@ void deserialise_xcb_event_client_message(void* p0, void* p1) {
         //?? fwprintf(stdout, L"Debug: deserialise xcb XCB_CLIENT_MESSAGE 2 d: %i\n", d);
 
         // Allocate window identification part and append it to the destination properties item.
-        append_item_part(p0, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &w, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+        append_part(p0, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &w, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
         //?? fwprintf(stdout, L"Debug: deserialise xcb XCB_CLIENT_MESSAGE 3 w: %i\n", w);
 
         // The delete window cookie.
@@ -91,7 +91,7 @@ void deserialise_xcb_event_client_message(void* p0, void* p1) {
         //?? if (d.data32[0] == (*dwcs).atom) {
 
             // Allocate event name part and append it to the destination properties item.
-            append_item_part(p0, (void*) EVENT_EVENT_GUI_STATE_CYBOL_NAME, (void*) EVENT_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CLOSE_WINDOW_EVENT_XCB_CYBOL_MODEL, (void*) CLOSE_WINDOW_EVENT_XCB_CYBOL_MODEL_COUNT);
+            append_part(p0, (void*) EVENT_EVENT_GUI_STATE_CYBOL_NAME, (void*) EVENT_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CLOSE_WINDOW_EVENT_XCB_CYBOL_MODEL, (void*) CLOSE_WINDOW_EVENT_XCB_CYBOL_MODEL_COUNT);
         //?? }
 
     } else {

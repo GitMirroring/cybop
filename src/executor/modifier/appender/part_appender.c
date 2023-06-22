@@ -32,7 +32,7 @@
 #include "logger.h"
 
 /**
- * Allocates a part using the given model and appends it to the destination.
+ * Allocates a part using the given model and appends it to the destination item.
  *
  * @param p0 the destination item
  * @param p1 the source name data
@@ -42,9 +42,9 @@
  * @param p5 the source model data
  * @param p6 the source model count
  */
-void append_item_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void append_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Append item part.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Append part.");
 
     // The part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;

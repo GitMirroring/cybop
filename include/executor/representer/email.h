@@ -33,11 +33,22 @@
 //
 
 //
+// model
+//
+
+#include "constant/model/smtp/command_smtp_model.h"
+#include "constant/model/smtp/response_smtp_model.h"
+
+//
 // name
 //
 
+#include "constant/name/cyboi/smtp/smtp_cyboi_name.h"
+
 #include "constant/name/imf/field_header_imf_name.h"
 #include "constant/name/imf/separator_imf_name.h"
+
+#include "constant/name/smtp/smtp_response_name.h"
 
 //
 // Loading of a shared object (dynamic library)
@@ -60,7 +71,16 @@
 // A COMMENT like this one can be used as hint, instead of that keyword.
 //
 
-//?? TODO
+//
+// smtp response
+//
+
+void deserialise_smtp_response(void* p0, void* p1, void* p2, void* p3);
+void deserialise_smtp_response_code(void* p0, void* p1, void* p2, void* p3);
+void deserialise_smtp_response_text(void* p0, void* p1, void* p2);
+
+void select_smtp_response_text(void* p0, void* p1, void* p2, void* p3);
+void select_smtp_response_code(void* p0, void* p1, void* p2, void* p3, void* p4);
 
 /* EMAIL_HEADER */
 #endif

@@ -18,6 +18,17 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-06-22  Christian Heller  <christian.heller@cybop.org>
+
+        * Complete smtp response deserialiser
+        * Add constants files "smtp_response_name.h" and "smtp_cyboi_name.h"
+        * Add helper files in directories "executor/modifier/appender/" and "executor/modifier/overwriter/"
+
+2023-06-07  Christian Heller  <christian.heller@cybop.org>
+
+        * Move cybol applications from "examples/serialisation/" to "app/serialisation/"
+        * Adapt some deserialisers (csv, numeral vector, smtp) to not using pointer reference when calling joined string deserialiser
+
 2023-06-05  Christian Heller  <christian.heller@cybop.org>
 
         * Delete preprocessor macros in implementation source files, since they are required only in header files

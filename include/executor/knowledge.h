@@ -159,8 +159,11 @@ void reallocate_item(void* p0, void* p1, void* p2);
 // modifier
 //
 
-void append_item_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void append_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void append_part_wide_character_from_character(void* p0, void* p1, void* p2, void* p3, void* p4);
+
 void fill(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
+
 void insert(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
 void insert_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
 
@@ -183,6 +186,8 @@ void normalise_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
 void normalise_whitespace(void* p0, void* p1, void* p2);
 
 void overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9);
+void overwrite_integer_from_character(void* p0, void* p1, void* p2);
+void overwrite_wide_character_from_character(void* p0, void* p1, void* p2);
 
 void remove_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 void remove_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);

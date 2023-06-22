@@ -65,17 +65,17 @@ void deserialise_xcb_event_button_release(void* p0, void* p1) {
         int mask = (int) (*e).state;
 
         // Allocate event name part and append it to the destination properties item.
-        append_item_part(p0, (void*) EVENT_EVENT_GUI_STATE_CYBOL_NAME, (void*) EVENT_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BUTTON_RELEASE_EVENT_XCB_CYBOL_MODEL, (void*) BUTTON_RELEASE_EVENT_XCB_CYBOL_MODEL_COUNT);
+        append_part(p0, (void*) EVENT_EVENT_GUI_STATE_CYBOL_NAME, (void*) EVENT_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BUTTON_RELEASE_EVENT_XCB_CYBOL_MODEL, (void*) BUTTON_RELEASE_EVENT_XCB_CYBOL_MODEL_COUNT);
         // Allocate window identification part and append it to the destination properties item.
-        append_item_part(p0, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &w, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+        append_part(p0, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &w, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
         // Allocate x mouse coordinate part and append it to the destination properties item.
-        append_item_part(p0, (void*) X_EVENT_GUI_STATE_CYBOL_NAME, (void*) X_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &x, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+        append_part(p0, (void*) X_EVENT_GUI_STATE_CYBOL_NAME, (void*) X_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &x, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
         // Allocate y mouse coordinate part and append it to the destination properties item.
-        append_item_part(p0, (void*) Y_EVENT_GUI_STATE_CYBOL_NAME, (void*) Y_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &y, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+        append_part(p0, (void*) Y_EVENT_GUI_STATE_CYBOL_NAME, (void*) Y_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &y, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
         // Allocate mouse button or keycode part and append it to the destination properties item.
-        append_item_part(p0, (void*) BUTTON_EVENT_GUI_STATE_CYBOL_NAME, (void*) BUTTON_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &b, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+        append_part(p0, (void*) BUTTON_EVENT_GUI_STATE_CYBOL_NAME, (void*) BUTTON_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &b, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
         // Allocate button mask part and append it to the destination properties item.
-        append_item_part(p0, (void*) MASK_EVENT_GUI_STATE_CYBOL_NAME, (void*) MASK_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &mask, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+        append_part(p0, (void*) MASK_EVENT_GUI_STATE_CYBOL_NAME, (void*) MASK_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &mask, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
     } else {
 

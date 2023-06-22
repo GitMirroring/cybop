@@ -11,20 +11,14 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-        * Adapt other deserialisers to not using pointer reference anymore (csv, joined string, numeral vector)
-            TODO: "line_smtp_response_deserialiser"
-
 Kommunikation im Medizinwesen (KIM)
 ___________________________________
 
-        * Move cybol applications from "examples/" to "app/serialisation/"
-        * Simplify textline_list deserialiser by using new searcher functionality
-        * Test cybol application "app/serialisation/textline_list/"
-        * Simplify joined_string deserialiser by using new searcher functionality
-        * Test cybol application "app/serialisation/joined_string/"
+        * Replace usage of file "decode_http_request_deserialiser.c" with new "decode_item_appender.c" in all source code
+        * Replace usage of file "append_http_request_deserialiser.c" with new "part_item_appender.c" in all source code
+        * Delete files "decode_http_request_deserialiser.c" and "append_http_request_deserialiser.c"
 
-        * Test cybol application "app/internet/smtp_server/" and "app/internet/smtp_client/"
-        * Simplify smtp deserialiser by using new searcher functionality
+        * Continue smtp response deserialiser
             consider internet message format (imf) only chapter 3.6 syntax in https://www.rfc-editor.org/rfc/rfc5322
             continue smtp implementation by reading chapters 3 and 4 in https://www.rfc-editor.org/rfc/rfc5321.html
         * Assure that header fields are no longer than 78 characters, as recommended by the ietf rfc
@@ -32,6 +26,7 @@ ___________________________________
             following the ietf rfc, they MUST be limited to 998 characters, and SHOULD be limited to 78 characters, excluding the CRLF
         * Ignore "Unstructured Header Field Bodies" in smtp deserialiser
         * Unfold multiple-line representation of a field body portion of a header field into a single line of characters with unlimited length
+        * Test cybol applications "app/internet/smtp_server/" and "app/internet/smtp_client/"
 
         * Add pop serialiser
         * Add pop deserialiser

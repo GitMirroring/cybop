@@ -242,7 +242,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
             //
             // The model and properties are left EMPTY.
             //
-            append_item_part(p0, p8, p9, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+            append_part(p0, p8, p9, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
             // Set value end flag.
             copy_integer(p11, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -256,7 +256,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_part(p0, p8, p9, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_FORMAT, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+            append_part(p0, p8, p9, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_FORMAT, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
             // Set value end flag.
             copy_integer(p11, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -270,7 +270,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_part(p0, p8, p9, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_FORMAT, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+            append_part(p0, p8, p9, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_FORMAT, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
             // Set value end flag.
             copy_integer(p11, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

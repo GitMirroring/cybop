@@ -53,36 +53,29 @@ void deserialise_smtp_response(void* p0, void* p1, void* p2, void* p3) {
     fwprintf(stdout, L"Debug: Deserialise smtp response. p3: %i\n", p3);
     fwprintf(stdout, L"Debug: Deserialise smtp response. *p3: %i\n", *((int*) p3));
 
-    // The wide character item.
-    void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The wide character item data, count.
-    void* wd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* wc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source data position.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source count remaining.
+    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    // Copy source data position.
+    copy_pointer((void*) &d, (void*) &p2);
+    // Copy source count remaining.
+    copy_integer((void*) &c, p3);
+
+    //?? fwprintf(stdout, L"Debug: Deserialise smtp response. c: %i\n", c);
+    //?? fwprintf(stdout, L"Debug: Deserialise smtp response. d: %s\n", (char*) d);
 
     //
-    // Allocate wide character item.
+    // Deserialise smtp response code.
     //
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
+    // CAUTION! A COPY of source count remaining is forwarded here,
+    // so that the original source value does not get changed.
     //
-    allocate_item((void*) &w, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-    // Decode multibyte character array into wide character item.
-    decode_utf_8(w, p2, p3);
-
+    // CAUTION! The source data position does NOT have to be copied,
+    // since the parametre that was handed over is already a copy.
+    // A local copy was made anyway, not to risk parametre falsification.
+    // Its reference is forwarded, as it gets incremented by sub routines inside.
     //
-    // Get wide character item data, count.
-    //
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    //
-    copy_array_forward((void*) &wd, w, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &wc, w, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-    // Create reference from smtp response line.
-    deserialise_smtp_response_reference(p0, p1, wd, wc);
-
-    // Deallocate wide character item.
-    deallocate_item((void*) &w, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deserialise_smtp_response_code(p0, p1, (void*) &d, (void*) &c);
 }

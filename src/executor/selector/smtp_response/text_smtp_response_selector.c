@@ -24,56 +24,48 @@
  */
 
 //
-// System interface
-//
-
-#include <stdio.h> // stdout
-#include <wchar.h> // fwprintf
-
-//
 // Library interface
 //
 
 #include "algorithm.h"
 #include "arithmetic.h"
+#include "communication.h"
 #include "constant.h"
 #include "knowledge.h"
 #include "logger.h"
 
 /**
- * Selects the character reference end.
+ * Selects the smtp response status text.
  *
- * @param p0 the break flag
- * @param p1 the source data position (pointer reference)
- * @param p2 the source count remaining
- * @param p3 the character reference count
+ * @param p0 the source data position (pointer reference)
+ * @param p1 the source count remaining
+ * @param p2 the status text count
+ * @param p3 the break flag
  */
-void select_character_reference_end(void* p0, void* p1, void* p2, void* p3) {
+void select_smtp_response_text(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select character reference end.");
-    //?? fwprintf(stdout, L"Debug: Select character reference end. source count remaining p2: %i\n", p2);
-    //?? fwprintf(stdout, L"Debug: Select character reference end. source count remaining *p2: %i\n", *((int*) p2));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select smtp response text.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p1, p2, (void*) END_CHARACTER_REFERENCE_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) END_CHARACTER_REFERENCE_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p0, p1, (void*) LINE_SEPARATOR_SMTP_RESPONSE_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LINE_SEPARATOR_SMTP_RESPONSE_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // The character reference end was found.
+            // The response line end was found.
             //
             // CAUTION! The current position and remaining count were already
             // changed in the called function, to be processed further.
             //
-            // The character reference count is left as it is.
+            // The status text count is left as it is.
             //
 
             // Set break flag.
-            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -83,9 +75,9 @@ void select_character_reference_end(void* p0, void* p1, void* p2, void* p3) {
         int step = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
         // Move the current position.
-        move(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &step, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        move(p0, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &step, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        // Adjust character reference count.
-        calculate_integer_add(p3, (void*) &step);
+        // Adjust status text count.
+        calculate_integer_add(p2, (void*) &step);
     }
 }

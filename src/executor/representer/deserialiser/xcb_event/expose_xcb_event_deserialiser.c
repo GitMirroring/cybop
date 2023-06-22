@@ -74,17 +74,17 @@ void deserialise_xcb_event_expose(void* p0, void* p1) {
             int h = (int) (*e).height;
 
             // Allocate event name part and append it to the destination properties item.
-            append_item_part(p0, (void*) EVENT_EVENT_GUI_STATE_CYBOL_NAME, (void*) EVENT_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) EXPOSE_EVENT_XCB_CYBOL_MODEL, (void*) EXPOSE_EVENT_XCB_CYBOL_MODEL_COUNT);
+            append_part(p0, (void*) EVENT_EVENT_GUI_STATE_CYBOL_NAME, (void*) EVENT_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) EXPOSE_EVENT_XCB_CYBOL_MODEL, (void*) EXPOSE_EVENT_XCB_CYBOL_MODEL_COUNT);
             // Allocate window identification part and append it to the destination properties item.
-            append_item_part(p0, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &wi, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+            append_part(p0, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &wi, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
             // Allocate x expose area position part and append it to the destination properties item.
-            append_item_part(p0, (void*) EXPOSED_X_EVENT_GUI_STATE_CYBOL_NAME, (void*) EXPOSED_X_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &x, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+            append_part(p0, (void*) EXPOSED_X_EVENT_GUI_STATE_CYBOL_NAME, (void*) EXPOSED_X_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &x, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
             // Allocate y expose area position part and append it to the destination properties item.
-            append_item_part(p0, (void*) EXPOSED_Y_EVENT_GUI_STATE_CYBOL_NAME, (void*) EXPOSED_Y_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &y, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+            append_part(p0, (void*) EXPOSED_Y_EVENT_GUI_STATE_CYBOL_NAME, (void*) EXPOSED_Y_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &y, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
             // Allocate x expose area size part and append it to the destination properties item.
-            append_item_part(p0, (void*) EXPOSED_WIDTH_EVENT_GUI_STATE_CYBOL_NAME, (void*) EXPOSED_WIDTH_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &w, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+            append_part(p0, (void*) EXPOSED_WIDTH_EVENT_GUI_STATE_CYBOL_NAME, (void*) EXPOSED_WIDTH_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &w, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
             // Allocate y expose area size part and append it to the destination properties item.
-            append_item_part(p0, (void*) EXPOSED_HEIGHT_EVENT_GUI_STATE_CYBOL_NAME, (void*) EXPOSED_HEIGHT_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &h, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+            append_part(p0, (void*) EXPOSED_HEIGHT_EVENT_GUI_STATE_CYBOL_NAME, (void*) EXPOSED_HEIGHT_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &h, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
         }
 
     } else {
