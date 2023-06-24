@@ -1,0 +1,88 @@
+<node>
+
+    <!-- Terminal -->
+
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+
+    <!-- Deserialised data -->
+
+    <node name="smtp_request" channel="inline" format="element/part" model=""/>
+    <node name="smtp_response" channel="inline" format="element/part" model=""/>
+    <node name="pop_request" channel="inline" format="element/part" model=""/>
+    <node name="pop_response" channel="inline" format="element/part" model=""/>
+    <node name="imap_request" channel="inline" format="element/part" model=""/>
+    <node name="imap_response" channel="inline" format="element/part" model=""/>
+    <node name="base64_request" channel="inline" format="element/part" model=""/>
+    <node name="base64_response" channel="inline" format="element/part" model=""/>
+    <node name="mbox" channel="inline" format="element/part" model=""/>
+
+    <!-- Test smtp -->
+
+    <node name="test_smtp_request" channel="file" format="element/part" model="serialisation/email/read_file.cybol">
+        <node name="node" channel="inline" format="text/cybol-path" model=".smtp_request"/>
+        <node name="input" channel="inline" format="text/plain" model="serialisation/email/input/smtp_request"/>
+        <node name="language" channel="inline" format="meta/language" model="message/smtp-request"/>
+        <node name="output" channel="inline" format="text/plain" model="serialisation/email/output/smtp_request.txt"/>
+    </node>
+    <node name="test_smtp_response" channel="file" format="element/part" model="serialisation/email/read_file.cybol">
+        <node name="node" channel="inline" format="text/cybol-path" model=".smtp_response"/>
+        <node name="input" channel="inline" format="text/plain" model="serialisation/email/input/smtp_response"/>
+        <node name="language" channel="inline" format="meta/language" model="message/smtp-response"/>
+        <node name="output" channel="inline" format="text/plain" model="serialisation/email/output/smtp_response.txt"/>
+    </node>
+
+    <!-- Test pop -->
+
+    <node name="test_pop_request" channel="file" format="element/part" model="serialisation/email/read_file.cybol">
+        <node name="node" channel="inline" format="text/cybol-path" model=".pop_request"/>
+        <node name="input" channel="inline" format="text/plain" model="serialisation/email/input/pop_request"/>
+        <node name="language" channel="inline" format="meta/language" model="message/pop-request"/>
+        <node name="output" channel="inline" format="text/plain" model="serialisation/email/output/pop_request.txt"/>
+    </node>
+    <node name="test_pop_response" channel="file" format="element/part" model="serialisation/email/read_file.cybol">
+        <node name="node" channel="inline" format="text/cybol-path" model=".pop_response"/>
+        <node name="input" channel="inline" format="text/plain" model="serialisation/email/input/pop_response"/>
+        <node name="language" channel="inline" format="meta/language" model="message/pop-response"/>
+        <node name="output" channel="inline" format="text/plain" model="serialisation/email/output/pop_response.txt"/>
+    </node>
+
+    <!-- Test imap -->
+
+    <node name="test_imap_request" channel="file" format="element/part" model="serialisation/email/read_file.cybol">
+        <node name="node" channel="inline" format="text/cybol-path" model=".imap_request"/>
+        <node name="input" channel="inline" format="text/plain" model="serialisation/email/input/imap_request"/>
+        <node name="language" channel="inline" format="meta/language" model="message/imap-request"/>
+        <node name="output" channel="inline" format="text/plain" model="serialisation/email/output/imap_request.txt"/>
+    </node>
+    <node name="test_imap_response" channel="file" format="element/part" model="serialisation/email/read_file.cybol">
+        <node name="node" channel="inline" format="text/cybol-path" model=".imap_response"/>
+        <node name="input" channel="inline" format="text/plain" model="serialisation/email/input/imap_response"/>
+        <node name="language" channel="inline" format="meta/language" model="message/imap-response"/>
+        <node name="output" channel="inline" format="text/plain" model="serialisation/email/output/imap_response.txt"/>
+    </node>
+
+    <!-- Test base64 -->
+
+    <node name="test_base64_request" channel="file" format="element/part" model="serialisation/email/read_file.cybol">
+        <node name="node" channel="inline" format="text/cybol-path" model=".base64_request"/>
+        <node name="input" channel="inline" format="text/plain" model="serialisation/email/input/base64_request"/>
+        <node name="language" channel="inline" format="meta/language" model="message/base64-request"/>
+        <node name="output" channel="inline" format="text/plain" model="serialisation/email/output/base64_request.txt"/>
+    </node>
+    <node name="test_base64_response" channel="file" format="element/part" model="serialisation/email/read_file.cybol">
+        <node name="node" channel="inline" format="text/cybol-path" model=".base64_response"/>
+        <node name="input" channel="inline" format="text/plain" model="serialisation/email/input/base64_response"/>
+        <node name="language" channel="inline" format="meta/language" model="message/base64-response"/>
+        <node name="output" channel="inline" format="text/plain" model="serialisation/email/output/base64_response.txt"/>
+    </node>
+
+    <!-- Test mbox -->
+
+    <node name="test_mbox" channel="file" format="element/part" model="serialisation/email/read_file.cybol">
+        <node name="node" channel="inline" format="text/cybol-path" model=".mbox"/>
+        <node name="input" channel="inline" format="text/plain" model="serialisation/email/input/mbox"/>
+        <node name="language" channel="inline" format="meta/language" model="message/mbox"/>
+        <node name="output" channel="inline" format="text/plain" model="serialisation/email/output/mbox.txt"/>
+    </node>
+
+</node>
