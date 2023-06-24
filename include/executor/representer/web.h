@@ -155,9 +155,7 @@ void deserialise_host_address_inet6(void* p0, void* p1, void* p2);
 //
 
 void deserialise_http_request(void* p0, void* p1, void* p2, void* p3);
-void deserialise_http_request_append(void* p0, void* p1, void* p2, void* p3, void* p4);
 void deserialise_http_request_body(void* p0, void* p1, void* p2, void* p3);
-void deserialise_http_request_decode(void* p0, void* p1, void* p2, void* p3, void* p4);
 void deserialise_http_request_header_argument(void* p0, void* p1, void* p2, void* p3);
 void deserialise_http_request_header_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
 void deserialise_http_request_method(void* p0, void* p1, void* p2, void* p3);
@@ -181,7 +179,6 @@ void serialise_http_request(void* p0, void* p1, void* p2, void* p3, void* p4);
 //
 
 void deserialise_http_request_content_length(void* p0, void* p1, void* p2);
-void deserialise_http_request_content_length_decode(void* p0, void* p1, void* p2);
 void deserialise_http_request_content_length_header(void* p0, void* p1, void* p2);
 void deserialise_http_request_content_length_value(void* p0, void* p1, void* p2);
 

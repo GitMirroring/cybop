@@ -295,7 +295,7 @@ void deserialise_uri(void* p0, void* p1, void* p2, void* p3) {
             // The scheme is handed over as http request "protocol" header.
             // Add scheme as uri part here, because the authority does not contain one.
             //
-            deserialise_http_request_append(p0, (void*) SCHEME_URI_CYBOI_NAME, (void*) SCHEME_URI_CYBOI_NAME_COUNT, (void*) HTTP_SCHEME_URI_MODEL, (void*) HTTP_SCHEME_URI_MODEL_COUNT);
+            append_part(p0, (void*) SCHEME_URI_CYBOI_NAME, (void*) SCHEME_URI_CYBOI_NAME_COUNT, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HTTP_SCHEME_URI_MODEL, (void*) HTTP_SCHEME_URI_MODEL_COUNT);
 
             deserialise_http_uri_authority_content(p0, (void*) &aufd, (void*) &aufc);
         }
@@ -313,7 +313,7 @@ void deserialise_uri(void* p0, void* p1, void* p2, void* p3) {
             // The scheme is handed over as http request "protocol" header.
             // Add scheme as uri part here, because the path does not contain one.
             //
-            deserialise_http_request_append(p0, (void*) SCHEME_URI_CYBOI_NAME, (void*) SCHEME_URI_CYBOI_NAME_COUNT, (void*) HTTP_SCHEME_URI_MODEL, (void*) HTTP_SCHEME_URI_MODEL_COUNT);
+            append_part(p0, (void*) SCHEME_URI_CYBOI_NAME, (void*) SCHEME_URI_CYBOI_NAME_COUNT, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HTTP_SCHEME_URI_MODEL, (void*) HTTP_SCHEME_URI_MODEL_COUNT);
 
             deserialise_http_uri_path(p0, p1, (void*) &abpd, (void*) &abpc);
         }

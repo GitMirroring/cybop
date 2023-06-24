@@ -107,6 +107,7 @@
 #include "../../executor/copier/fraction_copier.c"
 
 #include "../../executor/copier/integer_copier.c"
+#include "../../executor/copier/integer_from_character_integer_copier.c"
 
 #include "../../executor/copier/offset_copier.c"
 

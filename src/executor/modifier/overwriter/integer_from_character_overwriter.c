@@ -40,7 +40,7 @@
  * This is a convenience method to avoid redundant code
  * when deserialising ascii data.
  *
- * @param p0 the destination wide character item
+ * @param p0 the destination integer item
  * @param p1 the source ascii character data
  * @param p2 the source ascii character count
  */

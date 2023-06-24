@@ -90,7 +90,7 @@ void deserialise_http_request_content_length_value(void* p0, void* p1, void* p2)
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_http_request_content_length_decode(p0, vd, (void*) &vc);
+            copy_integer_integer_from_character(p0, vd, (void*) &vc);
 
             break;
         }

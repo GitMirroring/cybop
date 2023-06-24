@@ -14,9 +14,7 @@
 Kommunikation im Medizinwesen (KIM)
 ___________________________________
 
-        * Replace usage of file "decode_http_request_deserialiser.c" with new "decode_item_appender.c" in all source code
-        * Replace usage of file "append_http_request_deserialiser.c" with new "part_item_appender.c" in all source code
-        * Delete files "decode_http_request_deserialiser.c" and "append_http_request_deserialiser.c"
+        * Add cybol application "app/serialisation/email/"
 
         * Continue smtp response deserialiser
             consider internet message format (imf) only chapter 3.6 syntax in https://www.rfc-editor.org/rfc/rfc5322

@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-06-24  Christian Heller  <christian.heller@cybop.org>
+
+        * Replace usage of file "append_http_request_deserialiser.c" with new "part_appender.c" in all source code
+        * Replace usage of file "decode_http_request_deserialiser.c" with new "wide_character_from_character_part_appender.c" in all source code
+        * Replace usage of file "decode_http_request_content_length_deserialiser.c" with new "integer_from_character_integer_copier.c" in all source code
+
 2023-06-22  Christian Heller  <christian.heller@cybop.org>
 
         * Complete smtp response deserialiser

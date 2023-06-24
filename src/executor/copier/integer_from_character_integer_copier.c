@@ -27,36 +27,28 @@
 // Library interface
 //
 
-#include "arithmetic.h"
 #include "communication.h"
 #include "constant.h"
 #include "knowledge.h"
 #include "logger.h"
+#include "type.h"
 
 /**
- * Converts the given characters to wide characters,
- * allocates a part using the wide characters as model
- * and finally appends it to the destination.
+ * Converts the given characters to wide characters.
  *
- * This is a convenience method ("syntactic sugar")
- * to avoid redundant code, e.g. when converting models
- * with a lot of string processing going on.
- *
- * @param p0 the destination item
- * @param p1 the source name data
- * @param p2 the source name count
- * @param p3 the source model data
- * @param p4 the source model count
+ * @param p0 the destination content length
+ * @param p1 the source multibyte character data
+ * @param p2 the source multibyte character count
  */
-void deserialise_http_request_decode(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void copy_integer_integer_from_character(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise http request decode.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy integer integer from character.");
 
     // The wide character item.
-    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The wide character item data, count.
-    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ic = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* wd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* wc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // Allocate wide character item.
@@ -64,10 +56,10 @@ void deserialise_http_request_decode(void* p0, void* p1, void* p2, void* p3, voi
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     //
-    allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    allocate_item((void*) &w, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Decode multibyte character array into wide character item.
-    decode_utf_8(i, p3, p4);
+    decode_utf_8(w, p1, p2);
 
     //
     // Get wide character item data, count.
@@ -76,12 +68,12 @@ void deserialise_http_request_decode(void* p0, void* p1, void* p2, void* p3, voi
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
     //
-    copy_array_forward((void*) &id, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &ic, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &wd, w, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &wc, w, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // Allocate part with wide character data as model and append it to destination item.
-    deserialise_http_request_append(p0, p1, p2, id, ic);
+    // Convert wide character data into integer number.
+    deserialise_numeral_integer(p0, wd, wc, (void*) DECIMAL_BASE_NUMERAL_MODEL);
 
     // Deallocate wide character item.
-    deallocate_item((void*) &i, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &w, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }

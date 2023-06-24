@@ -111,6 +111,7 @@ void copy_double(void* p0, void* p1);
 void copy_duration(void* p0, void* p1);
 void copy_fraction(void* p0, void* p1);
 void copy_integer(void* p0, void* p1);
+void copy_integer_integer_from_character(void* p0, void* p1, void* p2);
 void copy_offset(void* p0, void* p1, void* p2, void* p3, void* p4);
 void copy_part(void* p0, void* p1);
 void copy_pointer(void* p0, void* p1);

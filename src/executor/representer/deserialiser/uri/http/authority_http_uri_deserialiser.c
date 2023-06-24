@@ -52,7 +52,7 @@ void deserialise_http_uri_authority_content(void* p0, void* p1, void* p2) {
     // Add authority as full text representation.
     //
 
-    deserialise_http_request_append(p0, (void*) AUTHORITY_TEXT_URI_CYBOI_NAME, (void*) AUTHORITY_TEXT_URI_CYBOI_NAME_COUNT, p1, p2);
+    append_part(p0, (void*) AUTHORITY_TEXT_URI_CYBOI_NAME, (void*) AUTHORITY_TEXT_URI_CYBOI_NAME_COUNT, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p1, p2);
 
     //
     // Add authority as hierarchy consisting of parts.

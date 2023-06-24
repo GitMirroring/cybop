@@ -90,7 +90,7 @@ void deserialise_http_request_method(void* p0, void* p1, void* p2, void* p3) {
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_http_request_decode(p1, (void*) METHOD_HTTP_CYBOI_NAME, (void*) METHOD_HTTP_CYBOI_NAME_COUNT, md, (void*) &mc);
+            append_part_wide_character_from_character(p1, (void*) METHOD_HTTP_CYBOI_NAME, (void*) METHOD_HTTP_CYBOI_NAME_COUNT, md, (void*) &mc);
 
             break;
         }
