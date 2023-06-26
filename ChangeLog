@@ -18,6 +18,13 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-06-26  Christian Heller  <christian.heller@cybop.org>
+
+        * Add cybol language "application/mbox" as media (mime) type
+        * Add cybol language "message/imf" as media (mime) type
+        * Add example input files to cybol application "app/serialisation/email/input/"
+        * Optimise cybol application "app/serialisation/email/"
+
 2023-06-24  Christian Heller  <christian.heller@cybop.org>
 
         * Replace usage of file "append_http_request_deserialiser.c" with new "part_appender.c" in all source code

@@ -14,7 +14,7 @@
 Kommunikation im Medizinwesen (KIM)
 ___________________________________
 
-        * Continue smtp response deserialiser
+        * Add imf deserialiser used in smtp
             consider internet message format (imf) only chapter 3.6 syntax in https://www.rfc-editor.org/rfc/rfc5322
             continue smtp implementation by reading chapters 3 and 4 in https://www.rfc-editor.org/rfc/rfc5321.html
         * Assure that header fields are no longer than 78 characters, as recommended by the ietf rfc

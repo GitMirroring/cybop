@@ -1,0 +1,5 @@
+[selected_node] | element/part | 
++-break | logicvalue/boolean | false
++-index | number/integer | 1
++-count | number/integer | 10
++-model | text/cybol-path | .model

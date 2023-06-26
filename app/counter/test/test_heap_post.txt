@@ -1,0 +1,55 @@
+[selected_node] | element/part | 
++-id | number/integer | 5
++-stdout | number/integer | 1
++-model | element/part | 
+| +-compare_loop_count | compare/greater | 
+| | :-result | text/cybol-path | #break
+| | :-left | text/cybol-path | #index
+| | :-right | text/cybol-path | #count
+| +-print_number | communicate/send | 
+| | :-channel | meta/channel | terminal
+| | :-receiver | text/cybol-path | .stdout
+| | :-language | meta/language | message/tui
+| | :-format | meta/format | number/integer
+| | :-message | text/cybol-path | #index
+| +-increment_loop_count | calculate/add | 
+| | :-result | text/cybol-path | #index
+| | :-operand | number/integer | 1
++-loop | element/part | 
+| +-open_file | dispatch/open | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| | :-device | text/plain | counter/test/test_stack_pre.txt
+| | :-mode | text/plain | write
+| +-send_knowledge | communicate/send | 
+| | :-channel | meta/channel | file
+| | :-receiver | text/cybol-path | .id
+| | :-encoding | meta/encoding | utf-8
+| | :-language | meta/language | text/model-diagram
+| | :-format | meta/format | element/part
+| | :-message | text/cybol-path | #
+| +-close_file | dispatch/close | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| +-print_numbers | flow/loop | 
+| | :-break | text/cybol-path | #break
+| | :-model | text/cybol-path | #model
+| +-open_file | dispatch/open | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| | :-device | text/plain | counter/test/test_stack_post.txt
+| | :-mode | text/plain | write
+| +-send_knowledge | communicate/send | 
+| | :-channel | meta/channel | file
+| | :-receiver | text/cybol-path | .id
+| | :-encoding | meta/encoding | utf-8
+| | :-language | meta/language | text/model-diagram
+| | :-format | meta/format | element/part
+| | :-message | text/cybol-path | #
+| +-close_file | dispatch/close | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| :-break | logicvalue/boolean | false
+| :-index | number/integer | 1
+| :-count | number/integer | 10
+| :-model | text/cybol-path | .model

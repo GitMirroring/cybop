@@ -65,7 +65,7 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="format" channel="inline" format="text/cybol-path" model="#format"/>
         <node name="message" channel="inline" format="text/cybol-path" model="{#node}"/>
     </node>
     <node name="close_file" channel="inline" format="dispatch/close" model="">

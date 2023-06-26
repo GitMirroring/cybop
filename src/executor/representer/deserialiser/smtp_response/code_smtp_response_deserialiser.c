@@ -52,8 +52,8 @@
 void deserialise_smtp_response_code(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise smtp response code.");
-    fwprintf(stdout, L"Debug: Deserialise smtp response code. count remaining p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Deserialise smtp response code. count remaining *p3: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"Debug: Deserialise smtp response code. count remaining p3: %i\n", p3);
+    //?? fwprintf(stdout, L"Debug: Deserialise smtp response code. count remaining *p3: %i\n", *((int*) p3));
 
     // The status code data, count.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;

@@ -1,0 +1,4 @@
+[selected_node] | number/integer | 250
+:-line | text/plain | 250 Hello relay.example.org, I am glad to meet you
+:-text | text/plain | Hello relay.example.org, I am glad to meet you
+:-code | text/plain | 250
