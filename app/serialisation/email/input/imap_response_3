@@ -1,0 +1,13 @@
+* 12 FETCH (BODY[HEADER] {342}
+
+    Date: Wed, 17 Jul 1996 02:23:25 -0700 (PDT)
+    From: Terry Gray <gray@cac.washington.edu>
+    Subject: IMAP4rev1 WG mtg summary and minutes
+    To: imap@cac.washington.edu
+    cc: minutes@CNRI.Reston.VA.US, John Klensin <KLENSIN@MIT.EDU>
+    Message-Id: <B27397-0100000@cac.washington.edu>
+    MIME-Version: 1.0
+    Content-Type: TEXT/PLAIN; CHARSET=US-ASCII
+    )
+
+a004 OK FETCH completed

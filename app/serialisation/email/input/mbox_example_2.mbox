@@ -1,0 +1,29 @@
+From example@redhat.com Tue Oct 27 08:54:57 2020
+Date: Tue, 27 Oct 2020 08:54:54 -0400
+From: Example Engineer <example@redhat.com>
+To: example@redhat.com
+Subject: test email
+Message-ID: <20201027125454.GB7748@redhat.com>
+
+This is a test email.
+
+--
+Example Engineer - he / him / his
+Software Maintenance Engineer
+Red Hat, Inc.
+
+From example@redhat.com Tue Oct 27 08:54:59 2020
+Date: Tue, 27 Oct 2020 08:54:58 -0400
+From: Example Engineer <example@redhat.com>
+To: example@redhat.com
+Subject: second test email
+Message-ID: <20201027125458.AB1234@redhat.com>
+Content-Length: 114
+Lines: 6
+
+This is a second test email.
+
+--
+Example Engineer - he / him / his
+Software Maintenance Engineer
+Red Hat, Inc.

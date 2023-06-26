@@ -1,0 +1,6 @@
+* 18 EXISTS
+
+* FLAGS (\Answered \Flagged \Deleted \Seen \Draft)
+* 2 RECENT
+* OK [UNSEEN 17] Message 17 is the first unseen message
+a002 OK [READ-WRITE] SELECT completed

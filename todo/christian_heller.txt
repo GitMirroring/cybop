@@ -14,8 +14,6 @@
 Kommunikation im Medizinwesen (KIM)
 ___________________________________
 
-        * Add cybol application "app/serialisation/email/"
-
         * Continue smtp response deserialiser
             consider internet message format (imf) only chapter 3.6 syntax in https://www.rfc-editor.org/rfc/rfc5322
             continue smtp implementation by reading chapters 3 and 4 in https://www.rfc-editor.org/rfc/rfc5321.html
