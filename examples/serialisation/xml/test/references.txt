@@ -1,9 +1,0 @@
-
-References
-==========
-
-The xml example files have been collected from the following websites:
-
-xml:
-https://www.json.org/example.html
-

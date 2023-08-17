@@ -1,6 +1,0 @@
-<node>
-
-    <node name="string_1" channel="inline" format="text/plain" model="This is a sub object"/>
-    <node name="string_2" channel="inline" format="text/plain" model="Some more text"/>
-
-</node>

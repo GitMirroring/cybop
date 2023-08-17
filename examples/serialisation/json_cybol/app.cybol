@@ -1,6 +1,0 @@
-<node>
-
-    <node name="write_test" channel="file" format="element/part" model="serialisation/json_cybol/test.cybol"/>
-    <node name="read_test" channel="inline" format="element/part" model=""/>
-
-</node>

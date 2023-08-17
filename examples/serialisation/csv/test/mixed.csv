@@ -1,4 +1,0 @@
-Space,Date,Quoted Text
-" begin space",01/07/2022,"some ""quoted"" text"
-"middle space",,"""begin quote"" and ""middle quote"" and ""end quote"""
-"end space ",01/09/2022,""
