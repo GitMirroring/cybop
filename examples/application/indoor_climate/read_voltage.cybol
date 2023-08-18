@@ -44,16 +44,12 @@
         <!-- CAUTION! Do NOTHING here, since it is normal that not all returned values are valid. -->
         <node name="false" channel="file" format="element/part" model=""/>
     </node>
+
     <node name="increment_loop_count" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".settings.voltage_count"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
     </node>
-    <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
-    <node name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model=".settings.voltage_break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model=".settings.voltage_count"/>
-        <node name="right" channel="inline" format="text/cybol-path" model=".settings.voltage_maximum_count"/>
-    </node>
+
     <!-- Sleep for 100 ms = 100,000 us = 100,000,000 ns. -->
     <node name="sleep" channel="inline" format="run/sleep-nano" model="">
         <node name="duration" channel="inline" format="text/cybol-path" model=".settings.voltage_sleep"/>

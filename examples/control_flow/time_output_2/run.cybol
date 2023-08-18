@@ -1,4 +1,11 @@
+<!--
+    This example uses a loop to repeatedly print the current time.
+    A shell command is applied to store the current time in a file.
+    Afterwards, the file content is printed on the shell.
+-->
+
 <node>
+
     <node name="create_application" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="counter"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
@@ -28,6 +35,7 @@
 
         <node name="whole" channel="inline" format="text/cybol-path" model=".counter"/>
     </node>
+
     <node name="initialise_break" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".counter.break"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -51,21 +59,12 @@
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
-    <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
-    <node name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model=".counter.break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model=".counter.count"/>
-        <node name="right" channel="inline" format="text/cybol-path" model=".counter.maximum"/>
-    </node>
+
     <node name="call_loop" channel="inline" format="flow/loop" model="">
         <node name="break" channel="inline" format="text/cybol-path" model=".counter.break"/>
         <node name="model" channel="inline" format="text/cybol-path" model=".counter.model"/>
     </node>
-    <node name="exit_application" channel="inline" format="live/exit" model=""/>
-</node>
 
-<!--
-    This example uses a loop to repeatedly print the current time.
-    A shell command is applied to store the current time in a file.
-    Afterwards, the file content is printed on the shell.
--->
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
+</node>

@@ -1,4 +1,11 @@
+<!--
+    This example prints the famous "Hello, World!" string on terminal.
+    It repeatedly calls an external model and executes its commands.
+    Finally, an "exit" operation shuts down the application.
+-->
+
 <node>
+
     <node name="create_application" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="shell_output_loop"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
@@ -27,21 +34,12 @@
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
-    <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
-    <node name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model=".shell_output_loop.break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model=".shell_output_loop.count"/>
-        <node name="right" channel="inline" format="number/integer" model="4"/>
-    </node>
+
     <node name="print" channel="inline" format="flow/loop" model="">
         <node name="break" channel="inline" format="text/cybol-path" model=".shell_output_loop.break"/>
         <node name="model" channel="file" format="element/part" model="shell_output_loop/model.cybol"/>
     </node>
-    <node name="exit_application" channel="inline" format="live/exit" model=""/>
-</node>
 
-<!--
-    This example prints the famous "Hello, World!" string on terminal.
-    It repeatedly calls an external model and executes its commands.
-    Finally, an "exit" operation shuts down the application.
--->
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
+</node>

@@ -43,13 +43,6 @@
     </node>
 -->
 
-    <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
-    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model="#category_break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model="#category_index"/>
-        <node name="right" channel="inline" format="text/cybol-path" model="#category_count"/>
-    </node>
-
     <node name="show_message" channel="inline" format="flow/branch" model="">
         <node name="criterion" channel="inline" format="text/cybol-path" model="#category_break"/>
         <node name="true" channel="inline" format="text/cybol-path" model=".logic.show_failure"/>

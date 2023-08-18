@@ -1,10 +1,5 @@
 <node>
-    <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
-    <node name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model=".settings.temperature_break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model=".settings.temperature_count"/>
-        <node name="right" channel="inline" format="text/cybol-path" model=".settings.temperature_maximum_count"/>
-    </node>
+
     <node name="collect_voltages" channel="inline" format="flow/loop" model="">
         <node name="break" channel="inline" format="text/cybol-path" model=".settings.temperature_break"/>
         <node name="model" channel="file" format="element/part" model="application/indoor_climate/collect_voltages.cybol"/>
@@ -35,4 +30,5 @@
         <node name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".settings.temperature"/>
     </node>
+
 </node>

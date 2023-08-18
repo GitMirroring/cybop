@@ -16,15 +16,10 @@
         <node name="true" channel="file" format="element/part" model="application/indoor_climate/add_voltage.cybol"/>
         <node name="false" channel="file" format="element/part" model="application/indoor_climate/report_voltage_failure.cybol"/>
     </node>
+
     <node name="increment_loop_count" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".settings.temperature_count"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
-    </node>
-    <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
-    <node name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model=".settings.temperature_break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model=".settings.temperature_count"/>
-        <node name="right" channel="inline" format="text/cybol-path" model=".settings.temperature_maximum_count"/>
     </node>
 
 </node>

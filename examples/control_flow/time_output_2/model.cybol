@@ -1,7 +1,9 @@
 <node>
+
     <node name="save_current_time_in_file" channel="inline" format="run/run" model="">
         <node name="programme" channel="inline" format="text/plain" model="date +%X > time_output_2/time.txt"/>
     </node>
+
     <node name="print_stored_time_on_terminal" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
@@ -9,14 +11,10 @@
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="file" format="text/plain" model="time_output_2/time.txt"/>
     </node>
+
     <node name="increment_loop_count" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".counter.count"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
     </node>
-    <!-- CAUTION! The break condition has to be GREATER-tested AFTER having incremented the loop count, since this is a post-test loop. -->
-    <node name="compare_loop_count" channel="inline" format="compare/greater" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model=".counter.break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model=".counter.count"/>
-        <node name="right" channel="inline" format="text/cybol-path" model=".counter.maximum"/>
-    </node>
+
 </node>

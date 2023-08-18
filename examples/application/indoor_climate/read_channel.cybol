@@ -1,4 +1,5 @@
 <node>
+
     <node name="send_request" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="text/cybol-path" model=".settings.device"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
@@ -6,14 +7,10 @@
         <node name="message" channel="inline" format="text/cybol-path" model=".settings.device_channel"/>
         <node name="null-termination" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-    <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
-    <node name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model=".settings.voltage_break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model=".settings.voltage_count"/>
-        <node name="right" channel="inline" format="text/cybol-path" model=".settings.voltage_maximum_count"/>
-    </node>
+
     <node name="read_voltage" channel="inline" format="flow/loop" model="">
         <node name="break" channel="inline" format="text/cybol-path" model=".settings.voltage_break"/>
         <node name="model" channel="file" format="element/part" model="application/indoor_climate/read_voltage.cybol"/>
     </node>
+
 </node>
