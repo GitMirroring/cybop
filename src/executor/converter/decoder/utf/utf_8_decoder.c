@@ -198,179 +198,182 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
             //?? fwprintf(stdout, L"Debug: Decode utf-8. source count p2: %i\n", p2);
             //?? fwprintf(stdout, L"Debug: Decode utf-8. source count *p2: %i\n", *((int*) p2));
 
-            // The destination item data, count, size.
-            void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
-            void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
-            void* ds = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The new destination size.
-            int nds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            if (*sc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            // Get destination item count, size.
-            copy_array_forward((void*) &dc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &ds, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
+                // The destination item data, count, size.
+                void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
+                void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
+                void* ds = *NULL_POINTER_STATE_CYBOI_MODEL;
+                // The new destination size.
+                int nds = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-            //
-            // Initialise new destination size.
-            //
-            // CAUTION! The "worst case" is assumed, i.e. that each source character
-            // represents an ascii character encoded by utf-8 with ONE single byte.
-            // Therefore, the destination size is adjusted accordingly, so that
-            // the source character count determines the destination character count.
-            //
-            // In case not all source characters are ascii characters -- even better,
-            // since then more than just one source character were used for encoding,
-            // and the destination wide character array will have LESS entries (count)
-            // than the destination size that was set before. In this case,
-            // the destination size will be too big, but that doesn't matter.
-            //
-            calculate_integer_add((void*) &nds, p2);
+                // Get destination item count, size.
+                copy_array_forward((void*) &dc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+                copy_array_forward((void*) &ds, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
-            if (ds != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                //
+                // Initialise new destination size.
+                //
+                // CAUTION! The "worst case" is assumed, i.e. that each source character
+                // represents an ascii character encoded by utf-8 with ONE single byte.
+                // Therefore, the destination size is adjusted accordingly, so that
+                // the source character count determines the destination character count.
+                //
+                // In case not all source characters are ascii characters -- even better,
+                // since then more than just one source character were used for encoding,
+                // and the destination wide character array will have LESS entries (count)
+                // than the destination size that was set before. In this case,
+                // the destination size will be too big, but that doesn't matter.
+                //
+                calculate_integer_add((void*) &nds, p2);
 
-                // The destination item size casted to the correct type.
-                int* dst = (int*) ds;
+                if (ds != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                if (nds > *dst) {
+                    // The destination item size casted to the correct type.
+                    int* dst = (int*) ds;
 
-                    //
-                    // The new destination size is greater than the old.
-                    //
-                    // CAUTION! The destination item DOES get reallocated,
-                    // since its size is not great enough to store all source data.
-                    //
-                    // Some buffers such as for terminal ansi escape code input
-                    // are filled repeatedly in a loop, so that steady reallocation
-                    // would harm performance. This condition is just an optimisation.
-                    //
-
-                    if (nds > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                    if (nds > *dst) {
 
                         //
-                        // Reallocate destination item.
+                        // The new destination size is greater than the old.
                         //
-                        // CAUTION! Due to memory allocation handling, the size MUST NOT
-                        // be negative or zero, but have at least a value of ONE.
+                        // CAUTION! The destination item DOES get reallocated,
+                        // since its size is not great enough to store all source data.
                         //
-                        reallocate_item(p0, (void*) &nds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+                        // Some buffers such as for terminal ansi escape code input
+                        // are filled repeatedly in a loop, so that steady reallocation
+                        // would harm performance. This condition is just an optimisation.
+                        //
+
+                        if (nds > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                            //
+                            // Reallocate destination item.
+                            //
+                            // CAUTION! Due to memory allocation handling, the size MUST NOT
+                            // be negative or zero, but have at least a value of ONE.
+                            //
+                            reallocate_item(p0, (void*) &nds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+                        } else {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8. The new destination size is zero or negative.");
+                            fwprintf(stdout, L"Error: Could not decode utf-8. The new destination size is zero or negative. nds: %i\n", nds);
+                        }
+                    }
+
+                    //
+                    // Set locale.
+                    //
+                    // Possible locales are: LANG, LC_CTYPE, ..., LC_ALL
+                    // where LANG has the lowest and LC_ALL the highest priority.
+                    // That is, if LC_ALL is specified, it overwrites e.g. the LC_CTYPE setting.
+                    // If no value "" is given, the default will be used.
+                    // Note, that LC_CTYPE suffices for the purpose of character conversion,
+                    // since it is the category that applies to classification and conversion
+                    // of characters, and to multibyte and wide characters.
+                    //
+                    // CAUTION! This setting IS NECESSARY for utf-8 character conversion
+                    // with restartable multibyte conversion functions like "mbsnrtowcs"
+                    // and "wcsnrtombs" to work correctly.
+                    // The return value is not used; this is a GLOBAL setting.
+                    //
+                    char* loc = setlocale(LC_CTYPE, "");
+
+                    //
+                    // Get destination item data.
+                    //
+                    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+                    // Inside the structure, arrays may have been reallocated,
+                    // with elements pointing to different memory areas now.
+                    //
+                    copy_array_forward((void*) &dd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+                    //
+                    // The temporary size_t variable.
+                    //
+                    // CAUTION! It IS NECESSARY because on 64 Bit machines,
+                    // the "size_t" type has a size of 8 Byte,
+                    // whereas the "int" type has the usual size of 4 Byte.
+                    // When trying to cast between the two, memory errors
+                    // will occur and the valgrind memcheck tool report:
+                    // "Invalid read of size 8".
+                    //
+                    // CAUTION! Initialise temporary size_t variable with final int value
+                    // JUST BEFORE handing that over to the glibc function requiring it.
+                    //
+                    // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
+                    // because values are casted to int* internally again.
+                    //
+                    size_t tds = (size_t) *dst;
+                    size_t tsc = (size_t) *sc;
+
+                    //
+                    // Initialise error number.
+                    //
+                    // It is a global variable and other operations
+                    // may have set some value that is not wanted here.
+                    //
+                    // CAUTION! Initialise the error number BEFORE calling
+                    // the function that might cause an error.
+                    //
+                    errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+                    //
+                    // Converts the multibyte character string into a wide character string.
+                    // Returns the number of wide characters
+                    // successfully converted, except in the case of an encoding error.
+                    //
+                    // CAUTION! The multibyte source character string does NOT need to be
+                    // null-terminated, since the third parametre already indicates its count.
+                    //
+                    // CAUTION! Hand over the NEW destination size as fourth parametre,
+                    // since it indicates the maximum number of characters to be converted
+                    // and conversion would break too early if that parametre was too small.
+                    //
+                    // CAUTION! The fifth parametre may be NULL. In this case, a static
+                    // anonymous state only known to the function internally is used instead.
+                    // It just indicates where conversion is started.
+                    //
+                    int n = -1;
+    #if defined(__linux__) || defined(__unix__)
+                    const char* sd = (const char*) p1;
+                    n = (int) mbsnrtowcs((wchar_t*) dd, &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
+    #elif defined(__APPLE__) && defined(__MACH__)
+                    const char* sd = (const char*) p1;
+                    n = (int) mbsnrtowcs((wchar_t*) dd, &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
+    // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+    #elif defined(_WIN32) || defined(__CYGWIN__)
+                    LPCSTR sd = (LPCSTR) p1;
+                    int len = MultiByteToWideChar(65001, 0, sd, *sc, (LPWSTR) dd, 0);
+                    n =  MultiByteToWideChar(65001, 0, sd, *sc, (LPWSTR) dd, len);
+    #else
+        #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+    #endif
+
+                    if (n >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                        //?? fwprintf(stdout, L"Debug: Decode utf-8. n: %i\n", n);
+
+                        // Set destination count to the number of WIDE characters converted.
+                        copy_integer(dc, (void*) &n);
+
+                        //?? fwprintf(stdout, L"Debug: Decode utf-8. dc: %i\n", dc);
+                        //?? fwprintf(stdout, L"Debug: Decode utf-8. *dc: %i\n", *((int*) dc));
+                        //?? fwprintf(stdout, L"Debug: Decode utf-8. dd: %ls\n", (wchar_t*) dd);
 
                     } else {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8. The new destination size is zero or negative.");
-                        fwprintf(stdout, L"Error: Could not decode utf-8. The new destination size is zero or negative. nds: %i\n", nds);
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8. An error occured.");
+                        fwprintf(stdout, L"Error: Could not decode utf-8. An error occured. n: %i\n", n);
+                        log_error((void*) &errno);
                     }
-                }
-
-                //
-                // Set locale.
-                //
-                // Possible locales are: LANG, LC_CTYPE, ..., LC_ALL
-                // where LANG has the lowest and LC_ALL the highest priority.
-                // That is, if LC_ALL is specified, it overwrites e.g. the LC_CTYPE setting.
-                // If no value "" is given, the default will be used.
-                // Note, that LC_CTYPE suffices for the purpose of character conversion,
-                // since it is the category that applies to classification and conversion
-                // of characters, and to multibyte and wide characters.
-                //
-                // CAUTION! This setting IS NECESSARY for utf-8 character conversion
-                // with restartable multibyte conversion functions like "mbsnrtowcs"
-                // and "wcsnrtombs" to work correctly.
-                // The return value is not used; this is a GLOBAL setting.
-                //
-                char* loc = setlocale(LC_CTYPE, "");
-
-                //
-                // Get destination item data.
-                //
-                // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-                // Inside the structure, arrays may have been reallocated,
-                // with elements pointing to different memory areas now.
-                //
-                copy_array_forward((void*) &dd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-                //
-                // The temporary size_t variable.
-                //
-                // CAUTION! It IS NECESSARY because on 64 Bit machines,
-                // the "size_t" type has a size of 8 Byte,
-                // whereas the "int" type has the usual size of 4 Byte.
-                // When trying to cast between the two, memory errors
-                // will occur and the valgrind memcheck tool report:
-                // "Invalid read of size 8".
-                //
-                // CAUTION! Initialise temporary size_t variable with final int value
-                // JUST BEFORE handing that over to the glibc function requiring it.
-                //
-                // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
-                // because values are casted to int* internally again.
-                //
-                size_t tds = (size_t) *dst;
-                size_t tsc = (size_t) *sc;
-
-                //
-                // Initialise error number.
-                //
-                // It is a global variable and other operations
-                // may have set some value that is not wanted here.
-                //
-                // CAUTION! Initialise the error number BEFORE calling
-                // the function that might cause an error.
-                //
-                errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-                //
-                // Converts the multibyte character string into a wide character string.
-                // Returns the number of wide characters
-                // successfully converted, except in the case of an encoding error.
-                //
-                // CAUTION! The multibyte source character string does NOT need to be
-                // null-terminated, since the third parametre already indicates its count.
-                //
-                // CAUTION! Hand over the NEW destination size as fourth parametre,
-                // since it indicates the maximum number of characters to be converted
-                // and conversion would break too early if that parametre was too small.
-                //
-                // CAUTION! The fifth parametre may be NULL. In this case, a static
-                // anonymous state only known to the function internally is used instead.
-                // It just indicates where conversion is started.
-                //
-                int n = -1;
-#if defined(__linux__) || defined(__unix__)
-                const char* sd = (const char*) p1;
-                n = (int) mbsnrtowcs((wchar_t*) dd, &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
-#elif defined(__APPLE__) && defined(__MACH__)
-                const char* sd = (const char*) p1;
-                n = (int) mbsnrtowcs((wchar_t*) dd, &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-                LPCSTR sd = (LPCSTR) p1;
-                int len = MultiByteToWideChar(65001, 0, sd, *sc, (LPWSTR) dd, 0);
-                n =  MultiByteToWideChar(65001, 0, sd, *sc, (LPWSTR) dd, len);
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
-
-                if (n >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                    //?? fwprintf(stdout, L"Debug: Decode utf-8. n: %i\n", n);
-
-                    // Set destination count to the number of WIDE characters converted.
-                    copy_integer(dc, (void*) &n);
-
-                    //?? fwprintf(stdout, L"Debug: Decode utf-8. dc: %i\n", dc);
-                    //?? fwprintf(stdout, L"Debug: Decode utf-8. *dc: %i\n", *((int*) dc));
-                    //?? fwprintf(stdout, L"Debug: Decode utf-8. dd: %ls\n", (wchar_t*) dd);
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8. An error occured.");
-                    fwprintf(stdout, L"Error: Could not decode utf-8. An error occured. n: %i\n", n);
-                    log_error((void*) &errno);
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8. The destination item size is null.");
+                    fwprintf(stdout, L"Error: Could not decode utf-8. The destination item size is null. ds: %i\n", ds);
                 }
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8. The destination item size is null.");
-                fwprintf(stdout, L"Error: Could not decode utf-8. The destination item size is null. ds: %i\n", ds);
             }
 
         } else {

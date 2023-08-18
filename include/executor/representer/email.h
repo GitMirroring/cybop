@@ -48,7 +48,7 @@
 #include "constant/name/imf/field_header_imf_name.h"
 #include "constant/name/imf/separator_imf_name.h"
 
-#include "constant/name/smtp/smtp_response_name.h"
+#include "constant/name/smtp/smtp_name.h"
 
 //
 // Loading of a shared object (dynamic library)

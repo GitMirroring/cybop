@@ -20,7 +20,6 @@
 
     <!-- Test smtp -->
 
-<!--
     <node name="test_smtp_command_1" channel="inline" format="text/cybol-path" model=".read_file">
         <node name="node" channel="inline" format="text/cybol-path" model=".smtp_command"/>
         <node name="input" channel="inline" format="text/plain" model="serialisation/email/input/smtp_command_1"/>
@@ -28,6 +27,7 @@
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="output" channel="inline" format="text/plain" model="serialisation/email/output/smtp_command_1.txt"/>
     </node>
+<!--
     <node name="test_smtp_command_2" channel="inline" format="text/cybol-path" model=".read_file">
         <node name="node" channel="inline" format="text/cybol-path" model=".smtp_command"/>
         <node name="input" channel="inline" format="text/plain" model="serialisation/email/input/smtp_command_2"/>
@@ -58,6 +58,7 @@
     </node>
 -->
 
+<!--
     <node name="test_smtp_response" channel="inline" format="text/cybol-path" model=".read_file">
         <node name="node" channel="inline" format="text/cybol-path" model=".smtp_response"/>
         <node name="input" channel="inline" format="text/plain" model="serialisation/email/input/smtp_response"/>
@@ -65,6 +66,7 @@
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="output" channel="inline" format="text/plain" model="serialisation/email/output/smtp_response.txt"/>
     </node>
+-->
 
     <!-- Test pop3 -->
 

@@ -52,7 +52,7 @@ void select_smtp_response_code(void* p0, void* p1, void* p2, void* p3, void* p4)
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p1, p2, (void*) CODE_SEPARATOR_SMTP_RESPONSE_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CODE_SEPARATOR_SMTP_RESPONSE_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p1, p2, (void*) ARGUMENT_SEPARATOR_SMTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ARGUMENT_SEPARATOR_SMTP_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -65,7 +65,7 @@ void select_smtp_response_code(void* p0, void* p1, void* p2, void* p3, void* p4)
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p1, p2, (void*) LINE_SEPARATOR_SMTP_RESPONSE_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LINE_SEPARATOR_SMTP_RESPONSE_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p1, p2, (void*) LINE_SEPARATOR_SMTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LINE_SEPARATOR_SMTP_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -29,43 +29,64 @@
 
 #include "algorithm.h"
 #include "arithmetic.h"
-#include "communication.h"
 #include "constant.h"
 #include "knowledge.h"
 #include "logger.h"
 
 /**
- * Selects the smtp response status text.
+ * Selects the smtp command argument.
  *
  * @param p0 the source data position (pointer reference)
  * @param p1 the source count remaining
- * @param p2 the status text count
+ * @param p2 the argument count
  * @param p3 the break flag
  */
-void select_smtp_response_text(void* p0, void* p1, void* p2, void* p3) {
+void select_smtp_command_argument(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select smtp response text.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select smtp command argument.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p0, p1, (void*) LINE_SEPARATOR_SMTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LINE_SEPARATOR_SMTP_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        // CRLF
+        detect((void*) &r, p2, p3, (void*) LINE_SEPARATOR_SMTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LINE_SEPARATOR_SMTP_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // The response line end was found.
+            // The command line end was found.
+            //
+            // CAUTION! This means that NO parametre was given,
+            // which is permitted and conform with the smtp standard.
             //
             // CAUTION! The current position and remaining count were already
             // changed in the called function, to be processed further.
             //
-            // The status text count is left as it is.
+            // The argument count is left as it is.
             //
 
             // Set break flag.
-            copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Space
+        detect((void*) &r, p2, p3, (void*) PARAMETRE_SEPARATOR_SMTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PARAMETRE_SEPARATOR_SMTP_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_smtp_command_parametre(p0, p1, p2, p3);
+
+            //
+            // The command count is left as it is.
+            //
+
+            // Set break flag.
+            copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -77,7 +98,7 @@ void select_smtp_response_text(void* p0, void* p1, void* p2, void* p3) {
         // Move the current position.
         move(p0, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &step, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        // Adjust status text count.
+        // Adjust argument count.
         calculate_integer_add(p2, (void*) &step);
     }
 }

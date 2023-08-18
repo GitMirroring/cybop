@@ -169,9 +169,9 @@ void insert(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 void insert_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
 
 void lower(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
-void lower_item(void* p0, void* p1, void* p2, void* p3, void* p4);
+void lower_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
 void lower_letter(void* p0, void* p1);
-void lower_string(void* p0, void* p1, void* p2);
+void lower_string(void* p0, void* p1, void* p2, void* p3);
 
 void modify_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13);
 void modify_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11);
@@ -216,9 +216,9 @@ void strip_trailing_item(void* p0, void* p1, void* p2, void* p3, void* p4);
 void strip_trailing_string(void* p0, void* p1, void* p2);
 
 void upper(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
-void upper_item(void* p0, void* p1, void* p2, void* p3, void* p4);
+void upper_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
 void upper_letter(void* p0, void* p1);
-void upper_string(void* p0, void* p1, void* p2);
+void upper_string(void* p0, void* p1, void* p2, void* p3);
 
 //
 // referencer

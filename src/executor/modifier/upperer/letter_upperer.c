@@ -42,14 +42,30 @@
  *
  * The character remains untouched if it is not a letter.
  *
- * @param p0 the destination wide character item
- * @param p1 the wide character
+ * @param p0 the destination item
+ * @param p1 the letter
  */
 void upper_letter(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Upper letter.");
     fwprintf(stdout, L"Debug: Upper letter. source count p1: %i\n", p1);
     fwprintf(stdout, L"Debug: Upper letter. source count *p1: %i\n", *((int*) p1));
+
+    //
+    // CAUTION! With the letter being of type "wide character",
+    // most alphabets can be handled using UNICODE tables.
+    //
+    // However, for letters of type "character", only the LATIN
+    // alphabet with ASCII characters can be handled correctly.
+    //
+    // The letters of other alphabets may be encoded most differently
+    // outside unicode and cause too much effort to be handled here.
+    //
+    // The cyboi interpreter internally works with wide characters only,
+    // so that most alphabets can be considered. Only in rare cases
+    // a conversion of ascii characters is necessary, for example when
+    // deserialising a special data format with ancient ascii commands.
+    //
 
     //
     //?? TODO:
@@ -66,4 +82,9 @@ void upper_letter(void* p0, void* p1) {
 
     ... compare for other letters ...
 */
+
+    //
+    //?? TODO: Do NOT forget to consider ascii character letters
+    // of the LATIN alphabet. See comment avove!
+    //
 }

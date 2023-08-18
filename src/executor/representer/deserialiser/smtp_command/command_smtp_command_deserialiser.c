@@ -35,32 +35,36 @@
 //
 
 #include "arithmetic.h"
+#include "communication.h"
 #include "constant.h"
+#include "email.h"
 #include "knowledge.h"
 #include "logger.h"
 
 /**
- * Loops through the source data string.
+ * Deserialises the smtp command command.
  *
- * @param p0 the destination item
- * @param p1 the source data
- * @param p2 the source count
- * @param p3 the type
+ * @param p0 the destination model item
+ * @param p1 the destination properties item
+ * @param p2 the source data position (pointer reference)
+ * @param p3 the source count remaining
  */
-void upper_string(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_smtp_command_command(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Upper string.");
-    fwprintf(stdout, L"Debug: Upper string. source count p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Upper string. source count *p2: %i\n", *((int*) p2));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise smtp command command.");
+    //?? fwprintf(stdout, L"Debug: Deserialise smtp command command. count remaining p3: %i\n", p3);
+    //?? fwprintf(stdout, L"Debug: Deserialise smtp command command. count remaining *p3: %i\n", *((int*) p3));
 
+    // The command data, count.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The source index.
-    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The character.
-    wchar_t c = *NULL_UNICODE_CHARACTER_CODE_MODEL;
 
-    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // Initialise command data.
+    copy_pointer((void*) &d, p2);
+
+    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
         // CAUTION! If the loop count handed over as parametre is NULL,
@@ -77,20 +81,15 @@ void upper_string(void* p0, void* p1, void* p2, void* p3) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
+        compare_integer_less_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_smtp_command_insensitiveness();
 
             break;
         }
 
-        // Get character at source index.
-        copy_array_forward((void*) &c, p1, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j);
-
-        // Convert character into upper case letter.
-        upper_letter(p0, (void*) &c);
-
-        // Increment source index.
-        j++;
+        select_smtp_command_command(p0, p1, p2, p3, (void*) &c, (void*) &b);
     }
 }

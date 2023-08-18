@@ -18,6 +18,19 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-08-18  Christian Heller  <christian.heller@cybop.org>
+
+        * Avoid wrong destination data by catching zero length source data in files "utf_8_decoder.c" and "utf_8_encoder.c"
+
+2023-08-17  Christian Heller  <christian.heller@cybop.org>
+
+        * Simplify break condition check for operation "flow/loop" in cybol application "serialisation/csv" and those of old directory "examples/"
+
+2023-06-28  Christian Heller  <christian.heller@cybop.org>
+
+        * Flexibilise lowerer and upperer in directory "modifier/" by using type parametre
+        * Add files "case_checker.c" and "insensitiveness_checker.c"
+
 2023-06-26  Christian Heller  <christian.heller@cybop.org>
 
         * Add cybol language "application/mbox" as media (mime) type
@@ -78,7 +91,7 @@
 
 2023-05-28  Christian Heller  <christian.heller@cybop.org>
 
-        * Add smtp deserialiser
+        * Add smtp response deserialiser
         * Add cybol operation "search/linear"
         * Implement new directory "executor/searcher/"
         * Add cybol application "algorithm/linearsearch/"

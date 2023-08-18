@@ -42,11 +42,12 @@
 /**
  * Loops through the source data string.
  *
- * @param p0 the destination wide character item
- * @param p1 the source wide character data
- * @param p2 the source wide character count
+ * @param p0 the destination item
+ * @param p1 the source data
+ * @param p2 the source count
+ * @param p3 the type
  */
-void lower_string(void* p0, void* p1, void* p2) {
+void lower_string(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Lower string.");
     fwprintf(stdout, L"Debug: Lower string. source count p2: %i\n", p2);
@@ -84,7 +85,7 @@ void lower_string(void* p0, void* p1, void* p2) {
         }
 
         // Get character at source index.
-        copy_array_forward((void*) &c, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j);
+        copy_array_forward((void*) &c, p1, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j);
 
         // Convert character into lower case letter.
         lower_letter(p0, (void*) &c);

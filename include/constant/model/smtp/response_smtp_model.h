@@ -33,6 +33,14 @@
 #include "constant.h"
 
 //
+// CAUTION! These constants are of type "char", since they are used
+// only if cyboi runs as smtp SERVER. The smtp protocol uses "char".
+// If cyboi runs as smtp client, then the status code and text are
+// taken as received from an external server, so that these constants
+// here are NOT needed then.
+//
+
+//
 // 1xx - accepted but confirmation necessary
 //
 

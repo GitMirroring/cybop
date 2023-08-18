@@ -49,6 +49,8 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 /**
  * Loops the programme flow endlessly, until the break flag is set.
  *
+ * See also file "part_handler.c" where the break flag gets tested after each loop cycle.
+ *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)

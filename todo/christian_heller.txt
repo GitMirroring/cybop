@@ -11,8 +11,29 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+CYBOL Application
+_________________
+
+        * Update cybol application "presence" to use responsive bootstrap-based user interface
+        * Use stack variables to avoid cybol operation call of "empty"
+
+        * Rewrite cybol application "clean_result_directory"
+            - make PIPES work in cyboi (e.g. as named pipes in the background), before continuing, needed for: n=$(ls -a $1 | wc -l);
+            - continue file "remove_superfluous_element.cybol", see original script, count contained elements first, delete if > 2
+            - change "verbal" into "verbose", also in cyboi interpreter
+            - change "tape_archiver" into a verb, also in cyboi interpreter
+            OLD: - file "check_empty_home_directory.cybol" is incomplete
+
 Kommunikation im Medizinwesen (KIM)
 ___________________________________
+
+        * See:
+            2.4 General Syntax Principles and Transaction Model
+            4.1 SMTP Commands
+
+        * Add smtp command deserialiser
+        * Add smtp command serialiser
+        * Add smtp response serialiser
 
         * Add imf deserialiser used in smtp
             consider internet message format (imf) only chapter 3.6 syntax in https://www.rfc-editor.org/rfc/rfc5322
@@ -23,15 +44,30 @@ ___________________________________
         * Ignore "Unstructured Header Field Bodies" in smtp deserialiser
         * Unfold multiple-line representation of a field body portion of a header field into a single line of characters with unlimited length
         * Test cybol applications "app/internet/smtp_server/" and "app/internet/smtp_client/"
+        * Add imf serialiser
 
-        * Add pop serialiser
-        * Add pop deserialiser
+        * Release CYBOP 0.27.0
+        * Try using script "adjustCopyright.py" once more (promised in conversation with Enrico Gallus on github)
 
-        * Add imap serialiser
-        * Add imap deserialiser
+        * Add pop command deserialiser
+        * Add pop command serialiser
+        * Add pop reply deserialiser
+        * Add pop reply serialiser
 
-        * Add base64 encoder
+        * Add imap command deserialiser
+        * Add imap command serialiser
+        * Add imap response deserialiser
+        * Add imap response serialiser
+
+        * Add mbox deserialiser
+        * Add mbox serialiser
+
         * Add base64 decoder
+        * Add base64 encoder
+
+        * Make files "letter_lowerer.c" and "letter_upperer.c" usable for ascii characters by specifying type parametre
+        * Implement file "letter_lowerer.c" considering all possible alphabets
+        * Implement file "letter_upperer.c" considering all possible alphabets
 
 xDT
 ___
@@ -206,9 +242,13 @@ _____
 Loop Simplification
 ___________________
 
+        * Provide solution for loops with decrementing index
+            currently, the break flag gets tested inside file "part_handler.c" using "compare_integer_greater_or_equal"
+            but sometimes, another comparison is necessary, for example "compare_integer_smaller"
+        * Think about how to also provide the comparison as cybol property
+
         * Offer cybol property "increment" for operation "flow/loop", so that increment is done in c code for loop instead of in each cybol loop model
         * Test with table header in cybol application "serialisation/csv/"
-        * Think about how to also provide the comparison as cybol property
 
 Base64
 ______
@@ -907,19 +947,6 @@ _____
             Der Aufruf select() macht ein blockierendes Warten, bis die Zeitscheibe abgelaufen ist, also analog sleep().
             Kann man natürlich auch für usec anpassen ;-)
             http://www.c-plusplus.de/forum/144938-full
-
-CYBOL Application
-_________________
-
-        * Update cybol application "presence" to use responsive bootstrap-based user interface
-        * Use stack variables to avoid cybol operation call of "empty"
-
-        * Rewrite cybol application "clean_result_directory"
-            - make PIPES work in cyboi (e.g. as named pipes in the background), before continuing, needed for: n=$(ls -a $1 | wc -l);
-            - continue file "remove_superfluous_element.cybol", see original script, count contained elements first, delete if > 2
-            - change "verbal" into "verbose", also in cyboi interpreter
-            - change "tape_archiver" into a verb, also in cyboi interpreter
-            OLD: - file "check_empty_home_directory.cybol" is incomplete
 
 Searching
 _________

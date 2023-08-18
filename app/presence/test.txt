@@ -1,4 +1,1338 @@
-
+[selected_node] | element/part | 
++-id | number/integer | 5
++-db | element/part | 
+| +-monday | text/plain | 
+| +-tuesday | text/plain | 
+| +-wednesday | text/plain | 
+| +-thursday | text/plain | 
+| +-friday | text/plain | 
+| +-saturday | text/plain | 
++-domain | element/part | 
+| +-calendar | element/part | 
+| | +-2015 | element/part | 
+| | | +-1 | text/plain | 29.12.2014 - 03.01.2015 (Kalenderwoche 52/1)
+| | | +-2 | text/plain | 05.01.2015 - 10.01.2015 (Kalenderwoche 2)
+| | | +-3 | text/plain | 12.01.2015 - 17.01.2015 (Kalenderwoche 3)
+| | | +-4 | text/plain | 19.01.2015 - 24.01.2015 (Kalenderwoche 4)
+| | | +-5 | text/plain | 26.01.2015 - 31.01.2015 (Kalenderwoche 5)
+| | | +-6 | text/plain | 02.02.2015 - 07.02.2015 (Kalenderwoche 6)
+| | | +-7 | text/plain | 09.02.2015 - 14.02.2015 (Kalenderwoche 7)
+| | | +-8 | text/plain | 16.02.2015 - 21.02.2015 (Kalenderwoche 8)
+| | | +-9 | text/plain | 23.02.2015 - 28.02.2015 (Kalenderwoche 9)
+| | | +-10 | text/plain | 02.03.2015 - 07.03.2015 (Kalenderwoche 10)
+| | | +-11 | text/plain | 09.03.2015 - 14.03.2015 (Kalenderwoche 11)
+| | | +-12 | text/plain | 16.03.2015 - 21.03.2015 (Kalenderwoche 12)
+| | | +-13 | text/plain | 23.03.2015 - 28.03.2015 (Kalenderwoche 13)
+| | | +-14 | text/plain | 30.03.2015 - 04.04.2015 (Kalenderwoche 14)
+| | | +-15 | text/plain | 06.04.2015 - 11.04.2015 (Kalenderwoche 15)
+| | | +-16 | text/plain | 13.04.2015 - 18.04.2015 (Kalenderwoche 16)
+| | | +-17 | text/plain | 20.04.2015 - 25.04.2015 (Kalenderwoche 17)
+| | | +-18 | text/plain | 27.04.2015 - 02.05.2015 (Kalenderwoche 18)
+| | | +-19 | text/plain | 04.05.2015 - 09.05.2015 (Kalenderwoche 19)
+| | | +-20 | text/plain | 11.05.2015 - 16.05.2015 (Kalenderwoche 20)
+| | | +-21 | text/plain | 18.05.2015 - 23.05.2015 (Kalenderwoche 21)
+| | | +-22 | text/plain | 25.05.2015 - 30.05.2015 (Kalenderwoche 22)
+| | | +-23 | text/plain | 01.06.2015 - 06.06.2015 (Kalenderwoche 23)
+| | | +-24 | text/plain | 08.06.2015 - 13.06.2015 (Kalenderwoche 24)
+| | | +-25 | text/plain | 15.06.2015 - 20.06.2015 (Kalenderwoche 25)
+| | | +-26 | text/plain | 22.06.2015 - 27.06.2015 (Kalenderwoche 26)
+| | | +-27 | text/plain | 29.06.2015 - 04.07.2015 (Kalenderwoche 27)
+| | | +-28 | text/plain | 06.07.2015 - 11.07.2015 (Kalenderwoche 28)
+| | | +-29 | text/plain | 13.07.2015 - 18.07.2015 (Kalenderwoche 29)
+| | | +-30 | text/plain | 20.07.2015 - 25.07.2015 (Kalenderwoche 30)
+| | | +-31 | text/plain | 27.07.2015 - 01.08.2015 (Kalenderwoche 31)
+| | | +-32 | text/plain | 03.08.2015 - 08.08.2015 (Kalenderwoche 32)
+| | | +-33 | text/plain | 10.08.2015 - 15.08.2015 (Kalenderwoche 33)
+| | | +-34 | text/plain | 17.08.2015 - 22.08.2015 (Kalenderwoche 34)
+| | | +-35 | text/plain | 24.08.2015 - 29.08.2015 (Kalenderwoche 35)
+| | | +-36 | text/plain | 31.08.2015 - 05.09.2015 (Kalenderwoche 36)
+| | | +-37 | text/plain | 07.09.2015 - 12.09.2015 (Kalenderwoche 37)
+| | | +-38 | text/plain | 14.09.2015 - 19.09.2015 (Kalenderwoche 38)
+| | | +-39 | text/plain | 21.09.2015 - 26.09.2015 (Kalenderwoche 39)
+| | | +-40 | text/plain | 28.09.2015 - 03.10.2015 (Kalenderwoche 40)
+| | | +-41 | text/plain | 05.10.2015 - 10.10.2015 (Kalenderwoche 41)
+| | | +-42 | text/plain | 12.10.2015 - 17.10.2015 (Kalenderwoche 42)
+| | | +-43 | text/plain | 19.10.2015 - 24.10.2015 (Kalenderwoche 43)
+| | | +-44 | text/plain | 26.10.2015 - 31.10.2015 (Kalenderwoche 44)
+| | | +-45 | text/plain | 02.11.2015 - 07.11.2015 (Kalenderwoche 45)
+| | | +-46 | text/plain | 09.11.2015 - 14.11.2015 (Kalenderwoche 46)
+| | | +-47 | text/plain | 16.11.2015 - 21.11.2015 (Kalenderwoche 47)
+| | | +-48 | text/plain | 23.11.2015 - 28.11.2015 (Kalenderwoche 48)
+| | | +-49 | text/plain | 30.11.2015 - 05.12.2015 (Kalenderwoche 49)
+| | | +-50 | text/plain | 07.12.2015 - 12.12.2015 (Kalenderwoche 50)
+| | | +-51 | text/plain | 14.12.2015 - 19.12.2015 (Kalenderwoche 51)
+| | | +-52 | text/plain | 21.12.2015 - 26.12.2015 (Kalenderwoche 52)
+| | | +-53 | text/plain | 28.12.2015 - 02.01.2016 (Kalenderwoche 53/1)
+| +-weekdays | element/part | 
+| | +-monday | text/plain | monday
+| | +-tuesday | text/plain | tuesday
+| | +-wednesday | text/plain | wednesday
+| | +-thursday | text/plain | thursday
+| | +-friday | text/plain | friday
+| | +-saturday | text/plain | saturday
+| +-lecturers | element/part | 
+| | +-mueller | text/plain | Frau Marita Müller
+| | +-meier | text/plain | Herr Otto Meier
+| | +-schulze | text/plain | Herr Rolf Schulze
+| | +-lehmann | text/plain | Frau Liselotte Lehmann
+| | +-wunder | text/plain | Herr Wilhelm Wunder
+| +-choices | element/part | 
+| | +-teaching | text/plain | Lehre/Büro
+| | | :-next | text/plain | homeoffice
+| | +-homeoffice | text/plain | Heimarbeit
+| | | :-next | text/plain | businesstrip
+| | +-businesstrip | text/plain | Dienstreise
+| | | :-next | text/plain | holiday
+| | +-holiday | text/plain | Urlaub
+| | | :-next | text/plain | illness
+| | +-illness | text/plain | Erkrankung
+| | | :-next | text/plain | bankholiday
+| | +-bankholiday | text/plain | Feiertag
+| | | :-next | text/plain | teaching
+| +-path | element/part | 
+| | +-application | text/plain | presence
+| | +-db | text/plain | db
+| | +-separator | text/plain | /
+| | +-suffix_separator | text/plain | .
+| | +-file_suffix | text/plain | cybol
+| +-uri | element/part | 
+| | +-scheme | text/plain | http
+| | +-scheme_suffix | text/plain | :
+| | +-hostname_prefix | text/plain | //
+| | +-hostname | text/plain | localhost
+| | +-port_prefix | text/plain | :
+| | +-port | text/plain | 1971
+| | +-directory | text/plain | /
+| | +-parametre_prefix | text/plain | ?
+| | +-parametre_separator | text/plain | 
+| | +-parametre_assignment | text/plain | =
+| | +-parametre_year | text/plain | year
+| | +-parametre_week | text/plain | week
+| | +-parametre_lecturer | text/plain | lecturer
+| | +-parametre_day | text/plain | day
+| | +-parametre_choice | text/plain | choice
+| | +-parametre_action | text/plain | action
+| | +-action_navigate_backward | text/plain | navigate_backward
+| | +-action_navigate_forward | text/plain | navigate_forward
+| | +-action_update | text/plain | update
+| +-server | text/plain | Presence/2.0 2022-12-24 (CYBOI/0.24.0 (Linux))
++-wui | element/part | 
+| +-index | element/part | 
+| | +-head | element/part | 
+| | | +-http-equiv | text/plain | 
+| | | | :-tag | text/plain | meta
+| | | | :-http-equiv | text/plain | content-type
+| | | | :-content | text/plain | text/html; charset=utf-8
+| | | +-author | text/plain | 
+| | | | :-tag | text/plain | meta
+| | | | :-name | text/plain | author
+| | | | :-content | text/plain | Christian Heller <christian.heller@cybop.org>. Generated by CYBOI. See http://www.cybop.org/
+| | | +-robots | text/plain | 
+| | | | :-tag | text/plain | meta
+| | | | :-name | text/plain | robots
+| | | | :-content | text/plain | noindex
+| | | +-css | text/plain | 
+| | | | :-tag | text/plain | link
+| | | | :-rel | text/plain | stylesheet
+| | | | :-media | text/plain | all
+| | | | :-type | text/plain | text/css
+| | | | :-href | text/plain | page/presence.css
+| | | +-icon | text/plain | 
+| | | | :-tag | text/plain | link
+| | | | :-rel | text/plain | icon
+| | | | :-type | text/plain | image/png
+| | | | :-href | text/plain | page/favicon.png
+| | | +-title | text/plain | Anwesenheit Mitarbeiter
+| | | | :-tag | text/plain | title
+| | | :-tag | text/plain | head
+| | +-body | element/part | 
+| | | +-header | element/part | 
+| | | | +-heading | text/plain | Anwesenheit Mitarbeiter
+| | | | | :-tag | text/plain | h1
+| | | | :-tag | text/plain | div
+| | | | :-id | text/plain | header
+| | | +-choices | element/part | 
+| | | | +-table | element/part | 
+| | | | | +-heading | element/part | 
+| | | | | | +-choice | text/plain | Auswahl
+| | | | | | | :-tag | text/plain | th
+| | | | | | :-tag | text/plain | tr
+| | | | | :-tag | text/plain | table
+| | | | :-tag | text/plain | div
+| | | | :-id | text/plain | choices
+| | | +-navigation | element/part | 
+| | | | +-table | element/part | 
+| | | | | +-row | element/part | 
+| | | | | | +-backward | element/part | 
+| | | | | | | +-link | text/plain | << zurück
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-width | text/plain | 100px
+| | | | | | | :-class | text/plain | left
+| | | | | | +-week | text/plain | 02.03.2015 - 07.03.2015 (Kalenderwoche 10)
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | center
+| | | | | | +-forward | element/part | 
+| | | | | | | +-link | text/plain | vor >>
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-width | text/plain | 100px
+| | | | | | | :-class | text/plain | right
+| | | | | | :-tag | text/plain | tr
+| | | | | :-tag | text/plain | table
+| | | | :-tag | text/plain | div
+| | | | :-id | text/plain | navigation
+| | | +-lecturers | element/part | 
+| | | | +-table | element/part | 
+| | | | | +-heading | element/part | 
+| | | | | | +-lecturer | text/plain | Mitarbeiter
+| | | | | | | :-tag | text/plain | th
+| | | | | | +-monday | text/plain | Montag
+| | | | | | | :-tag | text/plain | th
+| | | | | | +-tuesday | text/plain | Dienstag
+| | | | | | | :-tag | text/plain | th
+| | | | | | +-wednesday | text/plain | Mittwoch
+| | | | | | | :-tag | text/plain | th
+| | | | | | +-thursday | text/plain | Donnerstag
+| | | | | | | :-tag | text/plain | th
+| | | | | | +-friday | text/plain | Freitag
+| | | | | | | :-tag | text/plain | th
+| | | | | | +-saturday | text/plain | Samstag
+| | | | | | | :-tag | text/plain | th
+| | | | | | :-tag | text/plain | tr
+| | | | | :-tag | text/plain | table
+| | | | :-tag | text/plain | div
+| | | | :-id | text/plain | lecturers
+| | | +-footer | element/part | 
+| | | | +-rule | text/plain | 
+| | | | | :-tag | text/plain | hr
+| | | | +-image | text/plain | 
+| | | | | :-tag | text/plain | img
+| | | | | :-src | text/plain | footer/logo.png
+| | | | | :-alt | text/plain | Logo
+| | | | +-text | element/part | 
+| | | | | +-copyright | text/plain | Copyright (c) 2011-2020.
+| | | | | | :-tag | text/plain | span
+| | | | | +-holder | text/plain | Christian Heller.
+| | | | | | :-tag | text/plain | a
+| | | | | | :-href | text/plain | http://www.cybop.org/
+| | | | | +-licence | text/plain | GNU GPL Open Source Software.
+| | | | | | :-tag | text/plain | span
+| | | | | +-imprint | text/plain | Impressum.
+| | | | | | :-tag | text/plain | a
+| | | | | | :-href | text/plain | https://www.cybop.org/impressum-1
+| | | | | +-webmaster | text/plain | Webmaster.
+| | | | | | :-tag | text/plain | a
+| | | | | | :-href | text/plain | mailto:christian.heller@cybop.org
+| | | | | +-update | text/plain | Last Update: 2020-11-20.
+| | | | | | :-tag | text/plain | span
+| | | | | :-tag | text/plain | span
+| | | | | :-class | text/plain | text
+| | | | :-tag | text/plain | div
+| | | | :-id | text/plain | footer
+| | | :-tag | text/plain | body
+| | :-tag | text/plain | html
+| | :-document_type | text/plain | html
++-logic | element/part | 
+| +-startup | element/part | 
+| | +-startup_socket | maintain/startup | 
+| | | :-channel | meta/channel | socket
+| | | :-port | number/integer | 1971
+| | | :-namespace | text/plain | ipv4
+| | | :-style | text/plain | stream
+| | | :-protocol | text/plain | tcp
+| | | :-device | text/plain | 127.0.0.1
+| | | :-connexions | number/integer | 10
+| | | :-timeout | number/integer | 5
+| | +-print_message | communicate/send | 
+| | | :-channel | meta/channel | terminal
+| | | :-receiver | text/cybol-path | .var.stdout
+| | | :-language | meta/language | message/tui
+| | | :-format | meta/format | text/plain
+| | | :-message | text/plain | Wait for client requests.
+| | +-enable_requests | activate/enable | 
+| | | :-channel | meta/channel | socket
+| | | :-port | number/integer | 1971
+| | | :-handler | text/cybol-path | .logic.handle.enable
+| +-handle | element/part | 
+| | +-enable | element/part | 
+| | | +-open_client | dispatch/open | 
+| | | | :-channel | meta/channel | socket
+| | | | :-server | logicvalue/boolean | true
+| | | | :-port | number/integer | 1971
+| | | | :-identification | text/cybol-path | .var.client_socket
+| | | +-sense_client_data | feel/sense | 
+| | | | :-channel | meta/channel | socket
+| | | | :-server | logicvalue/boolean | true
+| | | | :-port | number/integer | 1971
+| | | | :-sender | text/cybol-path | .var.client_socket
+| | | | :-language | meta/language | message/http-request
+| | | | :-handler | text/cybol-path | .logic.handle.sense
+| | | | :-closer | text/cybol-path | .logic.handle.close
+| | +-sense | element/part | 
+| | | +-get_client_id | communicate/identify | 
+| | | | :-identification | text/cybol-path | .var.client_socket
+| | | +-print_socket_label | communicate/send | 
+| | | | :-channel | meta/channel | terminal
+| | | | :-receiver | text/cybol-path | .var.stdout
+| | | | :-language | meta/language | message/tui
+| | | | :-format | meta/format | text/plain
+| | | | :-message | text/plain | Received client request at socket:
+| | | +-print_socket | communicate/send | 
+| | | | :-channel | meta/channel | terminal
+| | | | :-receiver | text/cybol-path | .var.stdout
+| | | | :-language | meta/language | message/tui
+| | | | :-format | meta/format | number/integer
+| | | | :-message | text/cybol-path | .var.client_socket
+| | | +-reset_request_model | modify/empty | 
+| | | | :-destination | text/cybol-path | .var.request
+| | | | :-destination_properties | logicvalue/boolean | false
+| | | +-reset_request_properties | modify/empty | 
+| | | | :-destination | text/cybol-path | .var.request
+| | | | :-destination_properties | logicvalue/boolean | true
+| | | +-reset_query_exists_flag | modify/overwrite | 
+| | | | :-destination | text/cybol-path | .var.path_exists
+| | | | :-source | logicvalue/boolean | false
+| | | +-reset_query_exists_flag | modify/overwrite | 
+| | | | :-destination | text/cybol-path | .var.query_exists
+| | | | :-source | logicvalue/boolean | false
+| | | +-receive_request | communicate/receive | 
+| | | | :-channel | meta/channel | socket
+| | | | :-server | logicvalue/boolean | true
+| | | | :-port | number/integer | 1971
+| | | | :-sender | text/cybol-path | .var.client_socket
+| | | | :-language | meta/language | message/http-request
+| | | | :-format | meta/format | element/part
+| | | | :-message | text/cybol-path | .var.request
+| | | | :-asynchronicity | logicvalue/boolean | true
+| | | +-open_file | dispatch/open | 
+| | | | :-channel | meta/channel | file
+| | | | :-identification | text/cybol-path | .id
+| | | | :-device | text/plain | presence/test_request.txt
+| | | | :-mode | text/plain | write
+| | | +-TEST_knowledge_tree | communicate/send | 
+| | | | :-channel | meta/channel | file
+| | | | :-receiver | text/cybol-path | .id
+| | | | :-encoding | meta/encoding | utf-8
+| | | | :-language | meta/language | text/model-diagram
+| | | | :-format | meta/format | element/part
+| | | | :-message | text/cybol-path | .var.request
+| | | +-close_file | dispatch/close | 
+| | | | :-channel | meta/channel | file
+| | | | :-identification | text/cybol-path | .id
+| | | +-test_query | text/cybol-path | .logic.handle.querytest
+| | +-close | element/part | 
+| | | +-get_client_id | communicate/identify | 
+| | | | :-identification | text/cybol-path | .var.client_socket
+| | | +-handle_close | dispatch/close | 
+| | | | :-channel | meta/channel | socket
+| | | | :-server | logicvalue/boolean | true
+| | | | :-port | number/integer | 1971
+| | | | :-identification | text/cybol-path | .var.client_socket
+| | +-pathtest | element/part | 
+| | | +-print_path_label | communicate/send | 
+| | | | :-channel | meta/channel | terminal
+| | | | :-receiver | text/cybol-path | .var.stdout
+| | | | :-language | meta/language | message/tui
+| | | | :-format | meta/format | text/plain
+| | | | :-message | text/plain | Process request uri path:
+| | | +-print_path | communicate/send | 
+| | | | :-channel | meta/channel | terminal
+| | | | :-receiver | text/cybol-path | .var.stdout
+| | | | :-language | meta/language | message/tui
+| | | | :-format | meta/format | text/plain
+| | | | :-message | text/cybol-path | .var.request:uri:path
+| | | +-test_path | access/indicate-exists | 
+| | | | :-result | text/cybol-path | .var.path_exists
+| | | | :-part | text/cybol-path | .var.request:uri:path
+| | | +-handle_path | flow/branch | 
+| | | | :-criterion | text/cybol-path | .var.path_exists
+| | | | :-true | text/cybol-path | .logic.handle.path
+| | | | :-false | text/cybol-path | .logic.send.empty_message
+| | +-querytest | element/part | 
+| | | +-print_query_label | communicate/send | 
+| | | | :-channel | meta/channel | terminal
+| | | | :-receiver | text/cybol-path | .var.stdout
+| | | | :-language | meta/language | message/tui
+| | | | :-format | meta/format | text/plain
+| | | | :-message | text/plain | Process request uri query action:
+| | | +-print_query | communicate/send | 
+| | | | :-channel | meta/channel | terminal
+| | | | :-receiver | text/cybol-path | .var.stdout
+| | | | :-language | meta/language | message/tui
+| | | | :-format | meta/format | text/plain
+| | | | :-message | text/cybol-path | .var.request:uri:query.action
+| | | +-test_query | access/indicate-exists | 
+| | | | :-result | text/cybol-path | .var.query_exists
+| | | | :-part | text/cybol-path | .var.request:uri:query
+| | | +-handle_query | flow/branch | 
+| | | | :-criterion | text/cybol-path | .var.query_exists
+| | | | :-true | text/cybol-path | .logic.handle.query
+| | | | :-false | text/cybol-path | .logic.handle.pathtest
+| | +-path | element/part | 
+| | | +-reset_file_model | modify/empty | 
+| | | | :-destination | text/cybol-path | .var.file
+| | | | :-destination_properties | logicvalue/boolean | false
+| | | +-overwrite_path | modify/overwrite | 
+| | | | :-destination | text/cybol-path | .var.path
+| | | | :-source | text/plain | presence/wui
+| | | +-append_path | modify/append | 
+| | | | :-destination | text/cybol-path | .var.path
+| | | | :-source | text/cybol-path | .var.request:uri:path
+| | | +-print_file_path_label | communicate/send | 
+| | | | :-channel | meta/channel | terminal
+| | | | :-receiver | text/cybol-path | .var.stdout
+| | | | :-language | meta/language | message/tui
+| | | | :-format | meta/format | text/plain
+| | | | :-message | text/plain | File path:
+| | | +-print_file_path | communicate/send | 
+| | | | :-channel | meta/channel | terminal
+| | | | :-receiver | text/cybol-path | .var.stdout
+| | | | :-language | meta/language | message/tui
+| | | | :-format | meta/format | text/plain
+| | | | :-message | text/cybol-path | .var.path
+| | | +-open_file | dispatch/open | 
+| | | | :-channel | meta/channel | file
+| | | | :-identification | text/cybol-path | .id
+| | | | :-device | text/cybol-path | .var.path
+| | | +-receive_file | communicate/receive | 
+| | | | :-channel | meta/channel | file
+| | | | :-sender | text/cybol-path | .id
+| | | | :-language | meta/language | message/binary
+| | | | :-message | text/cybol-path | .var.file
+| | | +-close_file | dispatch/close | 
+| | | | :-channel | meta/channel | file
+| | | | :-identification | text/cybol-path | .id
+| | | +-send_file | communicate/send | 
+| | | | :-channel | meta/channel | socket
+| | | | :-server | logicvalue/boolean | true
+| | | | :-port | number/integer | 1971
+| | | | :-receiver | text/cybol-path | .var.client_socket
+| | | | :-language | meta/language | message/http-response
+| | | | :-format | meta/format | text/plain
+| | | | :-message | text/cybol-path | .var.file
+| | +-query | element/part | 
+| | | +-overwrite_path | modify/overwrite | 
+| | | | :-destination | text/cybol-path | .var.action_path
+| | | | :-source | text/plain | .logic.actions.
+| | | +-append_action | modify/append | 
+| | | | :-destination | text/cybol-path | .var.action_path
+| | | | :-source | text/cybol-path | .var.request:uri:query.action
+| | | +-print_path_label | communicate/send | 
+| | | | :-channel | meta/channel | terminal
+| | | | :-receiver | text/cybol-path | .var.stdout
+| | | | :-language | meta/language | message/tui
+| | | | :-format | meta/format | text/plain
+| | | | :-message | text/plain | Action path:
+| | | +-print_path | communicate/send | 
+| | | | :-channel | meta/channel | terminal
+| | | | :-receiver | text/cybol-path | .var.stdout
+| | | | :-language | meta/language | message/tui
+| | | | :-format | meta/format | text/plain
+| | | | :-message | text/cybol-path | .var.action_path
+| | | +-print_action_label | communicate/send | 
+| | | | :-channel | meta/channel | terminal
+| | | | :-receiver | text/cybol-path | .var.stdout
+| | | | :-language | meta/language | message/tui
+| | | | :-format | meta/format | text/plain
+| | | | :-message | text/plain | Dereferenced action:
+| | | +-print_action | communicate/send | 
+| | | | :-channel | meta/channel | terminal
+| | | | :-receiver | text/cybol-path | .var.stdout
+| | | | :-language | meta/language | message/tui
+| | | | :-format | meta/format | text/plain
+| | | | :-message | text/cybol-path | {.var.action_path}
+| | | +-execute_action | text/cybol-path | {.var.action_path}
+| +-actions | element/part | 
+| | +-send-index | text/cybol-path | .logic.send.index
+| | +-navigate-backward | text/cybol-path | .logic.navigate.backward
+| | +-navigate-forward | text/cybol-path | .logic.navigate.forward
+| | +-update | text/cybol-path | .logic.translate.uri_to_all
+| | +-exit | live/exit | 
+| +-create | element/part | 
+| | +-choices | element/part | 
+| | | +-rows | element/part | 
+| | | | +-log | communicate/send | 
+| | | | | :-channel | meta/channel | terminal
+| | | | | :-receiver | text/cybol-path | .var.stdout
+| | | | | :-language | meta/language | message/tui
+| | | | | :-format | meta/format | text/plain
+| | | | | :-message | text/plain | Test rows begin
+| | | | +-count_choices | access/count | 
+| | | | | :-count | text/cybol-path | #count
+| | | | | :-part | text/cybol-path | .domain.choices
+| | | | +-log | communicate/send | 
+| | | | | :-channel | meta/channel | terminal
+| | | | | :-receiver | text/cybol-path | .var.stdout
+| | | | | :-language | meta/language | message/tui
+| | | | | :-format | meta/format | number/integer
+| | | | | :-message | text/cybol-path | #count
+| | | | +-loop_choices | flow/loop | 
+| | | | | :-break | text/cybol-path | #break
+| | | | | :-model | text/cybol-path | #model
+| | | | +-log | communicate/send | 
+| | | | | :-channel | meta/channel | terminal
+| | | | | :-receiver | text/cybol-path | .var.stdout
+| | | | | :-language | meta/language | message/tui
+| | | | | :-format | meta/format | text/plain
+| | | | | :-message | text/plain | Test rows end
+| | | | :-break | logicvalue/boolean | false
+| | | | :-index | number/integer | 0
+| | | | :-count | number/integer | 0
+| | | | :-model | text/cybol-path | .logic.create.choices.row
+| | | +-row | element/part | 
+| | | | +-log | communicate/send | 
+| | | | | :-channel | meta/channel | terminal
+| | | | | :-receiver | text/cybol-path | .var.stdout
+| | | | | :-language | meta/language | message/tui
+| | | | | :-format | meta/format | text/plain
+| | | | | :-message | text/plain | Test row
+| | | | +-compare_index | compare/greater-or-equal | 
+| | | | | :-result | text/cybol-path | #break
+| | | | | :-left | text/cybol-path | #index
+| | | | | :-right | text/cybol-path | #count
+| | | | +-get_choice_name | access/get-name | 
+| | | | | :-element | text/cybol-path | #name
+| | | | | :-part | text/cybol-path | .domain.choices.[#index]
+| | | | +-create_choice | memorise/create | 
+| | | | | :-name | text/cybol-path | #name
+| | | | | :-format | meta/format | element/part
+| | | | | :-whole | text/cybol-path | .wui.index.body.choices.table
+| | | | +-open_file | dispatch/open | 
+| | | | | :-channel | meta/channel | file
+| | | | | :-identification | text/cybol-path | .id
+| | | | | :-device | text/plain | presence/wui/choices/row.cybol
+| | | | +-initialise_choice_part | communicate/receive | 
+| | | | | :-channel | meta/channel | file
+| | | | | :-sender | text/cybol-path | .id
+| | | | | :-encoding | meta/encoding | utf-8
+| | | | | :-language | meta/language | text/cybol
+| | | | | :-format | meta/format | element/part
+| | | | | :-message | text/cybol-path | .wui.index.body.choices.table.(#name)
+| | | | +-close_file | dispatch/close | 
+| | | | | :-channel | meta/channel | file
+| | | | | :-identification | text/cybol-path | .id
+| | | | +-open_file | dispatch/open | 
+| | | | | :-channel | meta/channel | file
+| | | | | :-identification | text/cybol-path | .id
+| | | | | :-device | text/plain | presence/wui/choices/row_properties.cybol
+| | | | +-initialise_choice_properties | communicate/receive | 
+| | | | | :-channel | meta/channel | file
+| | | | | :-sender | text/cybol-path | .id
+| | | | | :-encoding | meta/encoding | utf-8
+| | | | | :-language | meta/language | text/cybol
+| | | | | :-format | meta/format | element/property
+| | | | | :-message | text/cybol-path | .wui.index.body.choices.table.(#name)
+| | | | +-close_file | dispatch/close | 
+| | | | | :-channel | meta/channel | file
+| | | | | :-identification | text/cybol-path | .id
+| | | | +-overwrite_data | modify/overwrite | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.choices.table.(#name).data
+| | | | | :-source | text/cybol-path | .domain.choices.(#name)
+| | | | +-overwrite_class | modify/overwrite | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.choices.table.(#name).data:class
+| | | | | :-source | text/cybol-path | #name
+| | | | +-increment_index | calculate/add | 
+| | | | | :-result | text/cybol-path | #index
+| | | | | :-operand | number/integer | 1
+| | | | :-name | text/plain | 
+| | +-lecturers | element/part | 
+| | | +-rows | element/part | 
+| | | | +-count_lecturers | access/count | 
+| | | | | :-count | text/cybol-path | #count
+| | | | | :-part | text/cybol-path | .domain.lecturers
+| | | | +-loop_lecturers | flow/loop | 
+| | | | | :-break | text/cybol-path | #break
+| | | | | :-model | text/cybol-path | #model
+| | | | :-break | logicvalue/boolean | false
+| | | | :-index | number/integer | 0
+| | | | :-count | number/integer | 0
+| | | | :-model | text/cybol-path | .logic.create.lecturers.row
+| | | +-row | element/part | 
+| | | | +-compare_index | compare/greater-or-equal | 
+| | | | | :-result | text/cybol-path | #break
+| | | | | :-left | text/cybol-path | #index
+| | | | | :-right | text/cybol-path | #count
+| | | | +-get_lecturer_name | access/get-name | 
+| | | | | :-element | text/cybol-path | #name
+| | | | | :-part | text/cybol-path | .domain.lecturers.[#index]
+| | | | +-create_lecturer | memorise/create | 
+| | | | | :-name | text/cybol-path | #name
+| | | | | :-format | meta/format | element/part
+| | | | | :-whole | text/cybol-path | .wui.index.body.lecturers.table
+| | | | +-open_file | dispatch/open | 
+| | | | | :-channel | meta/channel | file
+| | | | | :-identification | text/cybol-path | .id
+| | | | | :-device | text/plain | presence/wui/lecturers/row.cybol
+| | | | +-initialise_lecturer_part | communicate/receive | 
+| | | | | :-channel | meta/channel | file
+| | | | | :-sender | text/cybol-path | .id
+| | | | | :-encoding | meta/encoding | utf-8
+| | | | | :-language | meta/language | text/cybol
+| | | | | :-format | meta/format | element/part
+| | | | | :-message | text/cybol-path | .wui.index.body.lecturers.table.(#name)
+| | | | +-close_file | dispatch/close | 
+| | | | | :-channel | meta/channel | file
+| | | | | :-identification | text/cybol-path | .id
+| | | | +-open_file | dispatch/open | 
+| | | | | :-channel | meta/channel | file
+| | | | | :-identification | text/cybol-path | .id
+| | | | | :-device | text/plain | presence/wui/lecturers/row_properties.cybol
+| | | | +-initialise_lecturer_properties | communicate/receive | 
+| | | | | :-channel | meta/channel | file
+| | | | | :-sender | text/cybol-path | .id
+| | | | | :-encoding | meta/encoding | utf-8
+| | | | | :-language | meta/language | text/cybol
+| | | | | :-format | meta/format | element/property
+| | | | | :-message | text/cybol-path | .wui.index.body.lecturers.table.(#name)
+| | | | +-close_file | dispatch/close | 
+| | | | | :-channel | meta/channel | file
+| | | | | :-identification | text/cybol-path | .id
+| | | | +-overwrite_heading | modify/overwrite | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(#name).heading
+| | | | | :-source | text/cybol-path | .domain.lecturers.(#name)
+| | | | +-increment_index | calculate/add | 
+| | | | | :-result | text/cybol-path | #index
+| | | | | :-operand | number/integer | 1
+| | | | :-name | text/plain | 
+| +-reset | element/part | 
+| | +-db | element/part | 
+| | | +-empty_dbfile_model | modify/empty | 
+| | | | :-destination | text/cybol-path | .var.dbfile
+| | | | :-destination_properties | logicvalue/boolean | false
+| | | +-empty_dbfile_properties | modify/empty | 
+| | | | :-destination | text/cybol-path | .var.dbfile
+| | | | :-destination_properties | logicvalue/boolean | true
+| | | +-empty_db_model | modify/empty | 
+| | | | :-destination | text/cybol-path | .var.db
+| | | | :-destination_properties | logicvalue/boolean | false
+| | | +-empty_db_properties | modify/empty | 
+| | | | :-destination | text/cybol-path | .var.db
+| | | | :-destination_properties | logicvalue/boolean | true
+| +-send | element/part | 
+| | +-empty_message | element/part | 
+| | | +-print_error | communicate/send | 
+| | | | :-channel | meta/channel | terminal
+| | | | :-receiver | text/cybol-path | .var.stdout
+| | | | :-language | meta/language | message/tui
+| | | | :-format | meta/format | text/plain
+| | | | :-message | text/plain | Error: The uri query action is not understood. Sending empty message now to inform client.
+| | | +-send_empty_message | communicate/send | 
+| | | | :-channel | meta/channel | socket
+| | | | :-server | logicvalue/boolean | true
+| | | | :-port | number/integer | 1971
+| | | | :-receiver | text/cybol-path | .var.client_socket
+| | | | :-language | meta/language | message/http-response
+| | | | :-format | meta/format | text/plain
+| | | | :-message | text/plain | 
+| | +-index | element/part | 
+| | | +-reset_webpage | modify/empty | 
+| | | | :-destination | text/cybol-path | .var.webpage
+| | | | :-destination_properties | logicvalue/boolean | false
+| | | +-serialise_webpage | represent/serialise | 
+| | | | :-destination | text/cybol-path | .var.webpage
+| | | | :-source | text/cybol-path | .wui.index
+| | | | :-format | meta/format | element/part
+| | | | :-language | meta/language | text/html
+| | | +-open_file | dispatch/open | 
+| | | | :-channel | meta/channel | file
+| | | | :-identification | text/cybol-path | .id
+| | | | :-device | text/plain | presence/test_wui.html
+| | | | :-mode | text/plain | write
+| | | +-TEST_WUI | communicate/send | 
+| | | | :-channel | meta/channel | file
+| | | | :-receiver | text/cybol-path | .id
+| | | | :-encoding | meta/encoding | utf-8
+| | | | :-language | meta/language | text/cybol
+| | | | :-format | meta/format | text/plain
+| | | | :-message | text/cybol-path | .var.webpage
+| | | +-close_file | dispatch/close | 
+| | | | :-channel | meta/channel | file
+| | | | :-identification | text/cybol-path | .id
+| | | +-send | communicate/send | 
+| | | | :-channel | meta/channel | socket
+| | | | :-server | logicvalue/boolean | true
+| | | | :-port | number/integer | 1971
+| | | | :-receiver | text/cybol-path | .var.client_socket
+| | | | :-language | meta/language | message/http-response
+| | | | :-format | meta/format | text/plain
+| | | | :-message | text/cybol-path | .var.webpage
+| | | | | :-Connection | text/plain | keep-alive
+| | | | | :-Keep-Alive | text/plain | timeout=300, max=1000
+| | | +-open_file | dispatch/open | 
+| | | | :-channel | meta/channel | file
+| | | | :-identification | text/cybol-path | .id
+| | | | :-device | text/plain | presence/test_http_response.txt
+| | | | :-mode | text/plain | write
+| | | +-test_http_response | communicate/send | 
+| | | | :-channel | meta/channel | file
+| | | | :-receiver | text/cybol-path | .id
+| | | | :-language | meta/language | message/http-response
+| | | | :-format | meta/format | text/plain
+| | | | :-message | text/cybol-path | .var.webpage
+| | | | | :-Server | text/plain | CYBOI/0.22.0 (Linux) CYBOL/2.0.0
+| | | | | :-Connection | text/plain | close
+| | | | | :-Content-Type | text/plain | text/html
+| | | +-close_file | dispatch/close | 
+| | | | :-channel | meta/channel | file
+| | | | :-identification | text/cybol-path | .id
+| +-translate | element/part | 
+| | +-dom_to_nav | element/part | 
+| | | +-backward | element/part | 
+| | | | +-overwrite_scheme | modify/overwrite | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.navigation.table.row.backward.link:href
+| | | | | :-source | text/cybol-path | .domain.uri.scheme
+| | | | +-append_scheme_suffix | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.navigation.table.row.backward.link:href
+| | | | | :-source | text/cybol-path | .domain.uri.scheme_suffix
+| | | | +-append_hostname_prefix | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.navigation.table.row.backward.link:href
+| | | | | :-source | text/cybol-path | .domain.uri.hostname_prefix
+| | | | +-append_hostname | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.navigation.table.row.backward.link:href
+| | | | | :-source | text/cybol-path | .domain.uri.hostname
+| | | | +-append_port_prefix | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.navigation.table.row.backward.link:href
+| | | | | :-source | text/cybol-path | .domain.uri.port_prefix
+| | | | +-append_port | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.navigation.table.row.backward.link:href
+| | | | | :-source | text/cybol-path | .domain.uri.port
+| | | | +-append_directory | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.navigation.table.row.backward.link:href
+| | | | | :-source | text/cybol-path | .domain.uri.directory
+| | | | +-append_parametre_prefix | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.navigation.table.row.backward.link:href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_prefix
+| | | | +-append_parametre_action_name | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.navigation.table.row.backward.link:href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_action
+| | | | +-append_parametre_action_assignment | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.navigation.table.row.backward.link:href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_assignment
+| | | | +-append_parametre_action_value | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.navigation.table.row.backward.link:href
+| | | | | :-source | text/cybol-path | .domain.uri.action_navigate_backward
+| | | +-forward | element/part | 
+| | | | +-overwrite_scheme | modify/overwrite | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.navigation.table.row.forward.link:href
+| | | | | :-source | text/cybol-path | .domain.uri.scheme
+| | | | +-append_scheme_suffix | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.navigation.table.row.forward.link:href
+| | | | | :-source | text/cybol-path | .domain.uri.scheme_suffix
+| | | | +-append_hostname_prefix | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.navigation.table.row.forward.link:href
+| | | | | :-source | text/cybol-path | .domain.uri.hostname_prefix
+| | | | +-append_hostname | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.navigation.table.row.forward.link:href
+| | | | | :-source | text/cybol-path | .domain.uri.hostname
+| | | | +-append_port_prefix | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.navigation.table.row.forward.link:href
+| | | | | :-source | text/cybol-path | .domain.uri.port_prefix
+| | | | +-append_port | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.navigation.table.row.forward.link:href
+| | | | | :-source | text/cybol-path | .domain.uri.port
+| | | | +-append_directory | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.navigation.table.row.forward.link:href
+| | | | | :-source | text/cybol-path | .domain.uri.directory
+| | | | +-append_parametre_prefix | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.navigation.table.row.forward.link:href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_prefix
+| | | | +-append_parametre_action_name | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.navigation.table.row.forward.link:href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_action
+| | | | +-append_parametre_action_assignment | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.navigation.table.row.forward.link:href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_assignment
+| | | | +-append_parametre_action_value | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.navigation.table.row.forward.link:href
+| | | | | :-source | text/cybol-path | .domain.uri.action_navigate_forward
+| | +-cal_to_wui | element/part | 
+| | | +-overwrite_calendar_week | modify/overwrite | 
+| | | | :-destination | text/cybol-path | .wui.index.body.navigation.table.row.week
+| | | | :-source | text/cybol-path | .domain.calendar.(.var.year_string).(.var.week_string)
+| | +-db_to_wui | element/part | 
+| | | +-lecturers | element/part | 
+| | | | +-log_message | communicate/send | 
+| | | | | :-channel | meta/channel | terminal
+| | | | | :-receiver | text/cybol-path | .var.stdout
+| | | | | :-language | meta/language | message/tui
+| | | | | :-format | meta/format | text/plain
+| | | | | :-message | text/plain | Translate DB to WUI Lecturers
+| | | | +-count_lecturers | access/count | 
+| | | | | :-count | text/cybol-path | #count
+| | | | | :-part | text/cybol-path | .domain.lecturers
+| | | | +-loop_lecturers | flow/loop | 
+| | | | | :-break | text/cybol-path | #break
+| | | | | :-model | text/cybol-path | #model
+| | | | :-break | logicvalue/boolean | false
+| | | | :-index | number/integer | 0
+| | | | :-count | number/integer | 0
+| | | | :-model | text/cybol-path | .logic.translate.db_to_wui.lecturer
+| | | +-lecturer | element/part | 
+| | | | +-compare_index | compare/greater-or-equal | 
+| | | | | :-result | text/cybol-path | #break
+| | | | | :-left | text/cybol-path | #index
+| | | | | :-right | text/cybol-path | #count
+| | | | +-get_lecturer_name | access/get-name | 
+| | | | | :-element | text/cybol-path | #name
+| | | | | :-part | text/cybol-path | .domain.lecturers.[#index]
+| | | | +-reset_db | text/cybol-path | .logic.reset.db
+| | | | +-translate_path | text/cybol-path | .logic.translate.db_to_wui.path
+| | | | +-log_filename | communicate/send | 
+| | | | | :-channel | meta/channel | terminal
+| | | | | :-receiver | text/cybol-path | .var.stdout
+| | | | | :-language | meta/language | message/tui
+| | | | | :-format | meta/format | text/plain
+| | | | | :-message | text/plain | Read from dbfile lecturer:
+| | | | +-log_filename | communicate/send | 
+| | | | | :-channel | meta/channel | terminal
+| | | | | :-receiver | text/cybol-path | .var.stdout
+| | | | | :-language | meta/language | message/tui
+| | | | | :-format | meta/format | text/plain
+| | | | | :-message | text/cybol-path | .var.dbfile
+| | | | +-open_file | dispatch/open | 
+| | | | | :-channel | meta/channel | file
+| | | | | :-identification | text/cybol-path | .id
+| | | | | :-device | text/cybol-path | .var.dbfile
+| | | | +-receive_db_from_file | communicate/receive | 
+| | | | | :-channel | meta/channel | file
+| | | | | :-sender | text/cybol-path | .id
+| | | | | :-encoding | meta/encoding | utf-8
+| | | | | :-language | meta/language | text/cybol
+| | | | | :-format | meta/format | element/part
+| | | | | :-message | text/cybol-path | .var.db
+| | | | +-close_file | dispatch/close | 
+| | | | | :-channel | meta/channel | file
+| | | | | :-identification | text/cybol-path | .id
+| | | | +-translate_row | text/cybol-path | .logic.translate.db_to_wui.row
+| | | | +-increment_index | calculate/add | 
+| | | | | :-result | text/cybol-path | #index
+| | | | | :-operand | number/integer | 1
+| | | | :-name | text/plain | 
+| | | +-path | element/part | 
+| | | | +-overwrite_application | modify/overwrite | 
+| | | | | :-destination | text/cybol-path | .var.dbfile
+| | | | | :-source | text/cybol-path | .domain.path.application
+| | | | +-append_database_separator | modify/append | 
+| | | | | :-destination | text/cybol-path | .var.dbfile
+| | | | | :-source | text/cybol-path | .domain.path.separator
+| | | | +-append_database | modify/append | 
+| | | | | :-destination | text/cybol-path | .var.dbfile
+| | | | | :-source | text/cybol-path | .domain.path.db
+| | | | +-append_year_separator | modify/append | 
+| | | | | :-destination | text/cybol-path | .var.dbfile
+| | | | | :-source | text/cybol-path | .domain.path.separator
+| | | | +-append_year | modify/append | 
+| | | | | :-destination | text/cybol-path | .var.dbfile
+| | | | | :-source | text/cybol-path | .var.year_string
+| | | | +-append_week_separator | modify/append | 
+| | | | | :-destination | text/cybol-path | .var.dbfile
+| | | | | :-source | text/cybol-path | .domain.path.separator
+| | | | +-append_week | modify/append | 
+| | | | | :-destination | text/cybol-path | .var.dbfile
+| | | | | :-source | text/cybol-path | .var.week_string
+| | | | +-append_lecturer_separator | modify/append | 
+| | | | | :-destination | text/cybol-path | .var.dbfile
+| | | | | :-source | text/cybol-path | .domain.path.separator
+| | | | +-append_lecturer | modify/append | 
+| | | | | :-destination | text/cybol-path | .var.dbfile
+| | | | | :-source | text/cybol-path | #name
+| | | | +-append_suffix_separator | modify/append | 
+| | | | | :-destination | text/cybol-path | .var.dbfile
+| | | | | :-source | text/cybol-path | .domain.path.suffix_separator
+| | | | +-append_file_suffix | modify/append | 
+| | | | | :-destination | text/cybol-path | .var.dbfile
+| | | | | :-source | text/cybol-path | .domain.path.file_suffix
+| | | +-row | element/part | 
+| | | | +-count_weekdays | access/count | 
+| | | | | :-count | text/cybol-path | #column_count
+| | | | | :-part | text/cybol-path | .domain.weekdays
+| | | | +-loop_lecturers | flow/loop | 
+| | | | | :-break | text/cybol-path | #column_break
+| | | | | :-model | text/cybol-path | #column_model
+| | | | :-column_break | logicvalue/boolean | false
+| | | | :-column_index | number/integer | 0
+| | | | :-column_count | number/integer | 0
+| | | | :-column_model | text/cybol-path | .logic.translate.db_to_wui.column
+| | | +-column | element/part | 
+| | | | +-compare_index | compare/greater-or-equal | 
+| | | | | :-result | text/cybol-path | #column_break
+| | | | | :-left | text/cybol-path | #column_index
+| | | | | :-right | text/cybol-path | #column_count
+| | | | +-get_weekday_name | access/get-name | 
+| | | | | :-element | text/cybol-path | #day
+| | | | | :-part | text/cybol-path | .domain.weekdays.[#column_index]
+| | | | +-get_choice | modify/overwrite | 
+| | | | | :-destination | text/cybol-path | #choice
+| | | | | :-source | text/cybol-path | .var.db.(#day)
+| | | | +-test_for_emptyness | access/indicate-empty | 
+| | | | | :-result | text/cybol-path | #empty
+| | | | | :-part | text/cybol-path | #choice
+| | | | +-translate_cell | flow/branch | 
+| | | | | :-criterion | text/cybol-path | #empty
+| | | | | :-true | text/cybol-path | .logic.translate.db_to_wui.cell_default
+| | | | | :-false | text/cybol-path | .logic.translate.db_to_wui.cell
+| | | | +-increment_index | calculate/add | 
+| | | | | :-result | text/cybol-path | #column_index
+| | | | | :-operand | number/integer | 1
+| | | | :-day | text/plain | 
+| | | | :-choice | text/plain | 
+| | | | :-empty | logicvalue/boolean | false
+| | | | :-href | text/plain | 
+| | | +-cell | element/part | 
+| | | | +-overwrite_link | modify/overwrite | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(#name).(#day).link
+| | | | | :-source | text/cybol-path | .domain.choices.(#choice)
+| | | | +-model | text/cybol-path | .logic.translate.db_to_wui.href
+| | | | +-overwrite_href | modify/overwrite | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(#name).(#day).link:href
+| | | | | :-source | text/cybol-path | #href
+| | | | +-overwrite_class | modify/overwrite | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(#name).(#day):class
+| | | | | :-source | text/cybol-path | #choice
+| | | +-cell_default | element/part | 
+| | | | +-overwrite_link | modify/overwrite | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(#name).(#day).link
+| | | | | :-source | text/cybol-path | .domain.choices.teaching
+| | | | +-model | text/cybol-path | .logic.translate.db_to_wui.href_default
+| | | | +-overwrite_href | modify/overwrite | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(#name).(#day).link:href
+| | | | | :-source | text/cybol-path | #href
+| | | | +-overwrite_class | modify/overwrite | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(#name).(#day):class
+| | | | | :-source | text/plain | teaching
+| | | +-href | element/part | 
+| | | | +-overwrite_scheme | modify/overwrite | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.scheme
+| | | | +-append_scheme_suffix | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.scheme_suffix
+| | | | +-append_hostname_prefix | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.hostname_prefix
+| | | | +-append_hostname | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.hostname
+| | | | +-append_port_prefix | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.port_prefix
+| | | | +-append_port | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.port
+| | | | +-append_directory | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.directory
+| | | | +-append_parametre_prefix | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_prefix
+| | | | +-append_parametre_year_name | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_year
+| | | | +-append_parametre_year_assignment | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_assignment
+| | | | +-append_parametre_year_value | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .var.year_string
+| | | | +-append_parametre_week_separator | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_separator
+| | | | +-append_parametre_week_name | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_week
+| | | | +-append_parametre_week_assignment | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_assignment
+| | | | +-append_parametre_week_value | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .var.week_string
+| | | | +-append_parametre_lecturer_separator | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_separator
+| | | | +-append_parametre_lecturer_name | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_lecturer
+| | | | +-append_parametre_lecturer_assignment | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_assignment
+| | | | +-append_parametre_lecturer_value | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | #name
+| | | | +-append_parametre_day_separator | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_separator
+| | | | +-append_parametre_day_name | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_day
+| | | | +-append_parametre_day_assignment | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_assignment
+| | | | +-append_parametre_day_value | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | #day
+| | | | +-append_parametre_choice_separator | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_separator
+| | | | +-append_parametre_choice_name | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_choice
+| | | | +-append_parametre_choice_assignment | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_assignment
+| | | | +-append_parametre_choice_value | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.choices.(#choice):next
+| | | | +-append_parametre_action_separator | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_separator
+| | | | +-append_parametre_action_name | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_action
+| | | | +-append_parametre_action_assignment | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_assignment
+| | | | +-append_parametre_action_value | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.action_update
+| | | +-href_default | element/part | 
+| | | | +-overwrite_scheme | modify/overwrite | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.scheme
+| | | | +-append_scheme_suffix | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.scheme_suffix
+| | | | +-append_hostname_prefix | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.hostname_prefix
+| | | | +-append_hostname | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.hostname
+| | | | +-append_port_prefix | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.port_prefix
+| | | | +-append_port | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.port
+| | | | +-append_directory | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.directory
+| | | | +-append_parametre_prefix | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_prefix
+| | | | +-append_parametre_year_name | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_year
+| | | | +-append_parametre_year_assignment | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_assignment
+| | | | +-append_parametre_year_value | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .var.year_string
+| | | | +-append_parametre_week_separator | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_separator
+| | | | +-append_parametre_week_name | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_week
+| | | | +-append_parametre_week_assignment | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_assignment
+| | | | +-append_parametre_week_value | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .var.week_string
+| | | | +-append_parametre_lecturer_separator | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_separator
+| | | | +-append_parametre_lecturer_name | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_lecturer
+| | | | +-append_parametre_lecturer_assignment | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_assignment
+| | | | +-append_parametre_lecturer_value | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | #name
+| | | | +-append_parametre_day_separator | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_separator
+| | | | +-append_parametre_day_name | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_day
+| | | | +-append_parametre_day_assignment | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_assignment
+| | | | +-append_parametre_day_value | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | #day
+| | | | +-append_parametre_choice_separator | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_separator
+| | | | +-append_parametre_choice_name | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_choice
+| | | | +-append_parametre_choice_assignment | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_assignment
+| | | | +-append_parametre_choice_value | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.choices.teaching:next
+| | | | +-append_parametre_action_separator | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_separator
+| | | | +-append_parametre_action_name | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_action
+| | | | +-append_parametre_action_assignment | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_assignment
+| | | | +-append_parametre_action_value | modify/append | 
+| | | | | :-destination | text/cybol-path | #href
+| | | | | :-source | text/cybol-path | .domain.uri.action_update
+| | +-uri_to_db | element/part | 
+| | | +-row | element/part | 
+| | | | +-model | text/cybol-path | .logic.reset.db
+| | | | +-count_weekdays | access/count | 
+| | | | | :-count | text/cybol-path | #count
+| | | | | :-part | text/cybol-path | .domain.weekdays
+| | | | +-loop_columns | flow/loop | 
+| | | | | :-break | text/cybol-path | #break
+| | | | | :-model | text/cybol-path | #model
+| | | | +-save_db_to_file | flow/sequence | 
+| | | | | :-model | text/cybol-path | .logic.translate.uri_to_db.file
+| | | | :-break | logicvalue/boolean | false
+| | | | :-index | number/integer | 0
+| | | | :-count | number/integer | 0
+| | | | :-model | text/cybol-path | .logic.translate.uri_to_db.column
+| | | +-column | element/part | 
+| | | | +-compare_index | compare/greater-or-equal | 
+| | | | | :-result | text/cybol-path | #break
+| | | | | :-left | text/cybol-path | #index
+| | | | | :-right | text/cybol-path | #count
+| | | | +-get_weekday_name | access/get-name | 
+| | | | | :-element | text/cybol-path | #day
+| | | | | :-part | text/cybol-path | .domain.weekdays.[#index]
+| | | | +-overwrite_db_entry | modify/overwrite | 
+| | | | | :-destination | text/cybol-path | .db.(#day)
+| | | | | :-source | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(#day):class
+| | | | +-increment_index | calculate/add | 
+| | | | | :-result | text/cybol-path | #index
+| | | | | :-operand | number/integer | 1
+| | | | :-day | text/plain | 
+| | | +-directory_path | element/part | 
+| | | | +-overwrite_application | modify/overwrite | 
+| | | | | :-destination | text/cybol-path | .var.directory
+| | | | | :-source | text/cybol-path | .domain.path.application
+| | | | +-append_database_separator | modify/append | 
+| | | | | :-destination | text/cybol-path | .var.directory
+| | | | | :-source | text/cybol-path | .domain.path.separator
+| | | | +-append_database | modify/append | 
+| | | | | :-destination | text/cybol-path | .var.directory
+| | | | | :-source | text/cybol-path | .domain.path.db
+| | | | +-append_year_separator | modify/append | 
+| | | | | :-destination | text/cybol-path | .var.directory
+| | | | | :-source | text/cybol-path | .domain.path.separator
+| | | | +-append_year | modify/append | 
+| | | | | :-destination | text/cybol-path | .var.directory
+| | | | | :-source | text/cybol-path | .var.request:uri:query.year
+| | | | +-append_week_separator | modify/append | 
+| | | | | :-destination | text/cybol-path | .var.directory
+| | | | | :-source | text/cybol-path | .domain.path.separator
+| | | | +-append_week | modify/append | 
+| | | | | :-destination | text/cybol-path | .var.directory
+| | | | | :-source | text/cybol-path | .var.request:uri:query.week
+| | | +-file_path | element/part | 
+| | | | +-overwrite_directory | modify/overwrite | 
+| | | | | :-destination | text/cybol-path | .var.dbfile
+| | | | | :-source | text/cybol-path | .var.directory
+| | | | +-append_lecturer_separator | modify/append | 
+| | | | | :-destination | text/cybol-path | .var.dbfile
+| | | | | :-source | text/cybol-path | .domain.path.separator
+| | | | +-append_lecturer | modify/append | 
+| | | | | :-destination | text/cybol-path | .var.dbfile
+| | | | | :-source | text/cybol-path | .var.request:uri:query.lecturer
+| | | | +-append_suffix_separator | modify/append | 
+| | | | | :-destination | text/cybol-path | .var.dbfile
+| | | | | :-source | text/cybol-path | .domain.path.suffix_separator
+| | | | +-append_file_suffix | modify/append | 
+| | | | | :-destination | text/cybol-path | .var.dbfile
+| | | | | :-source | text/cybol-path | .domain.path.file_suffix
+| | | +-file | element/part | 
+| | | | +-model | text/cybol-path | .logic.translate.uri_to_db.directory_path
+| | | | +-model | text/cybol-path | .logic.translate.uri_to_db.file_path
+| | | | +-create_folder | command/create-directory | 
+| | | | | :-path | text/cybol-path | .var.directory
+| | | | +-open_file | dispatch/open | 
+| | | | | :-channel | meta/channel | file
+| | | | | :-identification | text/cybol-path | .id
+| | | | | :-device | text/cybol-path | .var.dbfile
+| | | | | :-mode | text/plain | write
+| | | | +-send_db | communicate/send | 
+| | | | | :-channel | meta/channel | file
+| | | | | :-receiver | text/cybol-path | .id
+| | | | | :-encoding | meta/encoding | utf-8
+| | | | | :-language | meta/language | text/cybol
+| | | | | :-format | meta/format | element/part
+| | | | | :-message | text/cybol-path | .db
+| | | | +-close_file | dispatch/close | 
+| | | | | :-channel | meta/channel | file
+| | | | | :-identification | text/cybol-path | .id
+| | +-uri_to_wui | element/part | 
+| | | +-column | element/part | 
+| | | | +-overwrite_link | modify/overwrite | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link
+| | | | | :-source | text/cybol-path | .domain.choices.(.var.request:uri:query.choice)
+| | | | +-translate_href | flow/sequence | 
+| | | | | :-model | text/cybol-path | .logic.translate.uri_to_wui.href
+| | | | +-overwrite_class | modify/overwrite | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day):class
+| | | | | :-source | text/cybol-path | .var.request:uri:query.choice
+| | | +-href | element/part | 
+| | | | +-overwrite_scheme | modify/overwrite | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.scheme
+| | | | +-append_scheme_suffix | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.scheme_suffix
+| | | | +-append_hostname_prefix | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.hostname_prefix
+| | | | +-append_hostname | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.hostname
+| | | | +-append_port_prefix | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.port_prefix
+| | | | +-append_port | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.port
+| | | | +-append_directory | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.directory
+| | | | +-append_parametre_prefix | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_prefix
+| | | | +-append_parametre_year_name | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_year
+| | | | +-append_parametre_year_assignment | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_assignment
+| | | | +-append_parametre_year_value | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .var.request:uri:query.year
+| | | | +-append_parametre_week_separator | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_separator
+| | | | +-append_parametre_week_name | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_week
+| | | | +-append_parametre_week_assignment | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_assignment
+| | | | +-append_parametre_week_value | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .var.request:uri:query.week
+| | | | +-append_parametre_lecturer_separator | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_separator
+| | | | +-append_parametre_lecturer_name | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_lecturer
+| | | | +-append_parametre_lecturer_assignment | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_assignment
+| | | | +-append_parametre_lecturer_value | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .var.request:uri:query.lecturer
+| | | | +-append_parametre_day_separator | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_separator
+| | | | +-append_parametre_day_name | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_day
+| | | | +-append_parametre_day_assignment | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_assignment
+| | | | +-append_parametre_day_value | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .var.request:uri:query.day
+| | | | +-append_parametre_choice_separator | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_separator
+| | | | +-append_parametre_choice_name | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_choice
+| | | | +-append_parametre_choice_assignment | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_assignment
+| | | | +-append_parametre_choice_value | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.choices.(.var.request:uri:query.choice):next
+| | | | +-append_parametre_action_separator | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_separator
+| | | | +-append_parametre_action_name | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_action
+| | | | +-append_parametre_action_assignment | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.parametre_assignment
+| | | | +-append_parametre_action_value | modify/append | 
+| | | | | :-destination | text/cybol-path | .wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.request:uri:query.day).link:href
+| | | | | :-source | text/cybol-path | .domain.uri.action_update
+| | +-uri_to_all | element/part | 
+| | | +-translate_uri_to_wui | flow/sequence | 
+| | | | :-model | text/cybol-path | .logic.translate.uri_to_wui.column
+| | | +-send_index | flow/sequence | 
+| | | | :-model | text/cybol-path | .logic.send.index
+| | | +-translate_uri_to_db | flow/sequence | 
+| | | | :-model | text/cybol-path | .logic.translate.uri_to_db.row
+| +-navigate | element/part | 
+| | +-week | element/part | 
+| | | +-empty_week | modify/empty | 
+| | | | :-destination | text/cybol-path | .var.week_string
+| | | | :-destination_properties | logicvalue/boolean | false
+| | | +-serialise_week | represent/serialise | 
+| | | | :-destination | text/cybol-path | .var.week_string
+| | | | :-source | text/cybol-path | .var.week
+| | | | :-language | meta/language | text/cybol
+| | | | :-format | meta/format | number/integer
+| | | +-model | text/cybol-path | .logic.translate.cal_to_wui
+| | | +-model | text/cybol-path | .logic.translate.db_to_wui.lecturers
+| | +-backward | element/part | 
+| | | +-decrement_week | calculate/subtract | 
+| | | | :-result | text/cybol-path | .var.week
+| | | | :-operand | number/integer | 1
+| | | +-navigate_to_week | flow/sequence | 
+| | | | :-model | text/cybol-path | .logic.navigate.week
+| | | +-send_index | flow/sequence | 
+| | | | :-model | text/cybol-path | .logic.send.index
+| | +-forward | element/part | 
+| | | +-increment_week | calculate/add | 
+| | | | :-result | text/cybol-path | .var.week
+| | | | :-operand | number/integer | 1
+| | | +-navigate_to_week | flow/sequence | 
+| | | | :-model | text/cybol-path | .logic.navigate.week
+| | | +-send_index | flow/sequence | 
+| | | | :-model | text/cybol-path | .logic.send.index
++-var | element/part | 
+| +-stdout | number/integer | 1
+| +-directory | text/plain | 
+| +-dbfile | text/plain | 
+| +-db | element/part | 
+| +-year | number/integer | 2015
+| +-week | number/integer | 12
+| +-year_string | text/plain | 2015
+| +-week_string | text/plain | 
+| +-request | element/part | 
+| +-client_socket | number/integer | 0
+| +-path_exists | logicvalue/boolean | false
+| +-query_exists | logicvalue/boolean | false
+| +-path | text/plain | 
+| +-file | application/octet-stream | 
 | +-action_path | text/cybol-path | 
 | +-webpage | text/plain | 
 | | :-server | text/cybol-path | .domain.server

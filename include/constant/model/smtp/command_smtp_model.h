@@ -33,6 +33,13 @@
 #include "constant.h"
 
 //
+// CAUTION! These constants are of type "wchar_t" even though the
+// smtp protocol uses "char", because they have to be searched
+// in a case-INsensitive way in the smtp command deserialiser
+// and therefore get converted into wide character before anyway.
+//
+
+//
 // The following OBSOLETE commands are NOT considered:
 //
 // RELAY
@@ -44,71 +51,71 @@
 //
 
 /** The AUTH command smtp model. */
-static unsigned char* AUTH_COMMAND_SMTP_MODEL = "AUTH";
+static wchar_t* AUTH_COMMAND_SMTP_MODEL = L"AUTH";
 static int* AUTH_COMMAND_SMTP_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The ATRN command smtp model. */
-static unsigned char* ATRN_COMMAND_SMTP_MODEL = "ATRN";
+static wchar_t* ATRN_COMMAND_SMTP_MODEL = L"ATRN";
 static int* ATRN_COMMAND_SMTP_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The BDAT command smtp model. */
-static unsigned char* BDAT_COMMAND_SMTP_MODEL = "BDAT";
+static wchar_t* BDAT_COMMAND_SMTP_MODEL = L"BDAT";
 static int* BDAT_COMMAND_SMTP_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The DATA command smtp model. */
-static unsigned char* DATA_COMMAND_SMTP_MODEL = "DATA";
+static wchar_t* DATA_COMMAND_SMTP_MODEL = L"DATA";
 static int* DATA_COMMAND_SMTP_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The EHLO command smtp model. */
-static unsigned char* EHLO_COMMAND_SMTP_MODEL = "EHLO";
+static wchar_t* EHLO_COMMAND_SMTP_MODEL = L"EHLO";
 static int* EHLO_COMMAND_SMTP_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The ETRN command smtp model. */
-static unsigned char* ETRN_COMMAND_SMTP_MODEL = "ETRN";
+static wchar_t* ETRN_COMMAND_SMTP_MODEL = L"ETRN";
 static int* ETRN_COMMAND_SMTP_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The EXPN command smtp model. */
-static unsigned char* EXPN_COMMAND_SMTP_MODEL = "EXPN";
+static wchar_t* EXPN_COMMAND_SMTP_MODEL = L"EXPN";
 static int* EXPN_COMMAND_SMTP_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The HELO command smtp model. */
-static unsigned char* HELO_COMMAND_SMTP_MODEL = "HELO";
+static wchar_t* HELO_COMMAND_SMTP_MODEL = L"HELO";
 static int* HELO_COMMAND_SMTP_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The HELP command smtp model. */
-static unsigned char* HELP_COMMAND_SMTP_MODEL = "HELP";
+static wchar_t* HELP_COMMAND_SMTP_MODEL = L"HELP";
 static int* HELP_COMMAND_SMTP_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The MAIL FROM command smtp model. */
-static unsigned char* MAIL_FROM_COMMAND_SMTP_MODEL = "MAIL FROM";
-static int* MAIL_FROM_COMMAND_SMTP_MODEL_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The MAIL command smtp model. */
+static wchar_t* MAIL_COMMAND_SMTP_MODEL = L"MAIL";
+static int* MAIL_COMMAND_SMTP_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The NOOP command smtp model. */
-static unsigned char* NOOP_COMMAND_SMTP_MODEL = "NOOP";
+static wchar_t* NOOP_COMMAND_SMTP_MODEL = L"NOOP";
 static int* NOOP_COMMAND_SMTP_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The QUIT command smtp model. */
-static unsigned char* QUIT_COMMAND_SMTP_MODEL = "QUIT";
+static wchar_t* QUIT_COMMAND_SMTP_MODEL = L"QUIT";
 static int* QUIT_COMMAND_SMTP_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The RCPT TO command smtp model. */
-static unsigned char* RCPT_TO_COMMAND_SMTP_MODEL = "RCPT TO";
-static int* RCPT_TO_COMMAND_SMTP_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The RCPT command smtp model. */
+static wchar_t* RCPT_COMMAND_SMTP_MODEL = L"RCPT";
+static int* RCPT_COMMAND_SMTP_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The RSET command smtp model. */
-static unsigned char* RSET_COMMAND_SMTP_MODEL = "RSET";
+static wchar_t* RSET_COMMAND_SMTP_MODEL = L"RSET";
 static int* RSET_COMMAND_SMTP_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The SIZE command smtp model. */
-static unsigned char* SIZE_COMMAND_SMTP_MODEL = "SIZE";
+static wchar_t* SIZE_COMMAND_SMTP_MODEL = L"SIZE";
 static int* SIZE_COMMAND_SMTP_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The STARTTLS command smtp model. */
-static unsigned char* STARTTLS_COMMAND_SMTP_MODEL = "STARTTLS";
+static wchar_t* STARTTLS_COMMAND_SMTP_MODEL = L"STARTTLS";
 static int* STARTTLS_COMMAND_SMTP_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The VRFY command smtp model. */
-static unsigned char* VRFY_COMMAND_SMTP_MODEL = "VRFY";
+static wchar_t* VRFY_COMMAND_SMTP_MODEL = L"VRFY";
 static int* VRFY_COMMAND_SMTP_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* COMMAND_SMTP_MODEL_CONSTANT_HEADER */

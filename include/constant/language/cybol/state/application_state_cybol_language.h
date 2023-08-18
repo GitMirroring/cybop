@@ -60,6 +60,14 @@ static wchar_t* JSON_APPLICATION_STATE_CYBOL_LANGUAGE = L"application/json";
 static int* JSON_APPLICATION_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The application/mbox application state cybol language.
+ *
+ * Mailbox (mbox)
+ */
+static wchar_t* MBOX_APPLICATION_STATE_CYBOL_LANGUAGE = L"application/mbox";
+static int* MBOX_APPLICATION_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The application/xml application state cybol language.
  *
  * Extensible Markup Language (XML)
