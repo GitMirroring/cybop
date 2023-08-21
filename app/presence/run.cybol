@@ -41,6 +41,27 @@
         <node name="message" channel="inline" format="text/plain" model="Initialised application"/>
     </node>
 
+    <!-- Test -->
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="presence/test.txt"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
+    </node>
+    <node name="send_knowledge" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
     <!-- Configuration of wui -->
 
     <node name="log" channel="inline" format="communicate/send" model="">
@@ -50,8 +71,8 @@
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Create wui"/>
     </node>
-<!--
     <node name="create_wui_choices" channel="inline" format="text/cybol-path" model=".logic.create.choices.rows"/>
+<!--
     <node name="create_wui_lecturers" channel="inline" format="text/cybol-path" model=".logic.create.lecturers.rows"/>
 -->
 
@@ -98,27 +119,6 @@
 
     <node name="navigate_week" channel="inline" format="text/cybol-path" model=".logic.navigate.week"/>
 -->
-
-    <!-- Test -->
-
-    <node name="open_file" channel="inline" format="dispatch/open" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/plain" model="presence/test.txt"/>
-        <node name="mode" channel="inline" format="text/plain" model="write"/>
-    </node>
-    <node name="send_knowledge" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="text/cybol-path" model="."/>
-    </node>
-    <node name="close_file" channel="inline" format="dispatch/close" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-    </node>
 
     <!-- Startup -->
 

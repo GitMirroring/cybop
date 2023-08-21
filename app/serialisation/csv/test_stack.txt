@@ -1,0 +1,5 @@
+[selected_node] | element/part | 
++-filename | text/plain | serialisation/csv/test/header.csv
++-table | text/cybol-path | .table_header
++-delimiter | text/plain | ,
++-header | logicvalue/boolean | true

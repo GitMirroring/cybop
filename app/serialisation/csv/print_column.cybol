@@ -1,5 +1,13 @@
 <node>
 
+    <!-- Loop test -->
+
+    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#column_break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="#column_index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model="#column_count"/>
+    </node>
+
     <node name="print_left_border" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>

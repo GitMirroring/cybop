@@ -1,0 +1,685 @@
+[selected_node] | element/part | 
++-id | number/integer | 5
++-stdout | number/integer | 1
++-table_comma | element/part | 
+| +-0 | element/part | 
+| | +-0 | text/plain | a
+| | +-1 | text/plain | 1
+| | +-2 | text/plain | 01.07.2022
+| | +-3 | text/plain | 1 EUR
+| | +-4 | text/plain | 10 %
+| +-1 | element/part | 
+| | +-0 | text/plain | b
+| | +-1 | text/plain | 2
+| | +-2 | text/plain | 01.08.2022
+| | +-3 | text/plain | 2 EUR
+| | +-4 | text/plain | 20 %
+| +-2 | element/part | 
+| | +-0 | text/plain | c
+| | +-1 | text/plain | 3
+| | +-2 | text/plain | 01.09.2022
+| | +-3 | text/plain | 3 EUR
+| | +-4 | text/plain | 30 %
++-table_semicolon | element/part | 
+| +-0 | element/part | 
+| | +-0 | text/plain | a
+| | +-1 | text/plain | 1
+| | +-2 | text/plain | 01.07.2022
+| | +-3 | text/plain | 1 EUR
+| | +-4 | text/plain | 10 %
+| +-1 | element/part | 
+| | +-0 | text/plain | b
+| | +-1 | text/plain | 2
+| | +-2 | text/plain | 01.08.2022
+| | +-3 | text/plain | 2 EUR
+| | +-4 | text/plain | 20 %
+| +-2 | element/part | 
+| | +-0 | text/plain | c
+| | +-1 | text/plain | 3
+| | +-2 | text/plain | 01.09.2022
+| | +-3 | text/plain | 3 EUR
+| | +-4 | text/plain | 30 %
++-table_comma_space | element/part | 
+| +-0 | element/part | 
+| | +-0 | text/plain | a
+| | +-1 | text/plain | 1
+| | +-2 | text/plain | 01.07.2022
+| | +-3 | text/plain | 1 EUR
+| | +-4 | text/plain | 10 %
+| +-1 | element/part | 
+| | +-0 | text/plain | b
+| | +-1 | text/plain | 2
+| | +-2 | text/plain | 01.08.2022
+| | +-3 | text/plain | 2 EUR
+| | +-4 | text/plain | 20 %
+| +-2 | element/part | 
+| | +-0 | text/plain | c
+| | +-1 | text/plain | 3
+| | +-2 | text/plain | 01.09.2022
+| | +-3 | text/plain | 3 EUR
+| | +-4 | text/plain | 30 %
++-table_sequence | element/part | 
+| +-0 | element/part | 
+| | +-0 | text/plain | a
+| | +-1 | text/plain | 1
+| | +-2 | text/plain | 01.07.2022
+| | +-3 | text/plain | 1 EUR
+| | +-4 | text/plain | 10 %
+| +-1 | element/part | 
+| | +-0 | text/plain | b
+| | +-1 | text/plain | 2
+| | +-2 | text/plain | 01.08.2022
+| | +-3 | text/plain | 2 EUR
+| | +-4 | text/plain | 20 %
+| +-2 | element/part | 
+| | +-0 | text/plain | c
+| | +-1 | text/plain | 3
+| | +-2 | text/plain | 01.09.2022
+| | +-3 | text/plain | 3 EUR
+| | +-4 | text/plain | 30 %
++-table_quoted | element/part | 
+| +-0 | element/part | 
+| | +-0 | text/plain | Space
+| | +-1 | text/plain | Date
+| | +-2 | text/plain | Quoted Text
+| +-1 | element/part | 
+| | +-0 | text/plain |  begin space
+| | +-1 | text/plain | 01/07/2022
+| | +-2 | text/plain | some "quoted" text
+| +-2 | element/part | 
+| | +-0 | text/plain | middle space
+| | +-1 | text/plain | 01/08/2022
+| | +-2 | text/plain | "begin quote" and "middle quote" and "end quote"
+| +-3 | element/part | 
+| | +-0 | text/plain | end space 
+| | +-1 | text/plain | 01/09/2022
+| | +-2 | text/plain | pure text
++-table_mixed | element/part | 
+| +-0 | element/part | 
+| | +-0 | text/plain | Space
+| | +-1 | text/plain | Date
+| | +-2 | text/plain | Quoted Text
+| +-1 | element/part | 
+| | +-0 | text/plain |  begin space
+| | +-1 | text/plain | 01/07/2022
+| | +-2 | text/plain | some "quoted" text
+| +-2 | element/part | 
+| | +-0 | text/plain | middle space
+| | +-1 | text/plain | 
+| | +-2 | text/plain | "begin quote" and "middle quote" and "end quote"
+| +-3 | element/part | 
+| | +-0 | text/plain | end space 
+| | +-1 | text/plain | 01/09/2022
+| | +-2 | text/plain | 
++-table_header | element/part | 
+| +-0 | element/part | 
+| | +-0 | text/plain | a
+| | +-1 | text/plain | 1
+| | +-2 | text/plain | 01.07.2022
+| | +-3 | text/plain | 1 EUR
+| | +-4 | text/plain | 10 %
+| +-1 | element/part | 
+| | +-0 | text/plain | b
+| | +-1 | text/plain | 2
+| | +-2 | text/plain | 01.08.2022
+| | +-3 | text/plain | 2 EUR
+| | +-4 | text/plain | 20 %
+| +-2 | element/part | 
+| | +-0 | text/plain | c
+| | +-1 | text/plain | 3
+| | +-2 | text/plain | 01.09.2022
+| | +-3 | text/plain | 3 EUR
+| | +-4 | text/plain | 30 %
+| :-header | element/part | 
+| | +-0 | text/plain | Letter
+| | +-1 | text/plain | Integer
+| | +-2 | text/plain | Date
+| | +-3 | text/plain | Currency
+| | +-4 | text/plain | Percent
++-test_comma | element/part | 
+| +-log_label | communicate/send | 
+| | :-channel | meta/channel | terminal
+| | :-receiver | text/cybol-path | .stdout
+| | :-language | meta/language | message/tui
+| | :-format | meta/format | text/plain
+| | :-message | text/plain | Read file:
+| +-log_value | communicate/send | 
+| | :-channel | meta/channel | terminal
+| | :-receiver | text/cybol-path | .stdout
+| | :-language | meta/language | message/tui
+| | :-format | meta/format | text/plain
+| | :-message | text/cybol-path | #filename
+| +-open_file | dispatch/open | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| | :-device | text/cybol-path | #filename
+| +-receive_file | communicate/receive | 
+| | :-channel | meta/channel | file
+| | :-sender | text/cybol-path | .id
+| | :-encoding | meta/encoding | utf-8
+| | :-language | meta/language | text/csv
+| | | :-delimiter | text/cybol-path | #delimiter
+| | | :-quotation | text/cybol-path | #quotation
+| | | :-header | text/cybol-path | #header
+| | :-message | text/cybol-path | {#table}
+| +-close_file | dispatch/close | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| +-open_file | dispatch/open | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| | :-device | text/plain | serialisation/csv/test_knowledge_tree.txt
+| | :-mode | text/plain | write
+| +-send_knowledge | communicate/send | 
+| | :-channel | meta/channel | file
+| | :-receiver | text/cybol-path | .id
+| | :-encoding | meta/encoding | utf-8
+| | :-language | meta/language | text/model-diagram
+| | :-format | meta/format | element/part
+| | :-message | text/cybol-path | .
+| +-close_file | dispatch/close | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| +-open_file | dispatch/open | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| | :-device | text/plain | serialisation/csv/test_stack.txt
+| | :-mode | text/plain | write
+| +-send_knowledge | communicate/send | 
+| | :-channel | meta/channel | file
+| | :-receiver | text/cybol-path | .id
+| | :-encoding | meta/encoding | utf-8
+| | :-language | meta/language | text/model-diagram
+| | :-format | meta/format | element/part
+| | :-message | text/cybol-path | #
+| +-close_file | dispatch/close | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| +-print_table | text/cybol-path | .print_table
+| :-filename | text/plain | serialisation/csv/test/comma.csv
+| :-table | text/cybol-path | .table_comma
+| :-delimiter | text/plain | ,
++-test_semicolon | element/part | 
+| +-log_label | communicate/send | 
+| | :-channel | meta/channel | terminal
+| | :-receiver | text/cybol-path | .stdout
+| | :-language | meta/language | message/tui
+| | :-format | meta/format | text/plain
+| | :-message | text/plain | Read file:
+| +-log_value | communicate/send | 
+| | :-channel | meta/channel | terminal
+| | :-receiver | text/cybol-path | .stdout
+| | :-language | meta/language | message/tui
+| | :-format | meta/format | text/plain
+| | :-message | text/cybol-path | #filename
+| +-open_file | dispatch/open | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| | :-device | text/cybol-path | #filename
+| +-receive_file | communicate/receive | 
+| | :-channel | meta/channel | file
+| | :-sender | text/cybol-path | .id
+| | :-encoding | meta/encoding | utf-8
+| | :-language | meta/language | text/csv
+| | | :-delimiter | text/cybol-path | #delimiter
+| | | :-quotation | text/cybol-path | #quotation
+| | | :-header | text/cybol-path | #header
+| | :-message | text/cybol-path | {#table}
+| +-close_file | dispatch/close | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| +-open_file | dispatch/open | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| | :-device | text/plain | serialisation/csv/test_knowledge_tree.txt
+| | :-mode | text/plain | write
+| +-send_knowledge | communicate/send | 
+| | :-channel | meta/channel | file
+| | :-receiver | text/cybol-path | .id
+| | :-encoding | meta/encoding | utf-8
+| | :-language | meta/language | text/model-diagram
+| | :-format | meta/format | element/part
+| | :-message | text/cybol-path | .
+| +-close_file | dispatch/close | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| +-open_file | dispatch/open | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| | :-device | text/plain | serialisation/csv/test_stack.txt
+| | :-mode | text/plain | write
+| +-send_knowledge | communicate/send | 
+| | :-channel | meta/channel | file
+| | :-receiver | text/cybol-path | .id
+| | :-encoding | meta/encoding | utf-8
+| | :-language | meta/language | text/model-diagram
+| | :-format | meta/format | element/part
+| | :-message | text/cybol-path | #
+| +-close_file | dispatch/close | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| +-print_table | text/cybol-path | .print_table
+| :-filename | text/plain | serialisation/csv/test/semicolon.csv
+| :-table | text/cybol-path | .table_semicolon
+| :-delimiter | text/plain | ;
++-test_comma_space | element/part | 
+| +-log_label | communicate/send | 
+| | :-channel | meta/channel | terminal
+| | :-receiver | text/cybol-path | .stdout
+| | :-language | meta/language | message/tui
+| | :-format | meta/format | text/plain
+| | :-message | text/plain | Read file:
+| +-log_value | communicate/send | 
+| | :-channel | meta/channel | terminal
+| | :-receiver | text/cybol-path | .stdout
+| | :-language | meta/language | message/tui
+| | :-format | meta/format | text/plain
+| | :-message | text/cybol-path | #filename
+| +-open_file | dispatch/open | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| | :-device | text/cybol-path | #filename
+| +-receive_file | communicate/receive | 
+| | :-channel | meta/channel | file
+| | :-sender | text/cybol-path | .id
+| | :-encoding | meta/encoding | utf-8
+| | :-language | meta/language | text/csv
+| | | :-delimiter | text/cybol-path | #delimiter
+| | | :-quotation | text/cybol-path | #quotation
+| | | :-header | text/cybol-path | #header
+| | :-message | text/cybol-path | {#table}
+| +-close_file | dispatch/close | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| +-open_file | dispatch/open | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| | :-device | text/plain | serialisation/csv/test_knowledge_tree.txt
+| | :-mode | text/plain | write
+| +-send_knowledge | communicate/send | 
+| | :-channel | meta/channel | file
+| | :-receiver | text/cybol-path | .id
+| | :-encoding | meta/encoding | utf-8
+| | :-language | meta/language | text/model-diagram
+| | :-format | meta/format | element/part
+| | :-message | text/cybol-path | .
+| +-close_file | dispatch/close | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| +-open_file | dispatch/open | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| | :-device | text/plain | serialisation/csv/test_stack.txt
+| | :-mode | text/plain | write
+| +-send_knowledge | communicate/send | 
+| | :-channel | meta/channel | file
+| | :-receiver | text/cybol-path | .id
+| | :-encoding | meta/encoding | utf-8
+| | :-language | meta/language | text/model-diagram
+| | :-format | meta/format | element/part
+| | :-message | text/cybol-path | #
+| +-close_file | dispatch/close | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| +-print_table | text/cybol-path | .print_table
+| :-filename | text/plain | serialisation/csv/test/comma_space.csv
+| :-table | text/cybol-path | .table_comma_space
+| :-delimiter | text/plain | , 
++-test_sequence | element/part | 
+| +-log_label | communicate/send | 
+| | :-channel | meta/channel | terminal
+| | :-receiver | text/cybol-path | .stdout
+| | :-language | meta/language | message/tui
+| | :-format | meta/format | text/plain
+| | :-message | text/plain | Read file:
+| +-log_value | communicate/send | 
+| | :-channel | meta/channel | terminal
+| | :-receiver | text/cybol-path | .stdout
+| | :-language | meta/language | message/tui
+| | :-format | meta/format | text/plain
+| | :-message | text/cybol-path | #filename
+| +-open_file | dispatch/open | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| | :-device | text/cybol-path | #filename
+| +-receive_file | communicate/receive | 
+| | :-channel | meta/channel | file
+| | :-sender | text/cybol-path | .id
+| | :-encoding | meta/encoding | utf-8
+| | :-language | meta/language | text/csv
+| | | :-delimiter | text/cybol-path | #delimiter
+| | | :-quotation | text/cybol-path | #quotation
+| | | :-header | text/cybol-path | #header
+| | :-message | text/cybol-path | {#table}
+| +-close_file | dispatch/close | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| +-open_file | dispatch/open | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| | :-device | text/plain | serialisation/csv/test_knowledge_tree.txt
+| | :-mode | text/plain | write
+| +-send_knowledge | communicate/send | 
+| | :-channel | meta/channel | file
+| | :-receiver | text/cybol-path | .id
+| | :-encoding | meta/encoding | utf-8
+| | :-language | meta/language | text/model-diagram
+| | :-format | meta/format | element/part
+| | :-message | text/cybol-path | .
+| +-close_file | dispatch/close | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| +-open_file | dispatch/open | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| | :-device | text/plain | serialisation/csv/test_stack.txt
+| | :-mode | text/plain | write
+| +-send_knowledge | communicate/send | 
+| | :-channel | meta/channel | file
+| | :-receiver | text/cybol-path | .id
+| | :-encoding | meta/encoding | utf-8
+| | :-language | meta/language | text/model-diagram
+| | :-format | meta/format | element/part
+| | :-message | text/cybol-path | #
+| +-close_file | dispatch/close | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| +-print_table | text/cybol-path | .print_table
+| :-filename | text/plain | serialisation/csv/test/sequence.csv
+| :-table | text/cybol-path | .table_sequence
+| :-delimiter | text/plain | #?#
++-test_quoted | element/part | 
+| +-log_label | communicate/send | 
+| | :-channel | meta/channel | terminal
+| | :-receiver | text/cybol-path | .stdout
+| | :-language | meta/language | message/tui
+| | :-format | meta/format | text/plain
+| | :-message | text/plain | Read file:
+| +-log_value | communicate/send | 
+| | :-channel | meta/channel | terminal
+| | :-receiver | text/cybol-path | .stdout
+| | :-language | meta/language | message/tui
+| | :-format | meta/format | text/plain
+| | :-message | text/cybol-path | #filename
+| +-open_file | dispatch/open | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| | :-device | text/cybol-path | #filename
+| +-receive_file | communicate/receive | 
+| | :-channel | meta/channel | file
+| | :-sender | text/cybol-path | .id
+| | :-encoding | meta/encoding | utf-8
+| | :-language | meta/language | text/csv
+| | | :-delimiter | text/cybol-path | #delimiter
+| | | :-quotation | text/cybol-path | #quotation
+| | | :-header | text/cybol-path | #header
+| | :-message | text/cybol-path | {#table}
+| +-close_file | dispatch/close | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| +-open_file | dispatch/open | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| | :-device | text/plain | serialisation/csv/test_knowledge_tree.txt
+| | :-mode | text/plain | write
+| +-send_knowledge | communicate/send | 
+| | :-channel | meta/channel | file
+| | :-receiver | text/cybol-path | .id
+| | :-encoding | meta/encoding | utf-8
+| | :-language | meta/language | text/model-diagram
+| | :-format | meta/format | element/part
+| | :-message | text/cybol-path | .
+| +-close_file | dispatch/close | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| +-open_file | dispatch/open | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| | :-device | text/plain | serialisation/csv/test_stack.txt
+| | :-mode | text/plain | write
+| +-send_knowledge | communicate/send | 
+| | :-channel | meta/channel | file
+| | :-receiver | text/cybol-path | .id
+| | :-encoding | meta/encoding | utf-8
+| | :-language | meta/language | text/model-diagram
+| | :-format | meta/format | element/part
+| | :-message | text/cybol-path | #
+| +-close_file | dispatch/close | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| +-print_table | text/cybol-path | .print_table
+| :-filename | text/plain | serialisation/csv/test/quoted.csv
+| :-table | text/cybol-path | .table_quoted
+| :-delimiter | text/plain | ,
+| :-quotation | text/plain | "
++-test_mixed | element/part | 
+| +-log_label | communicate/send | 
+| | :-channel | meta/channel | terminal
+| | :-receiver | text/cybol-path | .stdout
+| | :-language | meta/language | message/tui
+| | :-format | meta/format | text/plain
+| | :-message | text/plain | Read file:
+| +-log_value | communicate/send | 
+| | :-channel | meta/channel | terminal
+| | :-receiver | text/cybol-path | .stdout
+| | :-language | meta/language | message/tui
+| | :-format | meta/format | text/plain
+| | :-message | text/cybol-path | #filename
+| +-open_file | dispatch/open | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| | :-device | text/cybol-path | #filename
+| +-receive_file | communicate/receive | 
+| | :-channel | meta/channel | file
+| | :-sender | text/cybol-path | .id
+| | :-encoding | meta/encoding | utf-8
+| | :-language | meta/language | text/csv
+| | | :-delimiter | text/cybol-path | #delimiter
+| | | :-quotation | text/cybol-path | #quotation
+| | | :-header | text/cybol-path | #header
+| | :-message | text/cybol-path | {#table}
+| +-close_file | dispatch/close | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| +-open_file | dispatch/open | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| | :-device | text/plain | serialisation/csv/test_knowledge_tree.txt
+| | :-mode | text/plain | write
+| +-send_knowledge | communicate/send | 
+| | :-channel | meta/channel | file
+| | :-receiver | text/cybol-path | .id
+| | :-encoding | meta/encoding | utf-8
+| | :-language | meta/language | text/model-diagram
+| | :-format | meta/format | element/part
+| | :-message | text/cybol-path | .
+| +-close_file | dispatch/close | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| +-open_file | dispatch/open | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| | :-device | text/plain | serialisation/csv/test_stack.txt
+| | :-mode | text/plain | write
+| +-send_knowledge | communicate/send | 
+| | :-channel | meta/channel | file
+| | :-receiver | text/cybol-path | .id
+| | :-encoding | meta/encoding | utf-8
+| | :-language | meta/language | text/model-diagram
+| | :-format | meta/format | element/part
+| | :-message | text/cybol-path | #
+| +-close_file | dispatch/close | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| +-print_table | text/cybol-path | .print_table
+| :-filename | text/plain | serialisation/csv/test/mixed.csv
+| :-table | text/cybol-path | .table_mixed
+| :-delimiter | text/plain | ,
+| :-quotation | text/plain | "
++-test_header | element/part | 
+| +-log_label | communicate/send | 
+| | :-channel | meta/channel | terminal
+| | :-receiver | text/cybol-path | .stdout
+| | :-language | meta/language | message/tui
+| | :-format | meta/format | text/plain
+| | :-message | text/plain | Read file:
+| +-log_value | communicate/send | 
+| | :-channel | meta/channel | terminal
+| | :-receiver | text/cybol-path | .stdout
+| | :-language | meta/language | message/tui
+| | :-format | meta/format | text/plain
+| | :-message | text/cybol-path | #filename
+| +-open_file | dispatch/open | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| | :-device | text/cybol-path | #filename
+| +-receive_file | communicate/receive | 
+| | :-channel | meta/channel | file
+| | :-sender | text/cybol-path | .id
+| | :-encoding | meta/encoding | utf-8
+| | :-language | meta/language | text/csv
+| | | :-delimiter | text/cybol-path | #delimiter
+| | | :-quotation | text/cybol-path | #quotation
+| | | :-header | text/cybol-path | #header
+| | :-message | text/cybol-path | {#table}
+| +-close_file | dispatch/close | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| +-open_file | dispatch/open | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| | :-device | text/plain | serialisation/csv/test_knowledge_tree.txt
+| | :-mode | text/plain | write
+| +-send_knowledge | communicate/send | 
+| | :-channel | meta/channel | file
+| | :-receiver | text/cybol-path | .id
+| | :-encoding | meta/encoding | utf-8
+| | :-language | meta/language | text/model-diagram
+| | :-format | meta/format | element/part
+| | :-message | text/cybol-path | .
+| +-close_file | dispatch/close | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| +-open_file | dispatch/open | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| | :-device | text/plain | serialisation/csv/test_stack.txt
+| | :-mode | text/plain | write
+| +-send_knowledge | communicate/send | 
+| | :-channel | meta/channel | file
+| | :-receiver | text/cybol-path | .id
+| | :-encoding | meta/encoding | utf-8
+| | :-language | meta/language | text/model-diagram
+| | :-format | meta/format | element/part
+| | :-message | text/cybol-path | #
+| +-close_file | dispatch/close | 
+| | :-channel | meta/channel | file
+| | :-identification | text/cybol-path | .id
+| +-print_table | text/cybol-path | .print_table
+| :-filename | text/plain | serialisation/csv/test/header.csv
+| :-table | text/cybol-path | .table_header
+| :-delimiter | text/plain | ,
+| :-header | logicvalue/boolean | true
++-print_table | element/part | 
+| +-print_newline | communicate/send | 
+| | :-channel | meta/channel | terminal
+| | :-receiver | text/cybol-path | .stdout
+| | :-language | meta/language | message/tui
+| | :-format | meta/format | text/plain
+| | :-message | text/plain | 
+| +-print_heading | communicate/send | 
+| | :-channel | meta/channel | terminal
+| | :-receiver | text/cybol-path | .stdout
+| | :-language | meta/language | message/tui
+| | :-format | meta/format | text/plain
+| | :-message | text/plain | Table:
+| +-assign_row | modify/overwrite | 
+| | :-destination | text/cybol-path | #row
+| | :-source | text/plain | #row_heading
+| +-assign_row | modify/overwrite | 
+| | :-destination | text/cybol-path | #row
+| | :-source | text/plain | #row_data
+| +-count_rows | access/count | 
+| | :-count | text/cybol-path | #row_count
+| | :-part | text/cybol-path | {#table}
+| +-loop_rows | flow/loop | 
+| | :-break | text/cybol-path | #row_break
+| | :-model | text/cybol-path | #row_model
+| +-print_newline | communicate/send | 
+| | :-channel | meta/channel | terminal
+| | :-receiver | text/cybol-path | .stdout
+| | :-language | meta/language | message/tui
+| | :-format | meta/format | text/plain
+| | :-message | text/plain | 
+| :-row_break | logicvalue/boolean | false
+| :-row_index | number/integer | 0
+| :-row_count | number/integer | 0
+| :-row_model | text/cybol-path | .print_row
+| :-row | text/cybol-path | 
+| :-row_data | text/cybol-path | {#table}.[#row_index]
+| :-row_heading | text/cybol-path | {#table}:header
++-print_row | element/part | 
+| +-compare_index | compare/greater-or-equal | 
+| | :-result | text/cybol-path | #row_break
+| | :-left | text/cybol-path | #row_index
+| | :-right | text/cybol-path | #row_count
+| +-count_columns | access/count | 
+| | :-count | text/cybol-path | #column_count
+| | :-part | text/cybol-path | {{#row}}
+| +-compare_index | compare/greater-or-equal | 
+| | :-result | text/cybol-path | #column_break
+| | :-left | text/cybol-path | #column_index
+| | :-right | text/cybol-path | #column_count
+| +-loop_columns | flow/loop | 
+| | :-break | text/cybol-path | #column_break
+| | :-model | text/cybol-path | #column_model
+| +-print_right_border_and_newline | communicate/send | 
+| | :-channel | meta/channel | terminal
+| | :-receiver | text/cybol-path | .stdout
+| | :-language | meta/language | message/tui
+| | | :-newline | logicvalue/boolean | true
+| | :-format | meta/format | text/plain
+| | :-message | text/plain | |
+| +-increment_index | calculate/add | 
+| | :-result | text/cybol-path | #row_index
+| | :-operand | number/integer | 1
+| :-column_break | logicvalue/boolean | false
+| :-column_index | number/integer | 0
+| :-column_count | number/integer | 0
+| :-column_model | text/cybol-path | .print_column
++-print_column | element/part | 
+| +-compare_index | compare/greater-or-equal | 
+| | :-result | text/cybol-path | #column_break
+| | :-left | text/cybol-path | #column_index
+| | :-right | text/cybol-path | #column_count
+| +-print_left_border | communicate/send | 
+| | :-channel | meta/channel | terminal
+| | :-receiver | text/cybol-path | .stdout
+| | :-language | meta/language | message/tui
+| | | :-newline | logicvalue/boolean | false
+| | :-format | meta/format | text/plain
+| | :-message | text/plain | |
+| +-print_space | communicate/send | 
+| | :-channel | meta/channel | terminal
+| | :-receiver | text/cybol-path | .stdout
+| | :-language | meta/language | message/tui
+| | | :-newline | logicvalue/boolean | false
+| | :-format | meta/format | text/plain
+| | :-message | text/plain |  
+| +-print_value | communicate/send | 
+| | :-channel | meta/channel | terminal
+| | :-receiver | text/cybol-path | .stdout
+| | :-language | meta/language | message/tui
+| | | :-newline | logicvalue/boolean | false
+| | :-format | meta/format | text/plain
+| | :-message | text/cybol-path | {{#row}}.[#column_index]
+| +-print_space | communicate/send | 
+| | :-channel | meta/channel | terminal
+| | :-receiver | text/cybol-path | .stdout
+| | :-language | meta/language | message/tui
+| | | :-newline | logicvalue/boolean | false
+| | :-format | meta/format | text/plain
+| | :-message | text/plain |  
+| +-increment_index | calculate/add | 
+| | :-result | text/cybol-path | #column_index
+| | :-operand | number/integer | 1
