@@ -17,13 +17,6 @@ _________________
         * Update cybol application "presence" to use responsive bootstrap-based user interface
         * Use stack variables to avoid cybol operation call of "empty"
 
-        * Rewrite cybol application "clean_result_directory"
-            - make PIPES work in cyboi (e.g. as named pipes in the background), before continuing, needed for: n=$(ls -a $1 | wc -l);
-            - continue file "remove_superfluous_element.cybol", see original script, count contained elements first, delete if > 2
-            - change "verbal" into "verbose", also in cyboi interpreter
-            - change "tape_archiver" into a verb, also in cyboi interpreter
-            OLD: - file "check_empty_home_directory.cybol" is incomplete
-
 Kommunikation im Medizinwesen (KIM)
 ___________________________________
 
@@ -1246,11 +1239,6 @@ _________
         * Provide RPM packages
         * Provide Windows setup assistant
 
-Project
-_______
-
-        * Become official gnu project
-
 CYBOP
 _____
 
@@ -1368,4 +1356,14 @@ void function_y() {
         fwprintf(stdout, L"Debug: This is a log message. value: %i\n", value);
     }
 }
+
+CYBOL Application
+_________________
+
+        * Rewrite cybol application "clean_result_directory"
+            - make PIPES work in cyboi (e.g. as named pipes in the background), before continuing, needed for: n=$(ls -a $1 | wc -l);
+            - continue file "remove_superfluous_element.cybol", see original script, count contained elements first, delete if > 2
+            - change "verbal" into "verbose", also in cyboi interpreter
+            - change "tape_archiver" into a verb, also in cyboi interpreter
+            OLD: - file "check_empty_home_directory.cybol" is incomplete
 

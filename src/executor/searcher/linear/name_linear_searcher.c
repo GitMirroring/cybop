@@ -40,8 +40,9 @@
  * @param p2 the searchword data
  * @param p3 the searchword count
  * @param p4 the searchword type
+ * @param p5 the perfect match flag (requesting equal count)
  */
-void search_linear_name(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void search_linear_name(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Search linear name.");
     //?? fwprintf(stdout, L"Debug: Search linear name. part p1: %i\n", p1);
@@ -69,7 +70,7 @@ void search_linear_name(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // "search_linear_fifo", since a 1:1 matching is necessary for part name
     // (other than for the model further below).
     //
-    search_linear_primitive(p0, nd, nc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, p3, p4);
+    search_linear_primitive(p0, nd, nc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, p3, p4, p5);
 
     //?? fwprintf(stdout, L"Debug: Search linear name. nd: %i\n", nd);
     //?? fwprintf(stdout, L"Debug: Search linear name. nd as wchar_t: %ls\n", (wchar_t*) nd);

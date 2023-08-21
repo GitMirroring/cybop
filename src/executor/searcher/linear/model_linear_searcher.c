@@ -41,8 +41,9 @@
  * @param p2 the searchword data
  * @param p3 the searchword count
  * @param p4 the searchword type
+ * @param p5 the perfect match flag (requesting equal count)
  */
-void search_linear_model(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void search_linear_model(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Search linear model.");
     //?? fwprintf(stdout, L"Debug: Search linear model. part p1: %i\n", p1);
@@ -81,7 +82,7 @@ void search_linear_model(void* p0, void* p1, void* p2, void* p3, void* p4) {
         //
 
         // Search through part model recursively.
-        search_linear_fifo(p0, md, mc, td, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p3, p4);
+        search_linear_fifo(p0, md, mc, td, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p3, p4, p5);
 
         //?? fwprintf(stdout, L"Debug: Search linear model. md: %i\n", md);
         //?? fwprintf(stdout, L"Debug: Search linear model. md as wchar_t: %ls\n", (wchar_t*) md);

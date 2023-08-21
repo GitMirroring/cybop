@@ -49,8 +49,13 @@ void get_name_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     // The index of the searched part.
     int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
+    //
     // Determine index of searched part.
-    search_linear((void*) &i, p1, p4, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p5);
+    //
+    // CAUTION! Set perfect match flag (second-last argument) to TRUE so that
+    // equal counts of searchword and searched child nodes are requested.
+    //
+    search_linear((void*) &i, p1, p4, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p5);
 
     if (i > *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 

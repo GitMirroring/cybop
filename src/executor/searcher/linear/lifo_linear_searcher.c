@@ -45,8 +45,9 @@
  * @param p5 the searchword data
  * @param p6 the searchword count
  * @param p7 the searchword type
+ * @param p8 the perfect match flag (requesting equal count)
  */
-void search_linear_lifo(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void search_linear_lifo(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Search linear lifo.");
     //?? fwprintf(stdout, L"Debug: Search linear lifo. list count p2: %i\n", p2);
@@ -133,7 +134,7 @@ void search_linear_lifo(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             //
             // CAUTION! Set BACKWARD flag to TRUE.
             //
-            search_linear_type(p0, (void*) &pos, (void*) &rem, p3, p4, p5, p6, p7, (void*) &b, (void*) &j, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            search_linear_type(p0, (void*) &pos, (void*) &rem, p3, p4, p5, p6, p7, p8, (void*) &b, (void*) &j, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 }

@@ -42,8 +42,9 @@
  * @param p3 the searchword data
  * @param p4 the searchword count
  * @param p5 the searchword type
+ * @param p6 the perfect match flag (requesting equal count)
  */
-void search_linear_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void search_linear_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Search linear part.");
     //?? fwprintf(stdout, L"Debug: Search linear part. model flag p2: %i\n", p2);
@@ -74,7 +75,7 @@ void search_linear_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         // Search part name
         //
 
-        search_linear_name((void*) &i, p, p3, p4, p5);
+        search_linear_name((void*) &i, p, p3, p4, p5, p6);
 
     } else {
 
@@ -82,7 +83,7 @@ void search_linear_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         // Search within part model
         //
 
-        search_linear_model((void*) &i, p, p3, p4, p5);
+        search_linear_model((void*) &i, p, p3, p4, p5, p6);
     }
 
     if (i >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {

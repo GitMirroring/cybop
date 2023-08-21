@@ -41,25 +41,69 @@
  * @param p4 the searchword data
  * @param p5 the searchword count
  * @param p6 the searchword type
+ * @param p7 the perfect match flag (requesting equal count)
  */
-void search_linear_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void search_linear_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Search linear primitive.");
     //?? fwprintf(stdout, L"Debug: Search linear primitive. p0: %i\n", p0);
 
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The element count.
     int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    //
-    // Get and verify element count.
-    //
-    // CAUTION! Since the operation "check" called further below does
-    // lexicographical comparison, the COUNTS of both operands have to
-    // be EQUAL for a positive result. But the list count remaining
-    // is mostly greater than the searchword count. Therefore, the
-    // searchword count gets assigned to the element count here.
-    //
-    search_linear_elementcount((void*) &ec, p5, p2);
+    compare_integer_unequal((void*) &r, p7, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        //
+        // The perfect match flag is NOT set.
+        //
+
+        //
+        // Use searchword count as element count.
+        //
+        // CAUTION! Since the operation "check" called further below does
+        // lexicographical comparison, the COUNTS of both operands have to
+        // be EQUAL for a positive result. But the list count remaining
+        // is mostly greater than the searchword count. Therefore, the
+        // SEARCHWORD COUNT gets assigned to the element count here.
+        //
+        search_linear_elementcount((void*) &ec, p5, p2);
+
+    } else {
+
+        //
+        // The perfect match flag IS set.
+        //
+
+        //
+        // Use list count remaining as element count.
+        //
+        // CAUTION! When searching through the child nodes of a compound part,
+        // then the name has to match perfectly and NO MORE characters are
+        // allowed to remain. Therefore, the LIST COUNT REMAINING is used
+        // for comparison and has to be identical to the searchword count.
+        //
+        // Example:
+        //
+        // +-logic | element/part |
+        // | +-create | element/part |
+        // | | +-choices | element/part |
+        // | | | +-rows | element/part |
+        // ...
+        // | | | +-row | element/part |
+        // ...
+        //
+        // Searched path: .logic.create.choices.row
+        //
+        // Using the standard search, the node "rows" would be returned FALSELY
+        // as result, since it contains the letters "row". Therefore, the length
+        // of both comparison operands has to match PERFECTLY.
+        //
+        copy_integer((void*) &ec, p2);
+    }
 
     // Check if element type and searchword type are equal.
     search_linear_comparison(p0, p1, (void*) &ec, p3, p4, p5, p6);

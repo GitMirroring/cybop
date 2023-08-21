@@ -43,18 +43,19 @@
  * @param p5 the searchword data
  * @param p6 the searchword count
  * @param p7 the searchword type
- * @param p8 the backward flag
+ * @param p8 the perfect match flag (requesting equal count)
+ * @param p9 the backward flag
  */
-void search_linear(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void search_linear(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Search linear.");
-    //?? fwprintf(stdout, L"Debug: Search linear. backward flag p8: %i\n", p8);
-    //?? fwprintf(stdout, L"Debug: Search linear. backward flag *p8: %i\n", *((int*) p8));
+    //?? fwprintf(stdout, L"Debug: Search linear. backward flag p9: %i\n", p9);
+    //?? fwprintf(stdout, L"Debug: Search linear. backward flag *p9: %i\n", *((int*) p9));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_unequal((void*) &r, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, p9, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -62,7 +63,7 @@ void search_linear(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
         // This is a FORWARD search.
         //
 
-        search_linear_fifo(p0, p1, p2, p3, p4, p5, p6, p7);
+        search_linear_fifo(p0, p1, p2, p3, p4, p5, p6, p7, p8);
 
     } else {
 
@@ -70,6 +71,6 @@ void search_linear(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
         // This is a BACKWARD search.
         //
 
-        search_linear_lifo(p0, p1, p2, p3, p4, p5, p6, p7);
+        search_linear_lifo(p0, p1, p2, p3, p4, p5, p6, p7, p8);
     }
 }

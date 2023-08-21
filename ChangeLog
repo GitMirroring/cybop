@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-08-21  Christian Heller  <christian.heller@cybop.org>
+
+        * Introduce perfect match flag in most functions of linear search, for requesting equal count of searchword and searched child node names
+        * Fix thereby endless loop in cybol application "presence" where node "rows" got detected falsely instead of node "row"
+
 2023-08-18  Christian Heller  <christian.heller@cybop.org>
 
         * Avoid wrong destination data by catching zero length source data in files "utf_8_decoder.c" and "utf_8_encoder.c"

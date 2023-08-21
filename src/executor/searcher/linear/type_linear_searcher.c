@@ -44,12 +44,13 @@
  * @param p5 the searchword data
  * @param p6 the searchword count
  * @param p7 the searchword type
- * @param p8 the break flag
- * @param p9 the loop variable
- * @param p10 the step (increment or decrement)
- * @param p11 the backward flag
+ * @param p8 the perfect match flag (requesting equal count)
+ * @param p9 the break flag
+ * @param p10 the loop variable
+ * @param p11 the step (increment or decrement)
+ * @param p12 the backward flag
  */
-void search_linear_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void search_linear_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -73,7 +74,7 @@ void search_linear_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             // The list represents primitive data.
             //
 
-            search_linear_primitive((void*) &f, *pos, p2, p3, p5, p6, p7);
+            search_linear_primitive((void*) &f, *pos, p2, p3, p5, p6, p7, p8);
 
         } else {
 
@@ -85,11 +86,11 @@ void search_linear_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             // Initialise element with part name OR model,
             // depending on the given model flag.
             //
-            search_linear_part((void*) &f, *pos, p4, p5, p6, p7);
+            search_linear_part((void*) &f, *pos, p4, p5, p6, p7, p8);
         }
 
         // Assign index and break OR move to the next position.
-        search_linear_moving(p0, p1, p2, p3, p8, p9, p10, p11, (void*) &f);
+        search_linear_moving(p0, p1, p2, p3, p9, p10, p11, p12, (void*) &f);
 
     } else {
 

@@ -85,19 +85,19 @@ void move(void* p0, void* p1, void* p2, void* p3, void* p4);
 // searcher
 //
 
-void search(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9);
+void search(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10);
 
-void search_linear(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
+void search_linear(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9);
 void search_linear_comparison(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 void search_linear_elementcount(void* p0, void* p1, void* p2);
-void search_linear_fifo(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
-void search_linear_lifo(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
-void search_linear_model(void* p0, void* p1, void* p2, void* p3, void* p4);
+void search_linear_fifo(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
+void search_linear_lifo(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
+void search_linear_model(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
 void search_linear_moving(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
-void search_linear_name(void* p0, void* p1, void* p2, void* p3, void* p4);
-void search_linear_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
-void search_linear_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
-void search_linear_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11);
+void search_linear_name(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
+void search_linear_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void search_linear_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
+void search_linear_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12);
 
 //
 // sorter

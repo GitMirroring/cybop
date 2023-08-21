@@ -73,7 +73,14 @@ void check_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // The comparison result 3.
     int r3 = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    //
     // Assign loop count.
+    //
+    // CAUTION! It is all right to assign the smaller count here
+    // since it guarantees that the content may be compared properly.
+    // The actual counts get compared once again further below if
+    // all content (elements) have been compared and are equal.
+    //
     check_count((void*) &c, p3, p4);
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
