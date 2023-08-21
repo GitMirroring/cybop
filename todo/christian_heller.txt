@@ -14,8 +14,8 @@
 CYBOL Application
 _________________
 
-        * Update cybol application "presence" to use responsive bootstrap-based user interface
         * Use stack variables to avoid cybol operation call of "empty"
+        * Update cybol application "presence" to use responsive bootstrap-based user interface
 
 Kommunikation im Medizinwesen (KIM)
 ___________________________________
