@@ -51,6 +51,7 @@ target_link_libraries(cyboi-executor-communication
     ${XCB_LIBRARIES}
     cyboi-executor-representer-binary
     cyboi-executor-representer-cybol
+    cyboi-executor-representer-email
     cyboi-executor-representer-gui
     cyboi-executor-representer-json
     cyboi-executor-representer-text

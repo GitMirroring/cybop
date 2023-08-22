@@ -46,6 +46,7 @@
 
 #include "binary.h"
 #include "cybol.h"
+#include "email.h"
 #include "gui.h"
 #include "json.h"
 #include "text.h"

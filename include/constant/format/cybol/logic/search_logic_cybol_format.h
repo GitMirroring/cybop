@@ -101,6 +101,31 @@ static int* INTERPOLATION_SEARCH_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_ST
  * Returns the index of the searchword as result;
  * leaves the index untouched otherwise.
  *
+ * Meaning of the perfectmatch flag:
+ *
+ * When searching through the child nodes of a compound part, then the name
+ * (or model if model flag has been set) has to match perfectly and no more
+ * characters are allowed to remain. In such cases, the perfectmatch flag
+ * has to be set to true, so that the searchword count and the count of the
+ * compared list child node's name (or model if model flag has been set)
+ * are required to be identical.
+ *
+ * Example scenario for perfectmatch flag:
+ *
+ * +-logic | element/part |
+ * | +-create | element/part |
+ * | | +-choices | element/part |
+ * | | | +-rows | element/part |
+ * ...
+ * | | | +-row | element/part |
+ * ...
+ *
+ * Searched path: .logic.create.choices.row
+ *
+ * Using the standard search, the node "rows" would be returned falsely
+ * as result, since it contains the letters "row". Therefore, the length
+ * of both comparison operands has to match perfectly.
+ *
  * Examples:
  *
  * <node name="search_string" channel="inline" format="search/linear" model="">
@@ -192,6 +217,7 @@ static int* INTERPOLATION_SEARCH_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_ST
  * - index (required) [text/cybol-path]: The index of the found searchword. Left untouched if it could not be found within the list.
  * - list (required) [text/cybol-path | text/plain | number/integer | number/double | logicvalue/boolean | element/part]: The list to be searched through.
  * - searchword (required) [text/cybol-path | text/plain | number/integer | number/double | logicvalue/boolean | element/part]: The searchword to be searched for.
+ * - perfectmatch (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether the searchword count and the count of the compared list child node's name (or model if model flag has been set) have to be equal. If null, the default is false (no perfect matching).
  * - model (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to search through the parts' name or model value. It makes sense only if the list is of format (type) element/part which means pointers to parts. If null, the default is false (name is used).
  * - backward (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to search forward or backward. If null, the default is false (forward search is used).
  */

@@ -75,6 +75,11 @@
 // smtp response
 //
 
+//?? void deserialise_smtp_command_argument(void* p0, void* p1, void* p2, void* p3);
+//?? void deserialise_smtp_command_command(void* p0, void* p1, void* p2, void* p3);
+//?? void deserialise_smtp_command_insensitiveness(void* p0, void* p1, void* p2, void* p3);
+//?? void deserialise_smtp_command_reference(void* p0, void* p1, void* p2, void* p3);
+
 void deserialise_smtp_response(void* p0, void* p1, void* p2, void* p3);
 void deserialise_smtp_response_code(void* p0, void* p1, void* p2, void* p3);
 void deserialise_smtp_response_text(void* p0, void* p1, void* p2);

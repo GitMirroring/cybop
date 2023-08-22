@@ -45,7 +45,6 @@
 // converter
 //
 
-
 #include "../../executor/converter/decoder/ascii/ascii_decoder.c"
 #include "../../executor/converter/decoder/base_64/base_64_decoder.c"
 #include "../../executor/converter/decoder/decoder.c"

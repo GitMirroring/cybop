@@ -49,6 +49,11 @@
 // smtp
 //
 
+//?? #include "../../../executor/representer/deserialiser/smtp_command/argument_smtp_command_deserialiser.c"
+//?? #include "../../../executor/representer/deserialiser/smtp_command/command_smtp_command_deserialiser.c"
+//?? #include "../../../executor/representer/deserialiser/smtp_command/insensitiveness_smtp_command_deserialiser.c"
+//?? #include "../../../executor/representer/deserialiser/smtp_command/reference_smtp_command_deserialiser.c"
+
 #include "../../../executor/representer/deserialiser/smtp_response/code_smtp_response_deserialiser.c"
 #include "../../../executor/representer/deserialiser/smtp_response/smtp_response_deserialiser.c"
 #include "../../../executor/representer/deserialiser/smtp_response/text_smtp_response_deserialiser.c"

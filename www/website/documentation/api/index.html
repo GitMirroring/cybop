@@ -2359,7 +2359,32 @@ TODO: NOT IMPLEMENTED YET!</p></section><section><h3>Examples</h3><p class="exam
 using linear (sequential) search.
 
 Returns the index of the searchword as result;
-leaves the index untouched otherwise.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;search_string&#x22; channel=&#x22;inline&#x22; format=&#x22;search/linear&#x22; model=&#x22;&#x22;&#x3e;
+leaves the index untouched otherwise.
+
+Meaning of the perfectmatch flag:
+
+When searching through the child nodes of a compound part, then the name
+(or model if model flag has been set) has to match perfectly and no more
+characters are allowed to remain. In such cases, the perfectmatch flag
+has to be set to true, so that the searchword count and the count of the
+compared list child node&#x27;s name (or model if model flag has been set)
+are required to be identical.
+
+Example scenario for perfectmatch flag:
+
++-logic | element/part |
+| +-create | element/part |
+| | +-choices | element/part |
+| | | +-rows | element/part |
+...
+| | | +-row | element/part |
+...
+
+Searched path: .logic.create.choices.row
+
+Using the standard search, the node &#x22;rows&#x22; would be returned falsely
+as result, since it contains the letters &#x22;row&#x22;. Therefore, the length
+of both comparison operands has to match perfectly.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;search_string&#x22; channel=&#x22;inline&#x22; format=&#x22;search/linear&#x22; model=&#x22;&#x22;&#x3e;
     &#x3c;node name=&#x22;index&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#index&#x22;/&#x3e;
     &#x3c;node name=&#x22;list&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;Hello cybop world!&#x22;/&#x3e;
     &#x3c;node name=&#x22;searchword&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;cybop&#x22;/&#x3e;
@@ -2441,7 +2466,7 @@ leaves the index untouched otherwise.</p></section><section><h3>Examples</h3><p 
     &#x3c;node name=&#x22;list&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.heterogeneous&#x22;/&#x3e;
     &#x3c;node name=&#x22;searchword&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;part 5&#x22;/&#x3e;
     &#x3c;node name=&#x22;model&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3e;
-&#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>index</td><td>true</td><td>text/cybol-path</td><td>The index of the found searchword. Left untouched if it could not be found within the list.</td></tr><tr><td>list</td><td>true</td><td>text/cybol-path | text/plain | number/integer | number/double | logicvalue/boolean | element/part</td><td>The list to be searched through.</td></tr><tr><td>searchword</td><td>true</td><td>text/cybol-path | text/plain | number/integer | number/double | logicvalue/boolean | element/part</td><td>The searchword to be searched for.</td></tr><tr><td>model</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to search through the parts&#x27; name or model value. It makes sense only if the list is of format (type) element/part which means pointers to parts. If null, the default is false (name is used).</td></tr><tr><td>backward</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to search forward or backward. If null, the default is false (forward search is used).</td></tr></table></section></section><section><a name="sort-bubble"><h2>sort/bubble</h2></a><section><h3>Description</h3><p class="description">Sorts numbers via bubble sort algorithm.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;sort_visitors&#x22; channel=&#x22;inline&#x22; format=&#x22;sort/bubble&#x22; model=&#x22;&#x22;&#x3e;
+&#x3c;/node&#x3e;</p></section><section><h3>Properties</h3><table><tr><th width="200px">Name</th><th width="100px">Required</th><th width="300px">Format</th><th>Description</th></tr><tr><td>index</td><td>true</td><td>text/cybol-path</td><td>The index of the found searchword. Left untouched if it could not be found within the list.</td></tr><tr><td>list</td><td>true</td><td>text/cybol-path | text/plain | number/integer | number/double | logicvalue/boolean | element/part</td><td>The list to be searched through.</td></tr><tr><td>searchword</td><td>true</td><td>text/cybol-path | text/plain | number/integer | number/double | logicvalue/boolean | element/part</td><td>The searchword to be searched for.</td></tr><tr><td>perfectmatch</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether the searchword count and the count of the compared list child node&#x27;s name (or model if model flag has been set) have to be equal. If null, the default is false (no perfect matching).</td></tr><tr><td>model</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to search through the parts&#x27; name or model value. It makes sense only if the list is of format (type) element/part which means pointers to parts. If null, the default is false (name is used).</td></tr><tr><td>backward</td><td>false</td><td>text/cybol-path | logicvalue/boolean</td><td>The flag indicating whether to search forward or backward. If null, the default is false (forward search is used).</td></tr></table></section></section><section><a name="sort-bubble"><h2>sort/bubble</h2></a><section><h3>Description</h3><p class="description">Sorts numbers via bubble sort algorithm.</p></section><section><h3>Examples</h3><p class="example">&#x3c;node name=&#x22;sort_visitors&#x22; channel=&#x22;inline&#x22; format=&#x22;sort/bubble&#x22; model=&#x22;&#x22;&#x3e;
     &#x3c;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.domain.visitors&#x22;/&#x3e;
     &#x3c;node name=&#x22;criterion&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;.surname&#x22;/&#x3e;
     &#x3c;node name=&#x22;descending&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3e;

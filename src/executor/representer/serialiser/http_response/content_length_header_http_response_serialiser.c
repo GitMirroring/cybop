@@ -32,6 +32,7 @@
 #include "knowledge.h"
 #include "logger.h"
 #include "text.h"
+#include "type.h"
 
 /**
  * Serialises the http response header content length.

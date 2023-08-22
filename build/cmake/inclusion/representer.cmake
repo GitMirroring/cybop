@@ -52,6 +52,8 @@ target_include_directories(cyboi-executor-representer-cybol PUBLIC
 
 target_include_directories(cyboi-executor-representer-email PUBLIC
     "${ROOT_DIR}/include"
+    "${ROOT_DIR}/include/executor"
+    "${ROOT_DIR}/include/executor/representer"
 )
 
 target_include_directories(cyboi-executor-representer-gui PUBLIC

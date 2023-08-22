@@ -475,39 +475,9 @@
 | | | | | :-language | meta/language | message/tui
 | | | | | :-format | meta/format | text/cybol-path
 | | | | | :-message | text/cybol-path | #model
-| | | | +-open_file | dispatch/open | 
-| | | | | :-channel | meta/channel | file
-| | | | | :-identification | text/cybol-path | .id
-| | | | | :-device | text/plain | presence/test_stack_pre.txt
-| | | | | :-mode | text/plain | write
-| | | | +-send_knowledge | communicate/send | 
-| | | | | :-channel | meta/channel | file
-| | | | | :-receiver | text/cybol-path | .id
-| | | | | :-encoding | meta/encoding | utf-8
-| | | | | :-language | meta/language | text/model-diagram
-| | | | | :-format | meta/format | element/part
-| | | | | :-message | text/cybol-path | #
-| | | | +-close_file | dispatch/close | 
-| | | | | :-channel | meta/channel | file
-| | | | | :-identification | text/cybol-path | .id
 | | | | +-loop_choices | flow/loop | 
 | | | | | :-break | text/cybol-path | #break
 | | | | | :-model | text/cybol-path | #model
-| | | | +-open_file | dispatch/open | 
-| | | | | :-channel | meta/channel | file
-| | | | | :-identification | text/cybol-path | .id
-| | | | | :-device | text/plain | presence/test_stack_post.txt
-| | | | | :-mode | text/plain | write
-| | | | +-send_knowledge | communicate/send | 
-| | | | | :-channel | meta/channel | file
-| | | | | :-receiver | text/cybol-path | .id
-| | | | | :-encoding | meta/encoding | utf-8
-| | | | | :-language | meta/language | text/model-diagram
-| | | | | :-format | meta/format | element/part
-| | | | | :-message | text/cybol-path | #
-| | | | +-close_file | dispatch/close | 
-| | | | | :-channel | meta/channel | file
-| | | | | :-identification | text/cybol-path | .id
 | | | | +-log | communicate/send | 
 | | | | | :-channel | meta/channel | terminal
 | | | | | :-receiver | text/cybol-path | .var.stdout
