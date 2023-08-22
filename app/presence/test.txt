@@ -104,7 +104,7 @@
 | | +-port | text/plain | 1971
 | | +-directory | text/plain | /
 | | +-parametre_prefix | text/plain | ?
-| | +-parametre_separator | text/plain | 
+| | +-parametre_separator | text/plain | &
 | | +-parametre_assignment | text/plain | =
 | | +-parametre_year | text/plain | year
 | | +-parametre_week | text/plain | week
@@ -157,6 +157,36 @@
 | | | | | | +-choice | text/plain | Auswahl
 | | | | | | | :-tag | text/plain | th
 | | | | | | :-tag | text/plain | tr
+| | | | | +-teaching | element/part | 
+| | | | | | +-data | text/plain | Lehre/Büro
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | teaching
+| | | | | | :-tag | text/plain | tr
+| | | | | +-homeoffice | element/part | 
+| | | | | | +-data | text/plain | Heimarbeit
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | homeoffice
+| | | | | | :-tag | text/plain | tr
+| | | | | +-businesstrip | element/part | 
+| | | | | | +-data | text/plain | Dienstreise
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | businesstrip
+| | | | | | :-tag | text/plain | tr
+| | | | | +-holiday | element/part | 
+| | | | | | +-data | text/plain | Urlaub
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | holiday
+| | | | | | :-tag | text/plain | tr
+| | | | | +-illness | element/part | 
+| | | | | | +-data | text/plain | Erkrankung
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | illness
+| | | | | | :-tag | text/plain | tr
+| | | | | +-bankholiday | element/part | 
+| | | | | | +-data | text/plain | Feiertag
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | bankholiday
+| | | | | | :-tag | text/plain | tr
 | | | | | :-tag | text/plain | table
 | | | | :-tag | text/plain | div
 | | | | :-id | text/plain | choices
@@ -201,6 +231,211 @@
 | | | | | | | :-tag | text/plain | th
 | | | | | | +-saturday | text/plain | Samstag
 | | | | | | | :-tag | text/plain | th
+| | | | | | :-tag | text/plain | tr
+| | | | | +-mueller | element/part | 
+| | | | | | +-heading | text/plain | Frau Marita Müller
+| | | | | | | :-tag | text/plain | th
+| | | | | | | :-class | text/plain | left
+| | | | | | +-monday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | +-tuesday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | +-wednesday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | +-thursday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | +-friday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | +-saturday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | :-tag | text/plain | tr
+| | | | | +-meier | element/part | 
+| | | | | | +-heading | text/plain | Herr Otto Meier
+| | | | | | | :-tag | text/plain | th
+| | | | | | | :-class | text/plain | left
+| | | | | | +-monday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | +-tuesday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | +-wednesday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | +-thursday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | +-friday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | +-saturday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | :-tag | text/plain | tr
+| | | | | +-schulze | element/part | 
+| | | | | | +-heading | text/plain | Herr Rolf Schulze
+| | | | | | | :-tag | text/plain | th
+| | | | | | | :-class | text/plain | left
+| | | | | | +-monday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | +-tuesday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | +-wednesday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | +-thursday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | +-friday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | +-saturday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | :-tag | text/plain | tr
+| | | | | +-lehmann | element/part | 
+| | | | | | +-heading | text/plain | Frau Liselotte Lehmann
+| | | | | | | :-tag | text/plain | th
+| | | | | | | :-class | text/plain | left
+| | | | | | +-monday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | +-tuesday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | +-wednesday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | +-thursday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | +-friday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | +-saturday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | :-tag | text/plain | tr
+| | | | | +-wunder | element/part | 
+| | | | | | +-heading | text/plain | Herr Wilhelm Wunder
+| | | | | | | :-tag | text/plain | th
+| | | | | | | :-class | text/plain | left
+| | | | | | +-monday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | +-tuesday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | +-wednesday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | +-thursday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | +-friday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
+| | | | | | +-saturday | element/part | 
+| | | | | | | +-link | text/plain | --
+| | | | | | | | :-tag | text/plain | a
+| | | | | | | | :-href | text/plain | 
+| | | | | | | :-tag | text/plain | td
+| | | | | | | :-class | text/plain | empty
 | | | | | | :-tag | text/plain | tr
 | | | | | :-tag | text/plain | table
 | | | | :-tag | text/plain | div
@@ -454,36 +689,12 @@
 | +-create | element/part | 
 | | +-choices | element/part | 
 | | | +-rows | element/part | 
-| | | | +-log | communicate/send | 
-| | | | | :-channel | meta/channel | terminal
-| | | | | :-receiver | text/cybol-path | .var.stdout
-| | | | | :-language | meta/language | message/tui
-| | | | | :-format | meta/format | text/plain
-| | | | | :-message | text/plain | Test rows begin
 | | | | +-count_choices | access/count | 
 | | | | | :-count | text/cybol-path | #count
 | | | | | :-part | text/cybol-path | .domain.choices
-| | | | +-log | communicate/send | 
-| | | | | :-channel | meta/channel | terminal
-| | | | | :-receiver | text/cybol-path | .var.stdout
-| | | | | :-language | meta/language | message/tui
-| | | | | :-format | meta/format | number/integer
-| | | | | :-message | text/cybol-path | #count
-| | | | +-log | communicate/send | 
-| | | | | :-channel | meta/channel | terminal
-| | | | | :-receiver | text/cybol-path | .var.stdout
-| | | | | :-language | meta/language | message/tui
-| | | | | :-format | meta/format | text/cybol-path
-| | | | | :-message | text/cybol-path | #model
 | | | | +-loop_choices | flow/loop | 
 | | | | | :-break | text/cybol-path | #break
 | | | | | :-model | text/cybol-path | #model
-| | | | +-log | communicate/send | 
-| | | | | :-channel | meta/channel | terminal
-| | | | | :-receiver | text/cybol-path | .var.stdout
-| | | | | :-language | meta/language | message/tui
-| | | | | :-format | meta/format | text/plain
-| | | | | :-message | text/plain | Test rows end
 | | | | :-break | logicvalue/boolean | false
 | | | | :-index | number/integer | 0
 | | | | :-count | number/integer | 0
@@ -493,12 +704,6 @@
 | | | | | :-result | text/cybol-path | #break
 | | | | | :-left | text/cybol-path | #index
 | | | | | :-right | text/cybol-path | #count
-| | | | +-log | communicate/send | 
-| | | | | :-channel | meta/channel | terminal
-| | | | | :-receiver | text/cybol-path | .var.stdout
-| | | | | :-language | meta/language | message/tui
-| | | | | :-format | meta/format | text/plain
-| | | | | :-message | text/plain | Test row
 | | | | +-get_choice_name | access/get-name | 
 | | | | | :-element | text/cybol-path | #name
 | | | | | :-part | text/cybol-path | .domain.choices.[#index]

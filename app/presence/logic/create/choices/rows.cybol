@@ -1,5 +1,6 @@
 <node>
 
+<!--
     <node name="log" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
@@ -7,6 +8,7 @@
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Test rows begin"/>
     </node>
+-->
 
     <!-- Reset is NOT necessary, since this is executed only ONCE at application startup. -->
 
@@ -15,6 +17,7 @@
         <node name="part" channel="inline" format="text/cybol-path" model=".domain.choices"/>
     </node>
 
+<!--
     <node name="log" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
@@ -30,12 +33,14 @@
         <node name="format" channel="inline" format="meta/format" model="text/cybol-path"/>
         <node name="message" channel="inline" format="text/cybol-path" model="#model"/>
     </node>
+-->
 
     <node name="loop_choices" channel="inline" format="flow/loop" model="">
         <node name="break" channel="inline" format="text/cybol-path" model="#break"/>
         <node name="model" channel="inline" format="text/cybol-path" model="#model"/>
     </node>
 
+<!--
     <node name="log" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
@@ -43,5 +48,6 @@
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Test rows end"/>
     </node>
+-->
 
 </node>

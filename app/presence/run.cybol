@@ -41,6 +41,18 @@
         <node name="message" channel="inline" format="text/plain" model="Initialised application"/>
     </node>
 
+    <!-- Configuration of wui -->
+
+    <node name="log" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Create wui"/>
+    </node>
+    <node name="create_wui_choices" channel="inline" format="text/cybol-path" model=".logic.create.choices.rows"/>
+    <node name="create_wui_lecturers" channel="inline" format="text/cybol-path" model=".logic.create.lecturers.rows"/>
+
     <!-- Test -->
 
     <node name="open_file" channel="inline" format="dispatch/open" model="">
@@ -62,20 +74,6 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
-    <!-- Configuration of wui -->
-
-    <node name="log" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Create wui"/>
-    </node>
-    <node name="create_wui_choices" channel="inline" format="text/cybol-path" model=".logic.create.choices.rows"/>
-<!--
-    <node name="create_wui_lecturers" channel="inline" format="text/cybol-path" model=".logic.create.lecturers.rows"/>
--->
-
 <!-- LEAVE this commented, until date transformation has been immplemented fully in cyboi!
     <node name="initialise_date" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="clock"/>
@@ -93,7 +91,6 @@
 
     <!-- Translation of dom -->
 
-<!--
     <node name="log" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
@@ -104,11 +101,9 @@
 
     <node name="translate_dom_to_nav_backward" channel="inline" format="text/cybol-path" model=".logic.translate.dom_to_nav.backward"/>
     <node name="translate_dom_to_nav_forward" channel="inline" format="text/cybol-path" model=".logic.translate.dom_to_nav.forward"/>
--->
 
     <!-- Navigation of week -->
 
-<!--
     <node name="log" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
@@ -118,11 +113,9 @@
     </node>
 
     <node name="navigate_week" channel="inline" format="text/cybol-path" model=".logic.navigate.week"/>
--->
 
     <!-- Startup -->
 
-<!--
     <node name="log_startup" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
@@ -132,10 +125,5 @@
     </node>
 
     <node name="startup" channel="inline" format="text/cybol-path" model=".logic.startup"/>
--->
-
-<!-- TEST ONLY. Shutdown normally happens via a command in the event loop.
--->
-    <node name="exit" channel="inline" format="live/exit" model=""/>
 
 </node>

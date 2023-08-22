@@ -17,7 +17,8 @@
     <node name="directory" channel="inline" format="text/plain" model="/"/>
     <node name="parametre_prefix" channel="inline" format="text/plain" model="?"/>
 
-    <node name="parametre_separator" channel="inline" format="text/plain" model="&"/>
+    <!-- Replace ampersand & with numeric reference &#38; -->
+    <node name="parametre_separator" channel="inline" format="text/plain" model="&#38;"/>
     <node name="parametre_assignment" channel="inline" format="text/plain" model="="/>
 
     <node name="parametre_year" channel="inline" format="text/plain" model="year"/>

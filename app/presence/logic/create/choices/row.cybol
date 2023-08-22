@@ -7,6 +7,7 @@
         <node name="right" channel="inline" format="text/cybol-path" model="#count"/>
     </node>
 
+<!--
     <node name="log" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
@@ -14,6 +15,7 @@
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Test row"/>
     </node>
+-->
 
     <node name="get_choice_name" channel="inline" format="access/get-name" model="">
         <node name="element" channel="inline" format="text/cybol-path" model="#name"/>
