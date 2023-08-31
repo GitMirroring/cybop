@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.26.0 2023-04-04
+ * @version CYBOP 0.27.0 2023-08-31
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -33,7 +33,7 @@
 #define CMAKE_CONFIGURATION_SOURCE
 
 #define PROJECT_NAME_CMAKE_CONFIGURATION L"cybop"
-#define INTERPRETER_NAME_CMAKE_CONFIGURATION L"cyboi"
+#define INTERPRETER_NAME_CMAKE_CONFIGURATION L"cyboix"
 #define PROJECT_VERSION_CMAKE_CONFIGURATION  L"0.27.0"
 #define COPYRIGHT_INFORMATION_CMAKE_CONFIGURATION  L"Copyright (C) 1999-2023. Christian Heller."
 

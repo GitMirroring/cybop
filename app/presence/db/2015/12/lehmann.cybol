@@ -1,8 +1,8 @@
 <node>
-    <node name="monday" channel="inline" language="text/cybol" format="text/plain" model="teaching"/>
-    <node name="tuesday" channel="inline" language="text/cybol" format="text/plain" model="businesstrip"/>
-    <node name="wednesday" channel="inline" language="text/cybol" format="text/plain" model="homeoffice"/>
-    <node name="thursday" channel="inline" language="text/cybol" format="text/plain" model="homeoffice"/>
-    <node name="friday" channel="inline" language="text/cybol" format="text/plain" model="homeoffice"/>
-    <node name="saturday" channel="inline" language="text/cybol" format="text/plain" model="homeoffice"/>
+    <node name="monday" channel="inline" format="text/plain" model="teaching"/>
+    <node name="tuesday" channel="inline" format="text/plain" model="businesstrip"/>
+    <node name="wednesday" channel="inline" format="text/plain" model="homeoffice"/>
+    <node name="thursday" channel="inline" format="text/plain" model="homeoffice"/>
+    <node name="friday" channel="inline" format="text/plain" model="homeoffice"/>
+    <node name="saturday" channel="inline" format="text/plain" model="homeoffice"/>
 </node>

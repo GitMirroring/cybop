@@ -8,6 +8,7 @@
 
     <node name="directory" channel="inline" format="text/plain" model=""/>
     <node name="dbfile" channel="inline" format="text/plain" model=""/>
+    <!-- The .var.db stores temporary settings. Do not mix it up with .db which stores standard weekdays. -->
     <node name="db" channel="inline" format="element/part" model=""/>
 
     <!-- The calendar. -->

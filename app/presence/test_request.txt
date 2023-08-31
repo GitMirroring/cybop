@@ -1,5 +1,5 @@
 [selected_node] | element/part | 
-:-referer | text/plain | http://localhost:1971/?year=2015&week=12&lecturer=meier&day=saturday&choice=teaching&action=update
+:-referer | text/plain | http://localhost:1971/?year=2015&week=12&lecturer=wunder&day=saturday&choice=teaching&action=update
 :-connection | text/plain | keep-alive
 :-accept-encoding | text/plain | gzip, deflate, br
 :-accept-language | text/plain | de,en-US;q=0.7,en;q=0.3

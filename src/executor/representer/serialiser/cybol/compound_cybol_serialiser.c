@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.26.0 2023-04-04
+ * @version CYBOP 0.27.0 2023-08-31
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -36,7 +36,7 @@
 /**
  * Serialises the cybol compound element (part or property).
  *
- * @param p0 the destination item
+ * @param p0 the destination wide character item
  * @param p1 the source model data
  * @param p2 the source model count
  * @param p3 the source properties data

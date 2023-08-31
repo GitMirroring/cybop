@@ -1,9 +1,9 @@
 <node>
-    <node name="monday" channel="inline" language="text/cybol" format="text/plain" model="teaching"/>
-    <node name="tuesday" channel="inline" language="text/cybol" format="text/plain" model="bankholiday"/>
-    <node name="wednesday" channel="inline" language="text/cybol" format="text/plain" model="illness"/>
-    <node name="thursday" channel="inline" language="text/cybol" format="text/plain" model="holiday"/>
-    <node name="friday" channel="inline" language="text/cybol" format="text/plain" model="teaching"/>
-    <node name="saturday" channel="inline" language="text/cybol" format="text/plain" model="teaching"/>
+    <node name="monday" channel="inline" format="text/plain" model="teaching"/>
+    <node name="tuesday" channel="inline" format="text/plain" model="bankholiday"/>
+    <node name="wednesday" channel="inline" format="text/plain" model="illness"/>
+    <node name="thursday" channel="inline" format="text/plain" model="holiday"/>
+    <node name="friday" channel="inline" format="text/plain" model="teaching"/>
+    <node name="saturday" channel="inline" format="text/plain" model="teaching"/>
 </node>
 ode>

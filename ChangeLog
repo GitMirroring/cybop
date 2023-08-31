@@ -14,9 +14,17 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.26.0 2023-04-04
+# @version CYBOP 0.27.0 2023-08-31
 # @author Christian Heller <christian.heller@cybop.org>
 #
+
+2023-08-31  Christian Heller  <christian.heller@cybop.org>
+
+        * Release CYBOP 0.27.0
+
+2023-08-24  Christian Heller  <christian.heller@cybop.org>
+
+        * Adapt file "content_cybol_serialiser.c" so that cybol channel gets written besides other properties
 
 2023-08-23  Christian Heller  <christian.heller@cybop.org>
 
@@ -5430,7 +5438,7 @@
 
         * Change year to 2012 in comment block of all source code files, to prepare next release
         * Delete CVS "$" tags in source code since SVN is used now, which does not fill them
-        * Use new line "@version CYBOP 0.26.0 2023-04-04
+        * Use new line "@version CYBOP 0.27.0 2023-08-31
         * Delete outdated and redundant array handling files in directory "logger/"
         * Start fixing constant names in all source code
 

@@ -991,18 +991,6 @@
 | | | | | :-part | text/cybol-path | .domain.lecturers.[#index]
 | | | | +-reset_db | text/cybol-path | .logic.reset.db
 | | | | +-translate_path | text/cybol-path | .logic.translate.db_to_wui.path
-| | | | +-log_filename | communicate/send | 
-| | | | | :-channel | meta/channel | terminal
-| | | | | :-receiver | text/cybol-path | .var.stdout
-| | | | | :-language | meta/language | message/tui
-| | | | | :-format | meta/format | text/plain
-| | | | | :-message | text/plain | Read from dbfile lecturer:
-| | | | +-log_filename | communicate/send | 
-| | | | | :-channel | meta/channel | terminal
-| | | | | :-receiver | text/cybol-path | .var.stdout
-| | | | | :-language | meta/language | message/tui
-| | | | | :-format | meta/format | text/plain
-| | | | | :-message | text/cybol-path | .var.dbfile
 | | | | +-open_file | dispatch/open | 
 | | | | | :-channel | meta/channel | file
 | | | | | :-identification | text/cybol-path | .id

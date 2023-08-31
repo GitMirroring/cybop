@@ -19,7 +19,7 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.26.0 2023-04-04
+# @version CYBOP 0.27.0 2023-08-31
 # @author Enrico Gallus <enrico.gallus@googlemail.com>
 # @author Christian Heller <christian.heller@cybop.org>
 #
@@ -97,7 +97,7 @@ include(cmake/definition/definition.cmake)
 include(cmake/api.cmake)
 
 # Adjust copyright.
-# include(cmake/versioning.cmake)
+include(cmake/versioning.cmake)
 
 # Pack distributable using cpack.
 include(cmake/packaging.cmake)

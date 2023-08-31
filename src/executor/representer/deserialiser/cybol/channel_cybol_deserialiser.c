@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.26.0 2023-04-04
+ * @version CYBOP 0.27.0 2023-08-31
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -184,6 +184,6 @@ void deserialise_cybol_channel(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol channel. The source cybol channel is unknown.");
         fwprintf(stdout, L"Warning: Could not deserialise cybol channel. The source cybol channel is unknown. cybol channel p1: %ls\n", (wchar_t*) p1);
         fwprintf(stdout, L"Warning: Could not deserialise cybol channel. The source cybol channel is unknown. cybol channel p2: %i\n", p2);
-        fwprintf(stdout, L"Warning: Could not deserialise cybol channel. The source cybol channel is unknown. cybol channel *p2: %i\n", *((int*) p2));
+        //?? fwprintf(stdout, L"Warning: Could not deserialise cybol channel. The source cybol channel is unknown. cybol channel *p2: %i\n", *((int*) p2));
     }
 }

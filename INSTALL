@@ -6,7 +6,7 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.26.0 2023-04-04
+# @version CYBOP 0.27.0 2023-08-31
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
@@ -271,6 +271,7 @@ Make target overview:
     make clean
     make cyboi
     make api
+    make copyright
     make test
     make
 
@@ -476,6 +477,16 @@ ___________
 There are two kinds of tags in git:
 - annotated: stored as separate object in database
 - non-annotated (lightweight): stores only the reference to a commit (just like a branch)
+
+The command "man git-tag" says: "Annotated tags are meant for release
+while lightweight tags are meant for private or temporary object labels."
+
+The difference between the commands is that one provides you with a
+tag message while the other doesn't. An annotated tag has a message
+that can be displayed with git-show, while a tag without annotations
+is just a named pointer to a commit.
+
+For the purpose of releasing a cybop version, the annotated tag is used:
 
 git tag -a cybop-0.24.0 -m "Tag the cybop-0.24.0 release"
 

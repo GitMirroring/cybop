@@ -23,12 +23,19 @@ SET(CPACK_PACKAGE_VERSION "${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSIO
 # One can include directories and files using file patterns.
 #
 
-# The cyboi component.
+# The cyboi component (executable with libraries).
 INSTALL(DIRECTORY ${ROOT_DIR}/build/cmake/ DESTINATION build/cmake)
 INSTALL(DIRECTORY ${ROOT_DIR}/build/icon/ DESTINATION build/icon)
 INSTALL(FILES ${ROOT_DIR}/build/manpage/cyboi.1.gz DESTINATION build/manpage)
+INSTALL(DIRECTORY ${ROOT_DIR}/build/scripts/ DESTINATION build/scripts)
 INSTALL(FILES ${ROOT_DIR}/build/cmake_configuration.h.in DESTINATION build)
 INSTALL(FILES ${ROOT_DIR}/build/CMakeLists.txt DESTINATION build)
+INSTALL(FILES ${ROOT_DIR}/build/release.md DESTINATION build)
+# The cyboix component (monolithic executable).
+INSTALL(DIRECTORY ${ROOT_DIR}/buildx/cmake/ DESTINATION buildx/cmake)
+INSTALL(FILES ${ROOT_DIR}/buildx/cmake_configuration.h.in DESTINATION buildx)
+INSTALL(FILES ${ROOT_DIR}/buildx/CMakeLists.txt DESTINATION buildx)
+# The cyboi component header and source files.
 INSTALL(DIRECTORY ${ROOT_DIR}/include/ DESTINATION include)
 INSTALL(DIRECTORY ${ROOT_DIR}/src/ DESTINATION src)
 
@@ -42,7 +49,6 @@ INSTALL(DIRECTORY ${ROOT_DIR}/tools/api-generator/ DESTINATION tools/api-generat
 INSTALL(FILES ${ROOT_DIR}/build/manpage/cybop.7.gz DESTINATION build/manpage)
 #INSTALL(FILES ${ROOT_DIR}/doc/books/cybop/cybop.pdf DESTINATION doc/books/cybop)
 #INSTALL(FILES ${ROOT_DIR}/doc/presentations/lightning_talk/cybop.pdf DESTINATION doc/presentations/lightning_talk)
-#INSTALL(DIRECTORY ${ROOT_DIR}/doc/lightning_talk/ DESTINATION doc/lightning_talk COMPONENT cybop FILES_MATCHING PATTERN "*.pdf")
 #INSTALL(FILES ${ROOT_DIR}/doc/manual/manual-de.pdf DESTINATION doc/manual)
 #INSTALL(FILES ${ROOT_DIR}/doc/manual/manual-en.pdf DESTINATION doc/manual)
 INSTALL(FILES ${ROOT_DIR}/AUTHORS DESTINATION .)

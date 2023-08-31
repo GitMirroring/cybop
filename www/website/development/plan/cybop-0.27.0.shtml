@@ -7,21 +7,62 @@
 <section class="container">
     <h2>CYBOI</h2>
     <ul>
-        <li>TODO</li>
+        <h3>General:</h3>
+        <li>Delete preprocessor macros in implementation source files, since they are required only in header files</li>
+        <li>Clean up some unnecessary forward declarations which have become superfluous due to the usage of header files</li>
+        <li>Move functions "detect" and "move" from module "communication" to "algorithm"</li>
+        <li>Delete directories "controller/checker/io/" and "controller/checker/client/" which have long become superfluous since using an interrupt pipe</li>
+        <li>Update uml activity diagram "doc/development/cyboi/checker_and_sensor" accordingly</li>
+        <h3>De-/Serialiser:</h3>
+        <li>Add simple mail transfer protocol (smtp) constants</li>
+        <li>Add post office protocol (pop) constants</li>
+        <li>Add internet message access protocol (imap) constants</li>
+        <li>Add smtp response deserialiser</li>
+        <li>Adapt cybol serialiser so that cybol channel gets written besides other properties</li>
+        <h3>Converter:</h3>
+        <li>Avoid wrong destination data by catching zero length source data in files "utf_8_decoder.c" and "utf_8_encoder.c"</li>
+        <h3>Checker:</h3>
+        <li>Add files "case_checker.c" and "insensitiveness_checker.c"</li>
+        <h3>Modifier:</h3>
+        <li>Flexibilise lowerer and upperer by using a type parametre</li>
+        <li>Replace usage of file "append_http_request_deserialiser.c" with new "part_appender.c"</li>
+        <h3>Searcher:</h3>
+        <li>Implement linear searcher</li>
+        <li>Adapt searcher so that not only primitive but also part elements may get processed (the latter recursively)</li>
+        <li>Replace functionality of part "finder" with "searcher" in all source code but leave client finder intact</li>
+        <li>Introduce perfectmatch flag in search function, for requesting equal count of searchword and searched child node names</li>
     </ul>
 </section>
 
 <section class="container">
     <h2>CYBOL</h2>
     <ul>
-        <li>TODO</li>
+        <h3>Language:</h3>
+        <li>Add cybol operation "search/linear"</li>
+        <li>Delete cybol operation "access/get-index"</li>
+        <li>Add cybol language "application/mbox" as media (mime) type</li>
+        <li>Add cybol language "message/imf" as media (mime) type</li>
+        <h3>Applications:</h3>
+        <li>Move cybol applications from "examples/serialisation/" to "app/serialisation/"</li>
+        <li>Add cybol application "app/internet/smtp_server/"</li>
+        <li>Add cybol application "app/internet/smtp_client/"</li>
+        <li>Add cybol application "app/algorithm/linearsearch/"</li>
+        <li>Add cybol application "app/serialisation/email/"</li>
+        <li>Replace ampersand with numeric reference in file "domain/uri.cybol" of cybol application "presence"</li>
     </ul>
 </section>
 
 <section class="container">
     <h2>Project</h2>
     <ul>
-        <li>TODO</li>
+        <h3>Compilation:</h3>
+        <li>Add directory "buildx/" and file "src/cyboi/cyboix.c" to build a monolithic executable "cyboix" without shared libraries</li>
+        <h3>Versioning:</h3>
+        <li>Migrate cybop svn to git</li>
+        <h3>Documentation:</h3>
+        <li>Extend documentation in file "doc/development/add_new_cybol_operation.txt" with new steps related to directories "include/" and "src/library/"</li>
+        <h3>API:</h3>
+        <li>Fix problem with api generator by adapting format constants paths from "src/" to "include/" in directory "build/scripts/"</li>
     </ul>
 </section>
 

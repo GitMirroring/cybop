@@ -16,6 +16,7 @@
     <!-- The stack variable #name is used inside -->
     <node name="translate_path" channel="inline" format="text/cybol-path" model=".logic.translate.db_to_wui.path"/>
 
+<!--
     <node name="log_filename" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
@@ -30,6 +31,7 @@
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
     </node>
+-->
 
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
