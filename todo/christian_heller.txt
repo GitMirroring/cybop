@@ -11,6 +11,22 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+Manual
+______
+
+        * Write new manual in cybol to be generated as website
+        * See:
+            https://aphyr.com/posts/301-clojure-from-the-ground-up-welcome
+        * Use suitable colours for syntax highlighting in source code examples
+        * Consider existing cybol beginner's manual in directory "doc/manual/"
+        * Delete existing cybol beginner's manual in directory "doc/manual/"
+
+        Experiment:
+        * Write cybol app handing over a desired function (for example inc or dec) as parametre (as used in functional languages)
+        * Think through usefulness of handing over more cyboi command line arguments to cybol application
+            as property on stack, to be used via cybol-path for example #0, #1 etc.
+            local variable name as well as ALL values being text strings
+
 CYBOL Application
 _________________
 
@@ -347,8 +363,6 @@ General CYBOI
 _____________
 
         * Rename constant "PART_ELEMENT_STATE_CYBOI_TYPE" into "COMPOUND_ELEMENT_STATE_CYBOI_TYPE" in all source code (it may represent the formats "element/part", "element/property", "element/reference")
-
-        * Update cybol beginner's manual in directory "doc/manual/"
 
         * Reintroduce channel "directory" used for reading the files of a directory
         * See example cybol application "repertoire" in file "db.cybol"
