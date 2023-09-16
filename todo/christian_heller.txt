@@ -27,6 +27,17 @@ ______
             as property on stack, to be used via cybol-path for example #0, #1 etc.
             local variable name as well as ALL values being text strings
 
+Various
+_______
+
+        * Add cybol operations "calculate/increment" and "calculate/decrement"
+
+        * Write interpreting cybol shell as read-eval-print-loop (repl)
+        * Interpret input given in functional style, for example:
+            (calculate/increment (calculate/increment 2))
+        * Convert it into cyboi tree nodes internally
+        * Write result onto output shell instead of to "result" argument which is missing, since the tree node ".result" may NOT be accessed in the repl
+
 CYBOL Application
 _________________
 
