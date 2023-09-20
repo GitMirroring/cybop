@@ -38,6 +38,27 @@ _______
         * Convert it into cyboi tree nodes internally
         * Write result onto output shell instead of to "result" argument which is missing, since the tree node ".result" may NOT be accessed in the repl
 
+Language Ideas
+______________
+
+        * Implement dynamic types by allowing operations to accept strings as arguments and converting them automatically as needed inside, for example to a number
+
+        * Add functions for sequences known from clojure: interleave, interpose, reverse, shuffle
+
+            The grammar of Lisp is uniform: every expression is a list,
+            beginning with a verb, and followed by some arguments.
+            -> node
+
+            Processing of sequences is based on RECURSION
+            function for recursive call can be written self or
+            using given standard functions for sequences which
+            are using recursion inside (= first element + rest)
+
+            Evaluation proceeds from left to right, and every element
+            of the list must be evaluated before evaluating the list itself.
+            -> diving into subtree nodes first
+            -> arguments (properties) may be functions (operations)
+
 CYBOL Application
 _________________
 
