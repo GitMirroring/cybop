@@ -1,0 +1,47 @@
+
+Clojure Comparison
+==================
+
+Language Ideas
+______________
+
+        * Implement dynamic types by allowing operations to accept strings as arguments and converting them automatically as needed inside, for example to a number
+
+        * Add functions for sequences known from clojure: interleave, interpose, reverse, shuffle
+
+            The grammar of Lisp is uniform: every expression is a list,
+            beginning with a verb, and followed by some arguments.
+            -> node
+
+            Processing of sequences is based on RECURSION
+            function for recursive call can be written self or
+            using given standard functions for sequences which
+            are using recursion inside (= first element + rest)
+
+            Evaluation proceeds from left to right, and every element
+            of the list must be evaluated before evaluating the list itself.
+            -> diving into subtree nodes first
+            -> arguments (properties) may be functions (operations)
+
+Language
+________
+
+- syntactically, functions can take any expressions as arguments—including other functions
+- functions that can either take a function as an argument or
+  return a function are called --> "higher-order functions"
+- programming languages with higher-order functions are said to
+  support --> "first-class functions" because you can treat
+  functions as values in the same way like other data types (e.g. numbers and vectors)
+
+Clojure Disadvantages
+_____________________
+
+- special forms cannot be used as arguments to functions
+- special forms implement core Clojure functionality that cannot be implemented with functions
+- Macros are similar to special forms in that they evaluate
+  their operands differently from function calls, and they
+  also cannot be passed as arguments to functions
+- special threading operators ->> and -> necessary to navigate through hierarchies
+- Destructuring von Parametern entfällt in CYBOL (lokales Argument oder globaler Knowledge Tree ??),
+  da alle Elemente als Baumknoten einen Namen haben
+
