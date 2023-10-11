@@ -2,6 +2,39 @@
 Clojure Comparison
 ==================
 
+Main Characteristics of Functional Programming
+______________________________________________
+
+- immutable data (hash array mapped tries) -> thread-safe code
+- recursion instead of loops (map, filter, reduce, fold)
+- functions as arguments ("first class functions")
+
+Task
+____
+
+        * Add "next" and "previous" reference to sibling to each tree node (schema)
+            reason: linked lists are the fundament of data structures in functional programming languages
+        * Offer (optionally) usage of tree node (data structure, collection) in an immutable way
+            immutable: node cannot be changed
+            adding or removing something means creating a new destination node with the source node's data AND the needed change
+            persistence: old version of the collection is still available after the change
+                the collection maintains its performance guarantees for most operations
+                new version CANNOT be created using a full copy, since that would require linear time
+                inevitably implemented using LINKED data structures, so that the new versions can share structure with the prior version
+                singly-linked lists and trees are the basic functional data structures,
+                    to which Clojure adds a hash map, set and vector both based upon array mapped hash tries
+            https://clojure.org/about/functional_programming
+            * in traditional Lisp: only the list data structure is structurally recursive
+
+        * Try to integrate clojure collection functions into cybol
+        * Experiment with idea of java swing app in cybol
+        * Study usage of curl c library with asynchronous calls via socket --> integratable into cyboi ??
+        * Provide a cybol read-eval-print loop (REPL) programming environment
+            possible name: CYBOL REPL (CREPL)
+            programmer can interact with a running cybol programme
+            modify it by evaluating one code expression at a time
+            https://clojure.org/guides/repl/introduction
+
 Language Ideas
 ______________
 

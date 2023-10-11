@@ -1,7 +1,0 @@
-<node>
-
-    <node name="heading" channel="inline" format="text/plain" model="Path Syntax"/>
-
-    <node name="paragraph" channel="inline" format="text/plain" model="empty"/>
-
-</node>

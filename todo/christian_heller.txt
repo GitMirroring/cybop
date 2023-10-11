@@ -11,6 +11,17 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+Database
+________
+
+        * Write cybol files with addressbook data and name as index testwise to represent a database
+        * See articles on "Key-value database", for example:
+            https://de.wikipedia.org/wiki/Schl%C3%BCssel-Werte-Datenbank
+            https://en.wikipedia.org/wiki/Key%E2%80%93value_database
+        * Take the dot-notation (Punktnotation) tree node path as "key"
+            cybol dot-notation corresponds to (nested) "destructuring" in functional programming
+        * Remember that the cybop schema does represent the whole database structure
+
 Manual
 ______
 
@@ -32,37 +43,16 @@ _______
 
         * Add cybol operations "calculate/increment" and "calculate/decrement"
 
-        * Write interpreting cybol shell as read-eval-print-loop (repl)
+        * Write interpreting cybol shell as read-eval-print-loop (repl) ??
         * Interpret input given in functional style, for example:
             (calculate/increment (calculate/increment 2))
         * Convert it into cyboi tree nodes internally
         * Write result onto output shell instead of to "result" argument which is missing, since the tree node ".result" may NOT be accessed in the repl
 
-Language Ideas
-______________
-
-        * Implement dynamic types by allowing operations to accept strings as arguments and converting them automatically as needed inside, for example to a number
-
-        * Add functions for sequences known from clojure: interleave, interpose, reverse, shuffle
-
-            The grammar of Lisp is uniform: every expression is a list,
-            beginning with a verb, and followed by some arguments.
-            -> node
-
-            Processing of sequences is based on RECURSION
-            function for recursive call can be written self or
-            using given standard functions for sequences which
-            are using recursion inside (= first element + rest)
-
-            Evaluation proceeds from left to right, and every element
-            of the list must be evaluated before evaluating the list itself.
-            -> diving into subtree nodes first
-            -> arguments (properties) may be functions (operations)
-
 CYBOL Application
 _________________
 
-        * Use stack variables to avoid cybol operation call of "modify/empty", if possible
+        * Use stack variables to avoid cybol operation call of "modify/empty", if possible, in cybol application "presence"
         * Update cybol application "presence" to use responsive bootstrap-based user interface
 
 Kommunikation im Medizinwesen (KIM)
