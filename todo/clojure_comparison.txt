@@ -7,10 +7,18 @@ ______________________________________________
 
 - immutable data (hash array mapped tries) -> thread-safe code
 - recursion instead of loops (map, filter, reduce, fold)
-- functions as arguments ("first class functions")
+- functions as arguments ("first class functions", "higher-order functions")
+
+- uniform grammar of Lisp: every expression is a list,
+  beginning with a verb, and followed by some arguments
+  -> corresponds to cybol node for a logic operation
 
 Task
 ____
+
+        * Implement dynamic types by allowing operations to accept strings
+          as arguments and converting them automatically as needed inside, for example to a number
+        * Add functions for sequences known from clojure: interleave, interpose, reverse, shuffle
 
         * Add "next" and "previous" reference to sibling to each tree node (schema)
             reason: linked lists are the fundament of data structures in functional programming languages
@@ -35,37 +43,6 @@ ____
             modify it by evaluating one code expression at a time
             https://clojure.org/guides/repl/introduction
 
-Language Ideas
-______________
-
-        * Implement dynamic types by allowing operations to accept strings as arguments and converting them automatically as needed inside, for example to a number
-
-        * Add functions for sequences known from clojure: interleave, interpose, reverse, shuffle
-
-            The grammar of Lisp is uniform: every expression is a list,
-            beginning with a verb, and followed by some arguments.
-            -> node
-
-            Processing of sequences is based on RECURSION
-            function for recursive call can be written self or
-            using given standard functions for sequences which
-            are using recursion inside (= first element + rest)
-
-            Evaluation proceeds from left to right, and every element
-            of the list must be evaluated before evaluating the list itself.
-            -> diving into subtree nodes first
-            -> arguments (properties) may be functions (operations)
-
-Language
-________
-
-- syntactically, functions can take any expressions as arguments—including other functions
-- functions that can either take a function as an argument or
-  return a function are called --> "higher-order functions"
-- programming languages with higher-order functions are said to
-  support --> "first-class functions" because you can treat
-  functions as values in the same way like other data types (e.g. numbers and vectors)
-
 Clojure Disadvantages
 _____________________
 
@@ -77,4 +54,28 @@ _____________________
 - special threading operators ->> and -> necessary to navigate through hierarchies
 - Destructuring von Parametern entfällt in CYBOL (lokales Argument oder globaler Knowledge Tree ??),
   da alle Elemente als Baumknoten einen Namen haben
+
+Innere Datenstruktur
+____________________
+
+- bei Aufruf einer Funktion wird Originalliste NICHT verändert (immutable)
+- KEINE 1:1 Vollkopie der Datenstruktur (performance)
+
+- alte und neue Datenstrukturen teilen sich die gemeinsamen Elemente
+- bekannt als "structural sharing" or "shared structure"
+- verwendete Datenstrukturen bezeichnet man als "Persistent Data Structures"
+- Quelle:
+https://www.heise.de/hintergrund/Clojure-Ein-pragmatisches-Lisp-fuer-die-JVM-1030144.html?seite=2
+
+- flache Baum-Struktur zur Organisation der Dateninhalte
+- besteht aus bis zu fünf Ebenen mit je 32 Werten
+- beim Einfügen des 33. Werts wird eine neue Ebene erzeugt
+- nutzt Java Integers a 32 Bit für Zugriff per Pfad
+- zerlegen der 32 Bit in sechs Gruppen zu je fünf Bit
+- jede Gruppe ist für den Index innerhalb einer Ebene zuständig
+- benötigte 32 Werte für den Index in einem Knoten werden genau durch fünf Bits kodiert
+- speicherbar sind bis zu 32^6 = 2^{30} Werte in einer Datenstruktur
+- garantierter Zugriff auf persistente Datenstrukturen innerhalb von O(log_{32} N)
+- Quelle:
+https://www.heise.de/hintergrund/Parallelprogrammierung-mit-Clojure-1170690.html?seite=2
 
