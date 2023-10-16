@@ -1,0 +1,13 @@
+<node>
+
+    <node name="count_chapters" channel="inline" format="access/count" model="">
+        <node name="count" channel="inline" format="text/cybol-path" model="#chapter_count"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".content"/>
+    </node>
+
+    <node name="loop_chapters" channel="inline" format="flow/loop" model="">
+        <node name="break" channel="inline" format="text/cybol-path" model="#chapter_break"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.chapter"/>
+    </node>
+
+</node>

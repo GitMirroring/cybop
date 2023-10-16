@@ -1,0 +1,17 @@
+<node>
+
+    <node name="content" channel="file" format="element/part" model="manual-generator/wui/page/nav-left.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="nav"/>
+        <node name="class" channel="inline" format="text/plain" model="position-fixed nav-left"/>
+    </node>
+
+    <node name="section" channel="file" format="element/part" model="manual-generator/wui/page/section-center.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="section"/>
+        <node name="class" channel="inline" format="text/plain" model="position-fixed section-center"/>
+    </node>
+
+    <node name="javascript" channel="file" format="text/plain" model="manual-generator/wui/file/manual.js">
+        <node name="tag" channel="inline" format="text/plain" model="script"/>
+    </node>
+
+</node>

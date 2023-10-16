@@ -1,0 +1,14 @@
+<node>
+
+    <node name="anchor" channel="file" format="element/part" model="manual-generator/wui/chapter/anchor.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="a"/>
+        <node name="name" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="description" channel="file" format="element/part" model="manual-generator/wui/chapter/description.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="section"/>
+    </node>
+    <node name="examples" channel="file" format="element/part" model="manual-generator/wui/chapter/examples.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="section"/>
+    </node>
+
+</node>

@@ -1,26 +1,12 @@
+<!--
+    This application generates the CYBOL manual.
+-->
+
 <node>
 
-    <node name="create_id" channel="inline" format="memorise/create" model="">
-        <node name="name" channel="inline" format="text/plain" model="id"/>
-        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-    </node>
-
-    <node name="open_file" channel="inline" format="dispatch/open" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/plain" model="manual-generator/app.cybol"/>
-    </node>
-    <node name="initialise_app" channel="inline" format="communicate/receive" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="text/cybol-path" model="."/>
-    </node>
-    <node name="close_file" channel="inline" format="dispatch/close" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    <node name="load_app" channel="file" format="element/part" model="manual-generator/library/load_library.cybol">
+        <node name="destination" channel="inline" format="text/cybol-path" model="."/>
+        <node name="source" channel="inline" format="text/plain" model="manual-generator/app.cybol"/>
     </node>
 
     <node name="open_stdout" channel="inline" format="dispatch/open" model="">
@@ -29,18 +15,26 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
     </node>
 
-    <node name="translate_to_wui" channel="inline" format="text/cybol-path" model=".logic.translate"/>
-    <node name="generate_html_file" channel="inline" format="text/cybol-path" model=".logic.generate"/>
+<!--
+    <node name="translate_to_wui" channel="inline" format="text/cybol-path" model=".logic.translate.languages"/>
+-->
 
     <node name="close_stdout" channel="inline" format="dispatch/close" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
     </node>
 
+    <node name="test_heap" channel="inline" format="text/cybol-path" model=".library.save_file">
+        <node name="destination" channel="inline" format="text/plain" model="manual-generator/test_heap.txt"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="."/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+    </node>
+    <node name="test_stack" channel="inline" format="text/cybol-path" model=".library.save_file">
+        <node name="destination" channel="inline" format="text/plain" model="manual-generator/test_stack.txt"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+    </node>
+
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
 
 </node>
-
-<!--
-    This application generates the CYBOL manual.
--->

@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2023-10-15  Christian Heller  <christian.heller@cybop.org>
+
+        * Create cybol application "tools/manual-generator/"
+        * Provide library with "load_file" and "save_file" functionality
+
 2023-08-31  Christian Heller  <christian.heller@cybop.org>
 
         * Release CYBOP 0.27.0

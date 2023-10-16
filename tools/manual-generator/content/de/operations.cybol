@@ -1,0 +1,9 @@
+<node>
+
+    <node name="TODO" channel="inline" format="text/plain" model=""/>
+
+    <!--
+    Wenn Daten das Material sind, dann stellen Operationen das Werkzeug zu deren Veränderung dar.
+    -->
+
+</node>

@@ -1,0 +1,60 @@
+<node>
+
+    <!-- Creation -->
+
+    <node name="create_page" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/cybol-path" model="#language_name"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="whole" channel="inline" format="text/cybol-path" model=".wui"/>
+    </node>
+
+    <!-- Initialisation -->
+
+    <node name="load_page" channel="inline" format="text/cybol-path" model=".library.load_file">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#language_name)"/>
+        <node name="source" channel="inline" format="text/plain" model="language-generator/wui/page/page.cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+    </node>
+    <node name="load_page_properties" channel="inline" format="text/cybol-path" model=".library.load_file">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#language_name)"/>
+        <node name="source" channel="inline" format="text/plain" model="language-generator/wui/page/properties.cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/property"/>
+    </node>
+
+    <!-- Assignment -->
+
+    <node name="overwrite_date" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#language_name).head.date"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".content.(#language_name).date"/>
+    </node>
+    <node name="overwrite_author" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#language_name).head.author"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".content.(#language_name).author"/>
+    </node>
+    <node name="overwrite_description" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#language_name).head.description"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".content.(#language_name).description"/>
+    </node>
+    <node name="overwrite_keywords" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#language_name).head.keywords"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".content.(#language_name).keywords"/>
+    </node>
+    <node name="overwrite_title" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#language_name).head.title"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".content.(#language_name).title"/>
+    </node>
+
+    <node name="overwrite_heading" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#language_name).body.section.header.heading"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".title"/>
+    </node>
+    <node name="overwrite_copyright" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#language_name).body.section.footer.copyright"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".copyright"/>
+    </node>
+    <node name="append_date" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#language_name).body.section.footer.copyright"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".content.(#language_name).date"/>
+    </node>
+
+</node>

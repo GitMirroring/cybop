@@ -1,0 +1,25 @@
+<node>
+
+    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#chapter_break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="#chapter_index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model="#chapter_count"/>
+    </node>
+
+    <node name="get_name" channel="inline" format="access/get-name" model="">
+        <node name="element" channel="inline" format="text/cybol-path" model="#chapter_name"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".content.[#language_index].[#chapter_index]"/>
+    </node>
+
+    <node name="create_nav_chapter" channel="inline" format="text/cybol-path" model=".logic.create.nav_chapter"/>
+    <node name="create_section_chapter" channel="inline" format="text/cybol-path" model=".logic.create.section_chapter"/>
+
+    <node name="translate_properties" channel="inline" format="text/cybol-path" model=".logic.translate.properties"/>
+    <node name="translate_constraints_sections" channel="inline" format="text/cybol-path" model=".logic.translate.sections"/>
+
+    <node name="increment_index" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#chapter_index"/>
+        <node name="operand" channel="inline" format="number/integer" model="1"/>
+    </node>
+
+</node>

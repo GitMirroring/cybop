@@ -1,0 +1,11 @@
+<node>
+
+    <!-- CAUTION! The file "load_library.cybol" does NOT have to be loaded here, since it is used for initial startup only but NOT at runtime. -->
+
+    <node name="load_flie" channel="file" format="element/part" model="manual-generator/library/load_file.cybol"/>
+    <node name="load_flie_internal" channel="file" format="element/part" model="manual-generator/library/load_file_internal.cybol"/>
+
+    <node name="save_file" channel="file" format="element/part" model="manual-generator/library/save_file.cybol"/>
+    <node name="save_file_internal" channel="file" format="element/part" model="manual-generator/library/save_file_internal.cybol"/>
+
+</node>

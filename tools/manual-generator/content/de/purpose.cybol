@@ -1,0 +1,27 @@
+<node>
+
+    <node name="n" channel="inline" format="text/plain" model="Wozu CYBOL?">
+        <node name="heading" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="n" channel="inline" format="text/plain" model="drastische Vereinfachung der Programmierung"/>
+    <node name="n" channel="inline" format="text/plain" model="Der Baumknoten als einzige verbleibende Datenstruktur."/>
+    <node name="n" channel="inline" format="text/plain" model="Kann zwar nicht das kürzest mögliche "Hello World!" darstellen und auch eine einfache Addition mag auf den ersten Blick etws komplex aussehen."/>
+    <node name="n" channel="inline" format="text/plain" model="Sein volles Potential kann CYBOL erst bei größeren Anwendungen ausschöpfen. Je größer deren Umfang, desto deutlicher treten die Vorteile von CYBOL zutage."/>
+    <node name="n" channel="inline" format="text/plain" model=""/>
+
+<!--
+    <node name="n" channel="file" format="element/part" model="manual-generator/content/example/hello_world.txt">
+        <node name="sourcecode" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="caption" channel="inline" format="text/plain" model="Beispielprogramm Hello World!"/>
+    </node>
+-->
+
+<!--
+    <node name="n" channel="file" format="element/part" model="manual-generator/content/figure/image.png">
+        <node name="figure" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="caption" channel="inline" format="text/plain" model="Ein Bild"/>
+    </node>
+-->
+
+</node>

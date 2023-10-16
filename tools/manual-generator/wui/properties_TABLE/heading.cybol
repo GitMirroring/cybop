@@ -1,0 +1,19 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="Name">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+        <node name="width" channel="inline" format="text/plain" model="200px"/>
+    </node>
+    <node name="required" channel="inline" format="text/plain" model="Required">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+        <node name="width" channel="inline" format="text/plain" model="100px"/>
+    </node>
+    <node name="format" channel="inline" format="text/plain" model="Format">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+        <node name="width" channel="inline" format="text/plain" model="300px"/>
+    </node>
+    <node name="description" channel="inline" format="text/plain" model="Description">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+
+</node>

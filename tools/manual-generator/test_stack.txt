@@ -1,0 +1,20 @@
+[selected_node] | element/part | 
++-destination | text/plain | manual-generator/test_stack.txt
++-source | text/cybol-path | #
++-language | meta/language | text/model-diagram
++-channel_internal | meta/channel | file
++-identification_internal | number/integer | 5
++-device_internal | text/plain | manual-generator/test_stack.txt
++-mode_internal | text/plain | write
++-encoding_internal | meta/encoding | utf-8
++-language_internal | meta/language | text/model-diagram
++-format_internal | meta/format | element/part
++-message_internal | text/cybol-path | #
++-channel_flag | logicvalue/boolean | false
++-identification_flag | logicvalue/boolean | false
++-device_flag | logicvalue/boolean | true
++-mode_flag | logicvalue/boolean | false
++-encoding_flag | logicvalue/boolean | false
++-language_flag | logicvalue/boolean | true
++-format_flag | logicvalue/boolean | false
++-message_flag | logicvalue/boolean | true

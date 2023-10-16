@@ -1,0 +1,35 @@
+<node>
+
+    <!-- Save file -->
+
+    <node name="save" channel="inline" format="text/cybol-path" model=".library.save_file_internal">
+
+        <!-- Declare local variables on stack -->
+
+        <!-- Open and close -->
+        <node name="channel_internal" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification_internal" channel="inline" format="number/integer" model="0"/>
+        <node name="device_internal" channel="inline" format="text/plain" model=""/>
+        <node name="mode_internal" channel="inline" format="text/plain" model="write"/>
+
+        <!-- Receive -->
+        <node name="encoding_internal" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language_internal" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format_internal" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message_internal" channel="inline" format="text/cybol-path" model=""/>
+
+        <!-- Open and close flags -->
+        <node name="channel_flag" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="identification_flag" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="device_flag" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="mode_flag" channel="inline" format="logicvalue/boolean" model="false"/>
+
+        <!-- Receive flags -->
+        <node name="encoding_flag" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="language_flag" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format_flag" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="message_flag" channel="inline" format="logicvalue/boolean" model="false"/>
+
+    </node>
+
+</node>

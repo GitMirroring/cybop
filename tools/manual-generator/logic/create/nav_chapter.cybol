@@ -1,0 +1,38 @@
+<node>
+
+    <!-- Creation -->
+
+    <node name="create_link" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/cybol-path" model="#category_part_name"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="whole" channel="inline" format="text/cybol-path" model=".wui.body.(#topic_name)"/>
+    </node>
+    <node name="create_tag_property" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="tag"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="whole" channel="inline" format="text/cybol-path" model=".wui.body.(#topic_name).(#category_part_name)"/>
+        <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="create_href_property" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="href"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="whole" channel="inline" format="text/cybol-path" model=".wui.body.(#topic_name).(#category_part_name)"/>
+        <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <!-- Assignment -->
+
+    <node name="overwrite_heading" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.(#topic_name).(#category_part_name)"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#part_name"/>
+    </node>
+    <node name="overwrite_tag_property" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.(#topic_name).(#category_part_name):tag"/>
+        <node name="source" channel="inline" format="text/plain" model="a"/>
+    </node>
+    <node name="overwrite_href_property" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.(#topic_name).(#category_part_name):href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#category_part_href"/>
+    </node>
+
+</node>

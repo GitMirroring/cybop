@@ -1,0 +1,356 @@
+[selected_node] | element/part | 
++-library | element/part | 
+| +-load_flie | element/part | 
+| | +-load | text/cybol-path | .library.load_file_internal
+| | | :-channel_internal | meta/channel | file
+| | | :-identification_internal | number/integer | 0
+| | | :-device_internal | text/plain | 
+| | | :-mode_internal | text/plain | read
+| | | :-encoding_internal | meta/encoding | utf-8
+| | | :-language_internal | meta/language | text/cybol
+| | | :-format_internal | meta/format | element/part
+| | | :-message_internal | text/cybol-path | 
+| | | :-channel_flag | logicvalue/boolean | false
+| | | :-identification_flag | logicvalue/boolean | false
+| | | :-device_flag | logicvalue/boolean | false
+| | | :-mode_flag | logicvalue/boolean | false
+| | | :-encoding_flag | logicvalue/boolean | false
+| | | :-language_flag | logicvalue/boolean | false
+| | | :-format_flag | logicvalue/boolean | false
+| | | :-message_flag | logicvalue/boolean | false
+| +-load_flie_internal | element/part | 
+| | +-check_channel | access/indicate-exists | 
+| | | :-result | text/cybol-path | #channel_flag
+| | | :-part | text/cybol-path | #channel
+| | +-branch_channel | flow/branch | 
+| | | :-criterion | text/cybol-path | #channel_flag
+| | | :-true | modify/overwrite | 
+| | | | :-destination | text/cybol-path | #channel_internal
+| | | | :-source | text/cybol-path | #channel
+| | +-check_identification | access/indicate-exists | 
+| | | :-result | text/cybol-path | #identification_flag
+| | | :-part | text/cybol-path | #id
+| | +-branch_identification | flow/branch | 
+| | | :-criterion | text/cybol-path | #identification_flag
+| | | :-true | modify/overwrite | 
+| | | | :-destination | text/cybol-path | #identification_internal
+| | | | :-source | text/cybol-path | #id
+| | +-check_device | access/indicate-exists | 
+| | | :-result | text/cybol-path | #device_flag
+| | | :-part | text/cybol-path | #source
+| | +-branch_device | flow/branch | 
+| | | :-criterion | text/cybol-path | #device_flag
+| | | :-true | modify/overwrite | 
+| | | | :-destination | text/cybol-path | #device_internal
+| | | | :-source | text/cybol-path | #source
+| | +-check_mode | access/indicate-exists | 
+| | | :-result | text/cybol-path | #mode_flag
+| | | :-part | text/cybol-path | #mode
+| | +-branch_mode | flow/branch | 
+| | | :-criterion | text/cybol-path | #mode_flag
+| | | :-true | modify/overwrite | 
+| | | | :-destination | text/cybol-path | #mode_internal
+| | | | :-source | text/cybol-path | #mode
+| | +-check_encoding | access/indicate-exists | 
+| | | :-result | text/cybol-path | #encoding_flag
+| | | :-part | text/cybol-path | #encoding
+| | +-branch_encoding | flow/branch | 
+| | | :-criterion | text/cybol-path | #encoding_flag
+| | | :-true | modify/overwrite | 
+| | | | :-destination | text/cybol-path | #encoding_internal
+| | | | :-source | text/cybol-path | #encoding
+| | +-check_language | access/indicate-exists | 
+| | | :-result | text/cybol-path | #language_flag
+| | | :-part | text/cybol-path | #language
+| | +-branch_language | flow/branch | 
+| | | :-criterion | text/cybol-path | #language_flag
+| | | :-true | modify/overwrite | 
+| | | | :-destination | text/cybol-path | #language_internal
+| | | | :-source | text/cybol-path | #language
+| | +-check_format | access/indicate-exists | 
+| | | :-result | text/cybol-path | #format_flag
+| | | :-part | text/cybol-path | #format
+| | +-branch_format | flow/branch | 
+| | | :-criterion | text/cybol-path | #format_flag
+| | | :-true | modify/overwrite | 
+| | | | :-destination | text/cybol-path | #format_internal
+| | | | :-source | text/cybol-path | #format
+| | +-check_message | access/indicate-exists | 
+| | | :-result | text/cybol-path | #message_flag
+| | | :-part | text/cybol-path | #destination
+| | +-branch_message | flow/branch | 
+| | | :-criterion | text/cybol-path | #message_flag
+| | | :-true | modify/overwrite | 
+| | | | :-destination | text/cybol-path | #message_internal
+| | | | :-source | text/cybol-path | #destination
+| | +-open_file | dispatch/open | 
+| | | :-channel | text/cybol-path | #channel_internal
+| | | :-identification | text/cybol-path | #identification_internal
+| | | :-device | text/cybol-path | #device_internal
+| | | :-mode | text/cybol-path | #mode_internal
+| | +-receive_data | communicate/receive | 
+| | | :-channel | text/cybol-path | #channel_internal
+| | | :-sender | text/cybol-path | #identification_internal
+| | | :-encoding | text/cybol-path | #encoding_internal
+| | | :-language | text/cybol-path | #language_internal
+| | | :-format | text/cybol-path | #format_internal
+| | | :-message | text/cybol-path | {#message_internal}
+| | +-close_file | dispatch/close | 
+| | | :-channel | text/cybol-path | #channel_internal
+| | | :-identification | text/cybol-path | #identification_internal
+| +-save_file | element/part | 
+| | +-save | text/cybol-path | .library.save_file_internal
+| | | :-channel_internal | meta/channel | file
+| | | :-identification_internal | number/integer | 0
+| | | :-device_internal | text/plain | 
+| | | :-mode_internal | text/plain | write
+| | | :-encoding_internal | meta/encoding | utf-8
+| | | :-language_internal | meta/language | text/cybol
+| | | :-format_internal | meta/format | element/part
+| | | :-message_internal | text/cybol-path | 
+| | | :-channel_flag | logicvalue/boolean | false
+| | | :-identification_flag | logicvalue/boolean | false
+| | | :-device_flag | logicvalue/boolean | false
+| | | :-mode_flag | logicvalue/boolean | false
+| | | :-encoding_flag | logicvalue/boolean | false
+| | | :-language_flag | logicvalue/boolean | false
+| | | :-format_flag | logicvalue/boolean | false
+| | | :-message_flag | logicvalue/boolean | false
+| +-save_file_internal | element/part | 
+| | +-check_channel | access/indicate-exists | 
+| | | :-result | text/cybol-path | #channel_flag
+| | | :-part | text/cybol-path | #channel
+| | +-branch_channel | flow/branch | 
+| | | :-criterion | text/cybol-path | #channel_flag
+| | | :-true | modify/overwrite | 
+| | | | :-destination | text/cybol-path | #channel_internal
+| | | | :-source | text/cybol-path | #channel
+| | +-check_identification | access/indicate-exists | 
+| | | :-result | text/cybol-path | #identification_flag
+| | | :-part | text/cybol-path | #id
+| | +-branch_identification | flow/branch | 
+| | | :-criterion | text/cybol-path | #identification_flag
+| | | :-true | modify/overwrite | 
+| | | | :-destination | text/cybol-path | #identification_internal
+| | | | :-source | text/cybol-path | #id
+| | +-check_device | access/indicate-exists | 
+| | | :-result | text/cybol-path | #device_flag
+| | | :-part | text/cybol-path | #destination
+| | +-branch_device | flow/branch | 
+| | | :-criterion | text/cybol-path | #device_flag
+| | | :-true | modify/overwrite | 
+| | | | :-destination | text/cybol-path | #device_internal
+| | | | :-source | text/cybol-path | #destination
+| | +-check_encoding | access/indicate-exists | 
+| | | :-result | text/cybol-path | #encoding_flag
+| | | :-part | text/cybol-path | #encoding
+| | +-branch_encoding | flow/branch | 
+| | | :-criterion | text/cybol-path | #encoding_flag
+| | | :-true | modify/overwrite | 
+| | | | :-destination | text/cybol-path | #encoding_internal
+| | | | :-source | text/cybol-path | #encoding
+| | +-check_language | access/indicate-exists | 
+| | | :-result | text/cybol-path | #language_flag
+| | | :-part | text/cybol-path | #language
+| | +-branch_language | flow/branch | 
+| | | :-criterion | text/cybol-path | #language_flag
+| | | :-true | modify/overwrite | 
+| | | | :-destination | text/cybol-path | #language_internal
+| | | | :-source | text/cybol-path | #language
+| | +-check_format | access/indicate-exists | 
+| | | :-result | text/cybol-path | #format_flag
+| | | :-part | text/cybol-path | #format
+| | +-branch_format | flow/branch | 
+| | | :-criterion | text/cybol-path | #format_flag
+| | | :-true | modify/overwrite | 
+| | | | :-destination | text/cybol-path | #format_internal
+| | | | :-source | text/cybol-path | #format
+| | +-check_message | access/indicate-exists | 
+| | | :-result | text/cybol-path | #message_flag
+| | | :-part | text/cybol-path | #source
+| | +-branch_message | flow/branch | 
+| | | :-criterion | text/cybol-path | #message_flag
+| | | :-true | modify/overwrite | 
+| | | | :-destination | text/cybol-path | #message_internal
+| | | | :-source | text/cybol-path | #source
+| | +-open_file | dispatch/open | 
+| | | :-channel | text/cybol-path | #channel_internal
+| | | :-identification | text/cybol-path | #identification_internal
+| | | :-device | text/cybol-path | #device_internal
+| | | :-mode | text/cybol-path | #mode_internal
+| | +-send_data | communicate/send | 
+| | | :-channel | text/cybol-path | #channel_internal
+| | | :-receiver | text/cybol-path | #identification_internal
+| | | :-encoding | text/cybol-path | #encoding_internal
+| | | :-language | text/cybol-path | #language_internal
+| | | :-format | text/cybol-path | #format_internal
+| | | :-message | text/cybol-path | {#message_internal}
+| | +-close_file | dispatch/close | 
+| | | :-channel | text/cybol-path | #channel_internal
+| | | :-identification | text/cybol-path | #identification_internal
++-stdout | number/integer | 1
++-content | element/part | 
+| +-de | element/part | 
+| | +-file | text/plain | manual-generator/html/de.html
+| | +-language | text/plain | de
+| | +-date | text/plain | 2023-10-06
+| | +-author | text/plain | Generated by CYBOI; See http://www.cybop.org/
+| | +-description | text/plain | Eine kurze Einführung in die CYBOL-Programmierung
+| | +-keywords | text/plain | Cybernetics Oriented Language, CYBOL, Handbuch, CYBOL-Programmierung, Dokumentation
+| | +-title | text/plain | Handbuch der CYBOL-Programmierung
+| | +-purpose | element/part | 
+| | | +-n | text/plain | Wozu CYBOL?
+| | | | :-heading | logicvalue/boolean | true
+| | | +-n | text/plain | drastische Vereinfachung der Programmierung
+| | | +-n | text/plain | Der Baumknoten als einzige verbleibende Datenstruktur.
+| | | +-n | text/plain | Kann zwar nicht das kürzest mögliche 
+| | | +-n | text/plain | 
+| | +-installation | element/part | 
+| | | +-TODO | text/plain | 
+| | +-structure | element/part | 
+| | | +-heading | text/plain | Programmstruktur
+| | | +-TODO | text/plain | Dies ist ein Beispielsatz.
+| | | +-TODO | text/plain | Ein zweiter Satz und ein Quelltextbeispiel folgt.
+| | | +-TODO | text/plain | Es folgt ein Unterkapitel:
+| | | +-sub | element/part | 
+| | | | +-heading | text/plain | Unterkapitel
+| | | | +-TODO | text/plain | Ein Beispielabsatz.
+| | | +-TODO | text/plain | Ein Abschlusssatz und ENDE des Kapitels.
+| | +-types | element/part | 
+| | | +-TODO | text/plain | 
+| | +-operations | element/part | 
+| | | +-TODO | text/plain | 
+| | +-copyright | text/plain | Copyright © 2023. Christian Heller. Letzte Aktualisierung: 
++-wui | element/part | 
++-logic | element/part | 
+| +-create | element/part | 
+| | +-page | element/part | 
+| | | +-create_page | memorise/create | 
+| | | | :-name | text/cybol-path | #language_name
+| | | | :-format | meta/format | element/part
+| | | | :-whole | text/cybol-path | .wui
+| | | +-load_page | text/cybol-path | .library.load_file
+| | | | :-destination | text/cybol-path | .wui.(#language_name)
+| | | | :-source | text/plain | language-generator/wui/page/page.cybol
+| | | | :-format | meta/format | element/part
+| | | +-load_page_properties | text/cybol-path | .library.load_file
+| | | | :-destination | text/cybol-path | .wui.(#language_name)
+| | | | :-source | text/plain | language-generator/wui/page/properties.cybol
+| | | | :-format | meta/format | element/property
+| | | +-overwrite_date | modify/overwrite | 
+| | | | :-destination | text/cybol-path | .wui.(#language_name).head.date
+| | | | :-source | text/cybol-path | .content.(#language_name).date
+| | | +-overwrite_author | modify/overwrite | 
+| | | | :-destination | text/cybol-path | .wui.(#language_name).head.author
+| | | | :-source | text/cybol-path | .content.(#language_name).author
+| | | +-overwrite_description | modify/overwrite | 
+| | | | :-destination | text/cybol-path | .wui.(#language_name).head.description
+| | | | :-source | text/cybol-path | .content.(#language_name).description
+| | | +-overwrite_keywords | modify/overwrite | 
+| | | | :-destination | text/cybol-path | .wui.(#language_name).head.keywords
+| | | | :-source | text/cybol-path | .content.(#language_name).keywords
+| | | +-overwrite_title | modify/overwrite | 
+| | | | :-destination | text/cybol-path | .wui.(#language_name).head.title
+| | | | :-source | text/cybol-path | .content.(#language_name).title
+| | | +-overwrite_heading | modify/overwrite | 
+| | | | :-destination | text/cybol-path | .wui.(#language_name).body.section.header.heading
+| | | | :-source | text/cybol-path | .title
+| | | +-overwrite_copyright | modify/overwrite | 
+| | | | :-destination | text/cybol-path | .wui.(#language_name).body.section.footer.copyright
+| | | | :-source | text/cybol-path | .copyright
+| | | +-append_date | modify/append | 
+| | | | :-destination | text/cybol-path | .wui.(#language_name).body.section.footer.copyright
+| | | | :-source | text/cybol-path | .content.(#language_name).date
+| +-translate | element/part | 
+| | +-languages | element/part | 
+| | | +-count_languages | access/count | 
+| | | | :-count | text/cybol-path | #language_count
+| | | | :-part | text/cybol-path | .content
+| | | +-loop_languages | flow/loop | 
+| | | | :-break | text/cybol-path | #language_break
+| | | | :-model | text/cybol-path | .logic.translate.language
+| | | +-inform_user | text/cybol-path | .logic.show_success
+| | | :-language_count | number/integer | 0
+| | | :-language_index | number/integer | 0
+| | | :-language_break | logicvalue/boolean | false
+| | | :-language_name | text/plain | 
+| | +-language | element/part | 
+| | | +-compare_index | compare/greater-or-equal | 
+| | | | :-result | text/cybol-path | #language_break
+| | | | :-left | text/cybol-path | #language_index
+| | | | :-right | text/cybol-path | #language_count
+| | | +-get_name | access/get-name | 
+| | | | :-element | text/cybol-path | #language_name
+| | | | :-part | text/cybol-path | .content.[#language_index]
+| | | +-print_language | communicate/send | 
+| | | | :-channel | meta/channel | terminal
+| | | | :-receiver | text/cybol-path | .stdout
+| | | | :-language | meta/language | message/tui
+| | | | | :-newline | logicvalue/boolean | false
+| | | | :-format | meta/format | text/plain
+| | | | :-message | text/plain | Translate language: 
+| | | +-print_language | communicate/send | 
+| | | | :-channel | meta/channel | terminal
+| | | | :-receiver | text/cybol-path | .stdout
+| | | | :-language | meta/language | message/tui
+| | | | :-format | meta/format | text/plain
+| | | | :-message | text/cybol-path | #language_name
+| | | +-create_page | text/cybol-path | .logic.create.page
+| | | +-increment_index | calculate/add | 
+| | | | :-result | text/cybol-path | #language_index
+| | | | :-operand | number/integer | 1
+| | +-chapters | element/part | 
+| | | +-count_chapters | access/count | 
+| | | | :-count | text/cybol-path | #chapter_count
+| | | | :-part | text/cybol-path | .content
+| | | +-loop_chapters | flow/loop | 
+| | | | :-break | text/cybol-path | #chapter_break
+| | | | :-model | text/cybol-path | .logic.translate.chapter
+| | | :-chapter_count | number/integer | 0
+| | | :-chapter_index | number/integer | 0
+| | | :-chapter_break | logicvalue/boolean | false
+| | | :-chapter_name | text/plain | 
+| | +-chapter | element/part | 
+| | | +-compare_index | compare/greater-or-equal | 
+| | | | :-result | text/cybol-path | #chapter_break
+| | | | :-left | text/cybol-path | #chapter_index
+| | | | :-right | text/cybol-path | #chapter_count
+| | | +-get_name | access/get-name | 
+| | | | :-element | text/cybol-path | #chapter_name
+| | | | :-part | text/cybol-path | .content.[#language_index].[#chapter_index]
+| | | +-create_nav_chapter | text/cybol-path | .logic.create.nav_chapter
+| | | +-create_section_chapter | text/cybol-path | .logic.create.section_chapter
+| | | +-translate_properties | text/cybol-path | .logic.translate.properties
+| | | +-translate_constraints_sections | text/cybol-path | .logic.translate.sections
+| | | +-increment_index | calculate/add | 
+| | | | :-result | text/cybol-path | #chapter_index
+| | | | :-operand | number/integer | 1
+| +-generate | element/part | 
+| | +-open_file | dispatch/open | 
+| | | :-channel | meta/channel | file
+| | | :-identification | text/cybol-path | .id
+| | | :-device | text/cybol-path | .content.(#language_name).file
+| | | :-mode | text/plain | write
+| | +-generate_html_file | communicate/send | 
+| | | :-channel | meta/channel | file
+| | | :-receiver | text/cybol-path | .id
+| | | :-encoding | meta/encoding | utf-8
+| | | :-language | meta/language | text/html
+| | | | :-indentation | logicvalue/boolean | false
+| | | :-format | meta/format | element/part
+| | | :-message | text/cybol-path | .wui.(#language_name)
+| | +-close_file | dispatch/close | 
+| | | :-channel | meta/channel | file
+| | | :-identification | text/cybol-path | .id
+| +-show_failure | communicate/send | 
+| | :-channel | meta/channel | terminal
+| | :-receiver | text/cybol-path | .stdout
+| | :-language | meta/language | message/tui
+| | :-format | meta/format | text/plain
+| | :-message | text/plain | Error: Could not process files. Possibly, they have a wrong format.
+| +-show_success | communicate/send | 
+| | :-channel | meta/channel | terminal
+| | :-receiver | text/cybol-path | .stdout
+| | :-language | meta/language | message/tui
+| | :-format | meta/format | text/plain
+| | :-message | text/plain | Information: The files seem to have a valid format. Processing ...

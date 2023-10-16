@@ -1,0 +1,10 @@
+<node>
+
+    <node name="heading" channel="inline" format="text/plain" model="Properties">
+        <node name="tag" channel="inline" format="text/plain" model="h3"/>
+    </node>
+    <node name="grid" channel="file" format="element/part" model="manual-generator/wui/properties/properties.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="table"/>
+    </node>
+
+</node>

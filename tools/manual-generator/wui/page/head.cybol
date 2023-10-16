@@ -1,0 +1,46 @@
+<node>
+
+    <node name="charset" channel="inline" format="text/plain" model="">
+        <node name="tag" channel="inline" format="text/plain" model="meta"/>
+        <node name="charset" channel="inline" format="text/plain" model="utf-8"/>
+    </node>
+
+    <node name="viewport" channel="inline" format="text/plain" model="">
+        <node name="tag" channel="inline" format="text/plain" model="meta"/>
+        <node name="name" channel="inline" format="text/plain" model="viewport"/>
+        <node name="content" channel="inline" format="text/plain" model="width=device-width, initial-scale=1"/>
+    </node>
+
+    <node name="date" channel="inline" format="text/plain" model="">
+        <node name="tag" channel="inline" format="text/plain" model="meta"/>
+        <node name="name" channel="inline" format="text/plain" model="date"/>
+        <node name="content" channel="inline" format="text/plain" model=""/>
+    </node>
+
+    <node name="author" channel="inline" format="text/plain" model="">
+        <node name="tag" channel="inline" format="text/plain" model="meta"/>
+        <node name="name" channel="inline" format="text/plain" model="author"/>
+        <node name="content" channel="inline" format="text/plain" model=""/>
+    </node>
+
+    <node name="description" channel="inline" format="text/plain" model="">
+        <node name="tag" channel="inline" format="text/plain" model="meta"/>
+        <node name="name" channel="inline" format="text/plain" model="description"/>
+        <node name="content" channel="inline" format="text/plain" model=""/>
+    </node>
+
+    <node name="keywords" channel="inline" format="text/plain" model="">
+        <node name="tag" channel="inline" format="text/plain" model="meta"/>
+        <node name="name" channel="inline" format="text/plain" model="keywords"/>
+        <node name="content" channel="inline" format="text/plain" model=""/>
+    </node>
+
+    <node name="title" channel="inline" format="text/plain" model="">
+        <node name="tag" channel="inline" format="text/plain" model="title"/>
+    </node>
+
+    <node name="css" channel="file" format="text/plain" model="manual-generator/wui/file/manual.css">
+        <node name="tag" channel="inline" format="text/plain" model="style"/>
+    </node>
+
+</node>

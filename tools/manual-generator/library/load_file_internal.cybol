@@ -1,0 +1,132 @@
+<node>
+
+    <!-- Assign value if existing or leave default untouched otherwise -->
+
+    <node name="check_channel" channel="inline" format="access/indicate-exists" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#channel_flag"/>
+        <node name="part" channel="inline" format="text/cybol-path" model="#channel"/>
+    </node>
+    <node name="branch_channel" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model="#channel_flag"/>
+        <!-- Overwrite default value with given value -->
+        <node name="true" channel="inline" format="modify/overwrite" model="">
+            <node name="destination" channel="inline" format="text/cybol-path" model="#channel_internal"/>
+            <node name="source" channel="inline" format="text/cybol-path" model="#channel"/>
+        </node>
+    </node>
+
+    <node name="check_identification" channel="inline" format="access/indicate-exists" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#identification_flag"/>
+        <node name="part" channel="inline" format="text/cybol-path" model="#id"/>
+    </node>
+    <node name="branch_identification" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model="#identification_flag"/>
+        <!-- Overwrite default value with given value -->
+        <node name="true" channel="inline" format="modify/overwrite" model="">
+            <node name="destination" channel="inline" format="text/cybol-path" model="#identification_internal"/>
+            <node name="source" channel="inline" format="text/cybol-path" model="#id"/>
+        </node>
+    </node>
+
+    <node name="check_device" channel="inline" format="access/indicate-exists" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#device_flag"/>
+        <node name="part" channel="inline" format="text/cybol-path" model="#source"/>
+    </node>
+    <node name="branch_device" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model="#device_flag"/>
+        <!-- Overwrite default value with given value -->
+        <node name="true" channel="inline" format="modify/overwrite" model="">
+            <node name="destination" channel="inline" format="text/cybol-path" model="#device_internal"/>
+            <node name="source" channel="inline" format="text/cybol-path" model="#source"/>
+        </node>
+    </node>
+
+    <node name="check_mode" channel="inline" format="access/indicate-exists" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#mode_flag"/>
+        <node name="part" channel="inline" format="text/cybol-path" model="#mode"/>
+    </node>
+    <node name="branch_mode" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model="#mode_flag"/>
+        <!-- Overwrite default value with given value -->
+        <node name="true" channel="inline" format="modify/overwrite" model="">
+            <node name="destination" channel="inline" format="text/cybol-path" model="#mode_internal"/>
+            <node name="source" channel="inline" format="text/cybol-path" model="#mode"/>
+        </node>
+    </node>
+
+    <node name="check_encoding" channel="inline" format="access/indicate-exists" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#encoding_flag"/>
+        <node name="part" channel="inline" format="text/cybol-path" model="#encoding"/>
+    </node>
+    <node name="branch_encoding" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model="#encoding_flag"/>
+        <!-- Overwrite default value with given value -->
+        <node name="true" channel="inline" format="modify/overwrite" model="">
+            <node name="destination" channel="inline" format="text/cybol-path" model="#encoding_internal"/>
+            <node name="source" channel="inline" format="text/cybol-path" model="#encoding"/>
+        </node>
+    </node>
+
+    <node name="check_language" channel="inline" format="access/indicate-exists" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#language_flag"/>
+        <node name="part" channel="inline" format="text/cybol-path" model="#language"/>
+    </node>
+    <node name="branch_language" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model="#language_flag"/>
+        <!-- Overwrite default value with given value -->
+        <node name="true" channel="inline" format="modify/overwrite" model="">
+            <node name="destination" channel="inline" format="text/cybol-path" model="#language_internal"/>
+            <node name="source" channel="inline" format="text/cybol-path" model="#language"/>
+        </node>
+    </node>
+
+    <node name="check_format" channel="inline" format="access/indicate-exists" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#format_flag"/>
+        <node name="part" channel="inline" format="text/cybol-path" model="#format"/>
+    </node>
+    <node name="branch_format" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model="#format_flag"/>
+        <!-- Overwrite default value with given value -->
+        <node name="true" channel="inline" format="modify/overwrite" model="">
+            <node name="destination" channel="inline" format="text/cybol-path" model="#format_internal"/>
+            <node name="source" channel="inline" format="text/cybol-path" model="#format"/>
+        </node>
+    </node>
+
+    <node name="check_message" channel="inline" format="access/indicate-exists" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#message_flag"/>
+        <node name="part" channel="inline" format="text/cybol-path" model="#destination"/>
+    </node>
+    <node name="branch_message" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model="#message_flag"/>
+        <!-- Overwrite default value with given value -->
+        <node name="true" channel="inline" format="modify/overwrite" model="">
+            <node name="destination" channel="inline" format="text/cybol-path" model="#message_internal"/>
+            <node name="source" channel="inline" format="text/cybol-path" model="#destination"/>
+        </node>
+    </node>
+
+    <!-- Load file data into memory -->
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="text/cybol-path" model="#channel_internal"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model="#identification_internal"/>
+        <node name="device" channel="inline" format="text/cybol-path" model="#device_internal"/>
+        <node name="mode" channel="inline" format="text/cybol-path" model="#mode_internal"/>
+    </node>
+
+    <node name="receive_data" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="text/cybol-path" model="#channel_internal"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model="#identification_internal"/>
+        <node name="encoding" channel="inline" format="text/cybol-path" model="#encoding_internal"/>
+        <node name="language" channel="inline" format="text/cybol-path" model="#language_internal"/>
+        <node name="format" channel="inline" format="text/cybol-path" model="#format_internal"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="{#message_internal}"/>
+    </node>
+
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="text/cybol-path" model="#channel_internal"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model="#identification_internal"/>
+    </node>
+
+</node>

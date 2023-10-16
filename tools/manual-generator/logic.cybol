@@ -1,6 +1,5 @@
 <node>
 
-<!--
     <node name="create" channel="file" format="element/part" model="manual-generator/logic/create.cybol"/>
     <node name="translate" channel="file" format="element/part" model="manual-generator/logic/translate.cybol"/>
     <node name="generate" channel="file" format="element/part" model="manual-generator/logic/generate.cybol"/>
@@ -8,20 +7,17 @@
     <node name="show_failure" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Error: Could not process files. Possibly, they have a wrong format."/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="show_success" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Information: The files seem to have a valid format. Processing ..."/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
--->
 
 </node>

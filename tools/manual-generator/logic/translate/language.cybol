@@ -1,0 +1,42 @@
+<node>
+
+    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#language_break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="#language_index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model="#language_count"/>
+    </node>
+
+    <node name="get_name" channel="inline" format="access/get-name" model="">
+        <node name="element" channel="inline" format="text/cybol-path" model="#language_name"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".content.[#language_index]"/>
+    </node>
+
+    <node name="print_language" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui">
+            <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
+        </node>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Translate language: "/>
+    </node>
+    <node name="print_language" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#language_name"/>
+    </node>
+
+    <node name="create_page" channel="inline" format="text/cybol-path" model=".logic.create.page"/>
+<!--
+    <node name="translate_chapters" channel="inline" format="text/cybol-path" model=".logic.translate.chapters"/>
+    <node name="generate_html_file" channel="inline" format="text/cybol-path" model=".logic.generate"/>
+-->
+
+    <node name="increment_index" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#language_index"/>
+        <node name="operand" channel="inline" format="number/integer" model="1"/>
+    </node>
+
+</node>

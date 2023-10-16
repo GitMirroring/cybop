@@ -1,0 +1,7 @@
+<node>
+
+    <node name="heading" channel="file" format="element/part" model="manual-generator/wui/properties/heading.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="tr"/>
+    </node>
+
+</node>

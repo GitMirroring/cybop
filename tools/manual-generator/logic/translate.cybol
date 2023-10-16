@@ -1,0 +1,25 @@
+<node>
+
+    <node name="languages" channel="file" format="element/part" model="manual-generator/logic/translate/languages.cybol">
+        <!-- The loop parametres (stack variables). -->
+        <node name="language_count" channel="inline" format="number/integer" model="0"/>
+        <node name="language_index" channel="inline" format="number/integer" model="0"/>
+        <node name="language_break" channel="inline" format="logicvalue/boolean" model="false"/>
+        <!-- The element. -->
+        <node name="language_name" channel="inline" format="text/plain" model=""/>
+    </node>
+
+    <node name="language" channel="file" format="element/part" model="manual-generator/logic/translate/language.cybol"/>
+
+    <node name="chapters" channel="file" format="element/part" model="manual-generator/logic/translate/chapters.cybol">
+        <!-- The loop parametres (stack variables). -->
+        <node name="chapter_count" channel="inline" format="number/integer" model="0"/>
+        <node name="chapter_index" channel="inline" format="number/integer" model="0"/>
+        <node name="chapter_break" channel="inline" format="logicvalue/boolean" model="false"/>
+        <!-- The element. -->
+        <node name="chapter_name" channel="inline" format="text/plain" model=""/>
+    </node>
+
+    <node name="chapter" channel="file" format="element/part" model="manual-generator/logic/translate/chapter.cybol"/>
+
+</node>

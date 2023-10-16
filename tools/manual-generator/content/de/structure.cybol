@@ -1,0 +1,22 @@
+<node>
+
+    <node name="heading" channel="inline" format="text/plain" model="Programmstruktur"/>
+
+    <node name="TODO" channel="inline" format="text/plain" model="Dies ist ein Beispielsatz."/>
+    <node name="TODO" channel="inline" format="text/plain" model="Ein zweiter Satz und ein Quelltextbeispiel folgt."/>
+
+    <!--
+    erstes Beispiel
+
+    Syntax Tabelle/XML/JSON/Text
+
+    im Folgenden XML
+    -->
+
+    <node name="TODO" channel="inline" format="text/plain" model="Es folgt ein Unterkapitel:"/>
+
+    <node name="sub" channel="file" format="element/part" model="manual-generator/content/de/unterkapitel.cybol"/>
+
+    <node name="TODO" channel="inline" format="text/plain" model="Ein Abschlusssatz und ENDE des Kapitels."/>
+
+</node>

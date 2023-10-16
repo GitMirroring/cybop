@@ -1,0 +1,33 @@
+<node>
+
+    <node name="line" channel="inline" format="text/plain" model="">
+        <node name="tag" channel="inline" format="text/plain" model="hr"/>
+    </node>
+
+    <node name="heading" channel="inline" format="text/plain" model="Kontakt">
+        <node name="tag" channel="inline" format="text/plain" model="h3"/>
+    </node>
+
+    <node name="email" channel="inline" format="text/plain" model="christian.heller@cybop.org">
+        <node name="tag" channel="inline" format="text/plain" model="a"/>
+        <node name="href" channel="inline" format="text/plain" model="mailto:christian.heller@cybop.org"/>
+    </node>
+
+    <node name="mail_break" channel="inline" format="text/plain" model="">
+        <node name="tag" channel="inline" format="text/plain" model="br"/>
+    </node>
+
+    <node name="web" channel="inline" format="text/plain" model="http://www.cybop.org/">
+        <node name="tag" channel="inline" format="text/plain" model="a"/>
+        <node name="href" channel="inline" format="text/plain" model="http://www.cybop.org/"/>
+    </node>
+
+    <node name="web_break" channel="inline" format="text/plain" model="">
+        <node name="tag" channel="inline" format="text/plain" model="br"/>
+    </node>
+
+    <node name="copyright" channel="inline" format="text/plain" model="Copyright &#xa9; 2023. Christian Heller. Letzte Aktualisierung: 2023-10-05">
+        <node name="tag" channel="inline" format="text/plain" model="p"/>
+    </node>
+
+</node>

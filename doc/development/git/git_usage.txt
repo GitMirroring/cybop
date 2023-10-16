@@ -7,20 +7,65 @@ ________
 
 https://github.com/git-guides/git-add
 
-Add:
-- selects a file and moves it to the staging area, marking it for inclusion in the next commit
-- one can select all files, a directory, specific files, or even specific parts of a file for staging and commit
+Check status:
+- List files in staging area planned for commit:
+git status
+- Short form using option --short or -s:
+git status -s
 
-Examples:
-git add directory/: Stage all changes to all files within a directory titled directory
-git add README.md: Stage all changes within the README.md file
-git add -u: stages modified and deleted files only, NOT new files
+Add (mark for inclusion):
+- Stage all changes to all files within a directory titled directory:
+git add directory/
+- Stage all changes within the README.md file:
+git add README.md
+- Stages modified and deleted files only, NOT new files, using option -u (like "update"):
+git add -u
 
 Seldom:
-git add .: adds the entire directory recursively, including files whose names begin with a dot
-git add -A: stages all files, including new, modified, and deleted files, including files in the current directory and in higher directories that still belong to the same git repository
+- Add entire directory recursively, including files whose names begin with a dot:
+git add .
+- Stages all files, including new, modified, and deleted files,
+  including files in the current directory and in higher directories
+  that still belong to the same git repository:
+git add -A
 
-Workflow:
+Remove:
+- Remove from staging area after having added before:
+git restore --staged README.md
+- Remove a file both from the Git repository and the filesystem:
+git rm file1.txt
+- Remove a file only from repository, but keep it on the filesystem:
+git rm file2.txt --cached
+- Remove directory and content recursively:
+git rm -r directory
+- Use wildcards which are resolved by the shell and NOT by the git command:
+git rm -- *.txt
+
+Commit:
+- Commit changes with message:
+git commit -m "Update the \"README\" using backslash in commit message to escape quotation marks"
+
+Push:
+- Push using short form:
+git push
+- Push changes to remote branch:
+git push -u origin update-readme
+
+Confusion:
+- if you git add a deleted file the deletion is staged for commit
+- the language of "add" when you're actually "deleting" can be confusing
+- to be more clear, better think of git "stage" in place of git "add"
+
+Delete a file via GitHub web gui:
+- view any file in your repository
+- click the trash can icon at the top
+- commit the removal just like any other web-based edit
+- "git pull" to update local repo and have the file deleted locally too
+
+Workflow
+________
+
+Branching:
 - Create a branch:
 git branch update-readme
 - Checkout to that branch:
@@ -34,53 +79,19 @@ git commit -m "update the README to include links to contributing guide"
 - Push the changes to the remote branch:
 git push -u origin update-readme
 
-Remove:
-- remove files from the working tree and from the index
-
-Examples:
-- Remove a file both from the Git repository and the filesystem:
-git rm file1.txt
-- Remove a file only from repository, but keep it on the filesystem:
-git rm file2.txt --cached
-- Remove directory and content:
-git rm -r directory
-- Use wildcards which are resolved by the shell and NOT the git command:
-git rm -- *.txt
-
-Confusion:
-- if you git add a deleted file the deletion is staged for commit
-- the language of "add" when you're actually "deleting" can be confusing
-- to be more clear, better think of git "stage" in place of git "add"
-
-Delete a file via GitHub web gui:
-- view any file in your repository
-- click the trash can icon at the top
-- commit the removal just like any other web-based edit
-- "git pull" to update local repo and have the file deleted locally too
-
-git (classic)
-_____________
-
+git (classic):
 1 Clone (initial) OR pull (update) repository
-
 cd cybop/build/
 git clone https://github.com/EnricoGallus/CybopBuildScripts.git scripts
-
 OR:
-
 cd cybop/build/scripts/
 git pull
-
 2 Change AND save local source code
-
 3 Commit and push changes (publish)
-
 git commit -m "Update ..."
 git push
 
-git (with GitHub)
-_________________
-
+git (with GitHub):
 1 fork project via web portal GitHub, to have it referenced in ones own user account
 2 clone it to work locally with it
 3 change it and and commit changes

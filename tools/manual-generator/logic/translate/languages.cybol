@@ -1,0 +1,15 @@
+<node>
+
+    <node name="count_languages" channel="inline" format="access/count" model="">
+        <node name="count" channel="inline" format="text/cybol-path" model="#language_count"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".content"/>
+    </node>
+
+    <node name="loop_languages" channel="inline" format="flow/loop" model="">
+        <node name="break" channel="inline" format="text/cybol-path" model="#language_break"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.language"/>
+    </node>
+
+    <node name="inform_user" channel="inline" format="text/cybol-path" model=".logic.show_success"/>
+
+</node>

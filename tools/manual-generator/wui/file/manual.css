@@ -1,0 +1,167 @@
+/*
+ * Colours from logo:
+ * - dark blue: #3873c2
+ * - medium blue: #5287ce
+ * - light blue: #aed6f2
+ */
+
+body {
+
+    /* Disable page scrollbars since fixed areas have their own. */
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: Sans Serif, Bitstream Vera Sans, DejaVu Sans, Liberation Sans, Nimbus Sans L, FreeSans, Latin Modern Sans, Arial;
+    font-size: 14pt;
+}
+
+.position-fixed {
+
+    top: 0;
+    bottom: 0;
+    /*
+     * Make element stick, even on page scroll.
+     * CAUTION! Fixed position might not work properly on mobile devices.
+     */
+    position: fixed;
+    /* Full height. */
+    height: 97%;
+    /* Enable x- or y-scrollbar as needed, if element has too much content. */
+    overflow: scroll;
+}
+
+.nav-left {
+
+    left: 0;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    width: 18%;
+}
+
+.section-center {
+
+    left: 20%;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    width: 58%;
+}
+
+nav {
+
+    font-size: 0.9em;
+}
+
+nav h1 {
+
+    color: #3873c2;
+    font-size: 1.4em;
+}
+
+nav h2 {
+
+    font-size: 1.2em;
+}
+
+nav a {
+
+    color: #000000;
+    display: block;
+    text-decoration: none;
+}
+
+/*
+ * The active class marks the menu item of the page which is currently displayed.
+ */
+nav a.active {
+
+    background-color: #5287ce;
+    color: #ffffff;
+}
+
+nav a:hover:not(.active) {
+
+    background-color: #aed6f2;
+    color: #000000;
+}
+
+section h1 {
+
+    margin-top: 20px;
+    font-size: 1.8em;
+}
+
+section h2 {
+
+    margin-top: 40px;
+    font-size: 1.4em;
+}
+
+section h3 {
+
+    margin-top: 20px;
+    font-size: 1.0em;
+}
+
+table {
+
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+tr {
+
+    text-align: left;
+    vertical-align: top;
+}
+
+tr:nth-child(even) {
+
+    background-color: #f2f2f2;
+}
+
+th {
+
+    padding: 5px;
+}
+
+td {
+
+    padding: 5px;
+}
+
+.description {
+
+    /* CAUTION! Display line breaks on webpage, but strip extra white space. */
+    white-space: pre-line;
+}
+
+.example {
+
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #000000;
+    color: #ffffff;
+    font-family: Monospace, Bitstream Vera Sans Mono, DejaVu Sans Mono, Liberation Mono, Nimbus Mono L, FreeMono, Fixedsys, Courier;
+    /* CAUTION! Display line breaks and extra white space characters at the beginning of each text line. */
+    white-space: pre-wrap;
+}
+
+footer {
+
+    margin-top: 50px;
+}
+
+footer a {
+
+    color: #3873c2;
+    text-decoration: none;
+}
+
+footer a:hover {
+
+    color: #aed6f2;
+}

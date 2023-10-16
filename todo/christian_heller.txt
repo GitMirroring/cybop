@@ -11,6 +11,18 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+        * Update project history on website and in cybop book latex files
+
+Functional Programming
+______________________
+
+        * Experiment with cybol app on how to hand over over multiple properties (arguments): as single nodes or as collection, for example to cybol operation "add"
+            see clojure ideas
+        * Write cybol app handing over a desired function (for example inc or dec) as parametre (as used in functional languages)
+        * Think through usefulness of handing over more cyboi command line arguments to cybol application
+            as property on stack, to be used via cybol-path for example #0, #1 etc.
+            local variable name as well as ALL values being text strings
+
 Database
 ________
 
@@ -31,12 +43,6 @@ ______
         * Use suitable colours for syntax highlighting in source code examples
         * Consider existing cybol beginner's manual in directory "doc/manual/"
         * Delete existing cybol beginner's manual in directory "doc/manual/"
-
-        Experiment:
-        * Write cybol app handing over a desired function (for example inc or dec) as parametre (as used in functional languages)
-        * Think through usefulness of handing over more cyboi command line arguments to cybol application
-            as property on stack, to be used via cybol-path for example #0, #1 etc.
-            local variable name as well as ALL values being text strings
 
 Various
 _______

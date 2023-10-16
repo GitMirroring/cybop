@@ -1,0 +1,7 @@
+<node>
+
+    <node name="document_type" channel="inline" format="text/plain" model="html"/>
+    <node name="tag" channel="inline" format="text/plain" model="html"/>
+    <node name="lang" channel="inline" format="text/plain" model="de"/>
+
+</node>

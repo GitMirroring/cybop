@@ -1,0 +1,15 @@
+<node>
+
+    <node name="header" channel="file" format="element/part" model="manual-generator/wui/page/header.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="header"/>
+    </node>
+
+    <node name="content" channel="inline" format="element/part" model="">
+        <node name="tag" channel="inline" format="text/plain" model="section"/>
+    </node>
+
+    <node name="footer" channel="file" format="element/part" model="manual-generator/wui/page/footer.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="footer"/>
+    </node>
+
+</node>

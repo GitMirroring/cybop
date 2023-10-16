@@ -1,8 +1,12 @@
 <node>
 
+    <node name="library" channel="file" format="element/part" model="manual-generator/library.cybol"/>
+
     <node name="stdout" channel="inline" format="number/integer" model="-1"/>
 
     <node name="content" channel="file" format="element/part" model="manual-generator/content.cybol"/>
+    <node name="wui" channel="file" format="element/part" model="manual-generator/wui.cybol"/>
+
     <node name="logic" channel="file" format="element/part" model="manual-generator/logic.cybol"/>
 
 </node>
