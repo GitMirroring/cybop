@@ -61,6 +61,7 @@ Beispiel lexikalisch im Gegensatz zu dynamisch
 Super
 Recursion via Stack Variables
 Header Files
+Matrix, Vector/Array, Addition with many operands
 
 MIME Types
 __________
@@ -1631,4 +1632,23 @@ DIRECTLY instead, the above "multiple definition" error occured.
 
 In order to avoid this, ONE special source file has been created for EACH
 library, whose sole sense is to SUM UP all relevant source files via include.
+
+Matrix, Vector/Array, Addition with many operands
+_________________________________________________
+
+- Mixing of minuend and subtrahends in one array is NOT good and not done in cybol, for example in clojure (functional programming): (- 24 8 6)
+- Instead, DIFFERENT cybol properties are used, one for minuend (result) and another for subtrahend (operand)
+
+- a matrix can be resembled in cybol by its tree structure, just like a table in html
+- cybol variables can be ONE-dimensional arrays only
+
+- an addition in cybol does always add vectors/arrays by default
+- example: "1,2,3" + "2,2,2" = "3,4,5"
+
+- an addition of all elements of an array is NOT possible and there is NO cybol operation for that, since it does NOT make sense
+- the single elements of an array can be accessed via index, if necessary, for example via cybol property "result_index" or "operand_index" (see api for "calculate/add")
+- if an operand with multiple elements is needed, then a tree node should be given as operand and the contained child nodes used for the operation
+
+- introduce a NEW kind of cybol operation called "calculate/add-many", "calculate/subtract-many", "calculate/multiply-many", "calculate/divide-many"
+- specify property "operand" with cybol path to a part containing many child nodes which are to be used as operands
 

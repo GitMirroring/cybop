@@ -13,11 +13,19 @@
 
         * Update project history on website and in cybop book latex files
 
+Operation with many Operands
+____________________________
+
+        * Write cybol application demonstrating usage of "operand" property as path to a part containing tree nodes representing many argument values
+        * Introduce cybol operations "calculate/add-many", "calculate/subtract-many", "calculate/multiply-many", "calculate/divide-many"
+        * Adapt thereby functional programming using many operands like for example in clojure (- 24 8 6 7)
+
+        * Introduce cybol operations "calculate/increment", "calculate/decrement"
+
 Functional Programming
 ______________________
 
-        * Experiment with cybol app on how to hand over over multiple properties (arguments): as single nodes or as collection, for example to cybol operation "add"
-            see clojure ideas
+        * Reflect about how to adapt clojure functions "map", "filter", "reduce" to cybol
         * Write cybol app handing over a desired function (for example inc or dec) as parametre (as used in functional languages)
         * Think through usefulness of handing over more cyboi command line arguments to cybol application
             as property on stack, to be used via cybol-path for example #0, #1 etc.
