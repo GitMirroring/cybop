@@ -30,32 +30,22 @@
 #include "logger.h"
 
 /**
- * Divides the quotient by the divisor integer.
+ * Increments the number by one.
  *
- * @param p0 the quotient, which is the dividend BEFORE the operation
- * @param p1 the divisor
+ * @param p0 the number
  */
-void calculate_integer_divide(void* p0, void* p1) {
+void calculate_integer_increment(void* p0) {
 
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* d = (int*) p1;
+        int* number = (int*) p0;
 
-        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate integer increment.");
 
-            int* q = (int*) p0;
-
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate integer divide.");
-
-            *q = *q / *d;
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate integer divide. The quotient is null.");
-        }
+        (*number)++;
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate integer divide. The divisor is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate integer increment. The number is null.");
     }
 }

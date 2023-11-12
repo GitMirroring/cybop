@@ -7,6 +7,7 @@ ______________________________________________
 
 - immutable data (hash array mapped tries) -> thread-safe code
 - recursion instead of loops (map, filter, reduce, fold)
+- recursion instead of loops (first, second, last, rest)
 - functions as arguments ("first class functions", "higher-order functions")
 
 - uniform grammar of Lisp: every expression is a list,

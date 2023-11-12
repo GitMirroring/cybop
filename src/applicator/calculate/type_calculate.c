@@ -66,20 +66,59 @@ void apply_calculate_type(void* p0, void* p1, void* p2, void* p3, void* p4, void
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, p3, p7);
-
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (p7 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
-        // The result- and operand type are identical.
+        // The second operand (besides result) is MISSING.
+        // Therefore, a comparison of result- and operand type
+        // is NOT possible and the function called directly.
+        // This is probably an increment or decrement operation.
         //
 
         calculate_part(p0, p1, p2, p3, p4, p5, p6);
 
-    } else {
+        // Set comparison result.
+        r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+    }
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply calculate type. The result type and operand type are different.");
-        fwprintf(stdout, L"Error: Could not apply calculate type. The result type and operand type are different.\n");
-        fwprintf(stdout, L"Error: Result type: %i. Operand type: %i.\n", *((int*) p3), *((int*) p4));
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // The second operand's type is "element/part".
+            // Therefore, a comparison of result- and operand type
+            // is NOT possible and the function called directly.
+            // This is probably an operation with MANY operands
+            // given as children of a PART.
+            //
+
+            calculate_part(p0, p1, p2, p3, p4, p5, p6);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // The type comparison result.
+        int tr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+        compare_integer_equal((void*) &tr, p3, p7);
+
+        if (tr != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // The result- and operand type are IDENTICAL.
+            //
+
+            calculate_part(p0, p1, p2, p3, p4, p5, p6);
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply calculate type. The result type and operand type are different.");
+            fwprintf(stdout, L"Error: Could not apply calculate type. The result type and operand type are different.\n");
+            fwprintf(stdout, L"Error: Result type: %i. Operand type: %i.\n", *((int*) p3), *((int*) p7));
+        }
     }
 }

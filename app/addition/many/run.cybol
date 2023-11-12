@@ -1,0 +1,52 @@
+<!--
+    This application adds many summands given in an external list.
+    Classic addition using "calculate/add" does add ONE summand VECTOR to the result vector.
+    The addition "calculate/add-many" used here, however, does add MANY summands.
+    Since in cyboi each single number value represents an array (vector),
+    it does not matter if the given summands are just single values or vectors.
+    In both cases they are added to the result.
+-->
+
+<node>
+
+    <!-- Creation -->
+
+    <node name="create_fileid" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="stdout"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+    <node name="create_fileid" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="sum"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+
+    <!-- Initialisation -->
+
+    <node name="open_stdout" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="device" channel="inline" format="text/plain" model="standard-output"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
+    </node>
+
+    <!-- Addition -->
+
+    <node name="add_operands" channel="inline" format="calculate/add-many" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".sum"/>
+        <node name="operand" channel="file" format="element/part" model="addition/many/summands.cybol"/>
+    </node>
+
+    <!-- Printing -->
+
+    <node name="print_result" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".sum"/>
+    </node>
+
+    <!-- Shutdown -->
+
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
+</node>
