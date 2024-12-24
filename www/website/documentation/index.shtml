@@ -42,7 +42,7 @@
     </div>
     <p class="mt-4">
         <a href="/documentation/api/">
-            <span class="badge rounded-pill p-3" style="font-size: 14pt;">View API documentation</span>
+            <span class="badge rounded-pill p-3" style="font-size: 14pt;">View API Documentation</span>
         </a>
     </p>
 </section>
@@ -121,7 +121,6 @@
     </p>
 </section>
 
-<!--
 <section class="container">
     <h2>History</h2>
     <p class="mt-4">
@@ -130,6 +129,5 @@
         </a>
     </p>
 </section>
--->
 
 <!--#include virtual="/bottom.shtml" -->

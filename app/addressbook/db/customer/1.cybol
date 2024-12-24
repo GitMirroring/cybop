@@ -1,0 +1,9 @@
+<node>
+    <node name="salutation" channel="inline" format="text/plain" model="Herr"/>
+    <node name="first_name" channel="inline" format="text/plain" model="Wilhelm"/>
+    <node name="last_name" channel="inline" format="text/plain" model="Wunderbar"/>
+    <node name="address" channel="inline" format="text/cybol-path" model="0"/>
+    <node name="date_of_birth" channel="inline" format="text/plain" model="23.05.1903"/>
+    <node name="male" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="marital_status" channel="inline" format="text/cybol-path" model="1"/>
+</node>

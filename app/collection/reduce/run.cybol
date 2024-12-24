@@ -1,10 +1,10 @@
 <!--
     This application adds many summands given in an external list.
     Classic addition using "calculate/add" does add ONE summand VECTOR to the result vector.
-    The addition "calculate/add-many" used here, however, does add MANY summands.
+    The "list/reduce" operation used here, however, does add MANY summands.
     Since in cyboi each single number value represents an array (vector),
     it does not matter if the given summands are just single values or vectors.
-    In both cases they are added to the result.
+    In both cases, they are added to the result.
 -->
 
 <node>
@@ -15,8 +15,8 @@
         <node name="name" channel="inline" format="text/plain" model="stdout"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>
-    <node name="create_fileid" channel="inline" format="memorise/create" model="">
-        <node name="name" channel="inline" format="text/plain" model="sum"/>
+    <node name="create_output" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="output"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>
 
@@ -30,10 +30,29 @@
 
     <!-- Addition -->
 
-    <node name="add_operands" channel="inline" format="calculate/add-many" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model=".sum"/>
-        <node name="operand" channel="file" format="element/part" model="addition/many/summands.cybol"/>
+    <!-- Using a primitive operation as function -->
+    <node name="add_operands" channel="inline" format="list/reduce" model="">
+        <!--
+            It is not necessary but possible to store local variables as function properties.
+            The input values are then appended to those local variables or if none exist,
+            then only the input values will be available as function properties.
+            CAUTION! These function properties (stack variables) have to be accessed
+            via INDEX, for example "#[0]". This is similar to using "%x" for a variable
+            in an anonymous function of classical programming languages.
+        -->
+        <node name="function" channel="inline" format="element/operation" model="calculate/add"/>
+        <node name="output" channel="inline" format="text/cybol-path" model=".output"/>
+        <node name="input" channel="file" format="element/part" model="list/reduce/summands.cybol"/>
     </node>
+
+    <!-- Using external logic referenced as cybol-path as function -->
+<!--
+    <node name="add_operands" channel="inline" format="list/reduce" model="">
+        <node name="function" channel="inline" format="text/cybol-path" model=".function"/>
+        <node name="output" channel="inline" format="text/cybol-path" model=".output"/>
+        <node name="input" channel="file" format="element/part" model="list/reduce/summands.cybol"/>
+    </node>
+-->
 
     <!-- Printing -->
 

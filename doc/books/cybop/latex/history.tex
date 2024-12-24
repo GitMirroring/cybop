@@ -381,5 +381,9 @@ on the architecture and implementation of the \emph{CYBOI Interpreter}.
         name, channel, format, model. The parts and properties are the rows.
     \item[2022] Several de-/serialisers get implemented (json, csv, joined string, numeral).
     \item[2022] The cybol models can now also be saved using json arrays.
-    \item[20xx] For open issues yet to be implemented, see section \ref{call_for_developers_heading}!
+    \item[2023] A general stack handler with push and pop functions gets implemented
+        and used for storing stack variables in the signal (event) handler.
+    \item[2023] Thanks to a refactoring of the cmake configuration files, cyboi can now
+        be provided as both, a monolithic executable and a version with shared libraries.
+        In the wake of this, header files got finally introduced.
 \end{itemize}

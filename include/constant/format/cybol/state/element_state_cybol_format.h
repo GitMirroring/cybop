@@ -130,6 +130,8 @@ static int* PROPERTY_ELEMENT_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  *
  * <node name="print_text" channel="inline" format="text/cybol-path" model=".print">
  *     <node name="extra_text" channel="inline" format="text/plain" model="This is EXTRA text handed over as runtime argument."/>
+ *     <node name="parent" channel="inline" format="element/reference" model=".level_1"/>
+ *     <node name="child_index" channel="inline" format="number/integer" model="1"/>
  * </node>
  *
  * <node name="field_model" channel="inline" format="text/cybol-path" model=".logic.translate.field">

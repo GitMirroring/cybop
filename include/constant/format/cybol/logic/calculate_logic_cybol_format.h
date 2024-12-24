@@ -112,49 +112,6 @@ static wchar_t* ADD_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/add";
 static int* ADD_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The calculate/add-many logic cybol format.
- *
- * Description:
- *
- * Adds the many numbers contained in a separate operand node to the result.
- *
- * sum = summand_1 + summand_2 + summand_3 (etc.)
- *
- * This is similar to functional programming using many operands like for example in clojure:
- * (+ 24 4 3 2)
- *
- * Caution! Do not mix this up with vector addition "calculate/add" where the operand
- * represents an array of numbers like for example "4,3,2" given in just one node.
- *
- * Examples:
- *
- * <node name="add_operands_loaded_from_file" channel="inline" format="calculate/add-many" model="">
- *     <node name="result" channel="inline" format="text/cybol-path" model=".sum"/>
- *     <node name="operand" channel="file" format="element/part" model="addition/many/summands.cybol"/>
- * </node>
- *
- * <node name="add_operands_contained_as_children_in_tree_node" channel="inline" format="calculate/add-many" model="">
- *     <node name="result" channel="inline" format="text/cybol-path" model=".sum"/>
- *     <node name="operand" channel="inline" format="text/cybol-path" model=".list-of-numbers"/>
- * </node>
- *
- * The list of numbers could be defined as follows:
- *
- * <node>
- *     <node name="number_1" channel="inline" format="number/integer" model="4"/>
- *     <node name="number_2" channel="inline" format="number/integer" model="3"/>
- *     <node name="number_3" channel="inline" format="number/integer" model="2"/>
- * </node>
- *
- * Properties:
- *
- * - result (required) [text/cybol-path]: The sum resulting from the addition. It initially represents the first summand.
- * - operand (required) [text/cybol-path | element/part]: The list of summands given as separate node containing the actual numbers.
- */
-static wchar_t* ADD_MANY_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/add-many";
-static int* ADD_MANY_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
  * The calculate/decrement logic cybol format.
  *
  * Description:
@@ -200,49 +157,6 @@ static int* DECREMENT_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  */
 static wchar_t* DIVIDE_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/divide";
 static int* DIVIDE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The calculate/divide-many logic cybol format.
- *
- * Description:
- *
- * Divides the result by the many numbers contained in a separate operand node.
- *
- * quotient = dividend / divisor_1 / divisor_2 / divisor_3 (etc.)
- *
- * This is similar to functional programming using many operands like for example in clojure:
- * (/ 24 4 3 2)
- *
- * Caution! Do not mix this up with vector division "calculate/divide" where the operand
- * represents an array of numbers like for example "4,3,2" given in just one node.
- *
- * Examples:
- *
- * <node name="divide_by_operands_loaded_from_file" channel="inline" format="calculate/divide-many" model="">
- *     <node name="result" channel="inline" format="text/cybol-path" model=".quotient"/>
- *     <node name="operand" channel="file" format="element/part" model="division/many/divisors.cybol"/>
- * </node>
- *
- * <node name="divide_by_operands_contained_as_children_in_tree_node" channel="inline" format="calculate/divide-many" model="">
- *     <node name="result" channel="inline" format="text/cybol-path" model=".quotient"/>
- *     <node name="operand" channel="inline" format="text/cybol-path" model=".list-of-numbers"/>
- * </node>
- *
- * The list of numbers could be defined as follows:
- *
- * <node>
- *     <node name="number_1" channel="inline" format="number/integer" model="4"/>
- *     <node name="number_2" channel="inline" format="number/integer" model="3"/>
- *     <node name="number_3" channel="inline" format="number/integer" model="2"/>
- * </node>
- *
- * Properties:
- *
- * - result (required) [text/cybol-path]: The quotient resulting from the division. It initially represents the dividend.
- * - operand (required) [text/cybol-path | element/part]: The list of divisors given as separate node containing the actual numbers.
- */
-static wchar_t* DIVIDE_MANY_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/divide-many";
-static int* DIVIDE_MANY_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The calculate/increment logic cybol format.
@@ -370,49 +284,6 @@ static wchar_t* MULTIPLY_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/multiply";
 static int* MULTIPLY_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The calculate/multiply-many logic cybol format.
- *
- * Description:
- *
- * Multiplies the result with the many numbers contained in a separate operand node.
- *
- * product = factor_1 * factor_2 * factor_3 (etc.)
- *
- * This is similar to functional programming using many operands like for example in clojure:
- * (* 24 4 3 2)
- *
- * Caution! Do not mix this up with vector multiplication "calculate/multiply" where the operand
- * represents an array of numbers like for example "4,3,2" given in just one node.
- *
- * Examples:
- *
- * <node name="multiply_with_operands_loaded_from_file" channel="inline" format="calculate/multiply-many" model="">
- *     <node name="result" channel="inline" format="text/cybol-path" model=".product"/>
- *     <node name="operand" channel="file" format="element/part" model="multiplication/many/factors.cybol"/>
- * </node>
- *
- * <node name="multiply_with_operands_contained_as_children_in_tree_node" channel="inline" format="calculate/multiply-many" model="">
- *     <node name="result" channel="inline" format="text/cybol-path" model=".product"/>
- *     <node name="operand" channel="inline" format="text/cybol-path" model=".list-of-numbers"/>
- * </node>
- *
- * The list of numbers could be defined as follows:
- *
- * <node>
- *     <node name="number_1" channel="inline" format="number/integer" model="4"/>
- *     <node name="number_2" channel="inline" format="number/integer" model="3"/>
- *     <node name="number_3" channel="inline" format="number/integer" model="2"/>
- * </node>
- *
- * Properties:
- *
- * - result (required) [text/cybol-path]: The product resulting from the multiplication. It initially represents the first factor.
- * - operand (required) [text/cybol-path | element/part]: The list of factors given as separate node containing the actual numbers.
- */
-static wchar_t* MULTIPLY_MANY_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/multiply-many";
-static int* MULTIPLY_MANY_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
  * The calculate/negate logic cybol format.
  *
  * Description:
@@ -490,49 +361,6 @@ static int* REDUCE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  */
 static wchar_t* SUBTRACT_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/subtract";
 static int* SUBTRACT_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The calculate/subtract-many logic cybol format.
- *
- * Description:
- *
- * Subtracts the many numbers contained in a separate operand node from the result.
- *
- * difference = minuend - subtrahend_1 - subtrahend_2 - subtrahend_3 (etc.)
- *
- * This is similar to functional programming using many operands like for example in clojure:
- * (- 24 4 3 2)
- *
- * Caution! Do not mix this up with vector subtraction "calculate/subtract" where the operand
- * represents an array of numbers like for example "4,3,2" given in just one node.
- *
- * Examples:
- *
- * <node name="subtract_operands_loaded_from_file" channel="inline" format="calculate/subtract-many" model="">
- *     <node name="result" channel="inline" format="text/cybol-path" model=".difference"/>
- *     <node name="operand" channel="file" format="element/part" model="subtraction/many/subtrahends.cybol"/>
- * </node>
- *
- * <node name="subtract_operands_contained_as_children_in_tree_node" channel="inline" format="calculate/subtract-many" model="">
- *     <node name="result" channel="inline" format="text/cybol-path" model=".difference"/>
- *     <node name="operand" channel="inline" format="text/cybol-path" model=".list-of-numbers"/>
- * </node>
- *
- * The list of numbers could be defined as follows:
- *
- * <node>
- *     <node name="number_1" channel="inline" format="number/integer" model="4"/>
- *     <node name="number_2" channel="inline" format="number/integer" model="3"/>
- *     <node name="number_3" channel="inline" format="number/integer" model="2"/>
- * </node>
- *
- * Properties:
- *
- * - result (required) [text/cybol-path]: The difference resulting from the subtraction. It initially represents the minuend.
- * - operand (required) [text/cybol-path | element/part]: The list of subtrahends given as separate node containing the actual numbers.
- */
-static wchar_t* SUBTRACT_MANY_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/subtract-many";
-static int* SUBTRACT_MANY_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* CALCULATE_LOGIC_CYBOL_FORMAT_CONSTANT_HEADER */
 #endif

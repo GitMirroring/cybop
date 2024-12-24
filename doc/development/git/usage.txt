@@ -29,15 +29,21 @@ git add .
   that still belong to the same git repository:
 git add -A
 
-Remove:
-- Remove from staging area after having added before:
+Restore:
+- Remove from staging area after having marked to be added or removed before:
 git restore --staged README.md
+- Discard changes in working directory:
+git restore ChangeLog
+
+Remove:
 - Remove a file both from the Git repository and the filesystem:
 git rm file1.txt
 - Remove a file only from repository, but keep it on the filesystem:
 git rm file2.txt --cached
 - Remove directory and content recursively:
 git rm -r directory
+- Remove directory and content recursively forcing removal even on local changes:
+git rm -r -f directory
 - Use wildcards which are resolved by the shell and NOT by the git command:
 git rm -- *.txt
 

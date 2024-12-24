@@ -1,0 +1,9 @@
+<node>
+    <node name="salutation" channel="inline" format="text/plain" model="Frau"/>
+    <node name="first_name" channel="inline" format="text/plain" model="Liselotte"/>
+    <node name="last_name" channel="inline" format="text/plain" model="Licht"/>
+    <node name="address" channel="inline" format="text/cybol-path" model="0"/>
+    <node name="date_of_birth" channel="inline" format="text/plain" model="24.11.1956"/>
+    <node name="male" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="marital_status" channel="inline" format="text/cybol-path" model="1"/>
+</node>

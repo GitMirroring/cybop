@@ -1,0 +1,6 @@
+<node>
+    <node name="street" channel="inline" format="text/plain" model="Kirchweg 12"/>
+    <node name="city" channel="inline" format="text/plain" model="Tamsweg"/>
+    <node name="postcode" channel="inline" format="text/plain" model="4567"/>
+    <node name="country" channel="inline" format="text/plain" model="Österreich"/>
+</node>

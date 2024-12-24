@@ -1,0 +1,32 @@
+
+Release
+=======
+
+git add app/
+git add build/cmake/
+git add buildx/cmake
+git add build/adjust_copyright.sh
+git add build/cmake_configuration.h.in
+git add build/CMakeLists.txt
+git add buildx/cmake_configuration.h.in
+git add buildx/CMakeLists.txt
+git add doc/
+git add include/
+git add src/
+git add todo/
+git add tools/api-generator/app.cybol
+(NICHT das ganze Verzeichnis "tools/", denn "tools/api-generator/spec/ ist temporär und veränderlich)
+git add www/
+git add AUTHORS
+git add ChangeLog
+git add COPYING
+git add INSTALL
+git add NEWS
+git add README
+
+git commit -m "Release CYBOP 0.27.0"
+git push
+
+git tag -a cybop-0.27.0 -m "Tag the cybop-0.27.0 release"
+git push origin --tags
+

@@ -11,47 +11,79 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-        * Update project history on website and in cybop book latex files
+Complete reduce
+_______________
+
+        DONE:
+        * constants and necessary implementation files for collect/reduce
+
+        CAUTION! Do NOT introduce a separate directory "src/executor/collector/"
+        The cybol operation "collect/reduce" can be fully implemented in directory "src/applicator/collect/"
+
+        TODO:
+        * Add file for each new operation to directory "src/applicator/"
+        * Add operation to file "src/controller/handler/operation_handler.c"
+        * Add function headers to "include/executor/*"
+        * Add file includes to "src/library/executor/*"
+        * Add function header to "include/applicator.h"
+        * Add file includes to "src/library/applicator_library.c"
+
+        * Think about usage or deletion of "src/applicator/calculate/many_calculate.c"
+
+Container functions
+___________________
+
+        * Rename cybol operation "modify/lower" into "modify/lowercase" and use noun "lowercaser"
+        * Rename cybol operation "modify/upper" into "modify/uppercase" and use noun "uppercaser"
+            both, "lowercase" and "uppercase" are approved verbs used in journalism
+            https://forum.wordreference.com/threads/the-opposite-of-capitalise-to-write-in-lower-case.1101453/post-5713545
+
+        * Add container functions taken from clojure language as cybol operation "modify/shuffle"
+            (shuffle x)
+            Shuffle a list
+            Generate a random permutation of the elements of list x
+
+Cleanup
+_______
+
+        * Clean up directory "app/addressbook/" for git and checkin
 
 Functional Programming 1/3
 __________________________
 
+        * Reflect on various kinds of function calls and parametre usage:
+            simple: directly calling "calculate/add"
+            indirect: using "flow/sequence" to call "calculate/add"
+            external: pointing to external file containing "calculate/add"
+            stack: similar to "external", but defining parametres on stack, as properties at function call in "run.cybol"
+
+        * Use cybol operation name "collect/reduce" instead of "list/reduce" (edit in ChangeLog yet)
+        * Check and possibly complete implementation of "collect/reduce" in directory "src/applicator/"
+        * See further functions:
+            entwicklung/clojure/syntax/map-filter-reduce-fold.txt
+            entwicklung/clojure/syntax/unterschied_apply_und_map.txt
+            entwicklung/clojure/syntax/vergleich_java-streams_clojure.txt
+
+        * Investigate possibility of cybol operation "collect/reduce"
+        SOLUTION for "loop_reduce.c":
+        * Store input elements as function properties, similar to storage of stack variables in file "model_pusher.c"
+        * Reuse function properties which have been defined in cybol file as template
+        * Append OR overwrite ?? input elements to existing function properties using INDEX, since property names are unknown when calling most different functions
+            -> problem: values may have a primitive type or "element/part" (can be read out from part) -> how to copy? -> use "element/reference" for shallow copy as done with "push_stack"
+        * Access stack variable in function via index, for example "#[0]"
+            (This is similar to using "%x" for a variable in an anonymous function of classical programming languages)
+
         CONTINUE:
-        * Implement cybol operation "list/reduce" or "function/reduce" (see further BELOW)
+        * Implement cybol operation "collect/reduce" (see further BELOW)
 
-        * Write into document "CYBOI Design Decisions":
-
-            Handing over MANY operands to operations like "calculate/add" is NOT possible.
-            The reason is that optional and default properties might get mixed up
-            with a varying number of operands.
-
-            Calling functional operations like "function/reduce" which apply another operation
-            to MANY source elements do NOT make sense for all cybol operations. For example,
-            "maintain/startup" or "activate/enable" or "flow/loop" are not usable with it.
-            Only operations that process a source to produce a destination match the "reduce" context.
-
-            When implementing a cybol operation "function/reduce" in a file "function.c"
-            (OR alternatively a cybol operation "list/reduce" in a file "list.c"),
-            then that has to loop through elements of the source part.
-            Using iteration (a loop) here is much more efficient than recursion (repeated function calls).
-            The "reduce" should then delegate (provide) the corresponding source element
-            to the called function, for example an addition in a special pre-defined ORDER.
-            In order for that mechanism to work properly, the ORDER of cybol properties is important.
-            An INDEX is used INSTEAD of the name to access DEFAULT properties.
-            All OPTIONAL properties, on the other hand, are searched by NAME.
-
-            The "reduce" will have to allocate a temporary item and copy
-            the pointers of given source element parts. That is, the parts
-            containing values do NOT get copied completely, only a REFERENCE (pointer) to them.
-
-        * Add cybol application "app/addition/many/" handing over not just one but many summands
-        * Add cybol application "app/addition/reduce/" handing over list of summands as external part
+        * Test cybol application "app/addition/increment/"
         * Add cybol application "app/addition/delegation/" calling compound operation with stack variables
+        * Add cybol application "app/collection/reduce/" handing over list of summands as external part to git
 
         * Adapt file "applicator/calculate/many_calculate.c"
         * Adapt file "applicator/calculate/type_calculate.c"
 
-        * Investigate possibility of cybol operation "function/reduce"
+        * Clean up files in directory "applicator/calculate/"
         * Add cybol application "app/addition/delegation/" for testing similar to application "addition/stack/"
         * Access stack variables via absolute INDEX e.g. [0] not path [.index] and not name (.part) -- try at least
             see files "begin_knowledge_selector.c", "identification_knowledge_deserialiser.c", "name_knowledge_deserialiser.c"
@@ -59,10 +91,6 @@ __________________________
             e.g. addition with many summands changed into a loop calling single addition operations with just ONE operand
             that one operand needs to be copied (only the part pointer) into a temporary properties list and handed over to the primitive operation "calculate/add"
             should also work for other operations than "add" and also for COMPOUND operations (logic part consisting of other parts representing operations)
-
-        * Think through usefulness of handing over more cyboi command line arguments to cybol application
-            as property on stack, to be used via cybol-path for example #0, #1 etc.
-            local variable name as well as ALL values being text strings
 
         * Remove unused cybol operation constants:
             CONTINUE (all other items in todo list "add_new_cybol_operation.txt" are DONE):
@@ -73,7 +101,7 @@ __________________________
 Functional Programming 2/3
 __________________________
 
-        * Delete "calculation/add-many" etc. which can be replaced by "list/reduce"
+        * Delete "calculation/add-many" etc. which can be replaced by "collect/reduce"
 
         * Add operations "modify/duplicate" and "modify/replicate"
 
@@ -96,132 +124,65 @@ __________________________
             alternative: implement "many" via linked list (predecessor/successor reference)
 
         * Add operations:
-            select/union == list/merge
+            select/union == collect/merge
             select/difference
             select/intersection
-            select/criterion == list/filter
+            select/criterion == collect/filter
 
 <!-- Synonyms in languages like java or clojure: filter | select -->
 <!-- Added to output if true -->
-<node name="test" channel="inline" format="list/filter" model="">
+<node name="test" channel="inline" format="collect/filter" model="">
+    <node name="function" channel="inline" format="text/cybol-path" model=".function"/>
     <node name="output" channel="inline" format="text/cybol-path" model=".output"/>
     <node name="input" channel="inline" format="text/cybol-path" model=".input"/>
-    <node name="function" channel="inline" format="text/cybol-path" model=".function"/>
 </node>
 
 <!-- Synonyms in languages like java or clojure: apply | map | foreach | consumer-accept-action -->
-<node name="test" channel="inline" format="list/apply" model="">
-    <node name="output" channel="inline" format="text/cybol-path" model=".output"/>
-    <node name="input" channel="inline" format="text/cybol-path" model=".input"/>
+<node name="test" channel="inline" format="collect/apply" model="">
     <node name="function" channel="inline" format="text/cybol-path" model=".function"/>
-</node>
-
-<!-- Synonyms in languages like java or clojure: reduce -->
-<node name="test" channel="inline" format="list/reduce" model="">
     <node name="output" channel="inline" format="text/cybol-path" model=".output"/>
     <node name="input" channel="inline" format="text/cybol-path" model=".input"/>
-    <node name="function" channel="inline" format="text/cybol-path" model=".function"/>
-</node>
-
-<!-- Using primitive operation -->
-<node name="test" channel="inline" format="list/reduce" model="">
-    <node name="output" channel="inline" format="text/cybol-path" model=".output"/>
-    <node name="input" channel="inline" format="text/cybol-path" model=".input"/>
-    <node name="function" channel="inline" format="element/operation" model="calculate/add"/>
 </node>
 
 Functional Programming 3/3
 __________________________
 
 <!-- clojure example: (filter (fn [[k v]] (even? k)) {1 "a", 2 "b", 3 "c", 4 "d"}) -->
-<node name="test" channel="inline" format="function/filter" model="">
+<node name="test" channel="inline" format="collect/filter" model="">
     <node name="criterion" channel="inline" format="text/cybol-path" model=".function"/>
     <node name="part" channel="inline" format="text/cybol-path" model=".collection"/>
 </node>
 
 <node name="function" channel="file" format="element/part" model="path/to/function.cybol"/>
 
---
+Loop
+____
 
-<!-- clojure example: (reduce + [1 2 3 4 5]) -->
-<node name="test" channel="inline" format="function/reduce" model="">
-    <!-- This can be a single integer as calculation result or a part or another type -->
-    <node name="destination" channel="inline" format="text/cybol-path" model=".destination"/>
-    <!-- This is normally a part through which "reduce" will iterate -->
-    <node name="source" channel="inline" format="text/cybol-path" model=".source"/>
-    <!-- The function to be executed -->
-    <node name="function" channel="inline" format="element/operation" model="calculate/add"/>
-</node>
+        Reflexion:
+        - a "break" flag may not always have to be handed over from the outside application script
+        - it may rather be declared as local variable within the interpreter code
+        - classical loops without break flag would become possible
+        - provide various variants of loops
 
-<!-- clojure example: (reduce conj #{} [:a :b :c]) -->
-<node name="test" channel="inline" format="function/reduce" model="">
-    <!-- This can be a single integer as calculation result or a part or another type -->
-    <node name="destination" channel="inline" format="text/cybol-path" model=".destination"/>
-    <!-- This is normally a part through which "reduce" will iterate -->
-    <node name="source" channel="inline" format="text/cybol-path" model=".source"/>
-    <!-- The function to be executed -->
-    <node name="function" channel="inline" format="element/operation" model="modify/append"/>
-    <!-- ALTERNATIVE: A cybol path pointing to a (compound) function. -->
-    <!-- <node name="function" channel="inline" format="text/cybol-path" model=".function"/> -->
-</node>
+        flow/loop
+        : model
+        : break
 
---
+        flow/loop-limit
+        : model
+        : limit (cycles | iterations | times)
 
-void apply_reduce(void* dest, void* src, void* function, void* function_format) {
+        Example from clojure:
+        (dotimes [_ 10]
+            (println "Hello"))
 
-    // The source element.
-    void* se = NULL;
-    // The loop variable.
-    int j = 0;
-    // The temporary arguments item.
-    int ai = NULL;
-    // The temporary arguments item data, count.
-    int aid = NULL;
-    int aic = NULL;
-
-    // Allocate temporary arguments item.
-    allocate_item(ai, type = NULL);
-
-    while (TRUE) {
-
-        if (j >= src_count) {
-
-            break;
-        }
-
-        // Get next source element.
-        copy_array(se, src, j);
-
-        // Empty temporary arguments item.
-        modify_empty(ai);
-
-        // Append destination element to temporary arguments item.
-        modify_append(ai, dest);
-        // Append source element to temporary arguments item.
-        modify_append(ai, se);
-
-        // Get temporary arguments item data, count.
-        copy_array(aid, ai, DATA);
-        copy_array(aic, ai, COUNT);
-
-        //
-        // Handle logic operation.
-        //
-        // CAUTION! The comparison if to call "handle_operation"
-        // or "handle_compound" is done inside the "handle" function.
-        //
-        //?? TODO: How to identify function arguments (properties) inside,
-        // by their name or by position (index)?
-        //
-        handle(aid, aic);
-
-        // Increment loop variable.
-        j++;
-    }
-
-    // Deallocate temporary arguments item.
-    deallocate_item(ai, type = NULL);
-}
+        flow/loop-variable
+        : model
+        : variable
+        : start
+        : step (may be negative)
+        : end
+        : inclusive (default = false | true, if end value is inclusive or exclusive in comparison)
 
 Manual
 ______

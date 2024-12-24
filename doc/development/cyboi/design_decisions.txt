@@ -62,6 +62,7 @@ Super
 Recursion via Stack Variables
 Header Files
 Matrix, Vector/Array, Addition with many operands
+Path or Part
 
 MIME Types
 __________
@@ -1649,6 +1650,53 @@ _________________________________________________
 - the single elements of an array can be accessed via index, if necessary, for example via cybol property "result_index" or "operand_index" (see api for "calculate/add")
 - if an operand with multiple elements is needed, then a tree node should be given as operand and the contained child nodes used for the operation
 
-- introduce a NEW kind of cybol operation called "calculate/add-many", "calculate/subtract-many", "calculate/multiply-many", "calculate/divide-many"
+- introduce a NEW kind of cybol operation called "list/reduce" processing many list elements
 - specify property "operand" with cybol path to a part containing many child nodes which are to be used as operands
+
+Handing over MANY operands to operations like "calculate/add" is NOT possible.
+The reason is that optional and default properties might get mixed up
+with a varying number of operands.
+
+Calling functional operations like "list/reduce" which apply another operation
+to MANY source elements do NOT make sense for all cybol operations. For example,
+"maintain/startup" or "activate/enable" or "flow/loop" are not usable with it.
+Only operations that process a list source to produce a destination match the "reduce" context.
+
+When implementing a cybol operation "list/reduce" in a file "list.c",
+then that has to loop through elements of the source part.
+Using iteration (a loop) here is much more efficient than recursion (repeated function calls)
+and consumes less stack memory.
+The "reduce" should then delegate (provide) the corresponding source element
+to the called function, for example an addition in a special pre-defined ORDER.
+In order for that mechanism to work properly, the ORDER of cybol properties is important.
+An INDEX is used INSTEAD of the name to access DEFAULT properties.
+All OPTIONAL properties, on the other hand, are searched by NAME.
+
+The "reduce" will have to allocate a temporary item and copy
+the pointers of given source element parts. That is, the parts
+containing values do NOT get copied completely, only a REFERENCE (pointer) to them.
+
+Path or Part
+____________
+
+CAUTION! There is a DIFFERENCE in how a part containing a cybol path as model is retrieved:
+
+1 Leave cybol path as is
+
+- used in function "copy_array_forward" identifying a tree node by index
+- used in function "get_name_array" identifying a tree node by name
+- treats cybol path as pure string
+- returns the properties of this cybol path part itself
+
+2 Resolve cybol path
+
+- used in functions "get_part_name", "get_part_knowledge", "deserialise_knowledge" identifying a tree node by path
+- resolves the cybol path diving deep into the tree hierarchy
+- returns the properties of the tree node that the cybol path points to
+
+Therefore, different functions are used depending on the purpose:
+
+- copy_array_forward: get part as compound element to be handed over to "handle", done in "handle_element" and "read_signal"
+- get_name_array: get part as model to be handed over to "handle", done in sequence/loop/branch
+- get_part_name: retrieve the properties belonging to a cybol operation, done in most applicator functions
 

@@ -19,16 +19,16 @@ ___________________________________________
 * Write cybol example application using operation, which serves as test case
 * Identify an operation name as well as necessary properties
 
-* Add operation to file "constant/format/cybol/logic/*_logic_cybol_format.c"
-* Add operation to file "constant/format/cyboi/logic_cyboi_format.c"
-* Add file with cybol options for each new operation to directory "constant/name/cybol/logic/"
+* Add operation to file "include/constant/format/cybol/logic/*_logic_cybol_format.c" or add a new file
+* Add operation to file "include/constant/format/cyboi/logic_cyboi_format.c"
+* Add file with cybol properties (options) for each new operation to directory "include/constant/name/cybol/logic/"
 
-* Add operation to file "executor/representer/deserialiser/cybol/format_cybol_deserialiser.c"
-* Add operation to file "executor/representer/serialiser/cybol/format_cybol_serialiser.c"
+* Add operation to file "src/executor/representer/deserialiser/cybol/format_cybol_deserialiser.c"
+* Add operation to file "src/executor/representer/serialiser/cybol/format_cybol_serialiser.c"
 
-* Add file for each new operation to directory "executor/"
-* Add file for each new operation to directory "applicator/"
-* Add operation to file "controller/handler/operation_handler.c"
+* Add file for each new operation to directory "src/executor/"
+* Add file for each new operation to directory "src/applicator/"
+* Add operation to file "src/controller/handler/operation_handler.c"
 
 * Add function headers to "include/executor/*"
 * Add file includes to "src/library/executor/*"

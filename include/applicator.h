@@ -85,6 +85,12 @@ void apply_compare_result(void* p0, void* p1, void* p2, void* p3, void* p4, void
 void apply_compare_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10);
 
 //
+// collect
+//
+
+void apply_reduce(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
+
+//
 // command
 //
 

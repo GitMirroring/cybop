@@ -1,0 +1,5 @@
+<node>
+    <node name="0" channel="file" format="element/part" model="addressbook/db/address/1.cybol"/>
+    <node name="1" channel="file" format="element/part" model="addressbook/db/address/2.cybol"/>
+    <node name="2" channel="file" format="element/part" model="addressbook/db/address/3.cybol"/>
+</node>

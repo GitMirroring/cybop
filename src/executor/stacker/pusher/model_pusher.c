@@ -74,6 +74,13 @@ void push_model(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
         //
 
         //
+        // Most properties stored as values in stack memory have a primitive type,
+        // so that storage is efficient and not very time consuming.
+        // In rare cases, a compound tree node may be given as property
+        // and the WHOLE sub tree of the corresponding part node gets copied here.
+        //
+
+        //
         // Copy part.
         //
         // CAUTION! The destination part gets allocated INSIDE the called fnction.
@@ -84,6 +91,13 @@ void push_model(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 
         //
         // The source part IS a pointer reference.
+        //
+
+        //
+        // Purpose:
+        // When reading a data format with hierarchical elements of whom is not known
+        // how deep the hierarchy will be, then RECURSION is definitely necessary.
+        // This is what the format "element/reference" is used for.
         //
 
         //?? fwprintf(stdout, L"Debug: Push model. pointer reference p4: %i\n", p4);

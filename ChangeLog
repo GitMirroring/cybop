@@ -18,11 +18,25 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2024-12-24  Christian Heller  <christian.heller@cybop.org>
+
+        * Move file "release.md" from directory "build/" to "doc/development/"
+
+2024-04-27  Christian Heller  <christian.heller@cybop.org>
+
+        * Update and add project history to website
+
+2023-11-24  Christian Heller  <christian.heller@cybop.org>
+
+        * Write cybol application "app/collection/reduce/" demonstrating usage of functional programming features
+        * Add cybol operation "collect/reduce"
+        * Remove cybol operations "calculate/add-many", "calculate/subtract-many", "calculate/multiply-many", "calculate/divide-many", which got replaced by "collect/reduce"
+
 2023-10-31  Christian Heller  <christian.heller@cybop.org>
 
         * Write cybol application "app/addition/many/" demonstrating usage of "operand" property as path to a part containing tree nodes representing many argument values
-        * Introduce cybol operations "calculate/add-many", "calculate/subtract-many", "calculate/multiply-many", "calculate/divide-many"
-        * Adapt thereby functional programming using many operands like for example in clojure (+ 24 8 6 7)
+        * Add cybol operations "calculate/add-many", "calculate/subtract-many", "calculate/multiply-many", "calculate/divide-many"
+        * Adopt thereby functional programming using many operands like for example in clojure (+ 24 8 6 7)
 
         * Write cybol application "app/addition/increment/"
         * Introduce cybol operations "calculate/increment", "calculate/decrement"

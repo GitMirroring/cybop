@@ -1,4 +1,12 @@
 #
+# Empfehlung des Kundendienstes von all-inkl.com.
+#
+AddType text/html .shtml
+AddHandler server-parsed .shtml
+# Aktivierung von SSI.
+Options +Includes
+
+#
 # The default files to be searched for.
 #
 # By default, SHTML is not part of that list but

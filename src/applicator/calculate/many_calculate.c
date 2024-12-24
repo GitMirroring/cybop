@@ -75,7 +75,7 @@ void calculate_integer_many(void* p0, void* p1, void* p2) {
 
             get_next_element(x, j);
 
-            calculate_integer(p0, p2);
+            calculate_integer(p0, x, p2);
 
             // Increment loop variable.
             j++;

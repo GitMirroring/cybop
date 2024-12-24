@@ -1,0 +1,6 @@
+<node>
+    <node name="street" channel="inline" format="text/plain" model="Hauptstraße 80"/>
+    <node name="city" channel="inline" format="text/plain" model="Markkleeberg"/>
+    <node name="postcode" channel="inline" format="text/plain" model="04416"/>
+    <node name="country" channel="inline" format="text/plain" model="Deutschland"/>
+</node>

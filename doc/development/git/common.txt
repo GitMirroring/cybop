@@ -1,0 +1,17 @@
+
+Common
+======
+
+git add app/addition/
+git add www/website/tutorial/index.shtml
+
+git rm -r examples/serialisation/
+git rm src/executor/calculator/integer/many_integer_calculator.c
+git rm -f src/executor/calculator/integer/many_integer_calculator.c
+
+git commit -m "Add new files"
+git push
+
+git status -s
+git gui
+

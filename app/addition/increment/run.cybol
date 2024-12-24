@@ -25,7 +25,7 @@
 
     <!-- Addition -->
 
-    <node name="add_operands" channel="inline" format="calculate/increment" model="">
+    <node name="increment_operand" channel="inline" format="calculate/increment" model="">
         <node name="operand" channel="inline" format="text/cybol-path" model=".number"/>
     </node>
 
@@ -36,7 +36,7 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".sum"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".number"/>
     </node>
 
     <!-- Shutdown -->

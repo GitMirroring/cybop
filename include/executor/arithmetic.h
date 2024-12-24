@@ -96,19 +96,15 @@ void calculate_fraction_subtract(void* p0, void* p1);
 void calculate_integer(void* p0, void* p1, void* p2);
 void calculate_integer_absolute(void* p0, void* p1);
 void calculate_integer_add(void* p0, void* p1);
-void calculate_integer_add_many(void* p0, void* p1);
-void calculate_integer_decrement(void* p0, void* p1);
+void calculate_integer_decrement(void* p0);
 void calculate_integer_divide(void* p0, void* p1);
-void calculate_integer_divide_many(void* p0, void* p1);
-void calculate_integer_increment(void* p0, void* p1);
+void calculate_integer_increment(void* p0);
 void calculate_integer_maximum(void* p0, void* p1);
 void calculate_integer_minimum(void* p0, void* p1);
 void calculate_integer_modulo(void* p0, void* p1);
 void calculate_integer_multiply(void* p0, void* p1);
-void calculate_integer_multiply_many(void* p0, void* p1);
 void calculate_integer_negate(void* p0, void* p1);
 void calculate_integer_subtract(void* p0, void* p1);
-void calculate_integer_subtract_many(void* p0, void* p1);
 
 void calculate_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 

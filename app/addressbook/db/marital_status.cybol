@@ -1,0 +1,7 @@
+<node>
+    <node name="0" channel="inline" format="text/plain" model="ledig"/>
+    <node name="1" channel="inline" format="text/plain" model="verheiratet"/>
+    <node name="2" channel="inline" format="text/plain" model="verwitwet"/>
+    <node name="3" channel="inline" format="text/plain" model="geschieden"/>
+    <node name="4" channel="inline" format="text/plain" model="nicht bekannt"/>
+</node>

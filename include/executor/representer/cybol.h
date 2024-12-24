@@ -58,6 +58,7 @@
 #include "constant/format/cybol/logic/calculate_logic_cybol_format.h"
 #include "constant/format/cybol/logic/cast_logic_cybol_format.h"
 #include "constant/format/cybol/logic/check_logic_cybol_format.h"
+#include "constant/format/cybol/logic/collect_logic_cybol_format.h"
 #include "constant/format/cybol/logic/command_logic_cybol_format.h"
 #include "constant/format/cybol/logic/communicate_logic_cybol_format.h"
 #include "constant/format/cybol/logic/compare_logic_cybol_format.h"
@@ -151,6 +152,8 @@
 #include "constant/name/cybol/logic/calculation/calculation_logic_cybol_name.h"
 
 #include "constant/name/cybol/logic/cast/cast_logic_cybol_name.h"
+
+#include "constant/name/cybol/logic/collecting/collecting_logic_cybol_name.h"
 
 #include "constant/name/cybol/logic/commander/archive_file_logic_cybol_name.h"
 #include "constant/name/cybol/logic/commander/change_directory_commander_logic_cybol_name.h"

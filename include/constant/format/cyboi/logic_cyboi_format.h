@@ -87,17 +87,11 @@ static int* ABSOLUTE_CALCULATE_LOGIC_CYBOI_FORMAT = NUMBER_1100_INTEGER_STATE_CY
 /** The add calculate logic cyboi format. */
 static int* ADD_CALCULATE_LOGIC_CYBOI_FORMAT = NUMBER_1101_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The add-many calculate logic cyboi format. */
-static int* ADD_MANY_CALCULATE_LOGIC_CYBOI_FORMAT = NUMBER_1102_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The decrement calculate logic cyboi format. */
 static int* DECREMENT_CALCULATE_LOGIC_CYBOI_FORMAT = NUMBER_1103_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The divide calculate logic cyboi format. */
 static int* DIVIDE_CALCULATE_LOGIC_CYBOI_FORMAT = NUMBER_1104_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The divide-many calculate logic cyboi format. */
-static int* DIVIDE_MANY_CALCULATE_LOGIC_CYBOI_FORMAT = NUMBER_1105_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The increment calculate logic cyboi format. */
 static int* INCREMENT_CALCULATE_LOGIC_CYBOI_FORMAT = NUMBER_1106_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -114,9 +108,6 @@ static int* MODULO_CALCULATE_LOGIC_CYBOI_FORMAT = NUMBER_1109_INTEGER_STATE_CYBO
 /** The multiply calculate logic cyboi format. */
 static int* MULTIPLY_CALCULATE_LOGIC_CYBOI_FORMAT = NUMBER_1110_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The multiply-many calculate logic cyboi format. */
-static int* MULTIPLY_MANY_CALCULATE_LOGIC_CYBOI_FORMAT = NUMBER_1111_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The negate calculate logic cyboi format. */
 static int* NEGATE_CALCULATE_LOGIC_CYBOI_FORMAT = NUMBER_1112_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
@@ -125,9 +116,6 @@ static int* REDUCE_CALCULATE_LOGIC_CYBOI_FORMAT = NUMBER_1113_INTEGER_STATE_CYBO
 
 /** The subtract calculate logic cyboi format. */
 static int* SUBTRACT_CALCULATE_LOGIC_CYBOI_FORMAT = NUMBER_1114_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The subtract-many calculate logic cyboi format. */
-static int* SUBTRACT_MANY_CALCULATE_LOGIC_CYBOI_FORMAT = NUMBER_1115_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // cast
@@ -166,6 +154,13 @@ static int* LESS_OR_EQUAL_CHECK_LOGIC_CYBOI_FORMAT = NUMBER_1254_INTEGER_STATE_C
 
 /** The unequal check logic cyboi format. */
 static int* UNEQUAL_CHECK_LOGIC_CYBOI_FORMAT = NUMBER_1255_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// collect
+//
+
+/** The reduce collect logic cyboi format. */
+static int* REDUCE_COLLECT_LOGIC_CYBOI_FORMAT = NUMBER_1280_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // command

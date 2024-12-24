@@ -1,0 +1,6 @@
+<node>
+    <node name="street" channel="inline" format="text/plain" model="Höhtalstraße 64 b"/>
+    <node name="city" channel="inline" format="text/plain" model="Chur"/>
+    <node name="postcode" channel="inline" format="text/plain" model="1234"/>
+    <node name="country" channel="inline" format="text/plain" model="Schweiz"/>
+</node>

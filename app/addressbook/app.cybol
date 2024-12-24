@@ -1,0 +1,19 @@
+<node>
+
+    <!-- The logical layers. -->
+
+    <!-- The .db stores standard weekdays. Do not mix it up with .var.db which stores temporary settings. -->
+    <node name="db" channel="file" format="element/part" model="presence/db.cybol"/>
+    <node name="domain" channel="file" format="element/part" model="presence/domain.cybol"/>
+    <node name="wui" channel="file" format="element/part" model="presence/wui.cybol"/>
+
+    <!-- The functionality. -->
+
+    <node name="logic" channel="file" format="element/part" model="presence/logic.cybol"/>
+
+    <!-- The temporary variables. -->
+    <!-- ??TODO: CAUTION! Some of these variables might later get replaced by cybol stack properties. -->
+
+    <node name="var" channel="file" format="element/part" model="presence/var.cybol"/>
+
+</node>
