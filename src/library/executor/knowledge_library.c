@@ -182,10 +182,10 @@
 
 #include "../../executor/modifier/item_modifier.c"
 
-#include "../../executor/modifier/lowerer/item_lowerer.c"
-#include "../../executor/modifier/lowerer/letter_lowerer.c"
-#include "../../executor/modifier/lowerer/lowerer.c"
-#include "../../executor/modifier/lowerer/string_lowerer.c"
+#include "../../executor/modifier/lowercaser/item_lowercaser.c"
+#include "../../executor/modifier/lowercaser/letter_lowercaser.c"
+#include "../../executor/modifier/lowercaser/lowercaser.c"
+#include "../../executor/modifier/lowercaser/string_lowercaser.c"
 
 #include "../../executor/modifier/normaliser/item_normaliser.c"
 #include "../../executor/modifier/normaliser/normaliser.c"
@@ -218,6 +218,8 @@
 #include "../../executor/modifier/reverser/reverser.c"
 #include "../../executor/modifier/reverser/string_reverser.c"
 
+#include "../../executor/modifier/shuffler/shuffler.c"
+
 #include "../../executor/modifier/stripper/item_leading_stripper.c"
 #include "../../executor/modifier/stripper/item_trailing_stripper.c"
 #include "../../executor/modifier/stripper/leading_stripper.c"
@@ -226,10 +228,10 @@
 #include "../../executor/modifier/stripper/stripper.c"
 #include "../../executor/modifier/stripper/trailing_stripper.c"
 
-#include "../../executor/modifier/upperer/item_upperer.c"
-#include "../../executor/modifier/upperer/letter_upperer.c"
-#include "../../executor/modifier/upperer/string_upperer.c"
-#include "../../executor/modifier/upperer/upperer.c"
+#include "../../executor/modifier/uppercaser/item_uppercaser.c"
+#include "../../executor/modifier/uppercaser/letter_uppercaser.c"
+#include "../../executor/modifier/uppercaser/string_uppercaser.c"
+#include "../../executor/modifier/uppercaser/uppercaser.c"
 
 #include "../../executor/modifier/verify_modifier.c"
 

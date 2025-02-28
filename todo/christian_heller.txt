@@ -30,24 +30,6 @@ _______________
 
         * Think about usage or deletion of "src/applicator/calculate/many_calculate.c"
 
-Container functions
-___________________
-
-        * Rename cybol operation "modify/lower" into "modify/lowercase" and use noun "lowercaser"
-        * Rename cybol operation "modify/upper" into "modify/uppercase" and use noun "uppercaser"
-            both, "lowercase" and "uppercase" are approved verbs used in journalism
-            https://forum.wordreference.com/threads/the-opposite-of-capitalise-to-write-in-lower-case.1101453/post-5713545
-
-        * Add container functions taken from clojure language as cybol operation "modify/shuffle"
-            (shuffle x)
-            Shuffle a list
-            Generate a random permutation of the elements of list x
-
-Cleanup
-_______
-
-        * Clean up directory "app/addressbook/" for git and checkin
-
 Functional Programming 1/3
 __________________________
 
@@ -57,7 +39,6 @@ __________________________
             external: pointing to external file containing "calculate/add"
             stack: similar to "external", but defining parametres on stack, as properties at function call in "run.cybol"
 
-        * Use cybol operation name "collect/reduce" instead of "list/reduce" (edit in ChangeLog yet)
         * Check and possibly complete implementation of "collect/reduce" in directory "src/applicator/"
         * See further functions:
             entwicklung/clojure/syntax/map-filter-reduce-fold.txt
@@ -199,7 +180,7 @@ Database
 ________
 
         CONTINUE with:
-        * Add cybol application "addressbook/"
+        * Make cybol application "addressbook/" work
 
         * Write cybol files with addressbook data and name as index testwise to represent a database
         * See articles on "Key-value database", for example:

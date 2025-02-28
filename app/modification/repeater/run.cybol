@@ -12,7 +12,7 @@
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/plain" model="container_modification/reverser/app.cybol"/>
+        <node name="device" channel="inline" format="text/plain" model="modification/repeater/app.cybol"/>
     </node>
     <node name="initialise_app" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -35,17 +35,25 @@
 
     <!-- Functionality -->
 
-    <node name="reverse_text" channel="inline" format="modify/reverse" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".text"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".test_text"/>
+    <node name="repeat_empty" channel="inline" format="modify/repeat" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".empty"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".test"/>
+        <node name="number" channel="inline" format="number/integer" model="2"/>
     </node>
-    <node name="reverse_number" channel="inline" format="modify/reverse" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".number"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".test_number"/>
+    <node name="repeat_two" channel="inline" format="modify/repeat" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".two"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".test"/>
+        <node name="number" channel="inline" format="number/integer" model="2"/>
     </node>
-    <node name="reverse_space" channel="inline" format="modify/reverse" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".space"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".test_space"/>
+    <node name="repeat_ten" channel="inline" format="modify/repeat" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".ten"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".test"/>
+        <node name="number" channel="inline" format="number/integer" model="2"/>
+    </node>
+    <node name="repeat_twenty" channel="inline" format="modify/repeat" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".twenty"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".test"/>
+        <node name="number" channel="inline" format="number/integer" model="3"/>
     </node>
 
     <!-- Output -->
@@ -55,14 +63,14 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="The result of reverse text:"/>
+        <node name="message" channel="inline" format="text/plain" model="The result of repeat empty:"/>
     </node>
     <node name="write_value" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".text"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".empty"/>
     </node>
 
     <node name="write_label" channel="inline" format="communicate/send" model="">
@@ -70,14 +78,14 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="The result of reverse number:"/>
+        <node name="message" channel="inline" format="text/plain" model="The result of repeat two:"/>
     </node>
     <node name="write_value" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".number"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".two"/>
     </node>
 
     <node name="write_label" channel="inline" format="communicate/send" model="">
@@ -85,14 +93,29 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="The result of reverse space:"/>
+        <node name="message" channel="inline" format="text/plain" model="The result of repeat ten:"/>
     </node>
     <node name="write_value" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".space"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".ten"/>
+    </node>
+
+    <node name="write_label" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="The result of repeat twenty:"/>
+    </node>
+    <node name="write_value" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".twenty"/>
     </node>
 
     <!-- Shutdown -->
@@ -102,6 +125,6 @@
 </node>
 
 <!--
-    This example tests the reverse operation with various data
+    This example tests the repeat operation with various data
     and writes the results to the terminal.
 -->

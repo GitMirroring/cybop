@@ -59,12 +59,15 @@
  * This is similar to functional programming, like for example in clojure:
  * (reduce + [1 2 3 4 5]) ;; => 15
  * (reduce conj #{} [:a :b :c]) ;; => #{:a :c :b}
+ * Note that the output set #{} is unsorted, so that #{:a :c :b} appear in a different order.
  *
  * However, other than functional languages cyboi does not use recursion inside,
  * but iteration instead, which is far more efficient and consumes less stack memory.
  *
  * This reduce operation may be used together with some, but not all cyboi functions.
  * It may for instance apply arithmetic functions usefully, but not those for communication.
+ * Also, the "modify/append" function can be used easier without "collect/reduce",
+ * by just handing over the tree node containing all items to be appended (conjoined).
  *
  * Examples:
  *

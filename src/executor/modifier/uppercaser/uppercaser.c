@@ -40,7 +40,7 @@
 #include "logger.h"
 
 /**
- * Converts the source string into upper case letters.
+ * Converts the source string into uppercase letters.
  *
  * @param p0 the destination array (pointer reference)
  * @param p1 the destination array count
@@ -49,12 +49,12 @@
  * @param p4 the source count
  * @param p5 the type
  */
-void upper(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void uppercase(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Upper.");
-    fwprintf(stdout, L"Information: Upper. source count p2: %i\n", p2);
-    fwprintf(stdout, L"Information: Upper. source count *p2: %i\n", *((int*) p2));
-    fwprintf(stdout, L"Information: Upper. source data p1: %ls\n", (wchar_t*) p1);
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Uppercase.");
+    fwprintf(stdout, L"Information: Uppercase. source count p2: %i\n", p2);
+    fwprintf(stdout, L"Information: Uppercase. source count *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Information: Uppercase. source data p1: %ls\n", (wchar_t*) p1);
 
     //
     // CAUTION! The destination is NOT an item, but an array,
@@ -70,7 +70,7 @@ void upper(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            upper_item(p0, p1, p2, p3, p4, p5);
+            uppercase_item(p0, p1, p2, p3, p4, p5);
         }
     }
 
@@ -80,14 +80,14 @@ void upper(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            upper_item(p0, p1, p2, p3, p4, p5);
+            uppercase_item(p0, p1, p2, p3, p4, p5);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not upper. The source type is not wide character or character.");
-        fwprintf(stdout, L"Warning: Could not upper. The source type is not wide character or character. type p5: %i\n", p5);
-        fwprintf(stdout, L"Warning: Could not upper. The source type is not wide character or character. type *p5: %i\n", *((int*) p5));
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not uppercase. The source type is not wide character or character.");
+        fwprintf(stdout, L"Warning: Could not uppercase. The source type is not wide character or character. type p5: %i\n", p5);
+        fwprintf(stdout, L"Warning: Could not uppercase. The source type is not wide character or character. type *p5: %i\n", *((int*) p5));
     }
 }

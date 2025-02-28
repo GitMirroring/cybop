@@ -48,12 +48,12 @@
  * @param p4 the source count
  * @param p5 the type
  */
-void lower_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void lowercase_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Lower item.");
-    fwprintf(stdout, L"Debug: Lower item. source count p4: %i\n", p4);
-    fwprintf(stdout, L"Debug: Lower item. source count *p4: %i\n", *((int*) p4));
-    fwprintf(stdout, L"Debug: Lower item. source data p3: %ls\n", (wchar_t*) p3);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Lowercase item.");
+    fwprintf(stdout, L"Debug: Lowercase item. source count p4: %i\n", p4);
+    fwprintf(stdout, L"Debug: Lowercase item. source count *p4: %i\n", *((int*) p4));
+    fwprintf(stdout, L"Debug: Lowercase item. source data p3: %ls\n", (wchar_t*) p3);
 
     // The temporary string item.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -79,7 +79,7 @@ void lower_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // In order to work properly, a TEMPORARY string item is
     // used as destination here.
     //
-    lower_string(t, p3, p4, p5);
+    lowercase_string(t, p3, p4, p5);
 
     // Get temporary string item data, count.
     copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);

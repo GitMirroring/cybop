@@ -211,11 +211,11 @@ static wchar_t* INSERT_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/insert";
 static int* INSERT_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The modify/lower logic cybol format.
+ * The modify/lowercase logic cybol format.
  *
  * Description:
  *
- * Converts the source string into lower case letters stored in the destination.
+ * Converts the source string into lowercase letters stored in the destination.
  *
  * The source and destination are permitted to point to the same part since the source gets buffered internally during processing.
  *
@@ -229,12 +229,12 @@ static int* INSERT_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  *
  * Examples:
  *
- * <node name="convert_plain_text" channel="inline" format="modify/lower" model="">
+ * <node name="convert_plain_text" channel="inline" format="modify/lowercase" model="">
  *     <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
  *     <node name="source" channel="inline" format="text/plain" model="Mein kleiner grüner Kaktus"/>
  * </node>
  *
- * <node name="convert_text_variable" channel="inline" format="modify/upper" model="">
+ * <node name="convert_text_variable" channel="inline" format="modify/lowercase" model="">
  *     <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
  *     <node name="source" channel="inline" format="text/cybol-path" model=".text"/>
  * </node>
@@ -246,8 +246,8 @@ static int* INSERT_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  * - destination_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as destination. If null, the default is false (model).
  * - source_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as source. If null, the default is false (model).
  */
-static wchar_t* LOWER_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/lower";
-static int* LOWER_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* LOWERCASE_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/lowercase";
+static int* LOWERCASE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The modify/normalise logic cybol format.
@@ -509,6 +509,33 @@ static wchar_t* REVERSE_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/reverse";
 static int* REVERSE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The modify/shuffle logic cybol format.
+ *
+ * Description:
+ *
+ * Shuffles the elements in the destination part by randomly changing their order.
+ *
+ * Caution! This operation is applicable to text only (character string).
+ *
+ * Examples:
+ *
+ * <node name="shuffle_text" channel="inline" format="modify/shuffle" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".text"/>
+ * </node>
+ *
+ * <node name="shuffle_elements" channel="inline" format="modify/shuffle" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".some_container"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - destination (required) [text/cybol-path]: The destination part.
+ * - destination_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as destination. If null, the default is false (model).
+ */
+static wchar_t* SHUFFLE_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/shuffle";
+static int* SHUFFLE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The modify/strip logic cybol format.
  *
  * Description:
@@ -656,11 +683,11 @@ static wchar_t* STRIP_TRAILING_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/strip-traili
 static int* STRIP_TRAILING_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The modify/upper logic cybol format.
+ * The modify/uppercase logic cybol format.
  *
  * Description:
  *
- * Converts the source string into upper case letters stored in the destination.
+ * Converts the source string into uppercase letters stored in the destination.
  *
  * The source and destination are permitted to point to the same part since the source gets buffered internally during processing.
  *
@@ -674,12 +701,12 @@ static int* STRIP_TRAILING_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  *
  * Examples:
  *
- * <node name="convert_plain_text" channel="inline" format="modify/upper" model="">
+ * <node name="convert_plain_text" channel="inline" format="modify/uppercase" model="">
  *     <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
  *     <node name="source" channel="inline" format="text/plain" model="Mein kleiner grüner Kaktus"/>
  * </node>
  *
- * <node name="convert_text_variable" channel="inline" format="modify/upper" model="">
+ * <node name="convert_text_variable" channel="inline" format="modify/uppercase" model="">
  *     <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
  *     <node name="source" channel="inline" format="text/cybol-path" model=".text"/>
  * </node>
@@ -691,8 +718,8 @@ static int* STRIP_TRAILING_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  * - destination_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as destination. If null, the default is false (model).
  * - source_properties (optional) [text/cybol-path | logicvalue/boolean]: The flag indicating whether to use the model or properties container as source. If null, the default is false (model).
  */
-static wchar_t* UPPER_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/upper";
-static int* UPPER_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* UPPERCASE_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/uppercase";
+static int* UPPERCASE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* MODIFY_LOGIC_CYBOL_FORMAT_CONSTANT_HEADER */
 #endif

@@ -38,18 +38,18 @@
 #include "logger.h"
 
 /**
- * Converts the character into a lower case letter.
+ * Converts the character into an uppercase letter.
  *
  * The character remains untouched if it is not a letter.
  *
  * @param p0 the destination item
  * @param p1 the letter
  */
-void lower_letter(void* p0, void* p1) {
+void uppercase_letter(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Lower letter.");
-    fwprintf(stdout, L"Debug: Lower letter. source count p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Lower letter. source count *p1: %i\n", *((int*) p1));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Uppercase letter.");
+    fwprintf(stdout, L"Debug: Uppercase letter. source count p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Uppercase letter. source count *p1: %i\n", *((int*) p1));
 
     //
     // CAUTION! With the letter being of type "wide character",

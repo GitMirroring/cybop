@@ -125,11 +125,11 @@ void modify_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p13, (void*) LOWER_MODIFY_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) LOWERCASE_MODIFY_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            lower(p0, p7, p8, p1, p4, p2);
+            lowercase(p0, p7, p8, p1, p4, p2);
         }
     }
 
@@ -195,6 +195,16 @@ void modify_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p13, (void*) SHUFFLE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            shuffle(p0, p7, p8, p1, p4, p2);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         compare_integer_equal((void*) &r, p13, (void*) STRIP_LEADING_MODIFY_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -225,11 +235,11 @@ void modify_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p13, (void*) UPPER_MODIFY_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p13, (void*) UPPERCASE_MODIFY_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            upper(p0, p7, p8, p1, p4, p2);
+            uppercase(p0, p7, p8, p1, p4, p2);
         }
     }
 

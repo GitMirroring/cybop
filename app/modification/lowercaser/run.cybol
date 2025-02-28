@@ -12,7 +12,7 @@
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/plain" model="container_modification/upperer/app.cybol"/>
+        <node name="device" channel="inline" format="text/plain" model="modification/lowercaser/app.cybol"/>
     </node>
     <node name="initialise_app" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -35,7 +35,7 @@
 
     <!-- Functionality -->
 
-    <node name="lower_text" channel="inline" format="modify/upper" model="">
+    <node name="lowercase_text" channel="inline" format="modify/lowercase" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".test"/>
     </node>
@@ -47,7 +47,7 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="The result of upper text:"/>
+        <node name="message" channel="inline" format="text/plain" model="The result of lowercase text:"/>
     </node>
     <node name="write_value" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -64,6 +64,6 @@
 </node>
 
 <!--
-    This example tests the upper operation with various data
+    This example tests the lowercase operation with various data
     and writes the results to the terminal.
 -->

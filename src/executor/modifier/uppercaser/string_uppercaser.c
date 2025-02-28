@@ -47,11 +47,11 @@
  * @param p2 the source count
  * @param p3 the type
  */
-void lower_string(void* p0, void* p1, void* p2, void* p3) {
+void uppercase_string(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Lower string.");
-    fwprintf(stdout, L"Debug: Lower string. source count p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Lower string. source count *p2: %i\n", *((int*) p2));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Uppercase string.");
+    fwprintf(stdout, L"Debug: Uppercase string. source count p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Uppercase string. source count *p2: %i\n", *((int*) p2));
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -87,8 +87,8 @@ void lower_string(void* p0, void* p1, void* p2, void* p3) {
         // Get character at source index.
         copy_array_forward((void*) &c, p1, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j);
 
-        // Convert character into lower case letter.
-        lower_letter(p0, (void*) &c);
+        // Convert character into uppercase letter.
+        uppercase_letter(p0, (void*) &c);
 
         // Increment source index.
         j++;
