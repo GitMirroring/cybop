@@ -1,0 +1,33 @@
+<node>
+
+    <!-- Addition -->
+
+<!--
+    <node name="increment_elements" channel="inline" format="calculate/increment" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".collection.[.index]"/>
+    </node>
+-->
+
+    <node name="increment_elements" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".collection.[.index]"/>
+        <node name="operand" channel="inline" format="number/integer" model="1"/>
+    </node>
+
+    <!-- Printing -->
+
+    <node name="print_message" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Value:"/>
+    </node>
+    <node name="print_value" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".collection.[.index]"/>
+    </node>
+
+</node>

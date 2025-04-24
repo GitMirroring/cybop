@@ -104,6 +104,65 @@ static wchar_t* APPEND_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/append";
 static int* APPEND_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The modify/apply logic cybol format.
+ *
+ * Description:
+ *
+ * Applies the given function to the items of the destination node.
+ *
+ * Synonyms:
+ *
+ * map - in the clojure functional programming language
+ * foreach - as loop working on a collection
+ * consumer-accept-action
+ *
+ * This is similar to functional programming, like for example in clojure:
+ * (map inc [1 2 3 4 5])
+ * (map #(str "Hello " % "!" ) ["Ford" "Arthur" "Tricia"])
+ *
+ * Reference:
+ * https://clojuredocs.org/clojure.core/map
+ *
+ * However, other than functional languages cyboi does not use recursion inside,
+ * but iteration instead, which is more efficient and consumes less stack memory.
+ *
+ * This operation may be used together with some, but not all cyboi functions.
+ * It may for instance apply arithmetic functions usefully, but not those for communication.
+ * Also, the "modify/append" function can be used easier without "modify/reduce",
+ * by just handing over the tree node containing all items to be appended (conjoined).
+ *
+ * Examples:
+ *
+ * <node name="apply_function" channel="inline" format="modify/apply" model="">
+ *     <node name="destination" channel="inline" format="text/cybol-path" model=".collection"/>
+ *     <node name="index" channel="inline" format="text/cybol-path" model=".index"/>
+ *     <node name="function" channel="inline" format="text/cybol-path" model=".function"/>
+ * </node>
+ *
+ * The collection could be defined as follows, whereby the names can be chosen freely.
+ *
+ * <node>
+ *     <node name="number_1" channel="inline" format="number/integer" model="2"/>
+ *     <node name="number_2" channel="inline" format="number/integer" model="4"/>
+ *     <node name="number_3" channel="inline" format="number/integer" model="6"/>
+ * </node>
+ *
+ * The function might look like this:
+ *
+ * <node name="increment_elements" channel="inline" format="calculate/increment" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".input.[.index]"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - destination (required) [text/cybol-path]: The destination part.
+ * - index (required) [text/cybol-path]: The index used to access the single elements.
+ * - function (required) [text/cybol-path]: The function to be applied to each element of the destination.
+ */
+static wchar_t* APPLY_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/apply";
+static int* APPLY_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The modify/empty logic cybol format.
  *
  * Description:
@@ -371,6 +430,69 @@ static int* NORMALISE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  */
 static wchar_t* OVERWRITE_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/overwrite";
 static int* OVERWRITE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The modify/reduce logic cybol format.
+ *
+ * Description:
+ *
+ * Processes the elements of the source collection using the given function
+ * and stores the result in destination node.
+ *
+ * If an initial value is necessary, then that may be provided in the destination node.
+ *
+ * This is similar to functional programming, like for example in clojure:
+ * (reduce + [1 2 3 4 5]) ;; => 15
+ * (reduce conj #{} [:a :b :c]) ;; => #{:a :c :b}
+ * Note that the output set #{} is unsorted, so that #{:a :c :b} appear in a different order.
+ *
+ * However, other than functional languages cyboi does not use recursion inside,
+ * but iteration instead, which is more efficient and consumes less stack memory.
+ *
+ * This operation may be used together with some, but not all cyboi functions.
+ * It may for instance apply arithmetic functions usefully, but not those for communication.
+ * Also, the "modify/append" function can be used easier without "modify/reduce",
+ * by just handing over the tree node containing all items to be appended (conjoined).
+ *
+ * TODO: NOT IMPLEMENTED YET!
+ *
+ * Examples:
+ *
+ * <node name="apply_arbitrary_function" channel="inline" format="modify/reduce" model="">
+ *     <node name="function" channel="inline" format="text/cybol-path" model=".function"/>
+ *     <node name="output" channel="inline" format="text/cybol-path" model=".output"/>
+ *     <node name="input" channel="inline" format="text/cybol-path" model=".input"/>
+ * </node>
+ *
+ * <node name="add_operands_given_as_external_file" channel="inline" format="modify/reduce" model="">
+ *     <node name="function" channel="inline" format="element/operation" model="calculate/add"/>
+ *     <node name="output" channel="inline" format="text/cybol-path" model=".sum"/>
+ *     <node name="input" channel="file" format="element/part" model="modification/reduce/summands.cybol"/>
+ * </node>
+ *
+ * <node name="add_operands_given_as_children_of_tree_node" channel="inline" format="modify/reduce" model="">
+ *     <node name="function" channel="inline" format="element/operation" model="calculate/add"/>
+ *     <node name="output" channel="inline" format="text/cybol-path" model=".sum"/>
+ *     <node name="input" channel="inline" format="text/cybol-path" model=".list-of-numbers"/>
+ * </node>
+ *
+ * The list of numbers could be defined as follows, whereby the names can be chosen freely.
+ *
+ * <node>
+ *     <node name="number_1" channel="inline" format="number/integer" model="2"/>
+ *     <node name="number_2" channel="inline" format="number/integer" model="4"/>
+ *     <node name="number_3" channel="inline" format="number/integer" model="6"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - destination (required) [text/cybol-path]: The destination part.
+ * - source (required) [text/cybol-path]: The source part.
+ * - index (required) [text/cybol-path]: The index used to access the single elements.
+ * - function (required) [text/cybol-path]: The function to be applied to each element of the destination.
+ */
+static wchar_t* REDUCE_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/reduce";
+static int* REDUCE_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The modify/remove logic cybol format.

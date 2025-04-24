@@ -173,14 +173,12 @@
 #include "../../executor/modifier/appender/part_appender.c"
 #include "../../executor/modifier/appender/wide_character_from_character_part_appender.c"
 
-#include "../../executor/modifier/array_modifier.c"
+#include "../../executor/modifier/applicator/applicator.c"
 
 #include "../../executor/modifier/filler/filler.c"
 
 #include "../../executor/modifier/inserter/inserter.c"
 #include "../../executor/modifier/inserter/inside_inserter.c"
-
-#include "../../executor/modifier/item_modifier.c"
 
 #include "../../executor/modifier/lowercaser/item_lowercaser.c"
 #include "../../executor/modifier/lowercaser/letter_lowercaser.c"
@@ -199,7 +197,7 @@
 #include "../../executor/modifier/overwriter/overwriter.c"
 #include "../../executor/modifier/overwriter/wide_character_from_character_overwriter.c"
 
-#include "../../executor/modifier/part_modifier.c"
+#include "../../executor/modifier/reducer/reducer.c"
 
 #include "../../executor/modifier/remover/inside_remover.c"
 #include "../../executor/modifier/remover/remover.c"
@@ -233,6 +231,9 @@
 #include "../../executor/modifier/uppercaser/string_uppercaser.c"
 #include "../../executor/modifier/uppercaser/uppercaser.c"
 
+#include "../../executor/modifier/array_modifier.c"
+#include "../../executor/modifier/item_modifier.c"
+#include "../../executor/modifier/part_modifier.c"
 #include "../../executor/modifier/verify_modifier.c"
 
 //

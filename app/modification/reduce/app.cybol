@@ -1,0 +1,10 @@
+<node>
+
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+
+    <node name="input" channel="file" format="element/part" model="collection/reduce/summands.cybol"/>
+
+    <node name="index" channel="inline" format="number/integer" model="0"/>
+    <node name="function" channel="file" format="element/part" model="collection/reduce/function.cybol"/>
+
+</node>

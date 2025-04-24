@@ -52,12 +52,6 @@
 #include "../applicator/cast/cast.c"
 
 //
-// collect
-//
-
-#include "../applicator/collect/reduce.c"
-
-//
 // command
 //
 

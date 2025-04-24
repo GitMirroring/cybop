@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2025-04-24  Christian Heller  <christian.heller@cybop.org>
+
+        * Add cybol operations "modify/apply" and "modify/reduce"
+
 2025-02-28  Christian Heller  <christian.heller@cybop.org>
 
         * Rename cybol operation "modify/lower" into "modify/lowercase" and use noun "lowercaser"

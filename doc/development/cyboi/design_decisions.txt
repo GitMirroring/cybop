@@ -62,6 +62,7 @@ Super
 Recursion via Stack Variables
 Header Files
 Matrix, Vector/Array, Addition with many operands
+Functional Programming
 Path or Part
 
 MIME Types
@@ -1675,6 +1676,11 @@ All OPTIONAL properties, on the other hand, are searched by NAME.
 The "reduce" will have to allocate a temporary item and copy
 the pointers of given source element parts. That is, the parts
 containing values do NOT get copied completely, only a REFERENCE (pointer) to them.
+
+Functional Programming
+______________________
+
+TODO
 
 Path or Part
 ____________

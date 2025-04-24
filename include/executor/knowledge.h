@@ -163,6 +163,8 @@ void reallocate_item(void* p0, void* p1, void* p2);
 void append_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 void append_part_wide_character_from_character(void* p0, void* p1, void* p2, void* p3, void* p4);
 
+void apply(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10);
+
 void fill(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
 
 void insert(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
@@ -173,9 +175,9 @@ void lowercase_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
 void lowercase_letter(void* p0, void* p1);
 void lowercase_string(void* p0, void* p1, void* p2, void* p3);
 
-void modify_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13);
-void modify_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11);
-void modify_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12);
+void modify_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21);
+void modify_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19);
+void modify_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20);
 void modify_verify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 
 void normalise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
@@ -189,6 +191,8 @@ void normalise_whitespace(void* p0, void* p1, void* p2);
 void overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9);
 void overwrite_integer_from_character(void* p0, void* p1, void* p2);
 void overwrite_wide_character_from_character(void* p0, void* p1, void* p2);
+
+void reduce(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 
 void remove_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 void remove_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);

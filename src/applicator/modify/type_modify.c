@@ -60,21 +60,29 @@
  * @param p8 the repetition number for "modify/repeat"
  * @param p9 the searchterm data for "modify/replace"
  * @param p10 the searchterm count for "modify/replace"
- * @param p11 the operation type
- * @param p12 the destination part item index
- * @param p13 the source part item index
- * @param p14 the source part
- * @param p15 the source type
+ * @param p11 the index pointing to the current element
+ * @param p12 the function part
+ * @param p13 the internal memory data
+ * @param p14 the knowledge memory part (pointer reference)
+ * @param p15 the stack memory item
+ * @param p16 the signal memory item
+ * @param p17 the internal memory data (pointer reference)
+ * @param p18 the shutdown flag
+ * @param p19 the operation type
+ * @param p20 the destination part item index
+ * @param p21 the source part item index
+ * @param p22 the source part
+ * @param p23 the source type
  */
-void apply_modify_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
+void apply_modify_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22, void* p23) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply modify type.");
-    //?? fwprintf(stdout, L"Debug: Apply modify type. Destination type: %i. Source type: %i.\n", *((int*) p2), *((int*) p15));
+    //?? fwprintf(stdout, L"Debug: Apply modify type. Destination type: %i. Source type: %i.\n", *((int*) p2), *((int*) p23));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, p2, p15);
+    compare_integer_equal((void*) &r, p2, p23);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -82,7 +90,7 @@ void apply_modify_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         // The destination- and source type are identical.
         //
 
-        apply_modify_deep(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14);
+        apply_modify_deep(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22);
 
     } else {
 
@@ -95,7 +103,7 @@ void apply_modify_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         //
         // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply modify type. The destination type and source type are different.");
         // fwprintf(stdout, L"Error: Could not apply modify type. The destination type and source type are different.\n");
-        // fwprintf(stdout, L"Error: Destination type: %i. Source type: %i.\n", *((int*) p2), *((int*) p15));
+        // fwprintf(stdout, L"Error: Destination type: %i. Source type: %i.\n", *((int*) p2), *((int*) p23));
         //
     }
 }

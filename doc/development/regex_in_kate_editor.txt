@@ -2,11 +2,44 @@
 Regular Expressions (RegEx) in Kate Text Editor
 ===============================================
 
-Replace sequence "level_log_cyboi_model.c" containing line break:
+Include
+_______
 
-    .*level_log_cyboi_model.c"\n+
+Find sequence "level_log_cyboi_model.c" containing line break:
+.*level_log_cyboi_model.c"\n+
 
-Replace sequence containing "#include" and "constant/" and line break:
+Find sequence containing "#include" and "constant/" and line break:
+#include+.+constant/+.*\n+
 
-    #include+.+constant/+.*\n+
+Parametres of "modify"
+______________________
+
+Example:
+- an additional parametre is required
+- therefore, one more null pointer value has to be handed over
+- one *NULL_POINTER_STATE_CYBOI_MODEL gets replaced by two
+
+Krusader Menu:
+> Extras > Suchen (Strg + S)
+
+Search:
+modify_item(
+
+Open:
+all search result files in Kate text editor
+
+Kate Menu:
+> Bearbeiten > In Dateien suchen (Strg + Umschalt + F)
+
+Replace:
+, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+with:
+, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+Replace:
+, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+with:
+, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 

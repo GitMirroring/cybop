@@ -53,12 +53,20 @@
  * @param p8 the repetition number for "modify/repeat"
  * @param p9 the searchterm data for "modify/replace"
  * @param p10 the searchterm count for "modify/replace"
- * @param p11 the operation type
- * @param p12 the destination part item index
- * @param p13 the source part item index
- * @param p14 the source part
+ * @param p11 the index pointing to the current element
+ * @param p12 the function part
+ * @param p13 the internal memory data
+ * @param p14 the knowledge memory part (pointer reference)
+ * @param p15 the stack memory item
+ * @param p16 the signal memory item
+ * @param p17 the internal memory data (pointer reference)
+ * @param p18 the shutdown flag
+ * @param p19 the operation type
+ * @param p20 the destination part item index
+ * @param p21 the source part item index
+ * @param p22 the source part
  */
-void apply_modify_deep(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
+void apply_modify_deep(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply modify deep.");
     //?? fwprintf(stdout, L"Debug: Apply modify deep. move flag (NOT deep copying flag) p3: %i\n", p3);
@@ -88,7 +96,7 @@ void apply_modify_deep(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         //
         // CAUTION! Set deep copying flag to TRUE.
         //
-        modify_part(p0, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+        modify_part(p0, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20);
 
     } else {
 
@@ -109,7 +117,7 @@ void apply_modify_deep(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         //
         // CAUTION! Set deep copying flag to FALSE.
         //
-        modify_part(p0, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+        modify_part(p0, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20);
 
         //
         // Remove elements from source part.
@@ -118,6 +126,6 @@ void apply_modify_deep(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         // the destination item will hold a wrong "count" number
         // leading to unpredictable errors in further processing.
         //
-        modify_part(p14, *NULL_POINTER_STATE_CYBOI_MODEL, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p4, p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT, p13);
+        modify_part(p22, *NULL_POINTER_STATE_CYBOI_MODEL, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p4, p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT, p21);
     }
 }

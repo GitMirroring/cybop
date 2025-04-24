@@ -1,0 +1,9 @@
+<node>
+
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+
+    <node name="collection" channel="file" format="element/part" model="modification/apply/values.cybol"/>
+    <node name="index" channel="inline" format="number/integer" model="0"/>
+    <node name="function" channel="file" format="element/part" model="modification/apply/increment_function.cybol"/>
+
+</node>

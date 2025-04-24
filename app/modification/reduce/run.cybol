@@ -1,0 +1,96 @@
+<!--
+    This application adds many summands given in an external list.
+    Classic addition using "calculate/add" does add ONE summand VECTOR to the result vector.
+    The "collect/reduce" operation used here, however, does add MANY summands.
+    Since in cyboi each single number value represents an array (vector),
+    it does not matter if the given summands are just single values or vectors.
+    In both cases, they are added to the result.
+-->
+
+<node>
+
+    <!-- Creation -->
+
+    <node name="create_fileid" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="id"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+
+    <!-- Initialisation -->
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="collection/reduce/app.cybol"/>
+    </node>
+    <node name="initialise_app" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+    <node name="open_stdout" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="device" channel="inline" format="text/plain" model="standard-output"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
+    </node>
+
+    <!-- Addition -->
+
+    <!-- Using a primitive operation as function -->
+<!--
+    <node name="execute_function" channel="inline" format="collect/reduce" model="">
+-->
+        <!--
+            CAUTION! This is an OLD comment probably NOT valid anymore -> delete later!
+            It is not necessary but possible to store local variables as function properties.
+            The input values are then appended to those local variables or if none exist,
+            then only the input values will be available as function properties.
+            CAUTION! These function properties (stack variables) have to be accessed
+            via INDEX, for example "#[0]". This is similar to using "%x" for a variable
+            in an anonymous function of classical programming languages.
+        -->
+<!--
+        <node name="output" channel="inline" format="text/cybol-path" model=".output"/>
+        <node name="input" channel="file" format="element/part" model="collection/reduce/summands.cybol"/>
+        <node name="element" channel="inline" format="text/cybol-path" model=".element"/>
+        <node name="function" channel="inline" format="element/operation" model="calculate/add"/>
+    </node>
+-->
+
+    <!-- Using external logic referenced as cybol-path as function -->
+    <node name="execute_function" channel="inline" format="collect/reduce" model="">
+        <node name="input" channel="inline" format="text/cybol-path" model=".input"/>
+        <node name="element" channel="inline" format="text/cybol-path" model=".index"/>
+        <node name="function" channel="inline" format="text/cybol-path" model=".function"/>
+    </node>
+
+    <!-- Printing -->
+
+    <node name="print_message" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Result:"/>
+    </node>
+    <node name="print_result" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".input"/>
+    </node>
+
+    <!-- Shutdown -->
+
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
+</node>
