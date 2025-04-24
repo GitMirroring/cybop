@@ -1,0 +1,57 @@
+
+git reset
+=========
+
+Zweck
+_____
+
+- rückgängig machen eines Commit UND Ändern der Commit-Historie
+- alle nachfolgenden Commits, die auf dem zurückgesetzten Commit basieren, werden ebenfalls gelöscht
+- der Befehl "git revert" demgegenüber ändert die Historie NICHT
+
+Arten
+_____
+
+Soft: beibehalten Änderungen in Dateien
+git reset --soft HEAD~1
+
+Mixed: löschen Änderungen in Dateien
+git reset --mixed HEAD~1
+
+Hard: löschen Änderungen in Repository
+git reset --hard HEAD~1
+
+Hinweis:
+- "HEAD~1" gibt an, auf welchen Commit zurückgesetzt werden soll
+- in diesem Fall auf den vorherigen Commit
+- also den Commit, der direkt vor dem aktuellen HEAD-Commit liegt
+
+Beispiel
+________
+
+Situation:
+- aus Versehen wurde die private Datei "xyz.txt" committet
+- das push wurde noch NICHT durchgeführt
+
+Vorgehen:
+
+1 Löschen der privaten Datei:
+git rm -f path/xyz.txt
+
+2 Rückgängigmachen Commit:
+git reset --soft HEAD~1
+- alle Änderungen bleiben erhalten
+- die bereits gelöschte private Datei taucht NICHT wieder auf
+
+3 Durchführen eines neuen Commit:
+git commit -m "Hinzufügen regulärer Dateien ohne private Datei"
+- die private Datei ist nun nicht mehr enthalten
+
+4 Hochladen zum Server:
+git push
+
+Quelle
+______
+
+https://csharp-hilfe.de/git-commit-rueckgaengig-machen/
+
