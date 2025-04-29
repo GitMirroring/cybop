@@ -47,9 +47,8 @@
 void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
 
 /**
- * Loops the programme flow endlessly, until the break flag is set.
- *
- * See also file "part_handler.c" where the break flag gets tested after each loop cycle.
+ * Iterates through all of the elements in the given collection.
+ * The single elements may be accessed by index from within the model (function) being executed.
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -60,26 +59,31 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  * @param p6 the internal memory data (pointer reference)
  * @param p7 the shutdown flag
  */
-void apply_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void apply_loop_each(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply loop.");
-    //?? fwprintf(stdout, L"Information: Apply loop. p7: %i\n", p7);
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply loop each.");
 
     //
     // Declaration
     //
 
+    // The collection part.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The index part.
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The model part.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The break part.
-    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The break part model item.
-    void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The collection part model item.
+    void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The index part model item.
+    void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The break part model item data.
-    void* bmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The collection part model item count.
+    void* cmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The index part model item data.
+    void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // Retrieval
@@ -108,23 +112,29 @@ void apply_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     // - get_part_name: retrieve the properties belonging to a cybol operation, done in most applicator functions
     //
 
+    // Get collection part.
+    get_part_name((void*) &c, p0, (void*) COLLECTION_LOOP_FLOW_LOGIC_CYBOL_NAME, (void*) COLLECTION_LOOP_FLOW_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get index part.
+    get_part_name((void*) &i, p0, (void*) INDEX_LOOP_FLOW_LOGIC_CYBOL_NAME, (void*) INDEX_LOOP_FLOW_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get model part.
     get_name_array((void*) &m, p0, (void*) MODEL_LOOP_FLOW_LOGIC_CYBOL_NAME, (void*) MODEL_LOOP_FLOW_LOGIC_CYBOL_NAME_COUNT, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Get break part.
-    get_part_name((void*) &b, p0, (void*) BREAK_LOOP_FLOW_LOGIC_CYBOL_NAME, (void*) BREAK_LOOP_FLOW_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
-    // Get break part model item.
-    copy_array_forward((void*) &bm, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get collection part model item.
+    copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get index part model item.
+    copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Get break part model item data.
-    copy_array_forward((void*) &bmd, bm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get collection part model item count.
+    copy_array_forward((void*) &cmc, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Get index part model item data.
+    copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     //
     // Functionality
     //
 
     // The break flag.
-    int br = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     //
     // The direct execution flag.
     //
@@ -136,7 +146,10 @@ void apply_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     //
     int x = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (bmd == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (cmc == *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply loop each. The collection model count is null.");
+        fwprintf(stdout, L"Warning: Could not apply loop each. The collection model count is null. cmc: %i\n", cmc);
 
         //
         // CAUTION! If the parametre is NULL, then the break flag
@@ -148,15 +161,35 @@ void apply_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
         //
-        copy_integer((void*) &br, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
+
+    if (imd == *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply loop each. The index model data is null.");
+        fwprintf(stdout, L"Warning: Could not apply loop each. The index model data is null. imd: %i\n", imd);
+
+        //
+        // CAUTION! If the parametre is NULL, then the break flag
+        // will NEVER be set to true, because the loop variable comparison
+        // does (correctly) not consider null values.
+        // Therefore, in this case, the break flag is set to true already here.
+        //
+        // Initialising the break flag with true will NOT work either, since it:
+        // a) will be left untouched if a comparison operand is null;
+        // b) would have to be reset to true in each loop cycle.
+        //
+        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    }
+
+    //?? fwprintf(stdout, L"Debug: Apply loop each. cmc: %i\n", cmc);
+    //?? fwprintf(stdout, L"Debug: Apply loop each. *cmc: %i\n", *((int*) cmc));
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Check if break flag is set to true.
-        compare_integer_unequal((void*) &br, bmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        compare_integer_greater_or_equal((void*) &b, imd, cmc);
 
-        if (br != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
             // The break flag is TRUE.
@@ -168,15 +201,20 @@ void apply_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
         } else {
 
             //
-            // The break flag is FALSE (not set).
+            // The break flag is FALSE.
             //
 
-            //?? fwprintf(stdout, L"Debug: Apply loop. before handle br: %i\n", br);
+            //?? fwprintf(stdout, L"Debug: Apply loop each. before handle imd: %i\n", imd);
+            //?? fwprintf(stdout, L"Debug: Apply loop each. before handle *imd: %i\n", ((int*) imd));
 
             // Handle the model as new operation.
-            handle(m, p4, p2, p3, p5, p6, (void*) &x, p7, bmd);
+            handle(m, p4, p2, p3, p5, p6, (void*) &x, p7, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-            //?? fwprintf(stdout, L"Debug: Apply loop. after handle br: %i\n", br);
+            //?? fwprintf(stdout, L"Debug: Apply loop each. after handle imd: %i\n", imd);
+            //?? fwprintf(stdout, L"Debug: Apply loop each. after handle *imd: %i\n", ((int*) imd));
         }
+
+        // Increment index.
+        calculate_integer_add(imd, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }

@@ -53,6 +53,14 @@
  *
  * Branches the programme flow, depending on the criterion flag.
  *
+ * Java example:
+ *
+ * if (flag != false) {
+ *     System.out.println("true");
+ * } else {
+ *     System.out.println("false");
+ * }
+ *
  * Examples:
  *
  * <!-- Read models from file. -->
@@ -130,6 +138,14 @@ static int* BRANCH_FLOW_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  *
  * Loops the programme flow endlessly, until the break flag is set.
  *
+ * Java example:
+ *
+ * while (true) {
+ *     if (flag != false) {
+ *         break;
+ *     }
+ * }
+ *
  * Examples:
  *
  * <!-- Read model from heap (knowledge tree). -->
@@ -171,10 +187,152 @@ static int* BRANCH_FLOW_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  * Properties:
  *
  * - break (required) [text/cybol-path | logicvalue/boolean]: The break flag that causes the loop to be left.
- * - model (required) [text/cybol-path | element/part]: The logic knowledge model to be executed repeatedly by the loop.
+ * - model (required) [text/cybol-path | element/part]: The logic knowledge model (function) to be executed repeatedly by the loop.
  */
 static wchar_t* LOOP_FLOW_LOGIC_CYBOL_FORMAT = L"flow/loop";
 static int* LOOP_FLOW_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The flow/loop-each logic cybol format.
+ *
+ * Description:
+ *
+ * Iterates through all of the elements in the given collection.
+ * The single elements may be accessed by index from within the model (function) being executed.
+ *
+ * This is somewhat similar to functional programming such as in the clojure programming language.
+ * There are two kinds of behaviour that can be simulated in this way:
+ * 1 "map" function (not container), other synonyms: "apply" or "consumer-accept-action"
+ * 2 "reduce" function
+ *
+ * Java example:
+ *
+ * numbers.forEach( (n) -> { System.out.println(n); } );
+ *
+ * Clojure example:
+ *
+ * (map #(println %) [5 9 8 1])
+ *
+ * Examples:
+ *
+ * <node name="iterate_over_elements" channel="inline" format="flow/loop-each" model="">
+ *     <node name="collection" channel="inline" format="text/cybol-path" model=".collection"/>
+ *     <node name="index" channel="inline" format="text/cybol-path" model=".index"/>
+ *     <node name="model" channel="inline" format="text/cybol-path" model=".model"/>
+ * </node>
+ *
+ * <!--
+ *     This is a possible implementation of the model being called by the loop.
+ *     It accesses the elements as destination, in order to write to them.
+ *     This is the style of "map" (function, not container) in functional programming.
+ * -->
+ * <node name="increment_numbers" channel="inline" format="calculate/add" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".collection.[.index]"/>
+ *     <node name="operand" channel="inline" format="number/integer" model="1"/>
+ * </node>
+ *
+ * <!--
+ *     This is a possible implementation of the model being called by the loop.
+ *     It accesses the elements as source, in order to read from them.
+ *     This is the style of "reduce" in functional programming.
+ * -->
+ * <node name="sum_up_numbers" channel="inline" format="calculate/add" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".sum"/>
+ *     <node name="operand" channel="inline" format="text/cybol-path" model=".collection.[.index]"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - collection (required) [text/cybol-path | element/part]: The collection containing the elements through which to iterate.
+ * - index (required) [text/cybol-path]: The index of the current element.
+ * - model (required) [text/cybol-path | element/part]: The logic knowledge model (function) to be executed repeatedly for each element.
+ */
+static wchar_t* LOOP_EACH_FLOW_LOGIC_CYBOL_FORMAT = L"flow/loop-each";
+static int* LOOP_EACH_FLOW_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The flow/loop-for logic cybol format.
+ *
+ * Description:
+ *
+ * Loops the programme flow from the given start to the given end in the given steps.
+ *
+ * The comparison of index and end value is exclusive, that is it does not
+ * consider the end value in the executed model since the loop is left before:
+ * - positive step: if (index >= endvalue) then break
+ * - negative step: if (index <= endvalue) then break
+ *
+ * If the property "step" contains a negative value, then the loop is running downwards.
+ *
+ * Java example:
+ *
+ * for (int i = 0; i < 10; i += 2) {
+ *     System.out.println("Hello");
+ * }
+ *
+ * Examples:
+ *
+ * <node name="print_numbers" channel="inline" format="flow/loop-for" model="">
+ *     <node name="start" channel="inline" format="number/integer" model="0"/>
+ *     <node name="end" channel="inline" format="number/integer" model="10"/>
+ *     <node name="step" channel="inline" format="number/integer" model="2"/>
+ *     <node name="index" channel="inline" format="text/cybol-path" model=".index"/>
+ *     <node name="model" channel="inline" format="text/cybol-path" model=".model"/>
+ * </node>
+ *
+ * <node name="run_upwards" channel="inline" format="flow/loop-for" model="">
+ *     <node name="start" channel="inline" format="number/integer" model="20"/>
+ *     <node name="end" channel="inline" format="number/integer" model="37"/>
+ *     <node name="step" channel="inline" format="number/integer" model="2"/>
+ *     <node name="index" channel="inline" format="text/cybol-path" model=".index"/>
+ *     <node name="model" channel="inline" format="text/cybol-path" model=".model"/>
+ * </node>
+ *
+ * <node name="run_downwards" channel="inline" format="flow/loop-for" model="">
+ *     <node name="start" channel="inline" format="number/integer" model="17"/>
+ *     <node name="end" channel="inline" format="number/integer" model="-4"/>
+ *     <node name="step" channel="inline" format="number/integer" model="-3"/>
+ *     <node name="index" channel="inline" format="text/cybol-path" model=".index"/>
+ *     <node name="model" channel="inline" format="text/cybol-path" model=".model"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - start (required) [text/cybol-path | number/integer]: The start value that gets assigned to the index before the looping begins.
+ * - end (required) [text/cybol-path | number/integer]: The end value to be reached by the index, in which case the looping ends. It is exclusive and is not considered itself.
+ * - step (required) [text/cybol-path | number/integer]: The step width for counting the index up or down. It may be negative.
+ * - index (required) [text/cybol-path]: The index of the current element.
+ * - model (required) [text/cybol-path | element/part]: The logic knowledge model (function) to be executed repeatedly by the loop.
+ */
+static wchar_t* LOOP_FOR_FLOW_LOGIC_CYBOL_FORMAT = L"flow/loop-for";
+static int* LOOP_FOR_FLOW_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The flow/loop-times logic cybol format.
+ *
+ * Description:
+ *
+ * Loops the programme flow as often as specified by the times property.
+ *
+ * Clojure example:
+ *
+ * (dotimes [_ 10]
+ *     (println "Hello"))
+ *
+ * Examples:
+ *
+ * <node name="print_numbers" channel="inline" format="flow/loop-times" model="">
+ *     <node name="times" channel="inline" format="number/integer" model="10"/>
+ *     <node name="model" channel="inline" format="text/cybol-path" model=".model"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * - times (required) [text/cybol-path | number/integer]: The number of cycles the loop should run.
+ * - model (required) [text/cybol-path | element/part]: The logic knowledge model (function) to be executed repeatedly by the loop.
+ */
+static wchar_t* LOOP_TIMES_FLOW_LOGIC_CYBOL_FORMAT = L"flow/loop-times";
+static int* LOOP_TIMES_FLOW_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The flow/sequence logic cybol format.
@@ -183,9 +341,13 @@ static int* LOOP_FLOW_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MO
  *
  * Executes the given programme flow as sequence.
  *
- * This encapsulating operation "flow/sequence" is provided here to have all three constructs of structural programming implemented together, which are "sequence", "loop" and "branch".
+ * This encapsulating operation "flow/sequence" is provided here
+ * to have all three constructs of structural programming implemented
+ * together, which are "sequence", "loop" and "branch".
  *
- * However, in principle, logic models may be executed standalone directly or with encapsulating operation "flow/sequence". Both kinds of execution are possible.
+ * However, two kinds of executing logic models are possible, either:
+ * - standalone directly or
+ * - via the encapsulating operation "flow/sequence".
  *
  * Examples:
  *

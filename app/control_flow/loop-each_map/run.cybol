@@ -1,0 +1,58 @@
+<!--
+    This application increments the number values given in a list (collection).
+    It demonstrates the usage of the "flow/loop-each" operation, which is
+    a loop iterating through all of the elements in the given collection.
+    The single elements may be accessed by index from within the model being executed.
+    This is somewhat similar to functional programming such as in the
+    clojure programming language with its "map" function.
+    Other synonyms might be "map" (function, not container) or "consumer-accept-action".
+-->
+
+<node>
+
+    <!-- Creation -->
+
+    <node name="create_fileid" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="id"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+
+    <!-- Initialisation -->
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="control_flow/loop-each_map/app.cybol"/>
+    </node>
+    <node name="initialise_app" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+    <node name="open_stdout" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="device" channel="inline" format="text/plain" model="standard-output"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
+    </node>
+
+    <!-- Looping -->
+
+    <node name="iterate_over_elements" channel="inline" format="flow/loop-each" model="">
+        <node name="collection" channel="inline" format="text/cybol-path" model=".collection"/>
+        <node name="index" channel="inline" format="text/cybol-path" model=".index"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".model"/>
+    </node>
+
+    <!-- Shutdown -->
+
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
+</node>

@@ -1,0 +1,11 @@
+<node>
+
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+
+    <!-- The value may be "false" or "true". -->
+    <node name="criterion" channel="inline" format="logicvalue/boolean" model="true"/>
+
+    <node name="true" channel="file" format="element/part" model="control_flow/branch/true.cybol"/>
+    <node name="false" channel="file" format="element/part" model="control_flow/branch/false.cybol"/>
+
+</node>

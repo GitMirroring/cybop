@@ -149,6 +149,9 @@
 
 #include "../applicator/flow/branch.c"
 #include "../applicator/flow/loop.c"
+#include "../applicator/flow/each_loop.c"
+#include "../applicator/flow/for_loop.c"
+#include "../applicator/flow/times_loop.c"
 #include "../applicator/flow/sequence.c"
 
 //

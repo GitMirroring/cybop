@@ -1,0 +1,13 @@
+
+Apply a patch
+=============
+
+Example
+_______
+
+save patch file in project directory projekt/cybop/
+
+cd projekt/cybop/
+
+patch build/cmake/api.cmake < use_local_python_venv_for_api_make.patch
+

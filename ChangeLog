@@ -18,6 +18,15 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2025-04-29  Christian Heller  <christian.heller@cybop.org>
+
+        * Add cybol operations "flow/loop-times", "flow/loop-for", "flow/loop-each"
+
+2025-04-27  Enrico Gallus  <enrico.gallus@gmail.com>
+
+        * Fix cmake warnings
+        * Fix venv issue in python scripts for cybol api generator
+
 2025-04-24  Christian Heller  <christian.heller@cybop.org>
 
         * Add cybol operations "modify/apply" and "modify/reduce"

@@ -11,233 +11,26 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-        * Add collection operations (Behälteroperationen):
-            modify/apply OR modify/map OR modify/foreach OR modify/consumer-accept-action
-                all elements are copied from source to destination in cyboi c code;
-                only afterwards, the function gets applied to the elements in destination;
-                this is different to how "modify/reduce" works
-            : destination == output collection
-            : index (this property is important so that the cybol function model
-                can access the single elements, which are assigned within cyboi c code)
-            : function (== similar to the "model" being executed in a loop)
-            : deep_copy logicvalue/boolean
-                shallow = copying only pointers (references) == DEFAULT
-                deep = copy the whole node as deep copy
-            modify/reduce
-                the source elements are processed in cybol code;
-                it is in the responsibility of that cybol code to
-                create a new destination element if needed and
-                also to append it to the destination;
-                this is different to how "modify/apply" works
-            : deep_copy logicvalue/boolean
-                shallow = copying only pointers (references) == DEFAULT
-                deep = copy the whole node as deep copy
+        * Merge branch with python script fixes of Enrico Gallus into head on savannah git
 
-        * Add set operations (Mengenoperationen):
-            select/union == select/merge
-                the difference to "modify/append" is that there are two input sets here: a, b
-                while "modify/append" does have only one input and one output
-            : result
-            : set_a
-            : set_b
-            : deep_copy logicvalue/boolean
-                shallow = copying only pointers (references) == DEFAULT
-                deep = copy the whole node as deep copy
-            select/difference
-            select/intersection
-            select/filter == select/criterion
+        * Delete cybol operations modify/apply and modify/reduce since both are replacable by flow/loop-each
 
-        * Add loop operation variants:
-
-            flow/loop
-            : model
-            : break
-
-            flow/loop-limit
-            : model
-            : limit (cycles | iterations | times)
-                Example from clojure:
-                (dotimes [_ 10]
-                    (println "Hello"))
-
-            flow/loop-index
-            : model
-            : index
-            : start
-            : step (may be negative)
-            : end
-            : inclusive
-                Required: false
-                Format: text/cybol-path | logicvalue/boolean
-                Description: The flag indicating whether the end value
-                    is inclusive (considered) or exclusive (not considered) in comparison.
-                    If null, the default is false (exclusive).
-
-Complete reduce
-_______________
-
-        Wenn fertig implementiert, dann verschiebe die folgenden Überlegungen nach "doc/development/cyboi/design_decisions.txt"
-        - pointer geht nicht, da in cybol code nicht referenzierbar
-        - außerdem unsauber, da kein direkter Zugriff auf Zeiger aus cybol heraus erlaubt sein soll
-        - daher Verwendung des Element-Index, um via knowledge path auf aktuelles Element zugreifen zu können
-
-        Gedanken:
-        * im Grunde handelt es sich bei den Besonderheiten der funktionalen Programmierung
-            nur um Funktionen, die auf Containern/Collections arbeiten
-        * sie können auch per Schleife ohne Rekursion nachgebildet werden, da effizienter
-        * neue Kategorie von cybol-Logic Operations: "collect/"
-        * collect/map
-            - Zweck: TRANSFORMIEREN einzelner Elemente mittels Funktion
-            - Ergebnis: Liste mit DERSELBEN Anzahl an Elementen
-            - kombinieren mit "if"-Ausdruck sinnvoll
-            - evtl. vergleichbar einer "for-each"-Schleife
-        * collect/filter
-            - Zweck: AUSWÄHLEN (select) gewünschter Elemente
-            - Ergebnis: Liste mit derselben Anzahl an Elementen ODER weniger Elementen
-        * collect/reduce
-            - Zweck: KOMBINIEREN von vorherigen Ergebnissen und Elementen
-            - wendet Funktion auf ALLE Elemente einer Collection an
-            - REKURSIVES Abarbeiten der einzelnen Elemente
-            - eine ALLESKÖNNER-Funktion, die Transducer wie "filter" oder "map" nachbilden kann
-            - resultierende Ziel-Collection kann auch MEHR Elemente als die Quelle enthalten
-            - befüllt neue Ziel-Collection beispielsweise mittels "into"-Funktion
-            - vergleichbar dem Java += (composed assignment operator)
-        * ... offene Frage: wie auf input und output zugreifen?
-
-        * es reicht, collect/reduce zu implementieren, da es collect/map und collect/filter nachbilden kann
-        * ist collect/reduce nicht dasselbe wie eine for-each loop?
-        * dann würde es reichen, flow/loop-each zu implementieren
-        * Unterschied zu flow/loop wäre nur, dass direkt auf das Element zugegriffen werden kann,
-            da es als property übergeben wurde und der Zeiger intern zugewiesen wird,
-            so dass eine Bestimmung im cybol code nicht mehr nötig ist
-            Beispiel ALT: .domain.lecturers.[#index]
-            Beispiel NEU: #lecturer ODER #element steht für das aktuelle Element
-        * Java:
-            numbers.forEach( (n) -> { System.out.println(n); } );
-        * Clojure:
-            (map #(println %) [5 9 8 1])
-        * Offene Frage: Was ist mit der Verkettung von Funktionen in cybol?
-            List <Product> filteredProducts = getProducts()
-                .stream()
-                .filter((product) -> product.getPrice() > 25000 f)
-                .collect(Collectors.toList());
-            filteredProducts.forEach(System.out::println);
-
-        GEDANKEN:
-        * eine Funktion auszuführen, ist kein Problem, genau wie in flow/loop (model wird als signal übergeben)
-        * die Frage ist, wie die Eingangs-Parameter übergeben werden sollten
-        * verwenden Schleife in "applicator/collect/loop_reduce.c" für Index
-        * mitgeben des aktuellen Schleifenindex als "operand_index" an das Signal ist SCHWIERIG, denn:
-            a) er müsste im properties Container bereitgestellt werden
-            b) nicht alle Funktionen werten den "operand_index" aus
-        * ... hier weiterdenken ...
-
-        DONE:
-        * constants and necessary implementation files for collect/reduce
-
-        CAUTION! Do NOT introduce a separate directory "src/executor/collector/"
-        The cybol operation "collect/reduce" can be fully implemented in directory "src/applicator/collect/"
-
-        TODO:
-        * Add file for each new operation to directory "src/applicator/"
-        * Add operation to file "src/controller/handler/operation_handler.c"
-        * Add function headers to "include/executor/*"
-        * Add file includes to "src/library/executor/*"
-        * Add function header to "include/applicator.h"
-        * Add file includes to "src/library/applicator_library.c"
-
+        Rollback changes and delete:
         * Think about usage or deletion of "src/applicator/calculate/many_calculate.c"
-
-        CONTINUE:
-        * in file "loop_reduce.c"
-        * it is possibly NOT necessary to hold a temporary local array for arguments
-        * just add index j to the source pointer and use the suitable element in the loop cycle
-        * add a new flag to call of function "handle" indicating that parametres are to be identified by INDEX instead of by name
-
-Functional Programming 1/3
-__________________________
-
-        * Reflect on various kinds of function calls and parametre usage:
-            simple: directly calling "calculate/add"
-            indirect: using "flow/sequence" to call "calculate/add"
-            external: pointing to external file containing "calculate/add"
-            stack: similar to "external", but defining parametres on stack, as properties at function call in "run.cybol"
-
-        * Check and possibly complete implementation of "collect/reduce" in directory "src/applicator/"
-        * See further functions:
-            entwicklung/clojure/syntax/map-filter-reduce-fold.txt
-            entwicklung/clojure/syntax/unterschied_apply_und_map.txt
-            entwicklung/clojure/syntax/vergleich_java-streams_clojure.txt
-
-        * Investigate possibility of cybol operation "collect/reduce"
-        SOLUTION for "loop_reduce.c":
-        * Store input elements as function properties, similar to storage of stack variables in file "model_pusher.c"
-        * Reuse function properties which have been defined in cybol file as template
-        * Append OR overwrite ?? input elements to existing function properties using INDEX, since property names are unknown when calling most different functions
-            -> problem: values may have a primitive type or "element/part" (can be read out from part) -> how to copy? -> use "element/reference" for shallow copy as done with "push_stack"
-        * Access stack variable in function via index, for example "#[0]"
-            (This is similar to using "%x" for a variable in an anonymous function of classical programming languages)
-
-        CONTINUE:
-        * Implement cybol operation "collect/reduce" (see further BELOW)
-
         * Test cybol application "app/addition/increment/"
-        * Add cybol application "app/addition/delegation/" calling compound operation with stack variables
+        * Add cybol application "app/addition/delegation/" calling compound operation with stack variables for testing similar to application "addition/stack/"
         * Add cybol application "app/collection/reduce/" handing over list of summands as external part to git
-
         * Adapt file "applicator/calculate/many_calculate.c"
         * Adapt file "applicator/calculate/type_calculate.c"
-
-        * Clean up files in directory "applicator/calculate/"
-        * Add cybol application "app/addition/delegation/" for testing similar to application "addition/stack/"
-        * Access stack variables via absolute INDEX e.g. [0] not path [.index] and not name (.part) -- try at least
-            see files "begin_knowledge_selector.c", "identification_knowledge_deserialiser.c", "name_knowledge_deserialiser.c"
-        * Try to implement "reduce" with nameless stack variables accessed via index
-            e.g. addition with many summands changed into a loop calling single addition operations with just ONE operand
-            that one operand needs to be copied (only the part pointer) into a temporary properties list and handed over to the primitive operation "calculate/add"
-            should also work for other operations than "add" and also for COMPOUND operations (logic part consisting of other parts representing operations)
-
         * Remove unused cybol operation constants:
-            CONTINUE (all other items in todo list "add_new_cybol_operation.txt" are DONE):
-            * Adapt file "many_integer_calculator.c" in directory "src/executor/calculator/integer/"
-            * Adapt parametres in file "applicator/calculate/calculate.c"
-                change calculation of count using minimum, since part count is not value count
-
-Functional Programming 2/3
-__________________________
-
+        CONTINUE (all other items in todo list "add_new_cybol_operation.txt" are DONE):
+        * Adapt file "many_integer_calculator.c" in directory "src/executor/calculator/integer/"
+        * Adapt parametres in file "applicator/calculate/calculate.c"
+            change calculation of count using minimum, since part count is not value count
         * Delete "calculation/add-many" etc. which can be replaced by "collect/reduce"
 
-        * Add operations "modify/duplicate" and "modify/replicate"
-
-        * Add "previous" and "next" as filters to path
-        * Implement ??:
-            first | last + rest
-            .x.y.[2].(part_x).<first>
-            .x.y.[2].(part_x).<rest>
-
-        * State primitive operation like "calculate/add" as property
-
-        * Check if it is possible to eliminate "previous" and "next" in tui example
-            as soon as references to predecessor and successor of each node are implemented
-
-        * Add references to predecessor and successor to make each node a linked list
-        * Adapt functions modifying a part to always set predecessor and successor
-
-        * Use standard addition based on vectors (so type testing and min-count can remain intact)
-            use "many" function only as loop
-            alternative: implement "many" via linked list (predecessor/successor reference)
-
-Functional Programming 3/3
-__________________________
-
-<!-- clojure example: (filter (fn [[k v]] (even? k)) {1 "a", 2 "b", 3 "c", 4 "d"}) -->
-<node name="test" channel="inline" format="collect/filter" model="">
-    <node name="criterion" channel="inline" format="text/cybol-path" model=".function"/>
-    <node name="part" channel="inline" format="text/cybol-path" model=".collection"/>
-</node>
-
-<node name="function" channel="file" format="element/part" model="path/to/function.cybol"/>
+        * Test cybol operation increment
+        * Replace add function with increment function in all loops of cyboi
 
 Manual
 ______
@@ -1427,6 +1220,26 @@ ______
 
 Container
 _________
+
+        * Add set operations (Mengenoperationen):
+            select/union == select/merge
+                the difference to "modify/append" is that there are two input sets here: a, b
+                while "modify/append" does have only one input and one output
+            : result
+            : set_a
+            : set_b
+            : deep_copy logicvalue/boolean
+                shallow = copying only pointers (references) == DEFAULT
+                deep = copy the whole node as deep copy
+            select/difference
+            select/intersection
+            select/filter == select/criterion
+
+            <!-- clojure example: (filter (fn [[k v]] (even? k)) {1 "a", 2 "b", 3 "c", 4 "d"}) -->
+            <node name="test" channel="inline" format="select/filter" model="">
+                <node name="criterion" channel="inline" format="text/cybol-path" model=".function"/>
+                <node name="part" channel="inline" format="text/cybol-path" model=".collection"/>
+            </node>
 
         * Use file "filler.c" in function "startup_internal_memory"
             possibly use function pointer to hand over function to be executed as loop body

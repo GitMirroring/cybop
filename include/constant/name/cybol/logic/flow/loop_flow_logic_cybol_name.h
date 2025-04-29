@@ -42,9 +42,33 @@
 static wchar_t* BREAK_LOOP_FLOW_LOGIC_CYBOL_NAME = L"break";
 static int* BREAK_LOOP_FLOW_LOGIC_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The collection loop flow logic cybol name. */
+static wchar_t* COLLECTION_LOOP_FLOW_LOGIC_CYBOL_NAME = L"collection";
+static int* COLLECTION_LOOP_FLOW_LOGIC_CYBOL_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The end loop flow logic cybol name. */
+static wchar_t* END_LOOP_FLOW_LOGIC_CYBOL_NAME = L"end";
+static int* END_LOOP_FLOW_LOGIC_CYBOL_NAME_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The index loop flow logic cybol name. */
+static wchar_t* INDEX_LOOP_FLOW_LOGIC_CYBOL_NAME = L"index";
+static int* INDEX_LOOP_FLOW_LOGIC_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The times loop flow logic cybol name. */
+static wchar_t* TIMES_LOOP_FLOW_LOGIC_CYBOL_NAME = L"times";
+static int* TIMES_LOOP_FLOW_LOGIC_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The model loop flow logic cybol name. */
 static wchar_t* MODEL_LOOP_FLOW_LOGIC_CYBOL_NAME = L"model";
 static int* MODEL_LOOP_FLOW_LOGIC_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The start loop flow logic cybol name. */
+static wchar_t* START_LOOP_FLOW_LOGIC_CYBOL_NAME = L"start";
+static int* START_LOOP_FLOW_LOGIC_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The step loop flow logic cybol name. */
+static wchar_t* STEP_LOOP_FLOW_LOGIC_CYBOL_NAME = L"step";
+static int* STEP_LOOP_FLOW_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* LOOP_FLOW_LOGIC_CYBOL_NAME_CONSTANT_HEADER */
 #endif

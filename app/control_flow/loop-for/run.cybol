@@ -1,0 +1,77 @@
+<!--
+    This application demonstrates the usage of the "flow/loop-for" operation.
+    It is a loop for which many details such as "start", "end", "step" can be given.
+-->
+
+<node>
+
+    <!-- Creation -->
+
+    <node name="create_fileid" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="id"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+
+    <!-- Initialisation -->
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="control_flow/loop-for/app.cybol"/>
+    </node>
+    <node name="initialise_app" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+    <node name="open_stdout" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="device" channel="inline" format="text/plain" model="standard-output"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
+    </node>
+
+    <!-- Looping -->
+
+    <node name="print_upward_message" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Upward loop:"/>
+    </node>
+    <node name="run_upwards" channel="inline" format="flow/loop-for" model="">
+        <node name="start" channel="inline" format="number/integer" model="20"/>
+        <node name="end" channel="inline" format="number/integer" model="37"/>
+        <node name="step" channel="inline" format="number/integer" model="2"/>
+        <node name="index" channel="inline" format="text/cybol-path" model=".index"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".model"/>
+    </node>
+
+    <node name="print_upward_message" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Downward loop:"/>
+    </node>
+    <node name="run_downwards" channel="inline" format="flow/loop-for" model="">
+        <node name="start" channel="inline" format="number/integer" model="17"/>
+        <node name="end" channel="inline" format="number/integer" model="-4"/>
+        <node name="step" channel="inline" format="number/integer" model="-3"/>
+        <node name="index" channel="inline" format="text/cybol-path" model=".index"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".model"/>
+    </node>
+
+    <!-- Shutdown -->
+
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
+</node>

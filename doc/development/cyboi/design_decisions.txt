@@ -1647,40 +1647,69 @@ _________________________________________________
 - an addition in cybol does always add vectors/arrays by default
 - example: "1,2,3" + "2,2,2" = "3,4,5"
 
-- an addition of all elements of an array is NOT possible and there is NO cybol operation for that, since it does NOT make sense
-- the single elements of an array can be accessed via index, if necessary, for example via cybol property "result_index" or "operand_index" (see api for "calculate/add")
-- if an operand with multiple elements is needed, then a tree node should be given as operand and the contained child nodes used for the operation
-
-- introduce a NEW kind of cybol operation called "list/reduce" processing many list elements
-- specify property "operand" with cybol path to a part containing many child nodes which are to be used as operands
-
-Handing over MANY operands to operations like "calculate/add" is NOT possible.
-The reason is that optional and default properties might get mixed up
-with a varying number of operands.
-
-Calling functional operations like "list/reduce" which apply another operation
-to MANY source elements do NOT make sense for all cybol operations. For example,
-"maintain/startup" or "activate/enable" or "flow/loop" are not usable with it.
-Only operations that process a list source to produce a destination match the "reduce" context.
-
-When implementing a cybol operation "list/reduce" in a file "list.c",
-then that has to loop through elements of the source part.
-Using iteration (a loop) here is much more efficient than recursion (repeated function calls)
-and consumes less stack memory.
-The "reduce" should then delegate (provide) the corresponding source element
-to the called function, for example an addition in a special pre-defined ORDER.
-In order for that mechanism to work properly, the ORDER of cybol properties is important.
-An INDEX is used INSTEAD of the name to access DEFAULT properties.
-All OPTIONAL properties, on the other hand, are searched by NAME.
-
-The "reduce" will have to allocate a temporary item and copy
-the pointers of given source element parts. That is, the parts
-containing values do NOT get copied completely, only a REFERENCE (pointer) to them.
-
 Functional Programming
 ______________________
 
-TODO
+Allgemeine Gedanken:
+
+Im Grunde handelt es sich bei den Besonderheiten der funktionalen Programmierung
+nur um Funktionen, die auf Containern/Collections arbeiten.
+Sie können per Schleife ohne Rekursion nachgebildet werden, da effizienter.
+Siehe cybol Operation "flow/loop-each"!
+
+In der funktionalen Programmiersprache Clojure gibt es drei wichtige Funktionen:
+- map: anwenden einer Funktion auf einzelne Elemente
+- reduce: kombinieren von vorherigen Ergebnissen und Elementen
+- filter: auswählen gewünschter Elemente
+
+Das Verhalten der ersten beiden Funktionen "map" und "reduce" kann in CYBOL
+mittels einer "flow/loop-each"-Schleife nachgebildet werden.
+Zum Nachbauen von "filter" wird es in Zukunft einige "select/" Funktionen geben.
+
+Primitive CYBOL-Operationen akzeptieren nur die vordefinierten Eigenschaften
+(properties), auf welche über den Namen zugegriffen wird.
+
+Der Versuch, die Syntax funktionaler Sprachen nachzubauen, würde es nötig machen,
+mehrere Operanden als Liste entgegenzunehmen und über einen Index statt Namen
+auf sie zuzugreifen. Dies würde den CYBOI-Quelltext verkomplizieren und
+ist weder sinnvoll oder nötig.
+Die meisten CYBOL-Operationen benötigen keine Parameterübergabe per Index,
+da sie nicht mit Listen arbeiten, zum Beispiel
+"maintain/startup" oder "activate/enable" oder "flow/loop".
+
+Implementierung in CYBOI:
+
+Zunächst wurde versucht, eigene Funktionen "modify/map" und "modify/reduce"
+zu schreiben. Dies wurde später verworfen, da über "flow/loop-each" beide
+Verhalten nachgebaut werden können.
+
+Eine weitere Fragestellung war die Implementierung des Elementzugriffs
+für eine Liste aus der aufgerufenen Funktion heraus.
+Ein direkter Zugriff auf Speicher-Zeiger ist im CYBOL-Code nicht erlaubt.
+Deren Verwendung wäre unsauber, würde zu Sicherheitsrisiken führen und
+Speicherfehler durch gewollte oder ungewollte Manipulation provozieren.
+Also sind Zeiger in CYBOL nicht referenzierbar und es existiert kein
+Datentyp dafür.
+Alternativ dazu kann der Element-Index verwendet werden, um via
+knowledge path auf das aktuelle Element zuzugreifen.
+Dies kann bei Verwendung der "flow/loop-each" so gemacht werden.
+
+Direkte Zeiger werden in CYBOL aus folgenden Gründen NICHT verwendet:
+- cybol soll frei davon bleiben
+- aus Sicherheitsgründen
+- schwierig umzusetzen: ein Test mit Addition zählte den Zeiger hoch, da er nicht dereferenziert war
+- also müsste der Zeiger in cybol umständlich dereferenziert werden
+- ist alles nicht nötig, wenn man den Index übergibt
+- lokale Variablen können optional als Stack-Variablen verwendet werden
+
+Primitive CYBOL-Operationen wie "calculate/add" brauchen nicht funktional verwendet zu werden:
+- sie können durch eine eigene cybol Datei gekapselt und so verwendet werden
+- Parameter brauchen nicht als Liste angegeben zu werden, denn Properties haben einen Namen
+- die Art und Weise der Verarbeitung der Properties im "applicator" müsste sonst angepasst werden,
+    so dass sie nicht nur namensbasiert, sondern auch nach der Reihenfolge verarbeitet werden könnten
+- es sind nur einige wenige cybol Operationen wie calculate/add, die funktional
+    im Stil von "reduce" verwendet werden könnten, weswegen der Aufwand
+    zur Anpassung der Verarbeitung der Properties in Reihenfolge nicht lohnt
 
 Path or Part
 ____________

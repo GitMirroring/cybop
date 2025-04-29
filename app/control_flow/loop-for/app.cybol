@@ -1,0 +1,8 @@
+<node>
+
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+
+    <node name="index" channel="inline" format="number/integer" model="0"/>
+    <node name="model" channel="file" format="element/part" model="control_flow/loop-for/model.cybol"/>
+
+</node>

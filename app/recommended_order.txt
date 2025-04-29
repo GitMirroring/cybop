@@ -17,6 +17,15 @@ dynamic
 static
 stack
 
+control_flow:
+sequence
+branch
+loop
+loop-times
+loop-for
+loop-each-map
+loop-each-reduce
+
 hello:
 cli
 library

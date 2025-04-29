@@ -20,6 +20,7 @@ ___________________________________________
 * Identify an operation name as well as necessary properties
 
 * Add operation to file "include/constant/format/cybol/logic/*_logic_cybol_format.c" or add a new file
+* Add cybol api description as comment above the new operation
 * Add operation to file "include/constant/format/cyboi/logic_cyboi_format.c"
 * Add file with cybol properties (options) for each new operation to directory "include/constant/name/cybol/logic/"
 

@@ -1,7 +1,0 @@
-<node>
-
-    <node name="summand_1" channel="inline" format="number/integer" model="2"/>
-    <node name="summand_2" channel="inline" format="number/integer" model="4"/>
-    <node name="summand_3" channel="inline" format="number/integer" model="6"/>
-
-</node>
