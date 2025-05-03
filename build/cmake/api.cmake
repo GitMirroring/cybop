@@ -15,7 +15,7 @@ add_custom_command(TARGET api POST_BUILD
         WORKING_DIRECTORY ${ROOT_DIR}/build/scripts)
 
 add_custom_command(TARGET api POST_BUILD
-        COMMAND ${ROOT_DIR}/build/scripts/venv/bin/python ${ROOT_DIR}/bin/cyboi api-generator/run.cybol
+        COMMAND ${ROOT_DIR}/bin/cyboi api-generator/run.cybol
         WORKING_DIRECTORY ${ROOT_DIR}/tools)
 
 add_custom_command(TARGET api POST_BUILD

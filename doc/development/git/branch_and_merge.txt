@@ -1,0 +1,27 @@
+
+Branch and merge
+================
+
+git branch -vv
+git fetch
+git merge origin/fix
+
+where "fix" is the name of the branch
+
+Conflict
+________
+
+(edit affected files manually)
+git add (affectedfile)
+
+Commit
+______
+
+git commit -m "Add fix ..."
+git push
+
+See also
+________
+
+https://git-scm.com/book/de/v2/Git-Branching-Einfaches-Branching-und-Merging
+

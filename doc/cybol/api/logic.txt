@@ -92,6 +92,9 @@ feel/sense
 feel/suspend
 flow/branch
 flow/loop
+flow/loop-each
+flow/loop-for
+flow/loop-times
 flow/sequence
 live/exit
 logify/and

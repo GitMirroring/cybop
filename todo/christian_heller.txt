@@ -12,6 +12,8 @@
 #
 
         * Merge branch with python script fixes of Enrico Gallus into head on savannah git
+        * Try using script "adjustCopyright.py" once more (promised in conversation with Enrico Gallus on github)
+        * Remove github dependency in build/scripts/ and use new savannah python script files instead (checkout??)
 
         * Delete cybol operations modify/apply and modify/reduce since both are replacable by flow/loop-each
 
@@ -93,9 +95,6 @@ ___________________________________
         * Unfold multiple-line representation of a field body portion of a header field into a single line of characters with unlimited length
         * Test cybol applications "app/internet/smtp_server/" and "app/internet/smtp_client/"
         * Add imf serialiser
-
-        * Release CYBOP 0.27.0
-        * Try using script "adjustCopyright.py" once more (promised in conversation with Enrico Gallus on github)
 
         * Add pop command deserialiser
         * Add pop command serialiser
