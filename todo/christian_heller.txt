@@ -11,28 +11,22 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-        * Merge branch with python script fixes of Enrico Gallus into head on savannah git
-        * Try using script "adjustCopyright.py" once more (promised in conversation with Enrico Gallus on github)
-        * Remove github dependency in build/scripts/ and use new savannah python script files instead (checkout??)
-
-        * Delete cybol operations modify/apply and modify/reduce since both are replacable by flow/loop-each
+        Rollback changes and delete:
+        * "applicator/calculate/many_calculate.c", "applicator/calculate/type_calculate.c", "executor/calculator/integer/many_integer_calculator.c"
+        * parametres in file "applicator/calculate/calculate.c"
+        * cybol operation "calculation/add-many"
+        * Remove unused cybol operation constants
 
         Rollback changes and delete:
-        * Think about usage or deletion of "src/applicator/calculate/many_calculate.c"
+        * Test cybol operation increment
         * Test cybol application "app/addition/increment/"
         * Add cybol application "app/addition/delegation/" calling compound operation with stack variables for testing similar to application "addition/stack/"
-        * Add cybol application "app/collection/reduce/" handing over list of summands as external part to git
-        * Adapt file "applicator/calculate/many_calculate.c"
-        * Adapt file "applicator/calculate/type_calculate.c"
-        * Remove unused cybol operation constants:
-        CONTINUE (all other items in todo list "add_new_cybol_operation.txt" are DONE):
-        * Adapt file "many_integer_calculator.c" in directory "src/executor/calculator/integer/"
-        * Adapt parametres in file "applicator/calculate/calculate.c"
-            change calculation of count using minimum, since part count is not value count
-        * Delete "calculation/add-many" etc. which can be replaced by "collect/reduce"
 
-        * Test cybol operation increment
         * Replace add function with increment function in all loops of cyboi
+        * Replace old loop using break flag with new loop-each where applicable in cybol applications
+
+        * Try using script "adjustCopyright.py" once more (promised in conversation with Enrico Gallus on github)
+        * Remove github dependency in build/scripts/ and use new savannah python script files instead (checkout??)
 
 Manual
 ______

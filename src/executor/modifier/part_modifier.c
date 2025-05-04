@@ -62,18 +62,10 @@
  * @param p8 the repetition number for "modify/repeat"
  * @param p9 the searchterm data for "modify/replace"
  * @param p10 the searchterm count for "modify/replace"
- * @param p11 the index pointing to the current element
- * @param p12 the function part
- * @param p13 the internal memory data
- * @param p14 the knowledge memory part (pointer reference)
- * @param p15 the stack memory item
- * @param p16 the signal memory item
- * @param p17 the internal memory data (pointer reference)
- * @param p18 the shutdown flag
- * @param p19 the operation type
- * @param p20 the destination part item index
+ * @param p11 the operation type
+ * @param p12 the destination part item index
  */
-void modify_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20) {
+void modify_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Modify part.");
     //?? fwprintf(stdout, L"Debug: Modify part. p3: %i\n", p3);
@@ -82,8 +74,8 @@ void modify_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination part item.
-    copy_array_forward((void*) &i, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p20);
+    copy_array_forward((void*) &i, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p12);
 
     // Modify item as element of the part container.
-    modify_item(i, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19);
+    modify_item(i, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
 }

@@ -209,9 +209,22 @@ static int* LOOP_FLOW_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MO
  *
  * numbers.forEach( (n) -> { System.out.println(n); } );
  *
- * Clojure example:
+ * Clojure examples:
  *
+ * 1 "map" function
+ *
+ * (map inc [1 2 3 4 5]) ;; => [2 3 4 5 6]
  * (map #(println %) [5 9 8 1])
+ * (map #(str "Hello " % "!" ) ["Ford" "Arthur" "Tricia"])
+ *
+ * 2 "reduce" function
+ *
+ * (reduce + [1 2 3 4 5]) ;; => 15
+ * (reduce conj #{} [:a :b :c]) ;; => #{:a :c :b}
+ *    ;; Note that the output set #{} is unsorted, so that #{:a :c :b} appear in a different order.
+ *
+ * Reference:
+ * https://clojuredocs.org/clojure.core/map
  *
  * Examples:
  *

@@ -52,17 +52,9 @@
  * @param p8 the repetition number for "modify/repeat"
  * @param p9 the searchterm data for "modify/replace"
  * @param p10 the searchterm count for "modify/replace"
- * @param p11 the index pointing to the current element
- * @param p12 the function part
- * @param p13 the internal memory data
- * @param p14 the knowledge memory part (pointer reference)
- * @param p15 the stack memory item
- * @param p16 the signal memory item
- * @param p17 the internal memory data (pointer reference)
- * @param p18 the shutdown flag
- * @param p19 the operation type
+ * @param p11 the operation type
  */
-void modify_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19) {
+void modify_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Modify item.");
     //?? fwprintf(stdout, L"Debug: Modify item. p3: %i\n", p3);
@@ -88,8 +80,8 @@ void modify_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         fwprintf(stdout, L"Debug: Modify item. source index *p6: %i\n", *((int*) p6));
         fwprintf(stdout, L"Debug: Modify item. destination count c: %i\n", c);
         fwprintf(stdout, L"Debug: Modify item. destination count *c: %i\n", *((int*) c));
-        fwprintf(stdout, L"Debug: Modify item. operation type p19: %i\n", p19);
-        fwprintf(stdout, L"Debug: Modify item. operation type *p19: %i\n", *((int*) p19));
+        fwprintf(stdout, L"Debug: Modify item. operation type p11: %i\n", p11);
+        fwprintf(stdout, L"Debug: Modify item. operation type *p11: %i\n", *((int*) p11));
     }
 
     //
@@ -97,7 +89,7 @@ void modify_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // For these cases, the destination count determined above is handed over.
     // Furthermore, DEFAULT VALUES are defined in file "applicator/modify/modify.c".
     //
-    modify_verify((void*) &r, p4, p5, p6, c, p4, p19);
+    modify_verify((void*) &r, p4, p5, p6, c, p4, p11);
 
     //?? TODO TEST: DELETE later!
     r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -108,7 +100,7 @@ void modify_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         // Modify destination data.
         // The count and size are adjusted inside.
         //
-        modify_array((void*) &d, p1, p2, p3, p4, p5, p6, c, s, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19);
+        modify_array((void*) &d, p1, p2, p3, p4, p5, p6, c, s, p7, p8, p9, p10, p11);
 
         //
         // Set data array as destination item element.

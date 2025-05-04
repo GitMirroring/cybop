@@ -18,6 +18,15 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2025-05-04  Christian Heller  <christian.heller@cybop.org>
+
+        * Delete cybol operations "modify/apply" and "modify/reduce" since both are replacable by "flow/loop-each"
+
+2025-05-03  Christian Heller  <christian.heller@cybop.org>
+
+        * Merge branch with python script fixes of Enrico Gallus into head on savannah git
+        * Run cybol api generator successfully
+
 2025-04-29  Christian Heller  <christian.heller@cybop.org>
 
         * Add cybol operations "flow/loop-times", "flow/loop-for", "flow/loop-each"
