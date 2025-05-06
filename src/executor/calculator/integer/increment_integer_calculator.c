@@ -41,11 +41,14 @@ void calculate_integer_increment(void* p0) {
         int* number = (int*) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate integer increment.");
+        fwprintf(stdout, L"Debug: Calculate integer increment. p0: %i\n", p0);
+        fwprintf(stdout, L"Debug: Calculate integer increment. *p0: %i\n", *((int*) p0));
 
         (*number)++;
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate integer increment. The number is null.");
+        fwprintf(stdout, L"Error: Could not calculate integer increment. The number is null. p0: %i\n", p0);
     }
 }

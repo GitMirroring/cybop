@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2025-05-06  Christian Heller  <christian.heller@cybop.org>
+
+        * Rollback old changes and delete unused file "applicator/calculate/many_calculate.c"
+        * Comment out section on PART_ELEMENT_STATE_CYBOI_TYPE in file "applicator/calculate/type_calculate.c"
+
 2025-05-04  Christian Heller  <christian.heller@cybop.org>
 
         * Delete cybol operations "modify/apply" and "modify/reduce" since both are replacable by "flow/loop-each"

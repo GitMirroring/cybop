@@ -11,15 +11,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-        Rollback changes and delete:
-        * "applicator/calculate/many_calculate.c", "applicator/calculate/type_calculate.c", "executor/calculator/integer/many_integer_calculator.c"
-        * parametres in file "applicator/calculate/calculate.c"
-        * cybol operation "calculation/add-many"
-        * Remove unused cybol operation constants
+        * Use cybol application "app/addition/increment/"
+        * Test why increment does not get executed
+            -> file "double_index_count_verifier.c" tests BOTH operands but since operand two is null, the return value if FALSE
+            -> find a suitable solution
+        * Test cybol operations increment and decrement
 
-        Rollback changes and delete:
-        * Test cybol operation increment
-        * Test cybol application "app/addition/increment/"
         * Add cybol application "app/addition/delegation/" calling compound operation with stack variables for testing similar to application "addition/stack/"
 
         * Replace add function with increment function in all loops of cyboi
