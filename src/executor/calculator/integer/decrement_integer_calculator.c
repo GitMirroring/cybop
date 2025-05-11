@@ -32,20 +32,30 @@
 /**
  * Decrements the number by one.
  *
- * @param p0 the number
+ * @param p0 the destination
+ * @param p1 the source
  */
-void calculate_integer_decrement(void* p0) {
+void calculate_integer_decrement(void* p0, void* p1) {
 
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* number = (int*) p0;
+        int* s = (int*) p1;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate integer decrement.");
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        (*number)--;
+            int* d = (int*) p0;
+
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate integer decrement.");
+
+            *d = *s - 1;
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate integer decrement. The destination is null.");
+        }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate integer decrement. The number is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate integer decrement. The source is null.");
     }
 }

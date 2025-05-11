@@ -93,7 +93,12 @@ void overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Overwrite.");
         //
 
-        //?? fwprintf(stdout, L"Debug: Overwrite. p3: %i\n", p3);
+        //?? fwprintf(stdout, L"Debug: Overwrite. type *p2: %i\n", *((int*) p2));
+        //?? fwprintf(stdout, L"Debug: Overwrite. deep copying flag p3: %i\n", p3);
+        //?? fwprintf(stdout, L"Debug: Overwrite. deep copying flag *p3: %i\n", *((int*) p3));
+        //?? fwprintf(stdout, L"Debug: Overwrite. count *p4: %i\n", *((int*) p4));
+        //?? fwprintf(stdout, L"Debug: Overwrite. destination array count PRE *p7: %i\n", *((int*) p7));
+        //?? fwprintf(stdout, L"Debug: Overwrite. adjust count flag *p9: %i\n", *((int*) p9));
 
         // The new destination count.
         int nc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;

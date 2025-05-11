@@ -69,12 +69,37 @@ void verify_double_index_count(void* p0, void* p1, void* p2, void* p3, void* p4,
     verify_index_count((void*) &r2, p1, p3, p5);
 
     if (DEBUG_CYBOP == 1) {
+
         fwprintf(stdout, L"Debug: Verify double index count. r1: %i\n", r1);
         fwprintf(stdout, L"Debug: Verify double index count. r2: %i\n", r2);
     }
 
     copy_integer((void*) &r, (void*) &r1);
-    logify_boolean_and((void*) &r, (void*) &r2);
+
+    if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        //
+        // A second operand IS given.
+        // Therefore, consider the SECOND comparison result here as well.
+        //
+
+        logify_boolean_and((void*) &r, (void*) &r2);
+
+    } else {
+
+        //
+        // A second operand is NOT given.
+        //
+        // This is probably an operation which needs only ONE operand,
+        // like for instance "calculate/increment".
+        // Therefore, the second comparison result must NOT be
+        // considered here since otherwise, this function will
+        // not return true and the operation FAIL in the end.
+        //
+        // REMARK: This empty block containing a comment only
+        // does no harm, since the compiler will remove it anyway.
+        //
+    }
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -100,4 +125,10 @@ void verify_double_index_count(void* p0, void* p1, void* p2, void* p3, void* p4,
         // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not verify double index count. The sum of one of the indices and element count is greater than the first or second data count.");
         // fwprintf(stdout, L"Warning: Could not verify double index count. The sum of one of the indices and element count is greater than the first or second data count.\n");
     }
+
+/*??
+    fwprintf(stdout, L"Debug: Verify double index count. r1: %i\n", r1);
+    fwprintf(stdout, L"Debug: Verify double index count. r2: %i\n", r2);
+    fwprintf(stdout, L"Debug: Verify double index count. r: %i\n", r);
+*/
 }

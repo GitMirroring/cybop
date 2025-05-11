@@ -62,7 +62,7 @@
 void apply_calculate_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply calculate type.");
-    fwprintf(stdout, L"Debug: Apply calculate type. p7: %i\n", p7);
+    //?? fwprintf(stdout, L"Debug: Apply calculate type. p7: %i\n", p7);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -71,27 +71,30 @@ void apply_calculate_type(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
         //
         // The second operand (besides result) is MISSING.
+        //
         // Therefore, a comparison of result- and operand type
         // is NOT possible and the function called directly.
         // This is probably an increment or decrement operation.
         //
 
-        fwprintf(stdout, L"Debug: Apply calculate type. INSIDE p7: %i\n", p7);
         calculate_part(p0, p1, p2, p3, p4, p5, p6);
 
         // Set comparison result.
         r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
     }
 
-/*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p7, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            fwprintf(stdout, L"Debug: Apply calculate type. Inside element/part. This should NOT be used with a calculate/* operation! It is probably an ERROR. Check this out. r: %i\n", r);
+            fwprintf(stdout, L"TODO: Can this if-branch be deleted altogether? r: %i\n", r);
+
             //
             // The second operand's type is "element/part".
+            //
             // Therefore, a comparison of result- and operand type
             // is NOT possible and the function called directly.
             // This is probably an operation with MANY operands
@@ -101,7 +104,6 @@ void apply_calculate_type(void* p0, void* p1, void* p2, void* p3, void* p4, void
             calculate_part(p0, p1, p2, p3, p4, p5, p6);
         }
     }
-*/
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -114,6 +116,9 @@ void apply_calculate_type(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
             //
             // The result- and operand type are IDENTICAL.
+            //
+            // Call function normally.
+            // This is the standard case.
             //
 
             calculate_part(p0, p1, p2, p3, p4, p5, p6);

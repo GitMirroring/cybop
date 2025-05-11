@@ -71,7 +71,7 @@ void calculate_integer(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            calculate_integer_decrement(p0);
+            calculate_integer_decrement(p0, p1);
         }
     }
 
@@ -91,7 +91,7 @@ void calculate_integer(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            calculate_integer_increment(p0);
+            calculate_integer_increment(p0, p1);
         }
     }
 

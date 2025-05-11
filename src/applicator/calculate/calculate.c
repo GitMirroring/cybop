@@ -47,6 +47,8 @@
 void apply_calculate(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply calculate.");
+    //?? fwprintf(stdout, L"Information: Apply calculate. operation type p5: %i\n", p5);
+    //?? fwprintf(stdout, L"Information: Apply calculate. operation type *p5: %i\n", *((int*) p5));
 
     //
     // Declaration
@@ -136,21 +138,39 @@ void apply_calculate(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
     // The default values.
     int type = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r_count = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     int count = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int result_index = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int operand_index = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+    //
     // CAUTION! The following values are ONLY copied,
     // if the source value is NOT NULL.
     // This is tested inside the "copy_integer" function.
     // Otherwise, the destination value remains as is.
+    //
 
     // Use the result part type data by default.
     copy_integer((void*) &type, rtd);
-    // Use the operand part model count by default.
-    copy_integer((void*) &count, omc);
-    // Determine minimum of left and right operand.
-    calculate_integer_minimum((void*) &count, rmc);
+
+    // Compare result count and operand count.
+    compare_integer_equal((void*) &r_count, rmc, omc);
+
+    if (r_count != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        //
+        // Since result count and operand count are equal,
+        // it does not matter which of the two gets assigned here.
+        //
+        copy_integer((void*) &count, rmc);
+
+    } else {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply calculate. The result count and operand count are unequal.");
+        fwprintf(stdout, L"Warning: Could not apply calculate. The result count and operand count are unequal. rmc: %i omc: %i\n", rmc, omc);
+    }
+
     // Use the explicit count that was given as parametre.
     copy_integer((void*) &count, cmd);
     // Use the explicit result index that was given as parametre.

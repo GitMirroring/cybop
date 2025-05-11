@@ -116,17 +116,28 @@ static int* ADD_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  *
  * Description:
  *
- * Decrements the number by one.
+ * Decrements the value by one.
+ *
+ * Caution! This is a binary operation expecting two operands.
+ * Even if result and operand point to the same value,
+ * both have to be given always.
  *
  * Examples:
  *
  * <node name="decrement_number" channel="inline" format="calculate/decrement" model="">
- *     <node name="result" channel="inline" format="text/cybol-path" model="#number"/>
+ *     <node name="result" channel="inline" format="text/cybol-path" model="#value"/>
+ *     <node name="operand" channel="inline" format="text/cybol-path" model="#value"/>
+ * </node>
+ *
+ * <node name="decrement_number_different_paths" channel="inline" format="calculate/decrement" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model="#result"/>
+ *     <node name="operand" channel="inline" format="text/cybol-path" model=".number"/>
  * </node>
  *
  * Properties:
  *
- * - result (required) [text/cybol-path]: The decremented number. It initially represents the number before the operation.
+ * - result (required) [text/cybol-path]: The decremented value.
+ * - operand (required) [text/cybol-path | number/any]: The value to get decremented.
  */
 static wchar_t* DECREMENT_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/decrement";
 static int* DECREMENT_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -163,17 +174,28 @@ static int* DIVIDE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  *
  * Description:
  *
- * Increments the number by one.
+ * Increments the value by one.
+ *
+ * Caution! This is a binary operation expecting two operands.
+ * Even if result and operand point to the same value,
+ * both have to be given always.
  *
  * Examples:
  *
  * <node name="increment_number" channel="inline" format="calculate/increment" model="">
- *     <node name="result" channel="inline" format="text/cybol-path" model="#number"/>
+ *     <node name="result" channel="inline" format="text/cybol-path" model="#value"/>
+ *     <node name="operand" channel="inline" format="text/cybol-path" model="#value"/>
+ * </node>
+ *
+ * <node name="increment_number_different_paths" channel="inline" format="calculate/increment" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model="#result"/>
+ *     <node name="operand" channel="inline" format="text/cybol-path" model=".number"/>
  * </node>
  *
  * Properties:
  *
- * - result (required) [text/cybol-path]: The incremented number. It initially represents the number before the operation.
+ * - result (required) [text/cybol-path]: The incremented value.
+ * - operand (required) [text/cybol-path | number/any]: The value to get incremented.
  */
 static wchar_t* INCREMENT_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/increment";
 static int* INCREMENT_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -189,7 +211,7 @@ static int* INCREMENT_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *
  * <node name="determine_maximum" channel="inline" format="calculate/maximum" model="">
  *     <node name="result" channel="inline" format="text/cybol-path" model=".maximum"/>
- *     <node name="operand" channel="inline" format="number/integer" model=".value"/>
+ *     <node name="operand" channel="inline" format="text/cybol-path" model=".value"/>
  * </node>
  *
  * Properties:
@@ -214,7 +236,7 @@ static int* MAXIMUM_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
  *
  * <node name="determine_minimum" channel="inline" format="calculate/minimum" model="">
  *     <node name="result" channel="inline" format="text/cybol-path" model=".minimum"/>
- *     <node name="operand" channel="inline" format="number/integer" model=".value"/>
+ *     <node name="operand" channel="inline" format="text/cybol-path" model=".value"/>
  * </node>
  *
  * Properties:

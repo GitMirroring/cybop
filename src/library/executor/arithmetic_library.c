@@ -27,10 +27,6 @@
 // calculator
 //
 
-#include "../../executor/calculator/array_calculator.c"
-
-#include "../../executor/calculator/calculator.c"
-
 #include "../../executor/calculator/character/absolute_character_calculator.c"
 #include "../../executor/calculator/character/add_character_calculator.c"
 #include "../../executor/calculator/character/divide_character_calculator.c"
@@ -80,14 +76,18 @@
 #include "../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../executor/calculator/integer_calculator.c"
 
-#include "../../executor/calculator/item_calculator.c"
-
-#include "../../executor/calculator/part_calculator.c"
-
 #include "../../executor/calculator/pointer/add_pointer_calculator.c"
 #include "../../executor/calculator/pointer/difference_pointer_calculator.c"
 #include "../../executor/calculator/pointer/subtract_pointer_calculator.c"
 #include "../../executor/calculator/pointer_calculator.c"
+
+#include "../../executor/calculator/array_calculator.c"
+#include "../../executor/calculator/calculator.c"
+#include "../../executor/calculator/elements_array_calculator.c"
+#include "../../executor/calculator/item_calculator.c"
+#include "../../executor/calculator/offset_array_calculator.c"
+#include "../../executor/calculator/offset_calculator.c"
+#include "../../executor/calculator/part_calculator.c"
 
 //
 // caster

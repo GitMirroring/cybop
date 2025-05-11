@@ -23,11 +23,11 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
     </node>
     <!--
-        The number has to get initialised using modify/overwrite since otherwiese,
+        The number has to get initialised using modify/overwrite since otherwise,
         it remains empty "" and calculate/increment as well as calculate/add
         would bring up the error:
-        Error: Could not apply calculate type. The result type and operand type are different.
-        Error: Result type: -1. Operand type: 34.
+        Error: Could not calculate array. The result index or operand index is not smaller than the count.
+        Error: Possibly, the count is zero or the element was not initialised or it is null.
     -->
     <node name="initialise_number" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".number"/>
@@ -38,13 +38,8 @@
 
     <node name="increment_number" channel="inline" format="calculate/increment" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".number"/>
+        <node name="operand" channel="inline" format="text/cybol-path" model=".number"/>
     </node>
-<!--
-    <node name="TEST" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model=".number"/>
-        <node name="operand" channel="inline" format="number/integer" model="4"/>
-    </node>
--->
 
     <!-- Printing -->
 

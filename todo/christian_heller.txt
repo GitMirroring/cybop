@@ -11,15 +11,8 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-        * Use cybol application "app/addition/increment/"
-        * Test why increment does not get executed
-            -> file "double_index_count_verifier.c" tests BOTH operands but since operand two is null, the return value if FALSE
-            -> find a suitable solution
-        * Test cybol operations increment and decrement
-
         * Add cybol application "app/addition/delegation/" calling compound operation with stack variables for testing similar to application "addition/stack/"
 
-        * Replace add function with increment function in all loops of cyboi
         * Replace old loop using break flag with new loop-each where applicable in cybol applications
 
         * Try using script "adjustCopyright.py" once more (promised in conversation with Enrico Gallus on github)

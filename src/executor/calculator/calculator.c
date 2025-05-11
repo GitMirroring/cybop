@@ -29,7 +29,6 @@
 
 #include "arithmetic.h"
 #include "constant.h"
-#include "knowledge.h"
 #include "logger.h"
 
 //
@@ -154,49 +153,5 @@ void calculate(void* p0, void* p1, void* p2, void* p3) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate. The operand type is unknown.");
-    }
-}
-
-/**
- * Calculates the result using the given operand and operation
- * using the given index to calculate an offset.
- *
- * @param p0 the result, which is the operand BEFORE the operation
- * @param p1 the operand
- * @param p2 the operation type
- * @param p3 the operand type
- * @param p4 the index
- */
-void calculate_offset(void* p0, void* p1, void* p2, void* p3, void* p4) {
-
-    // CAUTION! These null pointer comparisons are IMPORTANT,
-    // in order to avoid a system crash if parametre values are null!
-
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate offset.");
-
-            // The result and operand.
-            // CAUTION! They HAVE TO BE initialised with p0 and p1,
-            // since an offset is added below.
-            void* r = p0;
-            void* o = p1;
-
-            // Add offset.
-            add_offset((void*) &r, p3, p4);
-            add_offset((void*) &o, p3, p4);
-
-            calculate(r, o, p2, p3);
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate offset. The result (operand before the operation) is null.");
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate offset. The operand is null.");
     }
 }

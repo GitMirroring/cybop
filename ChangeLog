@@ -18,6 +18,13 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2025-05-11  Christian Heller  <christian.heller@cybop.org>
+
+        * Make cybol application "app/addition/increment/" work
+        * Use two operands for increment and decrement, just like for all other cybol calculate operations
+        * Split up functions of file "array_calculator.c" into many files
+        * Split up functions of file "calculator.c" into many files
+
 2025-05-06  Christian Heller  <christian.heller@cybop.org>
 
         * Rollback old changes and delete unused file "applicator/calculate/many_calculate.c"

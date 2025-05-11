@@ -57,7 +57,8 @@
 void modify_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Modify item.");
-    //?? fwprintf(stdout, L"Debug: Modify item. p3: %i\n", p3);
+    //?? fwprintf(stdout, L"Debug: Modify item. count p4: %i\n", p4);
+    //?? fwprintf(stdout, L"Debug: Modify item. count *p4: %i\n", *((int*) p4));
 
     // The destination data, count, size.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -90,9 +91,6 @@ void modify_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // Furthermore, DEFAULT VALUES are defined in file "applicator/modify/modify.c".
     //
     modify_verify((void*) &r, p4, p5, p6, c, p4, p11);
-
-    //?? TODO TEST: DELETE later!
-    r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
