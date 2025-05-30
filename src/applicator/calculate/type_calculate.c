@@ -28,7 +28,6 @@
 //
 
 #include <stdio.h> // stdout
-#include <stdio.h> // stdout
 #include <wchar.h> // fwprintf
 
 //

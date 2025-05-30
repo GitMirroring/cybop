@@ -11,12 +11,58 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-        * Add cybol application "app/addition/delegation/" calling compound operation with stack variables for testing similar to application "addition/stack/"
-
-        * Replace old loop using break flag with new loop-each where applicable in cybol applications
-
         * Try using script "adjustCopyright.py" once more (promised in conversation with Enrico Gallus on github)
-        * Remove github dependency in build/scripts/ and use new savannah python script files instead (checkout??)
+        * Release CYBOP 0.28.0
+
+JSON
+____
+
+        CONTINUE WITH:
+
+        * Implement deserialiser "text/cybol+json" for language CYBOL_JSON_TEXT_STATE_CYBOI_LANGUAGE
+        * Implement serialiser "text/cybol+json" for language CYBOL_JSON_TEXT_STATE_CYBOI_LANGUAGE
+        * Adapt comments in file "state_cyboi_language.h":
+            // The languages text/cybol and text/cybol+xml are identical.
+            fwprintf(stdout, L"Warning: Could not serialise. The text/cybol+json serialiser is not implemented yet. p12: %i\n", *((int*) p12));
+            fwprintf(stdout, L"Warning: Could not deserialise. The text/cybol+json deserialiser is not implemented yet. p12: %i\n", *((int*) p12));
+
+        * Continue app "cybop school timetable" (to be found outside cybop project directory)
+        * See directory "leitung/stundenplanung/cybop/app/"
+        * Combine deserialisers by using language "text/cybol+json"
+        * Test deserialisation of json data timetable
+        * Make json deserialisation work in a way that knowledge model node names get restored from json file
+        * Test with cybol application "app/serialisation/json_cybol/"
+            currently, node names are just numbers but not the original names
+            see file "app/serialisation/json_cybol/test_json_read_formatted.txt"
+
+        * Test with files in directory "projekt/cybop_internal/tmp/json-test-files/"
+
+        * Refactor file "json_serialiser.c" a little bit so that number vectors are serialised using semicolon as separator and do NOT (as currently done) put them in quotation marks
+
+        * Add file "type_json_deserialiser.c" with branching for the different number types
+
+        * Complete file "begin_value_json_selector.c" with new number characters as used in file "number_name.c"
+        * Check number- and json selector if detected whitespace characters are NOT considered in the resulting name (or other-) count
+
+        * Test json and xml deserialiser and compare results, e.g. with example file "glossary"
+        * Continue json deserialiser and selector: number
+        * Handle special escaped string characters in file "string_json_deserialiser.c"
+        * Test real-world json files of directory "serialisation/json/examples/" using a cybol application
+
+        * Replace function call "serialise_cybol" in other serialisers directly with "serialise_numeral" and other primitive serialisers
+            reasons:
+            (1) reduce dependencies (includes)
+            (2) make other serialisers independent from cybol serialiser
+            (3) other language's serialisers like xdt have different formats (e.g. for date) than cybol offers
+
+        * Reflect on how to handle binary data in files "cybol_serialiser.c", "xml_serialiser.c", "json_serialiser.c"
+            how do dbms store blobs ??
+        * Offer two possibilities via cybol property: file AND base64
+        * Consider formats "BYTE_NUMBER_STATE_CYBOI_FORMAT" and "ASCII_TEXT_STATE_CYBOI_FORMAT"
+            --> merge both in all of cyboi ??
+            --> see also: OCTET_STREAM_APPLICATION_STATE_CYBOL_FORMAT, OCTET_STREAM_APPLICATION_STATE_CYBOI_FORMAT
+        * Implement base64 serialiser and deserialiser
+        * Implement binary json (bson) data interchange format with mime type "application/bson" ??
 
 Manual
 ______
@@ -220,37 +266,6 @@ ___
 
         * Check if stdout is closed automatically on exit
         * Add close operation to cybol application "tui"
-
-JSON
-____
-
-        * Test with files in directory "projekt/cybop_internal/tmp/json-test-files/"
-
-        * Refactor file "json_serialiser.c" a little bit so that number vectors are serialised using semicolon as separator and do NOT (as currently done) put them in quotation marks
-
-        * Add file "type_json_deserialiser.c" with branching for the different number types
-
-        * Complete file "begin_value_json_selector.c" with new number characters as used in file "number_name.c"
-        * Check number- and json selector if detected whitespace characters are NOT considered in the resulting name (or other-) count
-
-        * Test json and xml deserialiser and compare results, e.g. with example file "glossary"
-        * Continue json deserialiser and selector: number
-        * Handle special escaped string characters in file "string_json_deserialiser.c"
-        * Test real-world json files of directory "serialisation/json/examples/" using a cybol application
-
-        * Replace function call "serialise_cybol" in other serialisers directly with "serialise_numeral" and other primitive serialisers
-            reasons:
-            (1) reduce dependencies (includes)
-            (2) make other serialisers independent from cybol serialiser
-            (3) other language's serialisers like xdt have different formats (e.g. for date) than cybol offers
-
-        * Reflect on how to handle binary data in files "cybol_serialiser.c", "xml_serialiser.c", "json_serialiser.c"
-            how do dbms store blobs ??
-        * Offer two possibilities via cybol property: file AND base64
-        * Consider formats "BYTE_NUMBER_STATE_CYBOI_FORMAT" and "ASCII_TEXT_STATE_CYBOI_FORMAT"
-            --> merge both in all of cyboi ??
-        * Implement base64 serialiser and deserialiser
-        * Implement binary json (bson) data interchange format with mime type "application/bson" ??
 
 Build
 _____

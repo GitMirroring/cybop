@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2025-05-31  Christian Heller  <christian.heller@cybop.org>
+
+        * Remove github dependency in directory "build/scripts/"
+        * Add python script files for api generation to cybop's git repository at gnu savannah instead
+
 2025-05-11  Christian Heller  <christian.heller@cybop.org>
 
         * Make cybol application "app/addition/increment/" work
