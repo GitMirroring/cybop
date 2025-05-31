@@ -528,9 +528,17 @@ ___________
 
 - Upload files:
 
-    scp cybop-0.19.0.tar.gz cybop-0.19.0.tar.gz.sig christian@dl.sv.nongnu.org:/releases/cybop/
+    scp -O cybop-0.19.0.tar.gz cybop-0.19.0.tar.gz.sig christian@dl.sv.nongnu.org:/releases/cybop/
 
-See further stepwise instructions in file "dist/release.md"!
+    CAUTION! Since end of 2023, SFTP is disabled on Savannah.
+    But starting with OpenSSH 9.0, scp uses the SFTP protocol by default.
+    Therefore, add the -O option to scp command line if you use OpenSSH 9.0 or later!
+
+- See gnu documentation "Uploading a signed release" at:
+
+    https://savannah.nongnu.org/maintenance/DownloadArea/
+
+- See further stepwise instructions in file "dist/release.md"!
 
 5.3 Debianising
 _______________

@@ -27,7 +27,19 @@ SET(CPACK_PACKAGE_VERSION "${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSIO
 INSTALL(DIRECTORY ${ROOT_DIR}/build/cmake/ DESTINATION build/cmake)
 INSTALL(DIRECTORY ${ROOT_DIR}/build/icon/ DESTINATION build/icon)
 INSTALL(FILES ${ROOT_DIR}/build/manpage/cyboi.1.gz DESTINATION build/manpage)
-INSTALL(DIRECTORY ${ROOT_DIR}/build/scripts/ DESTINATION build/scripts)
+# CAUTION! Do NOT add the whole directory "scripts/", since it contains
+# a virtual python environment (20 MB). Therefore, add single files here.
+INSTALL(FILES ${ROOT_DIR}/build/scripts/adjustCopyright.py DESTINATION build/scripts)
+INSTALL(FILES ${ROOT_DIR}/build/scripts/apiData.py DESTINATION build/scripts)
+INSTALL(FILES ${ROOT_DIR}/build/scripts/apiParser.py DESTINATION build/scripts)
+INSTALL(FILES ${ROOT_DIR}/build/scripts/apiParserTest.py DESTINATION build/scripts)
+INSTALL(FILES ${ROOT_DIR}/build/scripts/apiWriter.py DESTINATION build/scripts)
+INSTALL(FILES ${ROOT_DIR}/build/scripts/apiWriterTest.py DESTINATION build/scripts)
+INSTALL(FILES ${ROOT_DIR}/build/scripts/entityGenerator.py DESTINATION build/scripts)
+INSTALL(FILES ${ROOT_DIR}/build/scripts/entityGeneratorTest.py DESTINATION build/scripts)
+INSTALL(FILES ${ROOT_DIR}/build/scripts/integrationTester.py DESTINATION build/scripts)
+INSTALL(FILES ${ROOT_DIR}/build/scripts/requirements.txt DESTINATION build/scripts)
+INSTALL(FILES ${ROOT_DIR}/build/scripts/setup.cfg DESTINATION build/scripts)
 INSTALL(FILES ${ROOT_DIR}/build/cmake_configuration.h.in DESTINATION build)
 INSTALL(FILES ${ROOT_DIR}/build/CMakeLists.txt DESTINATION build)
 # The cyboix component (monolithic executable).

@@ -57,7 +57,7 @@ Release
 Distribution
 ------------
 
-1. Create distributable files by running `make package` which executes `CPack`
+1. Create distributable files by running `make package` from within directory `build/`, which executes `CPack`
 2. Copy packages to savannah MANUALLY (see section "5.2 Packing" in file `INSTALL`)
 3. Announce release in mailing list `cybop-developers@nongnu.org` MANUALLY
 
