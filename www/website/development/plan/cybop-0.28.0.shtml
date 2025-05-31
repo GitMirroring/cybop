@@ -5,23 +5,34 @@
 </section>
 
 <section class="container">
-    <h2>CYBOI</h2>
-    <ul>
-        <li>TODO</li>
-    </ul>
-</section>
-
-<section class="container">
     <h2>CYBOL</h2>
     <ul>
-        <li>TODO</li>
+        <h3>Language:</h3>
+        <li>Add cybol operations "calculate/increment", "calculate/decrement"</li>
+        <li>Use two operands for increment and decrement, just like for all other cybol calculate operations</li>
+        <li>Rename cybol operation "modify/lower" into "modify/lowercase" and use noun "lowercaser"</li>
+        <li>Rename cybol operation "modify/upper" into "modify/uppercase" and use noun "uppercaser"</li>
+        <li>Add container function taken from clojure language as cybol operation "modify/shuffle"</li>
+        <li>Add cybol operations "flow/loop-times", "flow/loop-for", "flow/loop-each"</li>
+        <h3>Applications:</h3>
+        <li>Add cybol application "app/addition/increment/"</li>
+        <li>Add cybol application "tools/manual-generator/"</li>
+        <li>Add cybol applications "loop", "loop-times", "loop-for", "loop-each_map", "loop-each_reduce" to directory "app/control_flow/"</li>
+        <h3>Library:</h3>
+        <li>Provide library with "load_file" and "save_file" functionality</li>
     </ul>
 </section>
 
 <section class="container">
     <h2>Project</h2>
     <ul>
-        <li>TODO</li>
+        <h3>API Generator (Enrico Gallus):</h3>
+        <li>Fix cmake warnings</li>
+        <li>Fix venv issue in python scripts for cybol api generator</li>
+        <li>Remove github dependency in directory "build/scripts/"</li>
+        <li>Add python script files for api generation to cybop's git repository at gnu savannah</li>
+        <h3>Website:</h3>
+        <li>Update and add project history to website</li>
     </ul>
 </section>
 

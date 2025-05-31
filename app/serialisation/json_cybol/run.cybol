@@ -1,3 +1,10 @@
+<!--
+    This example translates a cybol model tree in two steps:
+    1 serialisation: from cyboi-memory into a json file
+    2 deserialisation: from json file into cyboi-memory,
+      which gets written into a model diagram file
+-->
+
 <node>
 
     <!-- Creation -->
@@ -45,6 +52,18 @@
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".write_test"/>
     </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+    <!-- Deserialise test model -->
+    <!-- CAUTION! A NEW file descriptor has to be opened, since this is in READ mode and NOT write mode (from above) anymore -->
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/json_cybol/test/formatted.json"/>
+    </node>
     <node name="deserialise_model" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
@@ -82,10 +101,3 @@
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
 
 </node>
-
-<!--
-    This example translates a cybol model tree in two steps:
-    1 serialisation: from cyboi-memory into a json file
-    2 deserialisation: from json file into cyboi-memory,
-      which gets written into a model diagram file
--->

@@ -4,7 +4,7 @@ Release
 
 git add app/
 git add build/cmake/
-git add buildx/cmake
+git add buildx/cmake/
 git add build/adjust_copyright.sh
 git add build/cmake_configuration.h.in
 git add build/CMakeLists.txt
@@ -24,9 +24,9 @@ git add INSTALL
 git add NEWS
 git add README
 
-git commit -m "Release CYBOP 0.27.0"
+git commit -m "Release CYBOP 0.28.0"
 git push
 
-git tag -a cybop-0.27.0 -m "Tag the cybop-0.27.0 release"
+git tag -a cybop-0.28.0 -m "Tag the cybop-0.28.0 release"
 git push origin --tags
 

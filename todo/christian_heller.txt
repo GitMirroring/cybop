@@ -11,9 +11,6 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-        * Try using script "adjustCopyright.py" once more (promised in conversation with Enrico Gallus on github)
-        * Release CYBOP 0.28.0
-
 JSON
 ____
 
@@ -64,6 +61,12 @@ ____
         * Implement base64 serialiser and deserialiser
         * Implement binary json (bson) data interchange format with mime type "application/bson" ??
 
+CYBOL Application
+_________________
+
+        * Use stack variables to avoid cybol operation call of "modify/empty", if possible, in cybol application "presence"
+        * Update cybol application "presence" to use responsive bootstrap-based user interface
+
 Manual
 ______
 
@@ -97,12 +100,6 @@ ___________________
             (calculate/increment (calculate/increment 2))
         * Convert it into cyboi tree nodes internally
         * Write result onto output shell instead of to "result" argument which is missing, since the tree node ".result" may NOT be accessed in the repl
-
-CYBOL Application
-_________________
-
-        * Use stack variables to avoid cybol operation call of "modify/empty", if possible, in cybol application "presence"
-        * Update cybol application "presence" to use responsive bootstrap-based user interface
 
 Kommunikation im Medizinwesen (KIM)
 ___________________________________

@@ -1,0 +1,30 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.29.0</h1>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <ul>
+        <h3>De-/Serialiser:</h3>
+        <li>Implement de-/serialiser "text/cybol+json" for language CYBOL_JSON_TEXT_STATE_CYBOI_LANGUAGE</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOL</h2>
+    <ul>
+        <h3>Applications:</h3>
+        <li>Add cybol application "cybop school timetable" (to be found outside cybop project directory)</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>Project</h2>
+    <ul>
+        <li>TODO</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

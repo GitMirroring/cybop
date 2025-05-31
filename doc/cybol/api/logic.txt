@@ -118,14 +118,12 @@ manipulate/toggle
 memorise/create
 memorise/destroy
 modify/append
-modify/apply
 modify/empty
 modify/fill
 modify/insert
 modify/lowercase
 modify/normalise
 modify/overwrite
-modify/reduce
 modify/remove
 modify/repeat
 modify/replace

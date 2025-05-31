@@ -1,5 +1,5 @@
 #
-# Copyright (C) 1999-2023. Christian Heller.
+# Copyright (C) 1999-2025. Christian Heller.
 #
 # This file records the changes that are made to cybop.
 #
@@ -14,14 +14,18 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.27.0 2023-08-31
+# @version CYBOP 0.28.0 2025-05-31
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
 2025-05-31  Christian Heller  <christian.heller@cybop.org>
 
+        * Release CYBOP 0.28.0
+
+2025-05-30  Christian Heller  <christian.heller@cybop.org>
+
         * Remove github dependency in directory "build/scripts/"
-        * Add python script files for api generation to cybop's git repository at gnu savannah instead
+        * Add python script files for api generation to cybop's git repository at gnu savannah
 
 2025-05-11  Christian Heller  <christian.heller@cybop.org>
 
@@ -47,6 +51,7 @@
 2025-04-29  Christian Heller  <christian.heller@cybop.org>
 
         * Add cybol operations "flow/loop-times", "flow/loop-for", "flow/loop-each"
+        * Add cybol applications "loop", "loop-times", "loop-for", "loop-each_map", "loop-each_reduce" to directory "app/control_flow/"
 
 2025-04-27  Enrico Gallus  <enrico.gallus@gmail.com>
 
@@ -75,18 +80,18 @@
 
 2023-11-24  Christian Heller  <christian.heller@cybop.org>
 
-        * Write cybol application "app/collection/reduce/" demonstrating usage of functional programming features
+        * Add cybol application "app/collection/reduce/" demonstrating usage of functional programming features
         * Add cybol operation "collect/reduce"
         * Remove cybol operations "calculate/add-many", "calculate/subtract-many", "calculate/multiply-many", "calculate/divide-many", which got replaced by "collect/reduce"
 
 2023-10-31  Christian Heller  <christian.heller@cybop.org>
 
-        * Write cybol application "app/addition/many/" demonstrating usage of "operand" property as path to a part containing tree nodes representing many argument values
+        * Add cybol application "app/addition/many/" demonstrating usage of "operand" property as path to a part containing tree nodes representing many argument values
         * Add cybol operations "calculate/add-many", "calculate/subtract-many", "calculate/multiply-many", "calculate/divide-many"
         * Adopt thereby functional programming using many operands like for example in clojure (+ 24 8 6 7)
 
-        * Write cybol application "app/addition/increment/"
-        * Introduce cybol operations "calculate/increment", "calculate/decrement"
+        * Add cybol application "app/addition/increment/"
+        * Add cybol operations "calculate/increment", "calculate/decrement"
 
 2023-10-15  Christian Heller  <christian.heller@cybop.org>
 
@@ -5513,7 +5518,7 @@
 
         * Change year to 2012 in comment block of all source code files, to prepare next release
         * Delete CVS "$" tags in source code since SVN is used now, which does not fill them
-        * Use new line "@version CYBOP 0.27.0 2023-08-31
+        * Use new line "@version CYBOP 0.28.0 2025-05-31
         * Delete outdated and redundant array handling files in directory "logger/"
         * Start fixing constant names in all source code
 

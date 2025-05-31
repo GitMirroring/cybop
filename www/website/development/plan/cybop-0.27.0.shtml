@@ -61,7 +61,7 @@
         <li>Migrate cybop svn to git</li>
         <h3>Documentation:</h3>
         <li>Extend documentation in file "doc/development/add_new_cybol_operation.txt" with new steps related to directories "include/" and "src/library/"</li>
-        <h3>API:</h3>
+        <h3>API Generator:</h3>
         <li>Fix problem with api generator by adapting format constants paths from "src/" to "include/" in directory "build/scripts/"</li>
     </ul>
 </section>

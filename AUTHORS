@@ -1,5 +1,5 @@
 #
-# Copyright (C) 1999-2023. Christian Heller.
+# Copyright (C) 1999-2025. Christian Heller.
 #
 # This file lists the names and email addresses of individuals who worked on cybop.
 # It also lists people who contributed to cybop through comments and suggestions,
@@ -8,7 +8,7 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.27.0 2023-08-31
+# @version CYBOP 0.28.0 2025-05-31
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
@@ -122,7 +122,7 @@ Tools
         * Sebastian Kloppe <sebastian.kloppe@cs13-2.ba-leipzig.de> (benchmark comparing c++, java, python, cybol)
         * Kevin Klein <kevin.klein@cs14-1.ba-leipzig.de> (Code::Blocks ide)
         * Tobias Donix <tobias.donix@cs14-1.ba-leipzig.de> (Code::Blocks ide)
-        * Enrico Gallus <enrico.gallus@gmail.com> (python scripts for simplifying string array constants and generating api files from javadoc-like comment blocks in c source code)
+        * Enrico Gallus <enrico.gallus@gmail.com> (python scripts for generating api files from javadoc-like comment blocks in c source code)
 
 Help and Support
         * Karl Berry <karl@freefriends.org> (feedback on improving project infrastructure and documentation)

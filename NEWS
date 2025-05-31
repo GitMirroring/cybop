@@ -1,5 +1,5 @@
 #
-# Copyright (C) 1999-2023. Christian Heller.
+# Copyright (C) 1999-2025. Christian Heller.
 #
 # This file represents a record of user-visible changes to cybop.
 #
@@ -9,9 +9,34 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.27.0 2023-08-31
+# @version CYBOP 0.28.0 2025-05-31
 # @author Christian Heller <christian.heller@cybop.org>
 #
+
+CYBOP 0.28.0, 2025-05-31, Christian Heller  <christian.heller@cybop.org>
+
+        * CYBOL:
+            Language:
+            - Add cybol operations "calculate/increment", "calculate/decrement"
+            - Use two operands for increment and decrement, just like for all other cybol calculate operations
+            - Rename cybol operation "modify/lower" into "modify/lowercase" and use noun "lowercaser"
+            - Rename cybol operation "modify/upper" into "modify/uppercase" and use noun "uppercaser"
+            - Add container function taken from clojure language as cybol operation "modify/shuffle"
+            - Add cybol operations "flow/loop-times", "flow/loop-for", "flow/loop-each"
+            Applications:
+            - Add cybol application "app/addition/increment/"
+            - Add cybol application "tools/manual-generator/"
+            - Add cybol applications "loop", "loop-times", "loop-for", "loop-each_map", "loop-each_reduce" to directory "app/control_flow/"
+            Library:
+            - Provide library with "load_file" and "save_file" functionality
+        * Project:
+            API Generator (Enrico Gallus):
+            - Fix cmake warnings
+            - Fix venv issue in python scripts for cybol api generator
+            - Remove github dependency in directory "build/scripts/"
+            - Add python script files for api generation to cybop's git repository at gnu savannah
+            Website:
+            - Update and add project history to website
 
 CYBOP 0.27.0, 2023-08-30, Christian Heller  <christian.heller@cybop.org>
 
@@ -60,7 +85,7 @@ CYBOP 0.27.0, 2023-08-30, Christian Heller  <christian.heller@cybop.org>
             - Migrate cybop svn to git
             Documentation:
             - Extend documentation in file "doc/development/add_new_cybol_operation.txt" with new steps related to directories "include/" and "src/library/"
-            API:
+            API Generator:
             - Fix problem with api generator by adapting format constants paths from "src/" to "include/" in directory "build/scripts/"
 
 CYBOP 0.26.0, 2023-04-04, Christian Heller  <christian.heller@cybop.org>

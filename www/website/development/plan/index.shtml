@@ -27,8 +27,16 @@
             </tr>
             <tr>
                 <td class="table-warning"></td>
-                <td>0.28.0</td>
+                <td>0.29.0</td>
                 <td>20xx</td>
+                <td><a href="cybop-0.29.0.shtml">Features</a></td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-success"></td>
+                <td>0.28.0</td>
+                <td>2025-05-31</td>
                 <td><a href="cybop-0.28.0.shtml">Features</a></td>
                 <td>
                 </td>

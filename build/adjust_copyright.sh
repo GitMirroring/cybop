@@ -22,7 +22,7 @@
 # Example:
 #
 # cd /home/xy/cybop/build
-# scripts/adjust_copyright.sh
+# ./adjust_copyright.sh
 #
 cybop=".."
 
@@ -59,13 +59,13 @@ new_tabulator="    "
 # The old and new copyright.
 #
 old_copyright="Copyright (C) 1999-2023. Christian Heller."
-new_copyright="Copyright (C) 1999-2023. Christian Heller."
+new_copyright="Copyright (C) 1999-2025. Christian Heller."
 
 #
 # The old and new version.
 #
 old_version="@version CYBOP 0.27.0 2023-08-31"
-new_version="@version CYBOP 0.27.0 2023-08-31"
+new_version="@version CYBOP 0.28.0 2025-05-31"
 
 #
 # Determine files.

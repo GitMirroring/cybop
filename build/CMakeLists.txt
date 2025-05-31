@@ -32,7 +32,7 @@
 cmake_minimum_required(VERSION 3.18.4)
 
 # Set project name.
-project(cybop LANGUAGES C VERSION 0.27.0)
+project(cybop LANGUAGES C VERSION 0.28.0)
 
 # Set binary executable name.
 set(BINARY_NAME cyboi)
