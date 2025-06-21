@@ -40,12 +40,12 @@
 #include "logger.h"
 
 /**
- * Deserialises the json format source into the destination.
+ * Deserialises the json wide character data into a model and properties.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source data
- * @param p3 the source count
+ * @param p2 the source json data
+ * @param p3 the source json count
  * @param p4 the language properties (constraints) data
  * @param p5 the language properties (constraints) count
  * @param p6 the knowledge memory part (pointer reference)
@@ -55,7 +55,8 @@
 void deserialise_json(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise json.");
-    //?? fwprintf(stdout, L"Debug: Deserialise json. destination item p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Deserialise json. source count p3: %i\n", p3);
+    //?? fwprintf(stdout, L"Debug: Deserialise json. source count *p3: %i\n", *((int*) p3));
 
     // The source data position.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;

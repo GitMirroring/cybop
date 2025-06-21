@@ -12,12 +12,26 @@
 #
 
 JSON
-____
+----
 
-        CONTINUE WITH:
+        See examples:
+            app/serialisation/json_cybol/test/formatted.json
+            app/serialisation/json_cybol/test_json_read_formatted_OLD.txt
 
         * Implement deserialiser "text/cybol+json" for language CYBOL_JSON_TEXT_STATE_CYBOI_LANGUAGE
+        * Split file "node_cybol_deserialiser.c" into xml and json
+        * Split further files in cybol deserialiser into xml and json, as necessary
+            "compound_cybol_deserialiser.c"
+            "file_cybol_deserialiser.c" -> TODO: adapt call of function "receive_data"
+            "deserialiser.c"
+
         * Implement serialiser "text/cybol+json" for language CYBOL_JSON_TEXT_STATE_CYBOI_LANGUAGE
+        * Reflect: Is it REALLY needed? The current "application/json" serialiser works fine, too!
+
+        * Insert new up-to-date xml example in comment block of file "content_cybol_deserialiser.c"
+        * Generate new model diagram text file showing xml tree BEFORE being parsed as cybol
+        * Copy into file "content_cybol_deserialiser.c"
+
         * Adapt comments in file "state_cyboi_language.h":
             // The languages text/cybol and text/cybol+xml are identical.
             fwprintf(stdout, L"Warning: Could not serialise. The text/cybol+json serialiser is not implemented yet. p12: %i\n", *((int*) p12));
@@ -61,14 +75,22 @@ ____
         * Implement base64 serialiser and deserialiser
         * Implement binary json (bson) data interchange format with mime type "application/bson" ??
 
+MIME Type Category
+------------------
+
+        * Use mime type category "application/" instead of "text/" for cybol
+        * Replace text/cybol with application/cybol
+        * Replace text/cybol+xml with application/cybol+xml
+        * Replace text/cybol+json with application/cybol+json
+
 CYBOL Application
-_________________
+-----------------
 
         * Use stack variables to avoid cybol operation call of "modify/empty", if possible, in cybol application "presence"
         * Update cybol application "presence" to use responsive bootstrap-based user interface
 
 Manual
-______
+------
 
         * Continue cybol application "tools/manual-generator/"
         * Write new manual in cybol to be generated as website
@@ -79,7 +101,7 @@ ______
         * Delete existing cybol beginner's manual in directory "doc/manual/"
 
 Database
-________
+--------
 
         CONTINUE with:
         * Make cybol application "addressbook/" work
@@ -93,7 +115,7 @@ ________
         * Remember that the cybop schema does represent the whole database structure
 
 CYBOL Shell (CYBOS)
-___________________
+-------------------
 
         * Write interpreting cybol shell as read-eval-print-loop (repl) ??
         * Interpret input given in functional style, for example:
@@ -102,7 +124,7 @@ ___________________
         * Write result onto output shell instead of to "result" argument which is missing, since the tree node ".result" may NOT be accessed in the repl
 
 Kommunikation im Medizinwesen (KIM)
-___________________________________
+-----------------------------------
 
         * See:
             2.4 General Syntax Principles and Transaction Model
@@ -144,7 +166,7 @@ ___________________________________
         * Implement file "letter_upperer.c" considering all possible alphabets
 
 xDT
-___
+---
 
         * Reactivate (uncomment) call of function "deserialise_xdt_datetime_ddmmyyyy" in files "cybol_deserialiser.c" and "cybol_serialiser.c"
             it was commented out for testing the xdt library
@@ -173,7 +195,7 @@ ___
         * Activate or delete files "hierarchy_field_xdt_deserialiser_FUTURE_BDT_4.c" and "hierarchy_field_xdt_selector_FUTURE_BDT_4.c"
 
 Library
-_______
+-------
 
         * Comment out unused integer constants in order to reduce file size of source and binaries
 
@@ -211,7 +233,7 @@ _______
             for example in section "manipulate" function "calculate" is called instead
 
 IDE
-___
+---
 
         * Create qt c++ application as cybol ide (tree on the left, tabs on the right with table/text/cybol-xml/json
 
@@ -219,7 +241,7 @@ ___
             https://iamsorush.com/posts/cpp-cmake-build/
 
 Licencing
-_________
+---------
 
         * Apply multi-licensing to cyboi (or a fragment of it called "cyblib"), in order to make it usable by proprietary applications
             German: Mehrfachlizenzierung
@@ -228,7 +250,7 @@ _________
             https://www.qt.io/download-open-source?hsCtaTracking=e9c17691-91a0-4616-9bc2-1a6a6c318914%7C963686f8-2c68-442a-b17b-3d73ce95b819
 
 Verifier
-________
+--------
 
         * Eliminate or change files in directory "executor/verifier/" and find better solution, since they hinder execution of array functions in some cases
             report ALL errors (uncomment log messages)
@@ -236,7 +258,7 @@ ________
         * Delete setting of comparison result r to "true" following function call "modify_verify" in file "item_modifier.c"
 
 Operations
-__________
+----------
 
         In file "array_calculator.c":
         * Use "calculate_minimum" to find out which source count is lesser and use it as default count
@@ -249,7 +271,7 @@ __________
         * Add special static cybol file to api doc html templates to describe general language design issues such as stack variable handling
 
 App
-___
+---
 
         * Update shell script cybol applications
         * Create more video tutorials, upload to portals and update website
@@ -265,7 +287,7 @@ ___
         * Add close operation to cybol application "tui"
 
 Build
-_____
+-----
 
         * Test new automated build process
 
@@ -283,7 +305,7 @@ _____
             - Developer basic commands
 
 Loop Simplification
-___________________
+-------------------
 
         * Provide solution for loops with decrementing index
             currently, the break flag gets tested inside file "part_handler.c" using "compare_integer_greater_or_equal"
@@ -294,7 +316,7 @@ ___________________
         * Test with table header in cybol application "serialisation/csv/"
 
 Base64
-______
+------
 
         * Encode binary data (e.g. x-ray images in the electronic health record of a patient) into text string using Base64 or base64url
         * Add the following comment into cyboi source code:
@@ -318,7 +340,7 @@ ______
         * Implement part serialiser called from file "cybol_serialiser.c"
 
 Numeral Deserialiser
-____________________
+--------------------
 
         * Call "serialise_numeral_vector" instead of just "serialise_numeral" in number sections of file "cybol_serialiser.c"
         * Return primitive number in numeral serialiser and item in numeral vector serialiser
@@ -336,7 +358,7 @@ ____________________
         * Adapt cybol serialiser so that compound parts of type "element/part" get written into different files
 
 De-/Serialiser
-______________
+--------------
 
         * Add csv serialiser
         * Add textline list serialiser
@@ -360,7 +382,7 @@ ______________
         * Test percent encoding with cybol application "ui/wui/"
 
 Case Mapping
-____________
+------------
 
         * Implement case mapping for modifier lowerer and upperer (CAUTION! This is a complex issue.)
         * See hints and code fragments in directory "tmp/character-casing/"
@@ -368,7 +390,7 @@ ____________
             https://www.unicode.org/reports/tr21/tr21-5.html
 
 CYBOL
-_____
+-----
 
         * Rename either xml attribute "model" into "message" or cybol property "message" into "model" ??
 
@@ -378,7 +400,7 @@ _____
         * Alternatively, use relative paths from current file as is done in html files
 
 Database
-________
+--------
 
         * Compare cyboi with key-value-database such as Redis
             https://de.wikipedia.org/wiki/Schl%C3%BCssel-Werte-Datenbank
@@ -394,7 +416,7 @@ ________
             https://www.linuxnetworks.de/doc/index.php/OpenDBX
 
 General CYBOI
-_____________
+-------------
 
         * Rename constant "PART_ELEMENT_STATE_CYBOI_TYPE" into "COMPOUND_ELEMENT_STATE_CYBOI_TYPE" in all source code (it may represent the formats "element/part", "element/property", "element/reference")
 
@@ -489,7 +511,7 @@ _____________
         * Search for comments with "??", "TODO", "TEST", in order to clean them up
 
 Awakener
-________
+--------
 
         * Reactivate awakener in file "??" (search)
 
@@ -531,7 +553,7 @@ ________
             afterwards, test local unix domain socket once more
 
 Android
-_______
+-------
 
         * Use "NativeActivity" to render the whole screen in C
             https://stackoverflow.com/questions/13188898/how-to-draw-on-the-android-canvas-from-the-native-code
@@ -545,7 +567,7 @@ _______
             - how to access the windowing system ??
 
 FIFO (Named Pipe)
-_________________
+-----------------
 
         * Add "registration" cybol operations "register/make" and "register/delete" for file management
         * Add directory "executor/registrar/" with "maker" and "deleter"
@@ -559,13 +581,13 @@ _________________
             https://www.ibm.com/docs/en/zos/2.3.0?topic=functions-mkfifo-make-fifo-special-file
 
 Pipe (Anonymous Pipe)
-_____________________
+---------------------
 
         * Add new cybol property as second file descriptor for anonymous pipeline (pipe) and assign both, source and destination file descriptor
         * Reflect how to exchange data between cyboi and another (previous or following) process via anonymous pipe
 
 Socket / WUI
-____________
+------------
 
         * Add current time as one more integer number to interrupt pipe when adding a requesting client to the pipe
         * Implement mechanism to frequently check socket timeout by comparing with original time
@@ -668,7 +690,7 @@ ____________
             https://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types
 
 CYBOL Library
-_____________
+-------------
 
         * Clear up how to provide stack variables in cyboi interpreter for operations which are called via cybol-path ??
 
@@ -697,7 +719,7 @@ _____________
         * Think about how to inform the user about errors (tui, gui, wui, all, message dialog?)
 
 Logging
-_______
+-------
 
         * Let logger use cyboi-internal streamer file writer
 
@@ -710,7 +732,7 @@ _______
         * Call it by default in file "index_count_verifier.c"
 
 Display / XCB
-_____________
+-------------
 
         * Debug memory allocation errors reported by valgrind when launching cybol application "gui"
             //
@@ -764,7 +786,7 @@ _____________
             https://marc.info/?l=freedesktop-xcb&m=129381953404497&q=p5
 
 Display / GUI
-_____________
+-------------
 
         * Replace outdated input/output entry with server entry in files "initial_gui_serialiser.c", "gui_event_deserialiser.c", "values_gui_event_deserialiser.c", "properties_gui_event_deserialiser.c"
 
@@ -852,7 +874,7 @@ _____________
         * Remove directory "src/windows/"
 
 Terminal / TUI / CLI
-____________________
+--------------------
 
         * Fix tui bug that exit button "e" or "esc" (doesn't matter) gets detected only if button gets pressed twice
             --> this appears also in http where the "exit" link has to be clicked TWICE in cybol application "www_server_dynamic"
@@ -889,7 +911,7 @@ ____________________
             http:www.topology.org/linux/charpath.html
 
 Worker Threads
-______________
+--------------
 
         * Add properties "asynchronicity" and "handler" to cybol operation "flow/sequence",
             so that ANY logic model, also primitive operations, can be executed in a thread
@@ -915,7 +937,7 @@ ______________
         * Check out Tcl interpreter which claims to handle all i/o channels uniquely
 
 Sleep
-_____
+-----
 
         * usleep() works with microseconds.
         * In windows for getting microsecond precesion you should use QueryPerformanceCounter() winapi function.
@@ -990,7 +1012,7 @@ _____
             http://www.c-plusplus.de/forum/144938-full
 
 Searching
-_________
+---------
 
         * Add cybol operation "search/??" offering properties:
             - criterion (filter): as actual value to be found
@@ -1002,7 +1024,7 @@ _________
         * Adapt corresponding cybol application "get_count"
 
 Sorting
-_______
+-------
 
         * Figure out how to sort capital/small letters, German Umlauts etc. (currently, Unicode number is taken for comparison)
         * Implement missing cybol operations "sort/insertion", "sort/quick", "sort/selection" in cyboi
@@ -1012,7 +1034,7 @@ _______
         * Implement cybol operations for calculating statistical things
 
 Datetime
-________
+--------
 
         * Improve cybol application "presence"
             - make DATETIME work in cyboi, before continuing
@@ -1096,7 +1118,7 @@ ________
             tmp/datetime/plate_-_programmieren_in_c_datumsberechnung.html (8 Ausgewählte Algorithmen (Teil 1) | 8.1 Verarbeitung von Zeichenketten (Strings) | Römische Zahlen)
 
 Randomiser
-__________
+----------
 
         * Extend file "sender.c" with long long int buffer for randomiser seed
         * Add files "randomiser_reader.c" (returning a random number) and "randomiser_writer.c" (seeting the seed)
@@ -1105,7 +1127,7 @@ __________
         * Adapt cybol applications using old versions of "randomise/sow" and "randomise/retrieve" with new receive/send via channel "randomiser"
 
 Mathematics
-___________
+-----------
 
         * See file "design_decisions.txt" and search for "Arbitrary-precision arithmetic (Langzahlarithmetik)"
 
@@ -1122,7 +1144,7 @@ ___________
             - Lineare Regression
 
 Compression
-___________
+-----------
 
         * Provide directory "executor/packer/" with "compressor" and "extractor"
         * Implement these into cybol
@@ -1163,7 +1185,7 @@ ___________
             Problem: the "#remain_index" is reset in file "song.cybol", which is not wanted when processing ".db.remain"
 
 Shell Commands
-______________
+--------------
 
         * Use pipe functions "popen" and "pclose" to execute external shell command ?? and process its output within a cybol application
 
@@ -1184,7 +1206,7 @@ ______________
             or use capital letters ".PIPE" for such invisible system-relevant tree nodes
 
 OpenGL
-______
+------
 
         * Add cybol opengl 3d world example and reflexions on cyboi integration of Marius Klotke
         * See also: http://www.itk.org/Wiki/KWScene/Documentation/Overall_Design
@@ -1214,7 +1236,7 @@ ______
         //
 
 Container
-_________
+---------
 
         * Add set operations (Mengenoperationen):
             select/union == select/merge
@@ -1263,13 +1285,13 @@ _________
         * Do container search depending on given cybol knowledge path similar to jQuery or XPath ??
 
 Logifier
-________
+--------
 
         * Add error messages for logic operations with overflow (nand, nor, xnor, not, neg)
         * Fix error occuring while printing byte values in terminal applications
 
 Data Type and Memory
-____________________
+--------------------
 
         * Use bit fields in cyboi to optimise used memory, e.g. for boolean values not an int with 1 Byte = 8 Bit, but just 1 Bit defined like this:
             uint8_t used:1;
@@ -1288,7 +1310,7 @@ ____________________
         * Optimise memory management, e.g. by searching free memory using the "next fit" instead of "first fit" algorithm
 
 Constants
-_________
+---------
 
         * Check out possible usage of "const" for constants:
             http://www.noxeos.com/2011/07/29/c-const-static-keywords/
@@ -1296,26 +1318,26 @@ _________
             int* var = (int[]) { 6 };
 
 CYBOL
-_____
+-----
 
         * Implement cybol operations "progress/start", "progress/stop", "progress/advance" to set wait cursor at beginning of handle or advance a progress bar
 
 Packaging
-_________
+---------
 
         * Provide Debian package
         * Provide RPM packages
         * Provide Windows setup assistant
 
 CYBOP
-_____
+-----
 
         * Goldener Schnitt ??
         * 1/3 + 2/3 = name + model = key + value
         * Fraktale
 
 Type Casting and Rounding
-_________________________
+-------------------------
 
 #ifndef DOUBLE_INTEGER_CASTER_SOURCE
 #define DOUBLE_INTEGER_CASTER_SOURCE
@@ -1409,7 +1431,7 @@ void cast_integer_double(void* p0, void* p1) {
 #endif
 
 Testing
-_______
+-------
 
 This is how to use the debug flag which got defined in file "log_setting.c":
 
@@ -1426,7 +1448,7 @@ void function_y() {
 }
 
 CYBOL Application
-_________________
+-----------------
 
         * Rewrite cybol application "clean_result_directory"
             - make PIPES work in cyboi (e.g. as named pipes in the background), before continuing, needed for: n=$(ls -a $1 | wc -l);

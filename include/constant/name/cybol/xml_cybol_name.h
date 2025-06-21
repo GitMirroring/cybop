@@ -38,6 +38,26 @@
 
 #include "constant.h"
 
+//
+// Constants
+//
+
+/** The channel cybol name. */
+static wchar_t* CHANNEL_CYBOL_NAME = L"channel";
+static int* CHANNEL_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The format cybol name. */
+static wchar_t* FORMAT_CYBOL_NAME = L"format";
+static int* FORMAT_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The model cybol name. */
+static wchar_t* MODEL_CYBOL_NAME = L"model";
+static int* MODEL_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The name cybol name. */
+static wchar_t* NAME_CYBOL_NAME = L"name";
+static int* NAME_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The node xml cybol name. */
 static wchar_t* NODE_XML_CYBOL_NAME = L"node";
 static int* NODE_XML_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;

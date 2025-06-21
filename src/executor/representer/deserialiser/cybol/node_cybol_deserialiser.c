@@ -58,24 +58,25 @@
  * @param p13 the knowledge memory part (pointer reference)
  * @param p14 the stack memory item
  * @param p15 the internal memory data
- * @param p16 the decimal separator data
- * @param p17 the decimal separator count
- * @param p18 the thousands separator data
- * @param p19 the thousands separator count
- * @param p20 the consider number base prefix flag (true means CONSIDER prefixes; false means IGNORE them)
- * @param p21 the root flag
+ * @param p16 the language
+ * @param p17 the decimal separator data
+ * @param p18 the decimal separator count
+ * @param p19 the thousands separator data
+ * @param p20 the thousands separator count
+ * @param p21 the consider number base prefix flag (true means CONSIDER prefixes; false means IGNORE them)
+ * @param p22 the root flag
  */
-void deserialise_cybol_node(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21) {
+void deserialise_cybol_node(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol node.");
-    //?? fwprintf(stdout, L"Debug: Deserialise cybol node. root flag p21: %i\n", p21);
-    //?? fwprintf(stdout, L"Debug: Deserialise cybol node. root flag *p21: %i\n", *((int*) p21));
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol node. root flag p22: %i\n", p22);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol node. root flag *p22: %i\n", *((int*) p22));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // CAUTION! Do NOT use "equal" comparison, since STANDARD node has to be the DEFAULT.
-    compare_integer_unequal((void*) &r, p21, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, p22, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -83,7 +84,7 @@ void deserialise_cybol_node(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         // This is a standard node.
         //
 
-        deserialise_cybol_standard(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20);
+        deserialise_cybol_standard(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21);
 
     } else {
 
@@ -99,6 +100,6 @@ void deserialise_cybol_node(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         //
         // Therefore, hand over the source PROPERTIES becoming the source model.
         //
-        deserialise_cybol_part(p0, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20);
+        deserialise_cybol_part(p0, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21);
     }
 }

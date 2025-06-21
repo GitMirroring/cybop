@@ -18,6 +18,13 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2025-06-21  Christian Heller  <christian.heller@cybop.org>
+
+        * Implement deserialiser "text/cybol+json" for language CYBOL_JSON_TEXT_STATE_CYBOI_LANGUAGE
+        * Merge file "include/constant/name/cybol/cybol_name.h" into "include/constant/name/cybol/xml_cybol_name.h"
+        * Add file "include/constant/name/cybol/json_cybol_name.h"
+        * Add files "xml_content_cybol_deserialiser.c" and "json_content_cybol_deserialiser.c"
+
 2025-05-31  Christian Heller  <christian.heller@cybop.org>
 
         * Release CYBOP 0.28.0

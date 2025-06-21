@@ -27,12 +27,16 @@
 // cybol
 //
 
+#include "../../../executor/representer/deserialiser/cybol/json/json_content_cybol_deserialiser.c"
+#include "../../../executor/representer/deserialiser/cybol/xml/xml_content_cybol_deserialiser.c"
+
 #include "../../../executor/representer/deserialiser/cybol/byte_cybol_deserialiser.c"
 #include "../../../executor/representer/deserialiser/cybol/channel_cybol_deserialiser.c"
 #include "../../../executor/representer/deserialiser/cybol/compound_cybol_deserialiser.c"
 #include "../../../executor/representer/deserialiser/cybol/constraints_cybol_deserialiser.c"
 #include "../../../executor/representer/deserialiser/cybol/content_cybol_deserialiser.c"
 #include "../../../executor/representer/deserialiser/cybol/cybol_deserialiser.c"
+#include "../../../executor/representer/deserialiser/cybol/decision_cybol_deserialiser.c"
 #include "../../../executor/representer/deserialiser/cybol/element_cybol_deserialiser.c"
 #include "../../../executor/representer/deserialiser/cybol/encoding_cybol_deserialiser.c"
 #include "../../../executor/representer/deserialiser/cybol/file_cybol_deserialiser.c"

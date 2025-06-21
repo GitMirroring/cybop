@@ -38,6 +38,10 @@
 
 #include "constant.h"
 
+//
+// Constants
+//
+
 /** The super cybol name. */
 static wchar_t* SUPER_CYBOL_NAME = L"super";
 static int* SUPER_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;

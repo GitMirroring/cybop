@@ -51,13 +51,14 @@
  * @param p6 the stack memory item
  * @param p7 the internal memory data
  * @param p8 the format
- * @param p9 the channel
+ * @param p9 the language
+ * @param p10 the channel
  */
-void deserialise_cybol_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void deserialise_cybol_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol file.");
-    //?? fwprintf(stdout, L"Debug: Deserialise cybol file. channel p9: %i\n", p9);
-    //?? fwprintf(stdout, L"Debug: Deserialise cybol file. channel *p9: %i\n", *((int*) p9));
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol file. channel p10: %i\n", p10);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol file. channel *p10: %i\n", *((int*) p10));
 
     //
     // CAUTION! The default encoding value MUST NOT be assigned
@@ -83,7 +84,7 @@ void deserialise_cybol_file(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     //
     // CAUTION! Hand over utf-8 encoding since cybol files are using it by default.
     //
-    receive_data(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &id, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3, p4, p5, p6, p7, p8, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, (void*) UTF_8_CYBOI_ENCODING, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p9);
+    receive_data(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &id, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3, p4, p5, p6, p7, p8, p9, (void*) UTF_8_CYBOI_ENCODING, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p10);
 
     // Close file.
     close_basic((void*) &id);

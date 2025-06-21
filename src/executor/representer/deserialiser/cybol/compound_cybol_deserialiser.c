@@ -39,7 +39,6 @@
 #include "constant.h"
 #include "knowledge.h"
 #include "logger.h"
-#include "xml.h"
 
 /**
  * Deserialises the cybol compound element (part or property).
@@ -53,18 +52,19 @@
  * @param p6 the knowledge memory part (pointer reference)
  * @param p7 the stack memory item
  * @param p8 the internal memory data
- * @param p9 the decimal separator data
- * @param p10 the decimal separator count
- * @param p11 the thousands separator data
- * @param p12 the thousands separator count
- * @param p13 the consider number base prefix flag (true means CONSIDER prefixes; false means IGNORE them)
- * @param p14 the format
+ * @param p9 the language
+ * @param p10 the decimal separator data
+ * @param p11 the decimal separator count
+ * @param p12 the thousands separator data
+ * @param p13 the thousands separator count
+ * @param p14 the consider number base prefix flag (true means CONSIDER prefixes; false means IGNORE them)
+ * @param p15 the format
  */
-void deserialise_cybol_compound(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
+void deserialise_cybol_compound(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol compound.");
-    //?? fwprintf(stdout, L"Debug: Deserialise cybol compound. format p14: %i\n", p14);
-    //?? fwprintf(stdout, L"Debug: Deserialise cybol compound. format *p14: %i\n", *((int*) p14));
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol compound. format p15: %i\n", p15);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol compound. format *p15: %i\n", *((int*) p15));
 
     //
     // Declaration
@@ -99,11 +99,11 @@ void deserialise_cybol_compound(void* p0, void* p1, void* p2, void* p3, void* p4
     allocate_item((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
     //
-    // Deserialisation step 1: xml
+    // Deserialisation step 1: xml or json
     //
 
-    // Deserialise source message (cybol file) into temporary model, properties item.
-    deserialise_xml(m, p, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    // Deserialise source message into temporary model, properties item.
+    deserialise_cybol_decision(m, p, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p9);
 
     //
     // Retrieval
@@ -127,7 +127,7 @@ void deserialise_cybol_compound(void* p0, void* p1, void* p2, void* p3, void* p4
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p14, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p15, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -136,13 +136,13 @@ void deserialise_cybol_compound(void* p0, void* p1, void* p2, void* p3, void* p4
             //
             // CAUTION! The tags (structural data) and attributes (meta data) are swapped in meaning.
             //
-            deserialise_cybol_content(p0, md, mc, pd, pc, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
+            deserialise_cybol_content(p0, md, mc, pd, pc, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p14, (void*) PROPERTY_ELEMENT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p15, (void*) PROPERTY_ELEMENT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -151,7 +151,7 @@ void deserialise_cybol_compound(void* p0, void* p1, void* p2, void* p3, void* p4
             //
             // CAUTION! The tags (structural data) and attributes (meta data) are swapped in meaning.
             //
-            deserialise_cybol_content(p1, md, mc, pd, pc, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
+            deserialise_cybol_content(p1, md, mc, pd, pc, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14);
         }
     }
 

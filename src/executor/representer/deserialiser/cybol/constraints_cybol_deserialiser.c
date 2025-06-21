@@ -52,8 +52,9 @@
  * @param p7 the stack memory item
  * @param p8 the internal memory data
  * @param p9 the format
+ * @param p10 the language
  */
-void deserialise_cybol_constraints(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void deserialise_cybol_constraints(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol constraints.");
     //?? fwprintf(stdout, L"Debug: Deserialise cybol constraints. format p9: %i\n", p9);
@@ -118,5 +119,5 @@ void deserialise_cybol_constraints(void* p0, void* p1, void* p2, void* p3, void*
     //
 
     // Deserialise cybol.
-    deserialise_cybol(p0, p1, p2, p3, p4, p5, p6, p7, p8, dmd, dmc, tmd, tmc, pmd, p9);
+    deserialise_cybol(p0, p1, p2, p3, p4, p5, p6, p7, p8, p10, dmd, dmc, tmd, tmc, pmd, p9);
 }

@@ -23,14 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CYBOL_NAME_CONSTANT_HEADER
-#define CYBOL_NAME_CONSTANT_HEADER
-
-//
-// System interface
-//
-
-#include <stddef.h> // wchar_t
+#ifndef JSON_CYBOL_NAME_CONSTANT_HEADER
+#define JSON_CYBOL_NAME_CONSTANT_HEADER
 
 //
 // Library interface
@@ -38,21 +32,24 @@
 
 #include "constant.h"
 
-/** The name cybol name. */
-static wchar_t* NAME_CYBOL_NAME = L"name";
-static int* NAME_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+//
+// Constants
+//
 
-/** The channel cybol name. */
-static wchar_t* CHANNEL_CYBOL_NAME = L"channel";
-static int* CHANNEL_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The name json cybol name. */
+static int* NAME_JSON_CYBOL_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The format cybol name. */
-static wchar_t* FORMAT_CYBOL_NAME = L"format";
-static int* FORMAT_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The channel json cybol name. */
+static int* CHANNEL_JSON_CYBOL_NAME = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The model cybol name. */
-static wchar_t* MODEL_CYBOL_NAME = L"model";
-static int* MODEL_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The format json cybol name. */
+static int* FORMAT_JSON_CYBOL_NAME = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* CYBOL_NAME_CONSTANT_HEADER */
+/** The model json cybol name. */
+static int* MODEL_JSON_CYBOL_NAME = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The properties json cybol name. */
+static int* PROPERTIES_JSON_CYBOL_NAME = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/* JSON_CYBOL_NAME_CONSTANT_HEADER */
 #endif

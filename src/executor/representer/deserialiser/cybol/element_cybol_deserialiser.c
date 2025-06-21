@@ -43,13 +43,14 @@
  * @param p5 the knowledge memory part (pointer reference)
  * @param p6 the stack memory item
  * @param p7 the internal memory data
- * @param p8 the decimal separator data
- * @param p9 the decimal separator count
- * @param p10 the thousands separator data
- * @param p11 the thousands separator count
- * @param p12 the consider number base prefix flag (true means CONSIDER prefixes; false means IGNORE them)
+ * @param p8 the language
+ * @param p9 the decimal separator data
+ * @param p10 the decimal separator count
+ * @param p11 the thousands separator data
+ * @param p12 the thousands separator count
+ * @param p13 the consider number base prefix flag (true means CONSIDER prefixes; false means IGNORE them)
  */
-void deserialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void deserialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol element.");
 
@@ -75,5 +76,5 @@ void deserialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4,
     copy_array_forward((void*) &ppd, pp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &ppc, pp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    deserialise_cybol_content(p0, pmd, pmc, ppd, ppc, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+    deserialise_cybol_content(p0, pmd, pmc, ppd, ppc, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
 }
