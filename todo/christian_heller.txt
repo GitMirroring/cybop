@@ -19,7 +19,6 @@ JSON
             app/serialisation/json_cybol/test_json_read_formatted_OLD.txt
 
         * Implement deserialiser "text/cybol+json" for language CYBOL_JSON_TEXT_STATE_CYBOI_LANGUAGE
-        * Split file "node_cybol_deserialiser.c" into xml and json
         * Split further files in cybol deserialiser into xml and json, as necessary
             "compound_cybol_deserialiser.c"
             "file_cybol_deserialiser.c" -> TODO: adapt call of function "receive_data"

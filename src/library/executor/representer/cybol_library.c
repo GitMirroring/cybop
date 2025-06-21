@@ -28,7 +28,10 @@
 //
 
 #include "../../../executor/representer/deserialiser/cybol/json/json_content_cybol_deserialiser.c"
+#include "../../../executor/representer/deserialiser/cybol/json/json_node_cybol_deserialiser.c"
+
 #include "../../../executor/representer/deserialiser/cybol/xml/xml_content_cybol_deserialiser.c"
+#include "../../../executor/representer/deserialiser/cybol/xml/xml_node_cybol_deserialiser.c"
 
 #include "../../../executor/representer/deserialiser/cybol/byte_cybol_deserialiser.c"
 #include "../../../executor/representer/deserialiser/cybol/channel_cybol_deserialiser.c"

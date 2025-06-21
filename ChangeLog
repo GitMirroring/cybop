@@ -24,6 +24,7 @@
         * Merge file "include/constant/name/cybol/cybol_name.h" into "include/constant/name/cybol/xml_cybol_name.h"
         * Add file "include/constant/name/cybol/json_cybol_name.h"
         * Add files "xml_content_cybol_deserialiser.c" and "json_content_cybol_deserialiser.c"
+        * Add files "xml_node_cybol_deserialiser.c" and "json_node_cybol_deserialiser.c"
 
 2025-05-31  Christian Heller  <christian.heller@cybop.org>
 

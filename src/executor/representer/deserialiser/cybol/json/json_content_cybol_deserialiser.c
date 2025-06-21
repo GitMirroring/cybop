@@ -34,7 +34,6 @@
 // Library interface
 //
 
-#include "communication.h"
 #include "constant.h"
 #include "knowledge.h"
 #include "logger.h"
@@ -166,6 +165,7 @@ void deserialise_cybol_content_json(void* p0, void* p1, void* p2, void* p3, void
         // - CHANNEL_PART_STATE_CYBOI_NAME
         // - FORMAT_PART_STATE_CYBOI_NAME
         // - MODEL_PART_STATE_CYBOI_NAME
+        // - PROPERTIES_PART_STATE_CYBOI_NAME
         //
         // The corresponding parts were already retrieved above.
         // What is wanted here, is just their MODEL containing the actual data.
@@ -194,10 +194,10 @@ void deserialise_cybol_content_json(void* p0, void* p1, void* p2, void* p3, void
         //
 
         // Test if this is a root node.
-        //?? deserialise_cybol_test((void*) &r, sn, sc, sf, sm);
+        deserialise_cybol_test((void*) &r, sn, sc, sf, sm);
 
         // Deserialise cybol node (standard or root).
-        deserialise_cybol_node(p0, snmd, snmc, scmd, scmc, sfmd, sfmc, smmd, smmc, p1, p2, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, (void*) &r);
+        deserialise_cybol_node(p0, snmd, snmc, scmd, scmc, sfmd, sfmc, smmd, smmc, spmd, spmc, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, (void*) &r);
 
     } else {
 

@@ -45,7 +45,7 @@
 #include "cybol.h"
 
 /**
- * Deserialises a cybol tree node.
+ * Deserialises a cybol tree node in json format.
  *
  * @param p0 the destination item
  * @param p1 the source name data
@@ -71,47 +71,41 @@
  * @param p21 the consider number base prefix flag (true means CONSIDER prefixes; false means IGNORE them)
  * @param p22 the root flag
  */
-void deserialise_cybol_node(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22) {
+void deserialise_cybol_node_json(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol node.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol node json.");
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol node json. root flag p22: %i\n", p22);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol node json. root flag *p22: %i\n", *((int*) p22));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p16, (void*) CYBOL_JSON_TEXT_STATE_CYBOI_LANGUAGE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            deserialise_cybol_node_json(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22);
-        }
-    }
+    // CAUTION! Do NOT use "equal" comparison, since STANDARD node has to be the DEFAULT.
+    compare_integer_unequal((void*) &r, p22, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p16, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE);
+        //
+        // This is a standard node.
+        //
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        deserialise_cybol_standard(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21);
 
-            deserialise_cybol_node_xml(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22);
-        }
-    }
+    } else {
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        //
+        // This is a root node.
+        //
 
-        compare_integer_equal((void*) &r, p16, (void*) CYBOL_XML_TEXT_STATE_CYBOI_LANGUAGE);
+        fwprintf(stdout, L"Debug: Deserialise cybol node json. This is a root node. comparison result r: %i\n", r);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            deserialise_cybol_node_xml(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise. The language is unknown or null.");
-        fwprintf(stdout, L"Warning: Could not deserialise. The language is unknown or null. language p16: %i\n", p16);
-        fwprintf(stdout, L"Warning: Could not deserialise. The language is unknown or null. language *p16: %i\n", *((int*) p16));
+        //
+        // Fill part properties taken from cybol source part model.
+        //
+        // CAUTION! What is the model hierarchy in a parsed text/cybol+json file,
+        // remains the model in the cyboi-internal knowledge tree.
+        // Therefore, hand over the source MODEL here!
+        //
+        deserialise_cybol_part(p0, p7, p8, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21);
     }
 }

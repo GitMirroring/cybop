@@ -36,9 +36,9 @@
 /**
  * Deserialises the array containing part elements.
  *
- * CAUTION! What is the properties in a parsed xml/cybol file
+ * CAUTION! What is the properties in a parsed text/cybol+xml file,
  * becomes the model in the cyboi-internal knowledge tree;
- * what is the model hierarchy in a parsed xml/cybol file
+ * what is the model hierarchy in a parsed text/cybol+xml file,
  * becomes the properties (meta data) in the cyboi-internal knowledge tree.
  *
  * @param p0 the destination item

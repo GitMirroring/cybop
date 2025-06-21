@@ -34,10 +34,15 @@
 // Library interface
 //
 
-#include "communication.h"
+#include "arithmetic.h"
 #include "constant.h"
-#include "knowledge.h"
 #include "logger.h"
+
+//
+// Representer interface
+//
+
+#include "cybol.h"
 
 /**
  * Deserialises the cybol part element content.
@@ -69,10 +74,6 @@ void deserialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    //
-    // application
-    //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

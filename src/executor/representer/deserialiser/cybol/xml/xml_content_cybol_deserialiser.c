@@ -34,7 +34,6 @@
 // Library interface
 //
 
-#include "communication.h"
 #include "constant.h"
 #include "knowledge.h"
 #include "logger.h"
