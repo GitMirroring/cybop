@@ -90,10 +90,6 @@ void deserialise_cybol_source(void* p0, void* p1, void* p2, void* p3, void* p4, 
             //
             // CAUTION! Use the cybol FORMAT and NOT the cyboi destination type.
             //
-            // CAUTION! Hand over an encoding value of NULL by default,
-            // since an INLINE model is already available as wide character array,
-            // so that decoding it would cause wrong data and processing errors.
-            //
             // CAUTION! Either of the following two functions may be called here:
             // "deserialise_cybol" OR "receive_data".
             // However, "deserialise_cybol" is used since it is the shorter path
@@ -101,6 +97,10 @@ void deserialise_cybol_source(void* p0, void* p1, void* p2, void* p3, void* p4, 
             // Further, language properties constraints like decimal separator
             // can be handed over DIRECTLY while via "receive_data", they would
             // have to be retrieved once again.
+            //
+            // CAUTION! Hand over an encoding value of NULL by default,
+            // since an INLINE model is already available as wide character array,
+            // so that decoding it would cause wrong data and processing errors.
             //
             // receive_data(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p3, p4, p5, p6, p7, p14, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p15);
             // deserialise_cybol(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6, p7, p9, p10, p11, p12, p13, p14);

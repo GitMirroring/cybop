@@ -36,6 +36,7 @@
 
 #include "communication.h"
 #include "constant.h"
+#include "json.h"
 #include "knowledge.h"
 #include "logger.h"
 
@@ -72,8 +73,9 @@ void deserialise_json(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // Deserialise json data.
     //
     // CAUTION! Do NOT call function "select_json_value_begin" directly,
-    // but function "deserialise_json_value" instead, since that contains
-    // a loop which is necessary for detecting and skipping unnecessary characters.
+    // but function "deserialise_json_constraints" instead, which calls
+    // function "deserialise_json_value" that contains a loop which is
+    // necessary for detecting and skipping unnecessary characters.
     //
     // CAUTION! A copy of source count remaining is forwarded here,
     // so that the original source value does not get changed.

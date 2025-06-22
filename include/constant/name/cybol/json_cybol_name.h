@@ -33,7 +33,14 @@
 #include "constant.h"
 
 //
-// Constants
+// Root node constants
+//
+
+/** The root json cybol name. */
+static int* ROOT_JSON_CYBOL_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// Standard node constants
 //
 
 /** The name json cybol name. */

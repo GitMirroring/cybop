@@ -18,13 +18,19 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2025-06-22  Christian Heller  <christian.heller@cybop.org>
+
+        * Fix wrong string length for constants "text/cybol+xml" and "text/cybol+json" in file "text_state_cybol_language.h"
+        * Jump over json root node in file "json_content_cybol_deserialiser.c" so that its children get processed
+        * Draw uml activity diagram "doc/development/cyboi/cybol_deserialiser.svg"
+
 2025-06-21  Christian Heller  <christian.heller@cybop.org>
 
         * Implement deserialiser "text/cybol+json" for language CYBOL_JSON_TEXT_STATE_CYBOI_LANGUAGE
         * Merge file "include/constant/name/cybol/cybol_name.h" into "include/constant/name/cybol/xml_cybol_name.h"
         * Add file "include/constant/name/cybol/json_cybol_name.h"
-        * Add files "xml_content_cybol_deserialiser.c" and "json_content_cybol_deserialiser.c"
-        * Add files "xml_node_cybol_deserialiser.c" and "json_node_cybol_deserialiser.c"
+        * Split file "content_cybol_deserialiser.c" into files "xml_content_cybol_deserialiser.c" and "json_content_cybol_deserialiser.c"
+        * Split file "node_cybol_deserialiser.c" into files "xml_node_cybol_deserialiser.c" and "json_node_cybol_deserialiser.c"
 
 2025-05-31  Christian Heller  <christian.heller@cybop.org>
 

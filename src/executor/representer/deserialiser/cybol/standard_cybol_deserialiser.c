@@ -205,23 +205,9 @@ void deserialise_cybol_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     // Fill part type item.
     modify_item(pt, td, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
-    //
-    // Processes cybol data depending on channel (inline or file).
-    //
-    // CAUTION! Hand over an encoding value of NULL by default,
-    // since an INLINE model is already available as wide character array,
-    // so that decoding it would cause wrong data and processing errors.
-    //
+    // Fill part model item by processing cybol data depending on channel (inline or file).
     deserialise_cybol_source(pm, p7, p8, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, fd, cd);
-
-    //
-    // Fill part properties item taken from cybol source part model.
-    //
-    // CAUTION! What is the model hierarchy in a parsed xml/cybol file,
-    // becomes the properties (meta data) in the cyboi-internal knowledge tree.
-    //
-    // Therefore, hand over the source PROPERTIES becoming the source model.
-    //
+    // Fill part properties item.
     deserialise_cybol_part(pp, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21);
 
     //

@@ -19,10 +19,14 @@ JSON
             app/serialisation/json_cybol/test_json_read_formatted_OLD.txt
 
         * Implement deserialiser "text/cybol+json" for language CYBOL_JSON_TEXT_STATE_CYBOI_LANGUAGE
-        * Split further files in cybol deserialiser into xml and json, as necessary
-            "compound_cybol_deserialiser.c"
-            "file_cybol_deserialiser.c" -> TODO: adapt call of function "receive_data"
-            "deserialiser.c"
+        * Think through problem that deserialisation (step 1) of xml or json is always called, for channel "file" as well as "inline",
+            in files "json_content_cybol_deserialiser.c" and "compound_cybol_deserialiser.c"
+            with xml, standard nodes such as a number seem to get skipped in step 1 and step 2 does NOT get executed due to the test of format for "part" and "property"
+            with json, however, step 1 does NOT seem to get skipped and is always executed, leading to parsing errors
+            What to do?
+            SEE DIAGRAM "doc/development/cyboi/cybol_deserialiser.svg"
+            Parse data only if channel "file" is given
+        * Use root node name to find out about standard- or root node in file "element_cybol_deserialiser.c"
 
         * Implement serialiser "text/cybol+json" for language CYBOL_JSON_TEXT_STATE_CYBOI_LANGUAGE
         * Reflect: Is it REALLY needed? The current "application/json" serialiser works fine, too!
