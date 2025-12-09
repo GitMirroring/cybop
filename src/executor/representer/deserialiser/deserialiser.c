@@ -303,7 +303,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_cybol_constraints(p0, p1, p2, p3, p6, p7, p8, p9, p10, p11, p12);
+            deserialise_cybol_constraints(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
 
@@ -314,7 +314,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The languages text/cybol and text/cybol+xml are identical.
-            deserialise_cybol_constraints(p0, p1, p2, p3, p6, p7, p8, p9, p10, p11, p12);
+            deserialise_cybol_constraints(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
 
@@ -325,7 +325,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The languages text/cybol and text/cybol+xml are identical.
-            deserialise_cybol_constraints(p0, p1, p2, p3, p6, p7, p8, p9, p10, p11, p12);
+            deserialise_cybol_constraints(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
 

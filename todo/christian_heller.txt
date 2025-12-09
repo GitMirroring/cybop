@@ -14,31 +14,19 @@
 JSON
 ----
 
-        See examples:
+        * Test and debug cybol deserialiser
+        * Fix only SUB LEVELS (child nodes), since all WORKS FINE on level 1 already
+        * See examples:
             app/serialisation/json_cybol/test/formatted.json
             app/serialisation/json_cybol/test_json_read_formatted_OLD.txt
-
-        * Implement deserialiser "text/cybol+json" for language CYBOL_JSON_TEXT_STATE_CYBOI_LANGUAGE
-        * Think through problem that deserialisation (step 1) of xml or json is always called, for channel "file" as well as "inline",
-            in files "json_content_cybol_deserialiser.c" and "compound_cybol_deserialiser.c"
-            with xml, standard nodes such as a number seem to get skipped in step 1 and step 2 does NOT get executed due to the test of format for "part" and "property"
-            with json, however, step 1 does NOT seem to get skipped and is always executed, leading to parsing errors
-            What to do?
-            SEE DIAGRAM "doc/development/cyboi/cybol_deserialiser.svg"
-            Parse data only if channel "file" is given
-        * Use root node name to find out about standard- or root node in file "element_cybol_deserialiser.c"
 
         * Implement serialiser "text/cybol+json" for language CYBOL_JSON_TEXT_STATE_CYBOI_LANGUAGE
         * Reflect: Is it REALLY needed? The current "application/json" serialiser works fine, too!
 
-        * Insert new up-to-date xml example in comment block of file "content_cybol_deserialiser.c"
-        * Generate new model diagram text file showing xml tree BEFORE being parsed as cybol
-        * Copy into file "content_cybol_deserialiser.c"
-
-        * Adapt comments in file "state_cyboi_language.h":
-            // The languages text/cybol and text/cybol+xml are identical.
-            fwprintf(stdout, L"Warning: Could not serialise. The text/cybol+json serialiser is not implemented yet. p12: %i\n", *((int*) p12));
-            fwprintf(stdout, L"Warning: Could not deserialise. The text/cybol+json deserialiser is not implemented yet. p12: %i\n", *((int*) p12));
+        * Check "ROOT_JSON_CYBOL_NAME" in file "content_cybol_deserialiser.c"
+            Should neutral constant "NUMBER_0" be used instead?
+            Should a similar constant "ROOT_XML_CYBOL_NAME" be introduced for xml?
+                if yes, then a branching by json and xml has to be done, like in "branching1_cybol_deserialiser.c"
 
         * Continue app "cybop school timetable" (to be found outside cybop project directory)
         * See directory "leitung/stundenplanung/cybop/app/"

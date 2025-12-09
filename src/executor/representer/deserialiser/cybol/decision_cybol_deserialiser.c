@@ -44,8 +44,8 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source xml data
- * @param p3 the source xml count
+ * @param p2 the source xml or json data
+ * @param p3 the source xml or json count
  * @param p4 the language properties (constraints) data
  * @param p5 the language properties (constraints) count
  * @param p6 the knowledge memory part (pointer reference)
@@ -56,8 +56,8 @@
 void deserialise_cybol_decision(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol decision.");
-    //?? fwprintf(stdout, L"Debug: Deserialise cybol decision. channel p9: %i\n", p9);
-    //?? fwprintf(stdout, L"Debug: Deserialise cybol decision. channel *p9: %i\n", *((int*) p9));
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol decision. language p9: %i\n", p9);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol decision. language *p9: %i\n", *((int*) p9));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -90,5 +90,12 @@ void deserialise_cybol_decision(void* p0, void* p1, void* p2, void* p3, void* p4
 
             deserialise_xml(p0, p1, p2, p3, p4, p5, p6, p7, p8);
         }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol decision. The language is unknown.");
+        fwprintf(stdout, L"Warning: Could not deserialise cybol decision. The language is unknown. language p9: %i\n", p9);
+        fwprintf(stdout, L"Warning: Could not deserialise cybol decision. The language is unknown. language *p9: %i\n", *((int*) p9));
     }
 }

@@ -39,26 +39,34 @@
 #include "knowledge.h"
 #include "logger.h"
 
+//
+// Representer interface
+//
+
+#include "cybol.h"
+
 /**
  * Retrieves language properties (constraints) necessary for deserialisation.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source data
- * @param p3 the source count
- * @param p4 the language properties (constraints) data
- * @param p5 the language properties (constraints) count
- * @param p6 the knowledge memory part (pointer reference)
- * @param p7 the stack memory item
- * @param p8 the internal memory data
- * @param p9 the format
- * @param p10 the language
+ * @param p2 the source model data
+ * @param p3 the source model count
+ * @param p4 the source properties data
+ * @param p5 the source properties count
+ * @param p6 the language properties (constraints) data
+ * @param p7 the language properties (constraints) count
+ * @param p8 the knowledge memory part (pointer reference)
+ * @param p9 the stack memory item
+ * @param p10 the internal memory data
+ * @param p11 the format
+ * @param p12 the language
  */
-void deserialise_cybol_constraints(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void deserialise_cybol_constraints(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol constraints.");
-    //?? fwprintf(stdout, L"Debug: Deserialise cybol constraints. format p9: %i\n", p9);
-    //?? fwprintf(stdout, L"Debug: Deserialise cybol constraints. format *p9: %i\n", *((int*) p9));
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol constraints. format p11: %i\n", p11);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol constraints. format *p11: %i\n", *((int*) p11));
 
     //
     // Declaration
@@ -88,15 +96,40 @@ void deserialise_cybol_constraints(void* p0, void* p1, void* p2, void* p3, void*
     void* tmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
+    // The root node flag.
+    //
+    // A root node usually just serves as CONTAINER for child nodes,
+    // but does not contain any other semantic data itself.
+    // Therefore, it gets treated DIFFERENTLY than standard nodes on parsing.
+    //
+    // This is achieved by using this flag, which is initially set to TRUE
+    // in file "constraints_cybol_deserialiser.c" and gets reset to FALSE
+    // in file "content_cybol_deserialiser.c", after having detected the root node.
+    //
+    int r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+    //
+    // The initial fileread flag.
+    //
+    // If a knowledge tree is stored in just ONE file (e.g. in json format) instead of
+    // in many (e.g. in xml format), then it needs to be read from file just ONCE,
+    // but NOT again for each of its child nodes.
+    //
+    // This is achieved by using this flag, which is initially set to TRUE
+    // in file "constraints_cybol_deserialiser.c" and gets reset to FALSE
+    // in file "step1_cybol_deserialiser.c", after having read the data from file.
+    //
+    int i = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    //
     // Retrieval
     //
 
     // Get consider number base prefix flag part.
-    get_part_name((void*) &p, p4, (void*) PREFIX_LANGUAGE_STATE_CYBOL_NAME, (void*) PREFIX_LANGUAGE_STATE_CYBOL_NAME_COUNT, p5, p6, p7, p8);
+    get_part_name((void*) &p, p6, (void*) PREFIX_LANGUAGE_STATE_CYBOL_NAME, (void*) PREFIX_LANGUAGE_STATE_CYBOL_NAME_COUNT, p7, p8, p9, p10);
     // Get decimal separator part.
-    get_part_name((void*) &d, p4, (void*) SEPARATOR_LANGUAGE_STATE_CYBOL_NAME, (void*) SEPARATOR_LANGUAGE_STATE_CYBOL_NAME_COUNT, p5, p6, p7, p8);
+    get_part_name((void*) &d, p6, (void*) SEPARATOR_LANGUAGE_STATE_CYBOL_NAME, (void*) SEPARATOR_LANGUAGE_STATE_CYBOL_NAME_COUNT, p7, p8, p9, p10);
     // Get thousands separator part.
-    get_part_name((void*) &t, p4, (void*) GROUPING_LANGUAGE_STATE_CYBOL_NAME, (void*) GROUPING_LANGUAGE_STATE_CYBOL_NAME_COUNT, p5, p6, p7, p8);
+    get_part_name((void*) &t, p6, (void*) GROUPING_LANGUAGE_STATE_CYBOL_NAME, (void*) GROUPING_LANGUAGE_STATE_CYBOL_NAME_COUNT, p7, p8, p9, p10);
 
     // Get consider number base prefix flag part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -119,5 +152,5 @@ void deserialise_cybol_constraints(void* p0, void* p1, void* p2, void* p3, void*
     //
 
     // Deserialise cybol.
-    deserialise_cybol(p0, p1, p2, p3, p4, p5, p6, p7, p8, p10, dmd, dmc, tmd, tmc, pmd, p9);
+    deserialise_cybol(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p12, dmd, dmc, tmd, tmc, pmd, (void*) &r, (void*) &i, p11);
 }

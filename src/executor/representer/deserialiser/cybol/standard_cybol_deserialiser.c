@@ -64,8 +64,10 @@
  * @param p19 the thousands separator data
  * @param p20 the thousands separator count
  * @param p21 the consider number base prefix flag (true means CONSIDER prefixes; false means IGNORE them)
+ * @param p22 the root node flag
+ * @param p23 the initial fileread flag
  */
-void deserialise_cybol_standard(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21) {
+void deserialise_cybol_standard(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22, void* p23) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol standard.");
     //?? fwprintf(stdout, L"Debug: Deserialise cybol standard. name data p1: %ls\n", (wchar_t*) p1);
@@ -206,9 +208,9 @@ void deserialise_cybol_standard(void* p0, void* p1, void* p2, void* p3, void* p4
     modify_item(pt, td, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
     // Fill part model item by processing cybol data depending on channel (inline or file).
-    deserialise_cybol_source(pm, p7, p8, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, fd, cd);
+    deserialise_cybol_source(pm, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, fd, cd);
     // Fill part properties item.
-    deserialise_cybol_part(pp, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21);
+    deserialise_cybol_part(pp, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23);
 
     //
     // Add part to destination.

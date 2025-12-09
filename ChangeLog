@@ -18,6 +18,29 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2025-12-09  Christian Heller  <christian.heller@cybop.org>
+
+        * Realise that there have to be two kinds of flags for parsing cybol
+        * Rename "root flag" into "root node flag" in all files of cybol deserialiser
+        * Introduce "initial fileread flag" alongside the existing "root node flag", in file "constraints_cybol_deserialiser.c"
+
+2025-11-01  Christian Heller  <christian.heller@cybop.org>
+
+        * Add files "deserialise_cybol_branching1.c" and "deserialise_cybol_branching2.c" called within "content_cybol_deserialiser.c", splitting programme flow depending upon xml or json
+        * Adapt files of cybol deserialiser to using root flag
+
+2025-07-17  Christian Heller  <christian.heller@cybop.org>
+
+        * Use root flag to handle first parsing cycle differently, even if reading data inline, since NULL as language argument does not suffice for distinction
+        * Factor out parts of file "compound_cybol_deserialiser.c" into "step1_cybol_deserialiser.c" and "step2_cybol_deserialiser.c"
+
+2025-07-05  Christian Heller  <christian.heller@cybop.org>
+
+        * Implement cybol deserialiser
+        * Hand over NULL as language argument to call of function "deserialise_cybol" if in branch INLINE, in file "source_cybol_deserialiser.c", so that inline data do not get parsed a second time as xml or json
+        * Hand over source properties in addition to source model in functions of cybol deserialiser
+        * Hand over correct model and properties in file "compound_cybol_deserialiser.c", depending on whether a language is given (xml or json) or not (inline mode, not to be parsed again)
+
 2025-06-22  Christian Heller  <christian.heller@cybop.org>
 
         * Fix wrong string length for constants "text/cybol+xml" and "text/cybol+json" in file "text_state_cybol_language.h"

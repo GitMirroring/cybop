@@ -110,8 +110,10 @@ void initiate(void* p0, void* p1, void* p2, void* p3) {
 
     // Open file.
     open_file((void*) &id, md, mc, (void*) READ_OPEN_MODE_FILE_MODEL, (void*) READ_OPEN_MODE_FILE_MODEL_COUNT);
+fwprintf(stdout, L"Test: Initiate. 1 id: %i\n", id);
     // Receive startup signal model, properties.
     receive_data(sm, sp, (void*) &id, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, (void*) UTF_8_CYBOI_ENCODING, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FILE_CYBOI_CHANNEL);
+fwprintf(stdout, L"Test: Initiate. 2 id: %i\n", id);
     // Close file.
     close_basic((void*) &id);
 
@@ -140,6 +142,7 @@ void initiate(void* p0, void* p1, void* p2, void* p3) {
     //
     modify_item(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
+fwprintf(stdout, L"Test: Initiate. 3 id: %i\n", id);
     //
     // The system is now started up and complete so that a loop
     // can be entered, checking for signals (events/ interrupts)
@@ -147,6 +150,7 @@ void initiate(void* p0, void* p1, void* p2, void* p3) {
     // The loop is left as soon as its shutdown flag is set.
     //
     check(p2, p3);
+fwprintf(stdout, L"Test: Initiate. 4 id: %i\n", id);
 
     // Deallocate startup signal part.
     deallocate_part((void*) &s);

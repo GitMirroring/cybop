@@ -2168,6 +2168,6 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol format. The source cybol format is unknown.");
         fwprintf(stdout, L"Warning: Could not deserialise cybol format. The source cybol format is unknown. cybol format p1: %ls\n", (wchar_t*) p1);
         fwprintf(stdout, L"Warning: Could not deserialise cybol format. The source cybol format is unknown. cybol format p2: %i\n", p2);
-        fwprintf(stdout, L"Warning: Could not deserialise cybol format. The source cybol format is unknown. cybol format *p2: %i\n", *((int*) p2));
+        //?? fwprintf(stdout, L"Warning: Could not deserialise cybol format. The source cybol format is unknown. cybol format *p2: %i\n", *((int*) p2));
     }
 }
