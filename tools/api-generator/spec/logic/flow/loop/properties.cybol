@@ -1,0 +1,12 @@
+<node>
+    <node name="break" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | logicvalue/boolean"/>
+        <node name="description" channel="inline" format="text/plain" model="The break flag that causes the loop to be left."/>
+    </node>
+    <node name="model" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | element/part"/>
+        <node name="description" channel="inline" format="text/plain" model="The logic knowledge model (function) to be executed repeatedly by the loop."/>
+    </node>
+</node>

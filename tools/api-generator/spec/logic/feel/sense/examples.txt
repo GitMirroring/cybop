@@ -1,0 +1,51 @@
+ <!-- Open terminal and sense input on it. -->
+<node name="open_terminal_stdin" channel="inline" format="dispatch/open" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    <!-- The text "standard-input" is a pre-defined constant and is used instead of a filename here. -->
+    <node name="device" channel="inline" format="text/plain" model="standard-input"/>
+    <node name="identification" channel="inline" format="text/cybol-path" model=".var.stdin"/>
+</node>
+<node name="sense_terminal_input" channel="inline" format="feel/sense" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    <node name="sender" channel="inline" format="text/cybol-path" model=".var.stdin"/>
+    <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+    <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle"/>
+</node>
+
+<node name="sense_data_on_serial_interface" channel="inline" format="feel/sense" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="serial"/>
+    <node name="sender" channel="inline" format="text/cybol-path" model=".serial_id"/>
+    <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
+    <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle"/>
+</node>
+
+<node name="sense_client_data_in_binary_format" channel="inline" format="feel/sense" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+    <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="port" channel="inline" format="number/integer" model="1971"/>
+    <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/>
+    <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
+    <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle_sense"/>
+    <node name="closer" channel="inline" format="text/cybol-path" model=".logic.handle_close"/>
+</node>
+
+<node name="sense_client_data_as_http_request" channel="inline" format="feel/sense" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+    <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="port" channel="inline" format="number/integer" model="1971"/>
+    <node name="sender" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
+    <node name="language" channel="inline" format="meta/language" model="message/http-request"/>
+    <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle.sense"/>
+    <node name="closer" channel="inline" format="text/cybol-path" model=".logic.handle.close"/>
+</node>
+
+<!--
+    This operation "feel/sense" for channel "display" does NOT run in a separate thread.
+    It is just used to hand over a specific event handler for each window.
+-->
+<node name="assign_handler_for_client_window_events" channel="inline" format="feel/sense" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="display"/>
+    <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="sender" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
+    <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle"/>
+</node>

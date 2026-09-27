@@ -1,0 +1,7 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Shuffles the elements in the destination part by randomly changing their order.
+
+Caution! This operation is applicable to text only (character string)."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/modify/shuffle/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/modify/shuffle/properties.cybol"/>
+</node>

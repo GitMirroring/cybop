@@ -1,0 +1,6 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="An image in Portable Network Graphics (PNG) format.
+
+The file suffix is png."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/state/image/png/examples.txt"/>
+</node>

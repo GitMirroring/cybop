@@ -1,0 +1,2 @@
+<node name="foreground" channel="inline" format="colour/terminal" model="blue"/>
+<node name="background" channel="inline" format="colour/terminal" model="white"/>

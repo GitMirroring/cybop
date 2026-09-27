@@ -1,0 +1,32 @@
+<node>
+    <node name="result" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
+        <node name="description" channel="inline" format="text/plain" model="The boolean value vector resulting from comparison."/>
+    </node>
+    <node name="left" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | number/any | text/plain | element/part | element/property"/>
+        <node name="description" channel="inline" format="text/plain" model="The left operand vector."/>
+    </node>
+    <node name="right" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | number/any | text/plain | element/part | element/property"/>
+        <node name="description" channel="inline" format="text/plain" model="The right operand vector."/>
+    </node>
+    <node name="count" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | number/integer"/>
+        <node name="description" channel="inline" format="text/plain" model="The number of elements to be compared. This is relevant only for arrays with more than one element. If null, the default is the lesser of left and right operand count."/>
+    </node>
+    <node name="left_index" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | number/integer"/>
+        <node name="description" channel="inline" format="text/plain" model="The left index from where to start the comparison from. If null, the default is zero."/>
+    </node>
+    <node name="right_index" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | number/integer"/>
+        <node name="description" channel="inline" format="text/plain" model="The right index from where to start the comparison from. If null, the default is zero."/>
+    </node>
+</node>

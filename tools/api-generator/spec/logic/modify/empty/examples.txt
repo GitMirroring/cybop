@@ -1,0 +1,13 @@
+<node name="reset_response_model" channel="inline" format="modify/empty" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".response"/>
+</node>
+
+<node name="empty_dbfile_model" channel="inline" format="modify/empty" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
+    <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+</node>
+
+<node name="reset_action_properties" channel="inline" format="modify/empty" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".gui.action"/>
+    <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
+</node>

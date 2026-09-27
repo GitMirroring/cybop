@@ -1,0 +1,5 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Casts a value to type &#x0022;double&#x0022;."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/cast/double/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/cast/double/properties.cybol"/>
+</node>

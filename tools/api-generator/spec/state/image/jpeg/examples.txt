@@ -1,0 +1,1 @@
+<node name="data" channel="file" format="image/jpeg" model="path/to/file.jpeg"/>

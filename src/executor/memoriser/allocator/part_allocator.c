@@ -71,12 +71,13 @@ void allocate_part(void* p0, void* p1, void* p2) {
                 void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
                 void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+                // Allocate model.
                 allocate_item((void*) &m, p1, p2);
 
                 if (m != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                     //
-                    // Allocate references, name, format, type, model, properties.
+                    // Allocate references, name, format, type, properties.
                     //
                     // CAUTION! Due to memory allocation handling, the size MUST NOT
                     // be negative or zero, but have at least a value of ONE.

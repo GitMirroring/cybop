@@ -1,0 +1,25 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Removes leading and trailing whitespaces and additionally replaces all internal sequences of whitespace with just one.
+
+This is useful when parsing xml or html of a webpage, for example.
+
+Other than &#x0022;modify/strip&#x0022; this operation does also replace internal sequences of whitespace.
+
+The source and destination are permitted to point to the same part since the source gets buffered internally during processing.
+
+Caution! This operation is applicable to text only (character string).
+
+The considered whitespace characters are taken from the JSON specification:
+https://www.json.org/
+
+They are:
+- empty: &#x0022;&#x0022;
+- space: 0020
+- line feed: 000A
+- carriage return: 000D
+- character tabulation: 0009
+
+The first (empty) can obviously not be considered and is just ignored."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/modify/normalise/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/modify/normalise/properties.cybol"/>
+</node>

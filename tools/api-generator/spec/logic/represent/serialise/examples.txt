@@ -1,0 +1,31 @@
+<node name="serialise_number" channel="inline" format="represent/serialise" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
+    <node name="source" channel="inline" format="number/integer" model="24"/>
+    <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+    <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+</node>
+
+<node name="serialise_week_given_as_path" channel="inline" format="represent/serialise" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".week_as_string"/>
+    <node name="source" channel="inline" format="text/cybol-path" model=".week"/>
+    <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+    <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+</node>
+
+<node name="serialise_webpage" channel="inline" format="represent/serialise" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".webpage"/>
+    <node name="source" channel="inline" format="text/cybol-path" model=".wui.index"/>
+    <node name="language" channel="inline" format="meta/language" model="text/html">
+        <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="format" channel="inline" format="meta/format" model="element/part"/>
+</node>
+
+<node name="serialise_comma_separated_data" channel="inline" format="represent/serialise" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
+    <node name="source" channel="inline" format="text/cybol-path" model=".string_node_list"/>
+    <node name="language" channel="inline" format="meta/language" model="text/joined-string">
+        <node name="delimiter" channel="inline" format="text/plain" model=","/>
+        <node name="quotation" channel="inline" format="text/plain" model="&#x22;"/>
+    </node>
+</node>

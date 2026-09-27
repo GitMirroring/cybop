@@ -1,0 +1,18 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Data given in XML format.
+
+The Extensible Markup Language (XML) version 1.0 was defined in 1998.
+Its structure and vocabulary can be defined freely, either as
+Document Type Definition (DTD) or as XML Schema Definition (XSD).
+
+Common file suffixes are: xml
+
+If given in form of a file, then the suffix is &#x0022;xml&#x0022; in case no DTD or XSD is available.
+Otherwise, another suffix representing the DTD or XSD may be used.
+
+There are two MIME assignments for XML data:
+- application/xml (RFC 7303, previously RFC 3023)
+- text/xml (RFC 7303, previously RFC 3023)
+However, since the introduction of RFC 7303, these are to be regarded as the same in all aspects except name."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/state/text/xml/examples.txt"/>
+</node>

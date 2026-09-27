@@ -1,0 +1,6 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Displays the login name of the current user, via shell command.
+
+TODO: COMPLETE AND VERIFY YET!"/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/command/who-am-i/examples.txt"/>
+</node>

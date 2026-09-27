@@ -48,7 +48,7 @@
 /**
  * Deserialises a cybol source.
  *
- * @param p0 the destination item
+ * @param p0 the new destination part model OR properties item
  * @param p1 the source model data
  * @param p2 the source model count
  * @param p3 the source properties data
@@ -84,6 +84,8 @@ void deserialise_cybol_source(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //?? fwprintf(stdout, L"Debug: Deserialise cybol source. file channel r: %i\n", r);
+
             // CAUTION! The order is: format, language, channel.
             deserialise_cybol_file(p0, p1, p2, p5, p6, p7, p8, p9, p18, p10, p19);
         }
@@ -95,31 +97,9 @@ void deserialise_cybol_source(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //
+            //?? fwprintf(stdout, L"Debug: Deserialise cybol source. inline channel r: %i\n", r);
+
             // Fill part model item taken from cybol source part properties.
-            //
-            // CAUTION! Either of the following two functions may be called here:
-            // "deserialise_cybol" OR "receive_data".
-            // However, "deserialise_cybol" is used since it is the shorter path
-            // and reading from a file is NOT necessary with INLINE channel.
-            // Further, language properties constraints like decimal separator
-            // can be handed over DIRECTLY while via "receive_data", they would
-            // have to be retrieved once again.
-            //
-            // CAUTION! Use the CYBOL FORMAT and NOT the cyboi destination type.
-            //
-            // CAUTION! Hand over an ENCODING value of NULL, since an INLINE model
-            // is already available as wide character array, so that decoding it
-            // would cause wrong data and processing errors.
-            //
-            // CAUTION! Hand over a LANGUAGE value of NULL, since the model got
-            // parsed already when having been read from file for the first time,
-            // so that data are now available as knowledge tree structure.
-            // Trying to parse them again would lead to errors.
-            //
-            // receive_data(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6, p7, p8, p9, p18, p10, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p19);
-            // deserialise_cybol(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p18);
-            //
             deserialise_cybol(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18);
         }
     }

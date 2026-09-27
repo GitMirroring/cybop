@@ -1,20 +1,21 @@
 <!--
-    This example translates a cybol model tree in two steps:
-    1 serialisation: from cyboi-memory into a json file
-    2 deserialisation: from json file into cyboi-memory,
-      which gets written into a model diagram file
+    This example translates cybol model trees in four steps:
+    1 Initialise application from source file "test.cybol" into cyboi-memory tree node ".write_test"
+    2 Serialise from cyboi-memory tree node ".write_test" into json file "test/formatted.json"
+    3 Deserialise from json file "test/formatted.json" into cyboi-memory tree node ".read_test"
+    4 Test from tree node ".read_test" into model diagram file "test_json_read_formatted.txt"
 -->
 
 <node>
 
-    <!-- Creation -->
+    <!-- Create id variable -->
 
     <node name="create_file_id" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="id"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>
 
-    <!-- Initialise application -->
+    <!-- 1 Initialise application from source file "test.cybol" into cyboi-memory tree node ".write_test" -->
 
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -34,7 +35,37 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
-    <!-- Serialise and deserialise test model -->
+        <!-- DELETE later. -->
+        <node name="open_stdout" channel="inline" format="dispatch/open" model="">
+            <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+            <node name="device" channel="inline" format="text/plain" model="standard-output"/>
+            <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
+        </node>
+
+        <!-- DELETE later. -->
+        <node name="print" channel="inline" format="communicate/send" model="">
+            <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+            <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+            <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+            <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+            <node name="message" channel="inline" format="text/plain" model=""/>
+        </node>
+        <node name="print" channel="inline" format="communicate/send" model="">
+            <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+            <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+            <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+            <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+            <node name="message" channel="inline" format="text/plain" model="DONE: 1 Initialise application from source file test.cybol into cyboi-memory tree node .write_test"/>
+        </node>
+        <node name="print" channel="inline" format="communicate/send" model="">
+            <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+            <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+            <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+            <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+            <node name="message" channel="inline" format="text/plain" model=""/>
+        </node>
+
+    <!-- 2 Serialise from cyboi-memory tree node ".write_test" into json file "test/formatted.json" -->
 
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -57,8 +88,32 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
-    <!-- Deserialise test model -->
+        <!-- DELETE later. -->
+        <node name="print" channel="inline" format="communicate/send" model="">
+            <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+            <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+            <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+            <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+            <node name="message" channel="inline" format="text/plain" model=""/>
+        </node>
+        <node name="print" channel="inline" format="communicate/send" model="">
+            <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+            <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+            <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+            <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+            <node name="message" channel="inline" format="text/plain" model="DONE: 2 Serialise from cyboi-memory tree node .write_test into json file test/formatted.json"/>
+        </node>
+        <node name="print" channel="inline" format="communicate/send" model="">
+            <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+            <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+            <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+            <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+            <node name="message" channel="inline" format="text/plain" model=""/>
+        </node>
+
+    <!-- 3 Deserialise from json file "test/formatted.json" into cyboi-memory tree node ".read_test" -->
     <!-- CAUTION! A NEW file descriptor has to be opened, since this is in READ mode and NOT write mode (from above) anymore -->
+
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
@@ -77,7 +132,30 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
-    <!-- Write knowledge tree into file -->
+        <!-- DELETE later. -->
+        <node name="print" channel="inline" format="communicate/send" model="">
+            <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+            <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+            <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+            <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+            <node name="message" channel="inline" format="text/plain" model=""/>
+        </node>
+        <node name="print" channel="inline" format="communicate/send" model="">
+            <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+            <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+            <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+            <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+            <node name="message" channel="inline" format="text/plain" model="DONE: 3 Deserialise from json file test/formatted.json into cyboi-memory tree node .read_test"/>
+        </node>
+        <node name="print" channel="inline" format="communicate/send" model="">
+            <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+            <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+            <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+            <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+            <node name="message" channel="inline" format="text/plain" model=""/>
+        </node>
+
+    <!-- 4 Test from tree node ".read_test" into model diagram file "test_json_read_formatted.txt" -->
 
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -97,6 +175,31 @@
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
+
+        <!-- DELETE later. -->
+        <node name="print" channel="inline" format="communicate/send" model="">
+            <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+            <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+            <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+            <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+            <node name="message" channel="inline" format="text/plain" model=""/>
+        </node>
+        <node name="print" channel="inline" format="communicate/send" model="">
+            <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+            <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+            <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+            <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+            <node name="message" channel="inline" format="text/plain" model="DONE: 4 Test from tree node .read_test into model diagram file test_json_read_formatted.txt"/>
+        </node>
+        <node name="print" channel="inline" format="communicate/send" model="">
+            <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+            <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+            <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+            <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+            <node name="message" channel="inline" format="text/plain" model=""/>
+        </node>
+
+    <!-- Exit application -->
 
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
 

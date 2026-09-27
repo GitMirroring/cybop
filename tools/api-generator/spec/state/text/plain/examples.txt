@@ -1,0 +1,2 @@
+<node name="string" channel="inline" format="text/plain" model="Hello World!"/>
+<node name="text" channel="file" format="text/plain" model="path/to/file.txt"/>

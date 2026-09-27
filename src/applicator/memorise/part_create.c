@@ -55,6 +55,13 @@ void apply_create_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         void** k = (void**) p1;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply create part.");
+        fwprintf(stdout, L"Debug: Apply create part. name count p3: %i\n", p3);
+        fwprintf(stdout, L"Debug: Apply create part. name count *p3: %i\n", *((int*) p3));
+        fwprintf(stdout, L"Debug: Apply create part. name data p2: %i\n", p2);
+        fwprintf(stdout, L"Debug: Apply create part. name data p2 as string: %ls\n", (wchar_t*) p2);
+
+        fwprintf(stdout, L"Debug: Apply create part. name count p4: %i\n", p4);
+        fwprintf(stdout, L"Debug: Apply create part. name count *p4: %i\n", *((int*) p4));
 
         // The type item.
         void* t = *NULL_POINTER_STATE_CYBOI_MODEL;

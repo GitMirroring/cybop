@@ -1,0 +1,52 @@
+<node name="stack_root" channel="inline" format="text/cybol-path" model="#"/>
+<node name="stack_variable" channel="inline" format="text/cybol-path" model="#x"/>
+<node name="part" channel="inline" format="text/cybol-path" model=".a"/>
+<node name="sub_part" channel="inline" format="text/cybol-path" model=".b.a"/>
+<node name="property" channel="inline" format="text/cybol-path" model=".b:a"/>
+<node name="part_by_index" channel="inline" format="text/cybol-path" model=".b.[#x]"/>
+<node name="part_and_property_by_index" channel="inline" format="text/cybol-path" model=".b.[.b:[.d]]"/>
+<node name="part_by_name" channel="inline" format="text/cybol-path" model=".(.e)"/>
+<node name="part_by_nested_name" channel="inline" format="text/cybol-path" model=".(.(.e)).d:p"/>
+<node name="node_contains_path_called_reference" channel="inline" format="text/cybol-path" model="{#path}"/>
+<node name="part_by_reference_and_its_child_node" channel="inline" format="text/cybol-path" model="{#path}.child"/>
+<node name="double_reference_path_to_path_to_part" channel="inline" format="text/cybol-path" model="{{#path}}"/>
+<node name="part_via_reference_and_name" channel="inline" format="text/cybol-path" model=".b.d:({#path})"/>
+<node name="nested_path" channel="inline" format="text/cybol-path" model=".test.node2:c.node1:b"/>
+
+<node name="assign_row" channel="inline" format="modify/overwrite" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model="#row"/>
+    <node name="source" channel="inline" format="text/plain" model="#row_heading"/>
+</node>
+
+<node name="overwrite_path" channel="inline" format="modify/overwrite" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".var.path"/>
+    <node name="source" channel="inline" format="text/cybol-path" model=".tui.(.tui.active):actions"/>
+</node>
+
+<node name="focus_background" channel="inline" format="modify/overwrite" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model="{.var.character}"/>
+    <node name="source" channel="inline" format="text/cybol-path" model=".settings.selection.background"/>
+</node>
+
+<node name="overwrite_calendar_week" channel="inline" format="modify/overwrite" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".wui.index.body.navigation.table.row.week"/>
+    <node name="source" channel="inline" format="text/cybol-path" model=".domain.calendar.(.var.year_string).(.var.week_string)"/>
+</node>
+
+<node name="assign_title" channel="inline" format="modify/append" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#destination).(.db.(#source).[#index].genre).content.(#name)"/>
+    <node name="source" channel="inline" format="text/cybol-path" model=".db.(#source).[#index].title"/>
+</node>
+
+<node name="overwrite_link_reference_with_project_name" channel="inline" format="modify/append" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#category_name).body.toc.(#project_name):href"/>
+    <node name="source" channel="inline" format="text/cybol-path" model="#project_name"/>
+</node>
+
+<node name="print_action" channel="inline" format="communicate/send" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+    <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+    <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+    <node name="message" channel="inline" format="text/cybol-path" model="{.var.action_path}"/>
+</node>

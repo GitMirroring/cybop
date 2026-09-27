@@ -133,7 +133,7 @@ void allocate_array(void* p0, void* p1, void* p2) {
                         //
                         // Initialise array elements.
                         //
-                        // CAUTION! Initialising with zero values is essential,
+                        // CAUTION! Initialising with zero values is ESSENTIAL,
                         // since cyboi frequently tests variables for null pointer values.
                         // Otherwise, unpredictable pre-existing values might reside in memory.
                         //

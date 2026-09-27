@@ -1,0 +1,9 @@
+<node>
+    <node name="channel" channel="file" format="element/part" model="api-generator/spec/state/meta/channel.cybol"/>
+    <node name="encoding" channel="file" format="element/part" model="api-generator/spec/state/meta/encoding.cybol"/>
+    <node name="format" channel="file" format="element/part" model="api-generator/spec/state/meta/format.cybol"/>
+    <node name="language" channel="file" format="element/part" model="api-generator/spec/state/meta/language.cybol"/>
+    <node name="model" channel="file" format="element/part" model="api-generator/spec/state/meta/model.cybol"/>
+    <node name="name" channel="file" format="element/part" model="api-generator/spec/state/meta/name.cybol"/>
+    <node name="type" channel="file" format="element/part" model="api-generator/spec/state/meta/type.cybol"/>
+</node>

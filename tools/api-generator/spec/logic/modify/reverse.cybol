@@ -1,0 +1,7 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Reverses the order of elements in the destination part.
+
+Caution! This operation is applicable to text only (character string)."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/modify/reverse/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/modify/reverse/properties.cybol"/>
+</node>

@@ -1,0 +1,13 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Branches the programme flow, depending on the criterion flag.
+
+Java example:
+
+if (flag != false) {
+System.out.println(&#x0022;true&#x0022;);
+} else {
+System.out.println(&#x0022;false&#x0022;);
+}"/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/flow/branch/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/flow/branch/properties.cybol"/>
+</node>

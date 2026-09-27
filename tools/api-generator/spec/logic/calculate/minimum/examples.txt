@@ -1,0 +1,4 @@
+<node name="determine_minimum" channel="inline" format="calculate/minimum" model="">
+    <node name="result" channel="inline" format="text/cybol-path" model=".minimum"/>
+    <node name="operand" channel="inline" format="text/cybol-path" model=".value"/>
+</node>

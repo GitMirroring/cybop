@@ -1,0 +1,17 @@
+<node>
+    <node name="create" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | logicvalue/boolean"/>
+        <node name="description" channel="inline" format="text/plain" model="The flag indicating the creation of an archive."/>
+    </node>
+    <node name="update" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | logicvalue/boolean"/>
+        <node name="description" channel="inline" format="text/plain" model="The flag indicating the updating of an archive."/>
+    </node>
+    <node name="bzip2" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | logicvalue/boolean"/>
+        <node name="description" channel="inline" format="text/plain" model="The flag indicating usage of the bzip2 compression algorithm."/>
+    </node>
+</node>

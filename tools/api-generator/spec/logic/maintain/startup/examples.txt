@@ -1,0 +1,31 @@
+<node name="startup_local_unix_domain_socket_with_filename" channel="inline" format="maintain/startup" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+    <node name="namespace" channel="inline" format="text/plain" model="local"/>
+    <node name="style" channel="inline" format="text/plain" model="datagram"/>
+    <node name="protocol" channel="inline" format="text/plain" model="udp"/>
+    <node name="device" channel="inline" format="text/plain" model="cyboi.socket"/>
+    <node name="connexions" channel="inline" format="number/integer" model="1"/>
+    <node name="timeout" channel="inline" format="number/integer" model="5"/>
+</node>
+
+<node name="startup_ipv4_stream_socket" channel="inline" format="maintain/startup" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+    <node name="port" channel="inline" format="number/integer" model="1971"/>
+    <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
+    <node name="style" channel="inline" format="text/plain" model="stream"/>
+    <node name="protocol" channel="inline" format="text/plain" model="tcp"/>
+    <node name="device" channel="inline" format="text/plain" model="127.0.0.1"/>
+    <node name="connexions" channel="inline" format="number/integer" model="10"/>
+    <node name="timeout" channel="inline" format="number/integer" model="5"/>
+</node>
+
+<!-- Startup display service and open a window afterwards. -->
+<node name="connect_to_x_window_system_server" channel="inline" format="maintain/startup" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="display"/>
+</node>
+<node name="open_window" channel="inline" format="dispatch/open" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="display"/>
+    <!-- Open client window in SERVER mode, so that it gets stored in the display server. -->
+    <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="identification" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
+</node>

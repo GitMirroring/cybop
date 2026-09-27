@@ -1,0 +1,4 @@
+<node name="cast_value" channel="inline" format="cast/byte" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".value"/>
+    <node name="source" channel="inline" format="number/integer" model="123"/>
+</node>

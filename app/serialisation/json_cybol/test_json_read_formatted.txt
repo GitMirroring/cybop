@@ -1,10 +1,23 @@
 [selected_node] | element/part | 
 +-string | text/plain | Hello JSON!
++-string_from_file | text/plain | This is a string standing within a separate pure text file.
 +-path | text/cybol-path | .non-existing.test.path
 +-integer | number/integer | 2
 +-float | number/fraction-decimal | 6.4000
 +-boolean | logicvalue/boolean | true
 +-array | number/integer | 1
 +-object | element/part | 
+| +-string | text/plain | This is an object.
+| +-sub_object | element/part | 
+| | +-string_1 | text/plain | This is a sub object
+| | +-string_2 | text/plain | Some more text
+| | :-position | number/integer | 100
+| | :-size | number/integer | 800
+| +-empty_object | element/part | 
 +-operation | communicate/send | 
-+-message | text/plain | The End
+| :-channel | meta/channel | terminal
+| :-receiver | text/cybol-path | .stdout
+| :-language | meta/language | message/tui
+| :-format | meta/format | number/integer
+| :-message | text/cybol-path | .index
++-endstring | text/plain | The End

@@ -1,0 +1,7 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Replaces the searchterm character sequence within the destination by the source sequence as replacement.
+
+Caution! This operation is applicable to text only (character string)."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/modify/replace/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/modify/replace/properties.cybol"/>
+</node>

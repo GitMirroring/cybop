@@ -1,0 +1,5 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="A reference node of the cyboi-internal knowledge tree.
+It represents a pointer to some knowledge tree node and was assigned as shallow copy."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/state/element/reference/examples.txt"/>
+</node>

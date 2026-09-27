@@ -1,6 +1,6 @@
 <node>
 
-    <node name="string" channel="inline" format="text/plain" model="This is an object"/>
+    <node name="string" channel="inline" format="text/plain" model="This is an object."/>
 
     <node name="sub_object" channel="file" format="element/part" model="serialisation/json_cybol/sub_object.cybol">
         <node name="position" channel="inline" format="number/integer" model="100,100"/>

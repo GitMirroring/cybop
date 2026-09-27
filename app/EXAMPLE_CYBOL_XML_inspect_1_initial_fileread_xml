@@ -1,0 +1,7 @@
+[selected_node] | element/part | 
++-node | element/part | 
+| +-node | text/plain | 
+| | :-name | text/plain | exit_application
+| | :-channel | text/plain | inline
+| | :-format | text/plain | live/exit
+| | :-model | text/plain | 

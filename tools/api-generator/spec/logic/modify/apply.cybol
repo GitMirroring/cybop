@@ -1,0 +1,26 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Applies the given function to the items of the destination node.
+
+Synonyms:
+
+map - in the clojure functional programming language
+foreach - as loop working on a collection
+consumer-accept-action
+
+This is similar to functional programming, like for example in clojure:
+(map inc [1 2 3 4 5])
+(map #(str &#x0022;Hello &#x0022; % &#x0022;!&#x0022; ) [&#x0022;Ford&#x0022; &#x0022;Arthur&#x0022; &#x0022;Tricia&#x0022;])
+
+Reference:
+https://clojuredocs.org/clojure.core/map
+
+However, other than functional languages cyboi does not use recursion inside,
+but iteration instead, which is more efficient and consumes less stack memory.
+
+This operation may be used together with some, but not all cyboi functions.
+It may for instance apply arithmetic functions usefully, but not those for communication.
+Also, the &#x0022;modify/append&#x0022; function can be used easier without &#x0022;modify/reduce&#x0022;,
+by just handing over the tree node containing all items to be appended (conjoined)."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/modify/apply/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/modify/apply/properties.cybol"/>
+</node>

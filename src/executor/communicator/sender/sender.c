@@ -122,9 +122,9 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     //
     allocate_item((void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    //?? fwprintf(stdout, L"Debug: Send. s: %i\n", s);
-    //?? fwprintf(stdout, L"Debug: Send. e: %i\n", e);
-    //?? fwprintf(stdout, L"Debug: Send. c: %i\n", c);
+    //?? fwprintf(stdout, L"Debug: Send data. s: %i\n", s);
+    //?? fwprintf(stdout, L"Debug: Send data. e: %i\n", e);
+    //?? fwprintf(stdout, L"Debug: Send data. c: %i\n", c);
 
     //
     // Initialise buffer.
@@ -136,7 +136,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     //
     b = s;
 
-    //?? fwprintf(stdout, L"Debug: Send. b after s: %i\n", b);
+    //?? fwprintf(stdout, L"Debug: Send data. b after s: %i\n", b);
 
     //
     // Select buffer.
@@ -148,7 +148,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     //
     send_select((void*) &b, (void*) &e, p12);
 
-    //?? fwprintf(stdout, L"Debug: Send. b after e: %i\n", b);
+    //?? fwprintf(stdout, L"Debug: Send data. b after e: %i\n", b);
 
     //
     // Serialise message.
@@ -159,20 +159,22 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     //
     send_serialise((void*) &ad, (void*) &ac, b, p1, p2, p3, p4, p6, p7, p8, p9, p10, p0, p11, p12);
 
-    //?? fwprintf(stdout, L"Debug: send data serialise *ac: %i\n", *((int*) ac));
-    //?? fwprintf(stdout, L"Debug: send data serialise ad: %s\n", (char*) ad);
+    //?? fwprintf(stdout, L"Debug: Send data. serialise *ac: %i\n", *((int*) ac));
+    //?? fwprintf(stdout, L"Debug: Send data. serialise ad: %s\n", (char*) ad);
 
     // Encode message.
     send_encode((void*) &ad, (void*) &ac, e, ad, ac, p13);
 
-    //?? fwprintf(stdout, L"Debug: send data encode *ac: %i\n", *((int*) ac));
-    //?? fwprintf(stdout, L"Debug: send data encode ad: %s\n", (char*) ad);
+    //?? fwprintf(stdout, L"Debug: Send data. encode *ac: %i\n", *((int*) ac));
+    //?? fwprintf(stdout, L"Debug: Send data. encode ad: %s\n", (char*) ad);
 
     // Compress message.
     //?? send_compress((void*) &ad, (void*) &ac, c, ad, ac, p??);
 
-    //?? fwprintf(stdout, L"Debug: send data compress *ac: %i\n", *((int*) ac));
-    //?? fwprintf(stdout, L"Debug: send data compress ad: %s\n", (char*) ad);
+    //?? fwprintf(stdout, L"Debug: Send data. compress *ac: %i\n", *((int*) ac));
+    //?? fwprintf(stdout, L"Debug: Send data. compress ad: %s\n", (char*) ad);
+
+    //?? fwprintf(stdout, L"Debug: Send data. pre write: %i\n", p0);
 
     //
     // Write message.
@@ -181,6 +183,8 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // The pointer is used inside to count sent data due to socket buffer limit.
     //
     send_write(p0, ad, ac, p5, p10, p14, p15, p16, p17, p18);
+
+    //?? fwprintf(stdout, L"Debug: Send data. post write: %i\n", p0);
 
     // Deallocate serialised wide character item.
     deallocate_item((void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

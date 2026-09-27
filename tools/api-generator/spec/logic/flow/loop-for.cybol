@@ -1,0 +1,18 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Loops the programme flow from the given start to the given end in the given steps.
+
+The comparison of index and end value is exclusive, that is it does not
+consider the end value in the executed model since the loop is left before:
+- positive step: if (index &#x0026;#x003E;= endvalue) then break
+- negative step: if (index &#x0026;#x003C;= endvalue) then break
+
+If the property &#x0022;step&#x0022; contains a negative value, then the loop is running downwards.
+
+Java example:
+
+for (int i = 0; i &#x0026;#x003C; 10; i += 2) {
+System.out.println(&#x0022;Hello&#x0022;);
+}"/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/flow/loop-for/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/flow/loop-for/properties.cybol"/>
+</node>

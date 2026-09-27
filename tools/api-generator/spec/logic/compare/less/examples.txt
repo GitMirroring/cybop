@@ -1,0 +1,32 @@
+<node name="compare_one" channel="inline" format="compare/less" model="">
+    <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+    <node name="left" channel="inline" format="number/integer" model="2"/>
+    <node name="right" channel="inline" format="number/integer" model="2"/>
+</node>
+
+<node name="compare_many" channel="inline" format="compare/less" model="">
+    <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+    <node name="left" channel="inline" format="number/integer" model="1,2,3"/>
+    <node name="right" channel="inline" format="number/integer" model="2,3,4"/>
+</node>
+
+<node name="compare_literal_and_path" channel="inline" format="compare/less" model="">
+    <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+    <node name="left" channel="inline" format="number/integer" model="3"/>
+    <node name="right" channel="inline" format="text/cybol-path" model=".right"/>
+</node>
+
+<node name="compare_via_paths" channel="inline" format="compare/less" model="">
+    <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+    <node name="left" channel="inline" format="text/cybol-path" model=".left"/>
+    <node name="right" channel="inline" format="text/cybol-path" model=".right"/>
+</node>
+
+<node name="compare_with_index" channel="inline" format="compare/less" model="">
+    <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+    <node name="left" channel="inline" format="number/integer" model="1,2,3"/>
+    <node name="right" channel="inline" format="number/integer" model="2,3,4"/>
+    <node name="count" channel="inline" format="number/integer" model="1"/>
+    <node name="left_index" channel="inline" format="number/integer" model="1"/>
+    <node name="right_index" channel="inline" format="number/integer" model="0"/>
+</node>

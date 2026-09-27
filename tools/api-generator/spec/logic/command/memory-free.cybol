@@ -1,0 +1,7 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Shows the usage of Random Access Memory (RAM), via shell command.
+
+TODO: COMPLETE AND VERIFY YET!"/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/command/memory-free/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/command/memory-free/properties.cybol"/>
+</node>

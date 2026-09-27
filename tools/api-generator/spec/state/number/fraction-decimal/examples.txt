@@ -1,0 +1,17 @@
+<node name="simple" channel="inline" format="number/fraction-decimal" model="24.0"/>
+<node name="negative_sign" channel="inline" format="number/fraction-decimal" model="-24.0"/>
+<node name="standard" channel="inline" format="number/fraction-decimal" model="7.0"/>
+<node name="extra" channel="inline" format="number/fraction-decimal" model="123.45697"/>
+<node name="lacking_decimal_places" channel="inline" format="number/fraction-decimal" model="7."/>
+<node name="lacking_pre-decimal_point_position" channel="inline" format="number/fraction-decimal" model=".7"/>
+<node name="array" channel="inline" format="number/fraction-decimal" model="1.5,2.5,3.5"/>
+<node name="scientific" channel="inline" format="number/fraction-decimal" model="7e3"/>
+<node name="optional_plus_sign" channel="inline" format="number/fraction-decimal" model="7e+3"/>
+<node name="minus_sign" channel="inline" format="number/fraction-decimal" model="7e-3"/>
+<node name="capital_letter_possible" channel="inline" format="number/fraction-decimal" model="7E-3"/>
+<node name="scientific_notation_1" channel="inline" format="number/fraction-decimal" model="11e0"/>
+<node name="scientific_notation_2" channel="inline" format="number/fraction-decimal" model=".11e2"/>
+<node name="scientific_notation_3" channel="inline" format="number/fraction-decimal" model="0.007e-2"/>
+<node name="scientific_notation_4" channel="inline" format="number/fraction-decimal" model="0.7e-2"/>
+<node name="scientific_notation_5" channel="inline" format="number/fraction-decimal" model="7.0e-3"/>
+<node name="longer_number" channel="inline" format="number/fraction-decimal" model="-12.34567e-2"/>

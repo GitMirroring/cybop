@@ -1,0 +1,5 @@
+<node>
+    <node name="gif" channel="file" format="element/part" model="api-generator/spec/state/image/gif.cybol"/>
+    <node name="jpeg" channel="file" format="element/part" model="api-generator/spec/state/image/jpeg.cybol"/>
+    <node name="png" channel="file" format="element/part" model="api-generator/spec/state/image/png.cybol"/>
+</node>

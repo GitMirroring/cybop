@@ -1,0 +1,4 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="The name of the part tree node."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/state/meta/name/examples.txt"/>
+</node>

@@ -1,0 +1,1 @@
+<node name="data" channel="file" format="text/xml" model="path/to/file.xml"/>

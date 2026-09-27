@@ -1,0 +1,82 @@
+[selected_node] | element/part | 
++-node | element/part | 
+| +-node | element/part | 
+| | +-node | text/plain | 
+| | | :-name | text/plain | channel
+| | | :-channel | text/plain | inline
+| | | :-format | text/plain | meta/channel
+| | | :-model | text/plain | terminal
+| | +-node | text/plain | 
+| | | :-name | text/plain | sender
+| | | :-channel | text/plain | inline
+| | | :-format | text/plain | text/cybol-path
+| | | :-model | text/plain | .var.stdin
+| | +-node | text/plain | 
+| | | :-name | text/plain | language
+| | | :-channel | text/plain | inline
+| | | :-format | text/plain | meta/language
+| | | :-model | text/plain | message/tui
+| | +-node | text/plain | 
+| | | :-name | text/plain | message
+| | | :-channel | text/plain | inline
+| | | :-format | text/plain | text/cybol-path
+| | | :-model | text/plain | #command
+| | +-node | text/plain | 
+| | | :-name | text/plain | asynchronicity
+| | | :-channel | text/plain | inline
+| | | :-format | text/plain | logicvalue/boolean
+| | | :-model | text/plain | true
+| | :-name | text/plain | receive_command
+| | :-channel | text/plain | inline
+| | :-format | text/plain | communicate/receive
+| | :-model | text/plain | 
+| +-node | element/part | 
+| | +-node | text/plain | 
+| | | :-name | text/plain | destination
+| | | :-channel | text/plain | inline
+| | | :-format | text/plain | text/cybol-path
+| | | :-model | text/plain | .var.path
+| | +-node | text/plain | 
+| | | :-name | text/plain | source
+| | | :-channel | text/plain | inline
+| | | :-format | text/plain | text/cybol-path
+| | | :-model | text/plain | .tui.(.tui.active):actions
+| | :-name | text/plain | overwrite_path
+| | :-channel | text/plain | inline
+| | :-format | text/plain | modify/overwrite
+| | :-model | text/plain | 
+| +-node | element/part | 
+| | +-node | text/plain | 
+| | | :-name | text/plain | destination
+| | | :-channel | text/plain | inline
+| | | :-format | text/plain | text/cybol-path
+| | | :-model | text/plain | .var.path
+| | +-node | text/plain | 
+| | | :-name | text/plain | source
+| | | :-channel | text/plain | inline
+| | | :-format | text/plain | text/plain
+| | | :-model | text/plain | .
+| | :-name | text/plain | append_dot
+| | :-channel | text/plain | inline
+| | :-format | text/plain | modify/append
+| | :-model | text/plain | 
+| +-node | element/part | 
+| | +-node | text/plain | 
+| | | :-name | text/plain | destination
+| | | :-channel | text/plain | inline
+| | | :-format | text/plain | text/cybol-path
+| | | :-model | text/plain | .var.path
+| | +-node | text/plain | 
+| | | :-name | text/plain | source
+| | | :-channel | text/plain | inline
+| | | :-format | text/plain | text/cybol-path
+| | | :-model | text/plain | #command
+| | :-name | text/plain | append_command
+| | :-channel | text/plain | inline
+| | :-format | text/plain | modify/append
+| | :-model | text/plain | 
+| +-node | text/plain | 
+| | :-name | text/plain | send_command
+| | :-channel | text/plain | inline
+| | :-format | text/plain | text/cybol-path
+| | :-model | text/plain | .var.path

@@ -1,0 +1,5 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="The text encoding.
+It is normally used when reading or writing a file or transfering data."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/state/meta/encoding/examples.txt"/>
+</node>

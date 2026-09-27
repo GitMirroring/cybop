@@ -1,0 +1,1 @@
+<node name="value" channel="inline" format="logicvalue/boolean" model="true"/>

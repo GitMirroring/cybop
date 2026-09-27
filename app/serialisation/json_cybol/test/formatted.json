@@ -2,6 +2,8 @@
 
     ["string", "inline", "text/plain", "Hello JSON!", []],
 
+    ["string_from_file", "inline", "text/plain", "This is a string standing within a separate pure text file.", []],
+
     ["path", "inline", "text/cybol-path", ".non-existing.test.path", []],
 
     ["integer", "inline", "number/integer", "2", []],
@@ -14,7 +16,7 @@
 
     ["object", "inline", "element/part", [
 
-        ["string", "inline", "text/plain", "This is an object", []],
+        ["string", "inline", "text/plain", "This is an object.", []],
 
         ["sub_object", "inline", "element/part", [
 
@@ -48,6 +50,6 @@
 
     ]],
 
-    ["message", "inline", "text/plain", "The End", []]
+    ["endstring", "inline", "text/plain", "The End", []]
 
 ]

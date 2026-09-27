@@ -1,0 +1,9 @@
+<node name="strip_plain_text" channel="inline" format="modify/strip-leading" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
+    <node name="source" channel="inline" format="text/plain" model="    Some text with leading spaces"/>
+</node>
+
+<node name="strip_text_variable" channel="inline" format="modify/strip-leading" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
+    <node name="source" channel="inline" format="text/cybol-path" model=".text"/>
+</node>

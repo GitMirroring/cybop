@@ -1,0 +1,9 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Toggles the bit at the given position.
+
+This bit manipulation operation corresponds to the &#x0022;CHG&#x0022; (change) assembler command.
+
+TODO: NOT IMPLEMENTED YET!"/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/manipulate/toggle/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/manipulate/toggle/properties.cybol"/>
+</node>

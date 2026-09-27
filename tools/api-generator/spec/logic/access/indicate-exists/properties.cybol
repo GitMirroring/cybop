@@ -1,0 +1,12 @@
+<node>
+    <node name="result" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
+        <node name="description" channel="inline" format="text/plain" model="The flag being set to true if the part is not null and not empty, or being left untouched otherwise."/>
+    </node>
+    <node name="part" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
+        <node name="description" channel="inline" format="text/plain" model="The node which is to be checked for existence and non-empty data."/>
+    </node>
+</node>

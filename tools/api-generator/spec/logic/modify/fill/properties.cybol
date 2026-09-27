@@ -1,0 +1,27 @@
+<node>
+    <node name="destination" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
+        <node name="description" channel="inline" format="text/plain" model="The destination part."/>
+    </node>
+    <node name="source" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
+        <node name="description" channel="inline" format="text/plain" model="The source part."/>
+    </node>
+    <node name="source_index" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | number/integer"/>
+        <node name="description" channel="inline" format="text/plain" model="The source index from which to start copying elements from. If null, the default is zero."/>
+    </node>
+    <node name="destination_properties" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | logicvalue/boolean"/>
+        <node name="description" channel="inline" format="text/plain" model="The flag indicating whether to use the model or properties container as destination. If null, the default is false (model)."/>
+    </node>
+    <node name="source_properties" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | logicvalue/boolean"/>
+        <node name="description" channel="inline" format="text/plain" model="The flag indicating whether to use the model or properties container as source. If null, the default is false (model)."/>
+    </node>
+</node>

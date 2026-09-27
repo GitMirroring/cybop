@@ -1,0 +1,4 @@
+<node>
+    <node name="deserialise" channel="file" format="element/part" model="api-generator/spec/logic/represent/deserialise.cybol"/>
+    <node name="serialise" channel="file" format="element/part" model="api-generator/spec/logic/represent/serialise.cybol"/>
+</node>

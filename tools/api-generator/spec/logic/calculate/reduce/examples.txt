@@ -1,0 +1,4 @@
+<node name="reduce_fraction" channel="inline" format="calculate/reduce" model="">
+    <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+    <node name="operand" channel="inline" format="number/fraction-vulgar" model="4/8"/>
+</node>

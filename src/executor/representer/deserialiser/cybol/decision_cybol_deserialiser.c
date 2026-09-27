@@ -44,8 +44,8 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source xml or json data
- * @param p3 the source xml or json count
+ * @param p2 the source xml or json filestream model data
+ * @param p3 the source xml or json filestream model count
  * @param p4 the language properties (constraints) data
  * @param p5 the language properties (constraints) count
  * @param p6 the knowledge memory part (pointer reference)
@@ -68,6 +68,7 @@ void deserialise_cybol_decision(void* p0, void* p1, void* p2, void* p3, void* p4
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //?? fwprintf(stdout, L"Debug: Deserialise cybol decision. JSON p9: %i\n", p9);
             deserialise_json(p0, p1, p2, p3, p4, p5, p6, p7, p8);
         }
     }
@@ -78,6 +79,7 @@ void deserialise_cybol_decision(void* p0, void* p1, void* p2, void* p3, void* p4
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //?? fwprintf(stdout, L"Debug: Deserialise cybol decision. XML p9: %i\n", p9);
             deserialise_xml(p0, p1, p2, p3, p4, p5, p6, p7, p8);
         }
     }
@@ -88,6 +90,7 @@ void deserialise_cybol_decision(void* p0, void* p1, void* p2, void* p3, void* p4
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //?? fwprintf(stdout, L"Debug: Deserialise cybol decision. XML p9: %i\n", p9);
             deserialise_xml(p0, p1, p2, p3, p4, p5, p6, p7, p8);
         }
     }

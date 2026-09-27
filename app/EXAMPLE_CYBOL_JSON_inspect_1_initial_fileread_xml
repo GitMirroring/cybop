@@ -1,0 +1,8 @@
+[selected_node] | element/part | 
++-root | element/part | 
+| +-0 | element/part | 
+| | +-0 | text/plain | exit_application
+| | +-1 | text/plain | inline
+| | +-2 | text/plain | live/exit
+| | +-3 | text/plain | 
+| | +-4 | element/part | 

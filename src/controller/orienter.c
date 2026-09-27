@@ -56,7 +56,7 @@ void orient(void* p0, void* p1) {
             // CAUTION! DO NOT use logging functionality here!
             //
             // The logger will not work before its options are set.
-            // Do NOT show the following error message, as it would only disturb the user!
+            // Do NOT print the following message, as it would only disturb the user!
             //
             // log_write(stdout, L"Information: Orient stream.\n");
             //
@@ -70,7 +70,7 @@ void orient(void* p0, void* p1) {
             // CAUTION! DO NOT use logging functionality here!
             //
             // The logger will not work before its options are set.
-            // Do NOT show the following error message, as it would only disturb the user!
+            // Do NOT print the following message, as it would only disturb the user!
             //
             // log_write(stdout, L"Error: Could not orient stream. The stream is null.\n");
             //
@@ -82,6 +82,7 @@ void orient(void* p0, void* p1) {
         // CAUTION! DO NOT use logging functionality here!
         //
         // The logger will not work before its options are set.
+        // Do NOT print the following message, as it would only disturb the user!
         //
         // log_write(stdout, L"Error: Could not orient stream. The orientation is null.\n");
         //

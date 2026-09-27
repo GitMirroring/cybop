@@ -1,0 +1,5 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Opens up a client resource for connecting to a device or service on the given channel."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/dispatch/open/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/dispatch/open/properties.cybol"/>
+</node>

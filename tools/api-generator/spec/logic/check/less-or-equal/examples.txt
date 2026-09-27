@@ -1,0 +1,5 @@
+<node name="check_less_or_equal" channel="inline" format="check/less-or-equal" model="">
+    <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+    <node name="left" channel="inline" format="text/cybol-path" model=".some_string"/>
+    <node name="right" channel="inline" format="text/plain" model="Hello"/>
+</node>

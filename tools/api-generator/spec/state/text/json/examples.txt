@@ -1,0 +1,1 @@
+<node name="data" channel="file" format="text/json" model="path/to/file.json"/>

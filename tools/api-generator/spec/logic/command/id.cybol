@@ -1,0 +1,6 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Displays the identification (id) of the user or group via shell command.
+
+TODO: COMPLETE AND VERIFY YET!"/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/command/id/examples.txt"/>
+</node>

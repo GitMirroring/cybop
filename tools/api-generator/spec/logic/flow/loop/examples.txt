@@ -1,0 +1,35 @@
+<!-- Read model from heap (knowledge tree). -->
+<node name="print_numbers" channel="inline" format="flow/loop" model="">
+    <node name="break" channel="inline" format="text/cybol-path" model=".break"/>
+    <node name="model" channel="inline" format="text/cybol-path" model=".model"/>
+</node>
+
+<!-- Read model from stack. -->
+<node name="loop_rows" channel="inline" format="flow/loop" model="">
+    <node name="break" channel="inline" format="text/cybol-path" model="#row_break"/>
+    <node name="model" channel="inline" format="text/cybol-path" model="#row_model"/>
+</node>
+
+<!-- Read model from file. -->
+<node name="collect_voltages" channel="inline" format="flow/loop" model="">
+    <node name="break" channel="inline" format="text/cybol-path" model=".settings.adc_break"/>
+    <node name="model" channel="file" format="element/part" model="adc/collect_voltages.cybol"/>
+</node>
+
+<!-- Translate data records of the german medical standard xdt. -->
+<node name="loop_records" channel="inline" format="flow/loop" model="">
+    <node name="break" channel="inline" format="path/knowledge" model=".temporary.xdt.record.break"/>
+    <node name="model" channel="inline" format="path/knowledge" model=".logic.translate.record"/>
+</node>
+
+<!-- Generate several webpages. -->
+<node name="loop_page" channel="inline" format="flow/loop" model="">
+    <node name="break" channel="inline" format="text/cybol-path" model="#page_break"/>
+    <node name="model" channel="inline" format="text/cybol-path" model=".logic.generate.page"/>
+</node>
+
+<!-- Call randomiser as model. -->
+<node name="generate_mines_in_game_minesweeper" channel="inline" format="flow/loop" model="">
+    <node name="break" channel="inline" format="text/cybol-path" model=".app.break"/>
+    <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.randomiser"/>
+</node>

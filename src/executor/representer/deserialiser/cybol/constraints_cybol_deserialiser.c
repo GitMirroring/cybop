@@ -104,7 +104,7 @@ void deserialise_cybol_constraints(void* p0, void* p1, void* p2, void* p3, void*
     //
     // This is achieved by using this flag, which is initially set to TRUE
     // in file "constraints_cybol_deserialiser.c" and gets reset to FALSE
-    // in file "content_cybol_deserialiser.c", after having detected the root node.
+    // in file "element_cybol_deserialiser.c", after having detected the root node.
     //
     int r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
     //
@@ -116,7 +116,7 @@ void deserialise_cybol_constraints(void* p0, void* p1, void* p2, void* p3, void*
     //
     // This is achieved by using this flag, which is initially set to TRUE
     // in file "constraints_cybol_deserialiser.c" and gets reset to FALSE
-    // in file "step1_cybol_deserialiser.c", after having read the data from file.
+    // in file "compound_cybol_deserialiser.c", after having read the data from file.
     //
     int i = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 

@@ -1,0 +1,8 @@
+<node>
+    <node name="equal" channel="file" format="element/part" model="api-generator/spec/logic/compare/equal.cybol"/>
+    <node name="greater" channel="file" format="element/part" model="api-generator/spec/logic/compare/greater.cybol"/>
+    <node name="greater-or-equal" channel="file" format="element/part" model="api-generator/spec/logic/compare/greater-or-equal.cybol"/>
+    <node name="less" channel="file" format="element/part" model="api-generator/spec/logic/compare/less.cybol"/>
+    <node name="less-or-equal" channel="file" format="element/part" model="api-generator/spec/logic/compare/less-or-equal.cybol"/>
+    <node name="unequal" channel="file" format="element/part" model="api-generator/spec/logic/compare/unequal.cybol"/>
+</node>

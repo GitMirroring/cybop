@@ -1,0 +1,5 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="The language also called data format in which the data are structured.
+It is normally used when reading or writing a file or transfering data."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/state/meta/language/examples.txt"/>
+</node>

@@ -1,0 +1,27 @@
+[selected_node] | element/part | 
++-node | element/part | 
+| +-node | text/plain | 
+| | :-name | text/plain | var
+| | :-channel | text/plain | file
+| | :-format | text/plain | element/part
+| | :-model | text/plain | ui/control/var.cybol
+| +-node | text/plain | 
+| | :-name | text/plain | appinfo
+| | :-channel | text/plain | file
+| | :-format | text/plain | element/part
+| | :-model | text/plain | ui/control/appinfo.cybol
+| +-node | text/plain | 
+| | :-name | text/plain | tui
+| | :-channel | text/plain | file
+| | :-format | text/plain | element/part
+| | :-model | text/plain | ui/control/tui.cybol
+| +-node | text/plain | 
+| | :-name | text/plain | settings
+| | :-channel | text/plain | file
+| | :-format | text/plain | element/part
+| | :-model | text/plain | ui/control/settings.cybol
+| +-node | text/plain | 
+| | :-name | text/plain | logic
+| | :-channel | text/plain | file
+| | :-format | text/plain | element/part
+| | :-model | text/plain | ui/control/logic.cybol

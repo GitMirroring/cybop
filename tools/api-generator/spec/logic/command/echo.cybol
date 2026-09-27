@@ -1,0 +1,7 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Prints the given message to standard output via shell command.
+
+TODO: COMPLETE AND VERIFY YET!"/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/command/echo/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/command/echo/properties.cybol"/>
+</node>

@@ -1,0 +1,6 @@
+<node>
+    <node name="byte" channel="file" format="element/part" model="api-generator/spec/logic/cast/byte.cybol"/>
+    <node name="character" channel="file" format="element/part" model="api-generator/spec/logic/cast/character.cybol"/>
+    <node name="double" channel="file" format="element/part" model="api-generator/spec/logic/cast/double.cybol"/>
+    <node name="integer" channel="file" format="element/part" model="api-generator/spec/logic/cast/integer.cybol"/>
+</node>

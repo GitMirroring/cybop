@@ -1,0 +1,4 @@
+<node>
+    <node name="shutdown" channel="file" format="element/part" model="api-generator/spec/logic/maintain/shutdown.cybol"/>
+    <node name="startup" channel="file" format="element/part" model="api-generator/spec/logic/maintain/startup.cybol"/>
+</node>

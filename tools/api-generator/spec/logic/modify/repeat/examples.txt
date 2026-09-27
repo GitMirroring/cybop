@@ -1,0 +1,11 @@
+<node name="initialise_with_plain_text" channel="inline" format="modify/repeat" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".string"/>
+    <node name="source" channel="inline" format="text/plain" model="-"/>
+    <node name="repetition" channel="inline" format="number/integer" model="8"/>
+</node>
+
+<node name="initialise_with_text_variable" channel="inline" format="modify/repeat" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".string"/>
+    <node name="source" channel="inline" format="text/cybol-path" model=".text"/>
+    <node name="repetition" channel="inline" format="number/integer" model="2"/>
+</node>

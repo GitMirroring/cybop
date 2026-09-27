@@ -1,0 +1,8 @@
+<node name="count_words" channel="inline" format="command/word-count" model="">
+    <node name="path" channel="inline" format="text/plain" model="./shell_command_word_count/example.txt"/>
+    <node name="bytes" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="chars" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="lines" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="max-line-length" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="words" channel="inline" format="logicvalue/boolean" model="true"/>
+</node>

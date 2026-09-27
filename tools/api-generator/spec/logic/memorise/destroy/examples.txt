@@ -1,0 +1,3 @@
+<node name="destroy_part" channel="inline" format="memorise/destroy" model="">
+    <node name="part" channel="inline" format="text/cybol-path" model=".some.part"/>
+</node>

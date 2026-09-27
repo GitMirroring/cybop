@@ -40,33 +40,32 @@
 #include "cybol.h"
 
 /**
- * Deserialises the array containing part elements.
+ * Deserialises the source xml tree OR json tree model data containing part elements.
  *
- * CAUTION! What is the properties in a parsed text/cybol+xml file,
- * becomes the model in the cyboi-internal knowledge tree;
- * what is the model hierarchy in a parsed text/cybol+xml file,
- * becomes the properties (meta data) in the cyboi-internal knowledge tree.
- *
- * @param p0 the destination item
- * @param p1 the source model data
- * @param p2 the source model count
- * @param p3 the language properties (constraints) data
- * @param p4 the language properties (constraints) count
- * @param p5 the knowledge memory part (pointer reference)
- * @param p6 the stack memory item
- * @param p7 the internal memory data
- * @param p8 the language
- * @param p9 the decimal separator data
- * @param p10 the decimal separator count
- * @param p11 the thousands separator data
- * @param p12 the thousands separator count
- * @param p13 the consider number base prefix flag (true means CONSIDER prefixes; false means IGNORE them)
- * @param p14 the root node flag
- * @param p15 the initial fileread flag
+ * @param p0 the destination model OR properties item
+ * @param p1 the source xml tree OR json tree model data
+ * @param p2 the source xml tree OR json tree model count
+ * @param p3 the source xml tree OR json tree properties data (currently NOT in use but left here anyway)
+ * @param p4 the source xml tree OR json tree properties count
+ * @param p5 the language properties (constraints) data
+ * @param p6 the language properties (constraints) count
+ * @param p7 the knowledge memory part (pointer reference)
+ * @param p8 the stack memory item
+ * @param p9 the internal memory data
+ * @param p10 the language
+ * @param p11 the decimal separator data
+ * @param p12 the decimal separator count
+ * @param p13 the thousands separator data
+ * @param p14 the thousands separator count
+ * @param p15 the consider number base prefix flag (true means CONSIDER prefixes; false means IGNORE them)
+ * @param p16 the root node flag
+ * @param p17 the initial fileread flag
  */
-void deserialise_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
+void deserialise_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol part.");
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol part. source xml tree OR json tree model count p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol part. source xml tree OR json tree model count *p2: %i\n", *((int*) p2));
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -97,7 +96,10 @@ void deserialise_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4, vo
             break;
         }
 
-        deserialise_cybol_element(p0, p1, (void*) &j, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15);
+        //?? fwprintf(stdout, L"\nDebug: Deserialise cybol part. source xml tree OR json tree model part element j: %i\n", j);
+
+        // Deserialise source cybol tree part element.
+        deserialise_cybol_element(p0, p1, (void*) &j, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17);
 
         // Increment loop variable.
         j++;

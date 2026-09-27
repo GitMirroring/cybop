@@ -1,0 +1,42 @@
+<node>
+    <node name="channel" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | meta/channel"/>
+        <node name="description" channel="inline" format="text/plain" model="The communication channel."/>
+    </node>
+    <node name="port" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | number/integer"/>
+        <node name="description" channel="inline" format="text/plain" model="The service identification."/>
+    </node>
+    <node name="namespace" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | text/plain"/>
+        <node name="description" channel="inline" format="text/plain" model="The address family, for example local, ipv4, ipv6."/>
+    </node>
+    <node name="style" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | text/plain"/>
+        <node name="description" channel="inline" format="text/plain" model="The communication style, for example stream, datagram, raw."/>
+    </node>
+    <node name="protocol" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | text/plain"/>
+        <node name="description" channel="inline" format="text/plain" model="The protocol, for example tcp, udp, rdp."/>
+    </node>
+    <node name="device" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | text/plain"/>
+        <node name="description" channel="inline" format="text/plain" model="The filename for channel socket with namespace local (unix domain socket). Example values: localbuffer.socket. The host address for channel socket with namespace ipv4 or ipv6. Example values: localhost or 127.0.0.1. It is null (not given) for channel display, since a client window does not need it."/>
+    </node>
+    <node name="connexions" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | number/integer"/>
+        <node name="description" channel="inline" format="text/plain" model="The maximum number of possible pending client requests, for example 10."/>
+    </node>
+    <node name="timeout" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | number/integer"/>
+        <node name="description" channel="inline" format="text/plain" model="The timeout in seconds set for each new client, for example 300."/>
+    </node>
+</node>

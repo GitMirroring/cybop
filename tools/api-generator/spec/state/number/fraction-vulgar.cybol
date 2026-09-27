@@ -1,0 +1,7 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="A fraction number written as numerator and denominator, separated by a bar (solidus, slash).
+
+Each number can be an element of a vector (array), e.g.:
+- fraction vulgar: 1/2,3/4"/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/state/number/fraction-vulgar/examples.txt"/>
+</node>

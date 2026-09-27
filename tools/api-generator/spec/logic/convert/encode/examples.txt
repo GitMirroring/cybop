@@ -1,0 +1,5 @@
+<node name="decode" channel="inline" format="convert/encode" model="">
+    <node name="destination" channel="inline" format="text/cybol-path" model=".data"/>
+    <node name="source" channel="inline" format="text/cybol-path" model=".webpage"/>
+    <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+</node>

@@ -18,6 +18,31 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2026-09-27  Christian Heller  <christian.heller@cybop.org>
+
+        * Restructure cybol deserialiser
+        * Treat properties like a model by calling "deserialise_cybol_source" for both, in file "standard_cybol_deserialiser.c"
+        * Rename files:
+            "branching1_cybol_deserialiser.c" into "retrieval_cybol_deserialiser"
+            "branching2_cybol_deserialiser.c" into "handover_cybol_deserialiser"
+            "standard_cybol_deserialiser.c" into "creation_cybol_deserialiser"
+        * Rename constants in file "include/constant/name/cybol/xml_cybol_name.h"
+        * Test run file format "text/cybol+json" in addition to text/cybol in file "controller/initiator.c"
+        * Add json variant of cybol application "exit/internal/" in file "run.json"
+        * Make cybol application "serialisation/json_cybol/run.cybol" work with deep tree levels
+
+2026-05-11  Christian Heller  <christian.heller@cybop.org>
+
+        * Add knowledge inspector for part / item / data
+
+2026-05-05  Christian Heller  <christian.heller@cybop.org>
+
+        * Update many files of cybol deserialiser and comment in detail
+        * Process children of compound nodes (worked only by chance due to calling root node's children up to now)
+        * Call function "deserialise_cybol_part" instead of "deserialise_cybol_source" in file "standard_cybol_deserialiser.c", so that compound part child nodes get processed
+        * Call function "deserialise_cybol_source" instead of "deserialise_cybol_content" in file "element_cybol_deserialiser.c", to have a uniform processing of compound model and properties
+        * Update diagram "doc/development/cyboi/cybol_deserialiser.svg"
+
 2025-12-09  Christian Heller  <christian.heller@cybop.org>
 
         * Realise that there have to be two kinds of flags for parsing cybol

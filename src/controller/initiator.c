@@ -110,10 +110,19 @@ void initiate(void* p0, void* p1, void* p2, void* p3) {
 
     // Open file.
     open_file((void*) &id, md, mc, (void*) READ_OPEN_MODE_FILE_MODEL, (void*) READ_OPEN_MODE_FILE_MODEL_COUNT);
-fwprintf(stdout, L"Test: Initiate. 1 id: %i\n", id);
+
+    //
     // Receive startup signal model, properties.
+    //
+    // Use text/cybol format by DEFAULT.
+    // It is equivalent to text/cybol+xml.
+    //
+    // TODO: In the future, text/cybol+json is to be provided as ALTERNATIVE.
+    // Probably, there will be a command line option.
+    //
     receive_data(sm, sp, (void*) &id, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, (void*) UTF_8_CYBOI_ENCODING, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FILE_CYBOI_CHANNEL);
-fwprintf(stdout, L"Test: Initiate. 2 id: %i\n", id);
+    //?? receive_data(sm, sp, (void*) &id, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, (void*) CYBOL_JSON_TEXT_STATE_CYBOI_LANGUAGE, (void*) UTF_8_CYBOI_ENCODING, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FILE_CYBOI_CHANNEL);
+
     // Close file.
     close_basic((void*) &id);
 
@@ -142,15 +151,13 @@ fwprintf(stdout, L"Test: Initiate. 2 id: %i\n", id);
     //
     modify_item(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
-fwprintf(stdout, L"Test: Initiate. 3 id: %i\n", id);
     //
     // The system is now started up and complete so that a loop
-    // can be entered, checking for signals (events/ interrupts)
-    // which are stored/ found in the signal memory.
+    // can be entered, checking for signals (events / interrupts)
+    // which are stored / found in the signal memory.
     // The loop is left as soon as its shutdown flag is set.
     //
     check(p2, p3);
-fwprintf(stdout, L"Test: Initiate. 4 id: %i\n", id);
 
     // Deallocate startup signal part.
     deallocate_part((void*) &s);

@@ -1,0 +1,6 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Clears the terminal (console) screen via shell command.
+
+TODO: COMPLETE AND VERIFY YET!"/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/command/clear/examples.txt"/>
+</node>

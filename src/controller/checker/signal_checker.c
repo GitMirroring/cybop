@@ -119,6 +119,8 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     //
     get_item((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    //?? fwprintf(stdout, L"Debug: Check signal. TEST sd: %i\n", sd);
+
     if (sd != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
@@ -137,6 +139,8 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
         check_empty(p0, p3, p5);
     }
+
+    //?? fwprintf(stdout, L"Debug: Check signal. TEST done: %i\n", sd);
 
     //
     // Deallocate signal item.

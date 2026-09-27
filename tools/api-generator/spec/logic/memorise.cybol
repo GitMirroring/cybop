@@ -1,0 +1,4 @@
+<node>
+    <node name="create" channel="file" format="element/part" model="api-generator/spec/logic/memorise/create.cybol"/>
+    <node name="destroy" channel="file" format="element/part" model="api-generator/spec/logic/memorise/destroy.cybol"/>
+</node>

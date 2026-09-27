@@ -1,0 +1,25 @@
+<node name="apply_arbitrary_function" channel="inline" format="modify/reduce" model="">
+    <node name="function" channel="inline" format="text/cybol-path" model=".function"/>
+    <node name="output" channel="inline" format="text/cybol-path" model=".output"/>
+    <node name="input" channel="inline" format="text/cybol-path" model=".input"/>
+</node>
+
+<node name="add_operands_given_as_external_file" channel="inline" format="modify/reduce" model="">
+    <node name="function" channel="inline" format="element/operation" model="calculate/add"/>
+    <node name="output" channel="inline" format="text/cybol-path" model=".sum"/>
+    <node name="input" channel="file" format="element/part" model="modification/reduce/summands.cybol"/>
+</node>
+
+<node name="add_operands_given_as_children_of_tree_node" channel="inline" format="modify/reduce" model="">
+    <node name="function" channel="inline" format="element/operation" model="calculate/add"/>
+    <node name="output" channel="inline" format="text/cybol-path" model=".sum"/>
+    <node name="input" channel="inline" format="text/cybol-path" model=".list-of-numbers"/>
+</node>
+
+The list of numbers could be defined as follows, whereby the names can be chosen freely.
+
+<node>
+    <node name="number_1" channel="inline" format="number/integer" model="2"/>
+    <node name="number_2" channel="inline" format="number/integer" model="4"/>
+    <node name="number_3" channel="inline" format="number/integer" model="6"/>
+</node>

@@ -106,13 +106,6 @@ static int* LONG_LONG_INTEGER_NUMBER_STATE_CYBOI_TYPE = NUMBER_35_INTEGER_STATE_
 static int* POINTER_STATE_CYBOI_TYPE = NUMBER_40_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// signal
-//
-
-/** The atomic signal state cyboi type. */
-static int* ATOMIC_SIGNAL_STATE_CYBOI_TYPE = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
 // socket address
 //
 

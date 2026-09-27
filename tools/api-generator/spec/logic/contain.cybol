@@ -1,0 +1,5 @@
+<node>
+    <node name="any" channel="file" format="element/part" model="api-generator/spec/logic/contain/any.cybol"/>
+    <node name="left" channel="file" format="element/part" model="api-generator/spec/logic/contain/left.cybol"/>
+    <node name="right" channel="file" format="element/part" model="api-generator/spec/logic/contain/right.cybol"/>
+</node>

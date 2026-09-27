@@ -1,0 +1,12 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Enables the communication channel, so that requests/events can be detected.
+
+Calling the operation &#x0022;feel/sense&#x0022; afterwards is not necessary for channel &#x0022;display&#x0022; on a linux operating system with x window system, since &#x0022;activate/enable&#x0022; catches the events of all client windows.
+On a windows operating system, however, one separate event thread is run per window, so that calling &#x0022;feel/sense&#x0022; after this &#x0022;activate/enable&#x0022; is necessary.
+
+Calling this operation &#x0022;activate/enable&#x0022; is not necessary for channels &#x0022;terminal&#x0022; or &#x0022;serial&#x0022;, since clients get opened manually using &#x0022;dispatch/open&#x0022; and events can be detected right afterwards using the operation &#x0022;feel/sense&#x0022;.
+
+The requesting client gets appended to an internal accept buffer list. It can be accessed in operation &#x0022;dispatch/open&#x0022; using the property &#x0022;identification&#x0022;. However, this works only, if the &#x0022;server&#x0022; flag is set to true, so that the client is read from the accept buffer list."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/activate/enable/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/activate/enable/properties.cybol"/>
+</node>

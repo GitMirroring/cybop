@@ -1,0 +1,12 @@
+<node>
+    <node name="channel" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | meta/channel"/>
+        <node name="description" channel="inline" format="text/plain" model="The communication channel."/>
+    </node>
+    <node name="port" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | number/integer"/>
+        <node name="description" channel="inline" format="text/plain" model="The service identification."/>
+    </node>
+</node>

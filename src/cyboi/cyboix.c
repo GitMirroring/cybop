@@ -60,6 +60,7 @@
 
 #include "../library/applicator_library.c"
 #include "../library/controller_library.c"
+#include "../library/inspector_library.c"
 #include "../library/logger_library.c"
 #include "../library/mapper_library.c"
 

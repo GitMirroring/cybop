@@ -45,6 +45,8 @@
 void apply_create(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply create.");
+    fwprintf(stdout, L"Information: Apply create. parametres count p1: %i\n", p1);
+    fwprintf(stdout, L"Information: Apply create. parametres count *p1: %i\n", *((int*) p1));
 
     //
     // Declaration
@@ -101,6 +103,11 @@ void apply_create(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &fmd, fm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get properties part model item data.
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    fwprintf(stdout, L"Information: Apply create. nmc: %i\n", nmc);
+    fwprintf(stdout, L"Information: Apply create. *nmc: %i\n", *((int*) nmc));
+    fwprintf(stdout, L"Information: Apply create. fmd: %i\n", fmd);
+    fwprintf(stdout, L"Information: Apply create. *fmd: %i\n", *((int*) fmd));
 
     //
     // Default values

@@ -1,0 +1,37 @@
+<node>
+    <node name="channel" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | meta/channel"/>
+        <node name="description" channel="inline" format="text/plain" model="The communication channel."/>
+    </node>
+    <node name="server" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | logicvalue/boolean"/>
+        <node name="description" channel="inline" format="text/plain" model="The flag indicating server mode. It means server-side client stub and not standalone client. If null, the default is false (client mode)."/>
+    </node>
+    <node name="port" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | number/integer"/>
+        <node name="description" channel="inline" format="text/plain" model="The service identification. It is relevant only in server mode."/>
+    </node>
+    <node name="sender" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
+        <node name="description" channel="inline" format="text/plain" model="The device identification, for example a file descriptor. Handing it over as hard-coded integer value does not make sense, since the operating system or server assigns it. Therefore, state a cybol-path."/>
+    </node>
+    <node name="language" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | meta/language"/>
+        <node name="description" channel="inline" format="text/plain" model="The language used for deserialisation. It is also defining which prefix or suffix indicates the message length, for example binary-crlf, http-request, xdt."/>
+    </node>
+    <node name="handler" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
+        <node name="description" channel="inline" format="text/plain" model="The callback cybol model to be executed when data were detected on the sender, in order to read them from the internal input buffer."/>
+    </node>
+    <node name="closer" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
+        <node name="description" channel="inline" format="text/plain" model="The callback cybol model to be executed when the client does not respond and is to be closed."/>
+    </node>
+</node>

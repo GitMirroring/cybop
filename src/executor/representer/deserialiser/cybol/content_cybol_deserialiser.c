@@ -49,38 +49,57 @@
  *
  * Example XML:
  *
- *  | compound [The root node has no name.]
- * +-node_$0 | compound
- * | +-node_$0 | compound
- * | | +-node_$0 | compound
- * | | :- | wide_character | property [This is the xml tag name.]
- * | | :-name | wide_character | left
- * | | :-channel | wide_character | inline
- * | | :-format | wide_character | path/knowledge
- * | | :-model | wide_character | .counter.count
- * | | +-node_$1 | compound
- * | | :- | wide_character | property [This is the xml tag name.]
- * | | :-name | wide_character | right
- * | | :-channel | wide_character | inline
- * | | :-format | wide_character | path/knowledge
- * | | :-model | wide_character | .counter.maximum
- * | | +-node_$2 | compound
- * | | :- | wide_character | property [This is the xml tag name.]
- * | | :-name | wide_character | result
- * | | :-channel | wide_character | inline
- * | | :-format | wide_character | path/knowledge
- * | | :-model | wide_character | .counter.break
- * | :- | wide_character | part [This is the xml tag name.]
- * | :-name | wide_character | compare_count
- * | :-channel | wide_character | inline
- * | :-format | wide_character | operation/plain
- * | :-model | wide_character | greater_or_equal
- * | +-node_$1 | compound
+ * [selected_node] | element/part |
+ * +-node | element/part |
+ * | +-node | element/part |
+ * | | +-node | text/plain |
+ * | | | :-name | text/plain | name
+ * | | | :-channel | text/plain | inline
+ * | | | :-format | text/plain | text/plain
+ * | | | :-model | text/plain | id
+ * | | +-node | text/plain |
+ * | | | :-name | text/plain | format
+ * | | | :-channel | text/plain | inline
+ * | | | :-format | text/plain | meta/format
+ * | | | :-model | text/plain | number/integer
+ * | | :-name | text/plain | create_file_id
+ * | | :-channel | text/plain | inline
+ * | | :-format | text/plain | memorise/create
+ * | | :-model | text/plain |
+ * | +-node | element/part |
+ * | | +-node | text/plain |
+ * | | | :-name | text/plain | channel
+ * | | | :-channel | text/plain | inline
+ * | | | :-format | text/plain | meta/channel
+ * | | | :-model | text/plain | file
+ * | | +-node | text/plain |
+ * | | | :-name | text/plain | identification
+ * | | | :-channel | text/plain | inline
+ * | | | :-format | text/plain | text/cybol-path
+ * | | | :-model | text/plain | .id
+ * | | +-node | text/plain |
+ * | | | :-name | text/plain | device
+ * | | | :-channel | text/plain | inline
+ * | | | :-format | text/plain | text/plain
+ * | | | :-model | text/plain | serialisation/json_cybol/app.cybol
+ * | | :-name | text/plain | open_file
+ * | | :-channel | text/plain | inline
+ * | | :-format | text/plain | dispatch/open
+ * | | :-model | text/plain |
  * | | ...
- * :- | wide_character | model [This is the xml tag name.]
+ * | +-node | text/plain |
+ * | | :-name | text/plain | exit_application
+ * | | :-channel | text/plain | inline
+ * | | :-format | text/plain | live/exit
+ * | | :-model | text/plain |
  *
  * The source PROPERTIES handed over contain one node each for:
  * name, channel, format, model.
+ *
+ * CAUTION! What is the properties in a parsed text/cybol+xml file,
+ * becomes the model in the cyboi-internal knowledge tree;
+ * what is the model hierarchy in a parsed text/cybol+xml file,
+ * becomes the properties (meta data) in the cyboi-internal knowledge tree.
  *
  * Example JSON:
  *
@@ -111,10 +130,10 @@
  * name, channel, format, model, properties.
  *
  * @param p0 the destination item
- * @param p1 the source model data
- * @param p2 the source model count
- * @param p3 the source properties data
- * @param p4 the source properties count
+ * @param p1 the source xml tree OR json tree model data
+ * @param p2 the source xml tree OR json tree model count
+ * @param p3 the source xml tree OR json tree properties data
+ * @param p4 the source xml tree OR json tree properties count
  * @param p5 the language properties (constraints) data
  * @param p6 the language properties (constraints) count
  * @param p7 the knowledge memory part (pointer reference)
@@ -132,30 +151,30 @@
 void deserialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol content.");
-    fwprintf(stdout, L"Debug: Deserialise cybol content. source model count p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise cybol content. source model count *p2: %i\n", *((int*) p2));
-    fwprintf(stdout, L"Debug: Deserialise cybol content. source properties count p4: %i\n", p4);
-    fwprintf(stdout, L"Debug: Deserialise cybol content. source properties count *p4: %i\n", *((int*) p4));
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol content. source xml tree OR json tree model count p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol content. source xml tree OR json tree model count *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol content. source xml tree OR json tree properties count p4: %i\n", p4);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol content. source xml tree OR json tree properties count *p4: %i\n", *((int*) p4));
 
     //
     // Declaration
     //
 
-    // The source name, channel, format, model, properties part.
+    // The source cybol tree name, channel, format, model, properties part.
     void* sn = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sf = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sp = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The source name, channel, format, model, properties part model item.
+    // The source cybol tree name, channel, format, model, properties part model item.
     void* snm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* scm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sfm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* smm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* spm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The source name, channel, format, model, properties part model item data, count.
+    // The source cybol tree name, channel, format, model, properties part model item data, count.
     void* snmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* snmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* scmd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -167,92 +186,74 @@ void deserialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4,
     void* spmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* spmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
     //
     // Retrieval
     //
 
-    compare_integer_equal((void*) &r, p16, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol content. TEST 0 p1 i: %i\n", p0);
 
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    // Get source cybol tree parts.
+    deserialise_cybol_retrieval((void*) &sn, (void*) &sc, (void*) &sf, (void*) &sm, (void*) &sp, p1, p2, p3, p4, p10);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol content. TEST 1 sn i: %i\n", sn);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol content. TEST 1 sc i: %i\n", sc);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol content. TEST 1 sf i: %i\n", sf);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol content. TEST 1 sm i: %i\n", sm);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol content. TEST 1 sp (exists for cybol+json, null for cybol+xml) i: %i\n", sp);
 
-        fwprintf(stdout, L"Debug: Deserialise cybol content. standard node r: %i\n", r);
+    //
+    // Get source cybol tree name, channel, format, model, properties part model item.
+    //
+    // CAUTION! Do NOT use the following names here:
+    // - NAME_PART_STATE_CYBOI_NAME
+    // - CHANNEL_PART_STATE_CYBOI_NAME
+    // - FORMAT_PART_STATE_CYBOI_NAME
+    // - MODEL_PART_STATE_CYBOI_NAME
+    // - PROPERTIES_PART_STATE_CYBOI_NAME
+    //
+    // The corresponding parts were already retrieved above.
+    // What is wanted here, is just their MODEL containing the actual data.
+    //
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    //
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol content. TEST 2 sn: %i\n", sn);
+    copy_array_forward((void*) &snm, sn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+/*??
+        fwprintf(stdout, L"Debug: Deserialise cybol content. TEST 2 snm: %i\n", snm);
+        void* testsnmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* testsnmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+        copy_array_forward((void*) &testsnmd, snm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &testsnmc, snm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+        fwprintf(stdout, L"Debug: Deserialise cybol content. TEST 2 testsnmd i: %i\n", testsnmd);
+        fwprintf(stdout, L"Debug: Deserialise cybol content. TEST 2 testsnmd ls: %ls\n", (wchar_t*) testsnmd);
+        fwprintf(stdout, L"Debug: Deserialise cybol content. TEST 2 testsnmc i: %i\n", testsnmc);
+        //??    fwprintf(stdout, L"Debug: Deserialise cybol content. TEST 1a testsnmc *i: %i\n", *((int*) testsnmc));
+??*/
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol content. TEST 3: %i\n", p0);
+    copy_array_forward((void*) &scm, sc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &sfm, sf, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &smm, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &spm, sp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-        //
-        // This is a standard node.
-        //
+    // Get source cybol tree name, channel, format, model, properties part model item data, count.
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol content. TEST 4: %i\n", p0);
+    copy_array_forward((void*) &snmd, snm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &snmc, snm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &scmd, scm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &scmc, scm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &sfmd, sfm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &sfmc, sfm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &smmd, smm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &smmc, smm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &spmd, spm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &spmc, spm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-        // Get source data.
-        deserialise_cybol_branching1((void*) &sn, (void*) &sc, (void*) &sf, (void*) &sm, (void*) &sp, p1, p2, p3, p4, p10);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol content. TEST 5 node smmc: %i\n", smmc);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol content. TEST 5 node *smmc: %i\n", *((int*) smmc));
 
-        //
-        // Get source name, channel, format, model, properties part model item.
-        //
-        // CAUTION! Do NOT use the following names here:
-        // - NAME_PART_STATE_CYBOI_NAME
-        // - CHANNEL_PART_STATE_CYBOI_NAME
-        // - FORMAT_PART_STATE_CYBOI_NAME
-        // - MODEL_PART_STATE_CYBOI_NAME
-        // - PROPERTIES_PART_STATE_CYBOI_NAME
-        //
-        // The corresponding parts were already retrieved above.
-        // What is wanted here, is just their MODEL containing the actual data.
-        //
-        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-        // Inside the structure, arrays may have been reallocated,
-        // with elements pointing to different memory areas now.
-        //
-        copy_array_forward((void*) &snm, sn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &scm, sc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &sfm, sf, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &smm, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &spm, sp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-
-        // Get source name, channel, format, model, properties part model item data, count.
-        copy_array_forward((void*) &snmd, snm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &snmc, snm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &scmd, scm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &scmc, scm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &sfmd, sfm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &sfmc, sfm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &smmd, smm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &smmc, smm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &spmd, spm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &spmc, spm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-        // Deserialise cybol node.
-        deserialise_cybol_branching2(p0, snmd, snmc, scmd, scmc, sfmd, sfmc, smmd, smmc, spmd, spmc, p1, p2, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17);
-
-    } else {
-
-        fwprintf(stdout, L"Debug: Deserialise cybol content. root node r: %i\n", r);
-
-        //
-        // This is the root node.
-        //
-
-        //
-        // Reset root node flag.
-        //
-        // If a knowledge tree is stored in just ONE file (e.g. in json format) instead of
-        // in many (e.g. in xml format), then it needs to be read from file just ONCE,
-        // but NOT again for each of its child nodes.
-        //
-        // This is achieved by using this root flag, which is initially set to TRUE
-        // in file "constraints_cybol_deserialiser.c" and gets reset to FALSE
-        // in file "step1_cybol_deserialiser.c", after having read the data from file.
-        //
-        copy_integer(p16, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        // Get source model part model item data, count.
-        copy_array_forward((void*) &sm, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ROOT_JSON_CYBOL_NAME);
-        copy_array_forward((void*) &smm, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &smmd, smm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &smmc, smm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-        // Deserialise source model.
-        deserialise_cybol_part(p0, smmd, smmc, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17);
-    }
+    // Deserialise cybol tree node.
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol content. TEST 6: %i\n", p0);
+    deserialise_cybol_handover(p0, snmd, snmc, scmd, scmc, sfmd, sfmc, smmd, smmc, spmd, spmc, p1, p2, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17);
+    //?? fwprintf(stdout, L"Debug: Deserialise cybol content. TEST 7: %i\n", p0);
 }

@@ -1,0 +1,17 @@
+<node>
+    <node name="collection" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | element/part"/>
+        <node name="description" channel="inline" format="text/plain" model="The collection containing the elements through which to iterate."/>
+    </node>
+    <node name="index" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
+        <node name="description" channel="inline" format="text/plain" model="The index of the current element."/>
+    </node>
+    <node name="model" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | element/part"/>
+        <node name="description" channel="inline" format="text/plain" model="The logic knowledge model (function) to be executed repeatedly for each element."/>
+    </node>
+</node>

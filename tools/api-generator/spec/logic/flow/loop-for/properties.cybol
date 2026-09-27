@@ -1,0 +1,27 @@
+<node>
+    <node name="start" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | number/integer"/>
+        <node name="description" channel="inline" format="text/plain" model="The start value that gets assigned to the index before the looping begins."/>
+    </node>
+    <node name="end" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | number/integer"/>
+        <node name="description" channel="inline" format="text/plain" model="The end value to be reached by the index, in which case the looping ends. It is exclusive and is not considered itself."/>
+    </node>
+    <node name="step" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | number/integer"/>
+        <node name="description" channel="inline" format="text/plain" model="The step width for counting the index up or down. It may be negative."/>
+    </node>
+    <node name="index" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
+        <node name="description" channel="inline" format="text/plain" model="The index of the current element."/>
+    </node>
+    <node name="model" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | element/part"/>
+        <node name="description" channel="inline" format="text/plain" model="The logic knowledge model (function) to be executed repeatedly by the loop."/>
+    </node>
+</node>

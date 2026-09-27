@@ -66,10 +66,8 @@ void deserialise_xml_constraints(void* p0, void* p1, void* p2, void* p3, void* p
 
     // The normalisation part.
     void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
-
     // The normalisation part model item.
     void* nm = *NULL_POINTER_STATE_CYBOI_MODEL;
-
     // The normalisation part model item data.
     void* nmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -82,7 +80,6 @@ void deserialise_xml_constraints(void* p0, void* p1, void* p2, void* p3, void* p
 
     // Get normalisation part model item.
     copy_array_forward((void*) &nm, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-
     // Get normalisation part model item data.
     copy_array_forward((void*) &nmd, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 

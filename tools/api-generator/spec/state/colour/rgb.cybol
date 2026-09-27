@@ -1,0 +1,7 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="A colour whose values are given in the RGB colour model.
+
+The abbreviation RGB refers to the three colours:
+red, green, and blue."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/state/colour/rgb/examples.txt"/>
+</node>

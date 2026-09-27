@@ -1,0 +1,3 @@
+<node name="echo_text" channel="inline" format="command/echo" model="">
+    <node name="message" channel="inline" format="text/plain" model="Hello World!"/>
+</node>

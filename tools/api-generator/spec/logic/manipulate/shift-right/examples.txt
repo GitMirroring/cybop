@@ -1,0 +1,9 @@
+<node name="manipulate_bit" channel="inline" format="manipulate/shift-right" model="">
+    <node name="value" channel="inline" format="text/cybol-path" model=".number"/>
+    <node name="position" channel="inline" format="number/integer" model="4"/>
+</node>
+
+<node name="use_stack_variable" channel="inline" format="manipulate/shift-right" model="">
+    <node name="value" channel="inline" format="text/cybol-path" model=".number"/>
+    <node name="position" channel="inline" format="text/cybol-path" model="#pos"/>
+</node>

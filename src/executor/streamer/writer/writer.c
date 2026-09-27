@@ -91,6 +91,8 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The output buffer item type.
     int t = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The debugging flag.
+    int d = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
     // Retrieval
@@ -116,8 +118,36 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     map_channel_to_type((void*) &t, p5);
 
     //
+    // Debugging
+    //
+    // When using this function "write_data" for testwise writing
+    // knowledge tree model data from within cyboi into a file,
+    // then a client entry and in consequence an output buffer do NOT exist.
+    // Therefore, a TEMPORARY buffer gets allocated here.
+    //
+
+    if (bi == *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        //?? fwprintf(stdout, L"Debug: Could not write data. The output buffer is null. bi: %i\n", bi);
+
+        // Allocate output buffer item.
+        allocate_item((void*) &bi, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        //?? fwprintf(stdout, L"Debug: Could not write data. A TEMPORARY output buffer got allocated for TESTING now. bi: %i\n", bi);
+
+        //
+        // Set debugging flag.
+        // It is tested further below so that the temporary
+        // output buffer item can get deallocated again.
+        //
+        d = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+    }
+
+    //
     // Writing
     //
+
+    //?? fwprintf(stdout, L"Debug: Write data. 1 bi: %i\n", bi);
 
     //
     // Copy source message into output buffer.
@@ -133,6 +163,8 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     //
     write_buffer(bi, p1, p2, (void*) &t, bm);
 
+    //?? fwprintf(stdout, L"Debug: Write data. 2 bi: %i\n", bi);
+
     //
     // CAUTION! Do NOT check client entry for NULL here, since the
     // INLINE_CYBOI_CHANNEL and SIGNAL_CYBOI_CHANNEL do NOT have one.
@@ -141,4 +173,16 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 
     // Write data via the given channel into the destination.
     write_flag(p0, bi, (void*) &t, p3, bm, ce, p4, p5, p8, p9);
+
+    //?? fwprintf(stdout, L"Debug: Write data. 3: %i\n", p2);
+
+    //
+    // Debugging
+    //
+
+    if (d != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Deallocate output buffer item.
+        deallocate_item((void*) &bi, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    }
 }

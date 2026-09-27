@@ -1,0 +1,5 @@
+<node>
+    <node name="json" channel="file" format="element/part" model="api-generator/spec/state/application/json.cybol"/>
+    <node name="octet-stream" channel="file" format="element/part" model="api-generator/spec/state/application/octet-stream.cybol"/>
+    <node name="xml" channel="file" format="element/part" model="api-generator/spec/state/application/xml.cybol"/>
+</node>

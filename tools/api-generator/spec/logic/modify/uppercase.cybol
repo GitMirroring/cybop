@@ -1,0 +1,15 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Converts the source string into uppercase letters stored in the destination.
+
+The source and destination are permitted to point to the same part since the source gets buffered internally during processing.
+
+Caution! This operation is applicable to text only (string of characters).
+
+Caution! The destination length may differ from the source length since not all characters can be converted 1:1.
+The German &#x0022;small letter sharp s&#x0022; for example gets converted into the two capital letters &#x0022;SS&#x0022;.
+
+Further reading:
+https://www.unicode.org/reports/tr21/tr21-5.html"/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/modify/uppercase/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/modify/uppercase/properties.cybol"/>
+</node>

@@ -1,0 +1,3 @@
+<node name="x" channel="inline" format="number/byte" model="0"/>
+<node name="y" channel="inline" format="number/byte" model="2"/>
+<node name="array" channel="inline" format="number/byte" model="0,1,2,3,4"/>

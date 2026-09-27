@@ -1,0 +1,8 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Encodes the source into the destination, according to the encoding.
+
+Caution! The encoded data are appended to the destination. Already existing content is not overwritten.
+Therefore, the destination possibly has to get emptied before since otherwise, the new data will get appended to the already existing old data."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/convert/encode/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/convert/encode/properties.cybol"/>
+</node>

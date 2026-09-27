@@ -1,0 +1,10 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Loops the programme flow as often as specified by the times property.
+
+Clojure example:
+
+(dotimes [_ 10]
+(println &#x0022;Hello&#x0022;))"/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/flow/loop-times/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/flow/loop-times/properties.cybol"/>
+</node>

@@ -14,22 +14,8 @@
 JSON
 ----
 
-        * Test and debug cybol deserialiser
-        * Fix only SUB LEVELS (child nodes), since all WORKS FINE on level 1 already
-        * See examples:
-            app/serialisation/json_cybol/test/formatted.json
-            app/serialisation/json_cybol/test_json_read_formatted_OLD.txt
-
-        * Implement serialiser "text/cybol+json" for language CYBOL_JSON_TEXT_STATE_CYBOI_LANGUAGE
-        * Reflect: Is it REALLY needed? The current "application/json" serialiser works fine, too!
-
-        * Check "ROOT_JSON_CYBOL_NAME" in file "content_cybol_deserialiser.c"
-            Should neutral constant "NUMBER_0" be used instead?
-            Should a similar constant "ROOT_XML_CYBOL_NAME" be introduced for xml?
-                if yes, then a branching by json and xml has to be done, like in "branching1_cybol_deserialiser.c"
-
         * Continue app "cybop school timetable" (to be found outside cybop project directory)
-        * See directory "leitung/stundenplanung/cybop/app/"
+        * See directory "ahf-os/cybop/app/"
         * Combine deserialisers by using language "text/cybol+json"
         * Test deserialisation of json data timetable
         * Make json deserialisation work in a way that knowledge model node names get restored from json file
@@ -306,6 +292,8 @@ Loop Simplification
         * Offer cybol property "increment" for operation "flow/loop", so that increment is done in c code for loop instead of in each cybol loop model
         * Test with table header in cybol application "serialisation/csv/"
 
+        * See child programming language "Scratch" for ideas on useful cybol operations
+
 Base64
 ------
 
@@ -408,6 +396,11 @@ Database
 
 General CYBOI
 -------------
+
+        * Provide cyboi command line option for choosing between formats:
+            - text/cybol (default)
+            - text/cybol+xml (equivalent to text/cybol)
+            - text/cybol+json
 
         * Rename constant "PART_ELEMENT_STATE_CYBOI_TYPE" into "COMPOUND_ELEMENT_STATE_CYBOI_TYPE" in all source code (it may represent the formats "element/part", "element/property", "element/reference")
 
@@ -1447,4 +1440,14 @@ CYBOL Application
             - change "verbal" into "verbose", also in cyboi interpreter
             - change "tape_archiver" into a verb, also in cyboi interpreter
             OLD: - file "check_empty_home_directory.cybol" is incomplete
+
+Flow Chart Diagram
+------------------
+
+        * Propose change: most structures are tree, oriented on Warnier-Orr or Jackson diagram
+        * Provide new kind of diagram (flow chart, PAP, UML AD)
+        * each function call is one level DEEPER by default with a standard arrow (refinement)
+        * all THREE elements of structural processing are provided as RAUTE (hastag): SEQUENCE (new), branching, loop
+        * when many functions are to be called on the SAME level, a sequence element should be given
+        * otherwise, function calls are expected by default to be one tree level DEEPER
 
