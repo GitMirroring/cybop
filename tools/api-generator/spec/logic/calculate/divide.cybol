@@ -1,7 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Divides the result by the operand.
-
-quotient = dividend / divisor"/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/calculate/divide/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/calculate/divide/properties.cybol"/>
-</node>

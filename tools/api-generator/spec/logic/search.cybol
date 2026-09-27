@@ -1,5 +1,0 @@
-<node>
-    <node name="binary" channel="file" format="element/part" model="api-generator/spec/logic/search/binary.cybol"/>
-    <node name="interpolation" channel="file" format="element/part" model="api-generator/spec/logic/search/interpolation.cybol"/>
-    <node name="linear" channel="file" format="element/part" model="api-generator/spec/logic/search/linear.cybol"/>
-</node>

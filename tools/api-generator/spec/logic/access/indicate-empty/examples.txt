@@ -1,4 +1,0 @@
-<node name="test_empty" channel="inline" format="access/indicate-empty" model="">
-    <node name="result" channel="inline" format="text/cybol-path" model="#flag"/>
-    <node name="part" channel="inline" format="text/cybol-path" model=".patients.[#index].surname"/>
-</node>

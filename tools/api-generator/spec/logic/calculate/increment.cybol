@@ -1,9 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Increments the value by one.
-
-Caution! This is a binary operation expecting two operands.
-Even if result and operand point to the same value,
-both have to be given always."/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/calculate/increment/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/calculate/increment/properties.cybol"/>
-</node>

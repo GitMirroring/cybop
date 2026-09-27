@@ -1,9 +1,0 @@
-<node name="strip_plain_text" channel="inline" format="modify/strip-trailing" model="">
-    <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
-    <node name="source" channel="inline" format="text/plain" model="Some text with leading and trailing spaces    "/>
-</node>
-
-<node name="strip_text_variable" channel="inline" format="modify/strip-trailing" model="">
-    <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
-    <node name="source" channel="inline" format="text/cybol-path" model=".text"/>
-</node>

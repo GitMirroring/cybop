@@ -1,4 +1,0 @@
-<node name="subtract_integer" channel="inline" format="calculate/subtract" model="">
-    <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
-    <node name="operand" channel="inline" format="number/integer" model="5"/>
-</node>

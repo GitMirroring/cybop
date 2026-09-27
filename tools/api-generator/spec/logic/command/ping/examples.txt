@@ -1,5 +1,0 @@
-<node name="ping" channel="inline" format="command/ping" model="">
-    <node name="host" channel="inline" format="text/plain" model="www.cybop.org"/>
-    <node name="count" channel="inline" format="text/plain" model="5"/>
-    <node name="interface" channel="inline" format="text/plain" model="eth0"/>
-</node>

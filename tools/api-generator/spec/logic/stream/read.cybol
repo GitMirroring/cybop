@@ -1,7 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Reads data from a device.
-
-Reading indirectly from device into the internal buffer does not make sense for channel &#x0022;file&#x0022;. Therefore, do not set the &#x0022;asynchronicity&#x0022; flag in this case."/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/stream/read/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/stream/read/properties.cybol"/>
-</node>

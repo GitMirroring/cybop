@@ -1,6 +1,0 @@
-<node name="standard" channel="inline" format="number/complex-polar" model="2*exp(45)"/>
-<node name="plus_sign" channel="inline" format="number/complex-polar" model="+2*exp(+45)"/>
-<node name="minus_sign" channel="inline" format="number/complex-polar" model="-2*exp(-45)"/>
-<node name="decimal_fraction_value" channel="inline" format="number/complex-polar" model="-1.5*exp(45)"/>
-<node name="decimal_fraction_argument" channel="inline" format="number/complex-polar" model="2*exp(-45.2)"/>
-<node name="scientific_notation" channel="inline" format="number/complex-polar" model="-1.5e4*exp(-45)"/>

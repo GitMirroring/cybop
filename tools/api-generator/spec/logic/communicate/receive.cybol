@@ -1,9 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Receives a message via the communication channel.
-
-Caution! Some file formats (like the German xDT format for medical data exchange) contain both, the model and the properties, in one file.
-To cover these cases, the model and properties are received together, in just one operation."/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/communicate/receive/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/communicate/receive/properties.cybol"/>
-    <node name="language_constraints" channel="file" format="element/part" model="api-generator/spec/logic/communicate/receive/language_constraints.cybol"/>
-</node>

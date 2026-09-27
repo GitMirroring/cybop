@@ -1,5 +1,0 @@
-<node name="suspend_sensing_thread" channel="inline" format="feel/suspend" model="">
-    <node name="channel" channel="inline" format="meta/channel" model="display"/>
-    <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
-    <node name="sender" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
-</node>

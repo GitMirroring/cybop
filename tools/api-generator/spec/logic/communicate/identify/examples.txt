@@ -1,9 +1,0 @@
-<!-- Get gui client window belonging to the handler that was placed into the interrupt pipe. -->
-<node name="get_window_id" channel="inline" format="communicate/identify" model="">
-    <node name="identification" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
-</node>
-
-<!-- Get client socket belonging to the handler that was placed into the interrupt pipe. -->
-<node name="get_client_socket_id" channel="inline" format="communicate/identify" model="">
-    <node name="identification" channel="inline" format="text/cybol-path" model=".client_socket"/>
-</node>

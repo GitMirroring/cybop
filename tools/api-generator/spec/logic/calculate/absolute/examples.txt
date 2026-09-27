@@ -1,4 +1,0 @@
-<node name="absolute" channel="inline" format="calculate/absolute" model="">
-    <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
-    <node name="operand" channel="inline" format="number/integer" model="-2,+4"/>
-</node>

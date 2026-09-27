@@ -1,1 +1,0 @@
-<node name="data" channel="file" format="video/mp4" model="path/to/file.mp4"/>

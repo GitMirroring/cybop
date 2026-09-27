@@ -1,3 +1,0 @@
-<node name="sleep" channel="inline" format="run/sleep-second" model="">
-    <node name="duration" channel="inline" format="text/cybol-path" model=".var.sleeptime"/>
-</node>

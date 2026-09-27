@@ -1,7 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Determines the remainder of the integer division.
-
-remainder = dividend % divisor"/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/calculate/modulo/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/calculate/modulo/properties.cybol"/>
-</node>

@@ -1,8 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Exits the cyboi system and closes the running application.
-
-Internally, an exit flag gets set so that the event loop gets left.
-Interrupt threads get exited, too. All objects in memory get deallocated.
-The cyboi interpreter finally exits."/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/live/exit/examples.txt"/>
-</node>

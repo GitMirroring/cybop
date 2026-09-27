@@ -1,4 +1,0 @@
-<node name="diff" channel="inline" format="command/diff" model="">
-    <node name="first" channel="inline" format="text/plain" model="shell_command_diff/diff_1.txt"/>
-    <node name="second" channel="inline" format="text/plain" model="shell_command_diff/diff_2.txt"/>
-</node>

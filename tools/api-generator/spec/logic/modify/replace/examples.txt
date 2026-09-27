@@ -1,5 +1,0 @@
-<node name="replace_letters" channel="inline" format="modify/replace" model="">
-    <node name="destination" channel="inline" format="text/cybol-path" model=".text"/>
-    <node name="source" channel="inline" format="text/plain" model="alphabet"/>
-    <node name="searchterm" channel="inline" format="text/plain" model="abc"/>
-</node>

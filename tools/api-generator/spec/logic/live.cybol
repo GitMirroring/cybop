@@ -1,3 +1,0 @@
-<node>
-    <node name="exit" channel="file" format="element/part" model="api-generator/spec/logic/live/exit.cybol"/>
-</node>

@@ -1,7 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Creates a directory (folder) in the file system via shell command.
-
-TODO: COMPLETE AND VERIFY YET!"/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/command/create-directory/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/command/create-directory/properties.cybol"/>
-</node>

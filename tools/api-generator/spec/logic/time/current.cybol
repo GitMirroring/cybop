@@ -1,5 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Retrieves the current system time in nano seconds, divided by 1000."/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/time/current/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/time/current/properties.cybol"/>
-</node>

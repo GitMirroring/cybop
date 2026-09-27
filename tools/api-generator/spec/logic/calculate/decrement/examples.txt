@@ -1,9 +1,0 @@
-<node name="decrement_number" channel="inline" format="calculate/decrement" model="">
-    <node name="result" channel="inline" format="text/cybol-path" model="#value"/>
-    <node name="operand" channel="inline" format="text/cybol-path" model="#value"/>
-</node>
-
-<node name="decrement_number_different_paths" channel="inline" format="calculate/decrement" model="">
-    <node name="result" channel="inline" format="text/cybol-path" model="#result"/>
-    <node name="operand" channel="inline" format="text/cybol-path" model=".number"/>
-</node>

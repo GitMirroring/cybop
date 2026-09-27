@@ -1,8 +1,0 @@
-<node>
-    <node name="branch" channel="file" format="element/part" model="api-generator/spec/logic/flow/branch.cybol"/>
-    <node name="loop" channel="file" format="element/part" model="api-generator/spec/logic/flow/loop.cybol"/>
-    <node name="loop-each" channel="file" format="element/part" model="api-generator/spec/logic/flow/loop-each.cybol"/>
-    <node name="loop-for" channel="file" format="element/part" model="api-generator/spec/logic/flow/loop-for.cybol"/>
-    <node name="loop-times" channel="file" format="element/part" model="api-generator/spec/logic/flow/loop-times.cybol"/>
-    <node name="sequence" channel="file" format="element/part" model="api-generator/spec/logic/flow/sequence.cybol"/>
-</node>

@@ -1,7 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Multiplies the result with the operand.
-
-product = factor * factor"/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/calculate/multiply/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/calculate/multiply/properties.cybol"/>
-</node>

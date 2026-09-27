@@ -1,4 +1,0 @@
-<node name="print_numbers" channel="inline" format="flow/loop-times" model="">
-    <node name="times" channel="inline" format="number/integer" model="10"/>
-    <node name="model" channel="inline" format="text/cybol-path" model=".model"/>
-</node>

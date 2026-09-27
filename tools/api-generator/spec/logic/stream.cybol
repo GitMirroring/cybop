@@ -1,4 +1,0 @@
-<node>
-    <node name="read" channel="file" format="element/part" model="api-generator/spec/logic/stream/read.cybol"/>
-    <node name="write" channel="file" format="element/part" model="api-generator/spec/logic/stream/write.cybol"/>
-</node>

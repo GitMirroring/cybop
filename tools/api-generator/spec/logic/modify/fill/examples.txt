@@ -1,9 +1,0 @@
-<node name="reinitialise_integer_array" channel="inline" format="modify/fill" model="">
-    <node name="destination" channel="inline" format="text/cybol-path" model=".var.array"/>
-    <node name="source" channel="inline" format="number/integer" model="-1"/>
-</node>
-
-<node name="overwrite_string_content" channel="inline" format="modify/fill" model="">
-    <node name="destination" channel="inline" format="text/cybol-path" model=".some_text"/>
-    <node name="source" channel="inline" format="text/cybol-path" model="#init_sign"/>
-</node>

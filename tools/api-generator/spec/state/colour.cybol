@@ -1,4 +1,0 @@
-<node>
-    <node name="rgb" channel="file" format="element/part" model="api-generator/spec/state/colour/rgb.cybol"/>
-    <node name="terminal" channel="file" format="element/part" model="api-generator/spec/state/colour/terminal.cybol"/>
-</node>

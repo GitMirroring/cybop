@@ -1,5 +1,0 @@
-<node name="check_greater" channel="inline" format="check/greater" model="">
-    <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
-    <node name="left" channel="inline" format="text/cybol-path" model=".some_string"/>
-    <node name="right" channel="inline" format="text/plain" model="Hello"/>
-</node>

@@ -1,4 +1,0 @@
-<node name="operation" channel="inline" format="logify/neg" model="">
-    <node name="output" channel="inline" format="text/cybol-path" model="#y"/>
-    <node name="input" channel="inline" format="text/cybol-path" model="#x2"/>
-</node>

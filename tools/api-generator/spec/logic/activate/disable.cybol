@@ -1,5 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Disables the communication channel, so that no more requests/events can be detected."/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/activate/disable/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/activate/disable/properties.cybol"/>
-</node>

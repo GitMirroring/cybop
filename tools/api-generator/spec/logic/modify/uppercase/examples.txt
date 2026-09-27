@@ -1,9 +1,0 @@
-<node name="convert_plain_text" channel="inline" format="modify/uppercase" model="">
-    <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
-    <node name="source" channel="inline" format="text/plain" model="Mein kleiner grüner Kaktus"/>
-</node>
-
-<node name="convert_text_variable" channel="inline" format="modify/uppercase" model="">
-    <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
-    <node name="source" channel="inline" format="text/cybol-path" model=".text"/>
-</node>

@@ -1,5 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Determines the lesser of two values."/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/calculate/minimum/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/calculate/minimum/properties.cybol"/>
-</node>

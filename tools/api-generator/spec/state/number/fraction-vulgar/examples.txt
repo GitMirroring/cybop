@@ -1,2 +1,0 @@
-<node name="positive" channel="inline" format="number/fraction-vulgar" model="1/2"/>
-<node name="negative" channel="inline" format="number/fraction-vulgar" model="-2/3"/>

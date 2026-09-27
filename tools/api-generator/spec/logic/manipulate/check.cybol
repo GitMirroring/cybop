@@ -1,9 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Gets the bit at the given position.
-
-This bit manipulation operation corresponds to the &#x0022;BT&#x0022; (bit) or &#x0022;BTST&#x0022; (bit test) assembler command.
-
-TODO: NOT IMPLEMENTED YET!"/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/manipulate/check/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/manipulate/check/properties.cybol"/>
-</node>

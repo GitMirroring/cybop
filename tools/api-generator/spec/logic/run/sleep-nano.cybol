@@ -1,7 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Puts the executing thread to sleep for at least x nanoseconds.
-
-Caution! The actual duration may differ depending on the system&#x0027;s load and timer accuracy."/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/run/sleep-nano/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/run/sleep-nano/properties.cybol"/>
-</node>

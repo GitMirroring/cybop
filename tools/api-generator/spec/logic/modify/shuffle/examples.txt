@@ -1,7 +1,0 @@
-<node name="shuffle_text" channel="inline" format="modify/shuffle" model="">
-    <node name="destination" channel="inline" format="text/cybol-path" model=".text"/>
-</node>
-
-<node name="shuffle_elements" channel="inline" format="modify/shuffle" model="">
-    <node name="destination" channel="inline" format="text/cybol-path" model=".some_container"/>
-</node>

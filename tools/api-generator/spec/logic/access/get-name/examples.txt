@@ -1,9 +1,0 @@
-<node name="get_xdt_field_name" channel="inline" format="access/get-name" model="">
-    <node name="element" channel="inline" format="text/cybol-path" model=".temporary.xdt.field.name"/>
-    <node name="part" channel="inline" format="text/cybol-path" model=".temporary.xdt.field.root"/>
-</node>
-
-<node name="copy_name_of_part" channel="inline" format="access/get-name" model="">
-    <node name="element" channel="inline" format="text/cybol-path" model="#name"/>
-    <node name="part" channel="inline" format="text/cybol-path" model=".list.[#index]"/>
-</node>

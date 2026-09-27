@@ -1,4 +1,0 @@
-<node>
-    <node name="disable" channel="file" format="element/part" model="api-generator/spec/logic/activate/disable.cybol"/>
-    <node name="enable" channel="file" format="element/part" model="api-generator/spec/logic/activate/enable.cybol"/>
-</node>

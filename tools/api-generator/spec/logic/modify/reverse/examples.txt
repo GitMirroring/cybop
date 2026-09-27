@@ -1,3 +1,0 @@
-<node name="reverse_text" channel="inline" format="modify/reverse" model="">
-    <node name="destination" channel="inline" format="text/cybol-path" model=".text"/>
-</node>

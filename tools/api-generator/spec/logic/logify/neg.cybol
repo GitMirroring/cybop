@@ -1,9 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Applies the boolean logic operation NEG.
-
-y = x1 NEG x2
-
-When used with Bit operands, then this is the two&#x0027;s complement (all bits negated and added one)."/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/logify/neg/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/logify/neg/properties.cybol"/>
-</node>
