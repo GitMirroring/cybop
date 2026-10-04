@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <!-- Bootstrap: The above meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-<meta name="date" content="2025-05-31T12:00:00+01:00"/>
+<meta name="date" content="2026-10-04T12:00:00+01:00"/>
 <meta name="author" content="Christian Heller"/>
 
 <!--

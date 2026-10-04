@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2025. Christian Heller.
+ * Copyright (C) 1999-2026. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.28.0 2025-05-31
+ * @version CYBOP 0.29.0 2026-10-04
  * @author Christian Heller <christian.heller@cybop.org>
  * @author Franziska Wehner <franziska.wehner@it2011.ba-leipzig.de>
  */

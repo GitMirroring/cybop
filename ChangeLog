@@ -1,5 +1,5 @@
 #
-# Copyright (C) 1999-2025. Christian Heller.
+# Copyright (C) 1999-2026. Christian Heller.
 #
 # This file records the changes that are made to cybop.
 #
@@ -14,7 +14,7 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.28.0 2025-05-31
+# @version CYBOP 0.29.0 2026-10-04
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
@@ -5580,7 +5580,7 @@
 
         * Change year to 2012 in comment block of all source code files, to prepare next release
         * Delete CVS "$" tags in source code since SVN is used now, which does not fill them
-        * Use new line "@version CYBOP 0.28.0 2025-05-31
+        * Use new line "@version CYBOP 0.29.0 2026-10-04
         * Delete outdated and redundant array handling files in directory "logger/"
         * Start fixing constant names in all source code
 

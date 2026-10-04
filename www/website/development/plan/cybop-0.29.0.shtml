@@ -7,8 +7,12 @@
 <section class="container">
     <h2>CYBOI</h2>
     <ul>
+        <h3>General</h3>
+        <li>Add knowledge inspector for part / item / data</li>
         <h3>De-/Serialiser:</h3>
-        <li>Implement de-/serialiser "text/cybol+json" for language CYBOL_JSON_TEXT_STATE_CYBOI_LANGUAGE</li>
+        <li>Restructure cybol deserialiser to handle "text/cybol+xml" and "text/cybol+json" in a similar manner</li>
+        <li>Ensure uniform processing of cybol compound model and properties</li>
+        <li>Update diagram "doc/development/cyboi/cybol_deserialiser.svg"</li>
     </ul>
 </section>
 
@@ -16,14 +20,8 @@
     <h2>CYBOL</h2>
     <ul>
         <h3>Applications:</h3>
-        <li>Add cybol application "cybop school timetable" (to be found outside cybop project directory)</li>
-    </ul>
-</section>
-
-<section class="container">
-    <h2>Project</h2>
-    <ul>
-        <li>TODO</li>
+        <li>Add json variant of cybol application "exit/internal/" in file "run.json"</li>
+        <li>Make cybol application "serialisation/json_cybol/run.cybol" work with deep tree levels</li>
     </ul>
 </section>
 

@@ -56,6 +56,7 @@
                 <p>
                     Web: <a href="http://www.cybop.org/">http://www.cybop.org/</a><br/>
                     Portal: <a href="https://savannah.nongnu.org/projects/cybop/">https://savannah.nongnu.org/projects/cybop/</a><br/>
+                    Telegram: <a href="https://t.me/cybop_software">t.me/cybop_software</a><br/>
                 </p>
             </div>
 
@@ -64,12 +65,12 @@
         <div class="row mt-4">
             <div class="col-sm-12 text-left">
                 <p>
-                    Copyright &copy; 1999-2025.<br/>
+                    Copyright &copy; 1999-2026.<br/>
                     Except where otherwise noted, content on this site is licensed under a Creative Commons Attribution 4.0 International license.<br/>
                     Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0).
                 </p>
                 <p>
-                    Last Update: 2025-05-31
+                    Last Update: 2026-10-04
                 </p>
             </div>
         </div>

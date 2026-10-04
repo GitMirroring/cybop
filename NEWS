@@ -1,5 +1,5 @@
 #
-# Copyright (C) 1999-2025. Christian Heller.
+# Copyright (C) 1999-2026. Christian Heller.
 #
 # This file represents a record of user-visible changes to cybop.
 #
@@ -9,9 +9,23 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.28.0 2025-05-31
+# @version CYBOP 0.29.0 2026-10-04
 # @author Christian Heller <christian.heller@cybop.org>
 #
+
+CYBOP 0.29.0, 2026-10-04, Christian Heller  <christian.heller@cybop.org>
+
+        * CYBOI:
+            General:
+            - Add knowledge inspector for part / item / data
+            De-/Serialiser:
+            - Restructure cybol deserialiser to handle "text/cybol+xml" and "text/cybol+json" in a similar manner
+            - Ensure uniform processing of cybol compound model and properties
+            - Update diagram "doc/development/cyboi/cybol_deserialiser.svg"
+        * CYBOL:
+            Applications:
+            - Add json variant of cybol application "exit/internal/" in file "run.json"
+            - Make cybol application "serialisation/json_cybol/run.cybol" work with deep tree levels
 
 CYBOP 0.28.0, 2025-05-31, Christian Heller  <christian.heller@cybop.org>
 
@@ -54,8 +68,8 @@ CYBOP 0.27.0, 2023-08-30, Christian Heller  <christian.heller@cybop.org>
             - Add smtp response deserialiser
             - Adapt cybol serialiser so that cybol channel gets written besides other properties
             Converter:
-            - Avoid wrong destination data by catching zero length source data in files "utf_8_decoder.c" and "utf_8_encoder.c"
             Checker:
+            - Avoid wrong destination data by catching zero length source data in files "utf_8_decoder.c" and "utf_8_encoder.c"
             - Add files "case_checker.c" and "insensitiveness_checker.c"
             Modifier:
             - Flexibilise lowerer and upperer by using a type parametre

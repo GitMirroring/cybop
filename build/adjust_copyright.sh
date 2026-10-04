@@ -10,7 +10,7 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.27.0 2023-08-31
+# @version CYBOP 0.29.0 2026-10-04
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
@@ -58,14 +58,14 @@ new_tabulator="    "
 #
 # The old and new copyright.
 #
-old_copyright="Copyright (C) 1999-2023. Christian Heller."
-new_copyright="Copyright (C) 1999-2025. Christian Heller."
+old_copyright="Copyright (C) 1999-2025. Christian Heller."
+new_copyright="Copyright (C) 1999-2026. Christian Heller."
 
 #
 # The old and new version.
 #
-old_version="@version CYBOP 0.27.0 2023-08-31"
-new_version="@version CYBOP 0.28.0 2025-05-31"
+old_version="@version CYBOP 0.28.0 2025-05-31"
+new_version="@version CYBOP 0.29.0 2026-10-04"
 
 #
 # Determine files.
